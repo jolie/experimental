@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xtext="http://www.eclipse.org/2008/Xtext">
+  <xtext:Grammar name="org.xtext.Jolie" usedGrammars="/1">
+    <metamodelDeclarations xsi:type="xtext:GeneratedMetamodel" name="jolie">
+      <ePackage href="http://www.xtext.org/Jolie#/"/>
+    </metamodelDeclarations>
+    <rules xsi:type="xtext:ParserRule" name="Program">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//Program"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="main"/>
+        <elements xsi:type="xtext:Assignment" feature="main" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.1"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Main">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//Main"/>
+      </type>
+      <alternatives xsi:type="xtext:Assignment" feature="mainrocess" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="MainProcess">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//MainProcess"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.0">
+            <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//OLSyntaxNode"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
+        <elements xsi:type="xtext:Assignment" feature="parallelStatement" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
+        </elements>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Process">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//Process"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Action">
+            <type metamodel="/0/@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//Process"/>
+            </type>
+          </elements>
+          <elements xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
+          <elements xsi:type="xtext:Assignment" feature="children" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
+          </elements>
+          <elements xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+        </elements>
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
+          <elements xsi:type="xtext:Assignment" feature="children" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
+          </elements>
+          <elements xsi:type="xtext:RuleCall" rule="/0/@rules.24"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ParallelStatement">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//ParallelStatement"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.0">
+            <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//ParallelStatement"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Assignment" feature="children" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:RuleCall" rule="/0/@rules.20"/>
+            <elements xsi:type="xtext:Assignment" feature="children" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
+            </elements>
+          </elements>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="SequenceStatement">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//SequenceStatement"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.0">
+            <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//SequenceStatement"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Assignment" feature="children" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:RuleCall" rule="/0/@rules.17"/>
+            <elements xsi:type="xtext:Assignment" feature="children" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+            </elements>
+          </elements>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="BasicStatement">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//BasicStatement"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Action">
+            <type metamodel="/0/@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//Process"/>
+            </type>
+          </elements>
+          <elements xsi:type="xtext:Assignment" feature="process" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Action">
+            <type metamodel="/0/@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//AssignStatement"/>
+            </type>
+          </elements>
+          <elements xsi:type="xtext:Assignment" feature="assignStatement" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Action">
+            <type metamodel="/0/@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//PostIncrementStatement"/>
+            </type>
+          </elements>
+          <elements xsi:type="xtext:Assignment" feature="postIncrementStatement" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Action">
+            <type metamodel="/0/@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//PostDecrementStatement"/>
+            </type>
+          </elements>
+          <elements xsi:type="xtext:Assignment" feature="PostDecrementStatement" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="AssignStatement">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//AssignStatement"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.0">
+            <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//AssignStatement"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+        </elements>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.21"/>
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.0">
+            <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//Expression"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="expression" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="PostIncrementStatement">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//PostIncrementStatement"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.0">
+            <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//PostIncrementStatement"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+        </elements>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="PostDecrementStatement">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//PostDecrementStatement"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.0">
+            <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//PostDecrementStatement"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="naem" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+        </elements>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.29"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Expression">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//Expression"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Action" feature="left" operator="=">
+            <type metamodel="/0/@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//Operation"/>
+            </type>
+          </elements>
+          <elements xsi:type="xtext:Assignment" feature="op" operator="=">
+            <terminal xsi:type="xtext:Alternatives">
+              <elements xsi:type="xtext:RuleCall" rule="/0/@rules.19"/>
+              <elements xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+              <elements xsi:type="xtext:RuleCall" rule="/0/@rules.30"/>
+              <elements xsi:type="xtext:RuleCall" rule="/0/@rules.31"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Assignment" feature="right" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
+          </elements>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="TerminalExpression">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//Expression"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
+          <elements xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
+          <elements xsi:type="xtext:RuleCall" rule="/0/@rules.24"/>
+        </elements>
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Action">
+            <type metamodel="/0/@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//IntLiteral"/>
+            </type>
+          </elements>
+          <elements xsi:type="xtext:Assignment" feature="value" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Action">
+            <type metamodel="/0/@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//RealLiteral"/>
+            </type>
+          </elements>
+          <elements xsi:type="xtext:Assignment" feature="value" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.34"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Action">
+            <type metamodel="/0/@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/Jolie#//String"/>
+            </type>
+          </elements>
+          <elements xsi:type="xtext:Assignment" feature="value" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+          </elements>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="LCURLY">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="{"/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="RCURLY">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="}"/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="LSQUARE">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="["/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="RSQUARE">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="]"/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="ARROW">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="->"/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="SEMICOLON">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value=";"/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="COLON">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value=":"/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="PLUS">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="+"/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="VERT">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="|"/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="ASSIGN">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="="/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="DOT">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="."/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="LPAREN">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="("/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="RPAREN">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value=")"/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="COMMA">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value=","/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="LINKIN">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="linkIn"/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="WHILE">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="while"/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="CHOICE">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="++"/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="DECREMENT">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="--"/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="ASTERISK">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="*"/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="DIVIDE">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="/"/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="MINUS">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="-"/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="PERCENT_SIGN">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="%"/>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="REAL">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:CharacterRange" cardinality="*">
+          <left value="0"/>
+          <right value="9"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="."/>
+        <elements xsi:type="xtext:CharacterRange" cardinality="+">
+          <left value="0"/>
+          <right value="9"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Alternatives">
+            <elements xsi:type="xtext:Keyword" value="e"/>
+            <elements xsi:type="xtext:Keyword" value="E"/>
+          </elements>
+          <elements xsi:type="xtext:CharacterRange" cardinality="+">
+            <left value="0"/>
+            <right value="9"/>
+          </elements>
+        </elements>
+      </alternatives>
+    </rules>
+  </xtext:Grammar>
+  <xtext:Grammar name="org.eclipse.xtext.common.Terminals" definesHiddenTokens="true" hiddenTokens="/1/@rules.5 /1/@rules.3 /1/@rules.4">
+    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="ecore">
+      <ePackage href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+    </metamodelDeclarations>
+    <rules xsi:type="xtext:TerminalRule" name="ID">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" cardinality="?" value="^"/>
+        <elements xsi:type="xtext:Alternatives">
+          <elements xsi:type="xtext:CharacterRange">
+            <left value="a"/>
+            <right value="z"/>
+          </elements>
+          <elements xsi:type="xtext:CharacterRange">
+            <left value="A"/>
+            <right value="Z"/>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="_"/>
+        </elements>
+        <elements xsi:type="xtext:Alternatives" cardinality="*">
+          <elements xsi:type="xtext:CharacterRange">
+            <left value="a"/>
+            <right value="z"/>
+          </elements>
+          <elements xsi:type="xtext:CharacterRange">
+            <left value="A"/>
+            <right value="Z"/>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="_"/>
+          <elements xsi:type="xtext:CharacterRange">
+            <left value="0"/>
+            <right value="9"/>
+          </elements>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="INT">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </type>
+      <alternatives xsi:type="xtext:CharacterRange" cardinality="+">
+        <left value="0"/>
+        <right value="9"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="STRING">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Keyword" value="&quot;"/>
+          <elements xsi:type="xtext:Alternatives" cardinality="*">
+            <elements xsi:type="xtext:Group">
+              <elements xsi:type="xtext:Keyword" value="\"/>
+              <elements xsi:type="xtext:Alternatives">
+                <elements xsi:type="xtext:Keyword" value="b"/>
+                <elements xsi:type="xtext:Keyword" value="t"/>
+                <elements xsi:type="xtext:Keyword" value="n"/>
+                <elements xsi:type="xtext:Keyword" value="f"/>
+                <elements xsi:type="xtext:Keyword" value="r"/>
+                <elements xsi:type="xtext:Keyword" value="&quot;"/>
+                <elements xsi:type="xtext:Keyword" value="'"/>
+                <elements xsi:type="xtext:Keyword" value="\"/>
+              </elements>
+            </elements>
+            <elements xsi:type="xtext:NegatedToken">
+              <terminal xsi:type="xtext:Alternatives">
+                <elements xsi:type="xtext:Keyword" value="\"/>
+                <elements xsi:type="xtext:Keyword" value="&quot;"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="&quot;"/>
+        </elements>
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Keyword" value="'"/>
+          <elements xsi:type="xtext:Alternatives" cardinality="*">
+            <elements xsi:type="xtext:Group">
+              <elements xsi:type="xtext:Keyword" value="\"/>
+              <elements xsi:type="xtext:Alternatives">
+                <elements xsi:type="xtext:Keyword" value="b"/>
+                <elements xsi:type="xtext:Keyword" value="t"/>
+                <elements xsi:type="xtext:Keyword" value="n"/>
+                <elements xsi:type="xtext:Keyword" value="f"/>
+                <elements xsi:type="xtext:Keyword" value="r"/>
+                <elements xsi:type="xtext:Keyword" value="&quot;"/>
+                <elements xsi:type="xtext:Keyword" value="'"/>
+                <elements xsi:type="xtext:Keyword" value="\"/>
+              </elements>
+            </elements>
+            <elements xsi:type="xtext:NegatedToken">
+              <terminal xsi:type="xtext:Alternatives">
+                <elements xsi:type="xtext:Keyword" value="\"/>
+                <elements xsi:type="xtext:Keyword" value="'"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="'"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="ML_COMMENT">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="/*"/>
+        <elements xsi:type="xtext:UntilToken">
+          <terminal xsi:type="xtext:Keyword" value="*/"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="SL_COMMENT">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="//"/>
+        <elements xsi:type="xtext:NegatedToken" cardinality="*">
+          <terminal xsi:type="xtext:Alternatives">
+            <elements xsi:type="xtext:Keyword" value="&#xA;"/>
+            <elements xsi:type="xtext:Keyword" value="&#xD;"/>
+          </terminal>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" cardinality="?" value="&#xD;"/>
+          <elements xsi:type="xtext:Keyword" value="&#xA;"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="WS">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives" cardinality="+">
+        <elements xsi:type="xtext:Keyword" value=" "/>
+        <elements xsi:type="xtext:Keyword" value="&#x9;"/>
+        <elements xsi:type="xtext:Keyword" value="&#xD;"/>
+        <elements xsi:type="xtext:Keyword" value="&#xA;"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="ANY_OTHER">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Wildcard"/>
+    </rules>
+  </xtext:Grammar>
+</xmi:XMI>
