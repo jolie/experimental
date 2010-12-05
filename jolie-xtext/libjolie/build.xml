@@ -71,4 +71,31 @@
     nbproject/build-impl.xml file. 
 
     -->
+    <target name="-post-jar">
+        <jar jarfile="${dist.jar}" update="true">
+            <zipfileset src="${dist.jar}" includes="**/*.class" />
+            <zipfileset src="xtextlib/antlr-2.7.7.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/antlr-3.0.1.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/com.google.collect_0.8.0.v201008251220.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/com.google.inject_2.0.0.v201003051000.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/com.ibm.icu_4.2.1.v20100412.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/de.itemis.xtext.antlr_1.0.1.v201008261834.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/org.antlr.runtime_3.0.0.v200803061811.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/org.apache.commons.cli_1.0.0.v20080604-1500.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/org.apache.commons.logging_1.1.1.v201005080502.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/org.apache.log4j_1.2.15.v201005080500.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/org.eclipse.emf.codegen.ecore_2.6.0.v20100614-1136.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/org.eclipse.emf.codegen_2.6.0.v20100614-1136.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/org.eclipse.emf.common_2.6.0.v20100614-1136.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/org.eclipse.emf.ecore.xmi_2.5.0.v20100521-1846.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/org.eclipse.emf.ecore_2.6.0.v20100614-1136.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/org.eclipse.xpand_1.0.1.v201008251147.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/org.eclipse.xtext.common.types_1.0.1.v201008251220.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/org.eclipse.xtext.generator_1.0.1.v201008251220.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/org.eclipse.xtext.util_1.0.1.v201008251220.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/org.eclipse.xtext.xtend_1.0.1.v201008251220.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/org.eclipse.xtext_1.0.1.v201008251220.jar" includes="**/*.class"/>
+            <zipfileset src="xtextlib/stringtemplate-3.1b1.jar" includes="**/*.class"/>
+        </jar>
+    </target>
 </project>
