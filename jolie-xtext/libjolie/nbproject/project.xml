@@ -6,6 +6,7 @@
             <name>libjolie</name>
             <minimum-ant-version>1.6.5</minimum-ant-version>
             <source-roots>
+                <root id="src.src-gen.dir"/>
                 <root id="src.dir"/>
             </source-roots>
             <test-roots/>
