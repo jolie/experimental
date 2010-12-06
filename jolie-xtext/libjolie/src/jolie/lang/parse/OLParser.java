@@ -132,6 +132,7 @@ public class OLParser extends AbstractParser
 		super( scanner );
 		this.includePaths = includePaths;
 		this.classLoader = classLoader;
+                
 	}
 
 	public void putConstants( Map< String, Scanner.Token > constantsToPut )

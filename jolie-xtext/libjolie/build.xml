@@ -70,7 +70,7 @@
     properties which you can use, check the target you are overriding in the
     nbproject/build-impl.xml file. 
 
-    -->
+     -->
     <target name="-post-jar">
         <jar jarfile="${dist.jar}" update="true">
             <zipfileset src="${dist.jar}" includes="**/*.class" />
@@ -98,4 +98,6 @@
             <zipfileset src="xtextlib/stringtemplate-3.1b1.jar" includes="**/*.class"/>
         </jar>
     </target>
+    
+   
 </project>
