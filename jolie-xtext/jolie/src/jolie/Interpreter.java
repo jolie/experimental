@@ -827,7 +827,7 @@ public class Interpreter {
             } else {
                   
                 /*Snippet from http://www.vorburger.ch/blog1/2009/08/xtext-standalone-setup-parsing-dsl-from.html
-                 how to use the xtext generated parser*/
+                 how to use the xtext generated parser */
                 
                 Injector guiceInjector = new JolieStandaloneSetup().createInjectorAndDoEMFRegistration();
                 IParser parser = guiceInjector.getInstance(IAntlrParser.class);
