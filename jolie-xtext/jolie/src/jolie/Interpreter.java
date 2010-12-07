@@ -79,13 +79,24 @@ import jolie.runtime.ValueVector;
 import jolie.runtime.VariablePath;
 import jolie.xtext.JolieStandaloneSetup;
 import jolie.xtext.parser.antlr.JolieAntlrTokenFileProvider;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.internal.xtend.xtend.parser.SyntaxError;
 import org.eclipse.xtend.typesystem.emf.EcoreUtil2;
+import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.XtextFactory;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.parser.IParser;
 import org.eclipse.xtext.parser.antlr.IAntlrParser;
+import org.eclipse.xtext.parsetree.util.ParsetreeSwitch;
+import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.util.StringInputStream;
+import org.eclipse.xtext.util.XtextSwitch;
 
 /**
  * The Jolie interpreter engine.
@@ -825,25 +836,42 @@ public class Interpreter {
                     throw new InterpreterException("Input compiled program is not a JOLIE program");
                 }
             } else {
-                  
-                /*Snippet from http://www.vorburger.ch/blog1/2009/08/xtext-standalone-setup-parsing-dsl-from.html
-                 how to use the xtext generated parser */
-                
-                Injector guiceInjector = new JolieStandaloneSetup().createInjectorAndDoEMFRegistration();
-                IParser parser = guiceInjector.getInstance(IAntlrParser.class);
-                //Parso il file...
-                IParseResult result = parser.parse( cmdParser.programStream());
-                List<org.eclipse.xtext.parsetree.SyntaxError> errors = result.getParseErrors();
 
-                //Assert.assrt(errors.size() == 0);
-                // EObject eRoot = result.getRootASTElement();
-                //System.out.println(errors.size());
-                if (errors.size()>0) {
-                    int i=0;
-                    while ( i<errors.size()) {
-                    System.out.println(errors.get(i).toString());
-                    i++;}
+
+                Injector injector = new JolieStandaloneSetup().createInjectorAndDoEMFRegistration();
+                XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
+                resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
+                /*If you can leverage EMF in your application, I'd recommend to stick with the EMF API (resourceSet.getResource()) which hides the complexity of Antlr, the linking stuff, validation etc*/
+                Resource resource = resourceSet.createResource(URI.createURI("dummy:/example.ol"));
+                resource.load(cmdParser.programStream(), resourceSet.getLoadOptions());
+                EList<Resource.Diagnostic> errors = resource.getErrors();
+
+                if (errors.size() > 0) {
+                    int i = 0;
+                    while (i < errors.size()) {
+                        System.out.println(errors.get(i).toString());
+                        i++;
+                    }
+                } else {
+                    System.out.println("errors=0");
                 }
+
+
+                EObject model = resource.getContents().get(0);
+
+
+                ParsetreeSwitch pts = new ParsetreeSwitch();
+
+                pts.doSwitch(model);
+
+                XtextSwitch xs = new XtextSwitch();
+                xs.doSwitch(model);
+
+                Assignment ass = XtextFactory.eINSTANCE.createAssignment();
+
+
+
+               
 
                 //MyDSLRoot root = (MyDSLRoot) eRoot;
 
@@ -871,4 +899,6 @@ public class Interpreter {
             cmdParser = null; // Free memory
         }
     }
+
+
 }
