@@ -838,6 +838,8 @@ public class Interpreter {
             } else {
 
 
+                /*PARSING WITH XTEXT*/
+
                 Injector injector = new JolieStandaloneSetup().createInjectorAndDoEMFRegistration();
                 XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
                 resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
@@ -856,26 +858,16 @@ public class Interpreter {
                     System.out.println("errors=0");
                 }
 
-
+                /*Text files parsed by Xtext are represented as object graphs in memory. We call these object graphs Abstract Syntax Tree (AST),
+                semantic model or simply model interchangeably. In Xtext models are implemented using the Eclipse Modeling Framework (EMF),
+                which can be seen as a very powerful version of JavaBeans.
+                It not only provides the typical getter and setter methods for the different features of a model element but also comes with
+                an long list of advanced concepts and semantics, which are extremely useful in the context of Xtext.*/
+                
+                //model è l'AST del programma parsato!
                 EObject model = resource.getContents().get(0);
 
-
-                ParsetreeSwitch pts = new ParsetreeSwitch();
-
-                pts.doSwitch(model);
-
-                XtextSwitch xs = new XtextSwitch();
-                xs.doSwitch(model);
-
-                Assignment ass = XtextFactory.eINSTANCE.createAssignment();
-
-
-
-               
-
-                //MyDSLRoot root = (MyDSLRoot) eRoot;
-
-                /*Devo intervenire qua, cmdParser.programStream() rappresenta il codice e devo passarlo al parser xtext*/
+                /*cmdParser.programStream() è stato consumato dal parsing di xtext, OLParser fail*/
 
                 OLParser olParser = new OLParser(new Scanner(cmdParser.programStream(), cmdParser.programFilepath()), includePaths, classLoader);
                 olParser.putConstants(cmdParser.definedConstants());
