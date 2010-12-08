@@ -1,12 +1,17 @@
-package jolie.xtext;
+package jolie;
 
 import com.google.inject.Injector;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 import jolie.xtext.JolieStandaloneSetup;
 import jolie.xtext.jolie.BasicStatement;
+import jolie.xtext.jolie.Main;
+import jolie.xtext.jolie.MainProcess;
+import jolie.xtext.jolie.Program;
 import jolie.xtext.jolie.impl.BasicStatementImpl;
+import jolie.xtext.jolie.util.JolieSwitch;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -20,24 +25,9 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.util.XtextSwitch;
 
-public class ToString extends ParsetreeSwitch<String> {
+public class ToString extends JolieSwitch<String> {
 
-
-	 public ToString() {
-	        System.out.println("Tossss");
-	    }
-
-    @Override
-    public String defaultCase(EObject object) {
-        System.out.println(object.eClass().toString());
-        return "default"+object.eClass().toString();
-    }
-
-     @Override
-    public String caseLeafNode(LeafNode object) {
-        return "foglia"+object.eClass().toString();
-    }
-
+  
 
     public static void main(String[] args) throws IOException {
 
@@ -64,20 +54,12 @@ public class ToString extends ParsetreeSwitch<String> {
         }
         EObject model = resource.getContents().get(0);
 
-
-        ParsetreeSwitch pts = new ParsetreeSwitch();
-
-        pts.doSwitch(model);
-
-        XtextSwitch xs = new XtextSwitch();
-        xs.doSwitch(model);
+        JolieSwitch js = new JolieSwitch();
+       
+        js.doSwitch(model);
 
 
-        ToString tstring = new ToString();
-        String string = new ToString().doSwitch(model);
 
         
-
-        System.out.println("ss" + string);
     }
 }

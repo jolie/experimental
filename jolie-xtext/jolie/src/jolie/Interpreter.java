@@ -78,6 +78,7 @@ import jolie.runtime.Value;
 import jolie.runtime.ValueVector;
 import jolie.runtime.VariablePath;
 import jolie.xtext.JolieStandaloneSetup;
+import jolie.xtext.jolie.util.JolieSwitch;
 import jolie.xtext.parser.antlr.JolieAntlrTokenFileProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -857,7 +858,8 @@ public class Interpreter {
                 } else {
                     System.out.println("errors=0");
                 }
-
+         
+         
                 /*Text files parsed by Xtext are represented as object graphs in memory. We call these object graphs Abstract Syntax Tree (AST),
                 semantic model or simply model interchangeably. In Xtext models are implemented using the Eclipse Modeling Framework (EMF),
                 which can be seen as a very powerful version of JavaBeans.
@@ -866,6 +868,10 @@ public class Interpreter {
                 
                 //model è l'AST del programma parsato!
                 EObject model = resource.getContents().get(0);
+
+                //IL visitor Switch
+                JolieSwitch js = new JolieSwitch();
+                js.doSwitch(model);
 
                 /*cmdParser.programStream() è stato consumato dal parsing di xtext, OLParser fail*/
 
