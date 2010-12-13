@@ -1,0 +1,4 @@
+import jolie::xtext::jolie;
+
+sortedGreetings(Model this) :
+	this.greetings.sortBy(g|g.name.toLowerCase());
