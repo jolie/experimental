@@ -8,12 +8,12 @@ package jolie.xtext.jolie.impl;
 import jolie.xtext.jolie.AssignStatement;
 import jolie.xtext.jolie.BasicStatement;
 import jolie.xtext.jolie.Expression;
+import jolie.xtext.jolie.InputOperation;
 import jolie.xtext.jolie.IntLiteral;
 import jolie.xtext.jolie.JolieFactory;
 import jolie.xtext.jolie.JoliePackage;
 import jolie.xtext.jolie.Main;
 import jolie.xtext.jolie.MainProcess;
-import jolie.xtext.jolie.MainProcess2;
 import jolie.xtext.jolie.NDChoiceStatement;
 import jolie.xtext.jolie.OLSyntaxNode;
 import jolie.xtext.jolie.Operation;
@@ -22,6 +22,7 @@ import jolie.xtext.jolie.PostDecrementStatement;
 import jolie.xtext.jolie.PostIncrementStatement;
 import jolie.xtext.jolie.Program;
 import jolie.xtext.jolie.RealLiteral;
+import jolie.xtext.jolie.RequestResponseOperation;
 import jolie.xtext.jolie.SequenceStatement;
 import jolie.xtext.jolie.VariablePath;
 
@@ -97,13 +98,14 @@ public class JolieFactoryImpl extends EFactoryImpl implements JolieFactory
       case JoliePackage.POST_DECREMENT_STATEMENT: return createPostDecrementStatement();
       case JoliePackage.EXPRESSION: return createExpression();
       case JoliePackage.ND_CHOICE_STATEMENT: return createNDChoiceStatement();
+      case JoliePackage.INPUT_OPERATION: return createInputOperation();
       case JoliePackage.VARIABLE_PATH: return createVariablePath();
+      case JoliePackage.REQUEST_RESPONSE_OPERATION: return createRequestResponseOperation();
       case JoliePackage.OL_SYNTAX_NODE: return createOLSyntaxNode();
       case JoliePackage.OPERATION: return createOperation();
       case JoliePackage.INT_LITERAL: return createIntLiteral();
       case JoliePackage.REAL_LITERAL: return createRealLiteral();
       case JoliePackage.STRING: return createString();
-      case JoliePackage.MAIN_PROCESS2: return createMainProcess2();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -246,10 +248,32 @@ public class JolieFactoryImpl extends EFactoryImpl implements JolieFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public InputOperation createInputOperation()
+  {
+    InputOperationImpl inputOperation = new InputOperationImpl();
+    return inputOperation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public VariablePath createVariablePath()
   {
     VariablePathImpl variablePath = new VariablePathImpl();
     return variablePath;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RequestResponseOperation createRequestResponseOperation()
+  {
+    RequestResponseOperationImpl requestResponseOperation = new RequestResponseOperationImpl();
+    return requestResponseOperation;
   }
 
   /**
@@ -305,17 +329,6 @@ public class JolieFactoryImpl extends EFactoryImpl implements JolieFactory
   {
     StringImpl string = new StringImpl();
     return string;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public MainProcess2 createMainProcess2()
-  {
-    MainProcess2Impl mainProcess2 = new MainProcess2Impl();
-    return mainProcess2;
   }
 
   /**

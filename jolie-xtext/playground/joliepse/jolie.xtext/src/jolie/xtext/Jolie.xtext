@@ -59,7 +59,7 @@ BasicStatement:
 	{AssignStatement} assignStatement=AssignStatement | {PostIncrementStatement}
 	postIncrementStatement=PostIncrementStatement | {PostDecrementStatement}
 	PostDecrementStatement=PostDecrementStatement| {NDChoiceStatement}
-	NDChoiceStatement=NDChoiceStatement;
+	NDChoiceStatement+=NDChoiceStatement;
 
 AssignStatement:
 	{AssignStatement} name=ID ASSIGN {Expression} expression=Expression;
@@ -78,15 +78,28 @@ TerminalExpression returns Expression:
 	LPAREN Expression RPAREN | {IntLiteral} value=INT | {RealLiteral} value=REAL | {String} value=ID | {String} value=STRING;
 /******************************************************************************************************************/
 
+
+
 /*********************************************NDChoiceStatement*********************************************/
 NDChoiceStatement:
- LSQUARE LINKIN LPAREN ID RPAREN RSQUARE  {MainProcess} mainProcess=MainProcess |
- LSQUARE ID LPAREN {VariablePath} variablePath=VariablePath RPAREN RSQUARE {MainProcess2} MainProcess=MainProcess;
+ {NDChoiceStatement} (LSQUARE InputOperation+=InputOperation RSQUARE  mainProcess+=MainProcess)* ;
+
+ 
+InputOperation:
+ {InputOperation} LINKIN LPAREN ID RPAREN |
+ {InputOperation} ID LPAREN {VariablePath} variablePath=VariablePath RPAREN (RequestResponseOperation)?; //line 1689 OLParser
+    
  
 VariablePath: 
 
   {VariablePath} GLOBAL ( DOT (ID| (LPAREN  children+=Expression RPAREN)))*;
- 
+  
+RequestResponseOperation:
+    
+ LPAREN expression=Expression RPAREN mainProcess=MainProcess;
+/******************************************************************************************************************/
+
+
  
 // Terminals
 terminal LCURLY:

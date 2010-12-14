@@ -290,13 +290,13 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		//	{Process} process=Process //Questa  la regola che mi permette la ricorsione
 		//	| {AssignStatement} assignStatement=AssignStatement | {PostIncrementStatement}
 		//	postIncrementStatement=PostIncrementStatement | {PostDecrementStatement} PostDecrementStatement=PostDecrementStatement
-		//	| {NDChoiceStatement} NDChoiceStatement=NDChoiceStatement;
+		//	| {NDChoiceStatement} NDChoiceStatement+=NDChoiceStatement;
 		public ParserRule getRule() { return rule; }
 
 		//{Process} process=Process //Questa  la regola che mi permette la ricorsione
 		//| {AssignStatement} assignStatement=AssignStatement | {PostIncrementStatement}
 		//postIncrementStatement=PostIncrementStatement | {PostDecrementStatement} PostDecrementStatement=PostDecrementStatement
-		//| {NDChoiceStatement} NDChoiceStatement=NDChoiceStatement
+		//| {NDChoiceStatement} NDChoiceStatement+=NDChoiceStatement
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//{Process} process=Process
@@ -347,13 +347,13 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		//PostDecrementStatement
 		public RuleCall getPostDecrementStatementPostDecrementStatementParserRuleCall_3_1_0() { return cPostDecrementStatementPostDecrementStatementParserRuleCall_3_1_0; }
 
-		//{NDChoiceStatement} NDChoiceStatement=NDChoiceStatement
+		//{NDChoiceStatement} NDChoiceStatement+=NDChoiceStatement
 		public Group getGroup_4() { return cGroup_4; }
 
 		//{NDChoiceStatement}
 		public Action getNDChoiceStatementAction_4_0() { return cNDChoiceStatementAction_4_0; }
 
-		//NDChoiceStatement=NDChoiceStatement
+		//NDChoiceStatement+=NDChoiceStatement
 		public Assignment getNDChoiceStatementAssignment_4_1() { return cNDChoiceStatementAssignment_4_1; }
 
 		//NDChoiceStatement
@@ -608,46 +608,84 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class NDChoiceStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "NDChoiceStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cNDChoiceStatementAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final RuleCall cLSQUARETerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Assignment cInputOperationAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cInputOperationInputOperationParserRuleCall_1_1_0 = (RuleCall)cInputOperationAssignment_1_1.eContents().get(0);
+		private final RuleCall cRSQUARETerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		private final Assignment cMainProcessAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cMainProcessMainProcessParserRuleCall_1_3_0 = (RuleCall)cMainProcessAssignment_1_3.eContents().get(0);
+		
+		/// ****************************************************************************************************************** /
+		/// *********************************************NDChoiceStatement********************************************* /
+		//NDChoiceStatement:
+		//	{NDChoiceStatement} (LSQUARE InputOperation+=InputOperation RSQUARE mainProcess+=MainProcess)*;
+		public ParserRule getRule() { return rule; }
+
+		//{NDChoiceStatement} (LSQUARE InputOperation+=InputOperation RSQUARE mainProcess+=MainProcess)*
+		public Group getGroup() { return cGroup; }
+
+		//{NDChoiceStatement}
+		public Action getNDChoiceStatementAction_0() { return cNDChoiceStatementAction_0; }
+
+		//(LSQUARE InputOperation+=InputOperation RSQUARE mainProcess+=MainProcess)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//LSQUARE
+		public RuleCall getLSQUARETerminalRuleCall_1_0() { return cLSQUARETerminalRuleCall_1_0; }
+
+		//InputOperation+=InputOperation
+		public Assignment getInputOperationAssignment_1_1() { return cInputOperationAssignment_1_1; }
+
+		//InputOperation
+		public RuleCall getInputOperationInputOperationParserRuleCall_1_1_0() { return cInputOperationInputOperationParserRuleCall_1_1_0; }
+
+		//RSQUARE
+		public RuleCall getRSQUARETerminalRuleCall_1_2() { return cRSQUARETerminalRuleCall_1_2; }
+
+		//mainProcess+=MainProcess
+		public Assignment getMainProcessAssignment_1_3() { return cMainProcessAssignment_1_3; }
+
+		//MainProcess
+		public RuleCall getMainProcessMainProcessParserRuleCall_1_3_0() { return cMainProcessMainProcessParserRuleCall_1_3_0; }
+	}
+
+	public class InputOperationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "InputOperation");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final RuleCall cLSQUARETerminalRuleCall_0_0 = (RuleCall)cGroup_0.eContents().get(0);
+		private final Action cInputOperationAction_0_0 = (Action)cGroup_0.eContents().get(0);
 		private final RuleCall cLINKINTerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
 		private final RuleCall cLPARENTerminalRuleCall_0_2 = (RuleCall)cGroup_0.eContents().get(2);
 		private final RuleCall cIDTerminalRuleCall_0_3 = (RuleCall)cGroup_0.eContents().get(3);
 		private final RuleCall cRPARENTerminalRuleCall_0_4 = (RuleCall)cGroup_0.eContents().get(4);
-		private final RuleCall cRSQUARETerminalRuleCall_0_5 = (RuleCall)cGroup_0.eContents().get(5);
-		private final Action cMainProcessAction_0_6 = (Action)cGroup_0.eContents().get(6);
-		private final Assignment cMainProcessAssignment_0_7 = (Assignment)cGroup_0.eContents().get(7);
-		private final RuleCall cMainProcessMainProcessParserRuleCall_0_7_0 = (RuleCall)cMainProcessAssignment_0_7.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final RuleCall cLSQUARETerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Action cInputOperationAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		private final RuleCall cLPARENTerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
 		private final Action cVariablePathAction_1_3 = (Action)cGroup_1.eContents().get(3);
 		private final Assignment cVariablePathAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
 		private final RuleCall cVariablePathVariablePathParserRuleCall_1_4_0 = (RuleCall)cVariablePathAssignment_1_4.eContents().get(0);
 		private final RuleCall cRPARENTerminalRuleCall_1_5 = (RuleCall)cGroup_1.eContents().get(5);
-		private final RuleCall cRSQUARETerminalRuleCall_1_6 = (RuleCall)cGroup_1.eContents().get(6);
-		private final Action cMainProcess2Action_1_7 = (Action)cGroup_1.eContents().get(7);
-		private final Assignment cMainProcessAssignment_1_8 = (Assignment)cGroup_1.eContents().get(8);
-		private final RuleCall cMainProcessMainProcessParserRuleCall_1_8_0 = (RuleCall)cMainProcessAssignment_1_8.eContents().get(0);
+		private final RuleCall cRequestResponseOperationParserRuleCall_1_6 = (RuleCall)cGroup_1.eContents().get(6);
 		
-		/// ****************************************************************************************************************** /
-		/// *********************************************NDChoiceStatement********************************************* /
-		//NDChoiceStatement:
-		//	LSQUARE LINKIN LPAREN ID RPAREN RSQUARE {MainProcess} mainProcess=MainProcess | LSQUARE ID LPAREN {VariablePath}
-		//	variablePath=VariablePath RPAREN RSQUARE {MainProcess2} MainProcess=MainProcess;
+		////line 1689 OLParser
+		//InputOperation:
+		//	{InputOperation} LINKIN LPAREN ID RPAREN | {InputOperation} ID LPAREN {VariablePath} variablePath=VariablePath RPAREN
+		//	RequestResponseOperation?;
 		public ParserRule getRule() { return rule; }
 
-		//LSQUARE LINKIN LPAREN ID RPAREN RSQUARE {MainProcess} mainProcess=MainProcess | LSQUARE ID LPAREN {VariablePath}
-		//variablePath=VariablePath RPAREN RSQUARE {MainProcess2} MainProcess=MainProcess
+		//{InputOperation} LINKIN LPAREN ID RPAREN | {InputOperation} ID LPAREN {VariablePath} variablePath=VariablePath RPAREN
+		//RequestResponseOperation?
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//LSQUARE LINKIN LPAREN ID RPAREN RSQUARE {MainProcess} mainProcess=MainProcess
+		//{InputOperation} LINKIN LPAREN ID RPAREN
 		public Group getGroup_0() { return cGroup_0; }
 
-		//LSQUARE
-		public RuleCall getLSQUARETerminalRuleCall_0_0() { return cLSQUARETerminalRuleCall_0_0; }
+		//{InputOperation}
+		public Action getInputOperationAction_0_0() { return cInputOperationAction_0_0; }
 
 		//LINKIN
 		public RuleCall getLINKINTerminalRuleCall_0_1() { return cLINKINTerminalRuleCall_0_1; }
@@ -661,23 +699,11 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		//RPAREN
 		public RuleCall getRPARENTerminalRuleCall_0_4() { return cRPARENTerminalRuleCall_0_4; }
 
-		//RSQUARE
-		public RuleCall getRSQUARETerminalRuleCall_0_5() { return cRSQUARETerminalRuleCall_0_5; }
-
-		//{MainProcess}
-		public Action getMainProcessAction_0_6() { return cMainProcessAction_0_6; }
-
-		//mainProcess=MainProcess
-		public Assignment getMainProcessAssignment_0_7() { return cMainProcessAssignment_0_7; }
-
-		//MainProcess
-		public RuleCall getMainProcessMainProcessParserRuleCall_0_7_0() { return cMainProcessMainProcessParserRuleCall_0_7_0; }
-
-		//LSQUARE ID LPAREN {VariablePath} variablePath=VariablePath RPAREN RSQUARE {MainProcess2} MainProcess=MainProcess
+		//{InputOperation} ID LPAREN {VariablePath} variablePath=VariablePath RPAREN RequestResponseOperation?
 		public Group getGroup_1() { return cGroup_1; }
 
-		//LSQUARE
-		public RuleCall getLSQUARETerminalRuleCall_1_0() { return cLSQUARETerminalRuleCall_1_0; }
+		//{InputOperation}
+		public Action getInputOperationAction_1_0() { return cInputOperationAction_1_0; }
 
 		//ID
 		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
@@ -697,17 +723,8 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		//RPAREN
 		public RuleCall getRPARENTerminalRuleCall_1_5() { return cRPARENTerminalRuleCall_1_5; }
 
-		//RSQUARE
-		public RuleCall getRSQUARETerminalRuleCall_1_6() { return cRSQUARETerminalRuleCall_1_6; }
-
-		//{MainProcess2}
-		public Action getMainProcess2Action_1_7() { return cMainProcess2Action_1_7; }
-
-		//MainProcess=MainProcess
-		public Assignment getMainProcessAssignment_1_8() { return cMainProcessAssignment_1_8; }
-
-		//MainProcess
-		public RuleCall getMainProcessMainProcessParserRuleCall_1_8_0() { return cMainProcessMainProcessParserRuleCall_1_8_0; }
+		//RequestResponseOperation?
+		public RuleCall getRequestResponseOperationParserRuleCall_1_6() { return cRequestResponseOperationParserRuleCall_1_6; }
 	}
 
 	public class VariablePathElements extends AbstractParserRuleElementFinder {
@@ -765,6 +782,42 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		//RPAREN
 		public RuleCall getRPARENTerminalRuleCall_2_1_1_2() { return cRPARENTerminalRuleCall_2_1_1_2; }
 	}
+
+	public class RequestResponseOperationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RequestResponseOperation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cLPARENTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cExpressionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cExpressionExpressionParserRuleCall_1_0 = (RuleCall)cExpressionAssignment_1.eContents().get(0);
+		private final RuleCall cRPARENTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cMainProcessAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cMainProcessMainProcessParserRuleCall_3_0 = (RuleCall)cMainProcessAssignment_3.eContents().get(0);
+		
+		//RequestResponseOperation:
+		//	LPAREN expression=Expression RPAREN mainProcess=MainProcess;
+		public ParserRule getRule() { return rule; }
+
+		//LPAREN expression=Expression RPAREN mainProcess=MainProcess
+		public Group getGroup() { return cGroup; }
+
+		//LPAREN
+		public RuleCall getLPARENTerminalRuleCall_0() { return cLPARENTerminalRuleCall_0; }
+
+		//expression=Expression
+		public Assignment getExpressionAssignment_1() { return cExpressionAssignment_1; }
+
+		//Expression
+		public RuleCall getExpressionExpressionParserRuleCall_1_0() { return cExpressionExpressionParserRuleCall_1_0; }
+
+		//RPAREN
+		public RuleCall getRPARENTerminalRuleCall_2() { return cRPARENTerminalRuleCall_2; }
+
+		//mainProcess=MainProcess
+		public Assignment getMainProcessAssignment_3() { return cMainProcessAssignment_3; }
+
+		//MainProcess
+		public RuleCall getMainProcessMainProcessParserRuleCall_3_0() { return cMainProcessMainProcessParserRuleCall_3_0; }
+	}
 	
 	
 	private ProgramElements pProgram;
@@ -780,7 +833,9 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 	private ExpressionElements pExpression;
 	private TerminalExpressionElements pTerminalExpression;
 	private NDChoiceStatementElements pNDChoiceStatement;
+	private InputOperationElements pInputOperation;
 	private VariablePathElements pVariablePath;
+	private RequestResponseOperationElements pRequestResponseOperation;
 	private TerminalRule tLCURLY;
 	private TerminalRule tRCURLY;
 	private TerminalRule tLSQUARE;
@@ -920,7 +975,7 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 	//	{Process} process=Process //Questa  la regola che mi permette la ricorsione
 	//	| {AssignStatement} assignStatement=AssignStatement | {PostIncrementStatement}
 	//	postIncrementStatement=PostIncrementStatement | {PostDecrementStatement} PostDecrementStatement=PostDecrementStatement
-	//	| {NDChoiceStatement} NDChoiceStatement=NDChoiceStatement;
+	//	| {NDChoiceStatement} NDChoiceStatement+=NDChoiceStatement;
 	public BasicStatementElements getBasicStatementAccess() {
 		return (pBasicStatement != null) ? pBasicStatement : (pBasicStatement = new BasicStatementElements());
 	}
@@ -984,14 +1039,25 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 	/// ****************************************************************************************************************** /
 	/// *********************************************NDChoiceStatement********************************************* /
 	//NDChoiceStatement:
-	//	LSQUARE LINKIN LPAREN ID RPAREN RSQUARE {MainProcess} mainProcess=MainProcess | LSQUARE ID LPAREN {VariablePath}
-	//	variablePath=VariablePath RPAREN RSQUARE {MainProcess2} MainProcess=MainProcess;
+	//	{NDChoiceStatement} (LSQUARE InputOperation+=InputOperation RSQUARE mainProcess+=MainProcess)*;
 	public NDChoiceStatementElements getNDChoiceStatementAccess() {
 		return (pNDChoiceStatement != null) ? pNDChoiceStatement : (pNDChoiceStatement = new NDChoiceStatementElements());
 	}
 	
 	public ParserRule getNDChoiceStatementRule() {
 		return getNDChoiceStatementAccess().getRule();
+	}
+
+	////line 1689 OLParser
+	//InputOperation:
+	//	{InputOperation} LINKIN LPAREN ID RPAREN | {InputOperation} ID LPAREN {VariablePath} variablePath=VariablePath RPAREN
+	//	RequestResponseOperation?;
+	public InputOperationElements getInputOperationAccess() {
+		return (pInputOperation != null) ? pInputOperation : (pInputOperation = new InputOperationElements());
+	}
+	
+	public ParserRule getInputOperationRule() {
+		return getInputOperationAccess().getRule();
 	}
 
 	//VariablePath:
@@ -1004,7 +1070,17 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		return getVariablePathAccess().getRule();
 	}
 
-	//// Terminals
+	//RequestResponseOperation:
+	//	LPAREN expression=Expression RPAREN mainProcess=MainProcess;
+	public RequestResponseOperationElements getRequestResponseOperationAccess() {
+		return (pRequestResponseOperation != null) ? pRequestResponseOperation : (pRequestResponseOperation = new RequestResponseOperationElements());
+	}
+	
+	public ParserRule getRequestResponseOperationRule() {
+		return getRequestResponseOperationAccess().getRule();
+	}
+
+	/// ****************************************************************************************************************** / // Terminals
 	//terminal LCURLY:
 	//	"{";
 	public TerminalRule getLCURLYRule() {

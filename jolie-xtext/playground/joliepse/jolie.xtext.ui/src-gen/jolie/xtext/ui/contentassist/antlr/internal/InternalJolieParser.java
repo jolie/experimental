@@ -23,14 +23,14 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalJolieParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_PLUS", "RULE_MINUS", "RULE_ASTERISK", "RULE_DIVIDE", "RULE_ID", "RULE_LCURLY", "RULE_RCURLY", "RULE_LPAREN", "RULE_RPAREN", "RULE_VERT", "RULE_SEMICOLON", "RULE_ASSIGN", "RULE_CHOICE", "RULE_DECREMENT", "RULE_LSQUARE", "RULE_LINKIN", "RULE_RSQUARE", "RULE_GLOBAL", "RULE_DOT", "RULE_INT", "RULE_REAL", "RULE_STRING", "RULE_ARROW", "RULE_COLON", "RULE_COMMA", "RULE_WHILE", "RULE_PERCENT_SIGN", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'main'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_PLUS", "RULE_MINUS", "RULE_ASTERISK", "RULE_DIVIDE", "RULE_ID", "RULE_LCURLY", "RULE_RCURLY", "RULE_LPAREN", "RULE_RPAREN", "RULE_VERT", "RULE_SEMICOLON", "RULE_ASSIGN", "RULE_CHOICE", "RULE_DECREMENT", "RULE_LSQUARE", "RULE_RSQUARE", "RULE_LINKIN", "RULE_GLOBAL", "RULE_DOT", "RULE_INT", "RULE_REAL", "RULE_STRING", "RULE_ARROW", "RULE_COLON", "RULE_COMMA", "RULE_WHILE", "RULE_PERCENT_SIGN", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'main'"
     };
     public static final int RULE_RCURLY=10;
     public static final int RULE_ML_COMMENT=31;
     public static final int RULE_CHOICE=16;
     public static final int RULE_COLON=27;
     public static final int RULE_ID=8;
-    public static final int RULE_LINKIN=19;
+    public static final int RULE_LINKIN=20;
     public static final int RULE_WHILE=29;
     public static final int RULE_STRING=25;
     public static final int RULE_LPAREN=11;
@@ -49,7 +49,7 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
     public static final int RULE_WS=33;
     public static final int RULE_INT=23;
     public static final int EOF=-1;
-    public static final int RULE_RSQUARE=20;
+    public static final int RULE_RSQUARE=19;
     public static final int RULE_DIVIDE=7;
     public static final int RULE_ANY_OTHER=34;
     public static final int RULE_SL_COMMENT=32;
@@ -1017,30 +1017,30 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start ruleNDChoiceStatement
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:406:1: ruleNDChoiceStatement : ( ( rule__NDChoiceStatement__Alternatives ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:406:1: ruleNDChoiceStatement : ( ( rule__NDChoiceStatement__Group__0 ) ) ;
     public final void ruleNDChoiceStatement() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:410:2: ( ( ( rule__NDChoiceStatement__Alternatives ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:411:1: ( ( rule__NDChoiceStatement__Alternatives ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:410:2: ( ( ( rule__NDChoiceStatement__Group__0 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:411:1: ( ( rule__NDChoiceStatement__Group__0 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:411:1: ( ( rule__NDChoiceStatement__Alternatives ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:412:1: ( rule__NDChoiceStatement__Alternatives )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:411:1: ( ( rule__NDChoiceStatement__Group__0 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:412:1: ( rule__NDChoiceStatement__Group__0 )
             {
-             before(grammarAccess.getNDChoiceStatementAccess().getAlternatives()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:413:1: ( rule__NDChoiceStatement__Alternatives )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:413:2: rule__NDChoiceStatement__Alternatives
+             before(grammarAccess.getNDChoiceStatementAccess().getGroup()); 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:413:1: ( rule__NDChoiceStatement__Group__0 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:413:2: rule__NDChoiceStatement__Group__0
             {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Alternatives_in_ruleNDChoiceStatement814);
-            rule__NDChoiceStatement__Alternatives();
+            pushFollow(FOLLOW_rule__NDChoiceStatement__Group__0_in_ruleNDChoiceStatement814);
+            rule__NDChoiceStatement__Group__0();
             _fsp--;
 
 
             }
 
-             after(grammarAccess.getNDChoiceStatementAccess().getAlternatives()); 
+             after(grammarAccess.getNDChoiceStatementAccess().getGroup()); 
 
             }
 
@@ -1062,20 +1062,95 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
     // $ANTLR end ruleNDChoiceStatement
 
 
+    // $ANTLR start entryRuleInputOperation
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:425:1: entryRuleInputOperation : ruleInputOperation EOF ;
+    public final void entryRuleInputOperation() throws RecognitionException {
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:426:1: ( ruleInputOperation EOF )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:427:1: ruleInputOperation EOF
+            {
+             before(grammarAccess.getInputOperationRule()); 
+            pushFollow(FOLLOW_ruleInputOperation_in_entryRuleInputOperation841);
+            ruleInputOperation();
+            _fsp--;
+
+             after(grammarAccess.getInputOperationRule()); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleInputOperation848); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end entryRuleInputOperation
+
+
+    // $ANTLR start ruleInputOperation
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:434:1: ruleInputOperation : ( ( rule__InputOperation__Alternatives ) ) ;
+    public final void ruleInputOperation() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:438:2: ( ( ( rule__InputOperation__Alternatives ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:439:1: ( ( rule__InputOperation__Alternatives ) )
+            {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:439:1: ( ( rule__InputOperation__Alternatives ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:440:1: ( rule__InputOperation__Alternatives )
+            {
+             before(grammarAccess.getInputOperationAccess().getAlternatives()); 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:441:1: ( rule__InputOperation__Alternatives )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:441:2: rule__InputOperation__Alternatives
+            {
+            pushFollow(FOLLOW_rule__InputOperation__Alternatives_in_ruleInputOperation874);
+            rule__InputOperation__Alternatives();
+            _fsp--;
+
+
+            }
+
+             after(grammarAccess.getInputOperationAccess().getAlternatives()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end ruleInputOperation
+
+
     // $ANTLR start entryRuleVariablePath
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:425:1: entryRuleVariablePath : ruleVariablePath EOF ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:453:1: entryRuleVariablePath : ruleVariablePath EOF ;
     public final void entryRuleVariablePath() throws RecognitionException {
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:426:1: ( ruleVariablePath EOF )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:427:1: ruleVariablePath EOF
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:454:1: ( ruleVariablePath EOF )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:455:1: ruleVariablePath EOF
             {
              before(grammarAccess.getVariablePathRule()); 
-            pushFollow(FOLLOW_ruleVariablePath_in_entryRuleVariablePath841);
+            pushFollow(FOLLOW_ruleVariablePath_in_entryRuleVariablePath901);
             ruleVariablePath();
             _fsp--;
 
              after(grammarAccess.getVariablePathRule()); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleVariablePath848); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleVariablePath908); 
 
             }
 
@@ -1092,23 +1167,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start ruleVariablePath
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:434:1: ruleVariablePath : ( ( rule__VariablePath__Group__0 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:462:1: ruleVariablePath : ( ( rule__VariablePath__Group__0 ) ) ;
     public final void ruleVariablePath() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:438:2: ( ( ( rule__VariablePath__Group__0 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:439:1: ( ( rule__VariablePath__Group__0 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:466:2: ( ( ( rule__VariablePath__Group__0 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:467:1: ( ( rule__VariablePath__Group__0 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:439:1: ( ( rule__VariablePath__Group__0 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:440:1: ( rule__VariablePath__Group__0 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:467:1: ( ( rule__VariablePath__Group__0 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:468:1: ( rule__VariablePath__Group__0 )
             {
              before(grammarAccess.getVariablePathAccess().getGroup()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:441:1: ( rule__VariablePath__Group__0 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:441:2: rule__VariablePath__Group__0
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:469:1: ( rule__VariablePath__Group__0 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:469:2: rule__VariablePath__Group__0
             {
-            pushFollow(FOLLOW_rule__VariablePath__Group__0_in_ruleVariablePath874);
+            pushFollow(FOLLOW_rule__VariablePath__Group__0_in_ruleVariablePath934);
             rule__VariablePath__Group__0();
             _fsp--;
 
@@ -1137,14 +1212,89 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
     // $ANTLR end ruleVariablePath
 
 
+    // $ANTLR start entryRuleRequestResponseOperation
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:481:1: entryRuleRequestResponseOperation : ruleRequestResponseOperation EOF ;
+    public final void entryRuleRequestResponseOperation() throws RecognitionException {
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:482:1: ( ruleRequestResponseOperation EOF )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:483:1: ruleRequestResponseOperation EOF
+            {
+             before(grammarAccess.getRequestResponseOperationRule()); 
+            pushFollow(FOLLOW_ruleRequestResponseOperation_in_entryRuleRequestResponseOperation961);
+            ruleRequestResponseOperation();
+            _fsp--;
+
+             after(grammarAccess.getRequestResponseOperationRule()); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRequestResponseOperation968); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end entryRuleRequestResponseOperation
+
+
+    // $ANTLR start ruleRequestResponseOperation
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:490:1: ruleRequestResponseOperation : ( ( rule__RequestResponseOperation__Group__0 ) ) ;
+    public final void ruleRequestResponseOperation() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:494:2: ( ( ( rule__RequestResponseOperation__Group__0 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:495:1: ( ( rule__RequestResponseOperation__Group__0 ) )
+            {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:495:1: ( ( rule__RequestResponseOperation__Group__0 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:496:1: ( rule__RequestResponseOperation__Group__0 )
+            {
+             before(grammarAccess.getRequestResponseOperationAccess().getGroup()); 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:497:1: ( rule__RequestResponseOperation__Group__0 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:497:2: rule__RequestResponseOperation__Group__0
+            {
+            pushFollow(FOLLOW_rule__RequestResponseOperation__Group__0_in_ruleRequestResponseOperation994);
+            rule__RequestResponseOperation__Group__0();
+            _fsp--;
+
+
+            }
+
+             after(grammarAccess.getRequestResponseOperationAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end ruleRequestResponseOperation
+
+
     // $ANTLR start rule__Process__Alternatives
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:453:1: rule__Process__Alternatives : ( ( ( rule__Process__Group_0__0 ) ) | ( ( rule__Process__Group_1__0 ) ) );
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:509:1: rule__Process__Alternatives : ( ( ( rule__Process__Group_0__0 ) ) | ( ( rule__Process__Group_1__0 ) ) );
     public final void rule__Process__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:457:1: ( ( ( rule__Process__Group_0__0 ) ) | ( ( rule__Process__Group_1__0 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:513:1: ( ( ( rule__Process__Group_0__0 ) ) | ( ( rule__Process__Group_1__0 ) ) )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1156,22 +1306,22 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("453:1: rule__Process__Alternatives : ( ( ( rule__Process__Group_0__0 ) ) | ( ( rule__Process__Group_1__0 ) ) );", 1, 0, input);
+                    new NoViableAltException("509:1: rule__Process__Alternatives : ( ( ( rule__Process__Group_0__0 ) ) | ( ( rule__Process__Group_1__0 ) ) );", 1, 0, input);
 
                 throw nvae;
             }
             switch (alt1) {
                 case 1 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:458:1: ( ( rule__Process__Group_0__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:514:1: ( ( rule__Process__Group_0__0 ) )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:458:1: ( ( rule__Process__Group_0__0 ) )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:459:1: ( rule__Process__Group_0__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:514:1: ( ( rule__Process__Group_0__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:515:1: ( rule__Process__Group_0__0 )
                     {
                      before(grammarAccess.getProcessAccess().getGroup_0()); 
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:460:1: ( rule__Process__Group_0__0 )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:460:2: rule__Process__Group_0__0
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:516:1: ( rule__Process__Group_0__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:516:2: rule__Process__Group_0__0
                     {
-                    pushFollow(FOLLOW_rule__Process__Group_0__0_in_rule__Process__Alternatives910);
+                    pushFollow(FOLLOW_rule__Process__Group_0__0_in_rule__Process__Alternatives1030);
                     rule__Process__Group_0__0();
                     _fsp--;
 
@@ -1186,16 +1336,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:464:6: ( ( rule__Process__Group_1__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:520:6: ( ( rule__Process__Group_1__0 ) )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:464:6: ( ( rule__Process__Group_1__0 ) )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:465:1: ( rule__Process__Group_1__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:520:6: ( ( rule__Process__Group_1__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:521:1: ( rule__Process__Group_1__0 )
                     {
                      before(grammarAccess.getProcessAccess().getGroup_1()); 
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:466:1: ( rule__Process__Group_1__0 )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:466:2: rule__Process__Group_1__0
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:522:1: ( rule__Process__Group_1__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:522:2: rule__Process__Group_1__0
                     {
-                    pushFollow(FOLLOW_rule__Process__Group_1__0_in_rule__Process__Alternatives928);
+                    pushFollow(FOLLOW_rule__Process__Group_1__0_in_rule__Process__Alternatives1048);
                     rule__Process__Group_1__0();
                     _fsp--;
 
@@ -1227,13 +1377,13 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Alternatives
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:475:1: rule__BasicStatement__Alternatives : ( ( ( rule__BasicStatement__Group_0__0 ) ) | ( ( rule__BasicStatement__Group_1__0 ) ) | ( ( rule__BasicStatement__Group_2__0 ) ) | ( ( rule__BasicStatement__Group_3__0 ) ) | ( ( rule__BasicStatement__Group_4__0 ) ) );
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:531:1: rule__BasicStatement__Alternatives : ( ( ( rule__BasicStatement__Group_0__0 ) ) | ( ( rule__BasicStatement__Group_1__0 ) ) | ( ( rule__BasicStatement__Group_2__0 ) ) | ( ( rule__BasicStatement__Group_3__0 ) ) | ( ( rule__BasicStatement__Group_4__0 ) ) );
     public final void rule__BasicStatement__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:479:1: ( ( ( rule__BasicStatement__Group_0__0 ) ) | ( ( rule__BasicStatement__Group_1__0 ) ) | ( ( rule__BasicStatement__Group_2__0 ) ) | ( ( rule__BasicStatement__Group_3__0 ) ) | ( ( rule__BasicStatement__Group_4__0 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:535:1: ( ( ( rule__BasicStatement__Group_0__0 ) ) | ( ( rule__BasicStatement__Group_1__0 ) ) | ( ( rule__BasicStatement__Group_2__0 ) ) | ( ( rule__BasicStatement__Group_3__0 ) ) | ( ( rule__BasicStatement__Group_4__0 ) ) )
             int alt2=5;
             switch ( input.LA(1) ) {
             case RULE_LCURLY:
@@ -1245,9 +1395,9 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
             case RULE_ID:
                 {
                 switch ( input.LA(2) ) {
-                case RULE_CHOICE:
+                case RULE_ASSIGN:
                     {
-                    alt2=3;
+                    alt2=2;
                     }
                     break;
                 case RULE_DECREMENT:
@@ -1255,20 +1405,25 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
                     alt2=4;
                     }
                     break;
-                case RULE_ASSIGN:
+                case RULE_CHOICE:
                     {
-                    alt2=2;
+                    alt2=3;
                     }
                     break;
                 default:
                     NoViableAltException nvae =
-                        new NoViableAltException("475:1: rule__BasicStatement__Alternatives : ( ( ( rule__BasicStatement__Group_0__0 ) ) | ( ( rule__BasicStatement__Group_1__0 ) ) | ( ( rule__BasicStatement__Group_2__0 ) ) | ( ( rule__BasicStatement__Group_3__0 ) ) | ( ( rule__BasicStatement__Group_4__0 ) ) );", 2, 2, input);
+                        new NoViableAltException("531:1: rule__BasicStatement__Alternatives : ( ( ( rule__BasicStatement__Group_0__0 ) ) | ( ( rule__BasicStatement__Group_1__0 ) ) | ( ( rule__BasicStatement__Group_2__0 ) ) | ( ( rule__BasicStatement__Group_3__0 ) ) | ( ( rule__BasicStatement__Group_4__0 ) ) );", 2, 2, input);
 
                     throw nvae;
                 }
 
                 }
                 break;
+            case EOF:
+            case RULE_RCURLY:
+            case RULE_RPAREN:
+            case RULE_VERT:
+            case RULE_SEMICOLON:
             case RULE_LSQUARE:
                 {
                 alt2=5;
@@ -1276,23 +1431,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("475:1: rule__BasicStatement__Alternatives : ( ( ( rule__BasicStatement__Group_0__0 ) ) | ( ( rule__BasicStatement__Group_1__0 ) ) | ( ( rule__BasicStatement__Group_2__0 ) ) | ( ( rule__BasicStatement__Group_3__0 ) ) | ( ( rule__BasicStatement__Group_4__0 ) ) );", 2, 0, input);
+                    new NoViableAltException("531:1: rule__BasicStatement__Alternatives : ( ( ( rule__BasicStatement__Group_0__0 ) ) | ( ( rule__BasicStatement__Group_1__0 ) ) | ( ( rule__BasicStatement__Group_2__0 ) ) | ( ( rule__BasicStatement__Group_3__0 ) ) | ( ( rule__BasicStatement__Group_4__0 ) ) );", 2, 0, input);
 
                 throw nvae;
             }
 
             switch (alt2) {
                 case 1 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:480:1: ( ( rule__BasicStatement__Group_0__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:536:1: ( ( rule__BasicStatement__Group_0__0 ) )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:480:1: ( ( rule__BasicStatement__Group_0__0 ) )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:481:1: ( rule__BasicStatement__Group_0__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:536:1: ( ( rule__BasicStatement__Group_0__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:537:1: ( rule__BasicStatement__Group_0__0 )
                     {
                      before(grammarAccess.getBasicStatementAccess().getGroup_0()); 
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:482:1: ( rule__BasicStatement__Group_0__0 )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:482:2: rule__BasicStatement__Group_0__0
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:538:1: ( rule__BasicStatement__Group_0__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:538:2: rule__BasicStatement__Group_0__0
                     {
-                    pushFollow(FOLLOW_rule__BasicStatement__Group_0__0_in_rule__BasicStatement__Alternatives961);
+                    pushFollow(FOLLOW_rule__BasicStatement__Group_0__0_in_rule__BasicStatement__Alternatives1081);
                     rule__BasicStatement__Group_0__0();
                     _fsp--;
 
@@ -1307,16 +1462,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:486:6: ( ( rule__BasicStatement__Group_1__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:542:6: ( ( rule__BasicStatement__Group_1__0 ) )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:486:6: ( ( rule__BasicStatement__Group_1__0 ) )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:487:1: ( rule__BasicStatement__Group_1__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:542:6: ( ( rule__BasicStatement__Group_1__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:543:1: ( rule__BasicStatement__Group_1__0 )
                     {
                      before(grammarAccess.getBasicStatementAccess().getGroup_1()); 
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:488:1: ( rule__BasicStatement__Group_1__0 )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:488:2: rule__BasicStatement__Group_1__0
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:544:1: ( rule__BasicStatement__Group_1__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:544:2: rule__BasicStatement__Group_1__0
                     {
-                    pushFollow(FOLLOW_rule__BasicStatement__Group_1__0_in_rule__BasicStatement__Alternatives979);
+                    pushFollow(FOLLOW_rule__BasicStatement__Group_1__0_in_rule__BasicStatement__Alternatives1099);
                     rule__BasicStatement__Group_1__0();
                     _fsp--;
 
@@ -1331,16 +1486,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:492:6: ( ( rule__BasicStatement__Group_2__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:548:6: ( ( rule__BasicStatement__Group_2__0 ) )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:492:6: ( ( rule__BasicStatement__Group_2__0 ) )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:493:1: ( rule__BasicStatement__Group_2__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:548:6: ( ( rule__BasicStatement__Group_2__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:549:1: ( rule__BasicStatement__Group_2__0 )
                     {
                      before(grammarAccess.getBasicStatementAccess().getGroup_2()); 
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:494:1: ( rule__BasicStatement__Group_2__0 )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:494:2: rule__BasicStatement__Group_2__0
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:550:1: ( rule__BasicStatement__Group_2__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:550:2: rule__BasicStatement__Group_2__0
                     {
-                    pushFollow(FOLLOW_rule__BasicStatement__Group_2__0_in_rule__BasicStatement__Alternatives997);
+                    pushFollow(FOLLOW_rule__BasicStatement__Group_2__0_in_rule__BasicStatement__Alternatives1117);
                     rule__BasicStatement__Group_2__0();
                     _fsp--;
 
@@ -1355,16 +1510,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:498:6: ( ( rule__BasicStatement__Group_3__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:554:6: ( ( rule__BasicStatement__Group_3__0 ) )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:498:6: ( ( rule__BasicStatement__Group_3__0 ) )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:499:1: ( rule__BasicStatement__Group_3__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:554:6: ( ( rule__BasicStatement__Group_3__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:555:1: ( rule__BasicStatement__Group_3__0 )
                     {
                      before(grammarAccess.getBasicStatementAccess().getGroup_3()); 
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:500:1: ( rule__BasicStatement__Group_3__0 )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:500:2: rule__BasicStatement__Group_3__0
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:556:1: ( rule__BasicStatement__Group_3__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:556:2: rule__BasicStatement__Group_3__0
                     {
-                    pushFollow(FOLLOW_rule__BasicStatement__Group_3__0_in_rule__BasicStatement__Alternatives1015);
+                    pushFollow(FOLLOW_rule__BasicStatement__Group_3__0_in_rule__BasicStatement__Alternatives1135);
                     rule__BasicStatement__Group_3__0();
                     _fsp--;
 
@@ -1379,16 +1534,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:504:6: ( ( rule__BasicStatement__Group_4__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:560:6: ( ( rule__BasicStatement__Group_4__0 ) )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:504:6: ( ( rule__BasicStatement__Group_4__0 ) )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:505:1: ( rule__BasicStatement__Group_4__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:560:6: ( ( rule__BasicStatement__Group_4__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:561:1: ( rule__BasicStatement__Group_4__0 )
                     {
                      before(grammarAccess.getBasicStatementAccess().getGroup_4()); 
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:506:1: ( rule__BasicStatement__Group_4__0 )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:506:2: rule__BasicStatement__Group_4__0
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:562:1: ( rule__BasicStatement__Group_4__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:562:2: rule__BasicStatement__Group_4__0
                     {
-                    pushFollow(FOLLOW_rule__BasicStatement__Group_4__0_in_rule__BasicStatement__Alternatives1033);
+                    pushFollow(FOLLOW_rule__BasicStatement__Group_4__0_in_rule__BasicStatement__Alternatives1153);
                     rule__BasicStatement__Group_4__0();
                     _fsp--;
 
@@ -1420,13 +1575,13 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Expression__OpAlternatives_1_1_0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:515:1: rule__Expression__OpAlternatives_1_1_0 : ( ( RULE_PLUS ) | ( RULE_MINUS ) | ( RULE_ASTERISK ) | ( RULE_DIVIDE ) );
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:571:1: rule__Expression__OpAlternatives_1_1_0 : ( ( RULE_PLUS ) | ( RULE_MINUS ) | ( RULE_ASTERISK ) | ( RULE_DIVIDE ) );
     public final void rule__Expression__OpAlternatives_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:519:1: ( ( RULE_PLUS ) | ( RULE_MINUS ) | ( RULE_ASTERISK ) | ( RULE_DIVIDE ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:575:1: ( ( RULE_PLUS ) | ( RULE_MINUS ) | ( RULE_ASTERISK ) | ( RULE_DIVIDE ) )
             int alt3=4;
             switch ( input.LA(1) ) {
             case RULE_PLUS:
@@ -1451,20 +1606,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("515:1: rule__Expression__OpAlternatives_1_1_0 : ( ( RULE_PLUS ) | ( RULE_MINUS ) | ( RULE_ASTERISK ) | ( RULE_DIVIDE ) );", 3, 0, input);
+                    new NoViableAltException("571:1: rule__Expression__OpAlternatives_1_1_0 : ( ( RULE_PLUS ) | ( RULE_MINUS ) | ( RULE_ASTERISK ) | ( RULE_DIVIDE ) );", 3, 0, input);
 
                 throw nvae;
             }
 
             switch (alt3) {
                 case 1 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:520:1: ( RULE_PLUS )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:576:1: ( RULE_PLUS )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:520:1: ( RULE_PLUS )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:521:1: RULE_PLUS
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:576:1: ( RULE_PLUS )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:577:1: RULE_PLUS
                     {
                      before(grammarAccess.getExpressionAccess().getOpPLUSTerminalRuleCall_1_1_0_0()); 
-                    match(input,RULE_PLUS,FOLLOW_RULE_PLUS_in_rule__Expression__OpAlternatives_1_1_01066); 
+                    match(input,RULE_PLUS,FOLLOW_RULE_PLUS_in_rule__Expression__OpAlternatives_1_1_01186); 
                      after(grammarAccess.getExpressionAccess().getOpPLUSTerminalRuleCall_1_1_0_0()); 
 
                     }
@@ -1473,13 +1628,13 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:526:6: ( RULE_MINUS )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:582:6: ( RULE_MINUS )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:526:6: ( RULE_MINUS )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:527:1: RULE_MINUS
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:582:6: ( RULE_MINUS )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:583:1: RULE_MINUS
                     {
                      before(grammarAccess.getExpressionAccess().getOpMINUSTerminalRuleCall_1_1_0_1()); 
-                    match(input,RULE_MINUS,FOLLOW_RULE_MINUS_in_rule__Expression__OpAlternatives_1_1_01083); 
+                    match(input,RULE_MINUS,FOLLOW_RULE_MINUS_in_rule__Expression__OpAlternatives_1_1_01203); 
                      after(grammarAccess.getExpressionAccess().getOpMINUSTerminalRuleCall_1_1_0_1()); 
 
                     }
@@ -1488,13 +1643,13 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:532:6: ( RULE_ASTERISK )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:588:6: ( RULE_ASTERISK )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:532:6: ( RULE_ASTERISK )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:533:1: RULE_ASTERISK
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:588:6: ( RULE_ASTERISK )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:589:1: RULE_ASTERISK
                     {
                      before(grammarAccess.getExpressionAccess().getOpASTERISKTerminalRuleCall_1_1_0_2()); 
-                    match(input,RULE_ASTERISK,FOLLOW_RULE_ASTERISK_in_rule__Expression__OpAlternatives_1_1_01100); 
+                    match(input,RULE_ASTERISK,FOLLOW_RULE_ASTERISK_in_rule__Expression__OpAlternatives_1_1_01220); 
                      after(grammarAccess.getExpressionAccess().getOpASTERISKTerminalRuleCall_1_1_0_2()); 
 
                     }
@@ -1503,13 +1658,13 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:538:6: ( RULE_DIVIDE )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:594:6: ( RULE_DIVIDE )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:538:6: ( RULE_DIVIDE )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:539:1: RULE_DIVIDE
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:594:6: ( RULE_DIVIDE )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:595:1: RULE_DIVIDE
                     {
                      before(grammarAccess.getExpressionAccess().getOpDIVIDETerminalRuleCall_1_1_0_3()); 
-                    match(input,RULE_DIVIDE,FOLLOW_RULE_DIVIDE_in_rule__Expression__OpAlternatives_1_1_01117); 
+                    match(input,RULE_DIVIDE,FOLLOW_RULE_DIVIDE_in_rule__Expression__OpAlternatives_1_1_01237); 
                      after(grammarAccess.getExpressionAccess().getOpDIVIDETerminalRuleCall_1_1_0_3()); 
 
                     }
@@ -1535,13 +1690,13 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Alternatives
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:549:1: rule__TerminalExpression__Alternatives : ( ( ( rule__TerminalExpression__Group_0__0 ) ) | ( ( rule__TerminalExpression__Group_1__0 ) ) | ( ( rule__TerminalExpression__Group_2__0 ) ) | ( ( rule__TerminalExpression__Group_3__0 ) ) | ( ( rule__TerminalExpression__Group_4__0 ) ) );
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:605:1: rule__TerminalExpression__Alternatives : ( ( ( rule__TerminalExpression__Group_0__0 ) ) | ( ( rule__TerminalExpression__Group_1__0 ) ) | ( ( rule__TerminalExpression__Group_2__0 ) ) | ( ( rule__TerminalExpression__Group_3__0 ) ) | ( ( rule__TerminalExpression__Group_4__0 ) ) );
     public final void rule__TerminalExpression__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:553:1: ( ( ( rule__TerminalExpression__Group_0__0 ) ) | ( ( rule__TerminalExpression__Group_1__0 ) ) | ( ( rule__TerminalExpression__Group_2__0 ) ) | ( ( rule__TerminalExpression__Group_3__0 ) ) | ( ( rule__TerminalExpression__Group_4__0 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:609:1: ( ( ( rule__TerminalExpression__Group_0__0 ) ) | ( ( rule__TerminalExpression__Group_1__0 ) ) | ( ( rule__TerminalExpression__Group_2__0 ) ) | ( ( rule__TerminalExpression__Group_3__0 ) ) | ( ( rule__TerminalExpression__Group_4__0 ) ) )
             int alt4=5;
             switch ( input.LA(1) ) {
             case RULE_LPAREN:
@@ -1571,23 +1726,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("549:1: rule__TerminalExpression__Alternatives : ( ( ( rule__TerminalExpression__Group_0__0 ) ) | ( ( rule__TerminalExpression__Group_1__0 ) ) | ( ( rule__TerminalExpression__Group_2__0 ) ) | ( ( rule__TerminalExpression__Group_3__0 ) ) | ( ( rule__TerminalExpression__Group_4__0 ) ) );", 4, 0, input);
+                    new NoViableAltException("605:1: rule__TerminalExpression__Alternatives : ( ( ( rule__TerminalExpression__Group_0__0 ) ) | ( ( rule__TerminalExpression__Group_1__0 ) ) | ( ( rule__TerminalExpression__Group_2__0 ) ) | ( ( rule__TerminalExpression__Group_3__0 ) ) | ( ( rule__TerminalExpression__Group_4__0 ) ) );", 4, 0, input);
 
                 throw nvae;
             }
 
             switch (alt4) {
                 case 1 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:554:1: ( ( rule__TerminalExpression__Group_0__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:610:1: ( ( rule__TerminalExpression__Group_0__0 ) )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:554:1: ( ( rule__TerminalExpression__Group_0__0 ) )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:555:1: ( rule__TerminalExpression__Group_0__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:610:1: ( ( rule__TerminalExpression__Group_0__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:611:1: ( rule__TerminalExpression__Group_0__0 )
                     {
                      before(grammarAccess.getTerminalExpressionAccess().getGroup_0()); 
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:556:1: ( rule__TerminalExpression__Group_0__0 )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:556:2: rule__TerminalExpression__Group_0__0
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:612:1: ( rule__TerminalExpression__Group_0__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:612:2: rule__TerminalExpression__Group_0__0
                     {
-                    pushFollow(FOLLOW_rule__TerminalExpression__Group_0__0_in_rule__TerminalExpression__Alternatives1149);
+                    pushFollow(FOLLOW_rule__TerminalExpression__Group_0__0_in_rule__TerminalExpression__Alternatives1269);
                     rule__TerminalExpression__Group_0__0();
                     _fsp--;
 
@@ -1602,16 +1757,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:560:6: ( ( rule__TerminalExpression__Group_1__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:616:6: ( ( rule__TerminalExpression__Group_1__0 ) )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:560:6: ( ( rule__TerminalExpression__Group_1__0 ) )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:561:1: ( rule__TerminalExpression__Group_1__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:616:6: ( ( rule__TerminalExpression__Group_1__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:617:1: ( rule__TerminalExpression__Group_1__0 )
                     {
                      before(grammarAccess.getTerminalExpressionAccess().getGroup_1()); 
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:562:1: ( rule__TerminalExpression__Group_1__0 )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:562:2: rule__TerminalExpression__Group_1__0
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:618:1: ( rule__TerminalExpression__Group_1__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:618:2: rule__TerminalExpression__Group_1__0
                     {
-                    pushFollow(FOLLOW_rule__TerminalExpression__Group_1__0_in_rule__TerminalExpression__Alternatives1167);
+                    pushFollow(FOLLOW_rule__TerminalExpression__Group_1__0_in_rule__TerminalExpression__Alternatives1287);
                     rule__TerminalExpression__Group_1__0();
                     _fsp--;
 
@@ -1626,16 +1781,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:566:6: ( ( rule__TerminalExpression__Group_2__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:622:6: ( ( rule__TerminalExpression__Group_2__0 ) )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:566:6: ( ( rule__TerminalExpression__Group_2__0 ) )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:567:1: ( rule__TerminalExpression__Group_2__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:622:6: ( ( rule__TerminalExpression__Group_2__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:623:1: ( rule__TerminalExpression__Group_2__0 )
                     {
                      before(grammarAccess.getTerminalExpressionAccess().getGroup_2()); 
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:568:1: ( rule__TerminalExpression__Group_2__0 )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:568:2: rule__TerminalExpression__Group_2__0
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:624:1: ( rule__TerminalExpression__Group_2__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:624:2: rule__TerminalExpression__Group_2__0
                     {
-                    pushFollow(FOLLOW_rule__TerminalExpression__Group_2__0_in_rule__TerminalExpression__Alternatives1185);
+                    pushFollow(FOLLOW_rule__TerminalExpression__Group_2__0_in_rule__TerminalExpression__Alternatives1305);
                     rule__TerminalExpression__Group_2__0();
                     _fsp--;
 
@@ -1650,16 +1805,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:572:6: ( ( rule__TerminalExpression__Group_3__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:628:6: ( ( rule__TerminalExpression__Group_3__0 ) )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:572:6: ( ( rule__TerminalExpression__Group_3__0 ) )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:573:1: ( rule__TerminalExpression__Group_3__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:628:6: ( ( rule__TerminalExpression__Group_3__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:629:1: ( rule__TerminalExpression__Group_3__0 )
                     {
                      before(grammarAccess.getTerminalExpressionAccess().getGroup_3()); 
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:574:1: ( rule__TerminalExpression__Group_3__0 )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:574:2: rule__TerminalExpression__Group_3__0
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:630:1: ( rule__TerminalExpression__Group_3__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:630:2: rule__TerminalExpression__Group_3__0
                     {
-                    pushFollow(FOLLOW_rule__TerminalExpression__Group_3__0_in_rule__TerminalExpression__Alternatives1203);
+                    pushFollow(FOLLOW_rule__TerminalExpression__Group_3__0_in_rule__TerminalExpression__Alternatives1323);
                     rule__TerminalExpression__Group_3__0();
                     _fsp--;
 
@@ -1674,16 +1829,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:578:6: ( ( rule__TerminalExpression__Group_4__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:634:6: ( ( rule__TerminalExpression__Group_4__0 ) )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:578:6: ( ( rule__TerminalExpression__Group_4__0 ) )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:579:1: ( rule__TerminalExpression__Group_4__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:634:6: ( ( rule__TerminalExpression__Group_4__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:635:1: ( rule__TerminalExpression__Group_4__0 )
                     {
                      before(grammarAccess.getTerminalExpressionAccess().getGroup_4()); 
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:580:1: ( rule__TerminalExpression__Group_4__0 )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:580:2: rule__TerminalExpression__Group_4__0
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:636:1: ( rule__TerminalExpression__Group_4__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:636:2: rule__TerminalExpression__Group_4__0
                     {
-                    pushFollow(FOLLOW_rule__TerminalExpression__Group_4__0_in_rule__TerminalExpression__Alternatives1221);
+                    pushFollow(FOLLOW_rule__TerminalExpression__Group_4__0_in_rule__TerminalExpression__Alternatives1341);
                     rule__TerminalExpression__Group_4__0();
                     _fsp--;
 
@@ -1714,58 +1869,48 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
     // $ANTLR end rule__TerminalExpression__Alternatives
 
 
-    // $ANTLR start rule__NDChoiceStatement__Alternatives
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:589:1: rule__NDChoiceStatement__Alternatives : ( ( ( rule__NDChoiceStatement__Group_0__0 ) ) | ( ( rule__NDChoiceStatement__Group_1__0 ) ) );
-    public final void rule__NDChoiceStatement__Alternatives() throws RecognitionException {
+    // $ANTLR start rule__InputOperation__Alternatives
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:645:1: rule__InputOperation__Alternatives : ( ( ( rule__InputOperation__Group_0__0 ) ) | ( ( rule__InputOperation__Group_1__0 ) ) );
+    public final void rule__InputOperation__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:593:1: ( ( ( rule__NDChoiceStatement__Group_0__0 ) ) | ( ( rule__NDChoiceStatement__Group_1__0 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:649:1: ( ( ( rule__InputOperation__Group_0__0 ) ) | ( ( rule__InputOperation__Group_1__0 ) ) )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==RULE_LSQUARE) ) {
-                int LA5_1 = input.LA(2);
-
-                if ( (LA5_1==RULE_ID) ) {
-                    alt5=2;
-                }
-                else if ( (LA5_1==RULE_LINKIN) ) {
-                    alt5=1;
-                }
-                else {
-                    NoViableAltException nvae =
-                        new NoViableAltException("589:1: rule__NDChoiceStatement__Alternatives : ( ( ( rule__NDChoiceStatement__Group_0__0 ) ) | ( ( rule__NDChoiceStatement__Group_1__0 ) ) );", 5, 1, input);
-
-                    throw nvae;
-                }
+            if ( (LA5_0==RULE_LINKIN) ) {
+                alt5=1;
+            }
+            else if ( (LA5_0==RULE_ID) ) {
+                alt5=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("589:1: rule__NDChoiceStatement__Alternatives : ( ( ( rule__NDChoiceStatement__Group_0__0 ) ) | ( ( rule__NDChoiceStatement__Group_1__0 ) ) );", 5, 0, input);
+                    new NoViableAltException("645:1: rule__InputOperation__Alternatives : ( ( ( rule__InputOperation__Group_0__0 ) ) | ( ( rule__InputOperation__Group_1__0 ) ) );", 5, 0, input);
 
                 throw nvae;
             }
             switch (alt5) {
                 case 1 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:594:1: ( ( rule__NDChoiceStatement__Group_0__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:650:1: ( ( rule__InputOperation__Group_0__0 ) )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:594:1: ( ( rule__NDChoiceStatement__Group_0__0 ) )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:595:1: ( rule__NDChoiceStatement__Group_0__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:650:1: ( ( rule__InputOperation__Group_0__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:651:1: ( rule__InputOperation__Group_0__0 )
                     {
-                     before(grammarAccess.getNDChoiceStatementAccess().getGroup_0()); 
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:596:1: ( rule__NDChoiceStatement__Group_0__0 )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:596:2: rule__NDChoiceStatement__Group_0__0
+                     before(grammarAccess.getInputOperationAccess().getGroup_0()); 
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:652:1: ( rule__InputOperation__Group_0__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:652:2: rule__InputOperation__Group_0__0
                     {
-                    pushFollow(FOLLOW_rule__NDChoiceStatement__Group_0__0_in_rule__NDChoiceStatement__Alternatives1254);
-                    rule__NDChoiceStatement__Group_0__0();
+                    pushFollow(FOLLOW_rule__InputOperation__Group_0__0_in_rule__InputOperation__Alternatives1374);
+                    rule__InputOperation__Group_0__0();
                     _fsp--;
 
 
                     }
 
-                     after(grammarAccess.getNDChoiceStatementAccess().getGroup_0()); 
+                     after(grammarAccess.getInputOperationAccess().getGroup_0()); 
 
                     }
 
@@ -1773,23 +1918,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:600:6: ( ( rule__NDChoiceStatement__Group_1__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:656:6: ( ( rule__InputOperation__Group_1__0 ) )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:600:6: ( ( rule__NDChoiceStatement__Group_1__0 ) )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:601:1: ( rule__NDChoiceStatement__Group_1__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:656:6: ( ( rule__InputOperation__Group_1__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:657:1: ( rule__InputOperation__Group_1__0 )
                     {
-                     before(grammarAccess.getNDChoiceStatementAccess().getGroup_1()); 
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:602:1: ( rule__NDChoiceStatement__Group_1__0 )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:602:2: rule__NDChoiceStatement__Group_1__0
+                     before(grammarAccess.getInputOperationAccess().getGroup_1()); 
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:658:1: ( rule__InputOperation__Group_1__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:658:2: rule__InputOperation__Group_1__0
                     {
-                    pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__0_in_rule__NDChoiceStatement__Alternatives1272);
-                    rule__NDChoiceStatement__Group_1__0();
+                    pushFollow(FOLLOW_rule__InputOperation__Group_1__0_in_rule__InputOperation__Alternatives1392);
+                    rule__InputOperation__Group_1__0();
                     _fsp--;
 
 
                     }
 
-                     after(grammarAccess.getNDChoiceStatementAccess().getGroup_1()); 
+                     after(grammarAccess.getInputOperationAccess().getGroup_1()); 
 
                     }
 
@@ -1810,17 +1955,17 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__NDChoiceStatement__Alternatives
+    // $ANTLR end rule__InputOperation__Alternatives
 
 
     // $ANTLR start rule__VariablePath__Alternatives_2_1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:611:1: rule__VariablePath__Alternatives_2_1 : ( ( RULE_ID ) | ( ( rule__VariablePath__Group_2_1_1__0 ) ) );
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:667:1: rule__VariablePath__Alternatives_2_1 : ( ( RULE_ID ) | ( ( rule__VariablePath__Group_2_1_1__0 ) ) );
     public final void rule__VariablePath__Alternatives_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:615:1: ( ( RULE_ID ) | ( ( rule__VariablePath__Group_2_1_1__0 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:671:1: ( ( RULE_ID ) | ( ( rule__VariablePath__Group_2_1_1__0 ) ) )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1832,19 +1977,19 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("611:1: rule__VariablePath__Alternatives_2_1 : ( ( RULE_ID ) | ( ( rule__VariablePath__Group_2_1_1__0 ) ) );", 6, 0, input);
+                    new NoViableAltException("667:1: rule__VariablePath__Alternatives_2_1 : ( ( RULE_ID ) | ( ( rule__VariablePath__Group_2_1_1__0 ) ) );", 6, 0, input);
 
                 throw nvae;
             }
             switch (alt6) {
                 case 1 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:616:1: ( RULE_ID )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:672:1: ( RULE_ID )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:616:1: ( RULE_ID )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:617:1: RULE_ID
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:672:1: ( RULE_ID )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:673:1: RULE_ID
                     {
                      before(grammarAccess.getVariablePathAccess().getIDTerminalRuleCall_2_1_0()); 
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__VariablePath__Alternatives_2_11305); 
+                    match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__VariablePath__Alternatives_2_11425); 
                      after(grammarAccess.getVariablePathAccess().getIDTerminalRuleCall_2_1_0()); 
 
                     }
@@ -1853,16 +1998,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:622:6: ( ( rule__VariablePath__Group_2_1_1__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:678:6: ( ( rule__VariablePath__Group_2_1_1__0 ) )
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:622:6: ( ( rule__VariablePath__Group_2_1_1__0 ) )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:623:1: ( rule__VariablePath__Group_2_1_1__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:678:6: ( ( rule__VariablePath__Group_2_1_1__0 ) )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:679:1: ( rule__VariablePath__Group_2_1_1__0 )
                     {
                      before(grammarAccess.getVariablePathAccess().getGroup_2_1_1()); 
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:624:1: ( rule__VariablePath__Group_2_1_1__0 )
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:624:2: rule__VariablePath__Group_2_1_1__0
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:680:1: ( rule__VariablePath__Group_2_1_1__0 )
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:680:2: rule__VariablePath__Group_2_1_1__0
                     {
-                    pushFollow(FOLLOW_rule__VariablePath__Group_2_1_1__0_in_rule__VariablePath__Alternatives_2_11322);
+                    pushFollow(FOLLOW_rule__VariablePath__Group_2_1_1__0_in_rule__VariablePath__Alternatives_2_11442);
                     rule__VariablePath__Group_2_1_1__0();
                     _fsp--;
 
@@ -1894,20 +2039,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Program__Group__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:635:1: rule__Program__Group__0 : rule__Program__Group__0__Impl rule__Program__Group__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:691:1: rule__Program__Group__0 : rule__Program__Group__0__Impl rule__Program__Group__1 ;
     public final void rule__Program__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:639:1: ( rule__Program__Group__0__Impl rule__Program__Group__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:640:2: rule__Program__Group__0__Impl rule__Program__Group__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:695:1: ( rule__Program__Group__0__Impl rule__Program__Group__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:696:2: rule__Program__Group__0__Impl rule__Program__Group__1
             {
-            pushFollow(FOLLOW_rule__Program__Group__0__Impl_in_rule__Program__Group__01353);
+            pushFollow(FOLLOW_rule__Program__Group__0__Impl_in_rule__Program__Group__01473);
             rule__Program__Group__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__Program__Group__1_in_rule__Program__Group__01356);
+            pushFollow(FOLLOW_rule__Program__Group__1_in_rule__Program__Group__01476);
             rule__Program__Group__1();
             _fsp--;
 
@@ -1930,20 +2075,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Program__Group__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:647:1: rule__Program__Group__0__Impl : ( 'main' ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:703:1: rule__Program__Group__0__Impl : ( 'main' ) ;
     public final void rule__Program__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:651:1: ( ( 'main' ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:652:1: ( 'main' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:707:1: ( ( 'main' ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:708:1: ( 'main' )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:652:1: ( 'main' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:653:1: 'main'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:708:1: ( 'main' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:709:1: 'main'
             {
              before(grammarAccess.getProgramAccess().getMainKeyword_0()); 
-            match(input,35,FOLLOW_35_in_rule__Program__Group__0__Impl1384); 
+            match(input,35,FOLLOW_35_in_rule__Program__Group__0__Impl1504); 
              after(grammarAccess.getProgramAccess().getMainKeyword_0()); 
 
             }
@@ -1967,16 +2112,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Program__Group__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:666:1: rule__Program__Group__1 : rule__Program__Group__1__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:722:1: rule__Program__Group__1 : rule__Program__Group__1__Impl ;
     public final void rule__Program__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:670:1: ( rule__Program__Group__1__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:671:2: rule__Program__Group__1__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:726:1: ( rule__Program__Group__1__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:727:2: rule__Program__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__Program__Group__1__Impl_in_rule__Program__Group__11415);
+            pushFollow(FOLLOW_rule__Program__Group__1__Impl_in_rule__Program__Group__11535);
             rule__Program__Group__1__Impl();
             _fsp--;
 
@@ -1999,23 +2144,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Program__Group__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:677:1: rule__Program__Group__1__Impl : ( ( rule__Program__MainAssignment_1 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:733:1: rule__Program__Group__1__Impl : ( ( rule__Program__MainAssignment_1 ) ) ;
     public final void rule__Program__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:681:1: ( ( ( rule__Program__MainAssignment_1 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:682:1: ( ( rule__Program__MainAssignment_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:737:1: ( ( ( rule__Program__MainAssignment_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:738:1: ( ( rule__Program__MainAssignment_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:682:1: ( ( rule__Program__MainAssignment_1 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:683:1: ( rule__Program__MainAssignment_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:738:1: ( ( rule__Program__MainAssignment_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:739:1: ( rule__Program__MainAssignment_1 )
             {
              before(grammarAccess.getProgramAccess().getMainAssignment_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:684:1: ( rule__Program__MainAssignment_1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:684:2: rule__Program__MainAssignment_1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:740:1: ( rule__Program__MainAssignment_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:740:2: rule__Program__MainAssignment_1
             {
-            pushFollow(FOLLOW_rule__Program__MainAssignment_1_in_rule__Program__Group__1__Impl1442);
+            pushFollow(FOLLOW_rule__Program__MainAssignment_1_in_rule__Program__Group__1__Impl1562);
             rule__Program__MainAssignment_1();
             _fsp--;
 
@@ -2045,20 +2190,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__MainProcess__Group__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:698:1: rule__MainProcess__Group__0 : rule__MainProcess__Group__0__Impl rule__MainProcess__Group__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:754:1: rule__MainProcess__Group__0 : rule__MainProcess__Group__0__Impl rule__MainProcess__Group__1 ;
     public final void rule__MainProcess__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:702:1: ( rule__MainProcess__Group__0__Impl rule__MainProcess__Group__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:703:2: rule__MainProcess__Group__0__Impl rule__MainProcess__Group__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:758:1: ( rule__MainProcess__Group__0__Impl rule__MainProcess__Group__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:759:2: rule__MainProcess__Group__0__Impl rule__MainProcess__Group__1
             {
-            pushFollow(FOLLOW_rule__MainProcess__Group__0__Impl_in_rule__MainProcess__Group__01476);
+            pushFollow(FOLLOW_rule__MainProcess__Group__0__Impl_in_rule__MainProcess__Group__01596);
             rule__MainProcess__Group__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__MainProcess__Group__1_in_rule__MainProcess__Group__01479);
+            pushFollow(FOLLOW_rule__MainProcess__Group__1_in_rule__MainProcess__Group__01599);
             rule__MainProcess__Group__1();
             _fsp--;
 
@@ -2081,21 +2226,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__MainProcess__Group__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:710:1: rule__MainProcess__Group__0__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:766:1: rule__MainProcess__Group__0__Impl : ( () ) ;
     public final void rule__MainProcess__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:714:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:715:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:770:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:771:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:715:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:716:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:771:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:772:1: ()
             {
              before(grammarAccess.getMainProcessAccess().getOLSyntaxNodeAction_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:717:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:719:1: 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:773:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:775:1: 
             {
             }
 
@@ -2118,20 +2263,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__MainProcess__Group__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:729:1: rule__MainProcess__Group__1 : rule__MainProcess__Group__1__Impl rule__MainProcess__Group__2 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:785:1: rule__MainProcess__Group__1 : rule__MainProcess__Group__1__Impl rule__MainProcess__Group__2 ;
     public final void rule__MainProcess__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:733:1: ( rule__MainProcess__Group__1__Impl rule__MainProcess__Group__2 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:734:2: rule__MainProcess__Group__1__Impl rule__MainProcess__Group__2
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:789:1: ( rule__MainProcess__Group__1__Impl rule__MainProcess__Group__2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:790:2: rule__MainProcess__Group__1__Impl rule__MainProcess__Group__2
             {
-            pushFollow(FOLLOW_rule__MainProcess__Group__1__Impl_in_rule__MainProcess__Group__11537);
+            pushFollow(FOLLOW_rule__MainProcess__Group__1__Impl_in_rule__MainProcess__Group__11657);
             rule__MainProcess__Group__1__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__MainProcess__Group__2_in_rule__MainProcess__Group__11540);
+            pushFollow(FOLLOW_rule__MainProcess__Group__2_in_rule__MainProcess__Group__11660);
             rule__MainProcess__Group__2();
             _fsp--;
 
@@ -2154,20 +2299,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__MainProcess__Group__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:741:1: rule__MainProcess__Group__1__Impl : ( RULE_LCURLY ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:797:1: rule__MainProcess__Group__1__Impl : ( RULE_LCURLY ) ;
     public final void rule__MainProcess__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:745:1: ( ( RULE_LCURLY ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:746:1: ( RULE_LCURLY )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:801:1: ( ( RULE_LCURLY ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:802:1: ( RULE_LCURLY )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:746:1: ( RULE_LCURLY )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:747:1: RULE_LCURLY
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:802:1: ( RULE_LCURLY )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:803:1: RULE_LCURLY
             {
              before(grammarAccess.getMainProcessAccess().getLCURLYTerminalRuleCall_1()); 
-            match(input,RULE_LCURLY,FOLLOW_RULE_LCURLY_in_rule__MainProcess__Group__1__Impl1567); 
+            match(input,RULE_LCURLY,FOLLOW_RULE_LCURLY_in_rule__MainProcess__Group__1__Impl1687); 
              after(grammarAccess.getMainProcessAccess().getLCURLYTerminalRuleCall_1()); 
 
             }
@@ -2191,20 +2336,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__MainProcess__Group__2
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:758:1: rule__MainProcess__Group__2 : rule__MainProcess__Group__2__Impl rule__MainProcess__Group__3 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:814:1: rule__MainProcess__Group__2 : rule__MainProcess__Group__2__Impl rule__MainProcess__Group__3 ;
     public final void rule__MainProcess__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:762:1: ( rule__MainProcess__Group__2__Impl rule__MainProcess__Group__3 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:763:2: rule__MainProcess__Group__2__Impl rule__MainProcess__Group__3
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:818:1: ( rule__MainProcess__Group__2__Impl rule__MainProcess__Group__3 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:819:2: rule__MainProcess__Group__2__Impl rule__MainProcess__Group__3
             {
-            pushFollow(FOLLOW_rule__MainProcess__Group__2__Impl_in_rule__MainProcess__Group__21596);
+            pushFollow(FOLLOW_rule__MainProcess__Group__2__Impl_in_rule__MainProcess__Group__21716);
             rule__MainProcess__Group__2__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__MainProcess__Group__3_in_rule__MainProcess__Group__21599);
+            pushFollow(FOLLOW_rule__MainProcess__Group__3_in_rule__MainProcess__Group__21719);
             rule__MainProcess__Group__3();
             _fsp--;
 
@@ -2227,23 +2372,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__MainProcess__Group__2__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:770:1: rule__MainProcess__Group__2__Impl : ( ( rule__MainProcess__ParallelStatementAssignment_2 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:826:1: rule__MainProcess__Group__2__Impl : ( ( rule__MainProcess__ParallelStatementAssignment_2 ) ) ;
     public final void rule__MainProcess__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:774:1: ( ( ( rule__MainProcess__ParallelStatementAssignment_2 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:775:1: ( ( rule__MainProcess__ParallelStatementAssignment_2 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:830:1: ( ( ( rule__MainProcess__ParallelStatementAssignment_2 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:831:1: ( ( rule__MainProcess__ParallelStatementAssignment_2 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:775:1: ( ( rule__MainProcess__ParallelStatementAssignment_2 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:776:1: ( rule__MainProcess__ParallelStatementAssignment_2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:831:1: ( ( rule__MainProcess__ParallelStatementAssignment_2 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:832:1: ( rule__MainProcess__ParallelStatementAssignment_2 )
             {
              before(grammarAccess.getMainProcessAccess().getParallelStatementAssignment_2()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:777:1: ( rule__MainProcess__ParallelStatementAssignment_2 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:777:2: rule__MainProcess__ParallelStatementAssignment_2
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:833:1: ( rule__MainProcess__ParallelStatementAssignment_2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:833:2: rule__MainProcess__ParallelStatementAssignment_2
             {
-            pushFollow(FOLLOW_rule__MainProcess__ParallelStatementAssignment_2_in_rule__MainProcess__Group__2__Impl1626);
+            pushFollow(FOLLOW_rule__MainProcess__ParallelStatementAssignment_2_in_rule__MainProcess__Group__2__Impl1746);
             rule__MainProcess__ParallelStatementAssignment_2();
             _fsp--;
 
@@ -2273,16 +2418,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__MainProcess__Group__3
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:787:1: rule__MainProcess__Group__3 : rule__MainProcess__Group__3__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:843:1: rule__MainProcess__Group__3 : rule__MainProcess__Group__3__Impl ;
     public final void rule__MainProcess__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:791:1: ( rule__MainProcess__Group__3__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:792:2: rule__MainProcess__Group__3__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:847:1: ( rule__MainProcess__Group__3__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:848:2: rule__MainProcess__Group__3__Impl
             {
-            pushFollow(FOLLOW_rule__MainProcess__Group__3__Impl_in_rule__MainProcess__Group__31656);
+            pushFollow(FOLLOW_rule__MainProcess__Group__3__Impl_in_rule__MainProcess__Group__31776);
             rule__MainProcess__Group__3__Impl();
             _fsp--;
 
@@ -2305,20 +2450,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__MainProcess__Group__3__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:798:1: rule__MainProcess__Group__3__Impl : ( RULE_RCURLY ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:854:1: rule__MainProcess__Group__3__Impl : ( RULE_RCURLY ) ;
     public final void rule__MainProcess__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:802:1: ( ( RULE_RCURLY ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:803:1: ( RULE_RCURLY )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:858:1: ( ( RULE_RCURLY ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:859:1: ( RULE_RCURLY )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:803:1: ( RULE_RCURLY )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:804:1: RULE_RCURLY
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:859:1: ( RULE_RCURLY )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:860:1: RULE_RCURLY
             {
              before(grammarAccess.getMainProcessAccess().getRCURLYTerminalRuleCall_3()); 
-            match(input,RULE_RCURLY,FOLLOW_RULE_RCURLY_in_rule__MainProcess__Group__3__Impl1683); 
+            match(input,RULE_RCURLY,FOLLOW_RULE_RCURLY_in_rule__MainProcess__Group__3__Impl1803); 
              after(grammarAccess.getMainProcessAccess().getRCURLYTerminalRuleCall_3()); 
 
             }
@@ -2342,20 +2487,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Process__Group_0__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:823:1: rule__Process__Group_0__0 : rule__Process__Group_0__0__Impl rule__Process__Group_0__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:879:1: rule__Process__Group_0__0 : rule__Process__Group_0__0__Impl rule__Process__Group_0__1 ;
     public final void rule__Process__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:827:1: ( rule__Process__Group_0__0__Impl rule__Process__Group_0__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:828:2: rule__Process__Group_0__0__Impl rule__Process__Group_0__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:883:1: ( rule__Process__Group_0__0__Impl rule__Process__Group_0__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:884:2: rule__Process__Group_0__0__Impl rule__Process__Group_0__1
             {
-            pushFollow(FOLLOW_rule__Process__Group_0__0__Impl_in_rule__Process__Group_0__01720);
+            pushFollow(FOLLOW_rule__Process__Group_0__0__Impl_in_rule__Process__Group_0__01840);
             rule__Process__Group_0__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__Process__Group_0__1_in_rule__Process__Group_0__01723);
+            pushFollow(FOLLOW_rule__Process__Group_0__1_in_rule__Process__Group_0__01843);
             rule__Process__Group_0__1();
             _fsp--;
 
@@ -2378,21 +2523,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Process__Group_0__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:835:1: rule__Process__Group_0__0__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:891:1: rule__Process__Group_0__0__Impl : ( () ) ;
     public final void rule__Process__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:839:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:840:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:895:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:896:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:840:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:841:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:896:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:897:1: ()
             {
              before(grammarAccess.getProcessAccess().getProcessAction_0_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:842:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:844:1: 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:898:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:900:1: 
             {
             }
 
@@ -2415,20 +2560,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Process__Group_0__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:854:1: rule__Process__Group_0__1 : rule__Process__Group_0__1__Impl rule__Process__Group_0__2 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:910:1: rule__Process__Group_0__1 : rule__Process__Group_0__1__Impl rule__Process__Group_0__2 ;
     public final void rule__Process__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:858:1: ( rule__Process__Group_0__1__Impl rule__Process__Group_0__2 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:859:2: rule__Process__Group_0__1__Impl rule__Process__Group_0__2
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:914:1: ( rule__Process__Group_0__1__Impl rule__Process__Group_0__2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:915:2: rule__Process__Group_0__1__Impl rule__Process__Group_0__2
             {
-            pushFollow(FOLLOW_rule__Process__Group_0__1__Impl_in_rule__Process__Group_0__11781);
+            pushFollow(FOLLOW_rule__Process__Group_0__1__Impl_in_rule__Process__Group_0__11901);
             rule__Process__Group_0__1__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__Process__Group_0__2_in_rule__Process__Group_0__11784);
+            pushFollow(FOLLOW_rule__Process__Group_0__2_in_rule__Process__Group_0__11904);
             rule__Process__Group_0__2();
             _fsp--;
 
@@ -2451,20 +2596,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Process__Group_0__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:866:1: rule__Process__Group_0__1__Impl : ( RULE_LCURLY ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:922:1: rule__Process__Group_0__1__Impl : ( RULE_LCURLY ) ;
     public final void rule__Process__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:870:1: ( ( RULE_LCURLY ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:871:1: ( RULE_LCURLY )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:926:1: ( ( RULE_LCURLY ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:927:1: ( RULE_LCURLY )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:871:1: ( RULE_LCURLY )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:872:1: RULE_LCURLY
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:927:1: ( RULE_LCURLY )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:928:1: RULE_LCURLY
             {
              before(grammarAccess.getProcessAccess().getLCURLYTerminalRuleCall_0_1()); 
-            match(input,RULE_LCURLY,FOLLOW_RULE_LCURLY_in_rule__Process__Group_0__1__Impl1811); 
+            match(input,RULE_LCURLY,FOLLOW_RULE_LCURLY_in_rule__Process__Group_0__1__Impl1931); 
              after(grammarAccess.getProcessAccess().getLCURLYTerminalRuleCall_0_1()); 
 
             }
@@ -2488,20 +2633,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Process__Group_0__2
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:883:1: rule__Process__Group_0__2 : rule__Process__Group_0__2__Impl rule__Process__Group_0__3 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:939:1: rule__Process__Group_0__2 : rule__Process__Group_0__2__Impl rule__Process__Group_0__3 ;
     public final void rule__Process__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:887:1: ( rule__Process__Group_0__2__Impl rule__Process__Group_0__3 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:888:2: rule__Process__Group_0__2__Impl rule__Process__Group_0__3
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:943:1: ( rule__Process__Group_0__2__Impl rule__Process__Group_0__3 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:944:2: rule__Process__Group_0__2__Impl rule__Process__Group_0__3
             {
-            pushFollow(FOLLOW_rule__Process__Group_0__2__Impl_in_rule__Process__Group_0__21840);
+            pushFollow(FOLLOW_rule__Process__Group_0__2__Impl_in_rule__Process__Group_0__21960);
             rule__Process__Group_0__2__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__Process__Group_0__3_in_rule__Process__Group_0__21843);
+            pushFollow(FOLLOW_rule__Process__Group_0__3_in_rule__Process__Group_0__21963);
             rule__Process__Group_0__3();
             _fsp--;
 
@@ -2524,23 +2669,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Process__Group_0__2__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:895:1: rule__Process__Group_0__2__Impl : ( ( rule__Process__ChildrenAssignment_0_2 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:951:1: rule__Process__Group_0__2__Impl : ( ( rule__Process__ChildrenAssignment_0_2 ) ) ;
     public final void rule__Process__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:899:1: ( ( ( rule__Process__ChildrenAssignment_0_2 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:900:1: ( ( rule__Process__ChildrenAssignment_0_2 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:955:1: ( ( ( rule__Process__ChildrenAssignment_0_2 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:956:1: ( ( rule__Process__ChildrenAssignment_0_2 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:900:1: ( ( rule__Process__ChildrenAssignment_0_2 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:901:1: ( rule__Process__ChildrenAssignment_0_2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:956:1: ( ( rule__Process__ChildrenAssignment_0_2 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:957:1: ( rule__Process__ChildrenAssignment_0_2 )
             {
              before(grammarAccess.getProcessAccess().getChildrenAssignment_0_2()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:902:1: ( rule__Process__ChildrenAssignment_0_2 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:902:2: rule__Process__ChildrenAssignment_0_2
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:958:1: ( rule__Process__ChildrenAssignment_0_2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:958:2: rule__Process__ChildrenAssignment_0_2
             {
-            pushFollow(FOLLOW_rule__Process__ChildrenAssignment_0_2_in_rule__Process__Group_0__2__Impl1870);
+            pushFollow(FOLLOW_rule__Process__ChildrenAssignment_0_2_in_rule__Process__Group_0__2__Impl1990);
             rule__Process__ChildrenAssignment_0_2();
             _fsp--;
 
@@ -2570,16 +2715,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Process__Group_0__3
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:912:1: rule__Process__Group_0__3 : rule__Process__Group_0__3__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:968:1: rule__Process__Group_0__3 : rule__Process__Group_0__3__Impl ;
     public final void rule__Process__Group_0__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:916:1: ( rule__Process__Group_0__3__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:917:2: rule__Process__Group_0__3__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:972:1: ( rule__Process__Group_0__3__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:973:2: rule__Process__Group_0__3__Impl
             {
-            pushFollow(FOLLOW_rule__Process__Group_0__3__Impl_in_rule__Process__Group_0__31900);
+            pushFollow(FOLLOW_rule__Process__Group_0__3__Impl_in_rule__Process__Group_0__32020);
             rule__Process__Group_0__3__Impl();
             _fsp--;
 
@@ -2602,20 +2747,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Process__Group_0__3__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:923:1: rule__Process__Group_0__3__Impl : ( RULE_RCURLY ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:979:1: rule__Process__Group_0__3__Impl : ( RULE_RCURLY ) ;
     public final void rule__Process__Group_0__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:927:1: ( ( RULE_RCURLY ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:928:1: ( RULE_RCURLY )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:983:1: ( ( RULE_RCURLY ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:984:1: ( RULE_RCURLY )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:928:1: ( RULE_RCURLY )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:929:1: RULE_RCURLY
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:984:1: ( RULE_RCURLY )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:985:1: RULE_RCURLY
             {
              before(grammarAccess.getProcessAccess().getRCURLYTerminalRuleCall_0_3()); 
-            match(input,RULE_RCURLY,FOLLOW_RULE_RCURLY_in_rule__Process__Group_0__3__Impl1927); 
+            match(input,RULE_RCURLY,FOLLOW_RULE_RCURLY_in_rule__Process__Group_0__3__Impl2047); 
              after(grammarAccess.getProcessAccess().getRCURLYTerminalRuleCall_0_3()); 
 
             }
@@ -2639,20 +2784,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Process__Group_1__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:948:1: rule__Process__Group_1__0 : rule__Process__Group_1__0__Impl rule__Process__Group_1__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1004:1: rule__Process__Group_1__0 : rule__Process__Group_1__0__Impl rule__Process__Group_1__1 ;
     public final void rule__Process__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:952:1: ( rule__Process__Group_1__0__Impl rule__Process__Group_1__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:953:2: rule__Process__Group_1__0__Impl rule__Process__Group_1__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1008:1: ( rule__Process__Group_1__0__Impl rule__Process__Group_1__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1009:2: rule__Process__Group_1__0__Impl rule__Process__Group_1__1
             {
-            pushFollow(FOLLOW_rule__Process__Group_1__0__Impl_in_rule__Process__Group_1__01964);
+            pushFollow(FOLLOW_rule__Process__Group_1__0__Impl_in_rule__Process__Group_1__02084);
             rule__Process__Group_1__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__Process__Group_1__1_in_rule__Process__Group_1__01967);
+            pushFollow(FOLLOW_rule__Process__Group_1__1_in_rule__Process__Group_1__02087);
             rule__Process__Group_1__1();
             _fsp--;
 
@@ -2675,20 +2820,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Process__Group_1__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:960:1: rule__Process__Group_1__0__Impl : ( RULE_LPAREN ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1016:1: rule__Process__Group_1__0__Impl : ( RULE_LPAREN ) ;
     public final void rule__Process__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:964:1: ( ( RULE_LPAREN ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:965:1: ( RULE_LPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1020:1: ( ( RULE_LPAREN ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1021:1: ( RULE_LPAREN )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:965:1: ( RULE_LPAREN )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:966:1: RULE_LPAREN
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1021:1: ( RULE_LPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1022:1: RULE_LPAREN
             {
              before(grammarAccess.getProcessAccess().getLPARENTerminalRuleCall_1_0()); 
-            match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_rule__Process__Group_1__0__Impl1994); 
+            match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_rule__Process__Group_1__0__Impl2114); 
              after(grammarAccess.getProcessAccess().getLPARENTerminalRuleCall_1_0()); 
 
             }
@@ -2712,20 +2857,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Process__Group_1__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:977:1: rule__Process__Group_1__1 : rule__Process__Group_1__1__Impl rule__Process__Group_1__2 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1033:1: rule__Process__Group_1__1 : rule__Process__Group_1__1__Impl rule__Process__Group_1__2 ;
     public final void rule__Process__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:981:1: ( rule__Process__Group_1__1__Impl rule__Process__Group_1__2 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:982:2: rule__Process__Group_1__1__Impl rule__Process__Group_1__2
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1037:1: ( rule__Process__Group_1__1__Impl rule__Process__Group_1__2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1038:2: rule__Process__Group_1__1__Impl rule__Process__Group_1__2
             {
-            pushFollow(FOLLOW_rule__Process__Group_1__1__Impl_in_rule__Process__Group_1__12023);
+            pushFollow(FOLLOW_rule__Process__Group_1__1__Impl_in_rule__Process__Group_1__12143);
             rule__Process__Group_1__1__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__Process__Group_1__2_in_rule__Process__Group_1__12026);
+            pushFollow(FOLLOW_rule__Process__Group_1__2_in_rule__Process__Group_1__12146);
             rule__Process__Group_1__2();
             _fsp--;
 
@@ -2748,23 +2893,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Process__Group_1__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:989:1: rule__Process__Group_1__1__Impl : ( ( rule__Process__ChildrenAssignment_1_1 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1045:1: rule__Process__Group_1__1__Impl : ( ( rule__Process__ChildrenAssignment_1_1 ) ) ;
     public final void rule__Process__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:993:1: ( ( ( rule__Process__ChildrenAssignment_1_1 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:994:1: ( ( rule__Process__ChildrenAssignment_1_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1049:1: ( ( ( rule__Process__ChildrenAssignment_1_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1050:1: ( ( rule__Process__ChildrenAssignment_1_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:994:1: ( ( rule__Process__ChildrenAssignment_1_1 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:995:1: ( rule__Process__ChildrenAssignment_1_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1050:1: ( ( rule__Process__ChildrenAssignment_1_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1051:1: ( rule__Process__ChildrenAssignment_1_1 )
             {
              before(grammarAccess.getProcessAccess().getChildrenAssignment_1_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:996:1: ( rule__Process__ChildrenAssignment_1_1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:996:2: rule__Process__ChildrenAssignment_1_1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1052:1: ( rule__Process__ChildrenAssignment_1_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1052:2: rule__Process__ChildrenAssignment_1_1
             {
-            pushFollow(FOLLOW_rule__Process__ChildrenAssignment_1_1_in_rule__Process__Group_1__1__Impl2053);
+            pushFollow(FOLLOW_rule__Process__ChildrenAssignment_1_1_in_rule__Process__Group_1__1__Impl2173);
             rule__Process__ChildrenAssignment_1_1();
             _fsp--;
 
@@ -2794,16 +2939,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Process__Group_1__2
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1006:1: rule__Process__Group_1__2 : rule__Process__Group_1__2__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1062:1: rule__Process__Group_1__2 : rule__Process__Group_1__2__Impl ;
     public final void rule__Process__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1010:1: ( rule__Process__Group_1__2__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1011:2: rule__Process__Group_1__2__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1066:1: ( rule__Process__Group_1__2__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1067:2: rule__Process__Group_1__2__Impl
             {
-            pushFollow(FOLLOW_rule__Process__Group_1__2__Impl_in_rule__Process__Group_1__22083);
+            pushFollow(FOLLOW_rule__Process__Group_1__2__Impl_in_rule__Process__Group_1__22203);
             rule__Process__Group_1__2__Impl();
             _fsp--;
 
@@ -2826,20 +2971,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Process__Group_1__2__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1017:1: rule__Process__Group_1__2__Impl : ( RULE_RPAREN ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1073:1: rule__Process__Group_1__2__Impl : ( RULE_RPAREN ) ;
     public final void rule__Process__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1021:1: ( ( RULE_RPAREN ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1022:1: ( RULE_RPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1077:1: ( ( RULE_RPAREN ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1078:1: ( RULE_RPAREN )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1022:1: ( RULE_RPAREN )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1023:1: RULE_RPAREN
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1078:1: ( RULE_RPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1079:1: RULE_RPAREN
             {
              before(grammarAccess.getProcessAccess().getRPARENTerminalRuleCall_1_2()); 
-            match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_rule__Process__Group_1__2__Impl2110); 
+            match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_rule__Process__Group_1__2__Impl2230); 
              after(grammarAccess.getProcessAccess().getRPARENTerminalRuleCall_1_2()); 
 
             }
@@ -2863,20 +3008,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__ParallelStatement__Group__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1040:1: rule__ParallelStatement__Group__0 : rule__ParallelStatement__Group__0__Impl rule__ParallelStatement__Group__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1096:1: rule__ParallelStatement__Group__0 : rule__ParallelStatement__Group__0__Impl rule__ParallelStatement__Group__1 ;
     public final void rule__ParallelStatement__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1044:1: ( rule__ParallelStatement__Group__0__Impl rule__ParallelStatement__Group__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1045:2: rule__ParallelStatement__Group__0__Impl rule__ParallelStatement__Group__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1100:1: ( rule__ParallelStatement__Group__0__Impl rule__ParallelStatement__Group__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1101:2: rule__ParallelStatement__Group__0__Impl rule__ParallelStatement__Group__1
             {
-            pushFollow(FOLLOW_rule__ParallelStatement__Group__0__Impl_in_rule__ParallelStatement__Group__02145);
+            pushFollow(FOLLOW_rule__ParallelStatement__Group__0__Impl_in_rule__ParallelStatement__Group__02265);
             rule__ParallelStatement__Group__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__ParallelStatement__Group__1_in_rule__ParallelStatement__Group__02148);
+            pushFollow(FOLLOW_rule__ParallelStatement__Group__1_in_rule__ParallelStatement__Group__02268);
             rule__ParallelStatement__Group__1();
             _fsp--;
 
@@ -2899,21 +3044,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__ParallelStatement__Group__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1052:1: rule__ParallelStatement__Group__0__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1108:1: rule__ParallelStatement__Group__0__Impl : ( () ) ;
     public final void rule__ParallelStatement__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1056:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1057:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1112:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1113:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1057:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1058:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1113:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1114:1: ()
             {
              before(grammarAccess.getParallelStatementAccess().getParallelStatementAction_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1059:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1061:1: 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1115:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1117:1: 
             {
             }
 
@@ -2936,16 +3081,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__ParallelStatement__Group__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1071:1: rule__ParallelStatement__Group__1 : rule__ParallelStatement__Group__1__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1127:1: rule__ParallelStatement__Group__1 : rule__ParallelStatement__Group__1__Impl ;
     public final void rule__ParallelStatement__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1075:1: ( rule__ParallelStatement__Group__1__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1076:2: rule__ParallelStatement__Group__1__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1131:1: ( rule__ParallelStatement__Group__1__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1132:2: rule__ParallelStatement__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__ParallelStatement__Group__1__Impl_in_rule__ParallelStatement__Group__12206);
+            pushFollow(FOLLOW_rule__ParallelStatement__Group__1__Impl_in_rule__ParallelStatement__Group__12326);
             rule__ParallelStatement__Group__1__Impl();
             _fsp--;
 
@@ -2968,23 +3113,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__ParallelStatement__Group__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1082:1: rule__ParallelStatement__Group__1__Impl : ( ( rule__ParallelStatement__Group_1__0 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1138:1: rule__ParallelStatement__Group__1__Impl : ( ( rule__ParallelStatement__Group_1__0 ) ) ;
     public final void rule__ParallelStatement__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1086:1: ( ( ( rule__ParallelStatement__Group_1__0 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1087:1: ( ( rule__ParallelStatement__Group_1__0 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1142:1: ( ( ( rule__ParallelStatement__Group_1__0 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1143:1: ( ( rule__ParallelStatement__Group_1__0 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1087:1: ( ( rule__ParallelStatement__Group_1__0 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1088:1: ( rule__ParallelStatement__Group_1__0 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1143:1: ( ( rule__ParallelStatement__Group_1__0 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1144:1: ( rule__ParallelStatement__Group_1__0 )
             {
              before(grammarAccess.getParallelStatementAccess().getGroup_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1089:1: ( rule__ParallelStatement__Group_1__0 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1089:2: rule__ParallelStatement__Group_1__0
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1145:1: ( rule__ParallelStatement__Group_1__0 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1145:2: rule__ParallelStatement__Group_1__0
             {
-            pushFollow(FOLLOW_rule__ParallelStatement__Group_1__0_in_rule__ParallelStatement__Group__1__Impl2233);
+            pushFollow(FOLLOW_rule__ParallelStatement__Group_1__0_in_rule__ParallelStatement__Group__1__Impl2353);
             rule__ParallelStatement__Group_1__0();
             _fsp--;
 
@@ -3014,20 +3159,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__ParallelStatement__Group_1__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1103:1: rule__ParallelStatement__Group_1__0 : rule__ParallelStatement__Group_1__0__Impl rule__ParallelStatement__Group_1__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1159:1: rule__ParallelStatement__Group_1__0 : rule__ParallelStatement__Group_1__0__Impl rule__ParallelStatement__Group_1__1 ;
     public final void rule__ParallelStatement__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1107:1: ( rule__ParallelStatement__Group_1__0__Impl rule__ParallelStatement__Group_1__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1108:2: rule__ParallelStatement__Group_1__0__Impl rule__ParallelStatement__Group_1__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1163:1: ( rule__ParallelStatement__Group_1__0__Impl rule__ParallelStatement__Group_1__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1164:2: rule__ParallelStatement__Group_1__0__Impl rule__ParallelStatement__Group_1__1
             {
-            pushFollow(FOLLOW_rule__ParallelStatement__Group_1__0__Impl_in_rule__ParallelStatement__Group_1__02267);
+            pushFollow(FOLLOW_rule__ParallelStatement__Group_1__0__Impl_in_rule__ParallelStatement__Group_1__02387);
             rule__ParallelStatement__Group_1__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__ParallelStatement__Group_1__1_in_rule__ParallelStatement__Group_1__02270);
+            pushFollow(FOLLOW_rule__ParallelStatement__Group_1__1_in_rule__ParallelStatement__Group_1__02390);
             rule__ParallelStatement__Group_1__1();
             _fsp--;
 
@@ -3050,23 +3195,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__ParallelStatement__Group_1__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1115:1: rule__ParallelStatement__Group_1__0__Impl : ( ( rule__ParallelStatement__ChildrenAssignment_1_0 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1171:1: rule__ParallelStatement__Group_1__0__Impl : ( ( rule__ParallelStatement__ChildrenAssignment_1_0 ) ) ;
     public final void rule__ParallelStatement__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1119:1: ( ( ( rule__ParallelStatement__ChildrenAssignment_1_0 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1120:1: ( ( rule__ParallelStatement__ChildrenAssignment_1_0 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1175:1: ( ( ( rule__ParallelStatement__ChildrenAssignment_1_0 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1176:1: ( ( rule__ParallelStatement__ChildrenAssignment_1_0 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1120:1: ( ( rule__ParallelStatement__ChildrenAssignment_1_0 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1121:1: ( rule__ParallelStatement__ChildrenAssignment_1_0 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1176:1: ( ( rule__ParallelStatement__ChildrenAssignment_1_0 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1177:1: ( rule__ParallelStatement__ChildrenAssignment_1_0 )
             {
              before(grammarAccess.getParallelStatementAccess().getChildrenAssignment_1_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1122:1: ( rule__ParallelStatement__ChildrenAssignment_1_0 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1122:2: rule__ParallelStatement__ChildrenAssignment_1_0
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1178:1: ( rule__ParallelStatement__ChildrenAssignment_1_0 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1178:2: rule__ParallelStatement__ChildrenAssignment_1_0
             {
-            pushFollow(FOLLOW_rule__ParallelStatement__ChildrenAssignment_1_0_in_rule__ParallelStatement__Group_1__0__Impl2297);
+            pushFollow(FOLLOW_rule__ParallelStatement__ChildrenAssignment_1_0_in_rule__ParallelStatement__Group_1__0__Impl2417);
             rule__ParallelStatement__ChildrenAssignment_1_0();
             _fsp--;
 
@@ -3096,16 +3241,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__ParallelStatement__Group_1__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1132:1: rule__ParallelStatement__Group_1__1 : rule__ParallelStatement__Group_1__1__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1188:1: rule__ParallelStatement__Group_1__1 : rule__ParallelStatement__Group_1__1__Impl ;
     public final void rule__ParallelStatement__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1136:1: ( rule__ParallelStatement__Group_1__1__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1137:2: rule__ParallelStatement__Group_1__1__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1192:1: ( rule__ParallelStatement__Group_1__1__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1193:2: rule__ParallelStatement__Group_1__1__Impl
             {
-            pushFollow(FOLLOW_rule__ParallelStatement__Group_1__1__Impl_in_rule__ParallelStatement__Group_1__12327);
+            pushFollow(FOLLOW_rule__ParallelStatement__Group_1__1__Impl_in_rule__ParallelStatement__Group_1__12447);
             rule__ParallelStatement__Group_1__1__Impl();
             _fsp--;
 
@@ -3128,20 +3273,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__ParallelStatement__Group_1__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1143:1: rule__ParallelStatement__Group_1__1__Impl : ( ( rule__ParallelStatement__Group_1_1__0 )* ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1199:1: rule__ParallelStatement__Group_1__1__Impl : ( ( rule__ParallelStatement__Group_1_1__0 )* ) ;
     public final void rule__ParallelStatement__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1147:1: ( ( ( rule__ParallelStatement__Group_1_1__0 )* ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1148:1: ( ( rule__ParallelStatement__Group_1_1__0 )* )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1203:1: ( ( ( rule__ParallelStatement__Group_1_1__0 )* ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1204:1: ( ( rule__ParallelStatement__Group_1_1__0 )* )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1148:1: ( ( rule__ParallelStatement__Group_1_1__0 )* )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1149:1: ( rule__ParallelStatement__Group_1_1__0 )*
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1204:1: ( ( rule__ParallelStatement__Group_1_1__0 )* )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1205:1: ( rule__ParallelStatement__Group_1_1__0 )*
             {
              before(grammarAccess.getParallelStatementAccess().getGroup_1_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1150:1: ( rule__ParallelStatement__Group_1_1__0 )*
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1206:1: ( rule__ParallelStatement__Group_1_1__0 )*
             loop7:
             do {
                 int alt7=2;
@@ -3154,9 +3299,9 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1150:2: rule__ParallelStatement__Group_1_1__0
+            	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1206:2: rule__ParallelStatement__Group_1_1__0
             	    {
-            	    pushFollow(FOLLOW_rule__ParallelStatement__Group_1_1__0_in_rule__ParallelStatement__Group_1__1__Impl2354);
+            	    pushFollow(FOLLOW_rule__ParallelStatement__Group_1_1__0_in_rule__ParallelStatement__Group_1__1__Impl2474);
             	    rule__ParallelStatement__Group_1_1__0();
             	    _fsp--;
 
@@ -3192,20 +3337,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__ParallelStatement__Group_1_1__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1164:1: rule__ParallelStatement__Group_1_1__0 : rule__ParallelStatement__Group_1_1__0__Impl rule__ParallelStatement__Group_1_1__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1220:1: rule__ParallelStatement__Group_1_1__0 : rule__ParallelStatement__Group_1_1__0__Impl rule__ParallelStatement__Group_1_1__1 ;
     public final void rule__ParallelStatement__Group_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1168:1: ( rule__ParallelStatement__Group_1_1__0__Impl rule__ParallelStatement__Group_1_1__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1169:2: rule__ParallelStatement__Group_1_1__0__Impl rule__ParallelStatement__Group_1_1__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1224:1: ( rule__ParallelStatement__Group_1_1__0__Impl rule__ParallelStatement__Group_1_1__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1225:2: rule__ParallelStatement__Group_1_1__0__Impl rule__ParallelStatement__Group_1_1__1
             {
-            pushFollow(FOLLOW_rule__ParallelStatement__Group_1_1__0__Impl_in_rule__ParallelStatement__Group_1_1__02389);
+            pushFollow(FOLLOW_rule__ParallelStatement__Group_1_1__0__Impl_in_rule__ParallelStatement__Group_1_1__02509);
             rule__ParallelStatement__Group_1_1__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__ParallelStatement__Group_1_1__1_in_rule__ParallelStatement__Group_1_1__02392);
+            pushFollow(FOLLOW_rule__ParallelStatement__Group_1_1__1_in_rule__ParallelStatement__Group_1_1__02512);
             rule__ParallelStatement__Group_1_1__1();
             _fsp--;
 
@@ -3228,20 +3373,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__ParallelStatement__Group_1_1__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1176:1: rule__ParallelStatement__Group_1_1__0__Impl : ( RULE_VERT ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1232:1: rule__ParallelStatement__Group_1_1__0__Impl : ( RULE_VERT ) ;
     public final void rule__ParallelStatement__Group_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1180:1: ( ( RULE_VERT ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1181:1: ( RULE_VERT )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1236:1: ( ( RULE_VERT ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1237:1: ( RULE_VERT )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1181:1: ( RULE_VERT )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1182:1: RULE_VERT
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1237:1: ( RULE_VERT )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1238:1: RULE_VERT
             {
              before(grammarAccess.getParallelStatementAccess().getVERTTerminalRuleCall_1_1_0()); 
-            match(input,RULE_VERT,FOLLOW_RULE_VERT_in_rule__ParallelStatement__Group_1_1__0__Impl2419); 
+            match(input,RULE_VERT,FOLLOW_RULE_VERT_in_rule__ParallelStatement__Group_1_1__0__Impl2539); 
              after(grammarAccess.getParallelStatementAccess().getVERTTerminalRuleCall_1_1_0()); 
 
             }
@@ -3265,16 +3410,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__ParallelStatement__Group_1_1__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1193:1: rule__ParallelStatement__Group_1_1__1 : rule__ParallelStatement__Group_1_1__1__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1249:1: rule__ParallelStatement__Group_1_1__1 : rule__ParallelStatement__Group_1_1__1__Impl ;
     public final void rule__ParallelStatement__Group_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1197:1: ( rule__ParallelStatement__Group_1_1__1__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1198:2: rule__ParallelStatement__Group_1_1__1__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1253:1: ( rule__ParallelStatement__Group_1_1__1__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1254:2: rule__ParallelStatement__Group_1_1__1__Impl
             {
-            pushFollow(FOLLOW_rule__ParallelStatement__Group_1_1__1__Impl_in_rule__ParallelStatement__Group_1_1__12448);
+            pushFollow(FOLLOW_rule__ParallelStatement__Group_1_1__1__Impl_in_rule__ParallelStatement__Group_1_1__12568);
             rule__ParallelStatement__Group_1_1__1__Impl();
             _fsp--;
 
@@ -3297,23 +3442,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__ParallelStatement__Group_1_1__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1204:1: rule__ParallelStatement__Group_1_1__1__Impl : ( ( rule__ParallelStatement__ChildrenAssignment_1_1_1 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1260:1: rule__ParallelStatement__Group_1_1__1__Impl : ( ( rule__ParallelStatement__ChildrenAssignment_1_1_1 ) ) ;
     public final void rule__ParallelStatement__Group_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1208:1: ( ( ( rule__ParallelStatement__ChildrenAssignment_1_1_1 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1209:1: ( ( rule__ParallelStatement__ChildrenAssignment_1_1_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1264:1: ( ( ( rule__ParallelStatement__ChildrenAssignment_1_1_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1265:1: ( ( rule__ParallelStatement__ChildrenAssignment_1_1_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1209:1: ( ( rule__ParallelStatement__ChildrenAssignment_1_1_1 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1210:1: ( rule__ParallelStatement__ChildrenAssignment_1_1_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1265:1: ( ( rule__ParallelStatement__ChildrenAssignment_1_1_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1266:1: ( rule__ParallelStatement__ChildrenAssignment_1_1_1 )
             {
              before(grammarAccess.getParallelStatementAccess().getChildrenAssignment_1_1_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1211:1: ( rule__ParallelStatement__ChildrenAssignment_1_1_1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1211:2: rule__ParallelStatement__ChildrenAssignment_1_1_1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1267:1: ( rule__ParallelStatement__ChildrenAssignment_1_1_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1267:2: rule__ParallelStatement__ChildrenAssignment_1_1_1
             {
-            pushFollow(FOLLOW_rule__ParallelStatement__ChildrenAssignment_1_1_1_in_rule__ParallelStatement__Group_1_1__1__Impl2475);
+            pushFollow(FOLLOW_rule__ParallelStatement__ChildrenAssignment_1_1_1_in_rule__ParallelStatement__Group_1_1__1__Impl2595);
             rule__ParallelStatement__ChildrenAssignment_1_1_1();
             _fsp--;
 
@@ -3343,20 +3488,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__SequenceStatement__Group__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1225:1: rule__SequenceStatement__Group__0 : rule__SequenceStatement__Group__0__Impl rule__SequenceStatement__Group__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1281:1: rule__SequenceStatement__Group__0 : rule__SequenceStatement__Group__0__Impl rule__SequenceStatement__Group__1 ;
     public final void rule__SequenceStatement__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1229:1: ( rule__SequenceStatement__Group__0__Impl rule__SequenceStatement__Group__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1230:2: rule__SequenceStatement__Group__0__Impl rule__SequenceStatement__Group__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1285:1: ( rule__SequenceStatement__Group__0__Impl rule__SequenceStatement__Group__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1286:2: rule__SequenceStatement__Group__0__Impl rule__SequenceStatement__Group__1
             {
-            pushFollow(FOLLOW_rule__SequenceStatement__Group__0__Impl_in_rule__SequenceStatement__Group__02509);
+            pushFollow(FOLLOW_rule__SequenceStatement__Group__0__Impl_in_rule__SequenceStatement__Group__02629);
             rule__SequenceStatement__Group__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__SequenceStatement__Group__1_in_rule__SequenceStatement__Group__02512);
+            pushFollow(FOLLOW_rule__SequenceStatement__Group__1_in_rule__SequenceStatement__Group__02632);
             rule__SequenceStatement__Group__1();
             _fsp--;
 
@@ -3379,21 +3524,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__SequenceStatement__Group__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1237:1: rule__SequenceStatement__Group__0__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1293:1: rule__SequenceStatement__Group__0__Impl : ( () ) ;
     public final void rule__SequenceStatement__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1241:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1242:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1297:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1298:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1242:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1243:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1298:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1299:1: ()
             {
              before(grammarAccess.getSequenceStatementAccess().getSequenceStatementAction_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1244:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1246:1: 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1300:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1302:1: 
             {
             }
 
@@ -3416,16 +3561,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__SequenceStatement__Group__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1256:1: rule__SequenceStatement__Group__1 : rule__SequenceStatement__Group__1__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1312:1: rule__SequenceStatement__Group__1 : rule__SequenceStatement__Group__1__Impl ;
     public final void rule__SequenceStatement__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1260:1: ( rule__SequenceStatement__Group__1__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1261:2: rule__SequenceStatement__Group__1__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1316:1: ( rule__SequenceStatement__Group__1__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1317:2: rule__SequenceStatement__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__SequenceStatement__Group__1__Impl_in_rule__SequenceStatement__Group__12570);
+            pushFollow(FOLLOW_rule__SequenceStatement__Group__1__Impl_in_rule__SequenceStatement__Group__12690);
             rule__SequenceStatement__Group__1__Impl();
             _fsp--;
 
@@ -3448,23 +3593,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__SequenceStatement__Group__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1267:1: rule__SequenceStatement__Group__1__Impl : ( ( rule__SequenceStatement__Group_1__0 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1323:1: rule__SequenceStatement__Group__1__Impl : ( ( rule__SequenceStatement__Group_1__0 ) ) ;
     public final void rule__SequenceStatement__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1271:1: ( ( ( rule__SequenceStatement__Group_1__0 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1272:1: ( ( rule__SequenceStatement__Group_1__0 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1327:1: ( ( ( rule__SequenceStatement__Group_1__0 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1328:1: ( ( rule__SequenceStatement__Group_1__0 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1272:1: ( ( rule__SequenceStatement__Group_1__0 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1273:1: ( rule__SequenceStatement__Group_1__0 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1328:1: ( ( rule__SequenceStatement__Group_1__0 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1329:1: ( rule__SequenceStatement__Group_1__0 )
             {
              before(grammarAccess.getSequenceStatementAccess().getGroup_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1274:1: ( rule__SequenceStatement__Group_1__0 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1274:2: rule__SequenceStatement__Group_1__0
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1330:1: ( rule__SequenceStatement__Group_1__0 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1330:2: rule__SequenceStatement__Group_1__0
             {
-            pushFollow(FOLLOW_rule__SequenceStatement__Group_1__0_in_rule__SequenceStatement__Group__1__Impl2597);
+            pushFollow(FOLLOW_rule__SequenceStatement__Group_1__0_in_rule__SequenceStatement__Group__1__Impl2717);
             rule__SequenceStatement__Group_1__0();
             _fsp--;
 
@@ -3494,20 +3639,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__SequenceStatement__Group_1__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1288:1: rule__SequenceStatement__Group_1__0 : rule__SequenceStatement__Group_1__0__Impl rule__SequenceStatement__Group_1__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1344:1: rule__SequenceStatement__Group_1__0 : rule__SequenceStatement__Group_1__0__Impl rule__SequenceStatement__Group_1__1 ;
     public final void rule__SequenceStatement__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1292:1: ( rule__SequenceStatement__Group_1__0__Impl rule__SequenceStatement__Group_1__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1293:2: rule__SequenceStatement__Group_1__0__Impl rule__SequenceStatement__Group_1__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1348:1: ( rule__SequenceStatement__Group_1__0__Impl rule__SequenceStatement__Group_1__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1349:2: rule__SequenceStatement__Group_1__0__Impl rule__SequenceStatement__Group_1__1
             {
-            pushFollow(FOLLOW_rule__SequenceStatement__Group_1__0__Impl_in_rule__SequenceStatement__Group_1__02631);
+            pushFollow(FOLLOW_rule__SequenceStatement__Group_1__0__Impl_in_rule__SequenceStatement__Group_1__02751);
             rule__SequenceStatement__Group_1__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__SequenceStatement__Group_1__1_in_rule__SequenceStatement__Group_1__02634);
+            pushFollow(FOLLOW_rule__SequenceStatement__Group_1__1_in_rule__SequenceStatement__Group_1__02754);
             rule__SequenceStatement__Group_1__1();
             _fsp--;
 
@@ -3530,23 +3675,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__SequenceStatement__Group_1__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1300:1: rule__SequenceStatement__Group_1__0__Impl : ( ( rule__SequenceStatement__ChildrenAssignment_1_0 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1356:1: rule__SequenceStatement__Group_1__0__Impl : ( ( rule__SequenceStatement__ChildrenAssignment_1_0 ) ) ;
     public final void rule__SequenceStatement__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1304:1: ( ( ( rule__SequenceStatement__ChildrenAssignment_1_0 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1305:1: ( ( rule__SequenceStatement__ChildrenAssignment_1_0 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1360:1: ( ( ( rule__SequenceStatement__ChildrenAssignment_1_0 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1361:1: ( ( rule__SequenceStatement__ChildrenAssignment_1_0 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1305:1: ( ( rule__SequenceStatement__ChildrenAssignment_1_0 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1306:1: ( rule__SequenceStatement__ChildrenAssignment_1_0 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1361:1: ( ( rule__SequenceStatement__ChildrenAssignment_1_0 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1362:1: ( rule__SequenceStatement__ChildrenAssignment_1_0 )
             {
              before(grammarAccess.getSequenceStatementAccess().getChildrenAssignment_1_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1307:1: ( rule__SequenceStatement__ChildrenAssignment_1_0 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1307:2: rule__SequenceStatement__ChildrenAssignment_1_0
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1363:1: ( rule__SequenceStatement__ChildrenAssignment_1_0 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1363:2: rule__SequenceStatement__ChildrenAssignment_1_0
             {
-            pushFollow(FOLLOW_rule__SequenceStatement__ChildrenAssignment_1_0_in_rule__SequenceStatement__Group_1__0__Impl2661);
+            pushFollow(FOLLOW_rule__SequenceStatement__ChildrenAssignment_1_0_in_rule__SequenceStatement__Group_1__0__Impl2781);
             rule__SequenceStatement__ChildrenAssignment_1_0();
             _fsp--;
 
@@ -3576,16 +3721,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__SequenceStatement__Group_1__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1317:1: rule__SequenceStatement__Group_1__1 : rule__SequenceStatement__Group_1__1__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1373:1: rule__SequenceStatement__Group_1__1 : rule__SequenceStatement__Group_1__1__Impl ;
     public final void rule__SequenceStatement__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1321:1: ( rule__SequenceStatement__Group_1__1__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1322:2: rule__SequenceStatement__Group_1__1__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1377:1: ( rule__SequenceStatement__Group_1__1__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1378:2: rule__SequenceStatement__Group_1__1__Impl
             {
-            pushFollow(FOLLOW_rule__SequenceStatement__Group_1__1__Impl_in_rule__SequenceStatement__Group_1__12691);
+            pushFollow(FOLLOW_rule__SequenceStatement__Group_1__1__Impl_in_rule__SequenceStatement__Group_1__12811);
             rule__SequenceStatement__Group_1__1__Impl();
             _fsp--;
 
@@ -3608,20 +3753,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__SequenceStatement__Group_1__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1328:1: rule__SequenceStatement__Group_1__1__Impl : ( ( rule__SequenceStatement__Group_1_1__0 )* ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1384:1: rule__SequenceStatement__Group_1__1__Impl : ( ( rule__SequenceStatement__Group_1_1__0 )* ) ;
     public final void rule__SequenceStatement__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1332:1: ( ( ( rule__SequenceStatement__Group_1_1__0 )* ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1333:1: ( ( rule__SequenceStatement__Group_1_1__0 )* )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1388:1: ( ( ( rule__SequenceStatement__Group_1_1__0 )* ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1389:1: ( ( rule__SequenceStatement__Group_1_1__0 )* )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1333:1: ( ( rule__SequenceStatement__Group_1_1__0 )* )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1334:1: ( rule__SequenceStatement__Group_1_1__0 )*
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1389:1: ( ( rule__SequenceStatement__Group_1_1__0 )* )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1390:1: ( rule__SequenceStatement__Group_1_1__0 )*
             {
              before(grammarAccess.getSequenceStatementAccess().getGroup_1_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1335:1: ( rule__SequenceStatement__Group_1_1__0 )*
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1391:1: ( rule__SequenceStatement__Group_1_1__0 )*
             loop8:
             do {
                 int alt8=2;
@@ -3634,9 +3779,9 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1335:2: rule__SequenceStatement__Group_1_1__0
+            	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1391:2: rule__SequenceStatement__Group_1_1__0
             	    {
-            	    pushFollow(FOLLOW_rule__SequenceStatement__Group_1_1__0_in_rule__SequenceStatement__Group_1__1__Impl2718);
+            	    pushFollow(FOLLOW_rule__SequenceStatement__Group_1_1__0_in_rule__SequenceStatement__Group_1__1__Impl2838);
             	    rule__SequenceStatement__Group_1_1__0();
             	    _fsp--;
 
@@ -3672,20 +3817,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__SequenceStatement__Group_1_1__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1349:1: rule__SequenceStatement__Group_1_1__0 : rule__SequenceStatement__Group_1_1__0__Impl rule__SequenceStatement__Group_1_1__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1405:1: rule__SequenceStatement__Group_1_1__0 : rule__SequenceStatement__Group_1_1__0__Impl rule__SequenceStatement__Group_1_1__1 ;
     public final void rule__SequenceStatement__Group_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1353:1: ( rule__SequenceStatement__Group_1_1__0__Impl rule__SequenceStatement__Group_1_1__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1354:2: rule__SequenceStatement__Group_1_1__0__Impl rule__SequenceStatement__Group_1_1__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1409:1: ( rule__SequenceStatement__Group_1_1__0__Impl rule__SequenceStatement__Group_1_1__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1410:2: rule__SequenceStatement__Group_1_1__0__Impl rule__SequenceStatement__Group_1_1__1
             {
-            pushFollow(FOLLOW_rule__SequenceStatement__Group_1_1__0__Impl_in_rule__SequenceStatement__Group_1_1__02753);
+            pushFollow(FOLLOW_rule__SequenceStatement__Group_1_1__0__Impl_in_rule__SequenceStatement__Group_1_1__02873);
             rule__SequenceStatement__Group_1_1__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__SequenceStatement__Group_1_1__1_in_rule__SequenceStatement__Group_1_1__02756);
+            pushFollow(FOLLOW_rule__SequenceStatement__Group_1_1__1_in_rule__SequenceStatement__Group_1_1__02876);
             rule__SequenceStatement__Group_1_1__1();
             _fsp--;
 
@@ -3708,20 +3853,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__SequenceStatement__Group_1_1__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1361:1: rule__SequenceStatement__Group_1_1__0__Impl : ( RULE_SEMICOLON ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1417:1: rule__SequenceStatement__Group_1_1__0__Impl : ( RULE_SEMICOLON ) ;
     public final void rule__SequenceStatement__Group_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1365:1: ( ( RULE_SEMICOLON ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1366:1: ( RULE_SEMICOLON )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1421:1: ( ( RULE_SEMICOLON ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1422:1: ( RULE_SEMICOLON )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1366:1: ( RULE_SEMICOLON )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1367:1: RULE_SEMICOLON
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1422:1: ( RULE_SEMICOLON )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1423:1: RULE_SEMICOLON
             {
              before(grammarAccess.getSequenceStatementAccess().getSEMICOLONTerminalRuleCall_1_1_0()); 
-            match(input,RULE_SEMICOLON,FOLLOW_RULE_SEMICOLON_in_rule__SequenceStatement__Group_1_1__0__Impl2783); 
+            match(input,RULE_SEMICOLON,FOLLOW_RULE_SEMICOLON_in_rule__SequenceStatement__Group_1_1__0__Impl2903); 
              after(grammarAccess.getSequenceStatementAccess().getSEMICOLONTerminalRuleCall_1_1_0()); 
 
             }
@@ -3745,16 +3890,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__SequenceStatement__Group_1_1__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1378:1: rule__SequenceStatement__Group_1_1__1 : rule__SequenceStatement__Group_1_1__1__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1434:1: rule__SequenceStatement__Group_1_1__1 : rule__SequenceStatement__Group_1_1__1__Impl ;
     public final void rule__SequenceStatement__Group_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1382:1: ( rule__SequenceStatement__Group_1_1__1__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1383:2: rule__SequenceStatement__Group_1_1__1__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1438:1: ( rule__SequenceStatement__Group_1_1__1__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1439:2: rule__SequenceStatement__Group_1_1__1__Impl
             {
-            pushFollow(FOLLOW_rule__SequenceStatement__Group_1_1__1__Impl_in_rule__SequenceStatement__Group_1_1__12812);
+            pushFollow(FOLLOW_rule__SequenceStatement__Group_1_1__1__Impl_in_rule__SequenceStatement__Group_1_1__12932);
             rule__SequenceStatement__Group_1_1__1__Impl();
             _fsp--;
 
@@ -3777,23 +3922,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__SequenceStatement__Group_1_1__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1389:1: rule__SequenceStatement__Group_1_1__1__Impl : ( ( rule__SequenceStatement__ChildrenAssignment_1_1_1 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1445:1: rule__SequenceStatement__Group_1_1__1__Impl : ( ( rule__SequenceStatement__ChildrenAssignment_1_1_1 ) ) ;
     public final void rule__SequenceStatement__Group_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1393:1: ( ( ( rule__SequenceStatement__ChildrenAssignment_1_1_1 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1394:1: ( ( rule__SequenceStatement__ChildrenAssignment_1_1_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1449:1: ( ( ( rule__SequenceStatement__ChildrenAssignment_1_1_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1450:1: ( ( rule__SequenceStatement__ChildrenAssignment_1_1_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1394:1: ( ( rule__SequenceStatement__ChildrenAssignment_1_1_1 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1395:1: ( rule__SequenceStatement__ChildrenAssignment_1_1_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1450:1: ( ( rule__SequenceStatement__ChildrenAssignment_1_1_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1451:1: ( rule__SequenceStatement__ChildrenAssignment_1_1_1 )
             {
              before(grammarAccess.getSequenceStatementAccess().getChildrenAssignment_1_1_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1396:1: ( rule__SequenceStatement__ChildrenAssignment_1_1_1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1396:2: rule__SequenceStatement__ChildrenAssignment_1_1_1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1452:1: ( rule__SequenceStatement__ChildrenAssignment_1_1_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1452:2: rule__SequenceStatement__ChildrenAssignment_1_1_1
             {
-            pushFollow(FOLLOW_rule__SequenceStatement__ChildrenAssignment_1_1_1_in_rule__SequenceStatement__Group_1_1__1__Impl2839);
+            pushFollow(FOLLOW_rule__SequenceStatement__ChildrenAssignment_1_1_1_in_rule__SequenceStatement__Group_1_1__1__Impl2959);
             rule__SequenceStatement__ChildrenAssignment_1_1_1();
             _fsp--;
 
@@ -3823,20 +3968,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_0__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1410:1: rule__BasicStatement__Group_0__0 : rule__BasicStatement__Group_0__0__Impl rule__BasicStatement__Group_0__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1466:1: rule__BasicStatement__Group_0__0 : rule__BasicStatement__Group_0__0__Impl rule__BasicStatement__Group_0__1 ;
     public final void rule__BasicStatement__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1414:1: ( rule__BasicStatement__Group_0__0__Impl rule__BasicStatement__Group_0__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1415:2: rule__BasicStatement__Group_0__0__Impl rule__BasicStatement__Group_0__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1470:1: ( rule__BasicStatement__Group_0__0__Impl rule__BasicStatement__Group_0__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1471:2: rule__BasicStatement__Group_0__0__Impl rule__BasicStatement__Group_0__1
             {
-            pushFollow(FOLLOW_rule__BasicStatement__Group_0__0__Impl_in_rule__BasicStatement__Group_0__02873);
+            pushFollow(FOLLOW_rule__BasicStatement__Group_0__0__Impl_in_rule__BasicStatement__Group_0__02993);
             rule__BasicStatement__Group_0__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__BasicStatement__Group_0__1_in_rule__BasicStatement__Group_0__02876);
+            pushFollow(FOLLOW_rule__BasicStatement__Group_0__1_in_rule__BasicStatement__Group_0__02996);
             rule__BasicStatement__Group_0__1();
             _fsp--;
 
@@ -3859,21 +4004,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_0__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1422:1: rule__BasicStatement__Group_0__0__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1478:1: rule__BasicStatement__Group_0__0__Impl : ( () ) ;
     public final void rule__BasicStatement__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1426:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1427:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1482:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1483:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1427:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1428:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1483:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1484:1: ()
             {
              before(grammarAccess.getBasicStatementAccess().getProcessAction_0_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1429:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1431:1: 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1485:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1487:1: 
             {
             }
 
@@ -3896,16 +4041,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_0__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1441:1: rule__BasicStatement__Group_0__1 : rule__BasicStatement__Group_0__1__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1497:1: rule__BasicStatement__Group_0__1 : rule__BasicStatement__Group_0__1__Impl ;
     public final void rule__BasicStatement__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1445:1: ( rule__BasicStatement__Group_0__1__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1446:2: rule__BasicStatement__Group_0__1__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1501:1: ( rule__BasicStatement__Group_0__1__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1502:2: rule__BasicStatement__Group_0__1__Impl
             {
-            pushFollow(FOLLOW_rule__BasicStatement__Group_0__1__Impl_in_rule__BasicStatement__Group_0__12934);
+            pushFollow(FOLLOW_rule__BasicStatement__Group_0__1__Impl_in_rule__BasicStatement__Group_0__13054);
             rule__BasicStatement__Group_0__1__Impl();
             _fsp--;
 
@@ -3928,23 +4073,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_0__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1452:1: rule__BasicStatement__Group_0__1__Impl : ( ( rule__BasicStatement__ProcessAssignment_0_1 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1508:1: rule__BasicStatement__Group_0__1__Impl : ( ( rule__BasicStatement__ProcessAssignment_0_1 ) ) ;
     public final void rule__BasicStatement__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1456:1: ( ( ( rule__BasicStatement__ProcessAssignment_0_1 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1457:1: ( ( rule__BasicStatement__ProcessAssignment_0_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1512:1: ( ( ( rule__BasicStatement__ProcessAssignment_0_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1513:1: ( ( rule__BasicStatement__ProcessAssignment_0_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1457:1: ( ( rule__BasicStatement__ProcessAssignment_0_1 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1458:1: ( rule__BasicStatement__ProcessAssignment_0_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1513:1: ( ( rule__BasicStatement__ProcessAssignment_0_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1514:1: ( rule__BasicStatement__ProcessAssignment_0_1 )
             {
              before(grammarAccess.getBasicStatementAccess().getProcessAssignment_0_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1459:1: ( rule__BasicStatement__ProcessAssignment_0_1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1459:2: rule__BasicStatement__ProcessAssignment_0_1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1515:1: ( rule__BasicStatement__ProcessAssignment_0_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1515:2: rule__BasicStatement__ProcessAssignment_0_1
             {
-            pushFollow(FOLLOW_rule__BasicStatement__ProcessAssignment_0_1_in_rule__BasicStatement__Group_0__1__Impl2961);
+            pushFollow(FOLLOW_rule__BasicStatement__ProcessAssignment_0_1_in_rule__BasicStatement__Group_0__1__Impl3081);
             rule__BasicStatement__ProcessAssignment_0_1();
             _fsp--;
 
@@ -3974,20 +4119,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_1__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1473:1: rule__BasicStatement__Group_1__0 : rule__BasicStatement__Group_1__0__Impl rule__BasicStatement__Group_1__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1529:1: rule__BasicStatement__Group_1__0 : rule__BasicStatement__Group_1__0__Impl rule__BasicStatement__Group_1__1 ;
     public final void rule__BasicStatement__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1477:1: ( rule__BasicStatement__Group_1__0__Impl rule__BasicStatement__Group_1__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1478:2: rule__BasicStatement__Group_1__0__Impl rule__BasicStatement__Group_1__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1533:1: ( rule__BasicStatement__Group_1__0__Impl rule__BasicStatement__Group_1__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1534:2: rule__BasicStatement__Group_1__0__Impl rule__BasicStatement__Group_1__1
             {
-            pushFollow(FOLLOW_rule__BasicStatement__Group_1__0__Impl_in_rule__BasicStatement__Group_1__02995);
+            pushFollow(FOLLOW_rule__BasicStatement__Group_1__0__Impl_in_rule__BasicStatement__Group_1__03115);
             rule__BasicStatement__Group_1__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__BasicStatement__Group_1__1_in_rule__BasicStatement__Group_1__02998);
+            pushFollow(FOLLOW_rule__BasicStatement__Group_1__1_in_rule__BasicStatement__Group_1__03118);
             rule__BasicStatement__Group_1__1();
             _fsp--;
 
@@ -4010,21 +4155,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_1__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1485:1: rule__BasicStatement__Group_1__0__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1541:1: rule__BasicStatement__Group_1__0__Impl : ( () ) ;
     public final void rule__BasicStatement__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1489:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1490:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1545:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1546:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1490:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1491:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1546:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1547:1: ()
             {
              before(grammarAccess.getBasicStatementAccess().getAssignStatementAction_1_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1492:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1494:1: 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1548:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1550:1: 
             {
             }
 
@@ -4047,16 +4192,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_1__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1504:1: rule__BasicStatement__Group_1__1 : rule__BasicStatement__Group_1__1__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1560:1: rule__BasicStatement__Group_1__1 : rule__BasicStatement__Group_1__1__Impl ;
     public final void rule__BasicStatement__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1508:1: ( rule__BasicStatement__Group_1__1__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1509:2: rule__BasicStatement__Group_1__1__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1564:1: ( rule__BasicStatement__Group_1__1__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1565:2: rule__BasicStatement__Group_1__1__Impl
             {
-            pushFollow(FOLLOW_rule__BasicStatement__Group_1__1__Impl_in_rule__BasicStatement__Group_1__13056);
+            pushFollow(FOLLOW_rule__BasicStatement__Group_1__1__Impl_in_rule__BasicStatement__Group_1__13176);
             rule__BasicStatement__Group_1__1__Impl();
             _fsp--;
 
@@ -4079,23 +4224,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_1__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1515:1: rule__BasicStatement__Group_1__1__Impl : ( ( rule__BasicStatement__AssignStatementAssignment_1_1 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1571:1: rule__BasicStatement__Group_1__1__Impl : ( ( rule__BasicStatement__AssignStatementAssignment_1_1 ) ) ;
     public final void rule__BasicStatement__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1519:1: ( ( ( rule__BasicStatement__AssignStatementAssignment_1_1 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1520:1: ( ( rule__BasicStatement__AssignStatementAssignment_1_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1575:1: ( ( ( rule__BasicStatement__AssignStatementAssignment_1_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1576:1: ( ( rule__BasicStatement__AssignStatementAssignment_1_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1520:1: ( ( rule__BasicStatement__AssignStatementAssignment_1_1 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1521:1: ( rule__BasicStatement__AssignStatementAssignment_1_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1576:1: ( ( rule__BasicStatement__AssignStatementAssignment_1_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1577:1: ( rule__BasicStatement__AssignStatementAssignment_1_1 )
             {
              before(grammarAccess.getBasicStatementAccess().getAssignStatementAssignment_1_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1522:1: ( rule__BasicStatement__AssignStatementAssignment_1_1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1522:2: rule__BasicStatement__AssignStatementAssignment_1_1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1578:1: ( rule__BasicStatement__AssignStatementAssignment_1_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1578:2: rule__BasicStatement__AssignStatementAssignment_1_1
             {
-            pushFollow(FOLLOW_rule__BasicStatement__AssignStatementAssignment_1_1_in_rule__BasicStatement__Group_1__1__Impl3083);
+            pushFollow(FOLLOW_rule__BasicStatement__AssignStatementAssignment_1_1_in_rule__BasicStatement__Group_1__1__Impl3203);
             rule__BasicStatement__AssignStatementAssignment_1_1();
             _fsp--;
 
@@ -4125,20 +4270,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_2__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1536:1: rule__BasicStatement__Group_2__0 : rule__BasicStatement__Group_2__0__Impl rule__BasicStatement__Group_2__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1592:1: rule__BasicStatement__Group_2__0 : rule__BasicStatement__Group_2__0__Impl rule__BasicStatement__Group_2__1 ;
     public final void rule__BasicStatement__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1540:1: ( rule__BasicStatement__Group_2__0__Impl rule__BasicStatement__Group_2__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1541:2: rule__BasicStatement__Group_2__0__Impl rule__BasicStatement__Group_2__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1596:1: ( rule__BasicStatement__Group_2__0__Impl rule__BasicStatement__Group_2__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1597:2: rule__BasicStatement__Group_2__0__Impl rule__BasicStatement__Group_2__1
             {
-            pushFollow(FOLLOW_rule__BasicStatement__Group_2__0__Impl_in_rule__BasicStatement__Group_2__03117);
+            pushFollow(FOLLOW_rule__BasicStatement__Group_2__0__Impl_in_rule__BasicStatement__Group_2__03237);
             rule__BasicStatement__Group_2__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__BasicStatement__Group_2__1_in_rule__BasicStatement__Group_2__03120);
+            pushFollow(FOLLOW_rule__BasicStatement__Group_2__1_in_rule__BasicStatement__Group_2__03240);
             rule__BasicStatement__Group_2__1();
             _fsp--;
 
@@ -4161,21 +4306,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_2__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1548:1: rule__BasicStatement__Group_2__0__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1604:1: rule__BasicStatement__Group_2__0__Impl : ( () ) ;
     public final void rule__BasicStatement__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1552:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1553:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1608:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1609:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1553:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1554:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1609:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1610:1: ()
             {
              before(grammarAccess.getBasicStatementAccess().getPostIncrementStatementAction_2_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1555:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1557:1: 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1611:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1613:1: 
             {
             }
 
@@ -4198,16 +4343,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_2__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1567:1: rule__BasicStatement__Group_2__1 : rule__BasicStatement__Group_2__1__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1623:1: rule__BasicStatement__Group_2__1 : rule__BasicStatement__Group_2__1__Impl ;
     public final void rule__BasicStatement__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1571:1: ( rule__BasicStatement__Group_2__1__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1572:2: rule__BasicStatement__Group_2__1__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1627:1: ( rule__BasicStatement__Group_2__1__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1628:2: rule__BasicStatement__Group_2__1__Impl
             {
-            pushFollow(FOLLOW_rule__BasicStatement__Group_2__1__Impl_in_rule__BasicStatement__Group_2__13178);
+            pushFollow(FOLLOW_rule__BasicStatement__Group_2__1__Impl_in_rule__BasicStatement__Group_2__13298);
             rule__BasicStatement__Group_2__1__Impl();
             _fsp--;
 
@@ -4230,23 +4375,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_2__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1578:1: rule__BasicStatement__Group_2__1__Impl : ( ( rule__BasicStatement__PostIncrementStatementAssignment_2_1 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1634:1: rule__BasicStatement__Group_2__1__Impl : ( ( rule__BasicStatement__PostIncrementStatementAssignment_2_1 ) ) ;
     public final void rule__BasicStatement__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1582:1: ( ( ( rule__BasicStatement__PostIncrementStatementAssignment_2_1 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1583:1: ( ( rule__BasicStatement__PostIncrementStatementAssignment_2_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1638:1: ( ( ( rule__BasicStatement__PostIncrementStatementAssignment_2_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1639:1: ( ( rule__BasicStatement__PostIncrementStatementAssignment_2_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1583:1: ( ( rule__BasicStatement__PostIncrementStatementAssignment_2_1 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1584:1: ( rule__BasicStatement__PostIncrementStatementAssignment_2_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1639:1: ( ( rule__BasicStatement__PostIncrementStatementAssignment_2_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1640:1: ( rule__BasicStatement__PostIncrementStatementAssignment_2_1 )
             {
              before(grammarAccess.getBasicStatementAccess().getPostIncrementStatementAssignment_2_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1585:1: ( rule__BasicStatement__PostIncrementStatementAssignment_2_1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1585:2: rule__BasicStatement__PostIncrementStatementAssignment_2_1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1641:1: ( rule__BasicStatement__PostIncrementStatementAssignment_2_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1641:2: rule__BasicStatement__PostIncrementStatementAssignment_2_1
             {
-            pushFollow(FOLLOW_rule__BasicStatement__PostIncrementStatementAssignment_2_1_in_rule__BasicStatement__Group_2__1__Impl3205);
+            pushFollow(FOLLOW_rule__BasicStatement__PostIncrementStatementAssignment_2_1_in_rule__BasicStatement__Group_2__1__Impl3325);
             rule__BasicStatement__PostIncrementStatementAssignment_2_1();
             _fsp--;
 
@@ -4276,20 +4421,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_3__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1599:1: rule__BasicStatement__Group_3__0 : rule__BasicStatement__Group_3__0__Impl rule__BasicStatement__Group_3__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1655:1: rule__BasicStatement__Group_3__0 : rule__BasicStatement__Group_3__0__Impl rule__BasicStatement__Group_3__1 ;
     public final void rule__BasicStatement__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1603:1: ( rule__BasicStatement__Group_3__0__Impl rule__BasicStatement__Group_3__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1604:2: rule__BasicStatement__Group_3__0__Impl rule__BasicStatement__Group_3__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1659:1: ( rule__BasicStatement__Group_3__0__Impl rule__BasicStatement__Group_3__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1660:2: rule__BasicStatement__Group_3__0__Impl rule__BasicStatement__Group_3__1
             {
-            pushFollow(FOLLOW_rule__BasicStatement__Group_3__0__Impl_in_rule__BasicStatement__Group_3__03239);
+            pushFollow(FOLLOW_rule__BasicStatement__Group_3__0__Impl_in_rule__BasicStatement__Group_3__03359);
             rule__BasicStatement__Group_3__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__BasicStatement__Group_3__1_in_rule__BasicStatement__Group_3__03242);
+            pushFollow(FOLLOW_rule__BasicStatement__Group_3__1_in_rule__BasicStatement__Group_3__03362);
             rule__BasicStatement__Group_3__1();
             _fsp--;
 
@@ -4312,21 +4457,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_3__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1611:1: rule__BasicStatement__Group_3__0__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1667:1: rule__BasicStatement__Group_3__0__Impl : ( () ) ;
     public final void rule__BasicStatement__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1615:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1616:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1671:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1672:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1616:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1617:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1672:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1673:1: ()
             {
              before(grammarAccess.getBasicStatementAccess().getPostDecrementStatementAction_3_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1618:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1620:1: 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1674:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1676:1: 
             {
             }
 
@@ -4349,16 +4494,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_3__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1630:1: rule__BasicStatement__Group_3__1 : rule__BasicStatement__Group_3__1__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1686:1: rule__BasicStatement__Group_3__1 : rule__BasicStatement__Group_3__1__Impl ;
     public final void rule__BasicStatement__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1634:1: ( rule__BasicStatement__Group_3__1__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1635:2: rule__BasicStatement__Group_3__1__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1690:1: ( rule__BasicStatement__Group_3__1__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1691:2: rule__BasicStatement__Group_3__1__Impl
             {
-            pushFollow(FOLLOW_rule__BasicStatement__Group_3__1__Impl_in_rule__BasicStatement__Group_3__13300);
+            pushFollow(FOLLOW_rule__BasicStatement__Group_3__1__Impl_in_rule__BasicStatement__Group_3__13420);
             rule__BasicStatement__Group_3__1__Impl();
             _fsp--;
 
@@ -4381,23 +4526,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_3__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1641:1: rule__BasicStatement__Group_3__1__Impl : ( ( rule__BasicStatement__PostDecrementStatementAssignment_3_1 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1697:1: rule__BasicStatement__Group_3__1__Impl : ( ( rule__BasicStatement__PostDecrementStatementAssignment_3_1 ) ) ;
     public final void rule__BasicStatement__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1645:1: ( ( ( rule__BasicStatement__PostDecrementStatementAssignment_3_1 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1646:1: ( ( rule__BasicStatement__PostDecrementStatementAssignment_3_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1701:1: ( ( ( rule__BasicStatement__PostDecrementStatementAssignment_3_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1702:1: ( ( rule__BasicStatement__PostDecrementStatementAssignment_3_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1646:1: ( ( rule__BasicStatement__PostDecrementStatementAssignment_3_1 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1647:1: ( rule__BasicStatement__PostDecrementStatementAssignment_3_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1702:1: ( ( rule__BasicStatement__PostDecrementStatementAssignment_3_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1703:1: ( rule__BasicStatement__PostDecrementStatementAssignment_3_1 )
             {
              before(grammarAccess.getBasicStatementAccess().getPostDecrementStatementAssignment_3_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1648:1: ( rule__BasicStatement__PostDecrementStatementAssignment_3_1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1648:2: rule__BasicStatement__PostDecrementStatementAssignment_3_1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1704:1: ( rule__BasicStatement__PostDecrementStatementAssignment_3_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1704:2: rule__BasicStatement__PostDecrementStatementAssignment_3_1
             {
-            pushFollow(FOLLOW_rule__BasicStatement__PostDecrementStatementAssignment_3_1_in_rule__BasicStatement__Group_3__1__Impl3327);
+            pushFollow(FOLLOW_rule__BasicStatement__PostDecrementStatementAssignment_3_1_in_rule__BasicStatement__Group_3__1__Impl3447);
             rule__BasicStatement__PostDecrementStatementAssignment_3_1();
             _fsp--;
 
@@ -4427,20 +4572,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_4__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1662:1: rule__BasicStatement__Group_4__0 : rule__BasicStatement__Group_4__0__Impl rule__BasicStatement__Group_4__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1718:1: rule__BasicStatement__Group_4__0 : rule__BasicStatement__Group_4__0__Impl rule__BasicStatement__Group_4__1 ;
     public final void rule__BasicStatement__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1666:1: ( rule__BasicStatement__Group_4__0__Impl rule__BasicStatement__Group_4__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1667:2: rule__BasicStatement__Group_4__0__Impl rule__BasicStatement__Group_4__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1722:1: ( rule__BasicStatement__Group_4__0__Impl rule__BasicStatement__Group_4__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1723:2: rule__BasicStatement__Group_4__0__Impl rule__BasicStatement__Group_4__1
             {
-            pushFollow(FOLLOW_rule__BasicStatement__Group_4__0__Impl_in_rule__BasicStatement__Group_4__03361);
+            pushFollow(FOLLOW_rule__BasicStatement__Group_4__0__Impl_in_rule__BasicStatement__Group_4__03481);
             rule__BasicStatement__Group_4__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__BasicStatement__Group_4__1_in_rule__BasicStatement__Group_4__03364);
+            pushFollow(FOLLOW_rule__BasicStatement__Group_4__1_in_rule__BasicStatement__Group_4__03484);
             rule__BasicStatement__Group_4__1();
             _fsp--;
 
@@ -4463,21 +4608,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_4__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1674:1: rule__BasicStatement__Group_4__0__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1730:1: rule__BasicStatement__Group_4__0__Impl : ( () ) ;
     public final void rule__BasicStatement__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1678:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1679:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1734:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1735:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1679:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1680:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1735:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1736:1: ()
             {
              before(grammarAccess.getBasicStatementAccess().getNDChoiceStatementAction_4_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1681:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1683:1: 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1737:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1739:1: 
             {
             }
 
@@ -4500,16 +4645,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_4__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1693:1: rule__BasicStatement__Group_4__1 : rule__BasicStatement__Group_4__1__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1749:1: rule__BasicStatement__Group_4__1 : rule__BasicStatement__Group_4__1__Impl ;
     public final void rule__BasicStatement__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1697:1: ( rule__BasicStatement__Group_4__1__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1698:2: rule__BasicStatement__Group_4__1__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1753:1: ( rule__BasicStatement__Group_4__1__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1754:2: rule__BasicStatement__Group_4__1__Impl
             {
-            pushFollow(FOLLOW_rule__BasicStatement__Group_4__1__Impl_in_rule__BasicStatement__Group_4__13422);
+            pushFollow(FOLLOW_rule__BasicStatement__Group_4__1__Impl_in_rule__BasicStatement__Group_4__13542);
             rule__BasicStatement__Group_4__1__Impl();
             _fsp--;
 
@@ -4532,23 +4677,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__Group_4__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1704:1: rule__BasicStatement__Group_4__1__Impl : ( ( rule__BasicStatement__NDChoiceStatementAssignment_4_1 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1760:1: rule__BasicStatement__Group_4__1__Impl : ( ( rule__BasicStatement__NDChoiceStatementAssignment_4_1 ) ) ;
     public final void rule__BasicStatement__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1708:1: ( ( ( rule__BasicStatement__NDChoiceStatementAssignment_4_1 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1709:1: ( ( rule__BasicStatement__NDChoiceStatementAssignment_4_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1764:1: ( ( ( rule__BasicStatement__NDChoiceStatementAssignment_4_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1765:1: ( ( rule__BasicStatement__NDChoiceStatementAssignment_4_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1709:1: ( ( rule__BasicStatement__NDChoiceStatementAssignment_4_1 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1710:1: ( rule__BasicStatement__NDChoiceStatementAssignment_4_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1765:1: ( ( rule__BasicStatement__NDChoiceStatementAssignment_4_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1766:1: ( rule__BasicStatement__NDChoiceStatementAssignment_4_1 )
             {
              before(grammarAccess.getBasicStatementAccess().getNDChoiceStatementAssignment_4_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1711:1: ( rule__BasicStatement__NDChoiceStatementAssignment_4_1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1711:2: rule__BasicStatement__NDChoiceStatementAssignment_4_1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1767:1: ( rule__BasicStatement__NDChoiceStatementAssignment_4_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1767:2: rule__BasicStatement__NDChoiceStatementAssignment_4_1
             {
-            pushFollow(FOLLOW_rule__BasicStatement__NDChoiceStatementAssignment_4_1_in_rule__BasicStatement__Group_4__1__Impl3449);
+            pushFollow(FOLLOW_rule__BasicStatement__NDChoiceStatementAssignment_4_1_in_rule__BasicStatement__Group_4__1__Impl3569);
             rule__BasicStatement__NDChoiceStatementAssignment_4_1();
             _fsp--;
 
@@ -4578,20 +4723,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__AssignStatement__Group__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1725:1: rule__AssignStatement__Group__0 : rule__AssignStatement__Group__0__Impl rule__AssignStatement__Group__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1781:1: rule__AssignStatement__Group__0 : rule__AssignStatement__Group__0__Impl rule__AssignStatement__Group__1 ;
     public final void rule__AssignStatement__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1729:1: ( rule__AssignStatement__Group__0__Impl rule__AssignStatement__Group__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1730:2: rule__AssignStatement__Group__0__Impl rule__AssignStatement__Group__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1785:1: ( rule__AssignStatement__Group__0__Impl rule__AssignStatement__Group__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1786:2: rule__AssignStatement__Group__0__Impl rule__AssignStatement__Group__1
             {
-            pushFollow(FOLLOW_rule__AssignStatement__Group__0__Impl_in_rule__AssignStatement__Group__03483);
+            pushFollow(FOLLOW_rule__AssignStatement__Group__0__Impl_in_rule__AssignStatement__Group__03603);
             rule__AssignStatement__Group__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__AssignStatement__Group__1_in_rule__AssignStatement__Group__03486);
+            pushFollow(FOLLOW_rule__AssignStatement__Group__1_in_rule__AssignStatement__Group__03606);
             rule__AssignStatement__Group__1();
             _fsp--;
 
@@ -4614,21 +4759,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__AssignStatement__Group__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1737:1: rule__AssignStatement__Group__0__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1793:1: rule__AssignStatement__Group__0__Impl : ( () ) ;
     public final void rule__AssignStatement__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1741:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1742:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1797:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1798:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1742:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1743:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1798:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1799:1: ()
             {
              before(grammarAccess.getAssignStatementAccess().getAssignStatementAction_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1744:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1746:1: 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1800:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1802:1: 
             {
             }
 
@@ -4651,20 +4796,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__AssignStatement__Group__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1756:1: rule__AssignStatement__Group__1 : rule__AssignStatement__Group__1__Impl rule__AssignStatement__Group__2 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1812:1: rule__AssignStatement__Group__1 : rule__AssignStatement__Group__1__Impl rule__AssignStatement__Group__2 ;
     public final void rule__AssignStatement__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1760:1: ( rule__AssignStatement__Group__1__Impl rule__AssignStatement__Group__2 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1761:2: rule__AssignStatement__Group__1__Impl rule__AssignStatement__Group__2
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1816:1: ( rule__AssignStatement__Group__1__Impl rule__AssignStatement__Group__2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1817:2: rule__AssignStatement__Group__1__Impl rule__AssignStatement__Group__2
             {
-            pushFollow(FOLLOW_rule__AssignStatement__Group__1__Impl_in_rule__AssignStatement__Group__13544);
+            pushFollow(FOLLOW_rule__AssignStatement__Group__1__Impl_in_rule__AssignStatement__Group__13664);
             rule__AssignStatement__Group__1__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__AssignStatement__Group__2_in_rule__AssignStatement__Group__13547);
+            pushFollow(FOLLOW_rule__AssignStatement__Group__2_in_rule__AssignStatement__Group__13667);
             rule__AssignStatement__Group__2();
             _fsp--;
 
@@ -4687,23 +4832,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__AssignStatement__Group__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1768:1: rule__AssignStatement__Group__1__Impl : ( ( rule__AssignStatement__NameAssignment_1 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1824:1: rule__AssignStatement__Group__1__Impl : ( ( rule__AssignStatement__NameAssignment_1 ) ) ;
     public final void rule__AssignStatement__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1772:1: ( ( ( rule__AssignStatement__NameAssignment_1 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1773:1: ( ( rule__AssignStatement__NameAssignment_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1828:1: ( ( ( rule__AssignStatement__NameAssignment_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1829:1: ( ( rule__AssignStatement__NameAssignment_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1773:1: ( ( rule__AssignStatement__NameAssignment_1 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1774:1: ( rule__AssignStatement__NameAssignment_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1829:1: ( ( rule__AssignStatement__NameAssignment_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1830:1: ( rule__AssignStatement__NameAssignment_1 )
             {
              before(grammarAccess.getAssignStatementAccess().getNameAssignment_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1775:1: ( rule__AssignStatement__NameAssignment_1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1775:2: rule__AssignStatement__NameAssignment_1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1831:1: ( rule__AssignStatement__NameAssignment_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1831:2: rule__AssignStatement__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__AssignStatement__NameAssignment_1_in_rule__AssignStatement__Group__1__Impl3574);
+            pushFollow(FOLLOW_rule__AssignStatement__NameAssignment_1_in_rule__AssignStatement__Group__1__Impl3694);
             rule__AssignStatement__NameAssignment_1();
             _fsp--;
 
@@ -4733,20 +4878,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__AssignStatement__Group__2
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1785:1: rule__AssignStatement__Group__2 : rule__AssignStatement__Group__2__Impl rule__AssignStatement__Group__3 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1841:1: rule__AssignStatement__Group__2 : rule__AssignStatement__Group__2__Impl rule__AssignStatement__Group__3 ;
     public final void rule__AssignStatement__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1789:1: ( rule__AssignStatement__Group__2__Impl rule__AssignStatement__Group__3 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1790:2: rule__AssignStatement__Group__2__Impl rule__AssignStatement__Group__3
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1845:1: ( rule__AssignStatement__Group__2__Impl rule__AssignStatement__Group__3 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1846:2: rule__AssignStatement__Group__2__Impl rule__AssignStatement__Group__3
             {
-            pushFollow(FOLLOW_rule__AssignStatement__Group__2__Impl_in_rule__AssignStatement__Group__23604);
+            pushFollow(FOLLOW_rule__AssignStatement__Group__2__Impl_in_rule__AssignStatement__Group__23724);
             rule__AssignStatement__Group__2__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__AssignStatement__Group__3_in_rule__AssignStatement__Group__23607);
+            pushFollow(FOLLOW_rule__AssignStatement__Group__3_in_rule__AssignStatement__Group__23727);
             rule__AssignStatement__Group__3();
             _fsp--;
 
@@ -4769,20 +4914,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__AssignStatement__Group__2__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1797:1: rule__AssignStatement__Group__2__Impl : ( RULE_ASSIGN ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1853:1: rule__AssignStatement__Group__2__Impl : ( RULE_ASSIGN ) ;
     public final void rule__AssignStatement__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1801:1: ( ( RULE_ASSIGN ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1802:1: ( RULE_ASSIGN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1857:1: ( ( RULE_ASSIGN ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1858:1: ( RULE_ASSIGN )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1802:1: ( RULE_ASSIGN )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1803:1: RULE_ASSIGN
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1858:1: ( RULE_ASSIGN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1859:1: RULE_ASSIGN
             {
              before(grammarAccess.getAssignStatementAccess().getASSIGNTerminalRuleCall_2()); 
-            match(input,RULE_ASSIGN,FOLLOW_RULE_ASSIGN_in_rule__AssignStatement__Group__2__Impl3634); 
+            match(input,RULE_ASSIGN,FOLLOW_RULE_ASSIGN_in_rule__AssignStatement__Group__2__Impl3754); 
              after(grammarAccess.getAssignStatementAccess().getASSIGNTerminalRuleCall_2()); 
 
             }
@@ -4806,20 +4951,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__AssignStatement__Group__3
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1814:1: rule__AssignStatement__Group__3 : rule__AssignStatement__Group__3__Impl rule__AssignStatement__Group__4 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1870:1: rule__AssignStatement__Group__3 : rule__AssignStatement__Group__3__Impl rule__AssignStatement__Group__4 ;
     public final void rule__AssignStatement__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1818:1: ( rule__AssignStatement__Group__3__Impl rule__AssignStatement__Group__4 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1819:2: rule__AssignStatement__Group__3__Impl rule__AssignStatement__Group__4
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1874:1: ( rule__AssignStatement__Group__3__Impl rule__AssignStatement__Group__4 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1875:2: rule__AssignStatement__Group__3__Impl rule__AssignStatement__Group__4
             {
-            pushFollow(FOLLOW_rule__AssignStatement__Group__3__Impl_in_rule__AssignStatement__Group__33663);
+            pushFollow(FOLLOW_rule__AssignStatement__Group__3__Impl_in_rule__AssignStatement__Group__33783);
             rule__AssignStatement__Group__3__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__AssignStatement__Group__4_in_rule__AssignStatement__Group__33666);
+            pushFollow(FOLLOW_rule__AssignStatement__Group__4_in_rule__AssignStatement__Group__33786);
             rule__AssignStatement__Group__4();
             _fsp--;
 
@@ -4842,21 +4987,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__AssignStatement__Group__3__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1826:1: rule__AssignStatement__Group__3__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1882:1: rule__AssignStatement__Group__3__Impl : ( () ) ;
     public final void rule__AssignStatement__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1830:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1831:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1886:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1887:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1831:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1832:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1887:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1888:1: ()
             {
              before(grammarAccess.getAssignStatementAccess().getExpressionAction_3()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1833:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1835:1: 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1889:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1891:1: 
             {
             }
 
@@ -4879,16 +5024,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__AssignStatement__Group__4
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1845:1: rule__AssignStatement__Group__4 : rule__AssignStatement__Group__4__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1901:1: rule__AssignStatement__Group__4 : rule__AssignStatement__Group__4__Impl ;
     public final void rule__AssignStatement__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1849:1: ( rule__AssignStatement__Group__4__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1850:2: rule__AssignStatement__Group__4__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1905:1: ( rule__AssignStatement__Group__4__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1906:2: rule__AssignStatement__Group__4__Impl
             {
-            pushFollow(FOLLOW_rule__AssignStatement__Group__4__Impl_in_rule__AssignStatement__Group__43724);
+            pushFollow(FOLLOW_rule__AssignStatement__Group__4__Impl_in_rule__AssignStatement__Group__43844);
             rule__AssignStatement__Group__4__Impl();
             _fsp--;
 
@@ -4911,23 +5056,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__AssignStatement__Group__4__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1856:1: rule__AssignStatement__Group__4__Impl : ( ( rule__AssignStatement__ExpressionAssignment_4 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1912:1: rule__AssignStatement__Group__4__Impl : ( ( rule__AssignStatement__ExpressionAssignment_4 ) ) ;
     public final void rule__AssignStatement__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1860:1: ( ( ( rule__AssignStatement__ExpressionAssignment_4 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1861:1: ( ( rule__AssignStatement__ExpressionAssignment_4 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1916:1: ( ( ( rule__AssignStatement__ExpressionAssignment_4 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1917:1: ( ( rule__AssignStatement__ExpressionAssignment_4 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1861:1: ( ( rule__AssignStatement__ExpressionAssignment_4 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1862:1: ( rule__AssignStatement__ExpressionAssignment_4 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1917:1: ( ( rule__AssignStatement__ExpressionAssignment_4 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1918:1: ( rule__AssignStatement__ExpressionAssignment_4 )
             {
              before(grammarAccess.getAssignStatementAccess().getExpressionAssignment_4()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1863:1: ( rule__AssignStatement__ExpressionAssignment_4 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1863:2: rule__AssignStatement__ExpressionAssignment_4
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1919:1: ( rule__AssignStatement__ExpressionAssignment_4 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1919:2: rule__AssignStatement__ExpressionAssignment_4
             {
-            pushFollow(FOLLOW_rule__AssignStatement__ExpressionAssignment_4_in_rule__AssignStatement__Group__4__Impl3751);
+            pushFollow(FOLLOW_rule__AssignStatement__ExpressionAssignment_4_in_rule__AssignStatement__Group__4__Impl3871);
             rule__AssignStatement__ExpressionAssignment_4();
             _fsp--;
 
@@ -4957,20 +5102,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__PostIncrementStatement__Group__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1883:1: rule__PostIncrementStatement__Group__0 : rule__PostIncrementStatement__Group__0__Impl rule__PostIncrementStatement__Group__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1939:1: rule__PostIncrementStatement__Group__0 : rule__PostIncrementStatement__Group__0__Impl rule__PostIncrementStatement__Group__1 ;
     public final void rule__PostIncrementStatement__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1887:1: ( rule__PostIncrementStatement__Group__0__Impl rule__PostIncrementStatement__Group__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1888:2: rule__PostIncrementStatement__Group__0__Impl rule__PostIncrementStatement__Group__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1943:1: ( rule__PostIncrementStatement__Group__0__Impl rule__PostIncrementStatement__Group__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1944:2: rule__PostIncrementStatement__Group__0__Impl rule__PostIncrementStatement__Group__1
             {
-            pushFollow(FOLLOW_rule__PostIncrementStatement__Group__0__Impl_in_rule__PostIncrementStatement__Group__03791);
+            pushFollow(FOLLOW_rule__PostIncrementStatement__Group__0__Impl_in_rule__PostIncrementStatement__Group__03911);
             rule__PostIncrementStatement__Group__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__PostIncrementStatement__Group__1_in_rule__PostIncrementStatement__Group__03794);
+            pushFollow(FOLLOW_rule__PostIncrementStatement__Group__1_in_rule__PostIncrementStatement__Group__03914);
             rule__PostIncrementStatement__Group__1();
             _fsp--;
 
@@ -4993,21 +5138,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__PostIncrementStatement__Group__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1895:1: rule__PostIncrementStatement__Group__0__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1951:1: rule__PostIncrementStatement__Group__0__Impl : ( () ) ;
     public final void rule__PostIncrementStatement__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1899:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1900:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1955:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1956:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1900:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1901:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1956:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1957:1: ()
             {
              before(grammarAccess.getPostIncrementStatementAccess().getPostIncrementStatementAction_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1902:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1904:1: 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1958:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1960:1: 
             {
             }
 
@@ -5030,20 +5175,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__PostIncrementStatement__Group__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1914:1: rule__PostIncrementStatement__Group__1 : rule__PostIncrementStatement__Group__1__Impl rule__PostIncrementStatement__Group__2 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1970:1: rule__PostIncrementStatement__Group__1 : rule__PostIncrementStatement__Group__1__Impl rule__PostIncrementStatement__Group__2 ;
     public final void rule__PostIncrementStatement__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1918:1: ( rule__PostIncrementStatement__Group__1__Impl rule__PostIncrementStatement__Group__2 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1919:2: rule__PostIncrementStatement__Group__1__Impl rule__PostIncrementStatement__Group__2
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1974:1: ( rule__PostIncrementStatement__Group__1__Impl rule__PostIncrementStatement__Group__2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1975:2: rule__PostIncrementStatement__Group__1__Impl rule__PostIncrementStatement__Group__2
             {
-            pushFollow(FOLLOW_rule__PostIncrementStatement__Group__1__Impl_in_rule__PostIncrementStatement__Group__13852);
+            pushFollow(FOLLOW_rule__PostIncrementStatement__Group__1__Impl_in_rule__PostIncrementStatement__Group__13972);
             rule__PostIncrementStatement__Group__1__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__PostIncrementStatement__Group__2_in_rule__PostIncrementStatement__Group__13855);
+            pushFollow(FOLLOW_rule__PostIncrementStatement__Group__2_in_rule__PostIncrementStatement__Group__13975);
             rule__PostIncrementStatement__Group__2();
             _fsp--;
 
@@ -5066,23 +5211,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__PostIncrementStatement__Group__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1926:1: rule__PostIncrementStatement__Group__1__Impl : ( ( rule__PostIncrementStatement__NameAssignment_1 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1982:1: rule__PostIncrementStatement__Group__1__Impl : ( ( rule__PostIncrementStatement__NameAssignment_1 ) ) ;
     public final void rule__PostIncrementStatement__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1930:1: ( ( ( rule__PostIncrementStatement__NameAssignment_1 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1931:1: ( ( rule__PostIncrementStatement__NameAssignment_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1986:1: ( ( ( rule__PostIncrementStatement__NameAssignment_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1987:1: ( ( rule__PostIncrementStatement__NameAssignment_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1931:1: ( ( rule__PostIncrementStatement__NameAssignment_1 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1932:1: ( rule__PostIncrementStatement__NameAssignment_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1987:1: ( ( rule__PostIncrementStatement__NameAssignment_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1988:1: ( rule__PostIncrementStatement__NameAssignment_1 )
             {
              before(grammarAccess.getPostIncrementStatementAccess().getNameAssignment_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1933:1: ( rule__PostIncrementStatement__NameAssignment_1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1933:2: rule__PostIncrementStatement__NameAssignment_1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1989:1: ( rule__PostIncrementStatement__NameAssignment_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1989:2: rule__PostIncrementStatement__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__PostIncrementStatement__NameAssignment_1_in_rule__PostIncrementStatement__Group__1__Impl3882);
+            pushFollow(FOLLOW_rule__PostIncrementStatement__NameAssignment_1_in_rule__PostIncrementStatement__Group__1__Impl4002);
             rule__PostIncrementStatement__NameAssignment_1();
             _fsp--;
 
@@ -5112,16 +5257,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__PostIncrementStatement__Group__2
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1943:1: rule__PostIncrementStatement__Group__2 : rule__PostIncrementStatement__Group__2__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1999:1: rule__PostIncrementStatement__Group__2 : rule__PostIncrementStatement__Group__2__Impl ;
     public final void rule__PostIncrementStatement__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1947:1: ( rule__PostIncrementStatement__Group__2__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1948:2: rule__PostIncrementStatement__Group__2__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2003:1: ( rule__PostIncrementStatement__Group__2__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2004:2: rule__PostIncrementStatement__Group__2__Impl
             {
-            pushFollow(FOLLOW_rule__PostIncrementStatement__Group__2__Impl_in_rule__PostIncrementStatement__Group__23912);
+            pushFollow(FOLLOW_rule__PostIncrementStatement__Group__2__Impl_in_rule__PostIncrementStatement__Group__24032);
             rule__PostIncrementStatement__Group__2__Impl();
             _fsp--;
 
@@ -5144,20 +5289,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__PostIncrementStatement__Group__2__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1954:1: rule__PostIncrementStatement__Group__2__Impl : ( RULE_CHOICE ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2010:1: rule__PostIncrementStatement__Group__2__Impl : ( RULE_CHOICE ) ;
     public final void rule__PostIncrementStatement__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1958:1: ( ( RULE_CHOICE ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1959:1: ( RULE_CHOICE )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2014:1: ( ( RULE_CHOICE ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2015:1: ( RULE_CHOICE )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1959:1: ( RULE_CHOICE )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1960:1: RULE_CHOICE
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2015:1: ( RULE_CHOICE )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2016:1: RULE_CHOICE
             {
              before(grammarAccess.getPostIncrementStatementAccess().getCHOICETerminalRuleCall_2()); 
-            match(input,RULE_CHOICE,FOLLOW_RULE_CHOICE_in_rule__PostIncrementStatement__Group__2__Impl3939); 
+            match(input,RULE_CHOICE,FOLLOW_RULE_CHOICE_in_rule__PostIncrementStatement__Group__2__Impl4059); 
              after(grammarAccess.getPostIncrementStatementAccess().getCHOICETerminalRuleCall_2()); 
 
             }
@@ -5181,20 +5326,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__PostDecrementStatement__Group__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1977:1: rule__PostDecrementStatement__Group__0 : rule__PostDecrementStatement__Group__0__Impl rule__PostDecrementStatement__Group__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2033:1: rule__PostDecrementStatement__Group__0 : rule__PostDecrementStatement__Group__0__Impl rule__PostDecrementStatement__Group__1 ;
     public final void rule__PostDecrementStatement__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1981:1: ( rule__PostDecrementStatement__Group__0__Impl rule__PostDecrementStatement__Group__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1982:2: rule__PostDecrementStatement__Group__0__Impl rule__PostDecrementStatement__Group__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2037:1: ( rule__PostDecrementStatement__Group__0__Impl rule__PostDecrementStatement__Group__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2038:2: rule__PostDecrementStatement__Group__0__Impl rule__PostDecrementStatement__Group__1
             {
-            pushFollow(FOLLOW_rule__PostDecrementStatement__Group__0__Impl_in_rule__PostDecrementStatement__Group__03974);
+            pushFollow(FOLLOW_rule__PostDecrementStatement__Group__0__Impl_in_rule__PostDecrementStatement__Group__04094);
             rule__PostDecrementStatement__Group__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__PostDecrementStatement__Group__1_in_rule__PostDecrementStatement__Group__03977);
+            pushFollow(FOLLOW_rule__PostDecrementStatement__Group__1_in_rule__PostDecrementStatement__Group__04097);
             rule__PostDecrementStatement__Group__1();
             _fsp--;
 
@@ -5217,21 +5362,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__PostDecrementStatement__Group__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1989:1: rule__PostDecrementStatement__Group__0__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2045:1: rule__PostDecrementStatement__Group__0__Impl : ( () ) ;
     public final void rule__PostDecrementStatement__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1993:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1994:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2049:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2050:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1994:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1995:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2050:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2051:1: ()
             {
              before(grammarAccess.getPostDecrementStatementAccess().getPostDecrementStatementAction_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1996:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1998:1: 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2052:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2054:1: 
             {
             }
 
@@ -5254,20 +5399,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__PostDecrementStatement__Group__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2008:1: rule__PostDecrementStatement__Group__1 : rule__PostDecrementStatement__Group__1__Impl rule__PostDecrementStatement__Group__2 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2064:1: rule__PostDecrementStatement__Group__1 : rule__PostDecrementStatement__Group__1__Impl rule__PostDecrementStatement__Group__2 ;
     public final void rule__PostDecrementStatement__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2012:1: ( rule__PostDecrementStatement__Group__1__Impl rule__PostDecrementStatement__Group__2 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2013:2: rule__PostDecrementStatement__Group__1__Impl rule__PostDecrementStatement__Group__2
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2068:1: ( rule__PostDecrementStatement__Group__1__Impl rule__PostDecrementStatement__Group__2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2069:2: rule__PostDecrementStatement__Group__1__Impl rule__PostDecrementStatement__Group__2
             {
-            pushFollow(FOLLOW_rule__PostDecrementStatement__Group__1__Impl_in_rule__PostDecrementStatement__Group__14035);
+            pushFollow(FOLLOW_rule__PostDecrementStatement__Group__1__Impl_in_rule__PostDecrementStatement__Group__14155);
             rule__PostDecrementStatement__Group__1__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__PostDecrementStatement__Group__2_in_rule__PostDecrementStatement__Group__14038);
+            pushFollow(FOLLOW_rule__PostDecrementStatement__Group__2_in_rule__PostDecrementStatement__Group__14158);
             rule__PostDecrementStatement__Group__2();
             _fsp--;
 
@@ -5290,23 +5435,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__PostDecrementStatement__Group__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2020:1: rule__PostDecrementStatement__Group__1__Impl : ( ( rule__PostDecrementStatement__NameAssignment_1 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2076:1: rule__PostDecrementStatement__Group__1__Impl : ( ( rule__PostDecrementStatement__NameAssignment_1 ) ) ;
     public final void rule__PostDecrementStatement__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2024:1: ( ( ( rule__PostDecrementStatement__NameAssignment_1 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2025:1: ( ( rule__PostDecrementStatement__NameAssignment_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2080:1: ( ( ( rule__PostDecrementStatement__NameAssignment_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2081:1: ( ( rule__PostDecrementStatement__NameAssignment_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2025:1: ( ( rule__PostDecrementStatement__NameAssignment_1 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2026:1: ( rule__PostDecrementStatement__NameAssignment_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2081:1: ( ( rule__PostDecrementStatement__NameAssignment_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2082:1: ( rule__PostDecrementStatement__NameAssignment_1 )
             {
              before(grammarAccess.getPostDecrementStatementAccess().getNameAssignment_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2027:1: ( rule__PostDecrementStatement__NameAssignment_1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2027:2: rule__PostDecrementStatement__NameAssignment_1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2083:1: ( rule__PostDecrementStatement__NameAssignment_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2083:2: rule__PostDecrementStatement__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__PostDecrementStatement__NameAssignment_1_in_rule__PostDecrementStatement__Group__1__Impl4065);
+            pushFollow(FOLLOW_rule__PostDecrementStatement__NameAssignment_1_in_rule__PostDecrementStatement__Group__1__Impl4185);
             rule__PostDecrementStatement__NameAssignment_1();
             _fsp--;
 
@@ -5336,16 +5481,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__PostDecrementStatement__Group__2
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2037:1: rule__PostDecrementStatement__Group__2 : rule__PostDecrementStatement__Group__2__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2093:1: rule__PostDecrementStatement__Group__2 : rule__PostDecrementStatement__Group__2__Impl ;
     public final void rule__PostDecrementStatement__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2041:1: ( rule__PostDecrementStatement__Group__2__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2042:2: rule__PostDecrementStatement__Group__2__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2097:1: ( rule__PostDecrementStatement__Group__2__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2098:2: rule__PostDecrementStatement__Group__2__Impl
             {
-            pushFollow(FOLLOW_rule__PostDecrementStatement__Group__2__Impl_in_rule__PostDecrementStatement__Group__24095);
+            pushFollow(FOLLOW_rule__PostDecrementStatement__Group__2__Impl_in_rule__PostDecrementStatement__Group__24215);
             rule__PostDecrementStatement__Group__2__Impl();
             _fsp--;
 
@@ -5368,20 +5513,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__PostDecrementStatement__Group__2__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2048:1: rule__PostDecrementStatement__Group__2__Impl : ( RULE_DECREMENT ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2104:1: rule__PostDecrementStatement__Group__2__Impl : ( RULE_DECREMENT ) ;
     public final void rule__PostDecrementStatement__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2052:1: ( ( RULE_DECREMENT ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2053:1: ( RULE_DECREMENT )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2108:1: ( ( RULE_DECREMENT ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2109:1: ( RULE_DECREMENT )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2053:1: ( RULE_DECREMENT )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2054:1: RULE_DECREMENT
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2109:1: ( RULE_DECREMENT )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2110:1: RULE_DECREMENT
             {
              before(grammarAccess.getPostDecrementStatementAccess().getDECREMENTTerminalRuleCall_2()); 
-            match(input,RULE_DECREMENT,FOLLOW_RULE_DECREMENT_in_rule__PostDecrementStatement__Group__2__Impl4122); 
+            match(input,RULE_DECREMENT,FOLLOW_RULE_DECREMENT_in_rule__PostDecrementStatement__Group__2__Impl4242); 
              after(grammarAccess.getPostDecrementStatementAccess().getDECREMENTTerminalRuleCall_2()); 
 
             }
@@ -5405,20 +5550,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Expression__Group__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2071:1: rule__Expression__Group__0 : rule__Expression__Group__0__Impl rule__Expression__Group__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2127:1: rule__Expression__Group__0 : rule__Expression__Group__0__Impl rule__Expression__Group__1 ;
     public final void rule__Expression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2075:1: ( rule__Expression__Group__0__Impl rule__Expression__Group__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2076:2: rule__Expression__Group__0__Impl rule__Expression__Group__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2131:1: ( rule__Expression__Group__0__Impl rule__Expression__Group__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2132:2: rule__Expression__Group__0__Impl rule__Expression__Group__1
             {
-            pushFollow(FOLLOW_rule__Expression__Group__0__Impl_in_rule__Expression__Group__04157);
+            pushFollow(FOLLOW_rule__Expression__Group__0__Impl_in_rule__Expression__Group__04277);
             rule__Expression__Group__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__Expression__Group__1_in_rule__Expression__Group__04160);
+            pushFollow(FOLLOW_rule__Expression__Group__1_in_rule__Expression__Group__04280);
             rule__Expression__Group__1();
             _fsp--;
 
@@ -5441,20 +5586,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Expression__Group__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2083:1: rule__Expression__Group__0__Impl : ( ruleTerminalExpression ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2139:1: rule__Expression__Group__0__Impl : ( ruleTerminalExpression ) ;
     public final void rule__Expression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2087:1: ( ( ruleTerminalExpression ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2088:1: ( ruleTerminalExpression )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2143:1: ( ( ruleTerminalExpression ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2144:1: ( ruleTerminalExpression )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2088:1: ( ruleTerminalExpression )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2089:1: ruleTerminalExpression
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2144:1: ( ruleTerminalExpression )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2145:1: ruleTerminalExpression
             {
              before(grammarAccess.getExpressionAccess().getTerminalExpressionParserRuleCall_0()); 
-            pushFollow(FOLLOW_ruleTerminalExpression_in_rule__Expression__Group__0__Impl4187);
+            pushFollow(FOLLOW_ruleTerminalExpression_in_rule__Expression__Group__0__Impl4307);
             ruleTerminalExpression();
             _fsp--;
 
@@ -5481,16 +5626,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Expression__Group__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2100:1: rule__Expression__Group__1 : rule__Expression__Group__1__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2156:1: rule__Expression__Group__1 : rule__Expression__Group__1__Impl ;
     public final void rule__Expression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2104:1: ( rule__Expression__Group__1__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2105:2: rule__Expression__Group__1__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2160:1: ( rule__Expression__Group__1__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2161:2: rule__Expression__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__Expression__Group__1__Impl_in_rule__Expression__Group__14216);
+            pushFollow(FOLLOW_rule__Expression__Group__1__Impl_in_rule__Expression__Group__14336);
             rule__Expression__Group__1__Impl();
             _fsp--;
 
@@ -5513,20 +5658,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Expression__Group__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2111:1: rule__Expression__Group__1__Impl : ( ( rule__Expression__Group_1__0 )? ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2167:1: rule__Expression__Group__1__Impl : ( ( rule__Expression__Group_1__0 )? ) ;
     public final void rule__Expression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2115:1: ( ( ( rule__Expression__Group_1__0 )? ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2116:1: ( ( rule__Expression__Group_1__0 )? )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2171:1: ( ( ( rule__Expression__Group_1__0 )? ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2172:1: ( ( rule__Expression__Group_1__0 )? )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2116:1: ( ( rule__Expression__Group_1__0 )? )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2117:1: ( rule__Expression__Group_1__0 )?
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2172:1: ( ( rule__Expression__Group_1__0 )? )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2173:1: ( rule__Expression__Group_1__0 )?
             {
              before(grammarAccess.getExpressionAccess().getGroup_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2118:1: ( rule__Expression__Group_1__0 )?
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2174:1: ( rule__Expression__Group_1__0 )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -5535,9 +5680,9 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
             }
             switch (alt9) {
                 case 1 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2118:2: rule__Expression__Group_1__0
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2174:2: rule__Expression__Group_1__0
                     {
-                    pushFollow(FOLLOW_rule__Expression__Group_1__0_in_rule__Expression__Group__1__Impl4243);
+                    pushFollow(FOLLOW_rule__Expression__Group_1__0_in_rule__Expression__Group__1__Impl4363);
                     rule__Expression__Group_1__0();
                     _fsp--;
 
@@ -5570,20 +5715,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Expression__Group_1__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2132:1: rule__Expression__Group_1__0 : rule__Expression__Group_1__0__Impl rule__Expression__Group_1__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2188:1: rule__Expression__Group_1__0 : rule__Expression__Group_1__0__Impl rule__Expression__Group_1__1 ;
     public final void rule__Expression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2136:1: ( rule__Expression__Group_1__0__Impl rule__Expression__Group_1__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2137:2: rule__Expression__Group_1__0__Impl rule__Expression__Group_1__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2192:1: ( rule__Expression__Group_1__0__Impl rule__Expression__Group_1__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2193:2: rule__Expression__Group_1__0__Impl rule__Expression__Group_1__1
             {
-            pushFollow(FOLLOW_rule__Expression__Group_1__0__Impl_in_rule__Expression__Group_1__04278);
+            pushFollow(FOLLOW_rule__Expression__Group_1__0__Impl_in_rule__Expression__Group_1__04398);
             rule__Expression__Group_1__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__Expression__Group_1__1_in_rule__Expression__Group_1__04281);
+            pushFollow(FOLLOW_rule__Expression__Group_1__1_in_rule__Expression__Group_1__04401);
             rule__Expression__Group_1__1();
             _fsp--;
 
@@ -5606,21 +5751,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Expression__Group_1__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2144:1: rule__Expression__Group_1__0__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2200:1: rule__Expression__Group_1__0__Impl : ( () ) ;
     public final void rule__Expression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2148:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2149:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2204:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2205:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2149:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2150:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2205:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2206:1: ()
             {
              before(grammarAccess.getExpressionAccess().getOperationLeftAction_1_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2151:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2153:1: 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2207:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2209:1: 
             {
             }
 
@@ -5643,20 +5788,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Expression__Group_1__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2163:1: rule__Expression__Group_1__1 : rule__Expression__Group_1__1__Impl rule__Expression__Group_1__2 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2219:1: rule__Expression__Group_1__1 : rule__Expression__Group_1__1__Impl rule__Expression__Group_1__2 ;
     public final void rule__Expression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2167:1: ( rule__Expression__Group_1__1__Impl rule__Expression__Group_1__2 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2168:2: rule__Expression__Group_1__1__Impl rule__Expression__Group_1__2
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2223:1: ( rule__Expression__Group_1__1__Impl rule__Expression__Group_1__2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2224:2: rule__Expression__Group_1__1__Impl rule__Expression__Group_1__2
             {
-            pushFollow(FOLLOW_rule__Expression__Group_1__1__Impl_in_rule__Expression__Group_1__14339);
+            pushFollow(FOLLOW_rule__Expression__Group_1__1__Impl_in_rule__Expression__Group_1__14459);
             rule__Expression__Group_1__1__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__Expression__Group_1__2_in_rule__Expression__Group_1__14342);
+            pushFollow(FOLLOW_rule__Expression__Group_1__2_in_rule__Expression__Group_1__14462);
             rule__Expression__Group_1__2();
             _fsp--;
 
@@ -5679,23 +5824,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Expression__Group_1__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2175:1: rule__Expression__Group_1__1__Impl : ( ( rule__Expression__OpAssignment_1_1 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2231:1: rule__Expression__Group_1__1__Impl : ( ( rule__Expression__OpAssignment_1_1 ) ) ;
     public final void rule__Expression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2179:1: ( ( ( rule__Expression__OpAssignment_1_1 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2180:1: ( ( rule__Expression__OpAssignment_1_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2235:1: ( ( ( rule__Expression__OpAssignment_1_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2236:1: ( ( rule__Expression__OpAssignment_1_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2180:1: ( ( rule__Expression__OpAssignment_1_1 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2181:1: ( rule__Expression__OpAssignment_1_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2236:1: ( ( rule__Expression__OpAssignment_1_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2237:1: ( rule__Expression__OpAssignment_1_1 )
             {
              before(grammarAccess.getExpressionAccess().getOpAssignment_1_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2182:1: ( rule__Expression__OpAssignment_1_1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2182:2: rule__Expression__OpAssignment_1_1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2238:1: ( rule__Expression__OpAssignment_1_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2238:2: rule__Expression__OpAssignment_1_1
             {
-            pushFollow(FOLLOW_rule__Expression__OpAssignment_1_1_in_rule__Expression__Group_1__1__Impl4369);
+            pushFollow(FOLLOW_rule__Expression__OpAssignment_1_1_in_rule__Expression__Group_1__1__Impl4489);
             rule__Expression__OpAssignment_1_1();
             _fsp--;
 
@@ -5725,16 +5870,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Expression__Group_1__2
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2192:1: rule__Expression__Group_1__2 : rule__Expression__Group_1__2__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2248:1: rule__Expression__Group_1__2 : rule__Expression__Group_1__2__Impl ;
     public final void rule__Expression__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2196:1: ( rule__Expression__Group_1__2__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2197:2: rule__Expression__Group_1__2__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2252:1: ( rule__Expression__Group_1__2__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2253:2: rule__Expression__Group_1__2__Impl
             {
-            pushFollow(FOLLOW_rule__Expression__Group_1__2__Impl_in_rule__Expression__Group_1__24399);
+            pushFollow(FOLLOW_rule__Expression__Group_1__2__Impl_in_rule__Expression__Group_1__24519);
             rule__Expression__Group_1__2__Impl();
             _fsp--;
 
@@ -5757,23 +5902,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Expression__Group_1__2__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2203:1: rule__Expression__Group_1__2__Impl : ( ( rule__Expression__RightAssignment_1_2 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2259:1: rule__Expression__Group_1__2__Impl : ( ( rule__Expression__RightAssignment_1_2 ) ) ;
     public final void rule__Expression__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2207:1: ( ( ( rule__Expression__RightAssignment_1_2 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2208:1: ( ( rule__Expression__RightAssignment_1_2 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2263:1: ( ( ( rule__Expression__RightAssignment_1_2 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2264:1: ( ( rule__Expression__RightAssignment_1_2 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2208:1: ( ( rule__Expression__RightAssignment_1_2 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2209:1: ( rule__Expression__RightAssignment_1_2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2264:1: ( ( rule__Expression__RightAssignment_1_2 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2265:1: ( rule__Expression__RightAssignment_1_2 )
             {
              before(grammarAccess.getExpressionAccess().getRightAssignment_1_2()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2210:1: ( rule__Expression__RightAssignment_1_2 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2210:2: rule__Expression__RightAssignment_1_2
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2266:1: ( rule__Expression__RightAssignment_1_2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2266:2: rule__Expression__RightAssignment_1_2
             {
-            pushFollow(FOLLOW_rule__Expression__RightAssignment_1_2_in_rule__Expression__Group_1__2__Impl4426);
+            pushFollow(FOLLOW_rule__Expression__RightAssignment_1_2_in_rule__Expression__Group_1__2__Impl4546);
             rule__Expression__RightAssignment_1_2();
             _fsp--;
 
@@ -5803,20 +5948,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_0__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2226:1: rule__TerminalExpression__Group_0__0 : rule__TerminalExpression__Group_0__0__Impl rule__TerminalExpression__Group_0__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2282:1: rule__TerminalExpression__Group_0__0 : rule__TerminalExpression__Group_0__0__Impl rule__TerminalExpression__Group_0__1 ;
     public final void rule__TerminalExpression__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2230:1: ( rule__TerminalExpression__Group_0__0__Impl rule__TerminalExpression__Group_0__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2231:2: rule__TerminalExpression__Group_0__0__Impl rule__TerminalExpression__Group_0__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2286:1: ( rule__TerminalExpression__Group_0__0__Impl rule__TerminalExpression__Group_0__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2287:2: rule__TerminalExpression__Group_0__0__Impl rule__TerminalExpression__Group_0__1
             {
-            pushFollow(FOLLOW_rule__TerminalExpression__Group_0__0__Impl_in_rule__TerminalExpression__Group_0__04462);
+            pushFollow(FOLLOW_rule__TerminalExpression__Group_0__0__Impl_in_rule__TerminalExpression__Group_0__04582);
             rule__TerminalExpression__Group_0__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__TerminalExpression__Group_0__1_in_rule__TerminalExpression__Group_0__04465);
+            pushFollow(FOLLOW_rule__TerminalExpression__Group_0__1_in_rule__TerminalExpression__Group_0__04585);
             rule__TerminalExpression__Group_0__1();
             _fsp--;
 
@@ -5839,20 +5984,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_0__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2238:1: rule__TerminalExpression__Group_0__0__Impl : ( RULE_LPAREN ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2294:1: rule__TerminalExpression__Group_0__0__Impl : ( RULE_LPAREN ) ;
     public final void rule__TerminalExpression__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2242:1: ( ( RULE_LPAREN ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2243:1: ( RULE_LPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2298:1: ( ( RULE_LPAREN ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2299:1: ( RULE_LPAREN )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2243:1: ( RULE_LPAREN )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2244:1: RULE_LPAREN
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2299:1: ( RULE_LPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2300:1: RULE_LPAREN
             {
              before(grammarAccess.getTerminalExpressionAccess().getLPARENTerminalRuleCall_0_0()); 
-            match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_rule__TerminalExpression__Group_0__0__Impl4492); 
+            match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_rule__TerminalExpression__Group_0__0__Impl4612); 
              after(grammarAccess.getTerminalExpressionAccess().getLPARENTerminalRuleCall_0_0()); 
 
             }
@@ -5876,20 +6021,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_0__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2255:1: rule__TerminalExpression__Group_0__1 : rule__TerminalExpression__Group_0__1__Impl rule__TerminalExpression__Group_0__2 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2311:1: rule__TerminalExpression__Group_0__1 : rule__TerminalExpression__Group_0__1__Impl rule__TerminalExpression__Group_0__2 ;
     public final void rule__TerminalExpression__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2259:1: ( rule__TerminalExpression__Group_0__1__Impl rule__TerminalExpression__Group_0__2 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2260:2: rule__TerminalExpression__Group_0__1__Impl rule__TerminalExpression__Group_0__2
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2315:1: ( rule__TerminalExpression__Group_0__1__Impl rule__TerminalExpression__Group_0__2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2316:2: rule__TerminalExpression__Group_0__1__Impl rule__TerminalExpression__Group_0__2
             {
-            pushFollow(FOLLOW_rule__TerminalExpression__Group_0__1__Impl_in_rule__TerminalExpression__Group_0__14521);
+            pushFollow(FOLLOW_rule__TerminalExpression__Group_0__1__Impl_in_rule__TerminalExpression__Group_0__14641);
             rule__TerminalExpression__Group_0__1__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__TerminalExpression__Group_0__2_in_rule__TerminalExpression__Group_0__14524);
+            pushFollow(FOLLOW_rule__TerminalExpression__Group_0__2_in_rule__TerminalExpression__Group_0__14644);
             rule__TerminalExpression__Group_0__2();
             _fsp--;
 
@@ -5912,20 +6057,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_0__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2267:1: rule__TerminalExpression__Group_0__1__Impl : ( ruleExpression ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2323:1: rule__TerminalExpression__Group_0__1__Impl : ( ruleExpression ) ;
     public final void rule__TerminalExpression__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2271:1: ( ( ruleExpression ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2272:1: ( ruleExpression )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2327:1: ( ( ruleExpression ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2328:1: ( ruleExpression )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2272:1: ( ruleExpression )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2273:1: ruleExpression
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2328:1: ( ruleExpression )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2329:1: ruleExpression
             {
              before(grammarAccess.getTerminalExpressionAccess().getExpressionParserRuleCall_0_1()); 
-            pushFollow(FOLLOW_ruleExpression_in_rule__TerminalExpression__Group_0__1__Impl4551);
+            pushFollow(FOLLOW_ruleExpression_in_rule__TerminalExpression__Group_0__1__Impl4671);
             ruleExpression();
             _fsp--;
 
@@ -5952,16 +6097,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_0__2
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2284:1: rule__TerminalExpression__Group_0__2 : rule__TerminalExpression__Group_0__2__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2340:1: rule__TerminalExpression__Group_0__2 : rule__TerminalExpression__Group_0__2__Impl ;
     public final void rule__TerminalExpression__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2288:1: ( rule__TerminalExpression__Group_0__2__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2289:2: rule__TerminalExpression__Group_0__2__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2344:1: ( rule__TerminalExpression__Group_0__2__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2345:2: rule__TerminalExpression__Group_0__2__Impl
             {
-            pushFollow(FOLLOW_rule__TerminalExpression__Group_0__2__Impl_in_rule__TerminalExpression__Group_0__24580);
+            pushFollow(FOLLOW_rule__TerminalExpression__Group_0__2__Impl_in_rule__TerminalExpression__Group_0__24700);
             rule__TerminalExpression__Group_0__2__Impl();
             _fsp--;
 
@@ -5984,20 +6129,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_0__2__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2295:1: rule__TerminalExpression__Group_0__2__Impl : ( RULE_RPAREN ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2351:1: rule__TerminalExpression__Group_0__2__Impl : ( RULE_RPAREN ) ;
     public final void rule__TerminalExpression__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2299:1: ( ( RULE_RPAREN ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2300:1: ( RULE_RPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2355:1: ( ( RULE_RPAREN ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2356:1: ( RULE_RPAREN )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2300:1: ( RULE_RPAREN )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2301:1: RULE_RPAREN
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2356:1: ( RULE_RPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2357:1: RULE_RPAREN
             {
              before(grammarAccess.getTerminalExpressionAccess().getRPARENTerminalRuleCall_0_2()); 
-            match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_rule__TerminalExpression__Group_0__2__Impl4607); 
+            match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_rule__TerminalExpression__Group_0__2__Impl4727); 
              after(grammarAccess.getTerminalExpressionAccess().getRPARENTerminalRuleCall_0_2()); 
 
             }
@@ -6021,20 +6166,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_1__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2318:1: rule__TerminalExpression__Group_1__0 : rule__TerminalExpression__Group_1__0__Impl rule__TerminalExpression__Group_1__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2374:1: rule__TerminalExpression__Group_1__0 : rule__TerminalExpression__Group_1__0__Impl rule__TerminalExpression__Group_1__1 ;
     public final void rule__TerminalExpression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2322:1: ( rule__TerminalExpression__Group_1__0__Impl rule__TerminalExpression__Group_1__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2323:2: rule__TerminalExpression__Group_1__0__Impl rule__TerminalExpression__Group_1__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2378:1: ( rule__TerminalExpression__Group_1__0__Impl rule__TerminalExpression__Group_1__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2379:2: rule__TerminalExpression__Group_1__0__Impl rule__TerminalExpression__Group_1__1
             {
-            pushFollow(FOLLOW_rule__TerminalExpression__Group_1__0__Impl_in_rule__TerminalExpression__Group_1__04642);
+            pushFollow(FOLLOW_rule__TerminalExpression__Group_1__0__Impl_in_rule__TerminalExpression__Group_1__04762);
             rule__TerminalExpression__Group_1__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__TerminalExpression__Group_1__1_in_rule__TerminalExpression__Group_1__04645);
+            pushFollow(FOLLOW_rule__TerminalExpression__Group_1__1_in_rule__TerminalExpression__Group_1__04765);
             rule__TerminalExpression__Group_1__1();
             _fsp--;
 
@@ -6057,21 +6202,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_1__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2330:1: rule__TerminalExpression__Group_1__0__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2386:1: rule__TerminalExpression__Group_1__0__Impl : ( () ) ;
     public final void rule__TerminalExpression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2334:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2335:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2390:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2391:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2335:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2336:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2391:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2392:1: ()
             {
              before(grammarAccess.getTerminalExpressionAccess().getIntLiteralAction_1_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2337:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2339:1: 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2393:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2395:1: 
             {
             }
 
@@ -6094,16 +6239,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_1__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2349:1: rule__TerminalExpression__Group_1__1 : rule__TerminalExpression__Group_1__1__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2405:1: rule__TerminalExpression__Group_1__1 : rule__TerminalExpression__Group_1__1__Impl ;
     public final void rule__TerminalExpression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2353:1: ( rule__TerminalExpression__Group_1__1__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2354:2: rule__TerminalExpression__Group_1__1__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2409:1: ( rule__TerminalExpression__Group_1__1__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2410:2: rule__TerminalExpression__Group_1__1__Impl
             {
-            pushFollow(FOLLOW_rule__TerminalExpression__Group_1__1__Impl_in_rule__TerminalExpression__Group_1__14703);
+            pushFollow(FOLLOW_rule__TerminalExpression__Group_1__1__Impl_in_rule__TerminalExpression__Group_1__14823);
             rule__TerminalExpression__Group_1__1__Impl();
             _fsp--;
 
@@ -6126,23 +6271,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_1__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2360:1: rule__TerminalExpression__Group_1__1__Impl : ( ( rule__TerminalExpression__ValueAssignment_1_1 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2416:1: rule__TerminalExpression__Group_1__1__Impl : ( ( rule__TerminalExpression__ValueAssignment_1_1 ) ) ;
     public final void rule__TerminalExpression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2364:1: ( ( ( rule__TerminalExpression__ValueAssignment_1_1 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2365:1: ( ( rule__TerminalExpression__ValueAssignment_1_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2420:1: ( ( ( rule__TerminalExpression__ValueAssignment_1_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2421:1: ( ( rule__TerminalExpression__ValueAssignment_1_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2365:1: ( ( rule__TerminalExpression__ValueAssignment_1_1 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2366:1: ( rule__TerminalExpression__ValueAssignment_1_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2421:1: ( ( rule__TerminalExpression__ValueAssignment_1_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2422:1: ( rule__TerminalExpression__ValueAssignment_1_1 )
             {
              before(grammarAccess.getTerminalExpressionAccess().getValueAssignment_1_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2367:1: ( rule__TerminalExpression__ValueAssignment_1_1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2367:2: rule__TerminalExpression__ValueAssignment_1_1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2423:1: ( rule__TerminalExpression__ValueAssignment_1_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2423:2: rule__TerminalExpression__ValueAssignment_1_1
             {
-            pushFollow(FOLLOW_rule__TerminalExpression__ValueAssignment_1_1_in_rule__TerminalExpression__Group_1__1__Impl4730);
+            pushFollow(FOLLOW_rule__TerminalExpression__ValueAssignment_1_1_in_rule__TerminalExpression__Group_1__1__Impl4850);
             rule__TerminalExpression__ValueAssignment_1_1();
             _fsp--;
 
@@ -6172,20 +6317,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_2__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2381:1: rule__TerminalExpression__Group_2__0 : rule__TerminalExpression__Group_2__0__Impl rule__TerminalExpression__Group_2__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2437:1: rule__TerminalExpression__Group_2__0 : rule__TerminalExpression__Group_2__0__Impl rule__TerminalExpression__Group_2__1 ;
     public final void rule__TerminalExpression__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2385:1: ( rule__TerminalExpression__Group_2__0__Impl rule__TerminalExpression__Group_2__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2386:2: rule__TerminalExpression__Group_2__0__Impl rule__TerminalExpression__Group_2__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2441:1: ( rule__TerminalExpression__Group_2__0__Impl rule__TerminalExpression__Group_2__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2442:2: rule__TerminalExpression__Group_2__0__Impl rule__TerminalExpression__Group_2__1
             {
-            pushFollow(FOLLOW_rule__TerminalExpression__Group_2__0__Impl_in_rule__TerminalExpression__Group_2__04764);
+            pushFollow(FOLLOW_rule__TerminalExpression__Group_2__0__Impl_in_rule__TerminalExpression__Group_2__04884);
             rule__TerminalExpression__Group_2__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__TerminalExpression__Group_2__1_in_rule__TerminalExpression__Group_2__04767);
+            pushFollow(FOLLOW_rule__TerminalExpression__Group_2__1_in_rule__TerminalExpression__Group_2__04887);
             rule__TerminalExpression__Group_2__1();
             _fsp--;
 
@@ -6208,21 +6353,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_2__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2393:1: rule__TerminalExpression__Group_2__0__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2449:1: rule__TerminalExpression__Group_2__0__Impl : ( () ) ;
     public final void rule__TerminalExpression__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2397:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2398:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2453:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2454:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2398:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2399:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2454:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2455:1: ()
             {
              before(grammarAccess.getTerminalExpressionAccess().getRealLiteralAction_2_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2400:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2402:1: 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2456:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2458:1: 
             {
             }
 
@@ -6245,16 +6390,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_2__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2412:1: rule__TerminalExpression__Group_2__1 : rule__TerminalExpression__Group_2__1__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2468:1: rule__TerminalExpression__Group_2__1 : rule__TerminalExpression__Group_2__1__Impl ;
     public final void rule__TerminalExpression__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2416:1: ( rule__TerminalExpression__Group_2__1__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2417:2: rule__TerminalExpression__Group_2__1__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2472:1: ( rule__TerminalExpression__Group_2__1__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2473:2: rule__TerminalExpression__Group_2__1__Impl
             {
-            pushFollow(FOLLOW_rule__TerminalExpression__Group_2__1__Impl_in_rule__TerminalExpression__Group_2__14825);
+            pushFollow(FOLLOW_rule__TerminalExpression__Group_2__1__Impl_in_rule__TerminalExpression__Group_2__14945);
             rule__TerminalExpression__Group_2__1__Impl();
             _fsp--;
 
@@ -6277,23 +6422,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_2__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2423:1: rule__TerminalExpression__Group_2__1__Impl : ( ( rule__TerminalExpression__ValueAssignment_2_1 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2479:1: rule__TerminalExpression__Group_2__1__Impl : ( ( rule__TerminalExpression__ValueAssignment_2_1 ) ) ;
     public final void rule__TerminalExpression__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2427:1: ( ( ( rule__TerminalExpression__ValueAssignment_2_1 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2428:1: ( ( rule__TerminalExpression__ValueAssignment_2_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2483:1: ( ( ( rule__TerminalExpression__ValueAssignment_2_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2484:1: ( ( rule__TerminalExpression__ValueAssignment_2_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2428:1: ( ( rule__TerminalExpression__ValueAssignment_2_1 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2429:1: ( rule__TerminalExpression__ValueAssignment_2_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2484:1: ( ( rule__TerminalExpression__ValueAssignment_2_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2485:1: ( rule__TerminalExpression__ValueAssignment_2_1 )
             {
              before(grammarAccess.getTerminalExpressionAccess().getValueAssignment_2_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2430:1: ( rule__TerminalExpression__ValueAssignment_2_1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2430:2: rule__TerminalExpression__ValueAssignment_2_1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2486:1: ( rule__TerminalExpression__ValueAssignment_2_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2486:2: rule__TerminalExpression__ValueAssignment_2_1
             {
-            pushFollow(FOLLOW_rule__TerminalExpression__ValueAssignment_2_1_in_rule__TerminalExpression__Group_2__1__Impl4852);
+            pushFollow(FOLLOW_rule__TerminalExpression__ValueAssignment_2_1_in_rule__TerminalExpression__Group_2__1__Impl4972);
             rule__TerminalExpression__ValueAssignment_2_1();
             _fsp--;
 
@@ -6323,20 +6468,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_3__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2444:1: rule__TerminalExpression__Group_3__0 : rule__TerminalExpression__Group_3__0__Impl rule__TerminalExpression__Group_3__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2500:1: rule__TerminalExpression__Group_3__0 : rule__TerminalExpression__Group_3__0__Impl rule__TerminalExpression__Group_3__1 ;
     public final void rule__TerminalExpression__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2448:1: ( rule__TerminalExpression__Group_3__0__Impl rule__TerminalExpression__Group_3__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2449:2: rule__TerminalExpression__Group_3__0__Impl rule__TerminalExpression__Group_3__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2504:1: ( rule__TerminalExpression__Group_3__0__Impl rule__TerminalExpression__Group_3__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2505:2: rule__TerminalExpression__Group_3__0__Impl rule__TerminalExpression__Group_3__1
             {
-            pushFollow(FOLLOW_rule__TerminalExpression__Group_3__0__Impl_in_rule__TerminalExpression__Group_3__04886);
+            pushFollow(FOLLOW_rule__TerminalExpression__Group_3__0__Impl_in_rule__TerminalExpression__Group_3__05006);
             rule__TerminalExpression__Group_3__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__TerminalExpression__Group_3__1_in_rule__TerminalExpression__Group_3__04889);
+            pushFollow(FOLLOW_rule__TerminalExpression__Group_3__1_in_rule__TerminalExpression__Group_3__05009);
             rule__TerminalExpression__Group_3__1();
             _fsp--;
 
@@ -6359,21 +6504,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_3__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2456:1: rule__TerminalExpression__Group_3__0__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2512:1: rule__TerminalExpression__Group_3__0__Impl : ( () ) ;
     public final void rule__TerminalExpression__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2460:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2461:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2516:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2517:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2461:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2462:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2517:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2518:1: ()
             {
              before(grammarAccess.getTerminalExpressionAccess().getStringAction_3_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2463:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2465:1: 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2519:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2521:1: 
             {
             }
 
@@ -6396,16 +6541,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_3__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2475:1: rule__TerminalExpression__Group_3__1 : rule__TerminalExpression__Group_3__1__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2531:1: rule__TerminalExpression__Group_3__1 : rule__TerminalExpression__Group_3__1__Impl ;
     public final void rule__TerminalExpression__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2479:1: ( rule__TerminalExpression__Group_3__1__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2480:2: rule__TerminalExpression__Group_3__1__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2535:1: ( rule__TerminalExpression__Group_3__1__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2536:2: rule__TerminalExpression__Group_3__1__Impl
             {
-            pushFollow(FOLLOW_rule__TerminalExpression__Group_3__1__Impl_in_rule__TerminalExpression__Group_3__14947);
+            pushFollow(FOLLOW_rule__TerminalExpression__Group_3__1__Impl_in_rule__TerminalExpression__Group_3__15067);
             rule__TerminalExpression__Group_3__1__Impl();
             _fsp--;
 
@@ -6428,23 +6573,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_3__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2486:1: rule__TerminalExpression__Group_3__1__Impl : ( ( rule__TerminalExpression__ValueAssignment_3_1 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2542:1: rule__TerminalExpression__Group_3__1__Impl : ( ( rule__TerminalExpression__ValueAssignment_3_1 ) ) ;
     public final void rule__TerminalExpression__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2490:1: ( ( ( rule__TerminalExpression__ValueAssignment_3_1 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2491:1: ( ( rule__TerminalExpression__ValueAssignment_3_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2546:1: ( ( ( rule__TerminalExpression__ValueAssignment_3_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2547:1: ( ( rule__TerminalExpression__ValueAssignment_3_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2491:1: ( ( rule__TerminalExpression__ValueAssignment_3_1 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2492:1: ( rule__TerminalExpression__ValueAssignment_3_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2547:1: ( ( rule__TerminalExpression__ValueAssignment_3_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2548:1: ( rule__TerminalExpression__ValueAssignment_3_1 )
             {
              before(grammarAccess.getTerminalExpressionAccess().getValueAssignment_3_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2493:1: ( rule__TerminalExpression__ValueAssignment_3_1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2493:2: rule__TerminalExpression__ValueAssignment_3_1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2549:1: ( rule__TerminalExpression__ValueAssignment_3_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2549:2: rule__TerminalExpression__ValueAssignment_3_1
             {
-            pushFollow(FOLLOW_rule__TerminalExpression__ValueAssignment_3_1_in_rule__TerminalExpression__Group_3__1__Impl4974);
+            pushFollow(FOLLOW_rule__TerminalExpression__ValueAssignment_3_1_in_rule__TerminalExpression__Group_3__1__Impl5094);
             rule__TerminalExpression__ValueAssignment_3_1();
             _fsp--;
 
@@ -6474,20 +6619,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_4__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2507:1: rule__TerminalExpression__Group_4__0 : rule__TerminalExpression__Group_4__0__Impl rule__TerminalExpression__Group_4__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2563:1: rule__TerminalExpression__Group_4__0 : rule__TerminalExpression__Group_4__0__Impl rule__TerminalExpression__Group_4__1 ;
     public final void rule__TerminalExpression__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2511:1: ( rule__TerminalExpression__Group_4__0__Impl rule__TerminalExpression__Group_4__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2512:2: rule__TerminalExpression__Group_4__0__Impl rule__TerminalExpression__Group_4__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2567:1: ( rule__TerminalExpression__Group_4__0__Impl rule__TerminalExpression__Group_4__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2568:2: rule__TerminalExpression__Group_4__0__Impl rule__TerminalExpression__Group_4__1
             {
-            pushFollow(FOLLOW_rule__TerminalExpression__Group_4__0__Impl_in_rule__TerminalExpression__Group_4__05008);
+            pushFollow(FOLLOW_rule__TerminalExpression__Group_4__0__Impl_in_rule__TerminalExpression__Group_4__05128);
             rule__TerminalExpression__Group_4__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__TerminalExpression__Group_4__1_in_rule__TerminalExpression__Group_4__05011);
+            pushFollow(FOLLOW_rule__TerminalExpression__Group_4__1_in_rule__TerminalExpression__Group_4__05131);
             rule__TerminalExpression__Group_4__1();
             _fsp--;
 
@@ -6510,21 +6655,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_4__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2519:1: rule__TerminalExpression__Group_4__0__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2575:1: rule__TerminalExpression__Group_4__0__Impl : ( () ) ;
     public final void rule__TerminalExpression__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2523:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2524:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2579:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2580:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2524:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2525:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2580:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2581:1: ()
             {
              before(grammarAccess.getTerminalExpressionAccess().getStringAction_4_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2526:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2528:1: 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2582:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2584:1: 
             {
             }
 
@@ -6547,16 +6692,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_4__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2538:1: rule__TerminalExpression__Group_4__1 : rule__TerminalExpression__Group_4__1__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2594:1: rule__TerminalExpression__Group_4__1 : rule__TerminalExpression__Group_4__1__Impl ;
     public final void rule__TerminalExpression__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2542:1: ( rule__TerminalExpression__Group_4__1__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2543:2: rule__TerminalExpression__Group_4__1__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2598:1: ( rule__TerminalExpression__Group_4__1__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2599:2: rule__TerminalExpression__Group_4__1__Impl
             {
-            pushFollow(FOLLOW_rule__TerminalExpression__Group_4__1__Impl_in_rule__TerminalExpression__Group_4__15069);
+            pushFollow(FOLLOW_rule__TerminalExpression__Group_4__1__Impl_in_rule__TerminalExpression__Group_4__15189);
             rule__TerminalExpression__Group_4__1__Impl();
             _fsp--;
 
@@ -6579,23 +6724,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__Group_4__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2549:1: rule__TerminalExpression__Group_4__1__Impl : ( ( rule__TerminalExpression__ValueAssignment_4_1 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2605:1: rule__TerminalExpression__Group_4__1__Impl : ( ( rule__TerminalExpression__ValueAssignment_4_1 ) ) ;
     public final void rule__TerminalExpression__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2553:1: ( ( ( rule__TerminalExpression__ValueAssignment_4_1 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2554:1: ( ( rule__TerminalExpression__ValueAssignment_4_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2609:1: ( ( ( rule__TerminalExpression__ValueAssignment_4_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2610:1: ( ( rule__TerminalExpression__ValueAssignment_4_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2554:1: ( ( rule__TerminalExpression__ValueAssignment_4_1 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2555:1: ( rule__TerminalExpression__ValueAssignment_4_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2610:1: ( ( rule__TerminalExpression__ValueAssignment_4_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2611:1: ( rule__TerminalExpression__ValueAssignment_4_1 )
             {
              before(grammarAccess.getTerminalExpressionAccess().getValueAssignment_4_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2556:1: ( rule__TerminalExpression__ValueAssignment_4_1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2556:2: rule__TerminalExpression__ValueAssignment_4_1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2612:1: ( rule__TerminalExpression__ValueAssignment_4_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2612:2: rule__TerminalExpression__ValueAssignment_4_1
             {
-            pushFollow(FOLLOW_rule__TerminalExpression__ValueAssignment_4_1_in_rule__TerminalExpression__Group_4__1__Impl5096);
+            pushFollow(FOLLOW_rule__TerminalExpression__ValueAssignment_4_1_in_rule__TerminalExpression__Group_4__1__Impl5216);
             rule__TerminalExpression__ValueAssignment_4_1();
             _fsp--;
 
@@ -6624,95 +6769,22 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
     // $ANTLR end rule__TerminalExpression__Group_4__1__Impl
 
 
-    // $ANTLR start rule__NDChoiceStatement__Group_0__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2570:1: rule__NDChoiceStatement__Group_0__0 : rule__NDChoiceStatement__Group_0__0__Impl rule__NDChoiceStatement__Group_0__1 ;
-    public final void rule__NDChoiceStatement__Group_0__0() throws RecognitionException {
+    // $ANTLR start rule__NDChoiceStatement__Group__0
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2626:1: rule__NDChoiceStatement__Group__0 : rule__NDChoiceStatement__Group__0__Impl rule__NDChoiceStatement__Group__1 ;
+    public final void rule__NDChoiceStatement__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2574:1: ( rule__NDChoiceStatement__Group_0__0__Impl rule__NDChoiceStatement__Group_0__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2575:2: rule__NDChoiceStatement__Group_0__0__Impl rule__NDChoiceStatement__Group_0__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2630:1: ( rule__NDChoiceStatement__Group__0__Impl rule__NDChoiceStatement__Group__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2631:2: rule__NDChoiceStatement__Group__0__Impl rule__NDChoiceStatement__Group__1
             {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_0__0__Impl_in_rule__NDChoiceStatement__Group_0__05130);
-            rule__NDChoiceStatement__Group_0__0__Impl();
+            pushFollow(FOLLOW_rule__NDChoiceStatement__Group__0__Impl_in_rule__NDChoiceStatement__Group__05250);
+            rule__NDChoiceStatement__Group__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_0__1_in_rule__NDChoiceStatement__Group_0__05133);
-            rule__NDChoiceStatement__Group_0__1();
-            _fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__NDChoiceStatement__Group_0__0
-
-
-    // $ANTLR start rule__NDChoiceStatement__Group_0__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2582:1: rule__NDChoiceStatement__Group_0__0__Impl : ( RULE_LSQUARE ) ;
-    public final void rule__NDChoiceStatement__Group_0__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2586:1: ( ( RULE_LSQUARE ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2587:1: ( RULE_LSQUARE )
-            {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2587:1: ( RULE_LSQUARE )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2588:1: RULE_LSQUARE
-            {
-             before(grammarAccess.getNDChoiceStatementAccess().getLSQUARETerminalRuleCall_0_0()); 
-            match(input,RULE_LSQUARE,FOLLOW_RULE_LSQUARE_in_rule__NDChoiceStatement__Group_0__0__Impl5160); 
-             after(grammarAccess.getNDChoiceStatementAccess().getLSQUARETerminalRuleCall_0_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__NDChoiceStatement__Group_0__0__Impl
-
-
-    // $ANTLR start rule__NDChoiceStatement__Group_0__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2599:1: rule__NDChoiceStatement__Group_0__1 : rule__NDChoiceStatement__Group_0__1__Impl rule__NDChoiceStatement__Group_0__2 ;
-    public final void rule__NDChoiceStatement__Group_0__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2603:1: ( rule__NDChoiceStatement__Group_0__1__Impl rule__NDChoiceStatement__Group_0__2 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2604:2: rule__NDChoiceStatement__Group_0__1__Impl rule__NDChoiceStatement__Group_0__2
-            {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_0__1__Impl_in_rule__NDChoiceStatement__Group_0__15189);
-            rule__NDChoiceStatement__Group_0__1__Impl();
-            _fsp--;
-
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_0__2_in_rule__NDChoiceStatement__Group_0__15192);
-            rule__NDChoiceStatement__Group_0__2();
+            pushFollow(FOLLOW_rule__NDChoiceStatement__Group__1_in_rule__NDChoiceStatement__Group__05253);
+            rule__NDChoiceStatement__Group__1();
             _fsp--;
 
 
@@ -6730,35 +6802,35 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__NDChoiceStatement__Group_0__1
+    // $ANTLR end rule__NDChoiceStatement__Group__0
 
 
-    // $ANTLR start rule__NDChoiceStatement__Group_0__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2611:1: rule__NDChoiceStatement__Group_0__1__Impl : ( RULE_LINKIN ) ;
-    public final void rule__NDChoiceStatement__Group_0__1__Impl() throws RecognitionException {
+    // $ANTLR start rule__NDChoiceStatement__Group__0__Impl
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2638:1: rule__NDChoiceStatement__Group__0__Impl : ( () ) ;
+    public final void rule__NDChoiceStatement__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2615:1: ( ( RULE_LINKIN ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2616:1: ( RULE_LINKIN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2642:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2643:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2616:1: ( RULE_LINKIN )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2617:1: RULE_LINKIN
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2643:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2644:1: ()
             {
-             before(grammarAccess.getNDChoiceStatementAccess().getLINKINTerminalRuleCall_0_1()); 
-            match(input,RULE_LINKIN,FOLLOW_RULE_LINKIN_in_rule__NDChoiceStatement__Group_0__1__Impl5219); 
-             after(grammarAccess.getNDChoiceStatementAccess().getLINKINTerminalRuleCall_0_1()); 
+             before(grammarAccess.getNDChoiceStatementAccess().getNDChoiceStatementAction_0()); 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2645:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2647:1: 
+            {
+            }
+
+             after(grammarAccess.getNDChoiceStatementAccess().getNDChoiceStatementAction_0()); 
 
             }
 
 
             }
 
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
         }
         finally {
 
@@ -6767,25 +6839,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__NDChoiceStatement__Group_0__1__Impl
+    // $ANTLR end rule__NDChoiceStatement__Group__0__Impl
 
 
-    // $ANTLR start rule__NDChoiceStatement__Group_0__2
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2628:1: rule__NDChoiceStatement__Group_0__2 : rule__NDChoiceStatement__Group_0__2__Impl rule__NDChoiceStatement__Group_0__3 ;
-    public final void rule__NDChoiceStatement__Group_0__2() throws RecognitionException {
+    // $ANTLR start rule__NDChoiceStatement__Group__1
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2657:1: rule__NDChoiceStatement__Group__1 : rule__NDChoiceStatement__Group__1__Impl ;
+    public final void rule__NDChoiceStatement__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2632:1: ( rule__NDChoiceStatement__Group_0__2__Impl rule__NDChoiceStatement__Group_0__3 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2633:2: rule__NDChoiceStatement__Group_0__2__Impl rule__NDChoiceStatement__Group_0__3
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2661:1: ( rule__NDChoiceStatement__Group__1__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2662:2: rule__NDChoiceStatement__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_0__2__Impl_in_rule__NDChoiceStatement__Group_0__25248);
-            rule__NDChoiceStatement__Group_0__2__Impl();
-            _fsp--;
-
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_0__3_in_rule__NDChoiceStatement__Group_0__25251);
-            rule__NDChoiceStatement__Group_0__3();
+            pushFollow(FOLLOW_rule__NDChoiceStatement__Group__1__Impl_in_rule__NDChoiceStatement__Group__15311);
+            rule__NDChoiceStatement__Group__1__Impl();
             _fsp--;
 
 
@@ -6803,25 +6871,52 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__NDChoiceStatement__Group_0__2
+    // $ANTLR end rule__NDChoiceStatement__Group__1
 
 
-    // $ANTLR start rule__NDChoiceStatement__Group_0__2__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2640:1: rule__NDChoiceStatement__Group_0__2__Impl : ( RULE_LPAREN ) ;
-    public final void rule__NDChoiceStatement__Group_0__2__Impl() throws RecognitionException {
+    // $ANTLR start rule__NDChoiceStatement__Group__1__Impl
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2668:1: rule__NDChoiceStatement__Group__1__Impl : ( ( rule__NDChoiceStatement__Group_1__0 )* ) ;
+    public final void rule__NDChoiceStatement__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2644:1: ( ( RULE_LPAREN ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2645:1: ( RULE_LPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2672:1: ( ( ( rule__NDChoiceStatement__Group_1__0 )* ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2673:1: ( ( rule__NDChoiceStatement__Group_1__0 )* )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2645:1: ( RULE_LPAREN )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2646:1: RULE_LPAREN
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2673:1: ( ( rule__NDChoiceStatement__Group_1__0 )* )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2674:1: ( rule__NDChoiceStatement__Group_1__0 )*
             {
-             before(grammarAccess.getNDChoiceStatementAccess().getLPARENTerminalRuleCall_0_2()); 
-            match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_rule__NDChoiceStatement__Group_0__2__Impl5278); 
-             after(grammarAccess.getNDChoiceStatementAccess().getLPARENTerminalRuleCall_0_2()); 
+             before(grammarAccess.getNDChoiceStatementAccess().getGroup_1()); 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2675:1: ( rule__NDChoiceStatement__Group_1__0 )*
+            loop10:
+            do {
+                int alt10=2;
+                int LA10_0 = input.LA(1);
+
+                if ( (LA10_0==RULE_LSQUARE) ) {
+                    alt10=1;
+                }
+
+
+                switch (alt10) {
+            	case 1 :
+            	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2675:2: rule__NDChoiceStatement__Group_1__0
+            	    {
+            	    pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__0_in_rule__NDChoiceStatement__Group__1__Impl5338);
+            	    rule__NDChoiceStatement__Group_1__0();
+            	    _fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop10;
+                }
+            } while (true);
+
+             after(grammarAccess.getNDChoiceStatementAccess().getGroup_1()); 
 
             }
 
@@ -6840,394 +6935,24 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__NDChoiceStatement__Group_0__2__Impl
-
-
-    // $ANTLR start rule__NDChoiceStatement__Group_0__3
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2657:1: rule__NDChoiceStatement__Group_0__3 : rule__NDChoiceStatement__Group_0__3__Impl rule__NDChoiceStatement__Group_0__4 ;
-    public final void rule__NDChoiceStatement__Group_0__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2661:1: ( rule__NDChoiceStatement__Group_0__3__Impl rule__NDChoiceStatement__Group_0__4 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2662:2: rule__NDChoiceStatement__Group_0__3__Impl rule__NDChoiceStatement__Group_0__4
-            {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_0__3__Impl_in_rule__NDChoiceStatement__Group_0__35307);
-            rule__NDChoiceStatement__Group_0__3__Impl();
-            _fsp--;
-
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_0__4_in_rule__NDChoiceStatement__Group_0__35310);
-            rule__NDChoiceStatement__Group_0__4();
-            _fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__NDChoiceStatement__Group_0__3
-
-
-    // $ANTLR start rule__NDChoiceStatement__Group_0__3__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2669:1: rule__NDChoiceStatement__Group_0__3__Impl : ( RULE_ID ) ;
-    public final void rule__NDChoiceStatement__Group_0__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2673:1: ( ( RULE_ID ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2674:1: ( RULE_ID )
-            {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2674:1: ( RULE_ID )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2675:1: RULE_ID
-            {
-             before(grammarAccess.getNDChoiceStatementAccess().getIDTerminalRuleCall_0_3()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__NDChoiceStatement__Group_0__3__Impl5337); 
-             after(grammarAccess.getNDChoiceStatementAccess().getIDTerminalRuleCall_0_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__NDChoiceStatement__Group_0__3__Impl
-
-
-    // $ANTLR start rule__NDChoiceStatement__Group_0__4
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2686:1: rule__NDChoiceStatement__Group_0__4 : rule__NDChoiceStatement__Group_0__4__Impl rule__NDChoiceStatement__Group_0__5 ;
-    public final void rule__NDChoiceStatement__Group_0__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2690:1: ( rule__NDChoiceStatement__Group_0__4__Impl rule__NDChoiceStatement__Group_0__5 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2691:2: rule__NDChoiceStatement__Group_0__4__Impl rule__NDChoiceStatement__Group_0__5
-            {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_0__4__Impl_in_rule__NDChoiceStatement__Group_0__45366);
-            rule__NDChoiceStatement__Group_0__4__Impl();
-            _fsp--;
-
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_0__5_in_rule__NDChoiceStatement__Group_0__45369);
-            rule__NDChoiceStatement__Group_0__5();
-            _fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__NDChoiceStatement__Group_0__4
-
-
-    // $ANTLR start rule__NDChoiceStatement__Group_0__4__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2698:1: rule__NDChoiceStatement__Group_0__4__Impl : ( RULE_RPAREN ) ;
-    public final void rule__NDChoiceStatement__Group_0__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2702:1: ( ( RULE_RPAREN ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2703:1: ( RULE_RPAREN )
-            {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2703:1: ( RULE_RPAREN )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2704:1: RULE_RPAREN
-            {
-             before(grammarAccess.getNDChoiceStatementAccess().getRPARENTerminalRuleCall_0_4()); 
-            match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_rule__NDChoiceStatement__Group_0__4__Impl5396); 
-             after(grammarAccess.getNDChoiceStatementAccess().getRPARENTerminalRuleCall_0_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__NDChoiceStatement__Group_0__4__Impl
-
-
-    // $ANTLR start rule__NDChoiceStatement__Group_0__5
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2715:1: rule__NDChoiceStatement__Group_0__5 : rule__NDChoiceStatement__Group_0__5__Impl rule__NDChoiceStatement__Group_0__6 ;
-    public final void rule__NDChoiceStatement__Group_0__5() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2719:1: ( rule__NDChoiceStatement__Group_0__5__Impl rule__NDChoiceStatement__Group_0__6 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2720:2: rule__NDChoiceStatement__Group_0__5__Impl rule__NDChoiceStatement__Group_0__6
-            {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_0__5__Impl_in_rule__NDChoiceStatement__Group_0__55425);
-            rule__NDChoiceStatement__Group_0__5__Impl();
-            _fsp--;
-
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_0__6_in_rule__NDChoiceStatement__Group_0__55428);
-            rule__NDChoiceStatement__Group_0__6();
-            _fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__NDChoiceStatement__Group_0__5
-
-
-    // $ANTLR start rule__NDChoiceStatement__Group_0__5__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2727:1: rule__NDChoiceStatement__Group_0__5__Impl : ( RULE_RSQUARE ) ;
-    public final void rule__NDChoiceStatement__Group_0__5__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2731:1: ( ( RULE_RSQUARE ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2732:1: ( RULE_RSQUARE )
-            {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2732:1: ( RULE_RSQUARE )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2733:1: RULE_RSQUARE
-            {
-             before(grammarAccess.getNDChoiceStatementAccess().getRSQUARETerminalRuleCall_0_5()); 
-            match(input,RULE_RSQUARE,FOLLOW_RULE_RSQUARE_in_rule__NDChoiceStatement__Group_0__5__Impl5455); 
-             after(grammarAccess.getNDChoiceStatementAccess().getRSQUARETerminalRuleCall_0_5()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__NDChoiceStatement__Group_0__5__Impl
-
-
-    // $ANTLR start rule__NDChoiceStatement__Group_0__6
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2744:1: rule__NDChoiceStatement__Group_0__6 : rule__NDChoiceStatement__Group_0__6__Impl rule__NDChoiceStatement__Group_0__7 ;
-    public final void rule__NDChoiceStatement__Group_0__6() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2748:1: ( rule__NDChoiceStatement__Group_0__6__Impl rule__NDChoiceStatement__Group_0__7 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2749:2: rule__NDChoiceStatement__Group_0__6__Impl rule__NDChoiceStatement__Group_0__7
-            {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_0__6__Impl_in_rule__NDChoiceStatement__Group_0__65484);
-            rule__NDChoiceStatement__Group_0__6__Impl();
-            _fsp--;
-
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_0__7_in_rule__NDChoiceStatement__Group_0__65487);
-            rule__NDChoiceStatement__Group_0__7();
-            _fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__NDChoiceStatement__Group_0__6
-
-
-    // $ANTLR start rule__NDChoiceStatement__Group_0__6__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2756:1: rule__NDChoiceStatement__Group_0__6__Impl : ( () ) ;
-    public final void rule__NDChoiceStatement__Group_0__6__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2760:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2761:1: ( () )
-            {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2761:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2762:1: ()
-            {
-             before(grammarAccess.getNDChoiceStatementAccess().getMainProcessAction_0_6()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2763:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2765:1: 
-            {
-            }
-
-             after(grammarAccess.getNDChoiceStatementAccess().getMainProcessAction_0_6()); 
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__NDChoiceStatement__Group_0__6__Impl
-
-
-    // $ANTLR start rule__NDChoiceStatement__Group_0__7
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2775:1: rule__NDChoiceStatement__Group_0__7 : rule__NDChoiceStatement__Group_0__7__Impl ;
-    public final void rule__NDChoiceStatement__Group_0__7() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2779:1: ( rule__NDChoiceStatement__Group_0__7__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2780:2: rule__NDChoiceStatement__Group_0__7__Impl
-            {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_0__7__Impl_in_rule__NDChoiceStatement__Group_0__75545);
-            rule__NDChoiceStatement__Group_0__7__Impl();
-            _fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__NDChoiceStatement__Group_0__7
-
-
-    // $ANTLR start rule__NDChoiceStatement__Group_0__7__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2786:1: rule__NDChoiceStatement__Group_0__7__Impl : ( ( rule__NDChoiceStatement__MainProcessAssignment_0_7 ) ) ;
-    public final void rule__NDChoiceStatement__Group_0__7__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2790:1: ( ( ( rule__NDChoiceStatement__MainProcessAssignment_0_7 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2791:1: ( ( rule__NDChoiceStatement__MainProcessAssignment_0_7 ) )
-            {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2791:1: ( ( rule__NDChoiceStatement__MainProcessAssignment_0_7 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2792:1: ( rule__NDChoiceStatement__MainProcessAssignment_0_7 )
-            {
-             before(grammarAccess.getNDChoiceStatementAccess().getMainProcessAssignment_0_7()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2793:1: ( rule__NDChoiceStatement__MainProcessAssignment_0_7 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2793:2: rule__NDChoiceStatement__MainProcessAssignment_0_7
-            {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__MainProcessAssignment_0_7_in_rule__NDChoiceStatement__Group_0__7__Impl5572);
-            rule__NDChoiceStatement__MainProcessAssignment_0_7();
-            _fsp--;
-
-
-            }
-
-             after(grammarAccess.getNDChoiceStatementAccess().getMainProcessAssignment_0_7()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__NDChoiceStatement__Group_0__7__Impl
+    // $ANTLR end rule__NDChoiceStatement__Group__1__Impl
 
 
     // $ANTLR start rule__NDChoiceStatement__Group_1__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2819:1: rule__NDChoiceStatement__Group_1__0 : rule__NDChoiceStatement__Group_1__0__Impl rule__NDChoiceStatement__Group_1__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2689:1: rule__NDChoiceStatement__Group_1__0 : rule__NDChoiceStatement__Group_1__0__Impl rule__NDChoiceStatement__Group_1__1 ;
     public final void rule__NDChoiceStatement__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2823:1: ( rule__NDChoiceStatement__Group_1__0__Impl rule__NDChoiceStatement__Group_1__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2824:2: rule__NDChoiceStatement__Group_1__0__Impl rule__NDChoiceStatement__Group_1__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2693:1: ( rule__NDChoiceStatement__Group_1__0__Impl rule__NDChoiceStatement__Group_1__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2694:2: rule__NDChoiceStatement__Group_1__0__Impl rule__NDChoiceStatement__Group_1__1
             {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__0__Impl_in_rule__NDChoiceStatement__Group_1__05618);
+            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__0__Impl_in_rule__NDChoiceStatement__Group_1__05373);
             rule__NDChoiceStatement__Group_1__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__1_in_rule__NDChoiceStatement__Group_1__05621);
+            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__1_in_rule__NDChoiceStatement__Group_1__05376);
             rule__NDChoiceStatement__Group_1__1();
             _fsp--;
 
@@ -7250,20 +6975,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__NDChoiceStatement__Group_1__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2831:1: rule__NDChoiceStatement__Group_1__0__Impl : ( RULE_LSQUARE ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2701:1: rule__NDChoiceStatement__Group_1__0__Impl : ( RULE_LSQUARE ) ;
     public final void rule__NDChoiceStatement__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2835:1: ( ( RULE_LSQUARE ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2836:1: ( RULE_LSQUARE )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2705:1: ( ( RULE_LSQUARE ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2706:1: ( RULE_LSQUARE )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2836:1: ( RULE_LSQUARE )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2837:1: RULE_LSQUARE
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2706:1: ( RULE_LSQUARE )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2707:1: RULE_LSQUARE
             {
              before(grammarAccess.getNDChoiceStatementAccess().getLSQUARETerminalRuleCall_1_0()); 
-            match(input,RULE_LSQUARE,FOLLOW_RULE_LSQUARE_in_rule__NDChoiceStatement__Group_1__0__Impl5648); 
+            match(input,RULE_LSQUARE,FOLLOW_RULE_LSQUARE_in_rule__NDChoiceStatement__Group_1__0__Impl5403); 
              after(grammarAccess.getNDChoiceStatementAccess().getLSQUARETerminalRuleCall_1_0()); 
 
             }
@@ -7287,20 +7012,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__NDChoiceStatement__Group_1__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2848:1: rule__NDChoiceStatement__Group_1__1 : rule__NDChoiceStatement__Group_1__1__Impl rule__NDChoiceStatement__Group_1__2 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2718:1: rule__NDChoiceStatement__Group_1__1 : rule__NDChoiceStatement__Group_1__1__Impl rule__NDChoiceStatement__Group_1__2 ;
     public final void rule__NDChoiceStatement__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2852:1: ( rule__NDChoiceStatement__Group_1__1__Impl rule__NDChoiceStatement__Group_1__2 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2853:2: rule__NDChoiceStatement__Group_1__1__Impl rule__NDChoiceStatement__Group_1__2
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2722:1: ( rule__NDChoiceStatement__Group_1__1__Impl rule__NDChoiceStatement__Group_1__2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2723:2: rule__NDChoiceStatement__Group_1__1__Impl rule__NDChoiceStatement__Group_1__2
             {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__1__Impl_in_rule__NDChoiceStatement__Group_1__15677);
+            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__1__Impl_in_rule__NDChoiceStatement__Group_1__15432);
             rule__NDChoiceStatement__Group_1__1__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__2_in_rule__NDChoiceStatement__Group_1__15680);
+            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__2_in_rule__NDChoiceStatement__Group_1__15435);
             rule__NDChoiceStatement__Group_1__2();
             _fsp--;
 
@@ -7323,21 +7048,30 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__NDChoiceStatement__Group_1__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2860:1: rule__NDChoiceStatement__Group_1__1__Impl : ( RULE_ID ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2730:1: rule__NDChoiceStatement__Group_1__1__Impl : ( ( rule__NDChoiceStatement__InputOperationAssignment_1_1 ) ) ;
     public final void rule__NDChoiceStatement__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2864:1: ( ( RULE_ID ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2865:1: ( RULE_ID )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2734:1: ( ( ( rule__NDChoiceStatement__InputOperationAssignment_1_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2735:1: ( ( rule__NDChoiceStatement__InputOperationAssignment_1_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2865:1: ( RULE_ID )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2866:1: RULE_ID
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2735:1: ( ( rule__NDChoiceStatement__InputOperationAssignment_1_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2736:1: ( rule__NDChoiceStatement__InputOperationAssignment_1_1 )
             {
-             before(grammarAccess.getNDChoiceStatementAccess().getIDTerminalRuleCall_1_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__NDChoiceStatement__Group_1__1__Impl5707); 
-             after(grammarAccess.getNDChoiceStatementAccess().getIDTerminalRuleCall_1_1()); 
+             before(grammarAccess.getNDChoiceStatementAccess().getInputOperationAssignment_1_1()); 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2737:1: ( rule__NDChoiceStatement__InputOperationAssignment_1_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2737:2: rule__NDChoiceStatement__InputOperationAssignment_1_1
+            {
+            pushFollow(FOLLOW_rule__NDChoiceStatement__InputOperationAssignment_1_1_in_rule__NDChoiceStatement__Group_1__1__Impl5462);
+            rule__NDChoiceStatement__InputOperationAssignment_1_1();
+            _fsp--;
+
+
+            }
+
+             after(grammarAccess.getNDChoiceStatementAccess().getInputOperationAssignment_1_1()); 
 
             }
 
@@ -7360,20 +7094,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__NDChoiceStatement__Group_1__2
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2877:1: rule__NDChoiceStatement__Group_1__2 : rule__NDChoiceStatement__Group_1__2__Impl rule__NDChoiceStatement__Group_1__3 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2747:1: rule__NDChoiceStatement__Group_1__2 : rule__NDChoiceStatement__Group_1__2__Impl rule__NDChoiceStatement__Group_1__3 ;
     public final void rule__NDChoiceStatement__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2881:1: ( rule__NDChoiceStatement__Group_1__2__Impl rule__NDChoiceStatement__Group_1__3 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2882:2: rule__NDChoiceStatement__Group_1__2__Impl rule__NDChoiceStatement__Group_1__3
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2751:1: ( rule__NDChoiceStatement__Group_1__2__Impl rule__NDChoiceStatement__Group_1__3 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2752:2: rule__NDChoiceStatement__Group_1__2__Impl rule__NDChoiceStatement__Group_1__3
             {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__2__Impl_in_rule__NDChoiceStatement__Group_1__25736);
+            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__2__Impl_in_rule__NDChoiceStatement__Group_1__25492);
             rule__NDChoiceStatement__Group_1__2__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__3_in_rule__NDChoiceStatement__Group_1__25739);
+            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__3_in_rule__NDChoiceStatement__Group_1__25495);
             rule__NDChoiceStatement__Group_1__3();
             _fsp--;
 
@@ -7396,21 +7130,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__NDChoiceStatement__Group_1__2__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2889:1: rule__NDChoiceStatement__Group_1__2__Impl : ( RULE_LPAREN ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2759:1: rule__NDChoiceStatement__Group_1__2__Impl : ( RULE_RSQUARE ) ;
     public final void rule__NDChoiceStatement__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2893:1: ( ( RULE_LPAREN ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2894:1: ( RULE_LPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2763:1: ( ( RULE_RSQUARE ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2764:1: ( RULE_RSQUARE )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2894:1: ( RULE_LPAREN )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2895:1: RULE_LPAREN
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2764:1: ( RULE_RSQUARE )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2765:1: RULE_RSQUARE
             {
-             before(grammarAccess.getNDChoiceStatementAccess().getLPARENTerminalRuleCall_1_2()); 
-            match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_rule__NDChoiceStatement__Group_1__2__Impl5766); 
-             after(grammarAccess.getNDChoiceStatementAccess().getLPARENTerminalRuleCall_1_2()); 
+             before(grammarAccess.getNDChoiceStatementAccess().getRSQUARETerminalRuleCall_1_2()); 
+            match(input,RULE_RSQUARE,FOLLOW_RULE_RSQUARE_in_rule__NDChoiceStatement__Group_1__2__Impl5522); 
+             after(grammarAccess.getNDChoiceStatementAccess().getRSQUARETerminalRuleCall_1_2()); 
 
             }
 
@@ -7433,21 +7167,17 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__NDChoiceStatement__Group_1__3
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2906:1: rule__NDChoiceStatement__Group_1__3 : rule__NDChoiceStatement__Group_1__3__Impl rule__NDChoiceStatement__Group_1__4 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2776:1: rule__NDChoiceStatement__Group_1__3 : rule__NDChoiceStatement__Group_1__3__Impl ;
     public final void rule__NDChoiceStatement__Group_1__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2910:1: ( rule__NDChoiceStatement__Group_1__3__Impl rule__NDChoiceStatement__Group_1__4 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2911:2: rule__NDChoiceStatement__Group_1__3__Impl rule__NDChoiceStatement__Group_1__4
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2780:1: ( rule__NDChoiceStatement__Group_1__3__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2781:2: rule__NDChoiceStatement__Group_1__3__Impl
             {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__3__Impl_in_rule__NDChoiceStatement__Group_1__35795);
+            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__3__Impl_in_rule__NDChoiceStatement__Group_1__35551);
             rule__NDChoiceStatement__Group_1__3__Impl();
-            _fsp--;
-
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__4_in_rule__NDChoiceStatement__Group_1__35798);
-            rule__NDChoiceStatement__Group_1__4();
             _fsp--;
 
 
@@ -7469,31 +7199,40 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__NDChoiceStatement__Group_1__3__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2918:1: rule__NDChoiceStatement__Group_1__3__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2787:1: rule__NDChoiceStatement__Group_1__3__Impl : ( ( rule__NDChoiceStatement__MainProcessAssignment_1_3 ) ) ;
     public final void rule__NDChoiceStatement__Group_1__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2922:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2923:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2791:1: ( ( ( rule__NDChoiceStatement__MainProcessAssignment_1_3 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2792:1: ( ( rule__NDChoiceStatement__MainProcessAssignment_1_3 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2923:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2924:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2792:1: ( ( rule__NDChoiceStatement__MainProcessAssignment_1_3 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2793:1: ( rule__NDChoiceStatement__MainProcessAssignment_1_3 )
             {
-             before(grammarAccess.getNDChoiceStatementAccess().getVariablePathAction_1_3()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2925:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2927:1: 
+             before(grammarAccess.getNDChoiceStatementAccess().getMainProcessAssignment_1_3()); 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2794:1: ( rule__NDChoiceStatement__MainProcessAssignment_1_3 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2794:2: rule__NDChoiceStatement__MainProcessAssignment_1_3
             {
+            pushFollow(FOLLOW_rule__NDChoiceStatement__MainProcessAssignment_1_3_in_rule__NDChoiceStatement__Group_1__3__Impl5578);
+            rule__NDChoiceStatement__MainProcessAssignment_1_3();
+            _fsp--;
+
+
             }
 
-             after(grammarAccess.getNDChoiceStatementAccess().getVariablePathAction_1_3()); 
+             after(grammarAccess.getNDChoiceStatementAccess().getMainProcessAssignment_1_3()); 
 
             }
 
 
             }
 
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
         }
         finally {
 
@@ -7505,22 +7244,22 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
     // $ANTLR end rule__NDChoiceStatement__Group_1__3__Impl
 
 
-    // $ANTLR start rule__NDChoiceStatement__Group_1__4
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2937:1: rule__NDChoiceStatement__Group_1__4 : rule__NDChoiceStatement__Group_1__4__Impl rule__NDChoiceStatement__Group_1__5 ;
-    public final void rule__NDChoiceStatement__Group_1__4() throws RecognitionException {
+    // $ANTLR start rule__InputOperation__Group_0__0
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2812:1: rule__InputOperation__Group_0__0 : rule__InputOperation__Group_0__0__Impl rule__InputOperation__Group_0__1 ;
+    public final void rule__InputOperation__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2941:1: ( rule__NDChoiceStatement__Group_1__4__Impl rule__NDChoiceStatement__Group_1__5 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2942:2: rule__NDChoiceStatement__Group_1__4__Impl rule__NDChoiceStatement__Group_1__5
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2816:1: ( rule__InputOperation__Group_0__0__Impl rule__InputOperation__Group_0__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2817:2: rule__InputOperation__Group_0__0__Impl rule__InputOperation__Group_0__1
             {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__4__Impl_in_rule__NDChoiceStatement__Group_1__45856);
-            rule__NDChoiceStatement__Group_1__4__Impl();
+            pushFollow(FOLLOW_rule__InputOperation__Group_0__0__Impl_in_rule__InputOperation__Group_0__05616);
+            rule__InputOperation__Group_0__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__5_in_rule__NDChoiceStatement__Group_1__45859);
-            rule__NDChoiceStatement__Group_1__5();
+            pushFollow(FOLLOW_rule__InputOperation__Group_0__1_in_rule__InputOperation__Group_0__05619);
+            rule__InputOperation__Group_0__1();
             _fsp--;
 
 
@@ -7538,44 +7277,35 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__NDChoiceStatement__Group_1__4
+    // $ANTLR end rule__InputOperation__Group_0__0
 
 
-    // $ANTLR start rule__NDChoiceStatement__Group_1__4__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2949:1: rule__NDChoiceStatement__Group_1__4__Impl : ( ( rule__NDChoiceStatement__VariablePathAssignment_1_4 ) ) ;
-    public final void rule__NDChoiceStatement__Group_1__4__Impl() throws RecognitionException {
+    // $ANTLR start rule__InputOperation__Group_0__0__Impl
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2824:1: rule__InputOperation__Group_0__0__Impl : ( () ) ;
+    public final void rule__InputOperation__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2953:1: ( ( ( rule__NDChoiceStatement__VariablePathAssignment_1_4 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2954:1: ( ( rule__NDChoiceStatement__VariablePathAssignment_1_4 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2828:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2829:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2954:1: ( ( rule__NDChoiceStatement__VariablePathAssignment_1_4 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2955:1: ( rule__NDChoiceStatement__VariablePathAssignment_1_4 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2829:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2830:1: ()
             {
-             before(grammarAccess.getNDChoiceStatementAccess().getVariablePathAssignment_1_4()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2956:1: ( rule__NDChoiceStatement__VariablePathAssignment_1_4 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2956:2: rule__NDChoiceStatement__VariablePathAssignment_1_4
+             before(grammarAccess.getInputOperationAccess().getInputOperationAction_0_0()); 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2831:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2833:1: 
             {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__VariablePathAssignment_1_4_in_rule__NDChoiceStatement__Group_1__4__Impl5886);
-            rule__NDChoiceStatement__VariablePathAssignment_1_4();
-            _fsp--;
-
-
             }
 
-             after(grammarAccess.getNDChoiceStatementAccess().getVariablePathAssignment_1_4()); 
+             after(grammarAccess.getInputOperationAccess().getInputOperationAction_0_0()); 
 
             }
 
 
             }
 
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
         }
         finally {
 
@@ -7584,98 +7314,25 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__NDChoiceStatement__Group_1__4__Impl
+    // $ANTLR end rule__InputOperation__Group_0__0__Impl
 
 
-    // $ANTLR start rule__NDChoiceStatement__Group_1__5
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2966:1: rule__NDChoiceStatement__Group_1__5 : rule__NDChoiceStatement__Group_1__5__Impl rule__NDChoiceStatement__Group_1__6 ;
-    public final void rule__NDChoiceStatement__Group_1__5() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2970:1: ( rule__NDChoiceStatement__Group_1__5__Impl rule__NDChoiceStatement__Group_1__6 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2971:2: rule__NDChoiceStatement__Group_1__5__Impl rule__NDChoiceStatement__Group_1__6
-            {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__5__Impl_in_rule__NDChoiceStatement__Group_1__55916);
-            rule__NDChoiceStatement__Group_1__5__Impl();
-            _fsp--;
-
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__6_in_rule__NDChoiceStatement__Group_1__55919);
-            rule__NDChoiceStatement__Group_1__6();
-            _fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__NDChoiceStatement__Group_1__5
-
-
-    // $ANTLR start rule__NDChoiceStatement__Group_1__5__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2978:1: rule__NDChoiceStatement__Group_1__5__Impl : ( RULE_RPAREN ) ;
-    public final void rule__NDChoiceStatement__Group_1__5__Impl() throws RecognitionException {
+    // $ANTLR start rule__InputOperation__Group_0__1
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2843:1: rule__InputOperation__Group_0__1 : rule__InputOperation__Group_0__1__Impl rule__InputOperation__Group_0__2 ;
+    public final void rule__InputOperation__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2982:1: ( ( RULE_RPAREN ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2983:1: ( RULE_RPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2847:1: ( rule__InputOperation__Group_0__1__Impl rule__InputOperation__Group_0__2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2848:2: rule__InputOperation__Group_0__1__Impl rule__InputOperation__Group_0__2
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2983:1: ( RULE_RPAREN )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2984:1: RULE_RPAREN
-            {
-             before(grammarAccess.getNDChoiceStatementAccess().getRPARENTerminalRuleCall_1_5()); 
-            match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_rule__NDChoiceStatement__Group_1__5__Impl5946); 
-             after(grammarAccess.getNDChoiceStatementAccess().getRPARENTerminalRuleCall_1_5()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__NDChoiceStatement__Group_1__5__Impl
-
-
-    // $ANTLR start rule__NDChoiceStatement__Group_1__6
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2995:1: rule__NDChoiceStatement__Group_1__6 : rule__NDChoiceStatement__Group_1__6__Impl rule__NDChoiceStatement__Group_1__7 ;
-    public final void rule__NDChoiceStatement__Group_1__6() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2999:1: ( rule__NDChoiceStatement__Group_1__6__Impl rule__NDChoiceStatement__Group_1__7 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3000:2: rule__NDChoiceStatement__Group_1__6__Impl rule__NDChoiceStatement__Group_1__7
-            {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__6__Impl_in_rule__NDChoiceStatement__Group_1__65975);
-            rule__NDChoiceStatement__Group_1__6__Impl();
+            pushFollow(FOLLOW_rule__InputOperation__Group_0__1__Impl_in_rule__InputOperation__Group_0__15677);
+            rule__InputOperation__Group_0__1__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__7_in_rule__NDChoiceStatement__Group_1__65978);
-            rule__NDChoiceStatement__Group_1__7();
+            pushFollow(FOLLOW_rule__InputOperation__Group_0__2_in_rule__InputOperation__Group_0__15680);
+            rule__InputOperation__Group_0__2();
             _fsp--;
 
 
@@ -7693,25 +7350,25 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__NDChoiceStatement__Group_1__6
+    // $ANTLR end rule__InputOperation__Group_0__1
 
 
-    // $ANTLR start rule__NDChoiceStatement__Group_1__6__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3007:1: rule__NDChoiceStatement__Group_1__6__Impl : ( RULE_RSQUARE ) ;
-    public final void rule__NDChoiceStatement__Group_1__6__Impl() throws RecognitionException {
+    // $ANTLR start rule__InputOperation__Group_0__1__Impl
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2855:1: rule__InputOperation__Group_0__1__Impl : ( RULE_LINKIN ) ;
+    public final void rule__InputOperation__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3011:1: ( ( RULE_RSQUARE ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3012:1: ( RULE_RSQUARE )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2859:1: ( ( RULE_LINKIN ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2860:1: ( RULE_LINKIN )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3012:1: ( RULE_RSQUARE )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3013:1: RULE_RSQUARE
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2860:1: ( RULE_LINKIN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2861:1: RULE_LINKIN
             {
-             before(grammarAccess.getNDChoiceStatementAccess().getRSQUARETerminalRuleCall_1_6()); 
-            match(input,RULE_RSQUARE,FOLLOW_RULE_RSQUARE_in_rule__NDChoiceStatement__Group_1__6__Impl6005); 
-             after(grammarAccess.getNDChoiceStatementAccess().getRSQUARETerminalRuleCall_1_6()); 
+             before(grammarAccess.getInputOperationAccess().getLINKINTerminalRuleCall_0_1()); 
+            match(input,RULE_LINKIN,FOLLOW_RULE_LINKIN_in_rule__InputOperation__Group_0__1__Impl5707); 
+             after(grammarAccess.getInputOperationAccess().getLINKINTerminalRuleCall_0_1()); 
 
             }
 
@@ -7730,94 +7387,25 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__NDChoiceStatement__Group_1__6__Impl
+    // $ANTLR end rule__InputOperation__Group_0__1__Impl
 
 
-    // $ANTLR start rule__NDChoiceStatement__Group_1__7
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3024:1: rule__NDChoiceStatement__Group_1__7 : rule__NDChoiceStatement__Group_1__7__Impl rule__NDChoiceStatement__Group_1__8 ;
-    public final void rule__NDChoiceStatement__Group_1__7() throws RecognitionException {
+    // $ANTLR start rule__InputOperation__Group_0__2
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2872:1: rule__InputOperation__Group_0__2 : rule__InputOperation__Group_0__2__Impl rule__InputOperation__Group_0__3 ;
+    public final void rule__InputOperation__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3028:1: ( rule__NDChoiceStatement__Group_1__7__Impl rule__NDChoiceStatement__Group_1__8 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3029:2: rule__NDChoiceStatement__Group_1__7__Impl rule__NDChoiceStatement__Group_1__8
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2876:1: ( rule__InputOperation__Group_0__2__Impl rule__InputOperation__Group_0__3 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2877:2: rule__InputOperation__Group_0__2__Impl rule__InputOperation__Group_0__3
             {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__7__Impl_in_rule__NDChoiceStatement__Group_1__76034);
-            rule__NDChoiceStatement__Group_1__7__Impl();
+            pushFollow(FOLLOW_rule__InputOperation__Group_0__2__Impl_in_rule__InputOperation__Group_0__25736);
+            rule__InputOperation__Group_0__2__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__8_in_rule__NDChoiceStatement__Group_1__76037);
-            rule__NDChoiceStatement__Group_1__8();
-            _fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__NDChoiceStatement__Group_1__7
-
-
-    // $ANTLR start rule__NDChoiceStatement__Group_1__7__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3036:1: rule__NDChoiceStatement__Group_1__7__Impl : ( () ) ;
-    public final void rule__NDChoiceStatement__Group_1__7__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3040:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3041:1: ( () )
-            {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3041:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3042:1: ()
-            {
-             before(grammarAccess.getNDChoiceStatementAccess().getMainProcess2Action_1_7()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3043:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3045:1: 
-            {
-            }
-
-             after(grammarAccess.getNDChoiceStatementAccess().getMainProcess2Action_1_7()); 
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__NDChoiceStatement__Group_1__7__Impl
-
-
-    // $ANTLR start rule__NDChoiceStatement__Group_1__8
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3055:1: rule__NDChoiceStatement__Group_1__8 : rule__NDChoiceStatement__Group_1__8__Impl ;
-    public final void rule__NDChoiceStatement__Group_1__8() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3059:1: ( rule__NDChoiceStatement__Group_1__8__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3060:2: rule__NDChoiceStatement__Group_1__8__Impl
-            {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__Group_1__8__Impl_in_rule__NDChoiceStatement__Group_1__86095);
-            rule__NDChoiceStatement__Group_1__8__Impl();
+            pushFollow(FOLLOW_rule__InputOperation__Group_0__3_in_rule__InputOperation__Group_0__25739);
+            rule__InputOperation__Group_0__3();
             _fsp--;
 
 
@@ -7835,34 +7423,25 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__NDChoiceStatement__Group_1__8
+    // $ANTLR end rule__InputOperation__Group_0__2
 
 
-    // $ANTLR start rule__NDChoiceStatement__Group_1__8__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3066:1: rule__NDChoiceStatement__Group_1__8__Impl : ( ( rule__NDChoiceStatement__MainProcessAssignment_1_8 ) ) ;
-    public final void rule__NDChoiceStatement__Group_1__8__Impl() throws RecognitionException {
+    // $ANTLR start rule__InputOperation__Group_0__2__Impl
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2884:1: rule__InputOperation__Group_0__2__Impl : ( RULE_LPAREN ) ;
+    public final void rule__InputOperation__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3070:1: ( ( ( rule__NDChoiceStatement__MainProcessAssignment_1_8 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3071:1: ( ( rule__NDChoiceStatement__MainProcessAssignment_1_8 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2888:1: ( ( RULE_LPAREN ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2889:1: ( RULE_LPAREN )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3071:1: ( ( rule__NDChoiceStatement__MainProcessAssignment_1_8 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3072:1: ( rule__NDChoiceStatement__MainProcessAssignment_1_8 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2889:1: ( RULE_LPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2890:1: RULE_LPAREN
             {
-             before(grammarAccess.getNDChoiceStatementAccess().getMainProcessAssignment_1_8()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3073:1: ( rule__NDChoiceStatement__MainProcessAssignment_1_8 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3073:2: rule__NDChoiceStatement__MainProcessAssignment_1_8
-            {
-            pushFollow(FOLLOW_rule__NDChoiceStatement__MainProcessAssignment_1_8_in_rule__NDChoiceStatement__Group_1__8__Impl6122);
-            rule__NDChoiceStatement__MainProcessAssignment_1_8();
-            _fsp--;
-
-
-            }
-
-             after(grammarAccess.getNDChoiceStatementAccess().getMainProcessAssignment_1_8()); 
+             before(grammarAccess.getInputOperationAccess().getLPARENTerminalRuleCall_0_2()); 
+            match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_rule__InputOperation__Group_0__2__Impl5766); 
+             after(grammarAccess.getInputOperationAccess().getLPARENTerminalRuleCall_0_2()); 
 
             }
 
@@ -7881,24 +7460,702 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__NDChoiceStatement__Group_1__8__Impl
+    // $ANTLR end rule__InputOperation__Group_0__2__Impl
+
+
+    // $ANTLR start rule__InputOperation__Group_0__3
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2901:1: rule__InputOperation__Group_0__3 : rule__InputOperation__Group_0__3__Impl rule__InputOperation__Group_0__4 ;
+    public final void rule__InputOperation__Group_0__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2905:1: ( rule__InputOperation__Group_0__3__Impl rule__InputOperation__Group_0__4 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2906:2: rule__InputOperation__Group_0__3__Impl rule__InputOperation__Group_0__4
+            {
+            pushFollow(FOLLOW_rule__InputOperation__Group_0__3__Impl_in_rule__InputOperation__Group_0__35795);
+            rule__InputOperation__Group_0__3__Impl();
+            _fsp--;
+
+            pushFollow(FOLLOW_rule__InputOperation__Group_0__4_in_rule__InputOperation__Group_0__35798);
+            rule__InputOperation__Group_0__4();
+            _fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__InputOperation__Group_0__3
+
+
+    // $ANTLR start rule__InputOperation__Group_0__3__Impl
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2913:1: rule__InputOperation__Group_0__3__Impl : ( RULE_ID ) ;
+    public final void rule__InputOperation__Group_0__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2917:1: ( ( RULE_ID ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2918:1: ( RULE_ID )
+            {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2918:1: ( RULE_ID )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2919:1: RULE_ID
+            {
+             before(grammarAccess.getInputOperationAccess().getIDTerminalRuleCall_0_3()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__InputOperation__Group_0__3__Impl5825); 
+             after(grammarAccess.getInputOperationAccess().getIDTerminalRuleCall_0_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__InputOperation__Group_0__3__Impl
+
+
+    // $ANTLR start rule__InputOperation__Group_0__4
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2930:1: rule__InputOperation__Group_0__4 : rule__InputOperation__Group_0__4__Impl ;
+    public final void rule__InputOperation__Group_0__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2934:1: ( rule__InputOperation__Group_0__4__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2935:2: rule__InputOperation__Group_0__4__Impl
+            {
+            pushFollow(FOLLOW_rule__InputOperation__Group_0__4__Impl_in_rule__InputOperation__Group_0__45854);
+            rule__InputOperation__Group_0__4__Impl();
+            _fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__InputOperation__Group_0__4
+
+
+    // $ANTLR start rule__InputOperation__Group_0__4__Impl
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2941:1: rule__InputOperation__Group_0__4__Impl : ( RULE_RPAREN ) ;
+    public final void rule__InputOperation__Group_0__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2945:1: ( ( RULE_RPAREN ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2946:1: ( RULE_RPAREN )
+            {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2946:1: ( RULE_RPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2947:1: RULE_RPAREN
+            {
+             before(grammarAccess.getInputOperationAccess().getRPARENTerminalRuleCall_0_4()); 
+            match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_rule__InputOperation__Group_0__4__Impl5881); 
+             after(grammarAccess.getInputOperationAccess().getRPARENTerminalRuleCall_0_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__InputOperation__Group_0__4__Impl
+
+
+    // $ANTLR start rule__InputOperation__Group_1__0
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2968:1: rule__InputOperation__Group_1__0 : rule__InputOperation__Group_1__0__Impl rule__InputOperation__Group_1__1 ;
+    public final void rule__InputOperation__Group_1__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2972:1: ( rule__InputOperation__Group_1__0__Impl rule__InputOperation__Group_1__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2973:2: rule__InputOperation__Group_1__0__Impl rule__InputOperation__Group_1__1
+            {
+            pushFollow(FOLLOW_rule__InputOperation__Group_1__0__Impl_in_rule__InputOperation__Group_1__05920);
+            rule__InputOperation__Group_1__0__Impl();
+            _fsp--;
+
+            pushFollow(FOLLOW_rule__InputOperation__Group_1__1_in_rule__InputOperation__Group_1__05923);
+            rule__InputOperation__Group_1__1();
+            _fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__InputOperation__Group_1__0
+
+
+    // $ANTLR start rule__InputOperation__Group_1__0__Impl
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2980:1: rule__InputOperation__Group_1__0__Impl : ( () ) ;
+    public final void rule__InputOperation__Group_1__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2984:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2985:1: ( () )
+            {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2985:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2986:1: ()
+            {
+             before(grammarAccess.getInputOperationAccess().getInputOperationAction_1_0()); 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2987:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2989:1: 
+            {
+            }
+
+             after(grammarAccess.getInputOperationAccess().getInputOperationAction_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__InputOperation__Group_1__0__Impl
+
+
+    // $ANTLR start rule__InputOperation__Group_1__1
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2999:1: rule__InputOperation__Group_1__1 : rule__InputOperation__Group_1__1__Impl rule__InputOperation__Group_1__2 ;
+    public final void rule__InputOperation__Group_1__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3003:1: ( rule__InputOperation__Group_1__1__Impl rule__InputOperation__Group_1__2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3004:2: rule__InputOperation__Group_1__1__Impl rule__InputOperation__Group_1__2
+            {
+            pushFollow(FOLLOW_rule__InputOperation__Group_1__1__Impl_in_rule__InputOperation__Group_1__15981);
+            rule__InputOperation__Group_1__1__Impl();
+            _fsp--;
+
+            pushFollow(FOLLOW_rule__InputOperation__Group_1__2_in_rule__InputOperation__Group_1__15984);
+            rule__InputOperation__Group_1__2();
+            _fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__InputOperation__Group_1__1
+
+
+    // $ANTLR start rule__InputOperation__Group_1__1__Impl
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3011:1: rule__InputOperation__Group_1__1__Impl : ( RULE_ID ) ;
+    public final void rule__InputOperation__Group_1__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3015:1: ( ( RULE_ID ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3016:1: ( RULE_ID )
+            {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3016:1: ( RULE_ID )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3017:1: RULE_ID
+            {
+             before(grammarAccess.getInputOperationAccess().getIDTerminalRuleCall_1_1()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__InputOperation__Group_1__1__Impl6011); 
+             after(grammarAccess.getInputOperationAccess().getIDTerminalRuleCall_1_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__InputOperation__Group_1__1__Impl
+
+
+    // $ANTLR start rule__InputOperation__Group_1__2
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3028:1: rule__InputOperation__Group_1__2 : rule__InputOperation__Group_1__2__Impl rule__InputOperation__Group_1__3 ;
+    public final void rule__InputOperation__Group_1__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3032:1: ( rule__InputOperation__Group_1__2__Impl rule__InputOperation__Group_1__3 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3033:2: rule__InputOperation__Group_1__2__Impl rule__InputOperation__Group_1__3
+            {
+            pushFollow(FOLLOW_rule__InputOperation__Group_1__2__Impl_in_rule__InputOperation__Group_1__26040);
+            rule__InputOperation__Group_1__2__Impl();
+            _fsp--;
+
+            pushFollow(FOLLOW_rule__InputOperation__Group_1__3_in_rule__InputOperation__Group_1__26043);
+            rule__InputOperation__Group_1__3();
+            _fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__InputOperation__Group_1__2
+
+
+    // $ANTLR start rule__InputOperation__Group_1__2__Impl
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3040:1: rule__InputOperation__Group_1__2__Impl : ( RULE_LPAREN ) ;
+    public final void rule__InputOperation__Group_1__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3044:1: ( ( RULE_LPAREN ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3045:1: ( RULE_LPAREN )
+            {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3045:1: ( RULE_LPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3046:1: RULE_LPAREN
+            {
+             before(grammarAccess.getInputOperationAccess().getLPARENTerminalRuleCall_1_2()); 
+            match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_rule__InputOperation__Group_1__2__Impl6070); 
+             after(grammarAccess.getInputOperationAccess().getLPARENTerminalRuleCall_1_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__InputOperation__Group_1__2__Impl
+
+
+    // $ANTLR start rule__InputOperation__Group_1__3
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3057:1: rule__InputOperation__Group_1__3 : rule__InputOperation__Group_1__3__Impl rule__InputOperation__Group_1__4 ;
+    public final void rule__InputOperation__Group_1__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3061:1: ( rule__InputOperation__Group_1__3__Impl rule__InputOperation__Group_1__4 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3062:2: rule__InputOperation__Group_1__3__Impl rule__InputOperation__Group_1__4
+            {
+            pushFollow(FOLLOW_rule__InputOperation__Group_1__3__Impl_in_rule__InputOperation__Group_1__36099);
+            rule__InputOperation__Group_1__3__Impl();
+            _fsp--;
+
+            pushFollow(FOLLOW_rule__InputOperation__Group_1__4_in_rule__InputOperation__Group_1__36102);
+            rule__InputOperation__Group_1__4();
+            _fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__InputOperation__Group_1__3
+
+
+    // $ANTLR start rule__InputOperation__Group_1__3__Impl
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3069:1: rule__InputOperation__Group_1__3__Impl : ( () ) ;
+    public final void rule__InputOperation__Group_1__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3073:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3074:1: ( () )
+            {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3074:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3075:1: ()
+            {
+             before(grammarAccess.getInputOperationAccess().getVariablePathAction_1_3()); 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3076:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3078:1: 
+            {
+            }
+
+             after(grammarAccess.getInputOperationAccess().getVariablePathAction_1_3()); 
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__InputOperation__Group_1__3__Impl
+
+
+    // $ANTLR start rule__InputOperation__Group_1__4
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3088:1: rule__InputOperation__Group_1__4 : rule__InputOperation__Group_1__4__Impl rule__InputOperation__Group_1__5 ;
+    public final void rule__InputOperation__Group_1__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3092:1: ( rule__InputOperation__Group_1__4__Impl rule__InputOperation__Group_1__5 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3093:2: rule__InputOperation__Group_1__4__Impl rule__InputOperation__Group_1__5
+            {
+            pushFollow(FOLLOW_rule__InputOperation__Group_1__4__Impl_in_rule__InputOperation__Group_1__46160);
+            rule__InputOperation__Group_1__4__Impl();
+            _fsp--;
+
+            pushFollow(FOLLOW_rule__InputOperation__Group_1__5_in_rule__InputOperation__Group_1__46163);
+            rule__InputOperation__Group_1__5();
+            _fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__InputOperation__Group_1__4
+
+
+    // $ANTLR start rule__InputOperation__Group_1__4__Impl
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3100:1: rule__InputOperation__Group_1__4__Impl : ( ( rule__InputOperation__VariablePathAssignment_1_4 ) ) ;
+    public final void rule__InputOperation__Group_1__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3104:1: ( ( ( rule__InputOperation__VariablePathAssignment_1_4 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3105:1: ( ( rule__InputOperation__VariablePathAssignment_1_4 ) )
+            {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3105:1: ( ( rule__InputOperation__VariablePathAssignment_1_4 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3106:1: ( rule__InputOperation__VariablePathAssignment_1_4 )
+            {
+             before(grammarAccess.getInputOperationAccess().getVariablePathAssignment_1_4()); 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3107:1: ( rule__InputOperation__VariablePathAssignment_1_4 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3107:2: rule__InputOperation__VariablePathAssignment_1_4
+            {
+            pushFollow(FOLLOW_rule__InputOperation__VariablePathAssignment_1_4_in_rule__InputOperation__Group_1__4__Impl6190);
+            rule__InputOperation__VariablePathAssignment_1_4();
+            _fsp--;
+
+
+            }
+
+             after(grammarAccess.getInputOperationAccess().getVariablePathAssignment_1_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__InputOperation__Group_1__4__Impl
+
+
+    // $ANTLR start rule__InputOperation__Group_1__5
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3117:1: rule__InputOperation__Group_1__5 : rule__InputOperation__Group_1__5__Impl rule__InputOperation__Group_1__6 ;
+    public final void rule__InputOperation__Group_1__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3121:1: ( rule__InputOperation__Group_1__5__Impl rule__InputOperation__Group_1__6 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3122:2: rule__InputOperation__Group_1__5__Impl rule__InputOperation__Group_1__6
+            {
+            pushFollow(FOLLOW_rule__InputOperation__Group_1__5__Impl_in_rule__InputOperation__Group_1__56220);
+            rule__InputOperation__Group_1__5__Impl();
+            _fsp--;
+
+            pushFollow(FOLLOW_rule__InputOperation__Group_1__6_in_rule__InputOperation__Group_1__56223);
+            rule__InputOperation__Group_1__6();
+            _fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__InputOperation__Group_1__5
+
+
+    // $ANTLR start rule__InputOperation__Group_1__5__Impl
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3129:1: rule__InputOperation__Group_1__5__Impl : ( RULE_RPAREN ) ;
+    public final void rule__InputOperation__Group_1__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3133:1: ( ( RULE_RPAREN ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3134:1: ( RULE_RPAREN )
+            {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3134:1: ( RULE_RPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3135:1: RULE_RPAREN
+            {
+             before(grammarAccess.getInputOperationAccess().getRPARENTerminalRuleCall_1_5()); 
+            match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_rule__InputOperation__Group_1__5__Impl6250); 
+             after(grammarAccess.getInputOperationAccess().getRPARENTerminalRuleCall_1_5()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__InputOperation__Group_1__5__Impl
+
+
+    // $ANTLR start rule__InputOperation__Group_1__6
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3146:1: rule__InputOperation__Group_1__6 : rule__InputOperation__Group_1__6__Impl ;
+    public final void rule__InputOperation__Group_1__6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3150:1: ( rule__InputOperation__Group_1__6__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3151:2: rule__InputOperation__Group_1__6__Impl
+            {
+            pushFollow(FOLLOW_rule__InputOperation__Group_1__6__Impl_in_rule__InputOperation__Group_1__66279);
+            rule__InputOperation__Group_1__6__Impl();
+            _fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__InputOperation__Group_1__6
+
+
+    // $ANTLR start rule__InputOperation__Group_1__6__Impl
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3157:1: rule__InputOperation__Group_1__6__Impl : ( ( ruleRequestResponseOperation )? ) ;
+    public final void rule__InputOperation__Group_1__6__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3161:1: ( ( ( ruleRequestResponseOperation )? ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3162:1: ( ( ruleRequestResponseOperation )? )
+            {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3162:1: ( ( ruleRequestResponseOperation )? )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3163:1: ( ruleRequestResponseOperation )?
+            {
+             before(grammarAccess.getInputOperationAccess().getRequestResponseOperationParserRuleCall_1_6()); 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3164:1: ( ruleRequestResponseOperation )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
+
+            if ( (LA11_0==RULE_LPAREN) ) {
+                alt11=1;
+            }
+            switch (alt11) {
+                case 1 :
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3164:3: ruleRequestResponseOperation
+                    {
+                    pushFollow(FOLLOW_ruleRequestResponseOperation_in_rule__InputOperation__Group_1__6__Impl6307);
+                    ruleRequestResponseOperation();
+                    _fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getInputOperationAccess().getRequestResponseOperationParserRuleCall_1_6()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__InputOperation__Group_1__6__Impl
 
 
     // $ANTLR start rule__VariablePath__Group__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3101:1: rule__VariablePath__Group__0 : rule__VariablePath__Group__0__Impl rule__VariablePath__Group__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3188:1: rule__VariablePath__Group__0 : rule__VariablePath__Group__0__Impl rule__VariablePath__Group__1 ;
     public final void rule__VariablePath__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3105:1: ( rule__VariablePath__Group__0__Impl rule__VariablePath__Group__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3106:2: rule__VariablePath__Group__0__Impl rule__VariablePath__Group__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3192:1: ( rule__VariablePath__Group__0__Impl rule__VariablePath__Group__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3193:2: rule__VariablePath__Group__0__Impl rule__VariablePath__Group__1
             {
-            pushFollow(FOLLOW_rule__VariablePath__Group__0__Impl_in_rule__VariablePath__Group__06170);
+            pushFollow(FOLLOW_rule__VariablePath__Group__0__Impl_in_rule__VariablePath__Group__06352);
             rule__VariablePath__Group__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__VariablePath__Group__1_in_rule__VariablePath__Group__06173);
+            pushFollow(FOLLOW_rule__VariablePath__Group__1_in_rule__VariablePath__Group__06355);
             rule__VariablePath__Group__1();
             _fsp--;
 
@@ -7921,21 +8178,21 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__VariablePath__Group__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3113:1: rule__VariablePath__Group__0__Impl : ( () ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3200:1: rule__VariablePath__Group__0__Impl : ( () ) ;
     public final void rule__VariablePath__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3117:1: ( ( () ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3118:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3204:1: ( ( () ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3205:1: ( () )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3118:1: ( () )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3119:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3205:1: ( () )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3206:1: ()
             {
              before(grammarAccess.getVariablePathAccess().getVariablePathAction_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3120:1: ()
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3122:1: 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3207:1: ()
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3209:1: 
             {
             }
 
@@ -7958,20 +8215,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__VariablePath__Group__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3132:1: rule__VariablePath__Group__1 : rule__VariablePath__Group__1__Impl rule__VariablePath__Group__2 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3219:1: rule__VariablePath__Group__1 : rule__VariablePath__Group__1__Impl rule__VariablePath__Group__2 ;
     public final void rule__VariablePath__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3136:1: ( rule__VariablePath__Group__1__Impl rule__VariablePath__Group__2 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3137:2: rule__VariablePath__Group__1__Impl rule__VariablePath__Group__2
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3223:1: ( rule__VariablePath__Group__1__Impl rule__VariablePath__Group__2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3224:2: rule__VariablePath__Group__1__Impl rule__VariablePath__Group__2
             {
-            pushFollow(FOLLOW_rule__VariablePath__Group__1__Impl_in_rule__VariablePath__Group__16231);
+            pushFollow(FOLLOW_rule__VariablePath__Group__1__Impl_in_rule__VariablePath__Group__16413);
             rule__VariablePath__Group__1__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__VariablePath__Group__2_in_rule__VariablePath__Group__16234);
+            pushFollow(FOLLOW_rule__VariablePath__Group__2_in_rule__VariablePath__Group__16416);
             rule__VariablePath__Group__2();
             _fsp--;
 
@@ -7994,20 +8251,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__VariablePath__Group__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3144:1: rule__VariablePath__Group__1__Impl : ( RULE_GLOBAL ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3231:1: rule__VariablePath__Group__1__Impl : ( RULE_GLOBAL ) ;
     public final void rule__VariablePath__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3148:1: ( ( RULE_GLOBAL ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3149:1: ( RULE_GLOBAL )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3235:1: ( ( RULE_GLOBAL ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3236:1: ( RULE_GLOBAL )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3149:1: ( RULE_GLOBAL )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3150:1: RULE_GLOBAL
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3236:1: ( RULE_GLOBAL )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3237:1: RULE_GLOBAL
             {
              before(grammarAccess.getVariablePathAccess().getGLOBALTerminalRuleCall_1()); 
-            match(input,RULE_GLOBAL,FOLLOW_RULE_GLOBAL_in_rule__VariablePath__Group__1__Impl6261); 
+            match(input,RULE_GLOBAL,FOLLOW_RULE_GLOBAL_in_rule__VariablePath__Group__1__Impl6443); 
              after(grammarAccess.getVariablePathAccess().getGLOBALTerminalRuleCall_1()); 
 
             }
@@ -8031,16 +8288,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__VariablePath__Group__2
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3161:1: rule__VariablePath__Group__2 : rule__VariablePath__Group__2__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3248:1: rule__VariablePath__Group__2 : rule__VariablePath__Group__2__Impl ;
     public final void rule__VariablePath__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3165:1: ( rule__VariablePath__Group__2__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3166:2: rule__VariablePath__Group__2__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3252:1: ( rule__VariablePath__Group__2__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3253:2: rule__VariablePath__Group__2__Impl
             {
-            pushFollow(FOLLOW_rule__VariablePath__Group__2__Impl_in_rule__VariablePath__Group__26290);
+            pushFollow(FOLLOW_rule__VariablePath__Group__2__Impl_in_rule__VariablePath__Group__26472);
             rule__VariablePath__Group__2__Impl();
             _fsp--;
 
@@ -8063,35 +8320,35 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__VariablePath__Group__2__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3172:1: rule__VariablePath__Group__2__Impl : ( ( rule__VariablePath__Group_2__0 )* ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3259:1: rule__VariablePath__Group__2__Impl : ( ( rule__VariablePath__Group_2__0 )* ) ;
     public final void rule__VariablePath__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3176:1: ( ( ( rule__VariablePath__Group_2__0 )* ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3177:1: ( ( rule__VariablePath__Group_2__0 )* )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3263:1: ( ( ( rule__VariablePath__Group_2__0 )* ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3264:1: ( ( rule__VariablePath__Group_2__0 )* )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3177:1: ( ( rule__VariablePath__Group_2__0 )* )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3178:1: ( rule__VariablePath__Group_2__0 )*
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3264:1: ( ( rule__VariablePath__Group_2__0 )* )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3265:1: ( rule__VariablePath__Group_2__0 )*
             {
              before(grammarAccess.getVariablePathAccess().getGroup_2()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3179:1: ( rule__VariablePath__Group_2__0 )*
-            loop10:
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3266:1: ( rule__VariablePath__Group_2__0 )*
+            loop12:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt12=2;
+                int LA12_0 = input.LA(1);
 
-                if ( (LA10_0==RULE_DOT) ) {
-                    alt10=1;
+                if ( (LA12_0==RULE_DOT) ) {
+                    alt12=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt12) {
             	case 1 :
-            	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3179:2: rule__VariablePath__Group_2__0
+            	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3266:2: rule__VariablePath__Group_2__0
             	    {
-            	    pushFollow(FOLLOW_rule__VariablePath__Group_2__0_in_rule__VariablePath__Group__2__Impl6317);
+            	    pushFollow(FOLLOW_rule__VariablePath__Group_2__0_in_rule__VariablePath__Group__2__Impl6499);
             	    rule__VariablePath__Group_2__0();
             	    _fsp--;
 
@@ -8100,7 +8357,7 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop10;
+            	    break loop12;
                 }
             } while (true);
 
@@ -8127,20 +8384,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__VariablePath__Group_2__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3195:1: rule__VariablePath__Group_2__0 : rule__VariablePath__Group_2__0__Impl rule__VariablePath__Group_2__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3282:1: rule__VariablePath__Group_2__0 : rule__VariablePath__Group_2__0__Impl rule__VariablePath__Group_2__1 ;
     public final void rule__VariablePath__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3199:1: ( rule__VariablePath__Group_2__0__Impl rule__VariablePath__Group_2__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3200:2: rule__VariablePath__Group_2__0__Impl rule__VariablePath__Group_2__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3286:1: ( rule__VariablePath__Group_2__0__Impl rule__VariablePath__Group_2__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3287:2: rule__VariablePath__Group_2__0__Impl rule__VariablePath__Group_2__1
             {
-            pushFollow(FOLLOW_rule__VariablePath__Group_2__0__Impl_in_rule__VariablePath__Group_2__06354);
+            pushFollow(FOLLOW_rule__VariablePath__Group_2__0__Impl_in_rule__VariablePath__Group_2__06536);
             rule__VariablePath__Group_2__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__VariablePath__Group_2__1_in_rule__VariablePath__Group_2__06357);
+            pushFollow(FOLLOW_rule__VariablePath__Group_2__1_in_rule__VariablePath__Group_2__06539);
             rule__VariablePath__Group_2__1();
             _fsp--;
 
@@ -8163,20 +8420,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__VariablePath__Group_2__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3207:1: rule__VariablePath__Group_2__0__Impl : ( RULE_DOT ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3294:1: rule__VariablePath__Group_2__0__Impl : ( RULE_DOT ) ;
     public final void rule__VariablePath__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3211:1: ( ( RULE_DOT ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3212:1: ( RULE_DOT )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3298:1: ( ( RULE_DOT ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3299:1: ( RULE_DOT )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3212:1: ( RULE_DOT )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3213:1: RULE_DOT
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3299:1: ( RULE_DOT )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3300:1: RULE_DOT
             {
              before(grammarAccess.getVariablePathAccess().getDOTTerminalRuleCall_2_0()); 
-            match(input,RULE_DOT,FOLLOW_RULE_DOT_in_rule__VariablePath__Group_2__0__Impl6384); 
+            match(input,RULE_DOT,FOLLOW_RULE_DOT_in_rule__VariablePath__Group_2__0__Impl6566); 
              after(grammarAccess.getVariablePathAccess().getDOTTerminalRuleCall_2_0()); 
 
             }
@@ -8200,16 +8457,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__VariablePath__Group_2__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3224:1: rule__VariablePath__Group_2__1 : rule__VariablePath__Group_2__1__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3311:1: rule__VariablePath__Group_2__1 : rule__VariablePath__Group_2__1__Impl ;
     public final void rule__VariablePath__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3228:1: ( rule__VariablePath__Group_2__1__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3229:2: rule__VariablePath__Group_2__1__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3315:1: ( rule__VariablePath__Group_2__1__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3316:2: rule__VariablePath__Group_2__1__Impl
             {
-            pushFollow(FOLLOW_rule__VariablePath__Group_2__1__Impl_in_rule__VariablePath__Group_2__16413);
+            pushFollow(FOLLOW_rule__VariablePath__Group_2__1__Impl_in_rule__VariablePath__Group_2__16595);
             rule__VariablePath__Group_2__1__Impl();
             _fsp--;
 
@@ -8232,23 +8489,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__VariablePath__Group_2__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3235:1: rule__VariablePath__Group_2__1__Impl : ( ( rule__VariablePath__Alternatives_2_1 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3322:1: rule__VariablePath__Group_2__1__Impl : ( ( rule__VariablePath__Alternatives_2_1 ) ) ;
     public final void rule__VariablePath__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3239:1: ( ( ( rule__VariablePath__Alternatives_2_1 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3240:1: ( ( rule__VariablePath__Alternatives_2_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3326:1: ( ( ( rule__VariablePath__Alternatives_2_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3327:1: ( ( rule__VariablePath__Alternatives_2_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3240:1: ( ( rule__VariablePath__Alternatives_2_1 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3241:1: ( rule__VariablePath__Alternatives_2_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3327:1: ( ( rule__VariablePath__Alternatives_2_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3328:1: ( rule__VariablePath__Alternatives_2_1 )
             {
              before(grammarAccess.getVariablePathAccess().getAlternatives_2_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3242:1: ( rule__VariablePath__Alternatives_2_1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3242:2: rule__VariablePath__Alternatives_2_1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3329:1: ( rule__VariablePath__Alternatives_2_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3329:2: rule__VariablePath__Alternatives_2_1
             {
-            pushFollow(FOLLOW_rule__VariablePath__Alternatives_2_1_in_rule__VariablePath__Group_2__1__Impl6440);
+            pushFollow(FOLLOW_rule__VariablePath__Alternatives_2_1_in_rule__VariablePath__Group_2__1__Impl6622);
             rule__VariablePath__Alternatives_2_1();
             _fsp--;
 
@@ -8278,20 +8535,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__VariablePath__Group_2_1_1__0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3256:1: rule__VariablePath__Group_2_1_1__0 : rule__VariablePath__Group_2_1_1__0__Impl rule__VariablePath__Group_2_1_1__1 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3343:1: rule__VariablePath__Group_2_1_1__0 : rule__VariablePath__Group_2_1_1__0__Impl rule__VariablePath__Group_2_1_1__1 ;
     public final void rule__VariablePath__Group_2_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3260:1: ( rule__VariablePath__Group_2_1_1__0__Impl rule__VariablePath__Group_2_1_1__1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3261:2: rule__VariablePath__Group_2_1_1__0__Impl rule__VariablePath__Group_2_1_1__1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3347:1: ( rule__VariablePath__Group_2_1_1__0__Impl rule__VariablePath__Group_2_1_1__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3348:2: rule__VariablePath__Group_2_1_1__0__Impl rule__VariablePath__Group_2_1_1__1
             {
-            pushFollow(FOLLOW_rule__VariablePath__Group_2_1_1__0__Impl_in_rule__VariablePath__Group_2_1_1__06474);
+            pushFollow(FOLLOW_rule__VariablePath__Group_2_1_1__0__Impl_in_rule__VariablePath__Group_2_1_1__06656);
             rule__VariablePath__Group_2_1_1__0__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__VariablePath__Group_2_1_1__1_in_rule__VariablePath__Group_2_1_1__06477);
+            pushFollow(FOLLOW_rule__VariablePath__Group_2_1_1__1_in_rule__VariablePath__Group_2_1_1__06659);
             rule__VariablePath__Group_2_1_1__1();
             _fsp--;
 
@@ -8314,20 +8571,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__VariablePath__Group_2_1_1__0__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3268:1: rule__VariablePath__Group_2_1_1__0__Impl : ( RULE_LPAREN ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3355:1: rule__VariablePath__Group_2_1_1__0__Impl : ( RULE_LPAREN ) ;
     public final void rule__VariablePath__Group_2_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3272:1: ( ( RULE_LPAREN ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3273:1: ( RULE_LPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3359:1: ( ( RULE_LPAREN ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3360:1: ( RULE_LPAREN )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3273:1: ( RULE_LPAREN )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3274:1: RULE_LPAREN
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3360:1: ( RULE_LPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3361:1: RULE_LPAREN
             {
              before(grammarAccess.getVariablePathAccess().getLPARENTerminalRuleCall_2_1_1_0()); 
-            match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_rule__VariablePath__Group_2_1_1__0__Impl6504); 
+            match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_rule__VariablePath__Group_2_1_1__0__Impl6686); 
              after(grammarAccess.getVariablePathAccess().getLPARENTerminalRuleCall_2_1_1_0()); 
 
             }
@@ -8351,20 +8608,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__VariablePath__Group_2_1_1__1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3285:1: rule__VariablePath__Group_2_1_1__1 : rule__VariablePath__Group_2_1_1__1__Impl rule__VariablePath__Group_2_1_1__2 ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3372:1: rule__VariablePath__Group_2_1_1__1 : rule__VariablePath__Group_2_1_1__1__Impl rule__VariablePath__Group_2_1_1__2 ;
     public final void rule__VariablePath__Group_2_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3289:1: ( rule__VariablePath__Group_2_1_1__1__Impl rule__VariablePath__Group_2_1_1__2 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3290:2: rule__VariablePath__Group_2_1_1__1__Impl rule__VariablePath__Group_2_1_1__2
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3376:1: ( rule__VariablePath__Group_2_1_1__1__Impl rule__VariablePath__Group_2_1_1__2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3377:2: rule__VariablePath__Group_2_1_1__1__Impl rule__VariablePath__Group_2_1_1__2
             {
-            pushFollow(FOLLOW_rule__VariablePath__Group_2_1_1__1__Impl_in_rule__VariablePath__Group_2_1_1__16533);
+            pushFollow(FOLLOW_rule__VariablePath__Group_2_1_1__1__Impl_in_rule__VariablePath__Group_2_1_1__16715);
             rule__VariablePath__Group_2_1_1__1__Impl();
             _fsp--;
 
-            pushFollow(FOLLOW_rule__VariablePath__Group_2_1_1__2_in_rule__VariablePath__Group_2_1_1__16536);
+            pushFollow(FOLLOW_rule__VariablePath__Group_2_1_1__2_in_rule__VariablePath__Group_2_1_1__16718);
             rule__VariablePath__Group_2_1_1__2();
             _fsp--;
 
@@ -8387,23 +8644,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__VariablePath__Group_2_1_1__1__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3297:1: rule__VariablePath__Group_2_1_1__1__Impl : ( ( rule__VariablePath__ChildrenAssignment_2_1_1_1 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3384:1: rule__VariablePath__Group_2_1_1__1__Impl : ( ( rule__VariablePath__ChildrenAssignment_2_1_1_1 ) ) ;
     public final void rule__VariablePath__Group_2_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3301:1: ( ( ( rule__VariablePath__ChildrenAssignment_2_1_1_1 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3302:1: ( ( rule__VariablePath__ChildrenAssignment_2_1_1_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3388:1: ( ( ( rule__VariablePath__ChildrenAssignment_2_1_1_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3389:1: ( ( rule__VariablePath__ChildrenAssignment_2_1_1_1 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3302:1: ( ( rule__VariablePath__ChildrenAssignment_2_1_1_1 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3303:1: ( rule__VariablePath__ChildrenAssignment_2_1_1_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3389:1: ( ( rule__VariablePath__ChildrenAssignment_2_1_1_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3390:1: ( rule__VariablePath__ChildrenAssignment_2_1_1_1 )
             {
              before(grammarAccess.getVariablePathAccess().getChildrenAssignment_2_1_1_1()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3304:1: ( rule__VariablePath__ChildrenAssignment_2_1_1_1 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3304:2: rule__VariablePath__ChildrenAssignment_2_1_1_1
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3391:1: ( rule__VariablePath__ChildrenAssignment_2_1_1_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3391:2: rule__VariablePath__ChildrenAssignment_2_1_1_1
             {
-            pushFollow(FOLLOW_rule__VariablePath__ChildrenAssignment_2_1_1_1_in_rule__VariablePath__Group_2_1_1__1__Impl6563);
+            pushFollow(FOLLOW_rule__VariablePath__ChildrenAssignment_2_1_1_1_in_rule__VariablePath__Group_2_1_1__1__Impl6745);
             rule__VariablePath__ChildrenAssignment_2_1_1_1();
             _fsp--;
 
@@ -8433,16 +8690,16 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__VariablePath__Group_2_1_1__2
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3314:1: rule__VariablePath__Group_2_1_1__2 : rule__VariablePath__Group_2_1_1__2__Impl ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3401:1: rule__VariablePath__Group_2_1_1__2 : rule__VariablePath__Group_2_1_1__2__Impl ;
     public final void rule__VariablePath__Group_2_1_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3318:1: ( rule__VariablePath__Group_2_1_1__2__Impl )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3319:2: rule__VariablePath__Group_2_1_1__2__Impl
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3405:1: ( rule__VariablePath__Group_2_1_1__2__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3406:2: rule__VariablePath__Group_2_1_1__2__Impl
             {
-            pushFollow(FOLLOW_rule__VariablePath__Group_2_1_1__2__Impl_in_rule__VariablePath__Group_2_1_1__26593);
+            pushFollow(FOLLOW_rule__VariablePath__Group_2_1_1__2__Impl_in_rule__VariablePath__Group_2_1_1__26775);
             rule__VariablePath__Group_2_1_1__2__Impl();
             _fsp--;
 
@@ -8465,20 +8722,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__VariablePath__Group_2_1_1__2__Impl
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3325:1: rule__VariablePath__Group_2_1_1__2__Impl : ( RULE_RPAREN ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3412:1: rule__VariablePath__Group_2_1_1__2__Impl : ( RULE_RPAREN ) ;
     public final void rule__VariablePath__Group_2_1_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3329:1: ( ( RULE_RPAREN ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3330:1: ( RULE_RPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3416:1: ( ( RULE_RPAREN ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3417:1: ( RULE_RPAREN )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3330:1: ( RULE_RPAREN )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3331:1: RULE_RPAREN
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3417:1: ( RULE_RPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3418:1: RULE_RPAREN
             {
              before(grammarAccess.getVariablePathAccess().getRPARENTerminalRuleCall_2_1_1_2()); 
-            match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_rule__VariablePath__Group_2_1_1__2__Impl6620); 
+            match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_rule__VariablePath__Group_2_1_1__2__Impl6802); 
              after(grammarAccess.getVariablePathAccess().getRPARENTerminalRuleCall_2_1_1_2()); 
 
             }
@@ -8501,21 +8758,327 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
     // $ANTLR end rule__VariablePath__Group_2_1_1__2__Impl
 
 
+    // $ANTLR start rule__RequestResponseOperation__Group__0
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3435:1: rule__RequestResponseOperation__Group__0 : rule__RequestResponseOperation__Group__0__Impl rule__RequestResponseOperation__Group__1 ;
+    public final void rule__RequestResponseOperation__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3439:1: ( rule__RequestResponseOperation__Group__0__Impl rule__RequestResponseOperation__Group__1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3440:2: rule__RequestResponseOperation__Group__0__Impl rule__RequestResponseOperation__Group__1
+            {
+            pushFollow(FOLLOW_rule__RequestResponseOperation__Group__0__Impl_in_rule__RequestResponseOperation__Group__06837);
+            rule__RequestResponseOperation__Group__0__Impl();
+            _fsp--;
+
+            pushFollow(FOLLOW_rule__RequestResponseOperation__Group__1_in_rule__RequestResponseOperation__Group__06840);
+            rule__RequestResponseOperation__Group__1();
+            _fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__RequestResponseOperation__Group__0
+
+
+    // $ANTLR start rule__RequestResponseOperation__Group__0__Impl
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3447:1: rule__RequestResponseOperation__Group__0__Impl : ( RULE_LPAREN ) ;
+    public final void rule__RequestResponseOperation__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3451:1: ( ( RULE_LPAREN ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3452:1: ( RULE_LPAREN )
+            {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3452:1: ( RULE_LPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3453:1: RULE_LPAREN
+            {
+             before(grammarAccess.getRequestResponseOperationAccess().getLPARENTerminalRuleCall_0()); 
+            match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_rule__RequestResponseOperation__Group__0__Impl6867); 
+             after(grammarAccess.getRequestResponseOperationAccess().getLPARENTerminalRuleCall_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__RequestResponseOperation__Group__0__Impl
+
+
+    // $ANTLR start rule__RequestResponseOperation__Group__1
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3464:1: rule__RequestResponseOperation__Group__1 : rule__RequestResponseOperation__Group__1__Impl rule__RequestResponseOperation__Group__2 ;
+    public final void rule__RequestResponseOperation__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3468:1: ( rule__RequestResponseOperation__Group__1__Impl rule__RequestResponseOperation__Group__2 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3469:2: rule__RequestResponseOperation__Group__1__Impl rule__RequestResponseOperation__Group__2
+            {
+            pushFollow(FOLLOW_rule__RequestResponseOperation__Group__1__Impl_in_rule__RequestResponseOperation__Group__16896);
+            rule__RequestResponseOperation__Group__1__Impl();
+            _fsp--;
+
+            pushFollow(FOLLOW_rule__RequestResponseOperation__Group__2_in_rule__RequestResponseOperation__Group__16899);
+            rule__RequestResponseOperation__Group__2();
+            _fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__RequestResponseOperation__Group__1
+
+
+    // $ANTLR start rule__RequestResponseOperation__Group__1__Impl
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3476:1: rule__RequestResponseOperation__Group__1__Impl : ( ( rule__RequestResponseOperation__ExpressionAssignment_1 ) ) ;
+    public final void rule__RequestResponseOperation__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3480:1: ( ( ( rule__RequestResponseOperation__ExpressionAssignment_1 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3481:1: ( ( rule__RequestResponseOperation__ExpressionAssignment_1 ) )
+            {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3481:1: ( ( rule__RequestResponseOperation__ExpressionAssignment_1 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3482:1: ( rule__RequestResponseOperation__ExpressionAssignment_1 )
+            {
+             before(grammarAccess.getRequestResponseOperationAccess().getExpressionAssignment_1()); 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3483:1: ( rule__RequestResponseOperation__ExpressionAssignment_1 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3483:2: rule__RequestResponseOperation__ExpressionAssignment_1
+            {
+            pushFollow(FOLLOW_rule__RequestResponseOperation__ExpressionAssignment_1_in_rule__RequestResponseOperation__Group__1__Impl6926);
+            rule__RequestResponseOperation__ExpressionAssignment_1();
+            _fsp--;
+
+
+            }
+
+             after(grammarAccess.getRequestResponseOperationAccess().getExpressionAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__RequestResponseOperation__Group__1__Impl
+
+
+    // $ANTLR start rule__RequestResponseOperation__Group__2
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3493:1: rule__RequestResponseOperation__Group__2 : rule__RequestResponseOperation__Group__2__Impl rule__RequestResponseOperation__Group__3 ;
+    public final void rule__RequestResponseOperation__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3497:1: ( rule__RequestResponseOperation__Group__2__Impl rule__RequestResponseOperation__Group__3 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3498:2: rule__RequestResponseOperation__Group__2__Impl rule__RequestResponseOperation__Group__3
+            {
+            pushFollow(FOLLOW_rule__RequestResponseOperation__Group__2__Impl_in_rule__RequestResponseOperation__Group__26956);
+            rule__RequestResponseOperation__Group__2__Impl();
+            _fsp--;
+
+            pushFollow(FOLLOW_rule__RequestResponseOperation__Group__3_in_rule__RequestResponseOperation__Group__26959);
+            rule__RequestResponseOperation__Group__3();
+            _fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__RequestResponseOperation__Group__2
+
+
+    // $ANTLR start rule__RequestResponseOperation__Group__2__Impl
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3505:1: rule__RequestResponseOperation__Group__2__Impl : ( RULE_RPAREN ) ;
+    public final void rule__RequestResponseOperation__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3509:1: ( ( RULE_RPAREN ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3510:1: ( RULE_RPAREN )
+            {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3510:1: ( RULE_RPAREN )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3511:1: RULE_RPAREN
+            {
+             before(grammarAccess.getRequestResponseOperationAccess().getRPARENTerminalRuleCall_2()); 
+            match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_rule__RequestResponseOperation__Group__2__Impl6986); 
+             after(grammarAccess.getRequestResponseOperationAccess().getRPARENTerminalRuleCall_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__RequestResponseOperation__Group__2__Impl
+
+
+    // $ANTLR start rule__RequestResponseOperation__Group__3
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3522:1: rule__RequestResponseOperation__Group__3 : rule__RequestResponseOperation__Group__3__Impl ;
+    public final void rule__RequestResponseOperation__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3526:1: ( rule__RequestResponseOperation__Group__3__Impl )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3527:2: rule__RequestResponseOperation__Group__3__Impl
+            {
+            pushFollow(FOLLOW_rule__RequestResponseOperation__Group__3__Impl_in_rule__RequestResponseOperation__Group__37015);
+            rule__RequestResponseOperation__Group__3__Impl();
+            _fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__RequestResponseOperation__Group__3
+
+
+    // $ANTLR start rule__RequestResponseOperation__Group__3__Impl
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3533:1: rule__RequestResponseOperation__Group__3__Impl : ( ( rule__RequestResponseOperation__MainProcessAssignment_3 ) ) ;
+    public final void rule__RequestResponseOperation__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3537:1: ( ( ( rule__RequestResponseOperation__MainProcessAssignment_3 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3538:1: ( ( rule__RequestResponseOperation__MainProcessAssignment_3 ) )
+            {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3538:1: ( ( rule__RequestResponseOperation__MainProcessAssignment_3 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3539:1: ( rule__RequestResponseOperation__MainProcessAssignment_3 )
+            {
+             before(grammarAccess.getRequestResponseOperationAccess().getMainProcessAssignment_3()); 
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3540:1: ( rule__RequestResponseOperation__MainProcessAssignment_3 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3540:2: rule__RequestResponseOperation__MainProcessAssignment_3
+            {
+            pushFollow(FOLLOW_rule__RequestResponseOperation__MainProcessAssignment_3_in_rule__RequestResponseOperation__Group__3__Impl7042);
+            rule__RequestResponseOperation__MainProcessAssignment_3();
+            _fsp--;
+
+
+            }
+
+             after(grammarAccess.getRequestResponseOperationAccess().getMainProcessAssignment_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__RequestResponseOperation__Group__3__Impl
+
+
     // $ANTLR start rule__Program__MainAssignment_1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3349:1: rule__Program__MainAssignment_1 : ( ruleMain ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3559:1: rule__Program__MainAssignment_1 : ( ruleMain ) ;
     public final void rule__Program__MainAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3353:1: ( ( ruleMain ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3354:1: ( ruleMain )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3563:1: ( ( ruleMain ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3564:1: ( ruleMain )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3354:1: ( ruleMain )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3355:1: ruleMain
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3564:1: ( ruleMain )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3565:1: ruleMain
             {
              before(grammarAccess.getProgramAccess().getMainMainParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_ruleMain_in_rule__Program__MainAssignment_16660);
+            pushFollow(FOLLOW_ruleMain_in_rule__Program__MainAssignment_17085);
             ruleMain();
             _fsp--;
 
@@ -8542,20 +9105,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Main__MainrocessAssignment
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3364:1: rule__Main__MainrocessAssignment : ( ruleMainProcess ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3574:1: rule__Main__MainrocessAssignment : ( ruleMainProcess ) ;
     public final void rule__Main__MainrocessAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3368:1: ( ( ruleMainProcess ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3369:1: ( ruleMainProcess )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3578:1: ( ( ruleMainProcess ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3579:1: ( ruleMainProcess )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3369:1: ( ruleMainProcess )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3370:1: ruleMainProcess
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3579:1: ( ruleMainProcess )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3580:1: ruleMainProcess
             {
              before(grammarAccess.getMainAccess().getMainrocessMainProcessParserRuleCall_0()); 
-            pushFollow(FOLLOW_ruleMainProcess_in_rule__Main__MainrocessAssignment6691);
+            pushFollow(FOLLOW_ruleMainProcess_in_rule__Main__MainrocessAssignment7116);
             ruleMainProcess();
             _fsp--;
 
@@ -8582,20 +9145,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__MainProcess__ParallelStatementAssignment_2
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3379:1: rule__MainProcess__ParallelStatementAssignment_2 : ( ruleParallelStatement ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3589:1: rule__MainProcess__ParallelStatementAssignment_2 : ( ruleParallelStatement ) ;
     public final void rule__MainProcess__ParallelStatementAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3383:1: ( ( ruleParallelStatement ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3384:1: ( ruleParallelStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3593:1: ( ( ruleParallelStatement ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3594:1: ( ruleParallelStatement )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3384:1: ( ruleParallelStatement )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3385:1: ruleParallelStatement
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3594:1: ( ruleParallelStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3595:1: ruleParallelStatement
             {
              before(grammarAccess.getMainProcessAccess().getParallelStatementParallelStatementParserRuleCall_2_0()); 
-            pushFollow(FOLLOW_ruleParallelStatement_in_rule__MainProcess__ParallelStatementAssignment_26722);
+            pushFollow(FOLLOW_ruleParallelStatement_in_rule__MainProcess__ParallelStatementAssignment_27147);
             ruleParallelStatement();
             _fsp--;
 
@@ -8622,20 +9185,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Process__ChildrenAssignment_0_2
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3394:1: rule__Process__ChildrenAssignment_0_2 : ( ruleParallelStatement ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3604:1: rule__Process__ChildrenAssignment_0_2 : ( ruleParallelStatement ) ;
     public final void rule__Process__ChildrenAssignment_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3398:1: ( ( ruleParallelStatement ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3399:1: ( ruleParallelStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3608:1: ( ( ruleParallelStatement ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3609:1: ( ruleParallelStatement )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3399:1: ( ruleParallelStatement )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3400:1: ruleParallelStatement
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3609:1: ( ruleParallelStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3610:1: ruleParallelStatement
             {
              before(grammarAccess.getProcessAccess().getChildrenParallelStatementParserRuleCall_0_2_0()); 
-            pushFollow(FOLLOW_ruleParallelStatement_in_rule__Process__ChildrenAssignment_0_26753);
+            pushFollow(FOLLOW_ruleParallelStatement_in_rule__Process__ChildrenAssignment_0_27178);
             ruleParallelStatement();
             _fsp--;
 
@@ -8662,20 +9225,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Process__ChildrenAssignment_1_1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3409:1: rule__Process__ChildrenAssignment_1_1 : ( ruleParallelStatement ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3619:1: rule__Process__ChildrenAssignment_1_1 : ( ruleParallelStatement ) ;
     public final void rule__Process__ChildrenAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3413:1: ( ( ruleParallelStatement ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3414:1: ( ruleParallelStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3623:1: ( ( ruleParallelStatement ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3624:1: ( ruleParallelStatement )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3414:1: ( ruleParallelStatement )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3415:1: ruleParallelStatement
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3624:1: ( ruleParallelStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3625:1: ruleParallelStatement
             {
              before(grammarAccess.getProcessAccess().getChildrenParallelStatementParserRuleCall_1_1_0()); 
-            pushFollow(FOLLOW_ruleParallelStatement_in_rule__Process__ChildrenAssignment_1_16784);
+            pushFollow(FOLLOW_ruleParallelStatement_in_rule__Process__ChildrenAssignment_1_17209);
             ruleParallelStatement();
             _fsp--;
 
@@ -8702,20 +9265,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__ParallelStatement__ChildrenAssignment_1_0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3424:1: rule__ParallelStatement__ChildrenAssignment_1_0 : ( ruleSequenceStatement ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3634:1: rule__ParallelStatement__ChildrenAssignment_1_0 : ( ruleSequenceStatement ) ;
     public final void rule__ParallelStatement__ChildrenAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3428:1: ( ( ruleSequenceStatement ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3429:1: ( ruleSequenceStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3638:1: ( ( ruleSequenceStatement ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3639:1: ( ruleSequenceStatement )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3429:1: ( ruleSequenceStatement )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3430:1: ruleSequenceStatement
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3639:1: ( ruleSequenceStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3640:1: ruleSequenceStatement
             {
              before(grammarAccess.getParallelStatementAccess().getChildrenSequenceStatementParserRuleCall_1_0_0()); 
-            pushFollow(FOLLOW_ruleSequenceStatement_in_rule__ParallelStatement__ChildrenAssignment_1_06815);
+            pushFollow(FOLLOW_ruleSequenceStatement_in_rule__ParallelStatement__ChildrenAssignment_1_07240);
             ruleSequenceStatement();
             _fsp--;
 
@@ -8742,20 +9305,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__ParallelStatement__ChildrenAssignment_1_1_1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3439:1: rule__ParallelStatement__ChildrenAssignment_1_1_1 : ( ruleSequenceStatement ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3649:1: rule__ParallelStatement__ChildrenAssignment_1_1_1 : ( ruleSequenceStatement ) ;
     public final void rule__ParallelStatement__ChildrenAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3443:1: ( ( ruleSequenceStatement ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3444:1: ( ruleSequenceStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3653:1: ( ( ruleSequenceStatement ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3654:1: ( ruleSequenceStatement )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3444:1: ( ruleSequenceStatement )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3445:1: ruleSequenceStatement
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3654:1: ( ruleSequenceStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3655:1: ruleSequenceStatement
             {
              before(grammarAccess.getParallelStatementAccess().getChildrenSequenceStatementParserRuleCall_1_1_1_0()); 
-            pushFollow(FOLLOW_ruleSequenceStatement_in_rule__ParallelStatement__ChildrenAssignment_1_1_16846);
+            pushFollow(FOLLOW_ruleSequenceStatement_in_rule__ParallelStatement__ChildrenAssignment_1_1_17271);
             ruleSequenceStatement();
             _fsp--;
 
@@ -8782,20 +9345,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__SequenceStatement__ChildrenAssignment_1_0
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3454:1: rule__SequenceStatement__ChildrenAssignment_1_0 : ( ruleBasicStatement ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3664:1: rule__SequenceStatement__ChildrenAssignment_1_0 : ( ruleBasicStatement ) ;
     public final void rule__SequenceStatement__ChildrenAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3458:1: ( ( ruleBasicStatement ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3459:1: ( ruleBasicStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3668:1: ( ( ruleBasicStatement ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3669:1: ( ruleBasicStatement )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3459:1: ( ruleBasicStatement )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3460:1: ruleBasicStatement
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3669:1: ( ruleBasicStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3670:1: ruleBasicStatement
             {
              before(grammarAccess.getSequenceStatementAccess().getChildrenBasicStatementParserRuleCall_1_0_0()); 
-            pushFollow(FOLLOW_ruleBasicStatement_in_rule__SequenceStatement__ChildrenAssignment_1_06877);
+            pushFollow(FOLLOW_ruleBasicStatement_in_rule__SequenceStatement__ChildrenAssignment_1_07302);
             ruleBasicStatement();
             _fsp--;
 
@@ -8822,20 +9385,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__SequenceStatement__ChildrenAssignment_1_1_1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3469:1: rule__SequenceStatement__ChildrenAssignment_1_1_1 : ( ruleBasicStatement ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3679:1: rule__SequenceStatement__ChildrenAssignment_1_1_1 : ( ruleBasicStatement ) ;
     public final void rule__SequenceStatement__ChildrenAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3473:1: ( ( ruleBasicStatement ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3474:1: ( ruleBasicStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3683:1: ( ( ruleBasicStatement ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3684:1: ( ruleBasicStatement )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3474:1: ( ruleBasicStatement )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3475:1: ruleBasicStatement
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3684:1: ( ruleBasicStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3685:1: ruleBasicStatement
             {
              before(grammarAccess.getSequenceStatementAccess().getChildrenBasicStatementParserRuleCall_1_1_1_0()); 
-            pushFollow(FOLLOW_ruleBasicStatement_in_rule__SequenceStatement__ChildrenAssignment_1_1_16908);
+            pushFollow(FOLLOW_ruleBasicStatement_in_rule__SequenceStatement__ChildrenAssignment_1_1_17333);
             ruleBasicStatement();
             _fsp--;
 
@@ -8862,20 +9425,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__ProcessAssignment_0_1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3484:1: rule__BasicStatement__ProcessAssignment_0_1 : ( ruleProcess ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3694:1: rule__BasicStatement__ProcessAssignment_0_1 : ( ruleProcess ) ;
     public final void rule__BasicStatement__ProcessAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3488:1: ( ( ruleProcess ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3489:1: ( ruleProcess )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3698:1: ( ( ruleProcess ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3699:1: ( ruleProcess )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3489:1: ( ruleProcess )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3490:1: ruleProcess
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3699:1: ( ruleProcess )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3700:1: ruleProcess
             {
              before(grammarAccess.getBasicStatementAccess().getProcessProcessParserRuleCall_0_1_0()); 
-            pushFollow(FOLLOW_ruleProcess_in_rule__BasicStatement__ProcessAssignment_0_16939);
+            pushFollow(FOLLOW_ruleProcess_in_rule__BasicStatement__ProcessAssignment_0_17364);
             ruleProcess();
             _fsp--;
 
@@ -8902,20 +9465,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__AssignStatementAssignment_1_1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3499:1: rule__BasicStatement__AssignStatementAssignment_1_1 : ( ruleAssignStatement ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3709:1: rule__BasicStatement__AssignStatementAssignment_1_1 : ( ruleAssignStatement ) ;
     public final void rule__BasicStatement__AssignStatementAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3503:1: ( ( ruleAssignStatement ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3504:1: ( ruleAssignStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3713:1: ( ( ruleAssignStatement ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3714:1: ( ruleAssignStatement )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3504:1: ( ruleAssignStatement )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3505:1: ruleAssignStatement
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3714:1: ( ruleAssignStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3715:1: ruleAssignStatement
             {
              before(grammarAccess.getBasicStatementAccess().getAssignStatementAssignStatementParserRuleCall_1_1_0()); 
-            pushFollow(FOLLOW_ruleAssignStatement_in_rule__BasicStatement__AssignStatementAssignment_1_16970);
+            pushFollow(FOLLOW_ruleAssignStatement_in_rule__BasicStatement__AssignStatementAssignment_1_17395);
             ruleAssignStatement();
             _fsp--;
 
@@ -8942,20 +9505,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__PostIncrementStatementAssignment_2_1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3514:1: rule__BasicStatement__PostIncrementStatementAssignment_2_1 : ( rulePostIncrementStatement ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3724:1: rule__BasicStatement__PostIncrementStatementAssignment_2_1 : ( rulePostIncrementStatement ) ;
     public final void rule__BasicStatement__PostIncrementStatementAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3518:1: ( ( rulePostIncrementStatement ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3519:1: ( rulePostIncrementStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3728:1: ( ( rulePostIncrementStatement ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3729:1: ( rulePostIncrementStatement )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3519:1: ( rulePostIncrementStatement )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3520:1: rulePostIncrementStatement
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3729:1: ( rulePostIncrementStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3730:1: rulePostIncrementStatement
             {
              before(grammarAccess.getBasicStatementAccess().getPostIncrementStatementPostIncrementStatementParserRuleCall_2_1_0()); 
-            pushFollow(FOLLOW_rulePostIncrementStatement_in_rule__BasicStatement__PostIncrementStatementAssignment_2_17001);
+            pushFollow(FOLLOW_rulePostIncrementStatement_in_rule__BasicStatement__PostIncrementStatementAssignment_2_17426);
             rulePostIncrementStatement();
             _fsp--;
 
@@ -8982,20 +9545,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__PostDecrementStatementAssignment_3_1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3529:1: rule__BasicStatement__PostDecrementStatementAssignment_3_1 : ( rulePostDecrementStatement ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3739:1: rule__BasicStatement__PostDecrementStatementAssignment_3_1 : ( rulePostDecrementStatement ) ;
     public final void rule__BasicStatement__PostDecrementStatementAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3533:1: ( ( rulePostDecrementStatement ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3534:1: ( rulePostDecrementStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3743:1: ( ( rulePostDecrementStatement ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3744:1: ( rulePostDecrementStatement )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3534:1: ( rulePostDecrementStatement )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3535:1: rulePostDecrementStatement
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3744:1: ( rulePostDecrementStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3745:1: rulePostDecrementStatement
             {
              before(grammarAccess.getBasicStatementAccess().getPostDecrementStatementPostDecrementStatementParserRuleCall_3_1_0()); 
-            pushFollow(FOLLOW_rulePostDecrementStatement_in_rule__BasicStatement__PostDecrementStatementAssignment_3_17032);
+            pushFollow(FOLLOW_rulePostDecrementStatement_in_rule__BasicStatement__PostDecrementStatementAssignment_3_17457);
             rulePostDecrementStatement();
             _fsp--;
 
@@ -9022,20 +9585,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__BasicStatement__NDChoiceStatementAssignment_4_1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3544:1: rule__BasicStatement__NDChoiceStatementAssignment_4_1 : ( ruleNDChoiceStatement ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3754:1: rule__BasicStatement__NDChoiceStatementAssignment_4_1 : ( ruleNDChoiceStatement ) ;
     public final void rule__BasicStatement__NDChoiceStatementAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3548:1: ( ( ruleNDChoiceStatement ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3549:1: ( ruleNDChoiceStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3758:1: ( ( ruleNDChoiceStatement ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3759:1: ( ruleNDChoiceStatement )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3549:1: ( ruleNDChoiceStatement )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3550:1: ruleNDChoiceStatement
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3759:1: ( ruleNDChoiceStatement )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3760:1: ruleNDChoiceStatement
             {
              before(grammarAccess.getBasicStatementAccess().getNDChoiceStatementNDChoiceStatementParserRuleCall_4_1_0()); 
-            pushFollow(FOLLOW_ruleNDChoiceStatement_in_rule__BasicStatement__NDChoiceStatementAssignment_4_17063);
+            pushFollow(FOLLOW_ruleNDChoiceStatement_in_rule__BasicStatement__NDChoiceStatementAssignment_4_17488);
             ruleNDChoiceStatement();
             _fsp--;
 
@@ -9062,20 +9625,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__AssignStatement__NameAssignment_1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3559:1: rule__AssignStatement__NameAssignment_1 : ( RULE_ID ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3769:1: rule__AssignStatement__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__AssignStatement__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3563:1: ( ( RULE_ID ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3564:1: ( RULE_ID )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3773:1: ( ( RULE_ID ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3774:1: ( RULE_ID )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3564:1: ( RULE_ID )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3565:1: RULE_ID
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3774:1: ( RULE_ID )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3775:1: RULE_ID
             {
              before(grammarAccess.getAssignStatementAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__AssignStatement__NameAssignment_17094); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__AssignStatement__NameAssignment_17519); 
              after(grammarAccess.getAssignStatementAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -9099,20 +9662,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__AssignStatement__ExpressionAssignment_4
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3574:1: rule__AssignStatement__ExpressionAssignment_4 : ( ruleExpression ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3784:1: rule__AssignStatement__ExpressionAssignment_4 : ( ruleExpression ) ;
     public final void rule__AssignStatement__ExpressionAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3578:1: ( ( ruleExpression ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3579:1: ( ruleExpression )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3788:1: ( ( ruleExpression ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3789:1: ( ruleExpression )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3579:1: ( ruleExpression )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3580:1: ruleExpression
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3789:1: ( ruleExpression )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3790:1: ruleExpression
             {
              before(grammarAccess.getAssignStatementAccess().getExpressionExpressionParserRuleCall_4_0()); 
-            pushFollow(FOLLOW_ruleExpression_in_rule__AssignStatement__ExpressionAssignment_47125);
+            pushFollow(FOLLOW_ruleExpression_in_rule__AssignStatement__ExpressionAssignment_47550);
             ruleExpression();
             _fsp--;
 
@@ -9139,20 +9702,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__PostIncrementStatement__NameAssignment_1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3589:1: rule__PostIncrementStatement__NameAssignment_1 : ( RULE_ID ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3799:1: rule__PostIncrementStatement__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__PostIncrementStatement__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3593:1: ( ( RULE_ID ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3594:1: ( RULE_ID )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3803:1: ( ( RULE_ID ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3804:1: ( RULE_ID )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3594:1: ( RULE_ID )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3595:1: RULE_ID
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3804:1: ( RULE_ID )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3805:1: RULE_ID
             {
              before(grammarAccess.getPostIncrementStatementAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__PostIncrementStatement__NameAssignment_17156); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__PostIncrementStatement__NameAssignment_17581); 
              after(grammarAccess.getPostIncrementStatementAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -9176,20 +9739,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__PostDecrementStatement__NameAssignment_1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3604:1: rule__PostDecrementStatement__NameAssignment_1 : ( RULE_ID ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3814:1: rule__PostDecrementStatement__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__PostDecrementStatement__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3608:1: ( ( RULE_ID ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3609:1: ( RULE_ID )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3818:1: ( ( RULE_ID ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3819:1: ( RULE_ID )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3609:1: ( RULE_ID )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3610:1: RULE_ID
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3819:1: ( RULE_ID )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3820:1: RULE_ID
             {
              before(grammarAccess.getPostDecrementStatementAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__PostDecrementStatement__NameAssignment_17187); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__PostDecrementStatement__NameAssignment_17612); 
              after(grammarAccess.getPostDecrementStatementAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -9213,23 +9776,23 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Expression__OpAssignment_1_1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3619:1: rule__Expression__OpAssignment_1_1 : ( ( rule__Expression__OpAlternatives_1_1_0 ) ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3829:1: rule__Expression__OpAssignment_1_1 : ( ( rule__Expression__OpAlternatives_1_1_0 ) ) ;
     public final void rule__Expression__OpAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3623:1: ( ( ( rule__Expression__OpAlternatives_1_1_0 ) ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3624:1: ( ( rule__Expression__OpAlternatives_1_1_0 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3833:1: ( ( ( rule__Expression__OpAlternatives_1_1_0 ) ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3834:1: ( ( rule__Expression__OpAlternatives_1_1_0 ) )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3624:1: ( ( rule__Expression__OpAlternatives_1_1_0 ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3625:1: ( rule__Expression__OpAlternatives_1_1_0 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3834:1: ( ( rule__Expression__OpAlternatives_1_1_0 ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3835:1: ( rule__Expression__OpAlternatives_1_1_0 )
             {
              before(grammarAccess.getExpressionAccess().getOpAlternatives_1_1_0()); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3626:1: ( rule__Expression__OpAlternatives_1_1_0 )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3626:2: rule__Expression__OpAlternatives_1_1_0
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3836:1: ( rule__Expression__OpAlternatives_1_1_0 )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3836:2: rule__Expression__OpAlternatives_1_1_0
             {
-            pushFollow(FOLLOW_rule__Expression__OpAlternatives_1_1_0_in_rule__Expression__OpAssignment_1_17218);
+            pushFollow(FOLLOW_rule__Expression__OpAlternatives_1_1_0_in_rule__Expression__OpAssignment_1_17643);
             rule__Expression__OpAlternatives_1_1_0();
             _fsp--;
 
@@ -9259,20 +9822,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__Expression__RightAssignment_1_2
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3635:1: rule__Expression__RightAssignment_1_2 : ( ruleExpression ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3845:1: rule__Expression__RightAssignment_1_2 : ( ruleExpression ) ;
     public final void rule__Expression__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3639:1: ( ( ruleExpression ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3640:1: ( ruleExpression )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3849:1: ( ( ruleExpression ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3850:1: ( ruleExpression )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3640:1: ( ruleExpression )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3641:1: ruleExpression
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3850:1: ( ruleExpression )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3851:1: ruleExpression
             {
              before(grammarAccess.getExpressionAccess().getRightExpressionParserRuleCall_1_2_0()); 
-            pushFollow(FOLLOW_ruleExpression_in_rule__Expression__RightAssignment_1_27251);
+            pushFollow(FOLLOW_ruleExpression_in_rule__Expression__RightAssignment_1_27676);
             ruleExpression();
             _fsp--;
 
@@ -9299,20 +9862,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__ValueAssignment_1_1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3650:1: rule__TerminalExpression__ValueAssignment_1_1 : ( RULE_INT ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3860:1: rule__TerminalExpression__ValueAssignment_1_1 : ( RULE_INT ) ;
     public final void rule__TerminalExpression__ValueAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3654:1: ( ( RULE_INT ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3655:1: ( RULE_INT )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3864:1: ( ( RULE_INT ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3865:1: ( RULE_INT )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3655:1: ( RULE_INT )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3656:1: RULE_INT
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3865:1: ( RULE_INT )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3866:1: RULE_INT
             {
              before(grammarAccess.getTerminalExpressionAccess().getValueINTTerminalRuleCall_1_1_0()); 
-            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__TerminalExpression__ValueAssignment_1_17282); 
+            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__TerminalExpression__ValueAssignment_1_17707); 
              after(grammarAccess.getTerminalExpressionAccess().getValueINTTerminalRuleCall_1_1_0()); 
 
             }
@@ -9336,20 +9899,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__ValueAssignment_2_1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3665:1: rule__TerminalExpression__ValueAssignment_2_1 : ( RULE_REAL ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3875:1: rule__TerminalExpression__ValueAssignment_2_1 : ( RULE_REAL ) ;
     public final void rule__TerminalExpression__ValueAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3669:1: ( ( RULE_REAL ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3670:1: ( RULE_REAL )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3879:1: ( ( RULE_REAL ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3880:1: ( RULE_REAL )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3670:1: ( RULE_REAL )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3671:1: RULE_REAL
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3880:1: ( RULE_REAL )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3881:1: RULE_REAL
             {
              before(grammarAccess.getTerminalExpressionAccess().getValueREALTerminalRuleCall_2_1_0()); 
-            match(input,RULE_REAL,FOLLOW_RULE_REAL_in_rule__TerminalExpression__ValueAssignment_2_17313); 
+            match(input,RULE_REAL,FOLLOW_RULE_REAL_in_rule__TerminalExpression__ValueAssignment_2_17738); 
              after(grammarAccess.getTerminalExpressionAccess().getValueREALTerminalRuleCall_2_1_0()); 
 
             }
@@ -9373,20 +9936,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__ValueAssignment_3_1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3680:1: rule__TerminalExpression__ValueAssignment_3_1 : ( RULE_ID ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3890:1: rule__TerminalExpression__ValueAssignment_3_1 : ( RULE_ID ) ;
     public final void rule__TerminalExpression__ValueAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3684:1: ( ( RULE_ID ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3685:1: ( RULE_ID )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3894:1: ( ( RULE_ID ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3895:1: ( RULE_ID )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3685:1: ( RULE_ID )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3686:1: RULE_ID
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3895:1: ( RULE_ID )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3896:1: RULE_ID
             {
              before(grammarAccess.getTerminalExpressionAccess().getValueIDTerminalRuleCall_3_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__TerminalExpression__ValueAssignment_3_17344); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__TerminalExpression__ValueAssignment_3_17769); 
              after(grammarAccess.getTerminalExpressionAccess().getValueIDTerminalRuleCall_3_1_0()); 
 
             }
@@ -9410,20 +9973,20 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__TerminalExpression__ValueAssignment_4_1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3695:1: rule__TerminalExpression__ValueAssignment_4_1 : ( RULE_STRING ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3905:1: rule__TerminalExpression__ValueAssignment_4_1 : ( RULE_STRING ) ;
     public final void rule__TerminalExpression__ValueAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3699:1: ( ( RULE_STRING ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3700:1: ( RULE_STRING )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3909:1: ( ( RULE_STRING ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3910:1: ( RULE_STRING )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3700:1: ( RULE_STRING )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3701:1: RULE_STRING
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3910:1: ( RULE_STRING )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3911:1: RULE_STRING
             {
              before(grammarAccess.getTerminalExpressionAccess().getValueSTRINGTerminalRuleCall_4_1_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__TerminalExpression__ValueAssignment_4_17375); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__TerminalExpression__ValueAssignment_4_17800); 
              after(grammarAccess.getTerminalExpressionAccess().getValueSTRINGTerminalRuleCall_4_1_0()); 
 
             }
@@ -9446,25 +10009,25 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
     // $ANTLR end rule__TerminalExpression__ValueAssignment_4_1
 
 
-    // $ANTLR start rule__NDChoiceStatement__MainProcessAssignment_0_7
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3710:1: rule__NDChoiceStatement__MainProcessAssignment_0_7 : ( ruleMainProcess ) ;
-    public final void rule__NDChoiceStatement__MainProcessAssignment_0_7() throws RecognitionException {
+    // $ANTLR start rule__NDChoiceStatement__InputOperationAssignment_1_1
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3920:1: rule__NDChoiceStatement__InputOperationAssignment_1_1 : ( ruleInputOperation ) ;
+    public final void rule__NDChoiceStatement__InputOperationAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3714:1: ( ( ruleMainProcess ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3715:1: ( ruleMainProcess )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3924:1: ( ( ruleInputOperation ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3925:1: ( ruleInputOperation )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3715:1: ( ruleMainProcess )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3716:1: ruleMainProcess
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3925:1: ( ruleInputOperation )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3926:1: ruleInputOperation
             {
-             before(grammarAccess.getNDChoiceStatementAccess().getMainProcessMainProcessParserRuleCall_0_7_0()); 
-            pushFollow(FOLLOW_ruleMainProcess_in_rule__NDChoiceStatement__MainProcessAssignment_0_77406);
-            ruleMainProcess();
+             before(grammarAccess.getNDChoiceStatementAccess().getInputOperationInputOperationParserRuleCall_1_1_0()); 
+            pushFollow(FOLLOW_ruleInputOperation_in_rule__NDChoiceStatement__InputOperationAssignment_1_17831);
+            ruleInputOperation();
             _fsp--;
 
-             after(grammarAccess.getNDChoiceStatementAccess().getMainProcessMainProcessParserRuleCall_0_7_0()); 
+             after(grammarAccess.getNDChoiceStatementAccess().getInputOperationInputOperationParserRuleCall_1_1_0()); 
 
             }
 
@@ -9483,28 +10046,68 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__NDChoiceStatement__MainProcessAssignment_0_7
+    // $ANTLR end rule__NDChoiceStatement__InputOperationAssignment_1_1
 
 
-    // $ANTLR start rule__NDChoiceStatement__VariablePathAssignment_1_4
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3725:1: rule__NDChoiceStatement__VariablePathAssignment_1_4 : ( ruleVariablePath ) ;
-    public final void rule__NDChoiceStatement__VariablePathAssignment_1_4() throws RecognitionException {
+    // $ANTLR start rule__NDChoiceStatement__MainProcessAssignment_1_3
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3935:1: rule__NDChoiceStatement__MainProcessAssignment_1_3 : ( ruleMainProcess ) ;
+    public final void rule__NDChoiceStatement__MainProcessAssignment_1_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3729:1: ( ( ruleVariablePath ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3730:1: ( ruleVariablePath )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3939:1: ( ( ruleMainProcess ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3940:1: ( ruleMainProcess )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3730:1: ( ruleVariablePath )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3731:1: ruleVariablePath
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3940:1: ( ruleMainProcess )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3941:1: ruleMainProcess
             {
-             before(grammarAccess.getNDChoiceStatementAccess().getVariablePathVariablePathParserRuleCall_1_4_0()); 
-            pushFollow(FOLLOW_ruleVariablePath_in_rule__NDChoiceStatement__VariablePathAssignment_1_47437);
+             before(grammarAccess.getNDChoiceStatementAccess().getMainProcessMainProcessParserRuleCall_1_3_0()); 
+            pushFollow(FOLLOW_ruleMainProcess_in_rule__NDChoiceStatement__MainProcessAssignment_1_37862);
+            ruleMainProcess();
+            _fsp--;
+
+             after(grammarAccess.getNDChoiceStatementAccess().getMainProcessMainProcessParserRuleCall_1_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__NDChoiceStatement__MainProcessAssignment_1_3
+
+
+    // $ANTLR start rule__InputOperation__VariablePathAssignment_1_4
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3950:1: rule__InputOperation__VariablePathAssignment_1_4 : ( ruleVariablePath ) ;
+    public final void rule__InputOperation__VariablePathAssignment_1_4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3954:1: ( ( ruleVariablePath ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3955:1: ( ruleVariablePath )
+            {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3955:1: ( ruleVariablePath )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3956:1: ruleVariablePath
+            {
+             before(grammarAccess.getInputOperationAccess().getVariablePathVariablePathParserRuleCall_1_4_0()); 
+            pushFollow(FOLLOW_ruleVariablePath_in_rule__InputOperation__VariablePathAssignment_1_47893);
             ruleVariablePath();
             _fsp--;
 
-             after(grammarAccess.getNDChoiceStatementAccess().getVariablePathVariablePathParserRuleCall_1_4_0()); 
+             after(grammarAccess.getInputOperationAccess().getVariablePathVariablePathParserRuleCall_1_4_0()); 
 
             }
 
@@ -9523,64 +10126,24 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__NDChoiceStatement__VariablePathAssignment_1_4
-
-
-    // $ANTLR start rule__NDChoiceStatement__MainProcessAssignment_1_8
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3740:1: rule__NDChoiceStatement__MainProcessAssignment_1_8 : ( ruleMainProcess ) ;
-    public final void rule__NDChoiceStatement__MainProcessAssignment_1_8() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3744:1: ( ( ruleMainProcess ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3745:1: ( ruleMainProcess )
-            {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3745:1: ( ruleMainProcess )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3746:1: ruleMainProcess
-            {
-             before(grammarAccess.getNDChoiceStatementAccess().getMainProcessMainProcessParserRuleCall_1_8_0()); 
-            pushFollow(FOLLOW_ruleMainProcess_in_rule__NDChoiceStatement__MainProcessAssignment_1_87468);
-            ruleMainProcess();
-            _fsp--;
-
-             after(grammarAccess.getNDChoiceStatementAccess().getMainProcessMainProcessParserRuleCall_1_8_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__NDChoiceStatement__MainProcessAssignment_1_8
+    // $ANTLR end rule__InputOperation__VariablePathAssignment_1_4
 
 
     // $ANTLR start rule__VariablePath__ChildrenAssignment_2_1_1_1
-    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3755:1: rule__VariablePath__ChildrenAssignment_2_1_1_1 : ( ruleExpression ) ;
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3965:1: rule__VariablePath__ChildrenAssignment_2_1_1_1 : ( ruleExpression ) ;
     public final void rule__VariablePath__ChildrenAssignment_2_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3759:1: ( ( ruleExpression ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3760:1: ( ruleExpression )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3969:1: ( ( ruleExpression ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3970:1: ( ruleExpression )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3760:1: ( ruleExpression )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3761:1: ruleExpression
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3970:1: ( ruleExpression )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3971:1: ruleExpression
             {
              before(grammarAccess.getVariablePathAccess().getChildrenExpressionParserRuleCall_2_1_1_1_0()); 
-            pushFollow(FOLLOW_ruleExpression_in_rule__VariablePath__ChildrenAssignment_2_1_1_17499);
+            pushFollow(FOLLOW_ruleExpression_in_rule__VariablePath__ChildrenAssignment_2_1_1_17924);
             ruleExpression();
             _fsp--;
 
@@ -9604,6 +10167,86 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
         return ;
     }
     // $ANTLR end rule__VariablePath__ChildrenAssignment_2_1_1_1
+
+
+    // $ANTLR start rule__RequestResponseOperation__ExpressionAssignment_1
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3980:1: rule__RequestResponseOperation__ExpressionAssignment_1 : ( ruleExpression ) ;
+    public final void rule__RequestResponseOperation__ExpressionAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3984:1: ( ( ruleExpression ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3985:1: ( ruleExpression )
+            {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3985:1: ( ruleExpression )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3986:1: ruleExpression
+            {
+             before(grammarAccess.getRequestResponseOperationAccess().getExpressionExpressionParserRuleCall_1_0()); 
+            pushFollow(FOLLOW_ruleExpression_in_rule__RequestResponseOperation__ExpressionAssignment_17955);
+            ruleExpression();
+            _fsp--;
+
+             after(grammarAccess.getRequestResponseOperationAccess().getExpressionExpressionParserRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__RequestResponseOperation__ExpressionAssignment_1
+
+
+    // $ANTLR start rule__RequestResponseOperation__MainProcessAssignment_3
+    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3995:1: rule__RequestResponseOperation__MainProcessAssignment_3 : ( ruleMainProcess ) ;
+    public final void rule__RequestResponseOperation__MainProcessAssignment_3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3999:1: ( ( ruleMainProcess ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:4000:1: ( ruleMainProcess )
+            {
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:4000:1: ( ruleMainProcess )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:4001:1: ruleMainProcess
+            {
+             before(grammarAccess.getRequestResponseOperationAccess().getMainProcessMainProcessParserRuleCall_3_0()); 
+            pushFollow(FOLLOW_ruleMainProcess_in_rule__RequestResponseOperation__MainProcessAssignment_37986);
+            ruleMainProcess();
+            _fsp--;
+
+             after(grammarAccess.getRequestResponseOperationAccess().getMainProcessMainProcessParserRuleCall_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__RequestResponseOperation__MainProcessAssignment_3
 
 
  
@@ -9646,266 +10289,285 @@ public class InternalJolieParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__TerminalExpression__Alternatives_in_ruleTerminalExpression754 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleNDChoiceStatement_in_entryRuleNDChoiceStatement781 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleNDChoiceStatement788 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Alternatives_in_ruleNDChoiceStatement814 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVariablePath_in_entryRuleVariablePath841 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleVariablePath848 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__VariablePath__Group__0_in_ruleVariablePath874 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Process__Group_0__0_in_rule__Process__Alternatives910 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Process__Group_1__0_in_rule__Process__Alternatives928 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_0__0_in_rule__BasicStatement__Alternatives961 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_1__0_in_rule__BasicStatement__Alternatives979 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_2__0_in_rule__BasicStatement__Alternatives997 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_3__0_in_rule__BasicStatement__Alternatives1015 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_4__0_in_rule__BasicStatement__Alternatives1033 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_PLUS_in_rule__Expression__OpAlternatives_1_1_01066 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_MINUS_in_rule__Expression__OpAlternatives_1_1_01083 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ASTERISK_in_rule__Expression__OpAlternatives_1_1_01100 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_DIVIDE_in_rule__Expression__OpAlternatives_1_1_01117 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_0__0_in_rule__TerminalExpression__Alternatives1149 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_1__0_in_rule__TerminalExpression__Alternatives1167 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_2__0_in_rule__TerminalExpression__Alternatives1185 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_3__0_in_rule__TerminalExpression__Alternatives1203 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_4__0_in_rule__TerminalExpression__Alternatives1221 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_0__0_in_rule__NDChoiceStatement__Alternatives1254 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__0_in_rule__NDChoiceStatement__Alternatives1272 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__VariablePath__Alternatives_2_11305 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__VariablePath__Group_2_1_1__0_in_rule__VariablePath__Alternatives_2_11322 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Program__Group__0__Impl_in_rule__Program__Group__01353 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_rule__Program__Group__1_in_rule__Program__Group__01356 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_rule__Program__Group__0__Impl1384 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Program__Group__1__Impl_in_rule__Program__Group__11415 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Program__MainAssignment_1_in_rule__Program__Group__1__Impl1442 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MainProcess__Group__0__Impl_in_rule__MainProcess__Group__01476 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_rule__MainProcess__Group__1_in_rule__MainProcess__Group__01479 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MainProcess__Group__1__Impl_in_rule__MainProcess__Group__11537 = new BitSet(new long[]{0x0000000000040B00L});
-    public static final BitSet FOLLOW_rule__MainProcess__Group__2_in_rule__MainProcess__Group__11540 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_LCURLY_in_rule__MainProcess__Group__1__Impl1567 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MainProcess__Group__2__Impl_in_rule__MainProcess__Group__21596 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_rule__MainProcess__Group__3_in_rule__MainProcess__Group__21599 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MainProcess__ParallelStatementAssignment_2_in_rule__MainProcess__Group__2__Impl1626 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MainProcess__Group__3__Impl_in_rule__MainProcess__Group__31656 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_RCURLY_in_rule__MainProcess__Group__3__Impl1683 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Process__Group_0__0__Impl_in_rule__Process__Group_0__01720 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_rule__Process__Group_0__1_in_rule__Process__Group_0__01723 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Process__Group_0__1__Impl_in_rule__Process__Group_0__11781 = new BitSet(new long[]{0x0000000000040B00L});
-    public static final BitSet FOLLOW_rule__Process__Group_0__2_in_rule__Process__Group_0__11784 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_LCURLY_in_rule__Process__Group_0__1__Impl1811 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Process__Group_0__2__Impl_in_rule__Process__Group_0__21840 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_rule__Process__Group_0__3_in_rule__Process__Group_0__21843 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Process__ChildrenAssignment_0_2_in_rule__Process__Group_0__2__Impl1870 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Process__Group_0__3__Impl_in_rule__Process__Group_0__31900 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_RCURLY_in_rule__Process__Group_0__3__Impl1927 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Process__Group_1__0__Impl_in_rule__Process__Group_1__01964 = new BitSet(new long[]{0x0000000000040B00L});
-    public static final BitSet FOLLOW_rule__Process__Group_1__1_in_rule__Process__Group_1__01967 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_LPAREN_in_rule__Process__Group_1__0__Impl1994 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Process__Group_1__1__Impl_in_rule__Process__Group_1__12023 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_rule__Process__Group_1__2_in_rule__Process__Group_1__12026 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Process__ChildrenAssignment_1_1_in_rule__Process__Group_1__1__Impl2053 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Process__Group_1__2__Impl_in_rule__Process__Group_1__22083 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_RPAREN_in_rule__Process__Group_1__2__Impl2110 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ParallelStatement__Group__0__Impl_in_rule__ParallelStatement__Group__02145 = new BitSet(new long[]{0x0000000000040B00L});
-    public static final BitSet FOLLOW_rule__ParallelStatement__Group__1_in_rule__ParallelStatement__Group__02148 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ParallelStatement__Group__1__Impl_in_rule__ParallelStatement__Group__12206 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ParallelStatement__Group_1__0_in_rule__ParallelStatement__Group__1__Impl2233 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ParallelStatement__Group_1__0__Impl_in_rule__ParallelStatement__Group_1__02267 = new BitSet(new long[]{0x0000000000002002L});
-    public static final BitSet FOLLOW_rule__ParallelStatement__Group_1__1_in_rule__ParallelStatement__Group_1__02270 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ParallelStatement__ChildrenAssignment_1_0_in_rule__ParallelStatement__Group_1__0__Impl2297 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ParallelStatement__Group_1__1__Impl_in_rule__ParallelStatement__Group_1__12327 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ParallelStatement__Group_1_1__0_in_rule__ParallelStatement__Group_1__1__Impl2354 = new BitSet(new long[]{0x0000000000002002L});
-    public static final BitSet FOLLOW_rule__ParallelStatement__Group_1_1__0__Impl_in_rule__ParallelStatement__Group_1_1__02389 = new BitSet(new long[]{0x0000000000040B00L});
-    public static final BitSet FOLLOW_rule__ParallelStatement__Group_1_1__1_in_rule__ParallelStatement__Group_1_1__02392 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_VERT_in_rule__ParallelStatement__Group_1_1__0__Impl2419 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ParallelStatement__Group_1_1__1__Impl_in_rule__ParallelStatement__Group_1_1__12448 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ParallelStatement__ChildrenAssignment_1_1_1_in_rule__ParallelStatement__Group_1_1__1__Impl2475 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SequenceStatement__Group__0__Impl_in_rule__SequenceStatement__Group__02509 = new BitSet(new long[]{0x0000000000040B00L});
-    public static final BitSet FOLLOW_rule__SequenceStatement__Group__1_in_rule__SequenceStatement__Group__02512 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SequenceStatement__Group__1__Impl_in_rule__SequenceStatement__Group__12570 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SequenceStatement__Group_1__0_in_rule__SequenceStatement__Group__1__Impl2597 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SequenceStatement__Group_1__0__Impl_in_rule__SequenceStatement__Group_1__02631 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_rule__SequenceStatement__Group_1__1_in_rule__SequenceStatement__Group_1__02634 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SequenceStatement__ChildrenAssignment_1_0_in_rule__SequenceStatement__Group_1__0__Impl2661 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SequenceStatement__Group_1__1__Impl_in_rule__SequenceStatement__Group_1__12691 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SequenceStatement__Group_1_1__0_in_rule__SequenceStatement__Group_1__1__Impl2718 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_rule__SequenceStatement__Group_1_1__0__Impl_in_rule__SequenceStatement__Group_1_1__02753 = new BitSet(new long[]{0x0000000000040B00L});
-    public static final BitSet FOLLOW_rule__SequenceStatement__Group_1_1__1_in_rule__SequenceStatement__Group_1_1__02756 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_SEMICOLON_in_rule__SequenceStatement__Group_1_1__0__Impl2783 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SequenceStatement__Group_1_1__1__Impl_in_rule__SequenceStatement__Group_1_1__12812 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SequenceStatement__ChildrenAssignment_1_1_1_in_rule__SequenceStatement__Group_1_1__1__Impl2839 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_0__0__Impl_in_rule__BasicStatement__Group_0__02873 = new BitSet(new long[]{0x0000000000000A00L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_0__1_in_rule__BasicStatement__Group_0__02876 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_0__1__Impl_in_rule__BasicStatement__Group_0__12934 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__ProcessAssignment_0_1_in_rule__BasicStatement__Group_0__1__Impl2961 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_1__0__Impl_in_rule__BasicStatement__Group_1__02995 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_1__1_in_rule__BasicStatement__Group_1__02998 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_1__1__Impl_in_rule__BasicStatement__Group_1__13056 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__AssignStatementAssignment_1_1_in_rule__BasicStatement__Group_1__1__Impl3083 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_2__0__Impl_in_rule__BasicStatement__Group_2__03117 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_2__1_in_rule__BasicStatement__Group_2__03120 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_2__1__Impl_in_rule__BasicStatement__Group_2__13178 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__PostIncrementStatementAssignment_2_1_in_rule__BasicStatement__Group_2__1__Impl3205 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_3__0__Impl_in_rule__BasicStatement__Group_3__03239 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_3__1_in_rule__BasicStatement__Group_3__03242 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_3__1__Impl_in_rule__BasicStatement__Group_3__13300 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__PostDecrementStatementAssignment_3_1_in_rule__BasicStatement__Group_3__1__Impl3327 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_4__0__Impl_in_rule__BasicStatement__Group_4__03361 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_4__1_in_rule__BasicStatement__Group_4__03364 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__Group_4__1__Impl_in_rule__BasicStatement__Group_4__13422 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BasicStatement__NDChoiceStatementAssignment_4_1_in_rule__BasicStatement__Group_4__1__Impl3449 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AssignStatement__Group__0__Impl_in_rule__AssignStatement__Group__03483 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_rule__AssignStatement__Group__1_in_rule__AssignStatement__Group__03486 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AssignStatement__Group__1__Impl_in_rule__AssignStatement__Group__13544 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_rule__AssignStatement__Group__2_in_rule__AssignStatement__Group__13547 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AssignStatement__NameAssignment_1_in_rule__AssignStatement__Group__1__Impl3574 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AssignStatement__Group__2__Impl_in_rule__AssignStatement__Group__23604 = new BitSet(new long[]{0x0000000003800900L});
-    public static final BitSet FOLLOW_rule__AssignStatement__Group__3_in_rule__AssignStatement__Group__23607 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ASSIGN_in_rule__AssignStatement__Group__2__Impl3634 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AssignStatement__Group__3__Impl_in_rule__AssignStatement__Group__33663 = new BitSet(new long[]{0x0000000003800900L});
-    public static final BitSet FOLLOW_rule__AssignStatement__Group__4_in_rule__AssignStatement__Group__33666 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AssignStatement__Group__4__Impl_in_rule__AssignStatement__Group__43724 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AssignStatement__ExpressionAssignment_4_in_rule__AssignStatement__Group__4__Impl3751 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__PostIncrementStatement__Group__0__Impl_in_rule__PostIncrementStatement__Group__03791 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_rule__PostIncrementStatement__Group__1_in_rule__PostIncrementStatement__Group__03794 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__PostIncrementStatement__Group__1__Impl_in_rule__PostIncrementStatement__Group__13852 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_rule__PostIncrementStatement__Group__2_in_rule__PostIncrementStatement__Group__13855 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__PostIncrementStatement__NameAssignment_1_in_rule__PostIncrementStatement__Group__1__Impl3882 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__PostIncrementStatement__Group__2__Impl_in_rule__PostIncrementStatement__Group__23912 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_CHOICE_in_rule__PostIncrementStatement__Group__2__Impl3939 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__PostDecrementStatement__Group__0__Impl_in_rule__PostDecrementStatement__Group__03974 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_rule__PostDecrementStatement__Group__1_in_rule__PostDecrementStatement__Group__03977 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__PostDecrementStatement__Group__1__Impl_in_rule__PostDecrementStatement__Group__14035 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_rule__PostDecrementStatement__Group__2_in_rule__PostDecrementStatement__Group__14038 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__PostDecrementStatement__NameAssignment_1_in_rule__PostDecrementStatement__Group__1__Impl4065 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__PostDecrementStatement__Group__2__Impl_in_rule__PostDecrementStatement__Group__24095 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_DECREMENT_in_rule__PostDecrementStatement__Group__2__Impl4122 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Expression__Group__0__Impl_in_rule__Expression__Group__04157 = new BitSet(new long[]{0x00000000000000F2L});
-    public static final BitSet FOLLOW_rule__Expression__Group__1_in_rule__Expression__Group__04160 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTerminalExpression_in_rule__Expression__Group__0__Impl4187 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Expression__Group__1__Impl_in_rule__Expression__Group__14216 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Expression__Group_1__0_in_rule__Expression__Group__1__Impl4243 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Expression__Group_1__0__Impl_in_rule__Expression__Group_1__04278 = new BitSet(new long[]{0x00000000000000F0L});
-    public static final BitSet FOLLOW_rule__Expression__Group_1__1_in_rule__Expression__Group_1__04281 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Expression__Group_1__1__Impl_in_rule__Expression__Group_1__14339 = new BitSet(new long[]{0x0000000003800900L});
-    public static final BitSet FOLLOW_rule__Expression__Group_1__2_in_rule__Expression__Group_1__14342 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Expression__OpAssignment_1_1_in_rule__Expression__Group_1__1__Impl4369 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Expression__Group_1__2__Impl_in_rule__Expression__Group_1__24399 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Expression__RightAssignment_1_2_in_rule__Expression__Group_1__2__Impl4426 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_0__0__Impl_in_rule__TerminalExpression__Group_0__04462 = new BitSet(new long[]{0x0000000003800900L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_0__1_in_rule__TerminalExpression__Group_0__04465 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_LPAREN_in_rule__TerminalExpression__Group_0__0__Impl4492 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_0__1__Impl_in_rule__TerminalExpression__Group_0__14521 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_0__2_in_rule__TerminalExpression__Group_0__14524 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_rule__TerminalExpression__Group_0__1__Impl4551 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_0__2__Impl_in_rule__TerminalExpression__Group_0__24580 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_RPAREN_in_rule__TerminalExpression__Group_0__2__Impl4607 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_1__0__Impl_in_rule__TerminalExpression__Group_1__04642 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_1__1_in_rule__TerminalExpression__Group_1__04645 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_1__1__Impl_in_rule__TerminalExpression__Group_1__14703 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__ValueAssignment_1_1_in_rule__TerminalExpression__Group_1__1__Impl4730 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_2__0__Impl_in_rule__TerminalExpression__Group_2__04764 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_2__1_in_rule__TerminalExpression__Group_2__04767 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_2__1__Impl_in_rule__TerminalExpression__Group_2__14825 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__ValueAssignment_2_1_in_rule__TerminalExpression__Group_2__1__Impl4852 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_3__0__Impl_in_rule__TerminalExpression__Group_3__04886 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_3__1_in_rule__TerminalExpression__Group_3__04889 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_3__1__Impl_in_rule__TerminalExpression__Group_3__14947 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__ValueAssignment_3_1_in_rule__TerminalExpression__Group_3__1__Impl4974 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_4__0__Impl_in_rule__TerminalExpression__Group_4__05008 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_4__1_in_rule__TerminalExpression__Group_4__05011 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__Group_4__1__Impl_in_rule__TerminalExpression__Group_4__15069 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TerminalExpression__ValueAssignment_4_1_in_rule__TerminalExpression__Group_4__1__Impl5096 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_0__0__Impl_in_rule__NDChoiceStatement__Group_0__05130 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_0__1_in_rule__NDChoiceStatement__Group_0__05133 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_LSQUARE_in_rule__NDChoiceStatement__Group_0__0__Impl5160 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_0__1__Impl_in_rule__NDChoiceStatement__Group_0__15189 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_0__2_in_rule__NDChoiceStatement__Group_0__15192 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_LINKIN_in_rule__NDChoiceStatement__Group_0__1__Impl5219 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_0__2__Impl_in_rule__NDChoiceStatement__Group_0__25248 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_0__3_in_rule__NDChoiceStatement__Group_0__25251 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_LPAREN_in_rule__NDChoiceStatement__Group_0__2__Impl5278 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_0__3__Impl_in_rule__NDChoiceStatement__Group_0__35307 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_0__4_in_rule__NDChoiceStatement__Group_0__35310 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__NDChoiceStatement__Group_0__3__Impl5337 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_0__4__Impl_in_rule__NDChoiceStatement__Group_0__45366 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_0__5_in_rule__NDChoiceStatement__Group_0__45369 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_RPAREN_in_rule__NDChoiceStatement__Group_0__4__Impl5396 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_0__5__Impl_in_rule__NDChoiceStatement__Group_0__55425 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_0__6_in_rule__NDChoiceStatement__Group_0__55428 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_RSQUARE_in_rule__NDChoiceStatement__Group_0__5__Impl5455 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_0__6__Impl_in_rule__NDChoiceStatement__Group_0__65484 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_0__7_in_rule__NDChoiceStatement__Group_0__65487 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_0__7__Impl_in_rule__NDChoiceStatement__Group_0__75545 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__MainProcessAssignment_0_7_in_rule__NDChoiceStatement__Group_0__7__Impl5572 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__0__Impl_in_rule__NDChoiceStatement__Group_1__05618 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__1_in_rule__NDChoiceStatement__Group_1__05621 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_LSQUARE_in_rule__NDChoiceStatement__Group_1__0__Impl5648 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__1__Impl_in_rule__NDChoiceStatement__Group_1__15677 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__2_in_rule__NDChoiceStatement__Group_1__15680 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__NDChoiceStatement__Group_1__1__Impl5707 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__2__Impl_in_rule__NDChoiceStatement__Group_1__25736 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__3_in_rule__NDChoiceStatement__Group_1__25739 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_LPAREN_in_rule__NDChoiceStatement__Group_1__2__Impl5766 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__3__Impl_in_rule__NDChoiceStatement__Group_1__35795 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__4_in_rule__NDChoiceStatement__Group_1__35798 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__4__Impl_in_rule__NDChoiceStatement__Group_1__45856 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__5_in_rule__NDChoiceStatement__Group_1__45859 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__VariablePathAssignment_1_4_in_rule__NDChoiceStatement__Group_1__4__Impl5886 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__5__Impl_in_rule__NDChoiceStatement__Group_1__55916 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__6_in_rule__NDChoiceStatement__Group_1__55919 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_RPAREN_in_rule__NDChoiceStatement__Group_1__5__Impl5946 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__6__Impl_in_rule__NDChoiceStatement__Group_1__65975 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__7_in_rule__NDChoiceStatement__Group_1__65978 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_RSQUARE_in_rule__NDChoiceStatement__Group_1__6__Impl6005 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__7__Impl_in_rule__NDChoiceStatement__Group_1__76034 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__8_in_rule__NDChoiceStatement__Group_1__76037 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__8__Impl_in_rule__NDChoiceStatement__Group_1__86095 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NDChoiceStatement__MainProcessAssignment_1_8_in_rule__NDChoiceStatement__Group_1__8__Impl6122 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__VariablePath__Group__0__Impl_in_rule__VariablePath__Group__06170 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_rule__VariablePath__Group__1_in_rule__VariablePath__Group__06173 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__VariablePath__Group__1__Impl_in_rule__VariablePath__Group__16231 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_rule__VariablePath__Group__2_in_rule__VariablePath__Group__16234 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_GLOBAL_in_rule__VariablePath__Group__1__Impl6261 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__VariablePath__Group__2__Impl_in_rule__VariablePath__Group__26290 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__VariablePath__Group_2__0_in_rule__VariablePath__Group__2__Impl6317 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_rule__VariablePath__Group_2__0__Impl_in_rule__VariablePath__Group_2__06354 = new BitSet(new long[]{0x0000000000000900L});
-    public static final BitSet FOLLOW_rule__VariablePath__Group_2__1_in_rule__VariablePath__Group_2__06357 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_DOT_in_rule__VariablePath__Group_2__0__Impl6384 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__VariablePath__Group_2__1__Impl_in_rule__VariablePath__Group_2__16413 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__VariablePath__Alternatives_2_1_in_rule__VariablePath__Group_2__1__Impl6440 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__VariablePath__Group_2_1_1__0__Impl_in_rule__VariablePath__Group_2_1_1__06474 = new BitSet(new long[]{0x0000000003800900L});
-    public static final BitSet FOLLOW_rule__VariablePath__Group_2_1_1__1_in_rule__VariablePath__Group_2_1_1__06477 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_LPAREN_in_rule__VariablePath__Group_2_1_1__0__Impl6504 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__VariablePath__Group_2_1_1__1__Impl_in_rule__VariablePath__Group_2_1_1__16533 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_rule__VariablePath__Group_2_1_1__2_in_rule__VariablePath__Group_2_1_1__16536 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__VariablePath__ChildrenAssignment_2_1_1_1_in_rule__VariablePath__Group_2_1_1__1__Impl6563 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__VariablePath__Group_2_1_1__2__Impl_in_rule__VariablePath__Group_2_1_1__26593 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_RPAREN_in_rule__VariablePath__Group_2_1_1__2__Impl6620 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMain_in_rule__Program__MainAssignment_16660 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMainProcess_in_rule__Main__MainrocessAssignment6691 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParallelStatement_in_rule__MainProcess__ParallelStatementAssignment_26722 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParallelStatement_in_rule__Process__ChildrenAssignment_0_26753 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParallelStatement_in_rule__Process__ChildrenAssignment_1_16784 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSequenceStatement_in_rule__ParallelStatement__ChildrenAssignment_1_06815 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSequenceStatement_in_rule__ParallelStatement__ChildrenAssignment_1_1_16846 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBasicStatement_in_rule__SequenceStatement__ChildrenAssignment_1_06877 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBasicStatement_in_rule__SequenceStatement__ChildrenAssignment_1_1_16908 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProcess_in_rule__BasicStatement__ProcessAssignment_0_16939 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAssignStatement_in_rule__BasicStatement__AssignStatementAssignment_1_16970 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePostIncrementStatement_in_rule__BasicStatement__PostIncrementStatementAssignment_2_17001 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePostDecrementStatement_in_rule__BasicStatement__PostDecrementStatementAssignment_3_17032 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNDChoiceStatement_in_rule__BasicStatement__NDChoiceStatementAssignment_4_17063 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__AssignStatement__NameAssignment_17094 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_rule__AssignStatement__ExpressionAssignment_47125 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__PostIncrementStatement__NameAssignment_17156 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__PostDecrementStatement__NameAssignment_17187 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Expression__OpAlternatives_1_1_0_in_rule__Expression__OpAssignment_1_17218 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_rule__Expression__RightAssignment_1_27251 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_rule__TerminalExpression__ValueAssignment_1_17282 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_REAL_in_rule__TerminalExpression__ValueAssignment_2_17313 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__TerminalExpression__ValueAssignment_3_17344 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__TerminalExpression__ValueAssignment_4_17375 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMainProcess_in_rule__NDChoiceStatement__MainProcessAssignment_0_77406 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVariablePath_in_rule__NDChoiceStatement__VariablePathAssignment_1_47437 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMainProcess_in_rule__NDChoiceStatement__MainProcessAssignment_1_87468 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_rule__VariablePath__ChildrenAssignment_2_1_1_17499 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group__0_in_ruleNDChoiceStatement814 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInputOperation_in_entryRuleInputOperation841 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleInputOperation848 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InputOperation__Alternatives_in_ruleInputOperation874 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVariablePath_in_entryRuleVariablePath901 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleVariablePath908 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__VariablePath__Group__0_in_ruleVariablePath934 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRequestResponseOperation_in_entryRuleRequestResponseOperation961 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRequestResponseOperation968 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RequestResponseOperation__Group__0_in_ruleRequestResponseOperation994 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Process__Group_0__0_in_rule__Process__Alternatives1030 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Process__Group_1__0_in_rule__Process__Alternatives1048 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_0__0_in_rule__BasicStatement__Alternatives1081 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_1__0_in_rule__BasicStatement__Alternatives1099 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_2__0_in_rule__BasicStatement__Alternatives1117 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_3__0_in_rule__BasicStatement__Alternatives1135 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_4__0_in_rule__BasicStatement__Alternatives1153 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_PLUS_in_rule__Expression__OpAlternatives_1_1_01186 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_MINUS_in_rule__Expression__OpAlternatives_1_1_01203 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ASTERISK_in_rule__Expression__OpAlternatives_1_1_01220 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_DIVIDE_in_rule__Expression__OpAlternatives_1_1_01237 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_0__0_in_rule__TerminalExpression__Alternatives1269 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_1__0_in_rule__TerminalExpression__Alternatives1287 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_2__0_in_rule__TerminalExpression__Alternatives1305 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_3__0_in_rule__TerminalExpression__Alternatives1323 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_4__0_in_rule__TerminalExpression__Alternatives1341 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_0__0_in_rule__InputOperation__Alternatives1374 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_1__0_in_rule__InputOperation__Alternatives1392 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__VariablePath__Alternatives_2_11425 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__VariablePath__Group_2_1_1__0_in_rule__VariablePath__Alternatives_2_11442 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Program__Group__0__Impl_in_rule__Program__Group__01473 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_rule__Program__Group__1_in_rule__Program__Group__01476 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_rule__Program__Group__0__Impl1504 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Program__Group__1__Impl_in_rule__Program__Group__11535 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Program__MainAssignment_1_in_rule__Program__Group__1__Impl1562 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MainProcess__Group__0__Impl_in_rule__MainProcess__Group__01596 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_rule__MainProcess__Group__1_in_rule__MainProcess__Group__01599 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MainProcess__Group__1__Impl_in_rule__MainProcess__Group__11657 = new BitSet(new long[]{0x0000000000046F00L});
+    public static final BitSet FOLLOW_rule__MainProcess__Group__2_in_rule__MainProcess__Group__11660 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_LCURLY_in_rule__MainProcess__Group__1__Impl1687 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MainProcess__Group__2__Impl_in_rule__MainProcess__Group__21716 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_rule__MainProcess__Group__3_in_rule__MainProcess__Group__21719 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MainProcess__ParallelStatementAssignment_2_in_rule__MainProcess__Group__2__Impl1746 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MainProcess__Group__3__Impl_in_rule__MainProcess__Group__31776 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_RCURLY_in_rule__MainProcess__Group__3__Impl1803 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Process__Group_0__0__Impl_in_rule__Process__Group_0__01840 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_rule__Process__Group_0__1_in_rule__Process__Group_0__01843 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Process__Group_0__1__Impl_in_rule__Process__Group_0__11901 = new BitSet(new long[]{0x0000000000046F00L});
+    public static final BitSet FOLLOW_rule__Process__Group_0__2_in_rule__Process__Group_0__11904 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_LCURLY_in_rule__Process__Group_0__1__Impl1931 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Process__Group_0__2__Impl_in_rule__Process__Group_0__21960 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_rule__Process__Group_0__3_in_rule__Process__Group_0__21963 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Process__ChildrenAssignment_0_2_in_rule__Process__Group_0__2__Impl1990 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Process__Group_0__3__Impl_in_rule__Process__Group_0__32020 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_RCURLY_in_rule__Process__Group_0__3__Impl2047 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Process__Group_1__0__Impl_in_rule__Process__Group_1__02084 = new BitSet(new long[]{0x0000000000047B00L});
+    public static final BitSet FOLLOW_rule__Process__Group_1__1_in_rule__Process__Group_1__02087 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_LPAREN_in_rule__Process__Group_1__0__Impl2114 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Process__Group_1__1__Impl_in_rule__Process__Group_1__12143 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_rule__Process__Group_1__2_in_rule__Process__Group_1__12146 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Process__ChildrenAssignment_1_1_in_rule__Process__Group_1__1__Impl2173 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Process__Group_1__2__Impl_in_rule__Process__Group_1__22203 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_RPAREN_in_rule__Process__Group_1__2__Impl2230 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ParallelStatement__Group__0__Impl_in_rule__ParallelStatement__Group__02265 = new BitSet(new long[]{0x0000000000046B02L});
+    public static final BitSet FOLLOW_rule__ParallelStatement__Group__1_in_rule__ParallelStatement__Group__02268 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ParallelStatement__Group__1__Impl_in_rule__ParallelStatement__Group__12326 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ParallelStatement__Group_1__0_in_rule__ParallelStatement__Group__1__Impl2353 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ParallelStatement__Group_1__0__Impl_in_rule__ParallelStatement__Group_1__02387 = new BitSet(new long[]{0x0000000000002002L});
+    public static final BitSet FOLLOW_rule__ParallelStatement__Group_1__1_in_rule__ParallelStatement__Group_1__02390 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ParallelStatement__ChildrenAssignment_1_0_in_rule__ParallelStatement__Group_1__0__Impl2417 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ParallelStatement__Group_1__1__Impl_in_rule__ParallelStatement__Group_1__12447 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ParallelStatement__Group_1_1__0_in_rule__ParallelStatement__Group_1__1__Impl2474 = new BitSet(new long[]{0x0000000000002002L});
+    public static final BitSet FOLLOW_rule__ParallelStatement__Group_1_1__0__Impl_in_rule__ParallelStatement__Group_1_1__02509 = new BitSet(new long[]{0x0000000000044B02L});
+    public static final BitSet FOLLOW_rule__ParallelStatement__Group_1_1__1_in_rule__ParallelStatement__Group_1_1__02512 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_VERT_in_rule__ParallelStatement__Group_1_1__0__Impl2539 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ParallelStatement__Group_1_1__1__Impl_in_rule__ParallelStatement__Group_1_1__12568 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ParallelStatement__ChildrenAssignment_1_1_1_in_rule__ParallelStatement__Group_1_1__1__Impl2595 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SequenceStatement__Group__0__Impl_in_rule__SequenceStatement__Group__02629 = new BitSet(new long[]{0x0000000000044B02L});
+    public static final BitSet FOLLOW_rule__SequenceStatement__Group__1_in_rule__SequenceStatement__Group__02632 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SequenceStatement__Group__1__Impl_in_rule__SequenceStatement__Group__12690 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SequenceStatement__Group_1__0_in_rule__SequenceStatement__Group__1__Impl2717 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SequenceStatement__Group_1__0__Impl_in_rule__SequenceStatement__Group_1__02751 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_rule__SequenceStatement__Group_1__1_in_rule__SequenceStatement__Group_1__02754 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SequenceStatement__ChildrenAssignment_1_0_in_rule__SequenceStatement__Group_1__0__Impl2781 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SequenceStatement__Group_1__1__Impl_in_rule__SequenceStatement__Group_1__12811 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SequenceStatement__Group_1_1__0_in_rule__SequenceStatement__Group_1__1__Impl2838 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_rule__SequenceStatement__Group_1_1__0__Impl_in_rule__SequenceStatement__Group_1_1__02873 = new BitSet(new long[]{0x0000000000040B02L});
+    public static final BitSet FOLLOW_rule__SequenceStatement__Group_1_1__1_in_rule__SequenceStatement__Group_1_1__02876 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_SEMICOLON_in_rule__SequenceStatement__Group_1_1__0__Impl2903 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SequenceStatement__Group_1_1__1__Impl_in_rule__SequenceStatement__Group_1_1__12932 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SequenceStatement__ChildrenAssignment_1_1_1_in_rule__SequenceStatement__Group_1_1__1__Impl2959 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_0__0__Impl_in_rule__BasicStatement__Group_0__02993 = new BitSet(new long[]{0x0000000000000A00L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_0__1_in_rule__BasicStatement__Group_0__02996 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_0__1__Impl_in_rule__BasicStatement__Group_0__13054 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__ProcessAssignment_0_1_in_rule__BasicStatement__Group_0__1__Impl3081 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_1__0__Impl_in_rule__BasicStatement__Group_1__03115 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_1__1_in_rule__BasicStatement__Group_1__03118 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_1__1__Impl_in_rule__BasicStatement__Group_1__13176 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__AssignStatementAssignment_1_1_in_rule__BasicStatement__Group_1__1__Impl3203 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_2__0__Impl_in_rule__BasicStatement__Group_2__03237 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_2__1_in_rule__BasicStatement__Group_2__03240 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_2__1__Impl_in_rule__BasicStatement__Group_2__13298 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__PostIncrementStatementAssignment_2_1_in_rule__BasicStatement__Group_2__1__Impl3325 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_3__0__Impl_in_rule__BasicStatement__Group_3__03359 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_3__1_in_rule__BasicStatement__Group_3__03362 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_3__1__Impl_in_rule__BasicStatement__Group_3__13420 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__PostDecrementStatementAssignment_3_1_in_rule__BasicStatement__Group_3__1__Impl3447 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_4__0__Impl_in_rule__BasicStatement__Group_4__03481 = new BitSet(new long[]{0x0000000000040002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_4__1_in_rule__BasicStatement__Group_4__03484 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__Group_4__1__Impl_in_rule__BasicStatement__Group_4__13542 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BasicStatement__NDChoiceStatementAssignment_4_1_in_rule__BasicStatement__Group_4__1__Impl3569 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AssignStatement__Group__0__Impl_in_rule__AssignStatement__Group__03603 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_rule__AssignStatement__Group__1_in_rule__AssignStatement__Group__03606 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AssignStatement__Group__1__Impl_in_rule__AssignStatement__Group__13664 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_rule__AssignStatement__Group__2_in_rule__AssignStatement__Group__13667 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AssignStatement__NameAssignment_1_in_rule__AssignStatement__Group__1__Impl3694 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AssignStatement__Group__2__Impl_in_rule__AssignStatement__Group__23724 = new BitSet(new long[]{0x0000000003800900L});
+    public static final BitSet FOLLOW_rule__AssignStatement__Group__3_in_rule__AssignStatement__Group__23727 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ASSIGN_in_rule__AssignStatement__Group__2__Impl3754 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AssignStatement__Group__3__Impl_in_rule__AssignStatement__Group__33783 = new BitSet(new long[]{0x0000000003800900L});
+    public static final BitSet FOLLOW_rule__AssignStatement__Group__4_in_rule__AssignStatement__Group__33786 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AssignStatement__Group__4__Impl_in_rule__AssignStatement__Group__43844 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AssignStatement__ExpressionAssignment_4_in_rule__AssignStatement__Group__4__Impl3871 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__PostIncrementStatement__Group__0__Impl_in_rule__PostIncrementStatement__Group__03911 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_rule__PostIncrementStatement__Group__1_in_rule__PostIncrementStatement__Group__03914 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__PostIncrementStatement__Group__1__Impl_in_rule__PostIncrementStatement__Group__13972 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_rule__PostIncrementStatement__Group__2_in_rule__PostIncrementStatement__Group__13975 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__PostIncrementStatement__NameAssignment_1_in_rule__PostIncrementStatement__Group__1__Impl4002 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__PostIncrementStatement__Group__2__Impl_in_rule__PostIncrementStatement__Group__24032 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_CHOICE_in_rule__PostIncrementStatement__Group__2__Impl4059 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__PostDecrementStatement__Group__0__Impl_in_rule__PostDecrementStatement__Group__04094 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_rule__PostDecrementStatement__Group__1_in_rule__PostDecrementStatement__Group__04097 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__PostDecrementStatement__Group__1__Impl_in_rule__PostDecrementStatement__Group__14155 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_rule__PostDecrementStatement__Group__2_in_rule__PostDecrementStatement__Group__14158 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__PostDecrementStatement__NameAssignment_1_in_rule__PostDecrementStatement__Group__1__Impl4185 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__PostDecrementStatement__Group__2__Impl_in_rule__PostDecrementStatement__Group__24215 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_DECREMENT_in_rule__PostDecrementStatement__Group__2__Impl4242 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Expression__Group__0__Impl_in_rule__Expression__Group__04277 = new BitSet(new long[]{0x00000000000000F2L});
+    public static final BitSet FOLLOW_rule__Expression__Group__1_in_rule__Expression__Group__04280 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTerminalExpression_in_rule__Expression__Group__0__Impl4307 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Expression__Group__1__Impl_in_rule__Expression__Group__14336 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Expression__Group_1__0_in_rule__Expression__Group__1__Impl4363 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Expression__Group_1__0__Impl_in_rule__Expression__Group_1__04398 = new BitSet(new long[]{0x00000000000000F0L});
+    public static final BitSet FOLLOW_rule__Expression__Group_1__1_in_rule__Expression__Group_1__04401 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Expression__Group_1__1__Impl_in_rule__Expression__Group_1__14459 = new BitSet(new long[]{0x0000000003800900L});
+    public static final BitSet FOLLOW_rule__Expression__Group_1__2_in_rule__Expression__Group_1__14462 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Expression__OpAssignment_1_1_in_rule__Expression__Group_1__1__Impl4489 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Expression__Group_1__2__Impl_in_rule__Expression__Group_1__24519 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Expression__RightAssignment_1_2_in_rule__Expression__Group_1__2__Impl4546 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_0__0__Impl_in_rule__TerminalExpression__Group_0__04582 = new BitSet(new long[]{0x0000000003800900L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_0__1_in_rule__TerminalExpression__Group_0__04585 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_LPAREN_in_rule__TerminalExpression__Group_0__0__Impl4612 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_0__1__Impl_in_rule__TerminalExpression__Group_0__14641 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_0__2_in_rule__TerminalExpression__Group_0__14644 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_rule__TerminalExpression__Group_0__1__Impl4671 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_0__2__Impl_in_rule__TerminalExpression__Group_0__24700 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_RPAREN_in_rule__TerminalExpression__Group_0__2__Impl4727 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_1__0__Impl_in_rule__TerminalExpression__Group_1__04762 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_1__1_in_rule__TerminalExpression__Group_1__04765 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_1__1__Impl_in_rule__TerminalExpression__Group_1__14823 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__ValueAssignment_1_1_in_rule__TerminalExpression__Group_1__1__Impl4850 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_2__0__Impl_in_rule__TerminalExpression__Group_2__04884 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_2__1_in_rule__TerminalExpression__Group_2__04887 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_2__1__Impl_in_rule__TerminalExpression__Group_2__14945 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__ValueAssignment_2_1_in_rule__TerminalExpression__Group_2__1__Impl4972 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_3__0__Impl_in_rule__TerminalExpression__Group_3__05006 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_3__1_in_rule__TerminalExpression__Group_3__05009 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_3__1__Impl_in_rule__TerminalExpression__Group_3__15067 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__ValueAssignment_3_1_in_rule__TerminalExpression__Group_3__1__Impl5094 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_4__0__Impl_in_rule__TerminalExpression__Group_4__05128 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_4__1_in_rule__TerminalExpression__Group_4__05131 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__Group_4__1__Impl_in_rule__TerminalExpression__Group_4__15189 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TerminalExpression__ValueAssignment_4_1_in_rule__TerminalExpression__Group_4__1__Impl5216 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group__0__Impl_in_rule__NDChoiceStatement__Group__05250 = new BitSet(new long[]{0x0000000000040002L});
+    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group__1_in_rule__NDChoiceStatement__Group__05253 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group__1__Impl_in_rule__NDChoiceStatement__Group__15311 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__0_in_rule__NDChoiceStatement__Group__1__Impl5338 = new BitSet(new long[]{0x0000000000040002L});
+    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__0__Impl_in_rule__NDChoiceStatement__Group_1__05373 = new BitSet(new long[]{0x0000000000100100L});
+    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__1_in_rule__NDChoiceStatement__Group_1__05376 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_LSQUARE_in_rule__NDChoiceStatement__Group_1__0__Impl5403 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__1__Impl_in_rule__NDChoiceStatement__Group_1__15432 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__2_in_rule__NDChoiceStatement__Group_1__15435 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__NDChoiceStatement__InputOperationAssignment_1_1_in_rule__NDChoiceStatement__Group_1__1__Impl5462 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__2__Impl_in_rule__NDChoiceStatement__Group_1__25492 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__3_in_rule__NDChoiceStatement__Group_1__25495 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_RSQUARE_in_rule__NDChoiceStatement__Group_1__2__Impl5522 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__NDChoiceStatement__Group_1__3__Impl_in_rule__NDChoiceStatement__Group_1__35551 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__NDChoiceStatement__MainProcessAssignment_1_3_in_rule__NDChoiceStatement__Group_1__3__Impl5578 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_0__0__Impl_in_rule__InputOperation__Group_0__05616 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_0__1_in_rule__InputOperation__Group_0__05619 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_0__1__Impl_in_rule__InputOperation__Group_0__15677 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_0__2_in_rule__InputOperation__Group_0__15680 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_LINKIN_in_rule__InputOperation__Group_0__1__Impl5707 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_0__2__Impl_in_rule__InputOperation__Group_0__25736 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_0__3_in_rule__InputOperation__Group_0__25739 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_LPAREN_in_rule__InputOperation__Group_0__2__Impl5766 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_0__3__Impl_in_rule__InputOperation__Group_0__35795 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_0__4_in_rule__InputOperation__Group_0__35798 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__InputOperation__Group_0__3__Impl5825 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_0__4__Impl_in_rule__InputOperation__Group_0__45854 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_RPAREN_in_rule__InputOperation__Group_0__4__Impl5881 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_1__0__Impl_in_rule__InputOperation__Group_1__05920 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_1__1_in_rule__InputOperation__Group_1__05923 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_1__1__Impl_in_rule__InputOperation__Group_1__15981 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_1__2_in_rule__InputOperation__Group_1__15984 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__InputOperation__Group_1__1__Impl6011 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_1__2__Impl_in_rule__InputOperation__Group_1__26040 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_1__3_in_rule__InputOperation__Group_1__26043 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_LPAREN_in_rule__InputOperation__Group_1__2__Impl6070 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_1__3__Impl_in_rule__InputOperation__Group_1__36099 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_1__4_in_rule__InputOperation__Group_1__36102 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_1__4__Impl_in_rule__InputOperation__Group_1__46160 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_1__5_in_rule__InputOperation__Group_1__46163 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InputOperation__VariablePathAssignment_1_4_in_rule__InputOperation__Group_1__4__Impl6190 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_1__5__Impl_in_rule__InputOperation__Group_1__56220 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_1__6_in_rule__InputOperation__Group_1__56223 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_RPAREN_in_rule__InputOperation__Group_1__5__Impl6250 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InputOperation__Group_1__6__Impl_in_rule__InputOperation__Group_1__66279 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRequestResponseOperation_in_rule__InputOperation__Group_1__6__Impl6307 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__VariablePath__Group__0__Impl_in_rule__VariablePath__Group__06352 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_rule__VariablePath__Group__1_in_rule__VariablePath__Group__06355 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__VariablePath__Group__1__Impl_in_rule__VariablePath__Group__16413 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_rule__VariablePath__Group__2_in_rule__VariablePath__Group__16416 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_GLOBAL_in_rule__VariablePath__Group__1__Impl6443 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__VariablePath__Group__2__Impl_in_rule__VariablePath__Group__26472 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__VariablePath__Group_2__0_in_rule__VariablePath__Group__2__Impl6499 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_rule__VariablePath__Group_2__0__Impl_in_rule__VariablePath__Group_2__06536 = new BitSet(new long[]{0x0000000000000900L});
+    public static final BitSet FOLLOW_rule__VariablePath__Group_2__1_in_rule__VariablePath__Group_2__06539 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_DOT_in_rule__VariablePath__Group_2__0__Impl6566 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__VariablePath__Group_2__1__Impl_in_rule__VariablePath__Group_2__16595 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__VariablePath__Alternatives_2_1_in_rule__VariablePath__Group_2__1__Impl6622 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__VariablePath__Group_2_1_1__0__Impl_in_rule__VariablePath__Group_2_1_1__06656 = new BitSet(new long[]{0x0000000003800900L});
+    public static final BitSet FOLLOW_rule__VariablePath__Group_2_1_1__1_in_rule__VariablePath__Group_2_1_1__06659 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_LPAREN_in_rule__VariablePath__Group_2_1_1__0__Impl6686 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__VariablePath__Group_2_1_1__1__Impl_in_rule__VariablePath__Group_2_1_1__16715 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_rule__VariablePath__Group_2_1_1__2_in_rule__VariablePath__Group_2_1_1__16718 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__VariablePath__ChildrenAssignment_2_1_1_1_in_rule__VariablePath__Group_2_1_1__1__Impl6745 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__VariablePath__Group_2_1_1__2__Impl_in_rule__VariablePath__Group_2_1_1__26775 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_RPAREN_in_rule__VariablePath__Group_2_1_1__2__Impl6802 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RequestResponseOperation__Group__0__Impl_in_rule__RequestResponseOperation__Group__06837 = new BitSet(new long[]{0x0000000003800900L});
+    public static final BitSet FOLLOW_rule__RequestResponseOperation__Group__1_in_rule__RequestResponseOperation__Group__06840 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_LPAREN_in_rule__RequestResponseOperation__Group__0__Impl6867 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RequestResponseOperation__Group__1__Impl_in_rule__RequestResponseOperation__Group__16896 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_rule__RequestResponseOperation__Group__2_in_rule__RequestResponseOperation__Group__16899 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RequestResponseOperation__ExpressionAssignment_1_in_rule__RequestResponseOperation__Group__1__Impl6926 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RequestResponseOperation__Group__2__Impl_in_rule__RequestResponseOperation__Group__26956 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_rule__RequestResponseOperation__Group__3_in_rule__RequestResponseOperation__Group__26959 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_RPAREN_in_rule__RequestResponseOperation__Group__2__Impl6986 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RequestResponseOperation__Group__3__Impl_in_rule__RequestResponseOperation__Group__37015 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RequestResponseOperation__MainProcessAssignment_3_in_rule__RequestResponseOperation__Group__3__Impl7042 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMain_in_rule__Program__MainAssignment_17085 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMainProcess_in_rule__Main__MainrocessAssignment7116 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParallelStatement_in_rule__MainProcess__ParallelStatementAssignment_27147 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParallelStatement_in_rule__Process__ChildrenAssignment_0_27178 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParallelStatement_in_rule__Process__ChildrenAssignment_1_17209 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSequenceStatement_in_rule__ParallelStatement__ChildrenAssignment_1_07240 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSequenceStatement_in_rule__ParallelStatement__ChildrenAssignment_1_1_17271 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBasicStatement_in_rule__SequenceStatement__ChildrenAssignment_1_07302 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBasicStatement_in_rule__SequenceStatement__ChildrenAssignment_1_1_17333 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProcess_in_rule__BasicStatement__ProcessAssignment_0_17364 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAssignStatement_in_rule__BasicStatement__AssignStatementAssignment_1_17395 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePostIncrementStatement_in_rule__BasicStatement__PostIncrementStatementAssignment_2_17426 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePostDecrementStatement_in_rule__BasicStatement__PostDecrementStatementAssignment_3_17457 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNDChoiceStatement_in_rule__BasicStatement__NDChoiceStatementAssignment_4_17488 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__AssignStatement__NameAssignment_17519 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_rule__AssignStatement__ExpressionAssignment_47550 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__PostIncrementStatement__NameAssignment_17581 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__PostDecrementStatement__NameAssignment_17612 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Expression__OpAlternatives_1_1_0_in_rule__Expression__OpAssignment_1_17643 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_rule__Expression__RightAssignment_1_27676 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_rule__TerminalExpression__ValueAssignment_1_17707 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_REAL_in_rule__TerminalExpression__ValueAssignment_2_17738 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__TerminalExpression__ValueAssignment_3_17769 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__TerminalExpression__ValueAssignment_4_17800 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInputOperation_in_rule__NDChoiceStatement__InputOperationAssignment_1_17831 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMainProcess_in_rule__NDChoiceStatement__MainProcessAssignment_1_37862 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVariablePath_in_rule__InputOperation__VariablePathAssignment_1_47893 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_rule__VariablePath__ChildrenAssignment_2_1_1_17924 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_rule__RequestResponseOperation__ExpressionAssignment_17955 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMainProcess_in_rule__RequestResponseOperation__MainProcessAssignment_37986 = new BitSet(new long[]{0x0000000000000002L});
 
 }

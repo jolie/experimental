@@ -10,10 +10,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="mainrocess" eType="#//MainProcess"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MainProcess" eSuperTypes="#//NDChoiceStatement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mainProcess" eType="#//MainProcess"
-        containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MainProcess"/>
   <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//BasicStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
         eType="#//ParallelStatement" containment="true"/>
@@ -49,14 +46,25 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NDChoiceStatement" eSuperTypes="#//BasicStatement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="NDChoiceStatement" eType="#//NDChoiceStatement"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="NDChoiceStatement" upperBound="-1"
+        eType="#//NDChoiceStatement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="InputOperation" upperBound="-1"
+        eType="#//InputOperation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainProcess" upperBound="-1"
+        eType="#//MainProcess" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VariablePath" eSuperTypes="#//NDChoiceStatement">
+  <eClassifiers xsi:type="ecore:EClass" name="InputOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VariablePath" eSuperTypes="#//InputOperation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variablePath" eType="#//VariablePath"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
         eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RequestResponseOperation" eSuperTypes="#//InputOperation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainProcess" eType="#//MainProcess"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OLSyntaxNode" eSuperTypes="#//MainProcess">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parallelStatement" eType="#//ParallelStatement"
@@ -77,9 +85,5 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="String" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MainProcess2" eSuperTypes="#//NDChoiceStatement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="MainProcess" eType="#//MainProcess"
-        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

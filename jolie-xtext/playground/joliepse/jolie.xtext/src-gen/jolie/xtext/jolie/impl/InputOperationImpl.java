@@ -5,8 +5,8 @@
  */
 package jolie.xtext.jolie.impl;
 
+import jolie.xtext.jolie.InputOperation;
 import jolie.xtext.jolie.JoliePackage;
-import jolie.xtext.jolie.MainProcess;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -14,21 +14,21 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Main Process</b></em>'.
+ * An implementation of the model object '<em><b>Input Operation</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class MainProcessImpl extends MinimalEObjectImpl.Container implements MainProcess
+public class InputOperationImpl extends MinimalEObjectImpl.Container implements InputOperation
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MainProcessImpl()
+  protected InputOperationImpl()
   {
     super();
   }
@@ -41,7 +41,7 @@ public class MainProcessImpl extends MinimalEObjectImpl.Container implements Mai
   @Override
   protected EClass eStaticClass()
   {
-    return JoliePackage.Literals.MAIN_PROCESS;
+    return JoliePackage.Literals.INPUT_OPERATION;
   }
 
-} //MainProcessImpl
+} //InputOperationImpl

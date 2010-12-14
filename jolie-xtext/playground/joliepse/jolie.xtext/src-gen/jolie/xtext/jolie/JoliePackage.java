@@ -118,6 +118,25 @@ public interface JoliePackage extends EPackage
   int MAIN_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.MainProcessImpl <em>Main Process</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.MainProcessImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getMainProcess()
+   * @generated
+   */
+  int MAIN_PROCESS = 2;
+
+  /**
+   * The number of structural features of the '<em>Main Process</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAIN_PROCESS_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link jolie.xtext.jolie.impl.BasicStatementImpl <em>Basic Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -135,71 +154,6 @@ public interface JoliePackage extends EPackage
    * @ordered
    */
   int BASIC_STATEMENT_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link jolie.xtext.jolie.impl.NDChoiceStatementImpl <em>ND Choice Statement</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see jolie.xtext.jolie.impl.NDChoiceStatementImpl
-   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getNDChoiceStatement()
-   * @generated
-   */
-  int ND_CHOICE_STATEMENT = 11;
-
-  /**
-   * The feature id for the '<em><b>ND Choice Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ND_CHOICE_STATEMENT__ND_CHOICE_STATEMENT = BASIC_STATEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>ND Choice Statement</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ND_CHOICE_STATEMENT_FEATURE_COUNT = BASIC_STATEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link jolie.xtext.jolie.impl.MainProcessImpl <em>Main Process</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see jolie.xtext.jolie.impl.MainProcessImpl
-   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getMainProcess()
-   * @generated
-   */
-  int MAIN_PROCESS = 2;
-
-  /**
-   * The feature id for the '<em><b>ND Choice Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAIN_PROCESS__ND_CHOICE_STATEMENT = ND_CHOICE_STATEMENT__ND_CHOICE_STATEMENT;
-
-  /**
-   * The feature id for the '<em><b>Main Process</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAIN_PROCESS__MAIN_PROCESS = ND_CHOICE_STATEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Main Process</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAIN_PROCESS_FEATURE_COUNT = ND_CHOICE_STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link jolie.xtext.jolie.impl.ProcessImpl <em>Process</em>}' class.
@@ -452,6 +406,71 @@ public interface JoliePackage extends EPackage
   int EXPRESSION_FEATURE_COUNT = ASSIGN_STATEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.NDChoiceStatementImpl <em>ND Choice Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.NDChoiceStatementImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getNDChoiceStatement()
+   * @generated
+   */
+  int ND_CHOICE_STATEMENT = 11;
+
+  /**
+   * The feature id for the '<em><b>ND Choice Statement</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ND_CHOICE_STATEMENT__ND_CHOICE_STATEMENT = BASIC_STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Input Operation</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ND_CHOICE_STATEMENT__INPUT_OPERATION = BASIC_STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Main Process</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ND_CHOICE_STATEMENT__MAIN_PROCESS = BASIC_STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>ND Choice Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ND_CHOICE_STATEMENT_FEATURE_COUNT = BASIC_STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.InputOperationImpl <em>Input Operation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.InputOperationImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getInputOperation()
+   * @generated
+   */
+  int INPUT_OPERATION = 12;
+
+  /**
+   * The number of structural features of the '<em>Input Operation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_OPERATION_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link jolie.xtext.jolie.impl.VariablePathImpl <em>Variable Path</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -459,16 +478,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getVariablePath()
    * @generated
    */
-  int VARIABLE_PATH = 12;
-
-  /**
-   * The feature id for the '<em><b>ND Choice Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_PATH__ND_CHOICE_STATEMENT = ND_CHOICE_STATEMENT__ND_CHOICE_STATEMENT;
+  int VARIABLE_PATH = 13;
 
   /**
    * The feature id for the '<em><b>Variable Path</b></em>' containment reference.
@@ -477,7 +487,7 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_PATH__VARIABLE_PATH = ND_CHOICE_STATEMENT_FEATURE_COUNT + 0;
+  int VARIABLE_PATH__VARIABLE_PATH = INPUT_OPERATION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -486,7 +496,7 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_PATH__CHILDREN = ND_CHOICE_STATEMENT_FEATURE_COUNT + 1;
+  int VARIABLE_PATH__CHILDREN = INPUT_OPERATION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Variable Path</em>' class.
@@ -495,7 +505,44 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_PATH_FEATURE_COUNT = ND_CHOICE_STATEMENT_FEATURE_COUNT + 2;
+  int VARIABLE_PATH_FEATURE_COUNT = INPUT_OPERATION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.RequestResponseOperationImpl <em>Request Response Operation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.RequestResponseOperationImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getRequestResponseOperation()
+   * @generated
+   */
+  int REQUEST_RESPONSE_OPERATION = 14;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUEST_RESPONSE_OPERATION__EXPRESSION = INPUT_OPERATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Main Process</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUEST_RESPONSE_OPERATION__MAIN_PROCESS = INPUT_OPERATION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Request Response Operation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUEST_RESPONSE_OPERATION_FEATURE_COUNT = INPUT_OPERATION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link jolie.xtext.jolie.impl.OLSyntaxNodeImpl <em>OL Syntax Node</em>}' class.
@@ -505,25 +552,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getOLSyntaxNode()
    * @generated
    */
-  int OL_SYNTAX_NODE = 13;
-
-  /**
-   * The feature id for the '<em><b>ND Choice Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OL_SYNTAX_NODE__ND_CHOICE_STATEMENT = MAIN_PROCESS__ND_CHOICE_STATEMENT;
-
-  /**
-   * The feature id for the '<em><b>Main Process</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OL_SYNTAX_NODE__MAIN_PROCESS = MAIN_PROCESS__MAIN_PROCESS;
+  int OL_SYNTAX_NODE = 15;
 
   /**
    * The feature id for the '<em><b>Parallel Statement</b></em>' containment reference.
@@ -551,7 +580,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getOperation()
    * @generated
    */
-  int OPERATION = 14;
+  int OPERATION = 16;
 
   /**
    * The feature id for the '<em><b>Assign Statement</b></em>' containment reference.
@@ -624,7 +653,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getIntLiteral()
    * @generated
    */
-  int INT_LITERAL = 15;
+  int INT_LITERAL = 17;
 
   /**
    * The feature id for the '<em><b>Assign Statement</b></em>' containment reference.
@@ -679,7 +708,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getRealLiteral()
    * @generated
    */
-  int REAL_LITERAL = 16;
+  int REAL_LITERAL = 18;
 
   /**
    * The feature id for the '<em><b>Assign Statement</b></em>' containment reference.
@@ -734,7 +763,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getString()
    * @generated
    */
-  int STRING = 17;
+  int STRING = 19;
 
   /**
    * The feature id for the '<em><b>Assign Statement</b></em>' containment reference.
@@ -780,43 +809,6 @@ public interface JoliePackage extends EPackage
    * @ordered
    */
   int STRING_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link jolie.xtext.jolie.impl.MainProcess2Impl <em>Main Process2</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see jolie.xtext.jolie.impl.MainProcess2Impl
-   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getMainProcess2()
-   * @generated
-   */
-  int MAIN_PROCESS2 = 18;
-
-  /**
-   * The feature id for the '<em><b>ND Choice Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAIN_PROCESS2__ND_CHOICE_STATEMENT = ND_CHOICE_STATEMENT__ND_CHOICE_STATEMENT;
-
-  /**
-   * The feature id for the '<em><b>Main Process</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAIN_PROCESS2__MAIN_PROCESS = ND_CHOICE_STATEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Main Process2</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAIN_PROCESS2_FEATURE_COUNT = ND_CHOICE_STATEMENT_FEATURE_COUNT + 1;
 
 
   /**
@@ -870,17 +862,6 @@ public interface JoliePackage extends EPackage
    * @generated
    */
   EClass getMainProcess();
-
-  /**
-   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.MainProcess#getMainProcess <em>Main Process</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Main Process</em>'.
-   * @see jolie.xtext.jolie.MainProcess#getMainProcess()
-   * @see #getMainProcess()
-   * @generated
-   */
-  EReference getMainProcess_MainProcess();
 
   /**
    * Returns the meta object for class '{@link jolie.xtext.jolie.Process <em>Process</em>}'.
@@ -1094,15 +1075,47 @@ public interface JoliePackage extends EPackage
   EClass getNDChoiceStatement();
 
   /**
-   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.NDChoiceStatement#getNDChoiceStatement <em>ND Choice Statement</em>}'.
+   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.NDChoiceStatement#getNDChoiceStatement <em>ND Choice Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>ND Choice Statement</em>'.
+   * @return the meta object for the containment reference list '<em>ND Choice Statement</em>'.
    * @see jolie.xtext.jolie.NDChoiceStatement#getNDChoiceStatement()
    * @see #getNDChoiceStatement()
    * @generated
    */
   EReference getNDChoiceStatement_NDChoiceStatement();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.NDChoiceStatement#getInputOperation <em>Input Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Input Operation</em>'.
+   * @see jolie.xtext.jolie.NDChoiceStatement#getInputOperation()
+   * @see #getNDChoiceStatement()
+   * @generated
+   */
+  EReference getNDChoiceStatement_InputOperation();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.NDChoiceStatement#getMainProcess <em>Main Process</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Main Process</em>'.
+   * @see jolie.xtext.jolie.NDChoiceStatement#getMainProcess()
+   * @see #getNDChoiceStatement()
+   * @generated
+   */
+  EReference getNDChoiceStatement_MainProcess();
+
+  /**
+   * Returns the meta object for class '{@link jolie.xtext.jolie.InputOperation <em>Input Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Input Operation</em>'.
+   * @see jolie.xtext.jolie.InputOperation
+   * @generated
+   */
+  EClass getInputOperation();
 
   /**
    * Returns the meta object for class '{@link jolie.xtext.jolie.VariablePath <em>Variable Path</em>}'.
@@ -1135,6 +1148,38 @@ public interface JoliePackage extends EPackage
    * @generated
    */
   EReference getVariablePath_Children();
+
+  /**
+   * Returns the meta object for class '{@link jolie.xtext.jolie.RequestResponseOperation <em>Request Response Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Request Response Operation</em>'.
+   * @see jolie.xtext.jolie.RequestResponseOperation
+   * @generated
+   */
+  EClass getRequestResponseOperation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.RequestResponseOperation#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see jolie.xtext.jolie.RequestResponseOperation#getExpression()
+   * @see #getRequestResponseOperation()
+   * @generated
+   */
+  EReference getRequestResponseOperation_Expression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.RequestResponseOperation#getMainProcess <em>Main Process</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Main Process</em>'.
+   * @see jolie.xtext.jolie.RequestResponseOperation#getMainProcess()
+   * @see #getRequestResponseOperation()
+   * @generated
+   */
+  EReference getRequestResponseOperation_MainProcess();
 
   /**
    * Returns the meta object for class '{@link jolie.xtext.jolie.OLSyntaxNode <em>OL Syntax Node</em>}'.
@@ -1264,27 +1309,6 @@ public interface JoliePackage extends EPackage
   EAttribute getString_Value();
 
   /**
-   * Returns the meta object for class '{@link jolie.xtext.jolie.MainProcess2 <em>Main Process2</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Main Process2</em>'.
-   * @see jolie.xtext.jolie.MainProcess2
-   * @generated
-   */
-  EClass getMainProcess2();
-
-  /**
-   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.MainProcess2#getMainProcess <em>Main Process</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Main Process</em>'.
-   * @see jolie.xtext.jolie.MainProcess2#getMainProcess()
-   * @see #getMainProcess2()
-   * @generated
-   */
-  EReference getMainProcess2_MainProcess();
-
-  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1352,14 +1376,6 @@ public interface JoliePackage extends EPackage
      * @generated
      */
     EClass MAIN_PROCESS = eINSTANCE.getMainProcess();
-
-    /**
-     * The meta object literal for the '<em><b>Main Process</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MAIN_PROCESS__MAIN_PROCESS = eINSTANCE.getMainProcess_MainProcess();
 
     /**
      * The meta object literal for the '{@link jolie.xtext.jolie.impl.ProcessImpl <em>Process</em>}' class.
@@ -1540,12 +1556,38 @@ public interface JoliePackage extends EPackage
     EClass ND_CHOICE_STATEMENT = eINSTANCE.getNDChoiceStatement();
 
     /**
-     * The meta object literal for the '<em><b>ND Choice Statement</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>ND Choice Statement</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference ND_CHOICE_STATEMENT__ND_CHOICE_STATEMENT = eINSTANCE.getNDChoiceStatement_NDChoiceStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Input Operation</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ND_CHOICE_STATEMENT__INPUT_OPERATION = eINSTANCE.getNDChoiceStatement_InputOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Main Process</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ND_CHOICE_STATEMENT__MAIN_PROCESS = eINSTANCE.getNDChoiceStatement_MainProcess();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.InputOperationImpl <em>Input Operation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.InputOperationImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getInputOperation()
+     * @generated
+     */
+    EClass INPUT_OPERATION = eINSTANCE.getInputOperation();
 
     /**
      * The meta object literal for the '{@link jolie.xtext.jolie.impl.VariablePathImpl <em>Variable Path</em>}' class.
@@ -1572,6 +1614,32 @@ public interface JoliePackage extends EPackage
      * @generated
      */
     EReference VARIABLE_PATH__CHILDREN = eINSTANCE.getVariablePath_Children();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.RequestResponseOperationImpl <em>Request Response Operation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.RequestResponseOperationImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getRequestResponseOperation()
+     * @generated
+     */
+    EClass REQUEST_RESPONSE_OPERATION = eINSTANCE.getRequestResponseOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REQUEST_RESPONSE_OPERATION__EXPRESSION = eINSTANCE.getRequestResponseOperation_Expression();
+
+    /**
+     * The meta object literal for the '<em><b>Main Process</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REQUEST_RESPONSE_OPERATION__MAIN_PROCESS = eINSTANCE.getRequestResponseOperation_MainProcess();
 
     /**
      * The meta object literal for the '{@link jolie.xtext.jolie.impl.OLSyntaxNodeImpl <em>OL Syntax Node</em>}' class.
@@ -1678,24 +1746,6 @@ public interface JoliePackage extends EPackage
      * @generated
      */
     EAttribute STRING__VALUE = eINSTANCE.getString_Value();
-
-    /**
-     * The meta object literal for the '{@link jolie.xtext.jolie.impl.MainProcess2Impl <em>Main Process2</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see jolie.xtext.jolie.impl.MainProcess2Impl
-     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getMainProcess2()
-     * @generated
-     */
-    EClass MAIN_PROCESS2 = eINSTANCE.getMainProcess2();
-
-    /**
-     * The meta object literal for the '<em><b>Main Process</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MAIN_PROCESS2__MAIN_PROCESS = eINSTANCE.getMainProcess2_MainProcess();
 
   }
 

@@ -10,11 +10,11 @@ import java.util.List;
 import jolie.xtext.jolie.AssignStatement;
 import jolie.xtext.jolie.BasicStatement;
 import jolie.xtext.jolie.Expression;
+import jolie.xtext.jolie.InputOperation;
 import jolie.xtext.jolie.IntLiteral;
 import jolie.xtext.jolie.JoliePackage;
 import jolie.xtext.jolie.Main;
 import jolie.xtext.jolie.MainProcess;
-import jolie.xtext.jolie.MainProcess2;
 import jolie.xtext.jolie.NDChoiceStatement;
 import jolie.xtext.jolie.OLSyntaxNode;
 import jolie.xtext.jolie.Operation;
@@ -23,6 +23,7 @@ import jolie.xtext.jolie.PostDecrementStatement;
 import jolie.xtext.jolie.PostIncrementStatement;
 import jolie.xtext.jolie.Program;
 import jolie.xtext.jolie.RealLiteral;
+import jolie.xtext.jolie.RequestResponseOperation;
 import jolie.xtext.jolie.SequenceStatement;
 import jolie.xtext.jolie.VariablePath;
 
@@ -130,8 +131,6 @@ public class JolieSwitch<T>
       {
         MainProcess mainProcess = (MainProcess)theEObject;
         T result = caseMainProcess(mainProcess);
-        if (result == null) result = caseNDChoiceStatement(mainProcess);
-        if (result == null) result = caseBasicStatement(mainProcess);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -205,12 +204,26 @@ public class JolieSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case JoliePackage.INPUT_OPERATION:
+      {
+        InputOperation inputOperation = (InputOperation)theEObject;
+        T result = caseInputOperation(inputOperation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case JoliePackage.VARIABLE_PATH:
       {
         VariablePath variablePath = (VariablePath)theEObject;
         T result = caseVariablePath(variablePath);
-        if (result == null) result = caseNDChoiceStatement(variablePath);
-        if (result == null) result = caseBasicStatement(variablePath);
+        if (result == null) result = caseInputOperation(variablePath);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JoliePackage.REQUEST_RESPONSE_OPERATION:
+      {
+        RequestResponseOperation requestResponseOperation = (RequestResponseOperation)theEObject;
+        T result = caseRequestResponseOperation(requestResponseOperation);
+        if (result == null) result = caseInputOperation(requestResponseOperation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -219,8 +232,6 @@ public class JolieSwitch<T>
         OLSyntaxNode olSyntaxNode = (OLSyntaxNode)theEObject;
         T result = caseOLSyntaxNode(olSyntaxNode);
         if (result == null) result = caseMainProcess(olSyntaxNode);
-        if (result == null) result = caseNDChoiceStatement(olSyntaxNode);
-        if (result == null) result = caseBasicStatement(olSyntaxNode);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -261,15 +272,6 @@ public class JolieSwitch<T>
         if (result == null) result = caseExpression(string);
         if (result == null) result = caseAssignStatement(string);
         if (result == null) result = caseBasicStatement(string);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case JoliePackage.MAIN_PROCESS2:
-      {
-        MainProcess2 mainProcess2 = (MainProcess2)theEObject;
-        T result = caseMainProcess2(mainProcess2);
-        if (result == null) result = caseNDChoiceStatement(mainProcess2);
-        if (result == null) result = caseBasicStatement(mainProcess2);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -470,6 +472,22 @@ public class JolieSwitch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Input Operation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Input Operation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInputOperation(InputOperation object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Variable Path</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -481,6 +499,22 @@ public class JolieSwitch<T>
    * @generated
    */
   public T caseVariablePath(VariablePath object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Request Response Operation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Request Response Operation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRequestResponseOperation(RequestResponseOperation object)
   {
     return null;
   }
@@ -561,22 +595,6 @@ public class JolieSwitch<T>
    * @generated
    */
   public T caseString(jolie.xtext.jolie.String object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Main Process2</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Main Process2</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMainProcess2(MainProcess2 object)
   {
     return null;
   }

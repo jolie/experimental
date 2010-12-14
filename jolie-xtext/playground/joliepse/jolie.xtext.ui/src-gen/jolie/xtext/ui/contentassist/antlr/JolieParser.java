@@ -41,7 +41,7 @@ public class JolieParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBasicStatementAccess().getAlternatives(), "rule__BasicStatement__Alternatives");
 					put(grammarAccess.getExpressionAccess().getOpAlternatives_1_1_0(), "rule__Expression__OpAlternatives_1_1_0");
 					put(grammarAccess.getTerminalExpressionAccess().getAlternatives(), "rule__TerminalExpression__Alternatives");
-					put(grammarAccess.getNDChoiceStatementAccess().getAlternatives(), "rule__NDChoiceStatement__Alternatives");
+					put(grammarAccess.getInputOperationAccess().getAlternatives(), "rule__InputOperation__Alternatives");
 					put(grammarAccess.getVariablePathAccess().getAlternatives_2_1(), "rule__VariablePath__Alternatives_2_1");
 					put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");
 					put(grammarAccess.getMainProcessAccess().getGroup(), "rule__MainProcess__Group__0");
@@ -68,11 +68,14 @@ public class JolieParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_2(), "rule__TerminalExpression__Group_2__0");
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_3(), "rule__TerminalExpression__Group_3__0");
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_4(), "rule__TerminalExpression__Group_4__0");
-					put(grammarAccess.getNDChoiceStatementAccess().getGroup_0(), "rule__NDChoiceStatement__Group_0__0");
+					put(grammarAccess.getNDChoiceStatementAccess().getGroup(), "rule__NDChoiceStatement__Group__0");
 					put(grammarAccess.getNDChoiceStatementAccess().getGroup_1(), "rule__NDChoiceStatement__Group_1__0");
+					put(grammarAccess.getInputOperationAccess().getGroup_0(), "rule__InputOperation__Group_0__0");
+					put(grammarAccess.getInputOperationAccess().getGroup_1(), "rule__InputOperation__Group_1__0");
 					put(grammarAccess.getVariablePathAccess().getGroup(), "rule__VariablePath__Group__0");
 					put(grammarAccess.getVariablePathAccess().getGroup_2(), "rule__VariablePath__Group_2__0");
 					put(grammarAccess.getVariablePathAccess().getGroup_2_1_1(), "rule__VariablePath__Group_2_1_1__0");
+					put(grammarAccess.getRequestResponseOperationAccess().getGroup(), "rule__RequestResponseOperation__Group__0");
 					put(grammarAccess.getProgramAccess().getMainAssignment_1(), "rule__Program__MainAssignment_1");
 					put(grammarAccess.getMainAccess().getMainrocessAssignment(), "rule__Main__MainrocessAssignment");
 					put(grammarAccess.getMainProcessAccess().getParallelStatementAssignment_2(), "rule__MainProcess__ParallelStatementAssignment_2");
@@ -97,10 +100,12 @@ public class JolieParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTerminalExpressionAccess().getValueAssignment_2_1(), "rule__TerminalExpression__ValueAssignment_2_1");
 					put(grammarAccess.getTerminalExpressionAccess().getValueAssignment_3_1(), "rule__TerminalExpression__ValueAssignment_3_1");
 					put(grammarAccess.getTerminalExpressionAccess().getValueAssignment_4_1(), "rule__TerminalExpression__ValueAssignment_4_1");
-					put(grammarAccess.getNDChoiceStatementAccess().getMainProcessAssignment_0_7(), "rule__NDChoiceStatement__MainProcessAssignment_0_7");
-					put(grammarAccess.getNDChoiceStatementAccess().getVariablePathAssignment_1_4(), "rule__NDChoiceStatement__VariablePathAssignment_1_4");
-					put(grammarAccess.getNDChoiceStatementAccess().getMainProcessAssignment_1_8(), "rule__NDChoiceStatement__MainProcessAssignment_1_8");
+					put(grammarAccess.getNDChoiceStatementAccess().getInputOperationAssignment_1_1(), "rule__NDChoiceStatement__InputOperationAssignment_1_1");
+					put(grammarAccess.getNDChoiceStatementAccess().getMainProcessAssignment_1_3(), "rule__NDChoiceStatement__MainProcessAssignment_1_3");
+					put(grammarAccess.getInputOperationAccess().getVariablePathAssignment_1_4(), "rule__InputOperation__VariablePathAssignment_1_4");
 					put(grammarAccess.getVariablePathAccess().getChildrenAssignment_2_1_1_1(), "rule__VariablePath__ChildrenAssignment_2_1_1_1");
+					put(grammarAccess.getRequestResponseOperationAccess().getExpressionAssignment_1(), "rule__RequestResponseOperation__ExpressionAssignment_1");
+					put(grammarAccess.getRequestResponseOperationAccess().getMainProcessAssignment_3(), "rule__RequestResponseOperation__MainProcessAssignment_3");
 				}
 			};
 		}

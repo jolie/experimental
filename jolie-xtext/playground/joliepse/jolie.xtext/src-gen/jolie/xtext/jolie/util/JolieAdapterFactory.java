@@ -8,11 +8,11 @@ package jolie.xtext.jolie.util;
 import jolie.xtext.jolie.AssignStatement;
 import jolie.xtext.jolie.BasicStatement;
 import jolie.xtext.jolie.Expression;
+import jolie.xtext.jolie.InputOperation;
 import jolie.xtext.jolie.IntLiteral;
 import jolie.xtext.jolie.JoliePackage;
 import jolie.xtext.jolie.Main;
 import jolie.xtext.jolie.MainProcess;
-import jolie.xtext.jolie.MainProcess2;
 import jolie.xtext.jolie.NDChoiceStatement;
 import jolie.xtext.jolie.OLSyntaxNode;
 import jolie.xtext.jolie.Operation;
@@ -21,6 +21,7 @@ import jolie.xtext.jolie.PostDecrementStatement;
 import jolie.xtext.jolie.PostIncrementStatement;
 import jolie.xtext.jolie.Program;
 import jolie.xtext.jolie.RealLiteral;
+import jolie.xtext.jolie.RequestResponseOperation;
 import jolie.xtext.jolie.SequenceStatement;
 import jolie.xtext.jolie.VariablePath;
 
@@ -155,9 +156,19 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
         return createNDChoiceStatementAdapter();
       }
       @Override
+      public Adapter caseInputOperation(InputOperation object)
+      {
+        return createInputOperationAdapter();
+      }
+      @Override
       public Adapter caseVariablePath(VariablePath object)
       {
         return createVariablePathAdapter();
+      }
+      @Override
+      public Adapter caseRequestResponseOperation(RequestResponseOperation object)
+      {
+        return createRequestResponseOperationAdapter();
       }
       @Override
       public Adapter caseOLSyntaxNode(OLSyntaxNode object)
@@ -183,11 +194,6 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
       public Adapter caseString(jolie.xtext.jolie.String object)
       {
         return createStringAdapter();
-      }
-      @Override
-      public Adapter caseMainProcess2(MainProcess2 object)
-      {
-        return createMainProcess2Adapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -392,6 +398,21 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.InputOperation <em>Input Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.InputOperation
+   * @generated
+   */
+  public Adapter createInputOperationAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.VariablePath <em>Variable Path</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -402,6 +423,21 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createVariablePathAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.RequestResponseOperation <em>Request Response Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.RequestResponseOperation
+   * @generated
+   */
+  public Adapter createRequestResponseOperationAdapter()
   {
     return null;
   }
@@ -477,21 +513,6 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStringAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.MainProcess2 <em>Main Process2</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see jolie.xtext.jolie.MainProcess2
-   * @generated
-   */
-  public Adapter createMainProcess2Adapter()
   {
     return null;
   }

@@ -38,7 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class VariablePathImpl extends NDChoiceStatementImpl implements VariablePath
+public class VariablePathImpl extends InputOperationImpl implements VariablePath
 {
   /**
    * The cached value of the '{@link #getVariablePath() <em>Variable Path</em>}' containment reference.

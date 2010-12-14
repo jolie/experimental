@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface VariablePath extends NDChoiceStatement
+public interface VariablePath extends InputOperation
 {
   /**
    * Returns the value of the '<em><b>Variable Path</b></em>' containment reference.
