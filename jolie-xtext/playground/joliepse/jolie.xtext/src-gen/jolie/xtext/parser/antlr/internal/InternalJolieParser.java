@@ -24,39 +24,39 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalJolieParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_LCURLY", "RULE_RCURLY", "RULE_LPAREN", "RULE_RPAREN", "RULE_VERT", "RULE_SEMICOLON", "RULE_ID", "RULE_ASSIGN", "RULE_CHOICE", "RULE_DECREMENT", "RULE_PLUS", "RULE_MINUS", "RULE_ASTERISK", "RULE_DIVIDE", "RULE_INT", "RULE_REAL", "RULE_STRING", "RULE_LSQUARE", "RULE_RSQUARE", "RULE_LINKIN", "RULE_GLOBAL", "RULE_DOT", "RULE_ARROW", "RULE_COLON", "RULE_COMMA", "RULE_WHILE", "RULE_PERCENT_SIGN", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'main'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_LCURLY", "RULE_RCURLY", "RULE_LPAREN", "RULE_RPAREN", "RULE_VERT", "RULE_SEMICOLON", "RULE_ASSIGN", "RULE_PLUS", "RULE_MINUS", "RULE_ASTERISK", "RULE_DIVIDE", "RULE_INT", "RULE_REAL", "RULE_STRING", "RULE_GLOBAL", "RULE_ID", "RULE_LSQUARE", "RULE_RSQUARE", "RULE_DOT", "RULE_CHOICE", "RULE_DECREMENT", "RULE_LINKIN", "RULE_ARROW", "RULE_COLON", "RULE_COMMA", "RULE_WHILE", "RULE_PERCENT_SIGN", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'main'"
     };
     public static final int RULE_RCURLY=5;
     public static final int RULE_ML_COMMENT=31;
-    public static final int RULE_CHOICE=12;
+    public static final int RULE_CHOICE=23;
     public static final int RULE_COLON=27;
-    public static final int RULE_ID=10;
-    public static final int RULE_LINKIN=23;
+    public static final int RULE_ID=19;
+    public static final int RULE_LINKIN=25;
     public static final int RULE_WHILE=29;
-    public static final int RULE_STRING=20;
     public static final int RULE_LPAREN=6;
-    public static final int RULE_LSQUARE=21;
+    public static final int RULE_STRING=17;
+    public static final int RULE_LSQUARE=20;
     public static final int RULE_SEMICOLON=9;
-    public static final int RULE_REAL=19;
+    public static final int RULE_REAL=16;
     public static final int RULE_PERCENT_SIGN=30;
     public static final int RULE_COMMA=28;
     public static final int RULE_RPAREN=7;
-    public static final int RULE_ASSIGN=11;
-    public static final int RULE_ASTERISK=16;
-    public static final int RULE_DOT=25;
-    public static final int RULE_MINUS=15;
+    public static final int RULE_ASSIGN=10;
+    public static final int RULE_ASTERISK=13;
+    public static final int RULE_DOT=22;
+    public static final int RULE_MINUS=12;
     public static final int RULE_ARROW=26;
     public static final int RULE_VERT=8;
     public static final int RULE_WS=33;
     public static final int EOF=-1;
-    public static final int RULE_INT=18;
-    public static final int RULE_RSQUARE=22;
-    public static final int RULE_DIVIDE=17;
+    public static final int RULE_INT=15;
+    public static final int RULE_RSQUARE=21;
+    public static final int RULE_DIVIDE=14;
     public static final int RULE_ANY_OTHER=34;
     public static final int RULE_SL_COMMENT=32;
-    public static final int RULE_GLOBAL=24;
-    public static final int RULE_DECREMENT=13;
-    public static final int RULE_PLUS=14;
+    public static final int RULE_DECREMENT=24;
+    public static final int RULE_GLOBAL=18;
+    public static final int RULE_PLUS=11;
     public static final int RULE_LCURLY=4;
 
         public InternalJolieParser(TokenStream input) {
@@ -1098,7 +1098,7 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleBasicStatement
-    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:521:1: ruleBasicStatement returns [EObject current=null] : ( ( () ( (lv_process_1_0= ruleProcess ) ) ) | ( () ( (lv_assignStatement_3_0= ruleAssignStatement ) ) ) | ( () ( (lv_postIncrementStatement_5_0= rulePostIncrementStatement ) ) ) | ( () ( (lv_PostDecrementStatement_7_0= rulePostDecrementStatement ) ) ) | ( () ( (lv_NDChoiceStatement_9_0= ruleNDChoiceStatement ) ) ) ) ;
+    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:521:1: ruleBasicStatement returns [EObject current=null] : ( ( () ( (lv_process_1_0= ruleProcess ) ) ) | ( () ( (lv_assignStatement_3_0= ruleAssignStatement ) ) ) | ( () ( (lv_NDChoiceStatement_5_0= ruleNDChoiceStatement ) ) ) ) ;
     public final EObject ruleBasicStatement() throws RecognitionException {
         EObject current = null;
 
@@ -1106,21 +1106,17 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
         EObject lv_assignStatement_3_0 = null;
 
-        EObject lv_postIncrementStatement_5_0 = null;
-
-        EObject lv_PostDecrementStatement_7_0 = null;
-
-        EObject lv_NDChoiceStatement_9_0 = null;
+        EObject lv_NDChoiceStatement_5_0 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:526:6: ( ( ( () ( (lv_process_1_0= ruleProcess ) ) ) | ( () ( (lv_assignStatement_3_0= ruleAssignStatement ) ) ) | ( () ( (lv_postIncrementStatement_5_0= rulePostIncrementStatement ) ) ) | ( () ( (lv_PostDecrementStatement_7_0= rulePostDecrementStatement ) ) ) | ( () ( (lv_NDChoiceStatement_9_0= ruleNDChoiceStatement ) ) ) ) )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:527:1: ( ( () ( (lv_process_1_0= ruleProcess ) ) ) | ( () ( (lv_assignStatement_3_0= ruleAssignStatement ) ) ) | ( () ( (lv_postIncrementStatement_5_0= rulePostIncrementStatement ) ) ) | ( () ( (lv_PostDecrementStatement_7_0= rulePostDecrementStatement ) ) ) | ( () ( (lv_NDChoiceStatement_9_0= ruleNDChoiceStatement ) ) ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:526:6: ( ( ( () ( (lv_process_1_0= ruleProcess ) ) ) | ( () ( (lv_assignStatement_3_0= ruleAssignStatement ) ) ) | ( () ( (lv_NDChoiceStatement_5_0= ruleNDChoiceStatement ) ) ) ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:527:1: ( ( () ( (lv_process_1_0= ruleProcess ) ) ) | ( () ( (lv_assignStatement_3_0= ruleAssignStatement ) ) ) | ( () ( (lv_NDChoiceStatement_5_0= ruleNDChoiceStatement ) ) ) )
             {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:527:1: ( ( () ( (lv_process_1_0= ruleProcess ) ) ) | ( () ( (lv_assignStatement_3_0= ruleAssignStatement ) ) ) | ( () ( (lv_postIncrementStatement_5_0= rulePostIncrementStatement ) ) ) | ( () ( (lv_PostDecrementStatement_7_0= rulePostDecrementStatement ) ) ) | ( () ( (lv_NDChoiceStatement_9_0= ruleNDChoiceStatement ) ) ) )
-            int alt4=5;
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:527:1: ( ( () ( (lv_process_1_0= ruleProcess ) ) ) | ( () ( (lv_assignStatement_3_0= ruleAssignStatement ) ) ) | ( () ( (lv_NDChoiceStatement_5_0= ruleNDChoiceStatement ) ) ) )
+            int alt4=3;
             switch ( input.LA(1) ) {
             case RULE_LCURLY:
             case RULE_LPAREN:
@@ -1128,31 +1124,10 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
                 alt4=1;
                 }
                 break;
+            case RULE_GLOBAL:
             case RULE_ID:
                 {
-                switch ( input.LA(2) ) {
-                case RULE_DECREMENT:
-                    {
-                    alt4=4;
-                    }
-                    break;
-                case RULE_ASSIGN:
-                    {
-                    alt4=2;
-                    }
-                    break;
-                case RULE_CHOICE:
-                    {
-                    alt4=3;
-                    }
-                    break;
-                default:
-                    NoViableAltException nvae =
-                        new NoViableAltException("527:1: ( ( () ( (lv_process_1_0= ruleProcess ) ) ) | ( () ( (lv_assignStatement_3_0= ruleAssignStatement ) ) ) | ( () ( (lv_postIncrementStatement_5_0= rulePostIncrementStatement ) ) ) | ( () ( (lv_PostDecrementStatement_7_0= rulePostDecrementStatement ) ) ) | ( () ( (lv_NDChoiceStatement_9_0= ruleNDChoiceStatement ) ) ) )", 4, 2, input);
-
-                    throw nvae;
-                }
-
+                alt4=2;
                 }
                 break;
             case EOF:
@@ -1162,12 +1137,12 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
             case RULE_SEMICOLON:
             case RULE_LSQUARE:
                 {
-                alt4=5;
+                alt4=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("527:1: ( ( () ( (lv_process_1_0= ruleProcess ) ) ) | ( () ( (lv_assignStatement_3_0= ruleAssignStatement ) ) ) | ( () ( (lv_postIncrementStatement_5_0= rulePostIncrementStatement ) ) ) | ( () ( (lv_PostDecrementStatement_7_0= rulePostDecrementStatement ) ) ) | ( () ( (lv_NDChoiceStatement_9_0= ruleNDChoiceStatement ) ) ) )", 4, 0, input);
+                    new NoViableAltException("527:1: ( ( () ( (lv_process_1_0= ruleProcess ) ) ) | ( () ( (lv_assignStatement_3_0= ruleAssignStatement ) ) ) | ( () ( (lv_NDChoiceStatement_5_0= ruleNDChoiceStatement ) ) ) )", 4, 0, input);
 
                 throw nvae;
             }
@@ -1302,19 +1277,19 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:599:6: ( () ( (lv_postIncrementStatement_5_0= rulePostIncrementStatement ) ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:599:6: ( () ( (lv_NDChoiceStatement_5_0= ruleNDChoiceStatement ) ) )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:599:6: ( () ( (lv_postIncrementStatement_5_0= rulePostIncrementStatement ) ) )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:599:7: () ( (lv_postIncrementStatement_5_0= rulePostIncrementStatement ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:599:6: ( () ( (lv_NDChoiceStatement_5_0= ruleNDChoiceStatement ) ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:599:7: () ( (lv_NDChoiceStatement_5_0= ruleNDChoiceStatement ) )
                     {
                     // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:599:7: ()
                     // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:600:5: 
                     {
                      
-                            temp=factory.create(grammarAccess.getBasicStatementAccess().getPostIncrementStatementAction_2_0().getType().getClassifier());
+                            temp=factory.create(grammarAccess.getBasicStatementAccess().getNDChoiceStatementAction_2_0().getType().getClassifier());
                             current = temp; 
                             temp = null;
-                            CompositeNode newNode = createCompositeNode(grammarAccess.getBasicStatementAccess().getPostIncrementStatementAction_2_0(), currentNode.getParent());
+                            CompositeNode newNode = createCompositeNode(grammarAccess.getBasicStatementAccess().getNDChoiceStatementAction_2_0(), currentNode.getParent());
                         newNode.getChildren().add(currentNode);
                         moveLookaheadInfo(currentNode, newNode);
                         currentNode = newNode; 
@@ -1323,145 +1298,17 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:610:2: ( (lv_postIncrementStatement_5_0= rulePostIncrementStatement ) )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:611:1: (lv_postIncrementStatement_5_0= rulePostIncrementStatement )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:610:2: ( (lv_NDChoiceStatement_5_0= ruleNDChoiceStatement ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:611:1: (lv_NDChoiceStatement_5_0= ruleNDChoiceStatement )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:611:1: (lv_postIncrementStatement_5_0= rulePostIncrementStatement )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:612:3: lv_postIncrementStatement_5_0= rulePostIncrementStatement
-                    {
-                     
-                    	        currentNode=createCompositeNode(grammarAccess.getBasicStatementAccess().getPostIncrementStatementPostIncrementStatementParserRuleCall_2_1_0(), currentNode); 
-                    	    
-                    pushFollow(FOLLOW_rulePostIncrementStatement_in_ruleBasicStatement960);
-                    lv_postIncrementStatement_5_0=rulePostIncrementStatement();
-                    _fsp--;
-
-
-                    	        if (current==null) {
-                    	            current = factory.create(grammarAccess.getBasicStatementRule().getType().getClassifier());
-                    	            associateNodeWithAstElement(currentNode.getParent(), current);
-                    	        }
-                    	        try {
-                    	       		set(
-                    	       			current, 
-                    	       			"postIncrementStatement",
-                    	        		lv_postIncrementStatement_5_0, 
-                    	        		"PostIncrementStatement", 
-                    	        		currentNode);
-                    	        } catch (ValueConverterException vce) {
-                    				handleValueConverterException(vce);
-                    	        }
-                    	        currentNode = currentNode.getParent();
-                    	    
-
-                    }
-
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-                case 4 :
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:635:6: ( () ( (lv_PostDecrementStatement_7_0= rulePostDecrementStatement ) ) )
-                    {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:635:6: ( () ( (lv_PostDecrementStatement_7_0= rulePostDecrementStatement ) ) )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:635:7: () ( (lv_PostDecrementStatement_7_0= rulePostDecrementStatement ) )
-                    {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:635:7: ()
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:636:5: 
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:611:1: (lv_NDChoiceStatement_5_0= ruleNDChoiceStatement )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:612:3: lv_NDChoiceStatement_5_0= ruleNDChoiceStatement
                     {
                      
-                            temp=factory.create(grammarAccess.getBasicStatementAccess().getPostDecrementStatementAction_3_0().getType().getClassifier());
-                            current = temp; 
-                            temp = null;
-                            CompositeNode newNode = createCompositeNode(grammarAccess.getBasicStatementAccess().getPostDecrementStatementAction_3_0(), currentNode.getParent());
-                        newNode.getChildren().add(currentNode);
-                        moveLookaheadInfo(currentNode, newNode);
-                        currentNode = newNode; 
-                            associateNodeWithAstElement(currentNode, current); 
-                        
-
-                    }
-
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:646:2: ( (lv_PostDecrementStatement_7_0= rulePostDecrementStatement ) )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:647:1: (lv_PostDecrementStatement_7_0= rulePostDecrementStatement )
-                    {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:647:1: (lv_PostDecrementStatement_7_0= rulePostDecrementStatement )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:648:3: lv_PostDecrementStatement_7_0= rulePostDecrementStatement
-                    {
-                     
-                    	        currentNode=createCompositeNode(grammarAccess.getBasicStatementAccess().getPostDecrementStatementPostDecrementStatementParserRuleCall_3_1_0(), currentNode); 
+                    	        currentNode=createCompositeNode(grammarAccess.getBasicStatementAccess().getNDChoiceStatementNDChoiceStatementParserRuleCall_2_1_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_rulePostDecrementStatement_in_ruleBasicStatement998);
-                    lv_PostDecrementStatement_7_0=rulePostDecrementStatement();
-                    _fsp--;
-
-
-                    	        if (current==null) {
-                    	            current = factory.create(grammarAccess.getBasicStatementRule().getType().getClassifier());
-                    	            associateNodeWithAstElement(currentNode.getParent(), current);
-                    	        }
-                    	        try {
-                    	       		set(
-                    	       			current, 
-                    	       			"PostDecrementStatement",
-                    	        		lv_PostDecrementStatement_7_0, 
-                    	        		"PostDecrementStatement", 
-                    	        		currentNode);
-                    	        } catch (ValueConverterException vce) {
-                    				handleValueConverterException(vce);
-                    	        }
-                    	        currentNode = currentNode.getParent();
-                    	    
-
-                    }
-
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-                case 5 :
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:671:6: ( () ( (lv_NDChoiceStatement_9_0= ruleNDChoiceStatement ) ) )
-                    {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:671:6: ( () ( (lv_NDChoiceStatement_9_0= ruleNDChoiceStatement ) ) )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:671:7: () ( (lv_NDChoiceStatement_9_0= ruleNDChoiceStatement ) )
-                    {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:671:7: ()
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:672:5: 
-                    {
-                     
-                            temp=factory.create(grammarAccess.getBasicStatementAccess().getNDChoiceStatementAction_4_0().getType().getClassifier());
-                            current = temp; 
-                            temp = null;
-                            CompositeNode newNode = createCompositeNode(grammarAccess.getBasicStatementAccess().getNDChoiceStatementAction_4_0(), currentNode.getParent());
-                        newNode.getChildren().add(currentNode);
-                        moveLookaheadInfo(currentNode, newNode);
-                        currentNode = newNode; 
-                            associateNodeWithAstElement(currentNode, current); 
-                        
-
-                    }
-
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:682:2: ( (lv_NDChoiceStatement_9_0= ruleNDChoiceStatement ) )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:683:1: (lv_NDChoiceStatement_9_0= ruleNDChoiceStatement )
-                    {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:683:1: (lv_NDChoiceStatement_9_0= ruleNDChoiceStatement )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:684:3: lv_NDChoiceStatement_9_0= ruleNDChoiceStatement
-                    {
-                     
-                    	        currentNode=createCompositeNode(grammarAccess.getBasicStatementAccess().getNDChoiceStatementNDChoiceStatementParserRuleCall_4_1_0(), currentNode); 
-                    	    
-                    pushFollow(FOLLOW_ruleNDChoiceStatement_in_ruleBasicStatement1036);
-                    lv_NDChoiceStatement_9_0=ruleNDChoiceStatement();
+                    pushFollow(FOLLOW_ruleNDChoiceStatement_in_ruleBasicStatement960);
+                    lv_NDChoiceStatement_5_0=ruleNDChoiceStatement();
                     _fsp--;
 
 
@@ -1473,7 +1320,7 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
                     	       		add(
                     	       			current, 
                     	       			"NDChoiceStatement",
-                    	        		lv_NDChoiceStatement_9_0, 
+                    	        		lv_NDChoiceStatement_5_0, 
                     	        		"NDChoiceStatement", 
                     	        		currentNode);
                     	        } catch (ValueConverterException vce) {
@@ -1516,7 +1363,7 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleAssignStatement
-    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:714:1: entryRuleAssignStatement returns [EObject current=null] : iv_ruleAssignStatement= ruleAssignStatement EOF ;
+    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:642:1: entryRuleAssignStatement returns [EObject current=null] : iv_ruleAssignStatement= ruleAssignStatement EOF ;
     public final EObject entryRuleAssignStatement() throws RecognitionException {
         EObject current = null;
 
@@ -1524,16 +1371,16 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:715:2: (iv_ruleAssignStatement= ruleAssignStatement EOF )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:716:2: iv_ruleAssignStatement= ruleAssignStatement EOF
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:643:2: (iv_ruleAssignStatement= ruleAssignStatement EOF )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:644:2: iv_ruleAssignStatement= ruleAssignStatement EOF
             {
              currentNode = createCompositeNode(grammarAccess.getAssignStatementRule(), currentNode); 
-            pushFollow(FOLLOW_ruleAssignStatement_in_entryRuleAssignStatement1073);
+            pushFollow(FOLLOW_ruleAssignStatement_in_entryRuleAssignStatement997);
             iv_ruleAssignStatement=ruleAssignStatement();
             _fsp--;
 
              current =iv_ruleAssignStatement; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAssignStatement1083); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAssignStatement1007); 
 
             }
 
@@ -1551,25 +1398,26 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAssignStatement
-    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:723:1: ruleAssignStatement returns [EObject current=null] : ( () ( (lv_name_1_0= RULE_ID ) ) RULE_ASSIGN () ( (lv_expression_4_0= ruleExpression ) ) ) ;
+    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:651:1: ruleAssignStatement returns [EObject current=null] : ( () ( (lv_variablePath_1_0= ruleVariablePath ) ) RULE_ASSIGN ( (lv_rightSideAssign_3_0= ruleRightSideAssignament ) ) ) ;
     public final EObject ruleAssignStatement() throws RecognitionException {
         EObject current = null;
 
-        Token lv_name_1_0=null;
-        EObject lv_expression_4_0 = null;
+        EObject lv_variablePath_1_0 = null;
+
+        EObject lv_rightSideAssign_3_0 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:728:6: ( ( () ( (lv_name_1_0= RULE_ID ) ) RULE_ASSIGN () ( (lv_expression_4_0= ruleExpression ) ) ) )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:729:1: ( () ( (lv_name_1_0= RULE_ID ) ) RULE_ASSIGN () ( (lv_expression_4_0= ruleExpression ) ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:656:6: ( ( () ( (lv_variablePath_1_0= ruleVariablePath ) ) RULE_ASSIGN ( (lv_rightSideAssign_3_0= ruleRightSideAssignament ) ) ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:657:1: ( () ( (lv_variablePath_1_0= ruleVariablePath ) ) RULE_ASSIGN ( (lv_rightSideAssign_3_0= ruleRightSideAssignament ) ) )
             {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:729:1: ( () ( (lv_name_1_0= RULE_ID ) ) RULE_ASSIGN () ( (lv_expression_4_0= ruleExpression ) ) )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:729:2: () ( (lv_name_1_0= RULE_ID ) ) RULE_ASSIGN () ( (lv_expression_4_0= ruleExpression ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:657:1: ( () ( (lv_variablePath_1_0= ruleVariablePath ) ) RULE_ASSIGN ( (lv_rightSideAssign_3_0= ruleRightSideAssignament ) ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:657:2: () ( (lv_variablePath_1_0= ruleVariablePath ) ) RULE_ASSIGN ( (lv_rightSideAssign_3_0= ruleRightSideAssignament ) )
             {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:729:2: ()
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:730:5: 
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:657:2: ()
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:658:5: 
             {
              
                     temp=factory.create(grammarAccess.getAssignStatementAccess().getAssignStatementAction_0().getType().getClassifier());
@@ -1584,70 +1432,17 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:740:2: ( (lv_name_1_0= RULE_ID ) )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:741:1: (lv_name_1_0= RULE_ID )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:668:2: ( (lv_variablePath_1_0= ruleVariablePath ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:669:1: (lv_variablePath_1_0= ruleVariablePath )
             {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:741:1: (lv_name_1_0= RULE_ID )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:742:3: lv_name_1_0= RULE_ID
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:669:1: (lv_variablePath_1_0= ruleVariablePath )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:670:3: lv_variablePath_1_0= ruleVariablePath
             {
-            lv_name_1_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAssignStatement1134); 
-
-            			createLeafNode(grammarAccess.getAssignStatementAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
-            		
-
-            	        if (current==null) {
-            	            current = factory.create(grammarAccess.getAssignStatementRule().getType().getClassifier());
-            	            associateNodeWithAstElement(currentNode, current);
-            	        }
-            	        try {
-            	       		set(
-            	       			current, 
-            	       			"name",
-            	        		lv_name_1_0, 
-            	        		"ID", 
-            	        		lastConsumedNode);
-            	        } catch (ValueConverterException vce) {
-            				handleValueConverterException(vce);
-            	        }
+             
+            	        currentNode=createCompositeNode(grammarAccess.getAssignStatementAccess().getVariablePathVariablePathParserRuleCall_1_0(), currentNode); 
             	    
-
-            }
-
-
-            }
-
-            match(input,RULE_ASSIGN,FOLLOW_RULE_ASSIGN_in_ruleAssignStatement1148); 
-             
-                createLeafNode(grammarAccess.getAssignStatementAccess().getASSIGNTerminalRuleCall_2(), null); 
-                
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:768:1: ()
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:769:5: 
-            {
-             
-                    temp=factory.create(grammarAccess.getAssignStatementAccess().getExpressionAction_3().getType().getClassifier());
-                    current = temp; 
-                    temp = null;
-                    CompositeNode newNode = createCompositeNode(grammarAccess.getAssignStatementAccess().getExpressionAction_3(), currentNode.getParent());
-                newNode.getChildren().add(currentNode);
-                moveLookaheadInfo(currentNode, newNode);
-                currentNode = newNode; 
-                    associateNodeWithAstElement(currentNode, current); 
-                
-
-            }
-
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:779:2: ( (lv_expression_4_0= ruleExpression ) )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:780:1: (lv_expression_4_0= ruleExpression )
-            {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:780:1: (lv_expression_4_0= ruleExpression )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:781:3: lv_expression_4_0= ruleExpression
-            {
-             
-            	        currentNode=createCompositeNode(grammarAccess.getAssignStatementAccess().getExpressionExpressionParserRuleCall_4_0(), currentNode); 
-            	    
-            pushFollow(FOLLOW_ruleExpression_in_ruleAssignStatement1177);
-            lv_expression_4_0=ruleExpression();
+            pushFollow(FOLLOW_ruleVariablePath_in_ruleAssignStatement1062);
+            lv_variablePath_1_0=ruleVariablePath();
             _fsp--;
 
 
@@ -1658,9 +1453,49 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
             	        try {
             	       		set(
             	       			current, 
-            	       			"expression",
-            	        		lv_expression_4_0, 
-            	        		"Expression", 
+            	       			"variablePath",
+            	        		lv_variablePath_1_0, 
+            	        		"VariablePath", 
+            	        		currentNode);
+            	        } catch (ValueConverterException vce) {
+            				handleValueConverterException(vce);
+            	        }
+            	        currentNode = currentNode.getParent();
+            	    
+
+            }
+
+
+            }
+
+            match(input,RULE_ASSIGN,FOLLOW_RULE_ASSIGN_in_ruleAssignStatement1071); 
+             
+                createLeafNode(grammarAccess.getAssignStatementAccess().getASSIGNTerminalRuleCall_2(), null); 
+                
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:696:1: ( (lv_rightSideAssign_3_0= ruleRightSideAssignament ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:697:1: (lv_rightSideAssign_3_0= ruleRightSideAssignament )
+            {
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:697:1: (lv_rightSideAssign_3_0= ruleRightSideAssignament )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:698:3: lv_rightSideAssign_3_0= ruleRightSideAssignament
+            {
+             
+            	        currentNode=createCompositeNode(grammarAccess.getAssignStatementAccess().getRightSideAssignRightSideAssignamentParserRuleCall_3_0(), currentNode); 
+            	    
+            pushFollow(FOLLOW_ruleRightSideAssignament_in_ruleAssignStatement1091);
+            lv_rightSideAssign_3_0=ruleRightSideAssignament();
+            _fsp--;
+
+
+            	        if (current==null) {
+            	            current = factory.create(grammarAccess.getAssignStatementRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode.getParent(), current);
+            	        }
+            	        try {
+            	       		set(
+            	       			current, 
+            	       			"rightSideAssign",
+            	        		lv_rightSideAssign_3_0, 
+            	        		"RightSideAssignament", 
             	        		currentNode);
             	        } catch (ValueConverterException vce) {
             				handleValueConverterException(vce);
@@ -1695,25 +1530,25 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
     // $ANTLR end ruleAssignStatement
 
 
-    // $ANTLR start entryRulePostIncrementStatement
-    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:811:1: entryRulePostIncrementStatement returns [EObject current=null] : iv_rulePostIncrementStatement= rulePostIncrementStatement EOF ;
-    public final EObject entryRulePostIncrementStatement() throws RecognitionException {
+    // $ANTLR start entryRuleRightSideAssignament
+    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:728:1: entryRuleRightSideAssignament returns [EObject current=null] : iv_ruleRightSideAssignament= ruleRightSideAssignament EOF ;
+    public final EObject entryRuleRightSideAssignament() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_rulePostIncrementStatement = null;
+        EObject iv_ruleRightSideAssignament = null;
 
 
         try {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:812:2: (iv_rulePostIncrementStatement= rulePostIncrementStatement EOF )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:813:2: iv_rulePostIncrementStatement= rulePostIncrementStatement EOF
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:729:2: (iv_ruleRightSideAssignament= ruleRightSideAssignament EOF )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:730:2: iv_ruleRightSideAssignament= ruleRightSideAssignament EOF
             {
-             currentNode = createCompositeNode(grammarAccess.getPostIncrementStatementRule(), currentNode); 
-            pushFollow(FOLLOW_rulePostIncrementStatement_in_entryRulePostIncrementStatement1213);
-            iv_rulePostIncrementStatement=rulePostIncrementStatement();
+             currentNode = createCompositeNode(grammarAccess.getRightSideAssignamentRule(), currentNode); 
+            pushFollow(FOLLOW_ruleRightSideAssignament_in_entryRuleRightSideAssignament1127);
+            iv_ruleRightSideAssignament=ruleRightSideAssignament();
             _fsp--;
 
-             current =iv_rulePostIncrementStatement; 
-            match(input,EOF,FOLLOW_EOF_in_entryRulePostIncrementStatement1223); 
+             current =iv_ruleRightSideAssignament; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRightSideAssignament1137); 
 
             }
 
@@ -1727,33 +1562,34 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end entryRulePostIncrementStatement
+    // $ANTLR end entryRuleRightSideAssignament
 
 
-    // $ANTLR start rulePostIncrementStatement
-    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:820:1: rulePostIncrementStatement returns [EObject current=null] : ( () ( (lv_name_1_0= RULE_ID ) ) RULE_CHOICE ) ;
-    public final EObject rulePostIncrementStatement() throws RecognitionException {
+    // $ANTLR start ruleRightSideAssignament
+    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:737:1: ruleRightSideAssignament returns [EObject current=null] : ( () ( (lv_expression_1_0= ruleExpression ) ) ) ;
+    public final EObject ruleRightSideAssignament() throws RecognitionException {
         EObject current = null;
 
-        Token lv_name_1_0=null;
+        EObject lv_expression_1_0 = null;
+
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:825:6: ( ( () ( (lv_name_1_0= RULE_ID ) ) RULE_CHOICE ) )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:826:1: ( () ( (lv_name_1_0= RULE_ID ) ) RULE_CHOICE )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:742:6: ( ( () ( (lv_expression_1_0= ruleExpression ) ) ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:743:1: ( () ( (lv_expression_1_0= ruleExpression ) ) )
             {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:826:1: ( () ( (lv_name_1_0= RULE_ID ) ) RULE_CHOICE )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:826:2: () ( (lv_name_1_0= RULE_ID ) ) RULE_CHOICE
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:743:1: ( () ( (lv_expression_1_0= ruleExpression ) ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:743:2: () ( (lv_expression_1_0= ruleExpression ) )
             {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:826:2: ()
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:827:5: 
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:743:2: ()
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:744:5: 
             {
              
-                    temp=factory.create(grammarAccess.getPostIncrementStatementAccess().getPostIncrementStatementAction_0().getType().getClassifier());
+                    temp=factory.create(grammarAccess.getRightSideAssignamentAccess().getExpressionAction_0().getType().getClassifier());
                     current = temp; 
                     temp = null;
-                    CompositeNode newNode = createCompositeNode(grammarAccess.getPostIncrementStatementAccess().getPostIncrementStatementAction_0(), currentNode.getParent());
+                    CompositeNode newNode = createCompositeNode(grammarAccess.getRightSideAssignamentAccess().getExpressionAction_0(), currentNode.getParent());
                 newNode.getChildren().add(currentNode);
                 moveLookaheadInfo(currentNode, newNode);
                 currentNode = newNode; 
@@ -1762,32 +1598,35 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:837:2: ( (lv_name_1_0= RULE_ID ) )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:838:1: (lv_name_1_0= RULE_ID )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:754:2: ( (lv_expression_1_0= ruleExpression ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:755:1: (lv_expression_1_0= ruleExpression )
             {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:838:1: (lv_name_1_0= RULE_ID )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:839:3: lv_name_1_0= RULE_ID
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:755:1: (lv_expression_1_0= ruleExpression )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:756:3: lv_expression_1_0= ruleExpression
             {
-            lv_name_1_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rulePostIncrementStatement1274); 
+             
+            	        currentNode=createCompositeNode(grammarAccess.getRightSideAssignamentAccess().getExpressionExpressionParserRuleCall_1_0(), currentNode); 
+            	    
+            pushFollow(FOLLOW_ruleExpression_in_ruleRightSideAssignament1192);
+            lv_expression_1_0=ruleExpression();
+            _fsp--;
 
-            			createLeafNode(grammarAccess.getPostIncrementStatementAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
-            		
 
             	        if (current==null) {
-            	            current = factory.create(grammarAccess.getPostIncrementStatementRule().getType().getClassifier());
-            	            associateNodeWithAstElement(currentNode, current);
+            	            current = factory.create(grammarAccess.getRightSideAssignamentRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode.getParent(), current);
             	        }
             	        try {
             	       		set(
             	       			current, 
-            	       			"name",
-            	        		lv_name_1_0, 
-            	        		"ID", 
-            	        		lastConsumedNode);
+            	       			"expression",
+            	        		lv_expression_1_0, 
+            	        		"Expression", 
+            	        		currentNode);
             	        } catch (ValueConverterException vce) {
             				handleValueConverterException(vce);
             	        }
+            	        currentNode = currentNode.getParent();
             	    
 
             }
@@ -1795,10 +1634,6 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,RULE_CHOICE,FOLLOW_RULE_CHOICE_in_rulePostIncrementStatement1288); 
-             
-                createLeafNode(grammarAccess.getPostIncrementStatementAccess().getCHOICETerminalRuleCall_2(), null); 
-                
 
             }
 
@@ -1818,137 +1653,11 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end rulePostIncrementStatement
-
-
-    // $ANTLR start entryRulePostDecrementStatement
-    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:873:1: entryRulePostDecrementStatement returns [EObject current=null] : iv_rulePostDecrementStatement= rulePostDecrementStatement EOF ;
-    public final EObject entryRulePostDecrementStatement() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_rulePostDecrementStatement = null;
-
-
-        try {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:874:2: (iv_rulePostDecrementStatement= rulePostDecrementStatement EOF )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:875:2: iv_rulePostDecrementStatement= rulePostDecrementStatement EOF
-            {
-             currentNode = createCompositeNode(grammarAccess.getPostDecrementStatementRule(), currentNode); 
-            pushFollow(FOLLOW_rulePostDecrementStatement_in_entryRulePostDecrementStatement1323);
-            iv_rulePostDecrementStatement=rulePostDecrementStatement();
-            _fsp--;
-
-             current =iv_rulePostDecrementStatement; 
-            match(input,EOF,FOLLOW_EOF_in_entryRulePostDecrementStatement1333); 
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end entryRulePostDecrementStatement
-
-
-    // $ANTLR start rulePostDecrementStatement
-    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:882:1: rulePostDecrementStatement returns [EObject current=null] : ( () ( (lv_name_1_0= RULE_ID ) ) RULE_DECREMENT ) ;
-    public final EObject rulePostDecrementStatement() throws RecognitionException {
-        EObject current = null;
-
-        Token lv_name_1_0=null;
-
-         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
-            
-        try {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:887:6: ( ( () ( (lv_name_1_0= RULE_ID ) ) RULE_DECREMENT ) )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:888:1: ( () ( (lv_name_1_0= RULE_ID ) ) RULE_DECREMENT )
-            {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:888:1: ( () ( (lv_name_1_0= RULE_ID ) ) RULE_DECREMENT )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:888:2: () ( (lv_name_1_0= RULE_ID ) ) RULE_DECREMENT
-            {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:888:2: ()
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:889:5: 
-            {
-             
-                    temp=factory.create(grammarAccess.getPostDecrementStatementAccess().getPostDecrementStatementAction_0().getType().getClassifier());
-                    current = temp; 
-                    temp = null;
-                    CompositeNode newNode = createCompositeNode(grammarAccess.getPostDecrementStatementAccess().getPostDecrementStatementAction_0(), currentNode.getParent());
-                newNode.getChildren().add(currentNode);
-                moveLookaheadInfo(currentNode, newNode);
-                currentNode = newNode; 
-                    associateNodeWithAstElement(currentNode, current); 
-                
-
-            }
-
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:899:2: ( (lv_name_1_0= RULE_ID ) )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:900:1: (lv_name_1_0= RULE_ID )
-            {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:900:1: (lv_name_1_0= RULE_ID )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:901:3: lv_name_1_0= RULE_ID
-            {
-            lv_name_1_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rulePostDecrementStatement1384); 
-
-            			createLeafNode(grammarAccess.getPostDecrementStatementAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
-            		
-
-            	        if (current==null) {
-            	            current = factory.create(grammarAccess.getPostDecrementStatementRule().getType().getClassifier());
-            	            associateNodeWithAstElement(currentNode, current);
-            	        }
-            	        try {
-            	       		set(
-            	       			current, 
-            	       			"name",
-            	        		lv_name_1_0, 
-            	        		"ID", 
-            	        		lastConsumedNode);
-            	        } catch (ValueConverterException vce) {
-            				handleValueConverterException(vce);
-            	        }
-            	    
-
-            }
-
-
-            }
-
-            match(input,RULE_DECREMENT,FOLLOW_RULE_DECREMENT_in_rulePostDecrementStatement1398); 
-             
-                createLeafNode(grammarAccess.getPostDecrementStatementAccess().getDECREMENTTerminalRuleCall_2(), null); 
-                
-
-            }
-
-
-            }
-
-             resetLookahead(); 
-                	lastConsumedNode = currentNode;
-                
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end rulePostDecrementStatement
+    // $ANTLR end ruleRightSideAssignament
 
 
     // $ANTLR start entryRuleExpression
-    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:935:1: entryRuleExpression returns [EObject current=null] : iv_ruleExpression= ruleExpression EOF ;
+    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:786:1: entryRuleExpression returns [EObject current=null] : iv_ruleExpression= ruleExpression EOF ;
     public final EObject entryRuleExpression() throws RecognitionException {
         EObject current = null;
 
@@ -1956,16 +1665,16 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:936:2: (iv_ruleExpression= ruleExpression EOF )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:937:2: iv_ruleExpression= ruleExpression EOF
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:787:2: (iv_ruleExpression= ruleExpression EOF )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:788:2: iv_ruleExpression= ruleExpression EOF
             {
              currentNode = createCompositeNode(grammarAccess.getExpressionRule(), currentNode); 
-            pushFollow(FOLLOW_ruleExpression_in_entryRuleExpression1433);
+            pushFollow(FOLLOW_ruleExpression_in_entryRuleExpression1228);
             iv_ruleExpression=ruleExpression();
             _fsp--;
 
              current =iv_ruleExpression; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExpression1443); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExpression1238); 
 
             }
 
@@ -1983,7 +1692,7 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleExpression
-    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:944:1: ruleExpression returns [EObject current=null] : (this_TerminalExpression_0= ruleTerminalExpression ( () ( ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) ) ) ( (lv_right_3_0= ruleExpression ) ) )? ) ;
+    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:795:1: ruleExpression returns [EObject current=null] : (this_TerminalExpression_0= ruleTerminalExpression ( () ( ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) ) ) ( (lv_right_3_0= ruleExpression ) ) )? ) ;
     public final EObject ruleExpression() throws RecognitionException {
         EObject current = null;
 
@@ -1999,16 +1708,16 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:949:6: ( (this_TerminalExpression_0= ruleTerminalExpression ( () ( ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) ) ) ( (lv_right_3_0= ruleExpression ) ) )? ) )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:950:1: (this_TerminalExpression_0= ruleTerminalExpression ( () ( ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) ) ) ( (lv_right_3_0= ruleExpression ) ) )? )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:800:6: ( (this_TerminalExpression_0= ruleTerminalExpression ( () ( ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) ) ) ( (lv_right_3_0= ruleExpression ) ) )? ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:801:1: (this_TerminalExpression_0= ruleTerminalExpression ( () ( ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) ) ) ( (lv_right_3_0= ruleExpression ) ) )? )
             {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:950:1: (this_TerminalExpression_0= ruleTerminalExpression ( () ( ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) ) ) ( (lv_right_3_0= ruleExpression ) ) )? )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:951:5: this_TerminalExpression_0= ruleTerminalExpression ( () ( ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) ) ) ( (lv_right_3_0= ruleExpression ) ) )?
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:801:1: (this_TerminalExpression_0= ruleTerminalExpression ( () ( ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) ) ) ( (lv_right_3_0= ruleExpression ) ) )? )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:802:5: this_TerminalExpression_0= ruleTerminalExpression ( () ( ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) ) ) ( (lv_right_3_0= ruleExpression ) ) )?
             {
              
                     currentNode=createCompositeNode(grammarAccess.getExpressionAccess().getTerminalExpressionParserRuleCall_0(), currentNode); 
                 
-            pushFollow(FOLLOW_ruleTerminalExpression_in_ruleExpression1490);
+            pushFollow(FOLLOW_ruleTerminalExpression_in_ruleExpression1285);
             this_TerminalExpression_0=ruleTerminalExpression();
             _fsp--;
 
@@ -2016,7 +1725,7 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
                     current = this_TerminalExpression_0; 
                     currentNode = currentNode.getParent();
                 
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:959:1: ( () ( ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) ) ) ( (lv_right_3_0= ruleExpression ) ) )?
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:810:1: ( () ( ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) ) ) ( (lv_right_3_0= ruleExpression ) ) )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -2025,10 +1734,10 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
             }
             switch (alt6) {
                 case 1 :
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:959:2: () ( ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) ) ) ( (lv_right_3_0= ruleExpression ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:810:2: () ( ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) ) ) ( (lv_right_3_0= ruleExpression ) )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:959:2: ()
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:960:5: 
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:810:2: ()
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:811:5: 
                     {
                      
                             temp=factory.create(grammarAccess.getExpressionAccess().getOperationLeftAction_1_0().getType().getClassifier());
@@ -2048,13 +1757,13 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:975:2: ( ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) ) )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:976:1: ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:826:2: ( ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:827:1: ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:976:1: ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:977:1: (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:827:1: ( (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:828:1: (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:977:1: (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:828:1: (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE )
                     int alt5=4;
                     switch ( input.LA(1) ) {
                     case RULE_PLUS:
@@ -2079,17 +1788,17 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
                         break;
                     default:
                         NoViableAltException nvae =
-                            new NoViableAltException("977:1: (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE )", 5, 0, input);
+                            new NoViableAltException("828:1: (lv_op_2_1= RULE_PLUS | lv_op_2_2= RULE_MINUS | lv_op_2_3= RULE_ASTERISK | lv_op_2_4= RULE_DIVIDE )", 5, 0, input);
 
                         throw nvae;
                     }
 
                     switch (alt5) {
                         case 1 :
-                            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:978:3: lv_op_2_1= RULE_PLUS
+                            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:829:3: lv_op_2_1= RULE_PLUS
                             {
                             lv_op_2_1=(Token)input.LT(1);
-                            match(input,RULE_PLUS,FOLLOW_RULE_PLUS_in_ruleExpression1518); 
+                            match(input,RULE_PLUS,FOLLOW_RULE_PLUS_in_ruleExpression1313); 
 
                             			createLeafNode(grammarAccess.getExpressionAccess().getOpPLUSTerminalRuleCall_1_1_0_0(), "op"); 
                             		
@@ -2113,10 +1822,10 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:999:8: lv_op_2_2= RULE_MINUS
+                            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:850:8: lv_op_2_2= RULE_MINUS
                             {
                             lv_op_2_2=(Token)input.LT(1);
-                            match(input,RULE_MINUS,FOLLOW_RULE_MINUS_in_ruleExpression1538); 
+                            match(input,RULE_MINUS,FOLLOW_RULE_MINUS_in_ruleExpression1333); 
 
                             			createLeafNode(grammarAccess.getExpressionAccess().getOpMINUSTerminalRuleCall_1_1_0_1(), "op"); 
                             		
@@ -2140,10 +1849,10 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 3 :
-                            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1020:8: lv_op_2_3= RULE_ASTERISK
+                            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:871:8: lv_op_2_3= RULE_ASTERISK
                             {
                             lv_op_2_3=(Token)input.LT(1);
-                            match(input,RULE_ASTERISK,FOLLOW_RULE_ASTERISK_in_ruleExpression1558); 
+                            match(input,RULE_ASTERISK,FOLLOW_RULE_ASTERISK_in_ruleExpression1353); 
 
                             			createLeafNode(grammarAccess.getExpressionAccess().getOpASTERISKTerminalRuleCall_1_1_0_2(), "op"); 
                             		
@@ -2167,10 +1876,10 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 4 :
-                            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1041:8: lv_op_2_4= RULE_DIVIDE
+                            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:892:8: lv_op_2_4= RULE_DIVIDE
                             {
                             lv_op_2_4=(Token)input.LT(1);
-                            match(input,RULE_DIVIDE,FOLLOW_RULE_DIVIDE_in_ruleExpression1578); 
+                            match(input,RULE_DIVIDE,FOLLOW_RULE_DIVIDE_in_ruleExpression1373); 
 
                             			createLeafNode(grammarAccess.getExpressionAccess().getOpDIVIDETerminalRuleCall_1_1_0_3(), "op"); 
                             		
@@ -2202,16 +1911,16 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1065:2: ( (lv_right_3_0= ruleExpression ) )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1066:1: (lv_right_3_0= ruleExpression )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:916:2: ( (lv_right_3_0= ruleExpression ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:917:1: (lv_right_3_0= ruleExpression )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1066:1: (lv_right_3_0= ruleExpression )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1067:3: lv_right_3_0= ruleExpression
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:917:1: (lv_right_3_0= ruleExpression )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:918:3: lv_right_3_0= ruleExpression
                     {
                      
                     	        currentNode=createCompositeNode(grammarAccess.getExpressionAccess().getRightExpressionParserRuleCall_1_2_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_ruleExpression_in_ruleExpression1607);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleExpression1402);
                     lv_right_3_0=ruleExpression();
                     _fsp--;
 
@@ -2267,7 +1976,7 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleTerminalExpression
-    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1097:1: entryRuleTerminalExpression returns [EObject current=null] : iv_ruleTerminalExpression= ruleTerminalExpression EOF ;
+    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:948:1: entryRuleTerminalExpression returns [EObject current=null] : iv_ruleTerminalExpression= ruleTerminalExpression EOF ;
     public final EObject entryRuleTerminalExpression() throws RecognitionException {
         EObject current = null;
 
@@ -2275,16 +1984,16 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1098:2: (iv_ruleTerminalExpression= ruleTerminalExpression EOF )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1099:2: iv_ruleTerminalExpression= ruleTerminalExpression EOF
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:949:2: (iv_ruleTerminalExpression= ruleTerminalExpression EOF )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:950:2: iv_ruleTerminalExpression= ruleTerminalExpression EOF
             {
              currentNode = createCompositeNode(grammarAccess.getTerminalExpressionRule(), currentNode); 
-            pushFollow(FOLLOW_ruleTerminalExpression_in_entryRuleTerminalExpression1645);
+            pushFollow(FOLLOW_ruleTerminalExpression_in_entryRuleTerminalExpression1440);
             iv_ruleTerminalExpression=ruleTerminalExpression();
             _fsp--;
 
              current =iv_ruleTerminalExpression; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTerminalExpression1655); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTerminalExpression1450); 
 
             }
 
@@ -2302,24 +2011,29 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleTerminalExpression
-    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1106:1: ruleTerminalExpression returns [EObject current=null] : ( ( RULE_LPAREN this_Expression_1= ruleExpression RULE_RPAREN ) | ( () ( (lv_value_4_0= RULE_INT ) ) ) | ( () ( (lv_value_6_0= RULE_REAL ) ) ) | ( () ( (lv_value_8_0= RULE_ID ) ) ) | ( () ( (lv_value_10_0= RULE_STRING ) ) ) ) ;
+    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:957:1: ruleTerminalExpression returns [EObject current=null] : ( ( RULE_LPAREN this_Expression_1= ruleExpression RULE_RPAREN ) | ( () ( (lv_value_4_0= RULE_INT ) ) ) | ( () ( (lv_value_6_0= RULE_REAL ) ) ) | ( () ( (lv_value_8_0= RULE_STRING ) ) ) | ( ( (lv_prefix_9_0= rulePrefix ) ) ( (lv_variablePath_10_0= ruleVariablePath ) ) ( (lv_prefix_11_0= rulePrefix ) ) ) ) ;
     public final EObject ruleTerminalExpression() throws RecognitionException {
         EObject current = null;
 
         Token lv_value_4_0=null;
         Token lv_value_6_0=null;
         Token lv_value_8_0=null;
-        Token lv_value_10_0=null;
         EObject this_Expression_1 = null;
+
+        AntlrDatatypeRuleToken lv_prefix_9_0 = null;
+
+        EObject lv_variablePath_10_0 = null;
+
+        AntlrDatatypeRuleToken lv_prefix_11_0 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1111:6: ( ( ( RULE_LPAREN this_Expression_1= ruleExpression RULE_RPAREN ) | ( () ( (lv_value_4_0= RULE_INT ) ) ) | ( () ( (lv_value_6_0= RULE_REAL ) ) ) | ( () ( (lv_value_8_0= RULE_ID ) ) ) | ( () ( (lv_value_10_0= RULE_STRING ) ) ) ) )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1112:1: ( ( RULE_LPAREN this_Expression_1= ruleExpression RULE_RPAREN ) | ( () ( (lv_value_4_0= RULE_INT ) ) ) | ( () ( (lv_value_6_0= RULE_REAL ) ) ) | ( () ( (lv_value_8_0= RULE_ID ) ) ) | ( () ( (lv_value_10_0= RULE_STRING ) ) ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:962:6: ( ( ( RULE_LPAREN this_Expression_1= ruleExpression RULE_RPAREN ) | ( () ( (lv_value_4_0= RULE_INT ) ) ) | ( () ( (lv_value_6_0= RULE_REAL ) ) ) | ( () ( (lv_value_8_0= RULE_STRING ) ) ) | ( ( (lv_prefix_9_0= rulePrefix ) ) ( (lv_variablePath_10_0= ruleVariablePath ) ) ( (lv_prefix_11_0= rulePrefix ) ) ) ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:963:1: ( ( RULE_LPAREN this_Expression_1= ruleExpression RULE_RPAREN ) | ( () ( (lv_value_4_0= RULE_INT ) ) ) | ( () ( (lv_value_6_0= RULE_REAL ) ) ) | ( () ( (lv_value_8_0= RULE_STRING ) ) ) | ( ( (lv_prefix_9_0= rulePrefix ) ) ( (lv_variablePath_10_0= ruleVariablePath ) ) ( (lv_prefix_11_0= rulePrefix ) ) ) )
             {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1112:1: ( ( RULE_LPAREN this_Expression_1= ruleExpression RULE_RPAREN ) | ( () ( (lv_value_4_0= RULE_INT ) ) ) | ( () ( (lv_value_6_0= RULE_REAL ) ) ) | ( () ( (lv_value_8_0= RULE_ID ) ) ) | ( () ( (lv_value_10_0= RULE_STRING ) ) ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:963:1: ( ( RULE_LPAREN this_Expression_1= ruleExpression RULE_RPAREN ) | ( () ( (lv_value_4_0= RULE_INT ) ) ) | ( () ( (lv_value_6_0= RULE_REAL ) ) ) | ( () ( (lv_value_8_0= RULE_STRING ) ) ) | ( ( (lv_prefix_9_0= rulePrefix ) ) ( (lv_variablePath_10_0= ruleVariablePath ) ) ( (lv_prefix_11_0= rulePrefix ) ) ) )
             int alt7=5;
             switch ( input.LA(1) ) {
             case RULE_LPAREN:
@@ -2337,38 +2051,41 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
                 alt7=3;
                 }
                 break;
-            case RULE_ID:
+            case RULE_STRING:
                 {
                 alt7=4;
                 }
                 break;
-            case RULE_STRING:
+            case RULE_GLOBAL:
+            case RULE_ID:
+            case RULE_CHOICE:
+            case RULE_DECREMENT:
                 {
                 alt7=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("1112:1: ( ( RULE_LPAREN this_Expression_1= ruleExpression RULE_RPAREN ) | ( () ( (lv_value_4_0= RULE_INT ) ) ) | ( () ( (lv_value_6_0= RULE_REAL ) ) ) | ( () ( (lv_value_8_0= RULE_ID ) ) ) | ( () ( (lv_value_10_0= RULE_STRING ) ) ) )", 7, 0, input);
+                    new NoViableAltException("963:1: ( ( RULE_LPAREN this_Expression_1= ruleExpression RULE_RPAREN ) | ( () ( (lv_value_4_0= RULE_INT ) ) ) | ( () ( (lv_value_6_0= RULE_REAL ) ) ) | ( () ( (lv_value_8_0= RULE_STRING ) ) ) | ( ( (lv_prefix_9_0= rulePrefix ) ) ( (lv_variablePath_10_0= ruleVariablePath ) ) ( (lv_prefix_11_0= rulePrefix ) ) ) )", 7, 0, input);
 
                 throw nvae;
             }
 
             switch (alt7) {
                 case 1 :
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1112:2: ( RULE_LPAREN this_Expression_1= ruleExpression RULE_RPAREN )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:963:2: ( RULE_LPAREN this_Expression_1= ruleExpression RULE_RPAREN )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1112:2: ( RULE_LPAREN this_Expression_1= ruleExpression RULE_RPAREN )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1112:3: RULE_LPAREN this_Expression_1= ruleExpression RULE_RPAREN
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:963:2: ( RULE_LPAREN this_Expression_1= ruleExpression RULE_RPAREN )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:963:3: RULE_LPAREN this_Expression_1= ruleExpression RULE_RPAREN
                     {
-                    match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_ruleTerminalExpression1690); 
+                    match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_ruleTerminalExpression1485); 
                      
                         createLeafNode(grammarAccess.getTerminalExpressionAccess().getLPARENTerminalRuleCall_0_0(), null); 
                         
                      
                             currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getExpressionParserRuleCall_0_1(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleExpression_in_ruleTerminalExpression1711);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleTerminalExpression1506);
                     this_Expression_1=ruleExpression();
                     _fsp--;
 
@@ -2376,7 +2093,7 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
                             current = this_Expression_1; 
                             currentNode = currentNode.getParent();
                         
-                    match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_ruleTerminalExpression1719); 
+                    match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_ruleTerminalExpression1514); 
                      
                         createLeafNode(grammarAccess.getTerminalExpressionAccess().getRPARENTerminalRuleCall_0_2(), null); 
                         
@@ -2387,13 +2104,13 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1130:6: ( () ( (lv_value_4_0= RULE_INT ) ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:981:6: ( () ( (lv_value_4_0= RULE_INT ) ) )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1130:6: ( () ( (lv_value_4_0= RULE_INT ) ) )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1130:7: () ( (lv_value_4_0= RULE_INT ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:981:6: ( () ( (lv_value_4_0= RULE_INT ) ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:981:7: () ( (lv_value_4_0= RULE_INT ) )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1130:7: ()
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1131:5: 
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:981:7: ()
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:982:5: 
                     {
                      
                             temp=factory.create(grammarAccess.getTerminalExpressionAccess().getIntLiteralAction_1_0().getType().getClassifier());
@@ -2408,14 +2125,14 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1141:2: ( (lv_value_4_0= RULE_INT ) )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1142:1: (lv_value_4_0= RULE_INT )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:992:2: ( (lv_value_4_0= RULE_INT ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:993:1: (lv_value_4_0= RULE_INT )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1142:1: (lv_value_4_0= RULE_INT )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1143:3: lv_value_4_0= RULE_INT
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:993:1: (lv_value_4_0= RULE_INT )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:994:3: lv_value_4_0= RULE_INT
                     {
                     lv_value_4_0=(Token)input.LT(1);
-                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleTerminalExpression1752); 
+                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleTerminalExpression1547); 
 
                     			createLeafNode(grammarAccess.getTerminalExpressionAccess().getValueINTTerminalRuleCall_1_1_0(), "value"); 
                     		
@@ -2448,13 +2165,13 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1166:6: ( () ( (lv_value_6_0= RULE_REAL ) ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1017:6: ( () ( (lv_value_6_0= RULE_REAL ) ) )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1166:6: ( () ( (lv_value_6_0= RULE_REAL ) ) )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1166:7: () ( (lv_value_6_0= RULE_REAL ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1017:6: ( () ( (lv_value_6_0= RULE_REAL ) ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1017:7: () ( (lv_value_6_0= RULE_REAL ) )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1166:7: ()
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1167:5: 
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1017:7: ()
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1018:5: 
                     {
                      
                             temp=factory.create(grammarAccess.getTerminalExpressionAccess().getRealLiteralAction_2_0().getType().getClassifier());
@@ -2469,14 +2186,14 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1177:2: ( (lv_value_6_0= RULE_REAL ) )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1178:1: (lv_value_6_0= RULE_REAL )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1028:2: ( (lv_value_6_0= RULE_REAL ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1029:1: (lv_value_6_0= RULE_REAL )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1178:1: (lv_value_6_0= RULE_REAL )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1179:3: lv_value_6_0= RULE_REAL
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1029:1: (lv_value_6_0= RULE_REAL )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1030:3: lv_value_6_0= RULE_REAL
                     {
                     lv_value_6_0=(Token)input.LT(1);
-                    match(input,RULE_REAL,FOLLOW_RULE_REAL_in_ruleTerminalExpression1791); 
+                    match(input,RULE_REAL,FOLLOW_RULE_REAL_in_ruleTerminalExpression1586); 
 
                     			createLeafNode(grammarAccess.getTerminalExpressionAccess().getValueREALTerminalRuleCall_2_1_0(), "value"); 
                     		
@@ -2509,13 +2226,13 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1202:6: ( () ( (lv_value_8_0= RULE_ID ) ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1053:6: ( () ( (lv_value_8_0= RULE_STRING ) ) )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1202:6: ( () ( (lv_value_8_0= RULE_ID ) ) )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1202:7: () ( (lv_value_8_0= RULE_ID ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1053:6: ( () ( (lv_value_8_0= RULE_STRING ) ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1053:7: () ( (lv_value_8_0= RULE_STRING ) )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1202:7: ()
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1203:5: 
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1053:7: ()
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1054:5: 
                     {
                      
                             temp=factory.create(grammarAccess.getTerminalExpressionAccess().getStringAction_3_0().getType().getClassifier());
@@ -2530,16 +2247,16 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1213:2: ( (lv_value_8_0= RULE_ID ) )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1214:1: (lv_value_8_0= RULE_ID )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1064:2: ( (lv_value_8_0= RULE_STRING ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1065:1: (lv_value_8_0= RULE_STRING )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1214:1: (lv_value_8_0= RULE_ID )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1215:3: lv_value_8_0= RULE_ID
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1065:1: (lv_value_8_0= RULE_STRING )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1066:3: lv_value_8_0= RULE_STRING
                     {
                     lv_value_8_0=(Token)input.LT(1);
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTerminalExpression1830); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleTerminalExpression1625); 
 
-                    			createLeafNode(grammarAccess.getTerminalExpressionAccess().getValueIDTerminalRuleCall_3_1_0(), "value"); 
+                    			createLeafNode(grammarAccess.getTerminalExpressionAccess().getValueSTRINGTerminalRuleCall_3_1_0(), "value"); 
                     		
 
                     	        if (current==null) {
@@ -2551,7 +2268,7 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
                     	       			current, 
                     	       			"value",
                     	        		lv_value_8_0, 
-                    	        		"ID", 
+                    	        		"STRING", 
                     	        		lastConsumedNode);
                     	        } catch (ValueConverterException vce) {
                     				handleValueConverterException(vce);
@@ -2570,53 +2287,112 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1238:6: ( () ( (lv_value_10_0= RULE_STRING ) ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1089:6: ( ( (lv_prefix_9_0= rulePrefix ) ) ( (lv_variablePath_10_0= ruleVariablePath ) ) ( (lv_prefix_11_0= rulePrefix ) ) )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1238:6: ( () ( (lv_value_10_0= RULE_STRING ) ) )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1238:7: () ( (lv_value_10_0= RULE_STRING ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1089:6: ( ( (lv_prefix_9_0= rulePrefix ) ) ( (lv_variablePath_10_0= ruleVariablePath ) ) ( (lv_prefix_11_0= rulePrefix ) ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1089:7: ( (lv_prefix_9_0= rulePrefix ) ) ( (lv_variablePath_10_0= ruleVariablePath ) ) ( (lv_prefix_11_0= rulePrefix ) )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1238:7: ()
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1239:5: 
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1089:7: ( (lv_prefix_9_0= rulePrefix ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1090:1: (lv_prefix_9_0= rulePrefix )
+                    {
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1090:1: (lv_prefix_9_0= rulePrefix )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1091:3: lv_prefix_9_0= rulePrefix
                     {
                      
-                            temp=factory.create(grammarAccess.getTerminalExpressionAccess().getStringAction_4_0().getType().getClassifier());
-                            current = temp; 
-                            temp = null;
-                            CompositeNode newNode = createCompositeNode(grammarAccess.getTerminalExpressionAccess().getStringAction_4_0(), currentNode.getParent());
-                        newNode.getChildren().add(currentNode);
-                        moveLookaheadInfo(currentNode, newNode);
-                        currentNode = newNode; 
-                            associateNodeWithAstElement(currentNode, current); 
-                        
+                    	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getPrefixPrefixParserRuleCall_4_0_0(), currentNode); 
+                    	    
+                    pushFollow(FOLLOW_rulePrefix_in_ruleTerminalExpression1659);
+                    lv_prefix_9_0=rulePrefix();
+                    _fsp--;
 
-                    }
-
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1249:2: ( (lv_value_10_0= RULE_STRING ) )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1250:1: (lv_value_10_0= RULE_STRING )
-                    {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1250:1: (lv_value_10_0= RULE_STRING )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1251:3: lv_value_10_0= RULE_STRING
-                    {
-                    lv_value_10_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleTerminalExpression1869); 
-
-                    			createLeafNode(grammarAccess.getTerminalExpressionAccess().getValueSTRINGTerminalRuleCall_4_1_0(), "value"); 
-                    		
 
                     	        if (current==null) {
                     	            current = factory.create(grammarAccess.getTerminalExpressionRule().getType().getClassifier());
-                    	            associateNodeWithAstElement(currentNode, current);
+                    	            associateNodeWithAstElement(currentNode.getParent(), current);
                     	        }
                     	        try {
                     	       		set(
                     	       			current, 
-                    	       			"value",
-                    	        		lv_value_10_0, 
-                    	        		"STRING", 
-                    	        		lastConsumedNode);
+                    	       			"prefix",
+                    	        		lv_prefix_9_0, 
+                    	        		"Prefix", 
+                    	        		currentNode);
                     	        } catch (ValueConverterException vce) {
                     				handleValueConverterException(vce);
                     	        }
+                    	        currentNode = currentNode.getParent();
+                    	    
+
+                    }
+
+
+                    }
+
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1113:2: ( (lv_variablePath_10_0= ruleVariablePath ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1114:1: (lv_variablePath_10_0= ruleVariablePath )
+                    {
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1114:1: (lv_variablePath_10_0= ruleVariablePath )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1115:3: lv_variablePath_10_0= ruleVariablePath
+                    {
+                     
+                    	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getVariablePathVariablePathParserRuleCall_4_1_0(), currentNode); 
+                    	    
+                    pushFollow(FOLLOW_ruleVariablePath_in_ruleTerminalExpression1680);
+                    lv_variablePath_10_0=ruleVariablePath();
+                    _fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = factory.create(grammarAccess.getTerminalExpressionRule().getType().getClassifier());
+                    	            associateNodeWithAstElement(currentNode.getParent(), current);
+                    	        }
+                    	        try {
+                    	       		set(
+                    	       			current, 
+                    	       			"variablePath",
+                    	        		lv_variablePath_10_0, 
+                    	        		"VariablePath", 
+                    	        		currentNode);
+                    	        } catch (ValueConverterException vce) {
+                    				handleValueConverterException(vce);
+                    	        }
+                    	        currentNode = currentNode.getParent();
+                    	    
+
+                    }
+
+
+                    }
+
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1137:2: ( (lv_prefix_11_0= rulePrefix ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1138:1: (lv_prefix_11_0= rulePrefix )
+                    {
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1138:1: (lv_prefix_11_0= rulePrefix )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1139:3: lv_prefix_11_0= rulePrefix
+                    {
+                     
+                    	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getPrefixPrefixParserRuleCall_4_2_0(), currentNode); 
+                    	    
+                    pushFollow(FOLLOW_rulePrefix_in_ruleTerminalExpression1701);
+                    lv_prefix_11_0=rulePrefix();
+                    _fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = factory.create(grammarAccess.getTerminalExpressionRule().getType().getClassifier());
+                    	            associateNodeWithAstElement(currentNode.getParent(), current);
+                    	        }
+                    	        try {
+                    	       		set(
+                    	       			current, 
+                    	       			"prefix",
+                    	        		lv_prefix_11_0, 
+                    	        		"Prefix", 
+                    	        		currentNode);
+                    	        } catch (ValueConverterException vce) {
+                    				handleValueConverterException(vce);
+                    	        }
+                    	        currentNode = currentNode.getParent();
                     	    
 
                     }
@@ -2652,8 +2428,431 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
     // $ANTLR end ruleTerminalExpression
 
 
+    // $ANTLR start entryRuleVariablePath
+    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1169:1: entryRuleVariablePath returns [EObject current=null] : iv_ruleVariablePath= ruleVariablePath EOF ;
+    public final EObject entryRuleVariablePath() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleVariablePath = null;
+
+
+        try {
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1170:2: (iv_ruleVariablePath= ruleVariablePath EOF )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1171:2: iv_ruleVariablePath= ruleVariablePath EOF
+            {
+             currentNode = createCompositeNode(grammarAccess.getVariablePathRule(), currentNode); 
+            pushFollow(FOLLOW_ruleVariablePath_in_entryRuleVariablePath1738);
+            iv_ruleVariablePath=ruleVariablePath();
+            _fsp--;
+
+             current =iv_ruleVariablePath; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleVariablePath1748); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end entryRuleVariablePath
+
+
+    // $ANTLR start ruleVariablePath
+    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1178:1: ruleVariablePath returns [EObject current=null] : ( () ( ( RULE_GLOBAL | RULE_ID ) ( RULE_LSQUARE ( (lv_children_4_0= ruleExpression ) ) RULE_RSQUARE )? ( RULE_DOT ( RULE_ID | ( RULE_LPAREN ( (lv_children_9_0= ruleExpression ) ) RULE_RPAREN ) ) )* ) ) ;
+    public final EObject ruleVariablePath() throws RecognitionException {
+        EObject current = null;
+
+        EObject lv_children_4_0 = null;
+
+        EObject lv_children_9_0 = null;
+
+
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+            
+        try {
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1183:6: ( ( () ( ( RULE_GLOBAL | RULE_ID ) ( RULE_LSQUARE ( (lv_children_4_0= ruleExpression ) ) RULE_RSQUARE )? ( RULE_DOT ( RULE_ID | ( RULE_LPAREN ( (lv_children_9_0= ruleExpression ) ) RULE_RPAREN ) ) )* ) ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1184:1: ( () ( ( RULE_GLOBAL | RULE_ID ) ( RULE_LSQUARE ( (lv_children_4_0= ruleExpression ) ) RULE_RSQUARE )? ( RULE_DOT ( RULE_ID | ( RULE_LPAREN ( (lv_children_9_0= ruleExpression ) ) RULE_RPAREN ) ) )* ) )
+            {
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1184:1: ( () ( ( RULE_GLOBAL | RULE_ID ) ( RULE_LSQUARE ( (lv_children_4_0= ruleExpression ) ) RULE_RSQUARE )? ( RULE_DOT ( RULE_ID | ( RULE_LPAREN ( (lv_children_9_0= ruleExpression ) ) RULE_RPAREN ) ) )* ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1184:2: () ( ( RULE_GLOBAL | RULE_ID ) ( RULE_LSQUARE ( (lv_children_4_0= ruleExpression ) ) RULE_RSQUARE )? ( RULE_DOT ( RULE_ID | ( RULE_LPAREN ( (lv_children_9_0= ruleExpression ) ) RULE_RPAREN ) ) )* )
+            {
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1184:2: ()
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1185:5: 
+            {
+             
+                    temp=factory.create(grammarAccess.getVariablePathAccess().getVariablePathAction_0().getType().getClassifier());
+                    current = temp; 
+                    temp = null;
+                    CompositeNode newNode = createCompositeNode(grammarAccess.getVariablePathAccess().getVariablePathAction_0(), currentNode.getParent());
+                newNode.getChildren().add(currentNode);
+                moveLookaheadInfo(currentNode, newNode);
+                currentNode = newNode; 
+                    associateNodeWithAstElement(currentNode, current); 
+                
+
+            }
+
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1195:2: ( ( RULE_GLOBAL | RULE_ID ) ( RULE_LSQUARE ( (lv_children_4_0= ruleExpression ) ) RULE_RSQUARE )? ( RULE_DOT ( RULE_ID | ( RULE_LPAREN ( (lv_children_9_0= ruleExpression ) ) RULE_RPAREN ) ) )* )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1195:3: ( RULE_GLOBAL | RULE_ID ) ( RULE_LSQUARE ( (lv_children_4_0= ruleExpression ) ) RULE_RSQUARE )? ( RULE_DOT ( RULE_ID | ( RULE_LPAREN ( (lv_children_9_0= ruleExpression ) ) RULE_RPAREN ) ) )*
+            {
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1195:3: ( RULE_GLOBAL | RULE_ID )
+            int alt8=2;
+            int LA8_0 = input.LA(1);
+
+            if ( (LA8_0==RULE_GLOBAL) ) {
+                alt8=1;
+            }
+            else if ( (LA8_0==RULE_ID) ) {
+                alt8=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("1195:3: ( RULE_GLOBAL | RULE_ID )", 8, 0, input);
+
+                throw nvae;
+            }
+            switch (alt8) {
+                case 1 :
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1195:4: RULE_GLOBAL
+                    {
+                    match(input,RULE_GLOBAL,FOLLOW_RULE_GLOBAL_in_ruleVariablePath1793); 
+                     
+                        createLeafNode(grammarAccess.getVariablePathAccess().getGLOBALTerminalRuleCall_1_0_0(), null); 
+                        
+
+                    }
+                    break;
+                case 2 :
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1200:6: RULE_ID
+                    {
+                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleVariablePath1807); 
+                     
+                        createLeafNode(grammarAccess.getVariablePathAccess().getIDTerminalRuleCall_1_0_1(), null); 
+                        
+
+                    }
+                    break;
+
+            }
+
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1204:2: ( RULE_LSQUARE ( (lv_children_4_0= ruleExpression ) ) RULE_RSQUARE )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
+
+            if ( (LA9_0==RULE_LSQUARE) ) {
+                alt9=1;
+            }
+            switch (alt9) {
+                case 1 :
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1204:3: RULE_LSQUARE ( (lv_children_4_0= ruleExpression ) ) RULE_RSQUARE
+                    {
+                    match(input,RULE_LSQUARE,FOLLOW_RULE_LSQUARE_in_ruleVariablePath1817); 
+                     
+                        createLeafNode(grammarAccess.getVariablePathAccess().getLSQUARETerminalRuleCall_1_1_0(), null); 
+                        
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1208:1: ( (lv_children_4_0= ruleExpression ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1209:1: (lv_children_4_0= ruleExpression )
+                    {
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1209:1: (lv_children_4_0= ruleExpression )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1210:3: lv_children_4_0= ruleExpression
+                    {
+                     
+                    	        currentNode=createCompositeNode(grammarAccess.getVariablePathAccess().getChildrenExpressionParserRuleCall_1_1_1_0(), currentNode); 
+                    	    
+                    pushFollow(FOLLOW_ruleExpression_in_ruleVariablePath1837);
+                    lv_children_4_0=ruleExpression();
+                    _fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = factory.create(grammarAccess.getVariablePathRule().getType().getClassifier());
+                    	            associateNodeWithAstElement(currentNode.getParent(), current);
+                    	        }
+                    	        try {
+                    	       		add(
+                    	       			current, 
+                    	       			"children",
+                    	        		lv_children_4_0, 
+                    	        		"Expression", 
+                    	        		currentNode);
+                    	        } catch (ValueConverterException vce) {
+                    				handleValueConverterException(vce);
+                    	        }
+                    	        currentNode = currentNode.getParent();
+                    	    
+
+                    }
+
+
+                    }
+
+                    match(input,RULE_RSQUARE,FOLLOW_RULE_RSQUARE_in_ruleVariablePath1846); 
+                     
+                        createLeafNode(grammarAccess.getVariablePathAccess().getRSQUARETerminalRuleCall_1_1_2(), null); 
+                        
+
+                    }
+                    break;
+
+            }
+
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1236:3: ( RULE_DOT ( RULE_ID | ( RULE_LPAREN ( (lv_children_9_0= ruleExpression ) ) RULE_RPAREN ) ) )*
+            loop11:
+            do {
+                int alt11=2;
+                int LA11_0 = input.LA(1);
+
+                if ( (LA11_0==RULE_DOT) ) {
+                    alt11=1;
+                }
+
+
+                switch (alt11) {
+            	case 1 :
+            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1236:4: RULE_DOT ( RULE_ID | ( RULE_LPAREN ( (lv_children_9_0= ruleExpression ) ) RULE_RPAREN ) )
+            	    {
+            	    match(input,RULE_DOT,FOLLOW_RULE_DOT_in_ruleVariablePath1857); 
+            	     
+            	        createLeafNode(grammarAccess.getVariablePathAccess().getDOTTerminalRuleCall_1_2_0(), null); 
+            	        
+            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1240:1: ( RULE_ID | ( RULE_LPAREN ( (lv_children_9_0= ruleExpression ) ) RULE_RPAREN ) )
+            	    int alt10=2;
+            	    int LA10_0 = input.LA(1);
+
+            	    if ( (LA10_0==RULE_ID) ) {
+            	        alt10=1;
+            	    }
+            	    else if ( (LA10_0==RULE_LPAREN) ) {
+            	        alt10=2;
+            	    }
+            	    else {
+            	        NoViableAltException nvae =
+            	            new NoViableAltException("1240:1: ( RULE_ID | ( RULE_LPAREN ( (lv_children_9_0= ruleExpression ) ) RULE_RPAREN ) )", 10, 0, input);
+
+            	        throw nvae;
+            	    }
+            	    switch (alt10) {
+            	        case 1 :
+            	            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1240:2: RULE_ID
+            	            {
+            	            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleVariablePath1866); 
+            	             
+            	                createLeafNode(grammarAccess.getVariablePathAccess().getIDTerminalRuleCall_1_2_1_0(), null); 
+            	                
+
+            	            }
+            	            break;
+            	        case 2 :
+            	            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1245:6: ( RULE_LPAREN ( (lv_children_9_0= ruleExpression ) ) RULE_RPAREN )
+            	            {
+            	            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1245:6: ( RULE_LPAREN ( (lv_children_9_0= ruleExpression ) ) RULE_RPAREN )
+            	            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1245:7: RULE_LPAREN ( (lv_children_9_0= ruleExpression ) ) RULE_RPAREN
+            	            {
+            	            match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_ruleVariablePath1881); 
+            	             
+            	                createLeafNode(grammarAccess.getVariablePathAccess().getLPARENTerminalRuleCall_1_2_1_1_0(), null); 
+            	                
+            	            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1249:1: ( (lv_children_9_0= ruleExpression ) )
+            	            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1250:1: (lv_children_9_0= ruleExpression )
+            	            {
+            	            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1250:1: (lv_children_9_0= ruleExpression )
+            	            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1251:3: lv_children_9_0= ruleExpression
+            	            {
+            	             
+            	            	        currentNode=createCompositeNode(grammarAccess.getVariablePathAccess().getChildrenExpressionParserRuleCall_1_2_1_1_1_0(), currentNode); 
+            	            	    
+            	            pushFollow(FOLLOW_ruleExpression_in_ruleVariablePath1901);
+            	            lv_children_9_0=ruleExpression();
+            	            _fsp--;
+
+
+            	            	        if (current==null) {
+            	            	            current = factory.create(grammarAccess.getVariablePathRule().getType().getClassifier());
+            	            	            associateNodeWithAstElement(currentNode.getParent(), current);
+            	            	        }
+            	            	        try {
+            	            	       		add(
+            	            	       			current, 
+            	            	       			"children",
+            	            	        		lv_children_9_0, 
+            	            	        		"Expression", 
+            	            	        		currentNode);
+            	            	        } catch (ValueConverterException vce) {
+            	            				handleValueConverterException(vce);
+            	            	        }
+            	            	        currentNode = currentNode.getParent();
+            	            	    
+
+            	            }
+
+
+            	            }
+
+            	            match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_ruleVariablePath1910); 
+            	             
+            	                createLeafNode(grammarAccess.getVariablePathAccess().getRPARENTerminalRuleCall_1_2_1_1_2(), null); 
+            	                
+
+            	            }
+
+
+            	            }
+            	            break;
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop11;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            }
+
+             resetLookahead(); 
+                	lastConsumedNode = currentNode;
+                
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end ruleVariablePath
+
+
+    // $ANTLR start entryRulePrefix
+    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1285:1: entryRulePrefix returns [String current=null] : iv_rulePrefix= rulePrefix EOF ;
+    public final String entryRulePrefix() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_rulePrefix = null;
+
+
+        try {
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1286:2: (iv_rulePrefix= rulePrefix EOF )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1287:2: iv_rulePrefix= rulePrefix EOF
+            {
+             currentNode = createCompositeNode(grammarAccess.getPrefixRule(), currentNode); 
+            pushFollow(FOLLOW_rulePrefix_in_entryRulePrefix1951);
+            iv_rulePrefix=rulePrefix();
+            _fsp--;
+
+             current =iv_rulePrefix.getText(); 
+            match(input,EOF,FOLLOW_EOF_in_entryRulePrefix1962); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end entryRulePrefix
+
+
+    // $ANTLR start rulePrefix
+    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1294:1: rulePrefix returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_CHOICE_0= RULE_CHOICE | this_DECREMENT_1= RULE_DECREMENT )? ;
+    public final AntlrDatatypeRuleToken rulePrefix() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token this_CHOICE_0=null;
+        Token this_DECREMENT_1=null;
+
+         setCurrentLookahead(); resetLookahead(); 
+            
+        try {
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1299:6: ( (this_CHOICE_0= RULE_CHOICE | this_DECREMENT_1= RULE_DECREMENT )? )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1300:1: (this_CHOICE_0= RULE_CHOICE | this_DECREMENT_1= RULE_DECREMENT )?
+            {
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1300:1: (this_CHOICE_0= RULE_CHOICE | this_DECREMENT_1= RULE_DECREMENT )?
+            int alt12=3;
+            int LA12_0 = input.LA(1);
+
+            if ( (LA12_0==RULE_CHOICE) ) {
+                alt12=1;
+            }
+            else if ( (LA12_0==RULE_DECREMENT) ) {
+                alt12=2;
+            }
+            switch (alt12) {
+                case 1 :
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1300:6: this_CHOICE_0= RULE_CHOICE
+                    {
+                    this_CHOICE_0=(Token)input.LT(1);
+                    match(input,RULE_CHOICE,FOLLOW_RULE_CHOICE_in_rulePrefix2002); 
+
+                    		current.merge(this_CHOICE_0);
+                        
+                     
+                        createLeafNode(grammarAccess.getPrefixAccess().getCHOICETerminalRuleCall_0(), null); 
+                        
+
+                    }
+                    break;
+                case 2 :
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1308:10: this_DECREMENT_1= RULE_DECREMENT
+                    {
+                    this_DECREMENT_1=(Token)input.LT(1);
+                    match(input,RULE_DECREMENT,FOLLOW_RULE_DECREMENT_in_rulePrefix2028); 
+
+                    		current.merge(this_DECREMENT_1);
+                        
+                     
+                        createLeafNode(grammarAccess.getPrefixAccess().getDECREMENTTerminalRuleCall_1(), null); 
+                        
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+             resetLookahead(); 
+            	    lastConsumedNode = currentNode;
+                
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end rulePrefix
+
+
     // $ANTLR start entryRuleNDChoiceStatement
-    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1281:1: entryRuleNDChoiceStatement returns [EObject current=null] : iv_ruleNDChoiceStatement= ruleNDChoiceStatement EOF ;
+    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1323:1: entryRuleNDChoiceStatement returns [EObject current=null] : iv_ruleNDChoiceStatement= ruleNDChoiceStatement EOF ;
     public final EObject entryRuleNDChoiceStatement() throws RecognitionException {
         EObject current = null;
 
@@ -2661,16 +2860,16 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1282:2: (iv_ruleNDChoiceStatement= ruleNDChoiceStatement EOF )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1283:2: iv_ruleNDChoiceStatement= ruleNDChoiceStatement EOF
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1324:2: (iv_ruleNDChoiceStatement= ruleNDChoiceStatement EOF )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1325:2: iv_ruleNDChoiceStatement= ruleNDChoiceStatement EOF
             {
              currentNode = createCompositeNode(grammarAccess.getNDChoiceStatementRule(), currentNode); 
-            pushFollow(FOLLOW_ruleNDChoiceStatement_in_entryRuleNDChoiceStatement1911);
+            pushFollow(FOLLOW_ruleNDChoiceStatement_in_entryRuleNDChoiceStatement2074);
             iv_ruleNDChoiceStatement=ruleNDChoiceStatement();
             _fsp--;
 
              current =iv_ruleNDChoiceStatement; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNDChoiceStatement1921); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNDChoiceStatement2084); 
 
             }
 
@@ -2688,7 +2887,7 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleNDChoiceStatement
-    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1290:1: ruleNDChoiceStatement returns [EObject current=null] : ( () ( RULE_LSQUARE ( (lv_InputOperation_2_0= ruleInputOperation ) ) RULE_RSQUARE ( (lv_mainProcess_4_0= ruleMainProcess ) ) )* ) ;
+    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1332:1: ruleNDChoiceStatement returns [EObject current=null] : ( () ( RULE_LSQUARE ( (lv_InputOperation_2_0= ruleInputOperation ) ) RULE_RSQUARE ( (lv_mainProcess_4_0= ruleMainProcess ) ) )* ) ;
     public final EObject ruleNDChoiceStatement() throws RecognitionException {
         EObject current = null;
 
@@ -2700,14 +2899,14 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1295:6: ( ( () ( RULE_LSQUARE ( (lv_InputOperation_2_0= ruleInputOperation ) ) RULE_RSQUARE ( (lv_mainProcess_4_0= ruleMainProcess ) ) )* ) )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1296:1: ( () ( RULE_LSQUARE ( (lv_InputOperation_2_0= ruleInputOperation ) ) RULE_RSQUARE ( (lv_mainProcess_4_0= ruleMainProcess ) ) )* )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1337:6: ( ( () ( RULE_LSQUARE ( (lv_InputOperation_2_0= ruleInputOperation ) ) RULE_RSQUARE ( (lv_mainProcess_4_0= ruleMainProcess ) ) )* ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1338:1: ( () ( RULE_LSQUARE ( (lv_InputOperation_2_0= ruleInputOperation ) ) RULE_RSQUARE ( (lv_mainProcess_4_0= ruleMainProcess ) ) )* )
             {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1296:1: ( () ( RULE_LSQUARE ( (lv_InputOperation_2_0= ruleInputOperation ) ) RULE_RSQUARE ( (lv_mainProcess_4_0= ruleMainProcess ) ) )* )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1296:2: () ( RULE_LSQUARE ( (lv_InputOperation_2_0= ruleInputOperation ) ) RULE_RSQUARE ( (lv_mainProcess_4_0= ruleMainProcess ) ) )*
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1338:1: ( () ( RULE_LSQUARE ( (lv_InputOperation_2_0= ruleInputOperation ) ) RULE_RSQUARE ( (lv_mainProcess_4_0= ruleMainProcess ) ) )* )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1338:2: () ( RULE_LSQUARE ( (lv_InputOperation_2_0= ruleInputOperation ) ) RULE_RSQUARE ( (lv_mainProcess_4_0= ruleMainProcess ) ) )*
             {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1296:2: ()
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1297:5: 
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1338:2: ()
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1339:5: 
             {
              
                     temp=factory.create(grammarAccess.getNDChoiceStatementAccess().getNDChoiceStatementAction_0().getType().getClassifier());
@@ -2722,35 +2921,35 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1307:2: ( RULE_LSQUARE ( (lv_InputOperation_2_0= ruleInputOperation ) ) RULE_RSQUARE ( (lv_mainProcess_4_0= ruleMainProcess ) ) )*
-            loop8:
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1349:2: ( RULE_LSQUARE ( (lv_InputOperation_2_0= ruleInputOperation ) ) RULE_RSQUARE ( (lv_mainProcess_4_0= ruleMainProcess ) ) )*
+            loop13:
             do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-                if ( (LA8_0==RULE_LSQUARE) ) {
-                    alt8=1;
+                if ( (LA13_0==RULE_LSQUARE) ) {
+                    alt13=1;
                 }
 
 
-                switch (alt8) {
+                switch (alt13) {
             	case 1 :
-            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1307:3: RULE_LSQUARE ( (lv_InputOperation_2_0= ruleInputOperation ) ) RULE_RSQUARE ( (lv_mainProcess_4_0= ruleMainProcess ) )
+            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1349:3: RULE_LSQUARE ( (lv_InputOperation_2_0= ruleInputOperation ) ) RULE_RSQUARE ( (lv_mainProcess_4_0= ruleMainProcess ) )
             	    {
-            	    match(input,RULE_LSQUARE,FOLLOW_RULE_LSQUARE_in_ruleNDChoiceStatement1965); 
+            	    match(input,RULE_LSQUARE,FOLLOW_RULE_LSQUARE_in_ruleNDChoiceStatement2128); 
             	     
             	        createLeafNode(grammarAccess.getNDChoiceStatementAccess().getLSQUARETerminalRuleCall_1_0(), null); 
             	        
-            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1311:1: ( (lv_InputOperation_2_0= ruleInputOperation ) )
-            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1312:1: (lv_InputOperation_2_0= ruleInputOperation )
+            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1353:1: ( (lv_InputOperation_2_0= ruleInputOperation ) )
+            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1354:1: (lv_InputOperation_2_0= ruleInputOperation )
             	    {
-            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1312:1: (lv_InputOperation_2_0= ruleInputOperation )
-            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1313:3: lv_InputOperation_2_0= ruleInputOperation
+            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1354:1: (lv_InputOperation_2_0= ruleInputOperation )
+            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1355:3: lv_InputOperation_2_0= ruleInputOperation
             	    {
             	     
             	    	        currentNode=createCompositeNode(grammarAccess.getNDChoiceStatementAccess().getInputOperationInputOperationParserRuleCall_1_1_0(), currentNode); 
             	    	    
-            	    pushFollow(FOLLOW_ruleInputOperation_in_ruleNDChoiceStatement1985);
+            	    pushFollow(FOLLOW_ruleInputOperation_in_ruleNDChoiceStatement2148);
             	    lv_InputOperation_2_0=ruleInputOperation();
             	    _fsp--;
 
@@ -2777,20 +2976,20 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    match(input,RULE_RSQUARE,FOLLOW_RULE_RSQUARE_in_ruleNDChoiceStatement1994); 
+            	    match(input,RULE_RSQUARE,FOLLOW_RULE_RSQUARE_in_ruleNDChoiceStatement2157); 
             	     
             	        createLeafNode(grammarAccess.getNDChoiceStatementAccess().getRSQUARETerminalRuleCall_1_2(), null); 
             	        
-            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1339:1: ( (lv_mainProcess_4_0= ruleMainProcess ) )
-            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1340:1: (lv_mainProcess_4_0= ruleMainProcess )
+            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1381:1: ( (lv_mainProcess_4_0= ruleMainProcess ) )
+            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1382:1: (lv_mainProcess_4_0= ruleMainProcess )
             	    {
-            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1340:1: (lv_mainProcess_4_0= ruleMainProcess )
-            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1341:3: lv_mainProcess_4_0= ruleMainProcess
+            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1382:1: (lv_mainProcess_4_0= ruleMainProcess )
+            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1383:3: lv_mainProcess_4_0= ruleMainProcess
             	    {
             	     
             	    	        currentNode=createCompositeNode(grammarAccess.getNDChoiceStatementAccess().getMainProcessMainProcessParserRuleCall_1_3_0(), currentNode); 
             	    	    
-            	    pushFollow(FOLLOW_ruleMainProcess_in_ruleNDChoiceStatement2014);
+            	    pushFollow(FOLLOW_ruleMainProcess_in_ruleNDChoiceStatement2177);
             	    lv_mainProcess_4_0=ruleMainProcess();
             	    _fsp--;
 
@@ -2822,7 +3021,7 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop8;
+            	    break loop13;
                 }
             } while (true);
 
@@ -2849,7 +3048,7 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleInputOperation
-    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1371:1: entryRuleInputOperation returns [EObject current=null] : iv_ruleInputOperation= ruleInputOperation EOF ;
+    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1413:1: entryRuleInputOperation returns [EObject current=null] : iv_ruleInputOperation= ruleInputOperation EOF ;
     public final EObject entryRuleInputOperation() throws RecognitionException {
         EObject current = null;
 
@@ -2857,16 +3056,16 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1372:2: (iv_ruleInputOperation= ruleInputOperation EOF )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1373:2: iv_ruleInputOperation= ruleInputOperation EOF
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1414:2: (iv_ruleInputOperation= ruleInputOperation EOF )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1415:2: iv_ruleInputOperation= ruleInputOperation EOF
             {
              currentNode = createCompositeNode(grammarAccess.getInputOperationRule(), currentNode); 
-            pushFollow(FOLLOW_ruleInputOperation_in_entryRuleInputOperation2052);
+            pushFollow(FOLLOW_ruleInputOperation_in_entryRuleInputOperation2215);
             iv_ruleInputOperation=ruleInputOperation();
             _fsp--;
 
              current =iv_ruleInputOperation; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleInputOperation2062); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleInputOperation2225); 
 
             }
 
@@ -2884,7 +3083,7 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleInputOperation
-    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1380:1: ruleInputOperation returns [EObject current=null] : ( ( () RULE_LINKIN RULE_LPAREN RULE_ID RULE_RPAREN ) | ( () RULE_ID RULE_LPAREN () ( (lv_variablePath_9_0= ruleVariablePath ) ) RULE_RPAREN (this_RequestResponseOperation_11= ruleRequestResponseOperation )? ) ) ;
+    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1422:1: ruleInputOperation returns [EObject current=null] : ( ( () RULE_LINKIN RULE_LPAREN RULE_ID RULE_RPAREN ) | ( () RULE_ID RULE_LPAREN () ( (lv_variablePath_9_0= ruleVariablePath ) ) RULE_RPAREN (this_RequestResponseOperation_11= ruleRequestResponseOperation )? ) ) ;
     public final EObject ruleInputOperation() throws RecognitionException {
         EObject current = null;
 
@@ -2896,34 +3095,34 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1385:6: ( ( ( () RULE_LINKIN RULE_LPAREN RULE_ID RULE_RPAREN ) | ( () RULE_ID RULE_LPAREN () ( (lv_variablePath_9_0= ruleVariablePath ) ) RULE_RPAREN (this_RequestResponseOperation_11= ruleRequestResponseOperation )? ) ) )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1386:1: ( ( () RULE_LINKIN RULE_LPAREN RULE_ID RULE_RPAREN ) | ( () RULE_ID RULE_LPAREN () ( (lv_variablePath_9_0= ruleVariablePath ) ) RULE_RPAREN (this_RequestResponseOperation_11= ruleRequestResponseOperation )? ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1427:6: ( ( ( () RULE_LINKIN RULE_LPAREN RULE_ID RULE_RPAREN ) | ( () RULE_ID RULE_LPAREN () ( (lv_variablePath_9_0= ruleVariablePath ) ) RULE_RPAREN (this_RequestResponseOperation_11= ruleRequestResponseOperation )? ) ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1428:1: ( ( () RULE_LINKIN RULE_LPAREN RULE_ID RULE_RPAREN ) | ( () RULE_ID RULE_LPAREN () ( (lv_variablePath_9_0= ruleVariablePath ) ) RULE_RPAREN (this_RequestResponseOperation_11= ruleRequestResponseOperation )? ) )
             {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1386:1: ( ( () RULE_LINKIN RULE_LPAREN RULE_ID RULE_RPAREN ) | ( () RULE_ID RULE_LPAREN () ( (lv_variablePath_9_0= ruleVariablePath ) ) RULE_RPAREN (this_RequestResponseOperation_11= ruleRequestResponseOperation )? ) )
-            int alt10=2;
-            int LA10_0 = input.LA(1);
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1428:1: ( ( () RULE_LINKIN RULE_LPAREN RULE_ID RULE_RPAREN ) | ( () RULE_ID RULE_LPAREN () ( (lv_variablePath_9_0= ruleVariablePath ) ) RULE_RPAREN (this_RequestResponseOperation_11= ruleRequestResponseOperation )? ) )
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA10_0==RULE_LINKIN) ) {
-                alt10=1;
+            if ( (LA15_0==RULE_LINKIN) ) {
+                alt15=1;
             }
-            else if ( (LA10_0==RULE_ID) ) {
-                alt10=2;
+            else if ( (LA15_0==RULE_ID) ) {
+                alt15=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("1386:1: ( ( () RULE_LINKIN RULE_LPAREN RULE_ID RULE_RPAREN ) | ( () RULE_ID RULE_LPAREN () ( (lv_variablePath_9_0= ruleVariablePath ) ) RULE_RPAREN (this_RequestResponseOperation_11= ruleRequestResponseOperation )? ) )", 10, 0, input);
+                    new NoViableAltException("1428:1: ( ( () RULE_LINKIN RULE_LPAREN RULE_ID RULE_RPAREN ) | ( () RULE_ID RULE_LPAREN () ( (lv_variablePath_9_0= ruleVariablePath ) ) RULE_RPAREN (this_RequestResponseOperation_11= ruleRequestResponseOperation )? ) )", 15, 0, input);
 
                 throw nvae;
             }
-            switch (alt10) {
+            switch (alt15) {
                 case 1 :
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1386:2: ( () RULE_LINKIN RULE_LPAREN RULE_ID RULE_RPAREN )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1428:2: ( () RULE_LINKIN RULE_LPAREN RULE_ID RULE_RPAREN )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1386:2: ( () RULE_LINKIN RULE_LPAREN RULE_ID RULE_RPAREN )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1386:3: () RULE_LINKIN RULE_LPAREN RULE_ID RULE_RPAREN
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1428:2: ( () RULE_LINKIN RULE_LPAREN RULE_ID RULE_RPAREN )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1428:3: () RULE_LINKIN RULE_LPAREN RULE_ID RULE_RPAREN
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1386:3: ()
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1387:5: 
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1428:3: ()
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1429:5: 
                     {
                      
                             temp=factory.create(grammarAccess.getInputOperationAccess().getInputOperationAction_0_0().getType().getClassifier());
@@ -2938,19 +3137,19 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,RULE_LINKIN,FOLLOW_RULE_LINKIN_in_ruleInputOperation2106); 
+                    match(input,RULE_LINKIN,FOLLOW_RULE_LINKIN_in_ruleInputOperation2269); 
                      
                         createLeafNode(grammarAccess.getInputOperationAccess().getLINKINTerminalRuleCall_0_1(), null); 
                         
-                    match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_ruleInputOperation2114); 
+                    match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_ruleInputOperation2277); 
                      
                         createLeafNode(grammarAccess.getInputOperationAccess().getLPARENTerminalRuleCall_0_2(), null); 
                         
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleInputOperation2122); 
+                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleInputOperation2285); 
                      
                         createLeafNode(grammarAccess.getInputOperationAccess().getIDTerminalRuleCall_0_3(), null); 
                         
-                    match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_ruleInputOperation2130); 
+                    match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_ruleInputOperation2293); 
                      
                         createLeafNode(grammarAccess.getInputOperationAccess().getRPARENTerminalRuleCall_0_4(), null); 
                         
@@ -2961,13 +3160,13 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1414:6: ( () RULE_ID RULE_LPAREN () ( (lv_variablePath_9_0= ruleVariablePath ) ) RULE_RPAREN (this_RequestResponseOperation_11= ruleRequestResponseOperation )? )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1456:6: ( () RULE_ID RULE_LPAREN () ( (lv_variablePath_9_0= ruleVariablePath ) ) RULE_RPAREN (this_RequestResponseOperation_11= ruleRequestResponseOperation )? )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1414:6: ( () RULE_ID RULE_LPAREN () ( (lv_variablePath_9_0= ruleVariablePath ) ) RULE_RPAREN (this_RequestResponseOperation_11= ruleRequestResponseOperation )? )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1414:7: () RULE_ID RULE_LPAREN () ( (lv_variablePath_9_0= ruleVariablePath ) ) RULE_RPAREN (this_RequestResponseOperation_11= ruleRequestResponseOperation )?
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1456:6: ( () RULE_ID RULE_LPAREN () ( (lv_variablePath_9_0= ruleVariablePath ) ) RULE_RPAREN (this_RequestResponseOperation_11= ruleRequestResponseOperation )? )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1456:7: () RULE_ID RULE_LPAREN () ( (lv_variablePath_9_0= ruleVariablePath ) ) RULE_RPAREN (this_RequestResponseOperation_11= ruleRequestResponseOperation )?
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1414:7: ()
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1415:5: 
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1456:7: ()
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1457:5: 
                     {
                      
                             temp=factory.create(grammarAccess.getInputOperationAccess().getInputOperationAction_1_0().getType().getClassifier());
@@ -2982,16 +3181,16 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleInputOperation2155); 
+                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleInputOperation2318); 
                      
                         createLeafNode(grammarAccess.getInputOperationAccess().getIDTerminalRuleCall_1_1(), null); 
                         
-                    match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_ruleInputOperation2163); 
+                    match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_ruleInputOperation2326); 
                      
                         createLeafNode(grammarAccess.getInputOperationAccess().getLPARENTerminalRuleCall_1_2(), null); 
                         
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1433:1: ()
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1434:5: 
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1475:1: ()
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1476:5: 
                     {
                      
                             temp=factory.create(grammarAccess.getInputOperationAccess().getVariablePathAction_1_3().getType().getClassifier());
@@ -3006,16 +3205,16 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1444:2: ( (lv_variablePath_9_0= ruleVariablePath ) )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1445:1: (lv_variablePath_9_0= ruleVariablePath )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1486:2: ( (lv_variablePath_9_0= ruleVariablePath ) )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1487:1: (lv_variablePath_9_0= ruleVariablePath )
                     {
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1445:1: (lv_variablePath_9_0= ruleVariablePath )
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1446:3: lv_variablePath_9_0= ruleVariablePath
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1487:1: (lv_variablePath_9_0= ruleVariablePath )
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1488:3: lv_variablePath_9_0= ruleVariablePath
                     {
                      
                     	        currentNode=createCompositeNode(grammarAccess.getInputOperationAccess().getVariablePathVariablePathParserRuleCall_1_4_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_ruleVariablePath_in_ruleInputOperation2192);
+                    pushFollow(FOLLOW_ruleVariablePath_in_ruleInputOperation2355);
                     lv_variablePath_9_0=ruleVariablePath();
                     _fsp--;
 
@@ -3042,25 +3241,25 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_ruleInputOperation2201); 
+                    match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_ruleInputOperation2364); 
                      
                         createLeafNode(grammarAccess.getInputOperationAccess().getRPARENTerminalRuleCall_1_5(), null); 
                         
-                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1472:1: (this_RequestResponseOperation_11= ruleRequestResponseOperation )?
-                    int alt9=2;
-                    int LA9_0 = input.LA(1);
+                    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1514:1: (this_RequestResponseOperation_11= ruleRequestResponseOperation )?
+                    int alt14=2;
+                    int LA14_0 = input.LA(1);
 
-                    if ( (LA9_0==RULE_LPAREN) ) {
-                        alt9=1;
+                    if ( (LA14_0==RULE_LPAREN) ) {
+                        alt14=1;
                     }
-                    switch (alt9) {
+                    switch (alt14) {
                         case 1 :
-                            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1473:5: this_RequestResponseOperation_11= ruleRequestResponseOperation
+                            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1515:5: this_RequestResponseOperation_11= ruleRequestResponseOperation
                             {
                              
                                     currentNode=createCompositeNode(grammarAccess.getInputOperationAccess().getRequestResponseOperationParserRuleCall_1_6(), currentNode); 
                                 
-                            pushFollow(FOLLOW_ruleRequestResponseOperation_in_ruleInputOperation2223);
+                            pushFollow(FOLLOW_ruleRequestResponseOperation_in_ruleInputOperation2386);
                             this_RequestResponseOperation_11=ruleRequestResponseOperation();
                             _fsp--;
 
@@ -3102,216 +3301,8 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
     // $ANTLR end ruleInputOperation
 
 
-    // $ANTLR start entryRuleVariablePath
-    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1489:1: entryRuleVariablePath returns [EObject current=null] : iv_ruleVariablePath= ruleVariablePath EOF ;
-    public final EObject entryRuleVariablePath() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleVariablePath = null;
-
-
-        try {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1490:2: (iv_ruleVariablePath= ruleVariablePath EOF )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1491:2: iv_ruleVariablePath= ruleVariablePath EOF
-            {
-             currentNode = createCompositeNode(grammarAccess.getVariablePathRule(), currentNode); 
-            pushFollow(FOLLOW_ruleVariablePath_in_entryRuleVariablePath2261);
-            iv_ruleVariablePath=ruleVariablePath();
-            _fsp--;
-
-             current =iv_ruleVariablePath; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleVariablePath2271); 
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end entryRuleVariablePath
-
-
-    // $ANTLR start ruleVariablePath
-    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1498:1: ruleVariablePath returns [EObject current=null] : ( () RULE_GLOBAL ( RULE_DOT ( RULE_ID | ( RULE_LPAREN ( (lv_children_5_0= ruleExpression ) ) RULE_RPAREN ) ) )* ) ;
-    public final EObject ruleVariablePath() throws RecognitionException {
-        EObject current = null;
-
-        EObject lv_children_5_0 = null;
-
-
-         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
-            
-        try {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1503:6: ( ( () RULE_GLOBAL ( RULE_DOT ( RULE_ID | ( RULE_LPAREN ( (lv_children_5_0= ruleExpression ) ) RULE_RPAREN ) ) )* ) )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1504:1: ( () RULE_GLOBAL ( RULE_DOT ( RULE_ID | ( RULE_LPAREN ( (lv_children_5_0= ruleExpression ) ) RULE_RPAREN ) ) )* )
-            {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1504:1: ( () RULE_GLOBAL ( RULE_DOT ( RULE_ID | ( RULE_LPAREN ( (lv_children_5_0= ruleExpression ) ) RULE_RPAREN ) ) )* )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1504:2: () RULE_GLOBAL ( RULE_DOT ( RULE_ID | ( RULE_LPAREN ( (lv_children_5_0= ruleExpression ) ) RULE_RPAREN ) ) )*
-            {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1504:2: ()
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1505:5: 
-            {
-             
-                    temp=factory.create(grammarAccess.getVariablePathAccess().getVariablePathAction_0().getType().getClassifier());
-                    current = temp; 
-                    temp = null;
-                    CompositeNode newNode = createCompositeNode(grammarAccess.getVariablePathAccess().getVariablePathAction_0(), currentNode.getParent());
-                newNode.getChildren().add(currentNode);
-                moveLookaheadInfo(currentNode, newNode);
-                currentNode = newNode; 
-                    associateNodeWithAstElement(currentNode, current); 
-                
-
-            }
-
-            match(input,RULE_GLOBAL,FOLLOW_RULE_GLOBAL_in_ruleVariablePath2314); 
-             
-                createLeafNode(grammarAccess.getVariablePathAccess().getGLOBALTerminalRuleCall_1(), null); 
-                
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1519:1: ( RULE_DOT ( RULE_ID | ( RULE_LPAREN ( (lv_children_5_0= ruleExpression ) ) RULE_RPAREN ) ) )*
-            loop12:
-            do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
-
-                if ( (LA12_0==RULE_DOT) ) {
-                    alt12=1;
-                }
-
-
-                switch (alt12) {
-            	case 1 :
-            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1519:2: RULE_DOT ( RULE_ID | ( RULE_LPAREN ( (lv_children_5_0= ruleExpression ) ) RULE_RPAREN ) )
-            	    {
-            	    match(input,RULE_DOT,FOLLOW_RULE_DOT_in_ruleVariablePath2323); 
-            	     
-            	        createLeafNode(grammarAccess.getVariablePathAccess().getDOTTerminalRuleCall_2_0(), null); 
-            	        
-            	    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1523:1: ( RULE_ID | ( RULE_LPAREN ( (lv_children_5_0= ruleExpression ) ) RULE_RPAREN ) )
-            	    int alt11=2;
-            	    int LA11_0 = input.LA(1);
-
-            	    if ( (LA11_0==RULE_ID) ) {
-            	        alt11=1;
-            	    }
-            	    else if ( (LA11_0==RULE_LPAREN) ) {
-            	        alt11=2;
-            	    }
-            	    else {
-            	        NoViableAltException nvae =
-            	            new NoViableAltException("1523:1: ( RULE_ID | ( RULE_LPAREN ( (lv_children_5_0= ruleExpression ) ) RULE_RPAREN ) )", 11, 0, input);
-
-            	        throw nvae;
-            	    }
-            	    switch (alt11) {
-            	        case 1 :
-            	            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1523:2: RULE_ID
-            	            {
-            	            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleVariablePath2332); 
-            	             
-            	                createLeafNode(grammarAccess.getVariablePathAccess().getIDTerminalRuleCall_2_1_0(), null); 
-            	                
-
-            	            }
-            	            break;
-            	        case 2 :
-            	            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1528:6: ( RULE_LPAREN ( (lv_children_5_0= ruleExpression ) ) RULE_RPAREN )
-            	            {
-            	            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1528:6: ( RULE_LPAREN ( (lv_children_5_0= ruleExpression ) ) RULE_RPAREN )
-            	            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1528:7: RULE_LPAREN ( (lv_children_5_0= ruleExpression ) ) RULE_RPAREN
-            	            {
-            	            match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_ruleVariablePath2347); 
-            	             
-            	                createLeafNode(grammarAccess.getVariablePathAccess().getLPARENTerminalRuleCall_2_1_1_0(), null); 
-            	                
-            	            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1532:1: ( (lv_children_5_0= ruleExpression ) )
-            	            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1533:1: (lv_children_5_0= ruleExpression )
-            	            {
-            	            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1533:1: (lv_children_5_0= ruleExpression )
-            	            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1534:3: lv_children_5_0= ruleExpression
-            	            {
-            	             
-            	            	        currentNode=createCompositeNode(grammarAccess.getVariablePathAccess().getChildrenExpressionParserRuleCall_2_1_1_1_0(), currentNode); 
-            	            	    
-            	            pushFollow(FOLLOW_ruleExpression_in_ruleVariablePath2367);
-            	            lv_children_5_0=ruleExpression();
-            	            _fsp--;
-
-
-            	            	        if (current==null) {
-            	            	            current = factory.create(grammarAccess.getVariablePathRule().getType().getClassifier());
-            	            	            associateNodeWithAstElement(currentNode.getParent(), current);
-            	            	        }
-            	            	        try {
-            	            	       		add(
-            	            	       			current, 
-            	            	       			"children",
-            	            	        		lv_children_5_0, 
-            	            	        		"Expression", 
-            	            	        		currentNode);
-            	            	        } catch (ValueConverterException vce) {
-            	            				handleValueConverterException(vce);
-            	            	        }
-            	            	        currentNode = currentNode.getParent();
-            	            	    
-
-            	            }
-
-
-            	            }
-
-            	            match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_ruleVariablePath2376); 
-            	             
-            	                createLeafNode(grammarAccess.getVariablePathAccess().getRPARENTerminalRuleCall_2_1_1_2(), null); 
-            	                
-
-            	            }
-
-
-            	            }
-            	            break;
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop12;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-             resetLookahead(); 
-                	lastConsumedNode = currentNode;
-                
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end ruleVariablePath
-
-
     // $ANTLR start entryRuleRequestResponseOperation
-    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1568:1: entryRuleRequestResponseOperation returns [EObject current=null] : iv_ruleRequestResponseOperation= ruleRequestResponseOperation EOF ;
+    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1531:1: entryRuleRequestResponseOperation returns [EObject current=null] : iv_ruleRequestResponseOperation= ruleRequestResponseOperation EOF ;
     public final EObject entryRuleRequestResponseOperation() throws RecognitionException {
         EObject current = null;
 
@@ -3319,16 +3310,16 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1569:2: (iv_ruleRequestResponseOperation= ruleRequestResponseOperation EOF )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1570:2: iv_ruleRequestResponseOperation= ruleRequestResponseOperation EOF
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1532:2: (iv_ruleRequestResponseOperation= ruleRequestResponseOperation EOF )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1533:2: iv_ruleRequestResponseOperation= ruleRequestResponseOperation EOF
             {
              currentNode = createCompositeNode(grammarAccess.getRequestResponseOperationRule(), currentNode); 
-            pushFollow(FOLLOW_ruleRequestResponseOperation_in_entryRuleRequestResponseOperation2415);
+            pushFollow(FOLLOW_ruleRequestResponseOperation_in_entryRuleRequestResponseOperation2424);
             iv_ruleRequestResponseOperation=ruleRequestResponseOperation();
             _fsp--;
 
              current =iv_ruleRequestResponseOperation; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRequestResponseOperation2425); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRequestResponseOperation2434); 
 
             }
 
@@ -3346,7 +3337,7 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleRequestResponseOperation
-    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1577:1: ruleRequestResponseOperation returns [EObject current=null] : ( RULE_LPAREN ( (lv_expression_1_0= ruleExpression ) ) RULE_RPAREN ( (lv_mainProcess_3_0= ruleMainProcess ) ) ) ;
+    // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1540:1: ruleRequestResponseOperation returns [EObject current=null] : ( RULE_LPAREN ( (lv_expression_1_0= ruleExpression ) ) RULE_RPAREN ( (lv_mainProcess_3_0= ruleMainProcess ) ) ) ;
     public final EObject ruleRequestResponseOperation() throws RecognitionException {
         EObject current = null;
 
@@ -3358,26 +3349,26 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1582:6: ( ( RULE_LPAREN ( (lv_expression_1_0= ruleExpression ) ) RULE_RPAREN ( (lv_mainProcess_3_0= ruleMainProcess ) ) ) )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1583:1: ( RULE_LPAREN ( (lv_expression_1_0= ruleExpression ) ) RULE_RPAREN ( (lv_mainProcess_3_0= ruleMainProcess ) ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1545:6: ( ( RULE_LPAREN ( (lv_expression_1_0= ruleExpression ) ) RULE_RPAREN ( (lv_mainProcess_3_0= ruleMainProcess ) ) ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1546:1: ( RULE_LPAREN ( (lv_expression_1_0= ruleExpression ) ) RULE_RPAREN ( (lv_mainProcess_3_0= ruleMainProcess ) ) )
             {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1583:1: ( RULE_LPAREN ( (lv_expression_1_0= ruleExpression ) ) RULE_RPAREN ( (lv_mainProcess_3_0= ruleMainProcess ) ) )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1583:2: RULE_LPAREN ( (lv_expression_1_0= ruleExpression ) ) RULE_RPAREN ( (lv_mainProcess_3_0= ruleMainProcess ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1546:1: ( RULE_LPAREN ( (lv_expression_1_0= ruleExpression ) ) RULE_RPAREN ( (lv_mainProcess_3_0= ruleMainProcess ) ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1546:2: RULE_LPAREN ( (lv_expression_1_0= ruleExpression ) ) RULE_RPAREN ( (lv_mainProcess_3_0= ruleMainProcess ) )
             {
-            match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_ruleRequestResponseOperation2459); 
+            match(input,RULE_LPAREN,FOLLOW_RULE_LPAREN_in_ruleRequestResponseOperation2468); 
              
                 createLeafNode(grammarAccess.getRequestResponseOperationAccess().getLPARENTerminalRuleCall_0(), null); 
                 
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1587:1: ( (lv_expression_1_0= ruleExpression ) )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1588:1: (lv_expression_1_0= ruleExpression )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1550:1: ( (lv_expression_1_0= ruleExpression ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1551:1: (lv_expression_1_0= ruleExpression )
             {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1588:1: (lv_expression_1_0= ruleExpression )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1589:3: lv_expression_1_0= ruleExpression
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1551:1: (lv_expression_1_0= ruleExpression )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1552:3: lv_expression_1_0= ruleExpression
             {
              
             	        currentNode=createCompositeNode(grammarAccess.getRequestResponseOperationAccess().getExpressionExpressionParserRuleCall_1_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleExpression_in_ruleRequestResponseOperation2479);
+            pushFollow(FOLLOW_ruleExpression_in_ruleRequestResponseOperation2488);
             lv_expression_1_0=ruleExpression();
             _fsp--;
 
@@ -3404,20 +3395,20 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_ruleRequestResponseOperation2488); 
+            match(input,RULE_RPAREN,FOLLOW_RULE_RPAREN_in_ruleRequestResponseOperation2497); 
              
                 createLeafNode(grammarAccess.getRequestResponseOperationAccess().getRPARENTerminalRuleCall_2(), null); 
                 
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1615:1: ( (lv_mainProcess_3_0= ruleMainProcess ) )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1616:1: (lv_mainProcess_3_0= ruleMainProcess )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1578:1: ( (lv_mainProcess_3_0= ruleMainProcess ) )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1579:1: (lv_mainProcess_3_0= ruleMainProcess )
             {
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1616:1: (lv_mainProcess_3_0= ruleMainProcess )
-            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1617:3: lv_mainProcess_3_0= ruleMainProcess
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1579:1: (lv_mainProcess_3_0= ruleMainProcess )
+            // ../jolie.xtext/src-gen/jolie/xtext/parser/antlr/internal/InternalJolie.g:1580:3: lv_mainProcess_3_0= ruleMainProcess
             {
              
             	        currentNode=createCompositeNode(grammarAccess.getRequestResponseOperationAccess().getMainProcessMainProcessParserRuleCall_3_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleMainProcess_in_ruleRequestResponseOperation2508);
+            pushFollow(FOLLOW_ruleMainProcess_in_ruleRequestResponseOperation2517);
             lv_mainProcess_3_0=ruleMainProcess();
             _fsp--;
 
@@ -3477,94 +3468,97 @@ public class InternalJolieParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleMainProcess_in_ruleMain232 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMainProcess_in_entryRuleMainProcess267 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleMainProcess277 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_LCURLY_in_ruleMainProcess320 = new BitSet(new long[]{0x0000000000200770L});
+    public static final BitSet FOLLOW_RULE_LCURLY_in_ruleMainProcess320 = new BitSet(new long[]{0x00000000001C0370L});
     public static final BitSet FOLLOW_ruleParallelStatement_in_ruleMainProcess340 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_RCURLY_in_ruleMainProcess349 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleProcess_in_entryRuleProcess384 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleProcess394 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_LCURLY_in_ruleProcess438 = new BitSet(new long[]{0x0000000000200770L});
+    public static final BitSet FOLLOW_RULE_LCURLY_in_ruleProcess438 = new BitSet(new long[]{0x00000000001C0370L});
     public static final BitSet FOLLOW_ruleParallelStatement_in_ruleProcess458 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_RCURLY_in_ruleProcess467 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_LPAREN_in_ruleProcess483 = new BitSet(new long[]{0x00000000002007D0L});
+    public static final BitSet FOLLOW_RULE_LPAREN_in_ruleProcess483 = new BitSet(new long[]{0x00000000001C03D0L});
     public static final BitSet FOLLOW_ruleParallelStatement_in_ruleProcess503 = new BitSet(new long[]{0x0000000000000080L});
     public static final BitSet FOLLOW_RULE_RPAREN_in_ruleProcess512 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleParallelStatement_in_entryRuleParallelStatement548 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleParallelStatement558 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSequenceStatement_in_ruleParallelStatement614 = new BitSet(new long[]{0x0000000000000102L});
-    public static final BitSet FOLLOW_RULE_VERT_in_ruleParallelStatement624 = new BitSet(new long[]{0x0000000000200752L});
+    public static final BitSet FOLLOW_RULE_VERT_in_ruleParallelStatement624 = new BitSet(new long[]{0x00000000001C0352L});
     public static final BitSet FOLLOW_ruleSequenceStatement_in_ruleParallelStatement644 = new BitSet(new long[]{0x0000000000000102L});
     public static final BitSet FOLLOW_ruleSequenceStatement_in_entryRuleSequenceStatement683 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSequenceStatement693 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBasicStatement_in_ruleSequenceStatement749 = new BitSet(new long[]{0x0000000000000202L});
-    public static final BitSet FOLLOW_RULE_SEMICOLON_in_ruleSequenceStatement759 = new BitSet(new long[]{0x0000000000200652L});
+    public static final BitSet FOLLOW_RULE_SEMICOLON_in_ruleSequenceStatement759 = new BitSet(new long[]{0x00000000001C0252L});
     public static final BitSet FOLLOW_ruleBasicStatement_in_ruleSequenceStatement779 = new BitSet(new long[]{0x0000000000000202L});
     public static final BitSet FOLLOW_ruleBasicStatement_in_entryRuleBasicStatement818 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleBasicStatement828 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleProcess_in_ruleBasicStatement884 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAssignStatement_in_ruleBasicStatement922 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePostIncrementStatement_in_ruleBasicStatement960 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePostDecrementStatement_in_ruleBasicStatement998 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNDChoiceStatement_in_ruleBasicStatement1036 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAssignStatement_in_entryRuleAssignStatement1073 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAssignStatement1083 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleAssignStatement1134 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_RULE_ASSIGN_in_ruleAssignStatement1148 = new BitSet(new long[]{0x00000000001C0440L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleAssignStatement1177 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePostIncrementStatement_in_entryRulePostIncrementStatement1213 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePostIncrementStatement1223 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rulePostIncrementStatement1274 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_RULE_CHOICE_in_rulePostIncrementStatement1288 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePostDecrementStatement_in_entryRulePostDecrementStatement1323 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePostDecrementStatement1333 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rulePostDecrementStatement1384 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_RULE_DECREMENT_in_rulePostDecrementStatement1398 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_entryRuleExpression1433 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExpression1443 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTerminalExpression_in_ruleExpression1490 = new BitSet(new long[]{0x000000000003C002L});
-    public static final BitSet FOLLOW_RULE_PLUS_in_ruleExpression1518 = new BitSet(new long[]{0x00000000001C0440L});
-    public static final BitSet FOLLOW_RULE_MINUS_in_ruleExpression1538 = new BitSet(new long[]{0x00000000001C0440L});
-    public static final BitSet FOLLOW_RULE_ASTERISK_in_ruleExpression1558 = new BitSet(new long[]{0x00000000001C0440L});
-    public static final BitSet FOLLOW_RULE_DIVIDE_in_ruleExpression1578 = new BitSet(new long[]{0x00000000001C0440L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleExpression1607 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTerminalExpression_in_entryRuleTerminalExpression1645 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTerminalExpression1655 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_LPAREN_in_ruleTerminalExpression1690 = new BitSet(new long[]{0x00000000001C0440L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleTerminalExpression1711 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_RULE_RPAREN_in_ruleTerminalExpression1719 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleTerminalExpression1752 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_REAL_in_ruleTerminalExpression1791 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTerminalExpression1830 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleTerminalExpression1869 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNDChoiceStatement_in_entryRuleNDChoiceStatement1911 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNDChoiceStatement1921 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_LSQUARE_in_ruleNDChoiceStatement1965 = new BitSet(new long[]{0x0000000000800400L});
-    public static final BitSet FOLLOW_ruleInputOperation_in_ruleNDChoiceStatement1985 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_RULE_RSQUARE_in_ruleNDChoiceStatement1994 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleMainProcess_in_ruleNDChoiceStatement2014 = new BitSet(new long[]{0x0000000000200002L});
-    public static final BitSet FOLLOW_ruleInputOperation_in_entryRuleInputOperation2052 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleInputOperation2062 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_LINKIN_in_ruleInputOperation2106 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_LPAREN_in_ruleInputOperation2114 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleInputOperation2122 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_RULE_RPAREN_in_ruleInputOperation2130 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleInputOperation2155 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_LPAREN_in_ruleInputOperation2163 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_ruleVariablePath_in_ruleInputOperation2192 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_RULE_RPAREN_in_ruleInputOperation2201 = new BitSet(new long[]{0x0000000000000042L});
-    public static final BitSet FOLLOW_ruleRequestResponseOperation_in_ruleInputOperation2223 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVariablePath_in_entryRuleVariablePath2261 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleVariablePath2271 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_GLOBAL_in_ruleVariablePath2314 = new BitSet(new long[]{0x0000000002000002L});
-    public static final BitSet FOLLOW_RULE_DOT_in_ruleVariablePath2323 = new BitSet(new long[]{0x0000000000000440L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleVariablePath2332 = new BitSet(new long[]{0x0000000002000002L});
-    public static final BitSet FOLLOW_RULE_LPAREN_in_ruleVariablePath2347 = new BitSet(new long[]{0x00000000001C0440L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleVariablePath2367 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_RULE_RPAREN_in_ruleVariablePath2376 = new BitSet(new long[]{0x0000000002000002L});
-    public static final BitSet FOLLOW_ruleRequestResponseOperation_in_entryRuleRequestResponseOperation2415 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRequestResponseOperation2425 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_LPAREN_in_ruleRequestResponseOperation2459 = new BitSet(new long[]{0x00000000001C0440L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleRequestResponseOperation2479 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_RULE_RPAREN_in_ruleRequestResponseOperation2488 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleMainProcess_in_ruleRequestResponseOperation2508 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNDChoiceStatement_in_ruleBasicStatement960 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAssignStatement_in_entryRuleAssignStatement997 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAssignStatement1007 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVariablePath_in_ruleAssignStatement1062 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_RULE_ASSIGN_in_ruleAssignStatement1071 = new BitSet(new long[]{0x00000000018F8040L});
+    public static final BitSet FOLLOW_ruleRightSideAssignament_in_ruleAssignStatement1091 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRightSideAssignament_in_entryRuleRightSideAssignament1127 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRightSideAssignament1137 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleRightSideAssignament1192 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_entryRuleExpression1228 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExpression1238 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTerminalExpression_in_ruleExpression1285 = new BitSet(new long[]{0x0000000000007802L});
+    public static final BitSet FOLLOW_RULE_PLUS_in_ruleExpression1313 = new BitSet(new long[]{0x00000000018F8040L});
+    public static final BitSet FOLLOW_RULE_MINUS_in_ruleExpression1333 = new BitSet(new long[]{0x00000000018F8040L});
+    public static final BitSet FOLLOW_RULE_ASTERISK_in_ruleExpression1353 = new BitSet(new long[]{0x00000000018F8040L});
+    public static final BitSet FOLLOW_RULE_DIVIDE_in_ruleExpression1373 = new BitSet(new long[]{0x00000000018F8040L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleExpression1402 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTerminalExpression_in_entryRuleTerminalExpression1440 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTerminalExpression1450 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_LPAREN_in_ruleTerminalExpression1485 = new BitSet(new long[]{0x00000000018F8040L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleTerminalExpression1506 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_RULE_RPAREN_in_ruleTerminalExpression1514 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleTerminalExpression1547 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_REAL_in_ruleTerminalExpression1586 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleTerminalExpression1625 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePrefix_in_ruleTerminalExpression1659 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_ruleVariablePath_in_ruleTerminalExpression1680 = new BitSet(new long[]{0x0000000001800002L});
+    public static final BitSet FOLLOW_rulePrefix_in_ruleTerminalExpression1701 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVariablePath_in_entryRuleVariablePath1738 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleVariablePath1748 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_GLOBAL_in_ruleVariablePath1793 = new BitSet(new long[]{0x0000000000500002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleVariablePath1807 = new BitSet(new long[]{0x0000000000500002L});
+    public static final BitSet FOLLOW_RULE_LSQUARE_in_ruleVariablePath1817 = new BitSet(new long[]{0x00000000018F8040L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleVariablePath1837 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_RULE_RSQUARE_in_ruleVariablePath1846 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_RULE_DOT_in_ruleVariablePath1857 = new BitSet(new long[]{0x0000000000080040L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleVariablePath1866 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_RULE_LPAREN_in_ruleVariablePath1881 = new BitSet(new long[]{0x00000000018F8040L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleVariablePath1901 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_RULE_RPAREN_in_ruleVariablePath1910 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_rulePrefix_in_entryRulePrefix1951 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulePrefix1962 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_CHOICE_in_rulePrefix2002 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_DECREMENT_in_rulePrefix2028 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNDChoiceStatement_in_entryRuleNDChoiceStatement2074 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNDChoiceStatement2084 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_LSQUARE_in_ruleNDChoiceStatement2128 = new BitSet(new long[]{0x0000000002080000L});
+    public static final BitSet FOLLOW_ruleInputOperation_in_ruleNDChoiceStatement2148 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_RULE_RSQUARE_in_ruleNDChoiceStatement2157 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleMainProcess_in_ruleNDChoiceStatement2177 = new BitSet(new long[]{0x0000000000100002L});
+    public static final BitSet FOLLOW_ruleInputOperation_in_entryRuleInputOperation2215 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleInputOperation2225 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_LINKIN_in_ruleInputOperation2269 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_LPAREN_in_ruleInputOperation2277 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleInputOperation2285 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_RULE_RPAREN_in_ruleInputOperation2293 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleInputOperation2318 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_LPAREN_in_ruleInputOperation2326 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_ruleVariablePath_in_ruleInputOperation2355 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_RULE_RPAREN_in_ruleInputOperation2364 = new BitSet(new long[]{0x0000000000000042L});
+    public static final BitSet FOLLOW_ruleRequestResponseOperation_in_ruleInputOperation2386 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRequestResponseOperation_in_entryRuleRequestResponseOperation2424 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRequestResponseOperation2434 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_LPAREN_in_ruleRequestResponseOperation2468 = new BitSet(new long[]{0x00000000018F8040L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleRequestResponseOperation2488 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_RULE_RPAREN_in_ruleRequestResponseOperation2497 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleMainProcess_in_ruleRequestResponseOperation2517 = new BitSet(new long[]{0x0000000000000002L});
 
 }

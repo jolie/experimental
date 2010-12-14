@@ -598,10 +598,10 @@ ruleBasicStatement returns [EObject current=null]
 ))
     |((
     { 
-        temp=factory.create(grammarAccess.getBasicStatementAccess().getPostIncrementStatementAction_2_0().getType().getClassifier());
+        temp=factory.create(grammarAccess.getBasicStatementAccess().getNDChoiceStatementAction_2_0().getType().getClassifier());
         $current = temp; 
         temp = null;
-        CompositeNode newNode = createCompositeNode(grammarAccess.getBasicStatementAccess().getPostIncrementStatementAction_2_0(), currentNode.getParent());
+        CompositeNode newNode = createCompositeNode(grammarAccess.getBasicStatementAccess().getNDChoiceStatementAction_2_0(), currentNode.getParent());
     newNode.getChildren().add(currentNode);
     moveLookaheadInfo(currentNode, newNode);
     currentNode = newNode; 
@@ -610,81 +610,9 @@ ruleBasicStatement returns [EObject current=null]
 )(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBasicStatementAccess().getPostIncrementStatementPostIncrementStatementParserRuleCall_2_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBasicStatementAccess().getNDChoiceStatementNDChoiceStatementParserRuleCall_2_1_0(), currentNode); 
 	    }
-		lv_postIncrementStatement_5_0=rulePostIncrementStatement		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getBasicStatementRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"postIncrementStatement",
-	        		lv_postIncrementStatement_5_0, 
-	        		"PostIncrementStatement", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-))
-    |((
-    { 
-        temp=factory.create(grammarAccess.getBasicStatementAccess().getPostDecrementStatementAction_3_0().getType().getClassifier());
-        $current = temp; 
-        temp = null;
-        CompositeNode newNode = createCompositeNode(grammarAccess.getBasicStatementAccess().getPostDecrementStatementAction_3_0(), currentNode.getParent());
-    newNode.getChildren().add(currentNode);
-    moveLookaheadInfo(currentNode, newNode);
-    currentNode = newNode; 
-        associateNodeWithAstElement(currentNode, $current); 
-    }
-)(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBasicStatementAccess().getPostDecrementStatementPostDecrementStatementParserRuleCall_3_1_0(), currentNode); 
-	    }
-		lv_PostDecrementStatement_7_0=rulePostDecrementStatement		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getBasicStatementRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"PostDecrementStatement",
-	        		lv_PostDecrementStatement_7_0, 
-	        		"PostDecrementStatement", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-))
-    |((
-    { 
-        temp=factory.create(grammarAccess.getBasicStatementAccess().getNDChoiceStatementAction_4_0().getType().getClassifier());
-        $current = temp; 
-        temp = null;
-        CompositeNode newNode = createCompositeNode(grammarAccess.getBasicStatementAccess().getNDChoiceStatementAction_4_0(), currentNode.getParent());
-    newNode.getChildren().add(currentNode);
-    moveLookaheadInfo(currentNode, newNode);
-    currentNode = newNode; 
-        associateNodeWithAstElement(currentNode, $current); 
-    }
-)(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBasicStatementAccess().getNDChoiceStatementNDChoiceStatementParserRuleCall_4_1_0(), currentNode); 
-	    }
-		lv_NDChoiceStatement_9_0=ruleNDChoiceStatement		{
+		lv_NDChoiceStatement_5_0=ruleNDChoiceStatement		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBasicStatementRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -693,7 +621,7 @@ ruleBasicStatement returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"NDChoiceStatement",
-	        		lv_NDChoiceStatement_9_0, 
+	        		lv_NDChoiceStatement_5_0, 
 	        		"NDChoiceStatement", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -739,25 +667,25 @@ ruleAssignStatement returns [EObject current=null]
     }
 )(
 (
-		lv_name_1_0=RULE_ID
-		{
-			createLeafNode(grammarAccess.getAssignStatementAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
-		}
-		{
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getAssignStatementAccess().getVariablePathVariablePathParserRuleCall_1_0(), currentNode); 
+	    }
+		lv_variablePath_1_0=ruleVariablePath		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getAssignStatementRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        try {
 	       		set(
 	       			$current, 
-	       			"name",
-	        		lv_name_1_0, 
-	        		"ID", 
-	        		lastConsumedNode);
+	       			"variablePath",
+	        		lv_variablePath_1_0, 
+	        		"VariablePath", 
+	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
+	        currentNode = currentNode.getParent();
 	    }
 
 )
@@ -766,22 +694,11 @@ ruleAssignStatement returns [EObject current=null]
     createLeafNode(grammarAccess.getAssignStatementAccess().getASSIGNTerminalRuleCall_2(), null); 
     }
 (
-    { 
-        temp=factory.create(grammarAccess.getAssignStatementAccess().getExpressionAction_3().getType().getClassifier());
-        $current = temp; 
-        temp = null;
-        CompositeNode newNode = createCompositeNode(grammarAccess.getAssignStatementAccess().getExpressionAction_3(), currentNode.getParent());
-    newNode.getChildren().add(currentNode);
-    moveLookaheadInfo(currentNode, newNode);
-    currentNode = newNode; 
-        associateNodeWithAstElement(currentNode, $current); 
-    }
-)(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getAssignStatementAccess().getExpressionExpressionParserRuleCall_4_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getAssignStatementAccess().getRightSideAssignRightSideAssignamentParserRuleCall_3_0(), currentNode); 
 	    }
-		lv_expression_4_0=ruleExpression		{
+		lv_rightSideAssign_3_0=ruleRightSideAssignament		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getAssignStatementRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -789,9 +706,9 @@ ruleAssignStatement returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"expression",
-	        		lv_expression_4_0, 
-	        		"Expression", 
+	       			"rightSideAssign",
+	        		lv_rightSideAssign_3_0, 
+	        		"RightSideAssignament", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
@@ -807,17 +724,17 @@ ruleAssignStatement returns [EObject current=null]
 
 
 
-// Entry rule entryRulePostIncrementStatement
-entryRulePostIncrementStatement returns [EObject current=null] 
+// Entry rule entryRuleRightSideAssignament
+entryRuleRightSideAssignament returns [EObject current=null] 
 	:
-	{ currentNode = createCompositeNode(grammarAccess.getPostIncrementStatementRule(), currentNode); }
-	 iv_rulePostIncrementStatement=rulePostIncrementStatement 
-	 { $current=$iv_rulePostIncrementStatement.current; } 
+	{ currentNode = createCompositeNode(grammarAccess.getRightSideAssignamentRule(), currentNode); }
+	 iv_ruleRightSideAssignament=ruleRightSideAssignament 
+	 { $current=$iv_ruleRightSideAssignament.current; } 
 	 EOF 
 ;
 
-// Rule PostIncrementStatement
-rulePostIncrementStatement returns [EObject current=null] 
+// Rule RightSideAssignament
+ruleRightSideAssignament returns [EObject current=null] 
     @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
     }
     @after { resetLookahead(); 
@@ -825,10 +742,10 @@ rulePostIncrementStatement returns [EObject current=null]
     }:
 ((
     { 
-        temp=factory.create(grammarAccess.getPostIncrementStatementAccess().getPostIncrementStatementAction_0().getType().getClassifier());
+        temp=factory.create(grammarAccess.getRightSideAssignamentAccess().getExpressionAction_0().getType().getClassifier());
         $current = temp; 
         temp = null;
-        CompositeNode newNode = createCompositeNode(grammarAccess.getPostIncrementStatementAccess().getPostIncrementStatementAction_0(), currentNode.getParent());
+        CompositeNode newNode = createCompositeNode(grammarAccess.getRightSideAssignamentAccess().getExpressionAction_0(), currentNode.getParent());
     newNode.getChildren().add(currentNode);
     moveLookaheadInfo(currentNode, newNode);
     currentNode = newNode; 
@@ -836,95 +753,29 @@ rulePostIncrementStatement returns [EObject current=null]
     }
 )(
 (
-		lv_name_1_0=RULE_ID
-		{
-			createLeafNode(grammarAccess.getPostIncrementStatementAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
-		}
-		{
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getRightSideAssignamentAccess().getExpressionExpressionParserRuleCall_1_0(), currentNode); 
+	    }
+		lv_expression_1_0=ruleExpression		{
 	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getPostIncrementStatementRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
+	            $current = factory.create(grammarAccess.getRightSideAssignamentRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        try {
 	       		set(
 	       			$current, 
-	       			"name",
-	        		lv_name_1_0, 
-	        		"ID", 
-	        		lastConsumedNode);
+	       			"expression",
+	        		lv_expression_1_0, 
+	        		"Expression", 
+	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
+	        currentNode = currentNode.getParent();
 	    }
 
 )
-)RULE_CHOICE
-    { 
-    createLeafNode(grammarAccess.getPostIncrementStatementAccess().getCHOICETerminalRuleCall_2(), null); 
-    }
-)
-;
-
-
-
-
-
-// Entry rule entryRulePostDecrementStatement
-entryRulePostDecrementStatement returns [EObject current=null] 
-	:
-	{ currentNode = createCompositeNode(grammarAccess.getPostDecrementStatementRule(), currentNode); }
-	 iv_rulePostDecrementStatement=rulePostDecrementStatement 
-	 { $current=$iv_rulePostDecrementStatement.current; } 
-	 EOF 
-;
-
-// Rule PostDecrementStatement
-rulePostDecrementStatement returns [EObject current=null] 
-    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
-    }
-    @after { resetLookahead(); 
-    	lastConsumedNode = currentNode;
-    }:
-((
-    { 
-        temp=factory.create(grammarAccess.getPostDecrementStatementAccess().getPostDecrementStatementAction_0().getType().getClassifier());
-        $current = temp; 
-        temp = null;
-        CompositeNode newNode = createCompositeNode(grammarAccess.getPostDecrementStatementAccess().getPostDecrementStatementAction_0(), currentNode.getParent());
-    newNode.getChildren().add(currentNode);
-    moveLookaheadInfo(currentNode, newNode);
-    currentNode = newNode; 
-        associateNodeWithAstElement(currentNode, $current); 
-    }
-)(
-(
-		lv_name_1_0=RULE_ID
-		{
-			createLeafNode(grammarAccess.getPostDecrementStatementAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getPostDecrementStatementRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"name",
-	        		lv_name_1_0, 
-	        		"ID", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-)RULE_DECREMENT
-    { 
-    createLeafNode(grammarAccess.getPostDecrementStatementAccess().getDECREMENTTerminalRuleCall_2(), null); 
-    }
-)
+))
 ;
 
 
@@ -1212,9 +1063,9 @@ RULE_RPAREN
     }
 )(
 (
-		lv_value_8_0=RULE_ID
+		lv_value_8_0=RULE_STRING
 		{
-			createLeafNode(grammarAccess.getTerminalExpressionAccess().getValueIDTerminalRuleCall_3_1_0(), "value"); 
+			createLeafNode(grammarAccess.getTerminalExpressionAccess().getValueSTRINGTerminalRuleCall_3_1_0(), "value"); 
 		}
 		{
 	        if ($current==null) {
@@ -1226,7 +1077,7 @@ RULE_RPAREN
 	       			$current, 
 	       			"value",
 	        		lv_value_8_0, 
-	        		"ID", 
+	        		"STRING", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
@@ -1236,42 +1087,233 @@ RULE_RPAREN
 )
 ))
     |((
-    { 
-        temp=factory.create(grammarAccess.getTerminalExpressionAccess().getStringAction_4_0().getType().getClassifier());
-        $current = temp; 
-        temp = null;
-        CompositeNode newNode = createCompositeNode(grammarAccess.getTerminalExpressionAccess().getStringAction_4_0(), currentNode.getParent());
-    newNode.getChildren().add(currentNode);
-    moveLookaheadInfo(currentNode, newNode);
-    currentNode = newNode; 
-        associateNodeWithAstElement(currentNode, $current); 
-    }
-)(
 (
-		lv_value_10_0=RULE_STRING
-		{
-			createLeafNode(grammarAccess.getTerminalExpressionAccess().getValueSTRINGTerminalRuleCall_4_1_0(), "value"); 
-		}
-		{
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getPrefixPrefixParserRuleCall_4_0_0(), currentNode); 
+	    }
+		lv_prefix_9_0=rulePrefix		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getTerminalExpressionRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        try {
 	       		set(
 	       			$current, 
-	       			"value",
-	        		lv_value_10_0, 
-	        		"STRING", 
-	        		lastConsumedNode);
+	       			"prefix",
+	        		lv_prefix_9_0, 
+	        		"Prefix", 
+	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getVariablePathVariablePathParserRuleCall_4_1_0(), currentNode); 
+	    }
+		lv_variablePath_10_0=ruleVariablePath		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTerminalExpressionRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"variablePath",
+	        		lv_variablePath_10_0, 
+	        		"VariablePath", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getTerminalExpressionAccess().getPrefixPrefixParserRuleCall_4_2_0(), currentNode); 
+	    }
+		lv_prefix_11_0=rulePrefix		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTerminalExpressionRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"prefix",
+	        		lv_prefix_11_0, 
+	        		"Prefix", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
 	    }
 
 )
 )))
 ;
+
+
+
+
+
+// Entry rule entryRuleVariablePath
+entryRuleVariablePath returns [EObject current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getVariablePathRule(), currentNode); }
+	 iv_ruleVariablePath=ruleVariablePath 
+	 { $current=$iv_ruleVariablePath.current; } 
+	 EOF 
+;
+
+// Rule VariablePath
+ruleVariablePath returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+((
+    { 
+        temp=factory.create(grammarAccess.getVariablePathAccess().getVariablePathAction_0().getType().getClassifier());
+        $current = temp; 
+        temp = null;
+        CompositeNode newNode = createCompositeNode(grammarAccess.getVariablePathAccess().getVariablePathAction_0(), currentNode.getParent());
+    newNode.getChildren().add(currentNode);
+    moveLookaheadInfo(currentNode, newNode);
+    currentNode = newNode; 
+        associateNodeWithAstElement(currentNode, $current); 
+    }
+)((RULE_GLOBAL
+    { 
+    createLeafNode(grammarAccess.getVariablePathAccess().getGLOBALTerminalRuleCall_1_0_0(), null); 
+    }
+
+    |RULE_ID
+    { 
+    createLeafNode(grammarAccess.getVariablePathAccess().getIDTerminalRuleCall_1_0_1(), null); 
+    }
+)(RULE_LSQUARE
+    { 
+    createLeafNode(grammarAccess.getVariablePathAccess().getLSQUARETerminalRuleCall_1_1_0(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getVariablePathAccess().getChildrenExpressionParserRuleCall_1_1_1_0(), currentNode); 
+	    }
+		lv_children_4_0=ruleExpression		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getVariablePathRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		add(
+	       			$current, 
+	       			"children",
+	        		lv_children_4_0, 
+	        		"Expression", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)RULE_RSQUARE
+    { 
+    createLeafNode(grammarAccess.getVariablePathAccess().getRSQUARETerminalRuleCall_1_1_2(), null); 
+    }
+)?(RULE_DOT
+    { 
+    createLeafNode(grammarAccess.getVariablePathAccess().getDOTTerminalRuleCall_1_2_0(), null); 
+    }
+(RULE_ID
+    { 
+    createLeafNode(grammarAccess.getVariablePathAccess().getIDTerminalRuleCall_1_2_1_0(), null); 
+    }
+
+    |(RULE_LPAREN
+    { 
+    createLeafNode(grammarAccess.getVariablePathAccess().getLPARENTerminalRuleCall_1_2_1_1_0(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getVariablePathAccess().getChildrenExpressionParserRuleCall_1_2_1_1_1_0(), currentNode); 
+	    }
+		lv_children_9_0=ruleExpression		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getVariablePathRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		add(
+	       			$current, 
+	       			"children",
+	        		lv_children_9_0, 
+	        		"Expression", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)RULE_RPAREN
+    { 
+    createLeafNode(grammarAccess.getVariablePathAccess().getRPARENTerminalRuleCall_1_2_1_1_2(), null); 
+    }
+)))*))
+;
+
+
+
+
+
+// Entry rule entryRulePrefix
+entryRulePrefix returns [String current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getPrefixRule(), currentNode); } 
+	 iv_rulePrefix=rulePrefix 
+	 { $current=$iv_rulePrefix.current.getText(); }  
+	 EOF 
+;
+
+// Rule Prefix
+rulePrefix returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+	    lastConsumedNode = currentNode;
+    }:
+(    this_CHOICE_0=RULE_CHOICE    {
+		$current.merge(this_CHOICE_0);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getPrefixAccess().getCHOICETerminalRuleCall_0(), null); 
+    }
+
+    |    this_DECREMENT_1=RULE_DECREMENT    {
+		$current.merge(this_DECREMENT_1);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getPrefixAccess().getDECREMENTTerminalRuleCall_1(), null); 
+    }
+)?
+    ;
 
 
 
@@ -1479,85 +1521,6 @@ RULE_LPAREN
         currentNode = currentNode.getParent();
     }
 )?))
-;
-
-
-
-
-
-// Entry rule entryRuleVariablePath
-entryRuleVariablePath returns [EObject current=null] 
-	:
-	{ currentNode = createCompositeNode(grammarAccess.getVariablePathRule(), currentNode); }
-	 iv_ruleVariablePath=ruleVariablePath 
-	 { $current=$iv_ruleVariablePath.current; } 
-	 EOF 
-;
-
-// Rule VariablePath
-ruleVariablePath returns [EObject current=null] 
-    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
-    }
-    @after { resetLookahead(); 
-    	lastConsumedNode = currentNode;
-    }:
-((
-    { 
-        temp=factory.create(grammarAccess.getVariablePathAccess().getVariablePathAction_0().getType().getClassifier());
-        $current = temp; 
-        temp = null;
-        CompositeNode newNode = createCompositeNode(grammarAccess.getVariablePathAccess().getVariablePathAction_0(), currentNode.getParent());
-    newNode.getChildren().add(currentNode);
-    moveLookaheadInfo(currentNode, newNode);
-    currentNode = newNode; 
-        associateNodeWithAstElement(currentNode, $current); 
-    }
-)RULE_GLOBAL
-    { 
-    createLeafNode(grammarAccess.getVariablePathAccess().getGLOBALTerminalRuleCall_1(), null); 
-    }
-(RULE_DOT
-    { 
-    createLeafNode(grammarAccess.getVariablePathAccess().getDOTTerminalRuleCall_2_0(), null); 
-    }
-(RULE_ID
-    { 
-    createLeafNode(grammarAccess.getVariablePathAccess().getIDTerminalRuleCall_2_1_0(), null); 
-    }
-
-    |(RULE_LPAREN
-    { 
-    createLeafNode(grammarAccess.getVariablePathAccess().getLPARENTerminalRuleCall_2_1_1_0(), null); 
-    }
-(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getVariablePathAccess().getChildrenExpressionParserRuleCall_2_1_1_1_0(), currentNode); 
-	    }
-		lv_children_5_0=ruleExpression		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getVariablePathRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		add(
-	       			$current, 
-	       			"children",
-	        		lv_children_5_0, 
-	        		"Expression", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-)RULE_RPAREN
-    { 
-    createLeafNode(grammarAccess.getVariablePathAccess().getRPARENTerminalRuleCall_2_1_1_2(), null); 
-    }
-)))*)
 ;
 
 

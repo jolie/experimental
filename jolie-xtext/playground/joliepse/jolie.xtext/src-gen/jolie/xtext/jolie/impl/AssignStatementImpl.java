@@ -5,10 +5,10 @@
  */
 package jolie.xtext.jolie.impl;
 
-import java.lang.String;
-
 import jolie.xtext.jolie.AssignStatement;
 import jolie.xtext.jolie.JoliePackage;
+import jolie.xtext.jolie.RightSideAssignament;
+import jolie.xtext.jolie.VariablePath;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -26,7 +26,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jolie.xtext.jolie.impl.AssignStatementImpl#getAssignStatement <em>Assign Statement</em>}</li>
- *   <li>{@link jolie.xtext.jolie.impl.AssignStatementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link jolie.xtext.jolie.impl.AssignStatementImpl#getVariablePath <em>Variable Path</em>}</li>
+ *   <li>{@link jolie.xtext.jolie.impl.AssignStatementImpl#getRightSideAssign <em>Right Side Assign</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,24 +46,24 @@ public class AssignStatementImpl extends BasicStatementImpl implements AssignSta
   protected AssignStatement assignStatement;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getVariablePath() <em>Variable Path</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getVariablePath()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected VariablePath variablePath;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getRightSideAssign() <em>Right Side Assign</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getRightSideAssign()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected RightSideAssignament rightSideAssign;
 
   /**
    * <!-- begin-user-doc -->
@@ -138,9 +139,9 @@ public class AssignStatementImpl extends BasicStatementImpl implements AssignSta
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public VariablePath getVariablePath()
   {
-    return name;
+    return variablePath;
   }
 
   /**
@@ -148,12 +149,85 @@ public class AssignStatementImpl extends BasicStatementImpl implements AssignSta
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public NotificationChain basicSetVariablePath(VariablePath newVariablePath, NotificationChain msgs)
   {
-    String oldName = name;
-    name = newName;
+    VariablePath oldVariablePath = variablePath;
+    variablePath = newVariablePath;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.ASSIGN_STATEMENT__NAME, oldName, name));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoliePackage.ASSIGN_STATEMENT__VARIABLE_PATH, oldVariablePath, newVariablePath);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVariablePath(VariablePath newVariablePath)
+  {
+    if (newVariablePath != variablePath)
+    {
+      NotificationChain msgs = null;
+      if (variablePath != null)
+        msgs = ((InternalEObject)variablePath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoliePackage.ASSIGN_STATEMENT__VARIABLE_PATH, null, msgs);
+      if (newVariablePath != null)
+        msgs = ((InternalEObject)newVariablePath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoliePackage.ASSIGN_STATEMENT__VARIABLE_PATH, null, msgs);
+      msgs = basicSetVariablePath(newVariablePath, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.ASSIGN_STATEMENT__VARIABLE_PATH, newVariablePath, newVariablePath));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RightSideAssignament getRightSideAssign()
+  {
+    return rightSideAssign;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetRightSideAssign(RightSideAssignament newRightSideAssign, NotificationChain msgs)
+  {
+    RightSideAssignament oldRightSideAssign = rightSideAssign;
+    rightSideAssign = newRightSideAssign;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoliePackage.ASSIGN_STATEMENT__RIGHT_SIDE_ASSIGN, oldRightSideAssign, newRightSideAssign);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRightSideAssign(RightSideAssignament newRightSideAssign)
+  {
+    if (newRightSideAssign != rightSideAssign)
+    {
+      NotificationChain msgs = null;
+      if (rightSideAssign != null)
+        msgs = ((InternalEObject)rightSideAssign).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoliePackage.ASSIGN_STATEMENT__RIGHT_SIDE_ASSIGN, null, msgs);
+      if (newRightSideAssign != null)
+        msgs = ((InternalEObject)newRightSideAssign).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoliePackage.ASSIGN_STATEMENT__RIGHT_SIDE_ASSIGN, null, msgs);
+      msgs = basicSetRightSideAssign(newRightSideAssign, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.ASSIGN_STATEMENT__RIGHT_SIDE_ASSIGN, newRightSideAssign, newRightSideAssign));
   }
 
   /**
@@ -168,6 +242,10 @@ public class AssignStatementImpl extends BasicStatementImpl implements AssignSta
     {
       case JoliePackage.ASSIGN_STATEMENT__ASSIGN_STATEMENT:
         return basicSetAssignStatement(null, msgs);
+      case JoliePackage.ASSIGN_STATEMENT__VARIABLE_PATH:
+        return basicSetVariablePath(null, msgs);
+      case JoliePackage.ASSIGN_STATEMENT__RIGHT_SIDE_ASSIGN:
+        return basicSetRightSideAssign(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -184,8 +262,10 @@ public class AssignStatementImpl extends BasicStatementImpl implements AssignSta
     {
       case JoliePackage.ASSIGN_STATEMENT__ASSIGN_STATEMENT:
         return getAssignStatement();
-      case JoliePackage.ASSIGN_STATEMENT__NAME:
-        return getName();
+      case JoliePackage.ASSIGN_STATEMENT__VARIABLE_PATH:
+        return getVariablePath();
+      case JoliePackage.ASSIGN_STATEMENT__RIGHT_SIDE_ASSIGN:
+        return getRightSideAssign();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -203,8 +283,11 @@ public class AssignStatementImpl extends BasicStatementImpl implements AssignSta
       case JoliePackage.ASSIGN_STATEMENT__ASSIGN_STATEMENT:
         setAssignStatement((AssignStatement)newValue);
         return;
-      case JoliePackage.ASSIGN_STATEMENT__NAME:
-        setName((String)newValue);
+      case JoliePackage.ASSIGN_STATEMENT__VARIABLE_PATH:
+        setVariablePath((VariablePath)newValue);
+        return;
+      case JoliePackage.ASSIGN_STATEMENT__RIGHT_SIDE_ASSIGN:
+        setRightSideAssign((RightSideAssignament)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -223,8 +306,11 @@ public class AssignStatementImpl extends BasicStatementImpl implements AssignSta
       case JoliePackage.ASSIGN_STATEMENT__ASSIGN_STATEMENT:
         setAssignStatement((AssignStatement)null);
         return;
-      case JoliePackage.ASSIGN_STATEMENT__NAME:
-        setName(NAME_EDEFAULT);
+      case JoliePackage.ASSIGN_STATEMENT__VARIABLE_PATH:
+        setVariablePath((VariablePath)null);
+        return;
+      case JoliePackage.ASSIGN_STATEMENT__RIGHT_SIDE_ASSIGN:
+        setRightSideAssign((RightSideAssignament)null);
         return;
     }
     super.eUnset(featureID);
@@ -242,27 +328,12 @@ public class AssignStatementImpl extends BasicStatementImpl implements AssignSta
     {
       case JoliePackage.ASSIGN_STATEMENT__ASSIGN_STATEMENT:
         return assignStatement != null;
-      case JoliePackage.ASSIGN_STATEMENT__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case JoliePackage.ASSIGN_STATEMENT__VARIABLE_PATH:
+        return variablePath != null;
+      case JoliePackage.ASSIGN_STATEMENT__RIGHT_SIDE_ASSIGN:
+        return rightSideAssign != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //AssignStatementImpl

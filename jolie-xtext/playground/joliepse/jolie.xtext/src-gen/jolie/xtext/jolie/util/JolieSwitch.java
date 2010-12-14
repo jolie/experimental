@@ -19,11 +19,10 @@ import jolie.xtext.jolie.NDChoiceStatement;
 import jolie.xtext.jolie.OLSyntaxNode;
 import jolie.xtext.jolie.Operation;
 import jolie.xtext.jolie.ParallelStatement;
-import jolie.xtext.jolie.PostDecrementStatement;
-import jolie.xtext.jolie.PostIncrementStatement;
 import jolie.xtext.jolie.Program;
 import jolie.xtext.jolie.RealLiteral;
 import jolie.xtext.jolie.RequestResponseOperation;
+import jolie.xtext.jolie.RightSideAssignament;
 import jolie.xtext.jolie.SequenceStatement;
 import jolie.xtext.jolie.VariablePath;
 
@@ -171,19 +170,10 @@ public class JolieSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case JoliePackage.POST_INCREMENT_STATEMENT:
+      case JoliePackage.RIGHT_SIDE_ASSIGNAMENT:
       {
-        PostIncrementStatement postIncrementStatement = (PostIncrementStatement)theEObject;
-        T result = casePostIncrementStatement(postIncrementStatement);
-        if (result == null) result = caseBasicStatement(postIncrementStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case JoliePackage.POST_DECREMENT_STATEMENT:
-      {
-        PostDecrementStatement postDecrementStatement = (PostDecrementStatement)theEObject;
-        T result = casePostDecrementStatement(postDecrementStatement);
-        if (result == null) result = caseBasicStatement(postDecrementStatement);
+        RightSideAssignament rightSideAssignament = (RightSideAssignament)theEObject;
+        T result = caseRightSideAssignament(rightSideAssignament);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -191,8 +181,15 @@ public class JolieSwitch<T>
       {
         Expression expression = (Expression)theEObject;
         T result = caseExpression(expression);
-        if (result == null) result = caseAssignStatement(expression);
-        if (result == null) result = caseBasicStatement(expression);
+        if (result == null) result = caseRightSideAssignament(expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JoliePackage.VARIABLE_PATH:
+      {
+        VariablePath variablePath = (VariablePath)theEObject;
+        T result = caseVariablePath(variablePath);
+        if (result == null) result = caseInputOperation(variablePath);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -208,14 +205,6 @@ public class JolieSwitch<T>
       {
         InputOperation inputOperation = (InputOperation)theEObject;
         T result = caseInputOperation(inputOperation);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case JoliePackage.VARIABLE_PATH:
-      {
-        VariablePath variablePath = (VariablePath)theEObject;
-        T result = caseVariablePath(variablePath);
-        if (result == null) result = caseInputOperation(variablePath);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -240,8 +229,7 @@ public class JolieSwitch<T>
         Operation operation = (Operation)theEObject;
         T result = caseOperation(operation);
         if (result == null) result = caseExpression(operation);
-        if (result == null) result = caseAssignStatement(operation);
-        if (result == null) result = caseBasicStatement(operation);
+        if (result == null) result = caseRightSideAssignament(operation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -250,8 +238,7 @@ public class JolieSwitch<T>
         IntLiteral intLiteral = (IntLiteral)theEObject;
         T result = caseIntLiteral(intLiteral);
         if (result == null) result = caseExpression(intLiteral);
-        if (result == null) result = caseAssignStatement(intLiteral);
-        if (result == null) result = caseBasicStatement(intLiteral);
+        if (result == null) result = caseRightSideAssignament(intLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -260,8 +247,7 @@ public class JolieSwitch<T>
         RealLiteral realLiteral = (RealLiteral)theEObject;
         T result = caseRealLiteral(realLiteral);
         if (result == null) result = caseExpression(realLiteral);
-        if (result == null) result = caseAssignStatement(realLiteral);
-        if (result == null) result = caseBasicStatement(realLiteral);
+        if (result == null) result = caseRightSideAssignament(realLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -270,8 +256,7 @@ public class JolieSwitch<T>
         jolie.xtext.jolie.String string = (jolie.xtext.jolie.String)theEObject;
         T result = caseString(string);
         if (result == null) result = caseExpression(string);
-        if (result == null) result = caseAssignStatement(string);
-        if (result == null) result = caseBasicStatement(string);
+        if (result == null) result = caseRightSideAssignament(string);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -408,33 +393,17 @@ public class JolieSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Post Increment Statement</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Right Side Assignament</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Post Increment Statement</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Right Side Assignament</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePostIncrementStatement(PostIncrementStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Post Decrement Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Post Decrement Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePostDecrementStatement(PostDecrementStatement object)
+  public T caseRightSideAssignament(RightSideAssignament object)
   {
     return null;
   }
@@ -451,6 +420,22 @@ public class JolieSwitch<T>
    * @generated
    */
   public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Variable Path</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Variable Path</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVariablePath(VariablePath object)
   {
     return null;
   }
@@ -483,22 +468,6 @@ public class JolieSwitch<T>
    * @generated
    */
   public T caseInputOperation(InputOperation object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Variable Path</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variable Path</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVariablePath(VariablePath object)
   {
     return null;
   }

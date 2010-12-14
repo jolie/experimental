@@ -98,22 +98,13 @@ public interface JolieFactory extends EFactory
   AssignStatement createAssignStatement();
 
   /**
-   * Returns a new object of class '<em>Post Increment Statement</em>'.
+   * Returns a new object of class '<em>Right Side Assignament</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Post Increment Statement</em>'.
+   * @return a new object of class '<em>Right Side Assignament</em>'.
    * @generated
    */
-  PostIncrementStatement createPostIncrementStatement();
-
-  /**
-   * Returns a new object of class '<em>Post Decrement Statement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Post Decrement Statement</em>'.
-   * @generated
-   */
-  PostDecrementStatement createPostDecrementStatement();
+  RightSideAssignament createRightSideAssignament();
 
   /**
    * Returns a new object of class '<em>Expression</em>'.
@@ -123,6 +114,15 @@ public interface JolieFactory extends EFactory
    * @generated
    */
   Expression createExpression();
+
+  /**
+   * Returns a new object of class '<em>Variable Path</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Variable Path</em>'.
+   * @generated
+   */
+  VariablePath createVariablePath();
 
   /**
    * Returns a new object of class '<em>ND Choice Statement</em>'.
@@ -141,15 +141,6 @@ public interface JolieFactory extends EFactory
    * @generated
    */
   InputOperation createInputOperation();
-
-  /**
-   * Returns a new object of class '<em>Variable Path</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable Path</em>'.
-   * @generated
-   */
-  VariablePath createVariablePath();
 
   /**
    * Returns a new object of class '<em>Request Response Operation</em>'.

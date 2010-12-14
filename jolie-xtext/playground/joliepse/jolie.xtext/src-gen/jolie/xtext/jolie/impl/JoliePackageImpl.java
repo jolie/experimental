@@ -18,11 +18,10 @@ import jolie.xtext.jolie.NDChoiceStatement;
 import jolie.xtext.jolie.OLSyntaxNode;
 import jolie.xtext.jolie.Operation;
 import jolie.xtext.jolie.ParallelStatement;
-import jolie.xtext.jolie.PostDecrementStatement;
-import jolie.xtext.jolie.PostIncrementStatement;
 import jolie.xtext.jolie.Program;
 import jolie.xtext.jolie.RealLiteral;
 import jolie.xtext.jolie.RequestResponseOperation;
+import jolie.xtext.jolie.RightSideAssignament;
 import jolie.xtext.jolie.SequenceStatement;
 import jolie.xtext.jolie.VariablePath;
 
@@ -102,14 +101,7 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass postIncrementStatementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass postDecrementStatementEClass = null;
+  private EClass rightSideAssignamentEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -117,6 +109,13 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
    * @generated
    */
   private EClass expressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass variablePathEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -131,13 +130,6 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
    * @generated
    */
   private EClass inputOperationEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass variablePathEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -399,9 +391,9 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAssignStatement_Name()
+  public EReference getAssignStatement_VariablePath()
   {
-    return (EAttribute)assignStatementEClass.getEStructuralFeatures().get(1);
+    return (EReference)assignStatementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -409,9 +401,9 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPostIncrementStatement()
+  public EReference getAssignStatement_RightSideAssign()
   {
-    return postIncrementStatementEClass;
+    return (EReference)assignStatementEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -419,49 +411,9 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPostIncrementStatement_PostIncrementStatement()
+  public EClass getRightSideAssignament()
   {
-    return (EReference)postIncrementStatementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getPostIncrementStatement_Name()
-  {
-    return (EAttribute)postIncrementStatementEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getPostDecrementStatement()
-  {
-    return postDecrementStatementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getPostDecrementStatement_PostDecrementStatement()
-  {
-    return (EReference)postDecrementStatementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getPostDecrementStatement_Name()
-  {
-    return (EAttribute)postDecrementStatementEClass.getEStructuralFeatures().get(1);
+    return rightSideAssignamentEClass;
   }
 
   /**
@@ -482,6 +434,56 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
   public EReference getExpression_Expression()
   {
     return (EReference)expressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getExpression_Prefix()
+  {
+    return (EAttribute)expressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExpression_VariablePath()
+  {
+    return (EReference)expressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getVariablePath()
+  {
+    return variablePathEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVariablePath_Children()
+  {
+    return (EReference)variablePathEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVariablePath_VariablePath()
+  {
+    return (EReference)variablePathEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -532,36 +534,6 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
   public EClass getInputOperation()
   {
     return inputOperationEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getVariablePath()
-  {
-    return variablePathEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getVariablePath_VariablePath()
-  {
-    return (EReference)variablePathEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getVariablePath_Children()
-  {
-    return (EReference)variablePathEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -766,18 +738,19 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
 
     assignStatementEClass = createEClass(ASSIGN_STATEMENT);
     createEReference(assignStatementEClass, ASSIGN_STATEMENT__ASSIGN_STATEMENT);
-    createEAttribute(assignStatementEClass, ASSIGN_STATEMENT__NAME);
+    createEReference(assignStatementEClass, ASSIGN_STATEMENT__VARIABLE_PATH);
+    createEReference(assignStatementEClass, ASSIGN_STATEMENT__RIGHT_SIDE_ASSIGN);
 
-    postIncrementStatementEClass = createEClass(POST_INCREMENT_STATEMENT);
-    createEReference(postIncrementStatementEClass, POST_INCREMENT_STATEMENT__POST_INCREMENT_STATEMENT);
-    createEAttribute(postIncrementStatementEClass, POST_INCREMENT_STATEMENT__NAME);
-
-    postDecrementStatementEClass = createEClass(POST_DECREMENT_STATEMENT);
-    createEReference(postDecrementStatementEClass, POST_DECREMENT_STATEMENT__POST_DECREMENT_STATEMENT);
-    createEAttribute(postDecrementStatementEClass, POST_DECREMENT_STATEMENT__NAME);
+    rightSideAssignamentEClass = createEClass(RIGHT_SIDE_ASSIGNAMENT);
 
     expressionEClass = createEClass(EXPRESSION);
     createEReference(expressionEClass, EXPRESSION__EXPRESSION);
+    createEAttribute(expressionEClass, EXPRESSION__PREFIX);
+    createEReference(expressionEClass, EXPRESSION__VARIABLE_PATH);
+
+    variablePathEClass = createEClass(VARIABLE_PATH);
+    createEReference(variablePathEClass, VARIABLE_PATH__CHILDREN);
+    createEReference(variablePathEClass, VARIABLE_PATH__VARIABLE_PATH);
 
     ndChoiceStatementEClass = createEClass(ND_CHOICE_STATEMENT);
     createEReference(ndChoiceStatementEClass, ND_CHOICE_STATEMENT__ND_CHOICE_STATEMENT);
@@ -785,10 +758,6 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
     createEReference(ndChoiceStatementEClass, ND_CHOICE_STATEMENT__MAIN_PROCESS);
 
     inputOperationEClass = createEClass(INPUT_OPERATION);
-
-    variablePathEClass = createEClass(VARIABLE_PATH);
-    createEReference(variablePathEClass, VARIABLE_PATH__VARIABLE_PATH);
-    createEReference(variablePathEClass, VARIABLE_PATH__CHILDREN);
 
     requestResponseOperationEClass = createEClass(REQUEST_RESPONSE_OPERATION);
     createEReference(requestResponseOperationEClass, REQUEST_RESPONSE_OPERATION__EXPRESSION);
@@ -843,11 +812,9 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
     // Add supertypes to classes
     processEClass.getESuperTypes().add(this.getBasicStatement());
     assignStatementEClass.getESuperTypes().add(this.getBasicStatement());
-    postIncrementStatementEClass.getESuperTypes().add(this.getBasicStatement());
-    postDecrementStatementEClass.getESuperTypes().add(this.getBasicStatement());
-    expressionEClass.getESuperTypes().add(this.getAssignStatement());
-    ndChoiceStatementEClass.getESuperTypes().add(this.getBasicStatement());
+    expressionEClass.getESuperTypes().add(this.getRightSideAssignament());
     variablePathEClass.getESuperTypes().add(this.getInputOperation());
+    ndChoiceStatementEClass.getESuperTypes().add(this.getBasicStatement());
     requestResponseOperationEClass.getESuperTypes().add(this.getInputOperation());
     olSyntaxNodeEClass.getESuperTypes().add(this.getMainProcess());
     operationEClass.getESuperTypes().add(this.getExpression());
@@ -878,18 +845,19 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
 
     initEClass(assignStatementEClass, AssignStatement.class, "AssignStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAssignStatement_AssignStatement(), this.getAssignStatement(), null, "assignStatement", null, 0, 1, AssignStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAssignStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, AssignStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAssignStatement_VariablePath(), this.getVariablePath(), null, "variablePath", null, 0, 1, AssignStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAssignStatement_RightSideAssign(), this.getRightSideAssignament(), null, "rightSideAssign", null, 0, 1, AssignStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(postIncrementStatementEClass, PostIncrementStatement.class, "PostIncrementStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPostIncrementStatement_PostIncrementStatement(), this.getPostIncrementStatement(), null, "postIncrementStatement", null, 0, 1, PostIncrementStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPostIncrementStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, PostIncrementStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(postDecrementStatementEClass, PostDecrementStatement.class, "PostDecrementStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPostDecrementStatement_PostDecrementStatement(), this.getPostDecrementStatement(), null, "PostDecrementStatement", null, 0, 1, PostDecrementStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPostDecrementStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, PostDecrementStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(rightSideAssignamentEClass, RightSideAssignament.class, "RightSideAssignament", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpression_Expression(), this.getExpression(), null, "expression", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExpression_Prefix(), ecorePackage.getEString(), "prefix", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_VariablePath(), this.getVariablePath(), null, "variablePath", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(variablePathEClass, VariablePath.class, "VariablePath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getVariablePath_Children(), this.getExpression(), null, "children", null, 0, -1, VariablePath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVariablePath_VariablePath(), this.getVariablePath(), null, "variablePath", null, 0, 1, VariablePath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ndChoiceStatementEClass, NDChoiceStatement.class, "NDChoiceStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNDChoiceStatement_NDChoiceStatement(), this.getNDChoiceStatement(), null, "NDChoiceStatement", null, 0, -1, NDChoiceStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -897,10 +865,6 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
     initEReference(getNDChoiceStatement_MainProcess(), this.getMainProcess(), null, "mainProcess", null, 0, -1, NDChoiceStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(inputOperationEClass, InputOperation.class, "InputOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(variablePathEClass, VariablePath.class, "VariablePath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getVariablePath_VariablePath(), this.getVariablePath(), null, "variablePath", null, 0, 1, VariablePath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getVariablePath_Children(), this.getExpression(), null, "children", null, 0, -1, VariablePath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(requestResponseOperationEClass, RequestResponseOperation.class, "RequestResponseOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRequestResponseOperation_Expression(), this.getExpression(), null, "expression", null, 0, 1, RequestResponseOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

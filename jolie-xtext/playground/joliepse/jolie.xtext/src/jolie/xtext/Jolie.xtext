@@ -11,7 +11,7 @@ Program:
 /* (locations=Locations)* */ 'main' (main=Main);
 /*  
 Locations :
-
+ASSIGN
  ('inputPort' name=ID LCURLY (locations=LocationDefinition) RCURLY) &
  ('outputPort' name=ID LCURLY (locations=LocationDefinition) RCURLY)
 
@@ -56,26 +56,31 @@ SequenceStatement:
 	//Il basicStatement,  un costrutto base, ma pu anche essere un processo (questa produzione permette la ricorsione di parallel e sequence) 
 BasicStatement:
 	{Process} process=Process | //Questa  la regola che mi permette la ricorsione
-	{AssignStatement} assignStatement=AssignStatement | {PostIncrementStatement}
-	postIncrementStatement=PostIncrementStatement | {PostDecrementStatement}
-	PostDecrementStatement=PostDecrementStatement| {NDChoiceStatement}
-	NDChoiceStatement+=NDChoiceStatement;
+	{AssignStatement} assignStatement=AssignStatement | 
+	{NDChoiceStatement} NDChoiceStatement+=NDChoiceStatement;
 
 AssignStatement:
-	{AssignStatement} name=ID ASSIGN {Expression} expression=Expression;
+	{AssignStatement} variablePath=VariablePath ASSIGN  rightSideAssign=RightSideAssignament;
 
-PostIncrementStatement:
-	{PostIncrementStatement} name=ID CHOICE;
+RightSideAssignament:
+ 
+     {Expression} expression=Expression ;
 
-PostDecrementStatement:
-	{PostDecrementStatement} name=ID DECREMENT;
 
 /*********************************************ESPRESSIONI ARITMETICHE*********************************************/
 Expression:
 	TerminalExpression ({Operation.left=current} op=(PLUS | MINUS | ASTERISK | DIVIDE) right=Expression)?;
 
 TerminalExpression returns Expression:
-	LPAREN Expression RPAREN | {IntLiteral} value=INT | {RealLiteral} value=REAL | {String} value=ID | {String} value=STRING;
+	LPAREN Expression RPAREN | {IntLiteral} value=INT | {RealLiteral} value=REAL  | {String} value=STRING | prefix=Prefix variablePath=VariablePath prefix=Prefix ;
+	
+VariablePath: 
+
+  {VariablePath} ((GLOBAL|ID) (LSQUARE  children+=Expression RSQUARE)?  ( DOT (ID| (LPAREN  children+=Expression RPAREN)))*);
+	
+Prefix: 
+  	(CHOICE|DECREMENT)?;
+  		
 /******************************************************************************************************************/
 
 
@@ -88,12 +93,7 @@ NDChoiceStatement:
 InputOperation:
  {InputOperation} LINKIN LPAREN ID RPAREN |
  {InputOperation} ID LPAREN {VariablePath} variablePath=VariablePath RPAREN (RequestResponseOperation)?; //line 1689 OLParser
-    
- 
-VariablePath: 
-
-  {VariablePath} GLOBAL ( DOT (ID| (LPAREN  children+=Expression RPAREN)))*;
-  
+      
 RequestResponseOperation:
     
  LPAREN expression=Expression RPAREN mainProcess=MainProcess;

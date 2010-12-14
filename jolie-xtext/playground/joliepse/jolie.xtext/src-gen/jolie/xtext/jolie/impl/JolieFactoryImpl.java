@@ -18,11 +18,10 @@ import jolie.xtext.jolie.NDChoiceStatement;
 import jolie.xtext.jolie.OLSyntaxNode;
 import jolie.xtext.jolie.Operation;
 import jolie.xtext.jolie.ParallelStatement;
-import jolie.xtext.jolie.PostDecrementStatement;
-import jolie.xtext.jolie.PostIncrementStatement;
 import jolie.xtext.jolie.Program;
 import jolie.xtext.jolie.RealLiteral;
 import jolie.xtext.jolie.RequestResponseOperation;
+import jolie.xtext.jolie.RightSideAssignament;
 import jolie.xtext.jolie.SequenceStatement;
 import jolie.xtext.jolie.VariablePath;
 
@@ -94,12 +93,11 @@ public class JolieFactoryImpl extends EFactoryImpl implements JolieFactory
       case JoliePackage.SEQUENCE_STATEMENT: return createSequenceStatement();
       case JoliePackage.BASIC_STATEMENT: return createBasicStatement();
       case JoliePackage.ASSIGN_STATEMENT: return createAssignStatement();
-      case JoliePackage.POST_INCREMENT_STATEMENT: return createPostIncrementStatement();
-      case JoliePackage.POST_DECREMENT_STATEMENT: return createPostDecrementStatement();
+      case JoliePackage.RIGHT_SIDE_ASSIGNAMENT: return createRightSideAssignament();
       case JoliePackage.EXPRESSION: return createExpression();
+      case JoliePackage.VARIABLE_PATH: return createVariablePath();
       case JoliePackage.ND_CHOICE_STATEMENT: return createNDChoiceStatement();
       case JoliePackage.INPUT_OPERATION: return createInputOperation();
-      case JoliePackage.VARIABLE_PATH: return createVariablePath();
       case JoliePackage.REQUEST_RESPONSE_OPERATION: return createRequestResponseOperation();
       case JoliePackage.OL_SYNTAX_NODE: return createOLSyntaxNode();
       case JoliePackage.OPERATION: return createOperation();
@@ -204,21 +202,10 @@ public class JolieFactoryImpl extends EFactoryImpl implements JolieFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public PostIncrementStatement createPostIncrementStatement()
+  public RightSideAssignament createRightSideAssignament()
   {
-    PostIncrementStatementImpl postIncrementStatement = new PostIncrementStatementImpl();
-    return postIncrementStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PostDecrementStatement createPostDecrementStatement()
-  {
-    PostDecrementStatementImpl postDecrementStatement = new PostDecrementStatementImpl();
-    return postDecrementStatement;
+    RightSideAssignamentImpl rightSideAssignament = new RightSideAssignamentImpl();
+    return rightSideAssignament;
   }
 
   /**
@@ -230,6 +217,17 @@ public class JolieFactoryImpl extends EFactoryImpl implements JolieFactory
   {
     ExpressionImpl expression = new ExpressionImpl();
     return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VariablePath createVariablePath()
+  {
+    VariablePathImpl variablePath = new VariablePathImpl();
+    return variablePath;
   }
 
   /**
@@ -252,17 +250,6 @@ public class JolieFactoryImpl extends EFactoryImpl implements JolieFactory
   {
     InputOperationImpl inputOperation = new InputOperationImpl();
     return inputOperation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public VariablePath createVariablePath()
-  {
-    VariablePathImpl variablePath = new VariablePathImpl();
-    return variablePath;
   }
 
   /**

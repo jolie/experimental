@@ -17,11 +17,10 @@ import jolie.xtext.jolie.NDChoiceStatement;
 import jolie.xtext.jolie.OLSyntaxNode;
 import jolie.xtext.jolie.Operation;
 import jolie.xtext.jolie.ParallelStatement;
-import jolie.xtext.jolie.PostDecrementStatement;
-import jolie.xtext.jolie.PostIncrementStatement;
 import jolie.xtext.jolie.Program;
 import jolie.xtext.jolie.RealLiteral;
 import jolie.xtext.jolie.RequestResponseOperation;
+import jolie.xtext.jolie.RightSideAssignament;
 import jolie.xtext.jolie.SequenceStatement;
 import jolie.xtext.jolie.VariablePath;
 
@@ -136,19 +135,19 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
         return createAssignStatementAdapter();
       }
       @Override
-      public Adapter casePostIncrementStatement(PostIncrementStatement object)
+      public Adapter caseRightSideAssignament(RightSideAssignament object)
       {
-        return createPostIncrementStatementAdapter();
-      }
-      @Override
-      public Adapter casePostDecrementStatement(PostDecrementStatement object)
-      {
-        return createPostDecrementStatementAdapter();
+        return createRightSideAssignamentAdapter();
       }
       @Override
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
+      }
+      @Override
+      public Adapter caseVariablePath(VariablePath object)
+      {
+        return createVariablePathAdapter();
       }
       @Override
       public Adapter caseNDChoiceStatement(NDChoiceStatement object)
@@ -159,11 +158,6 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
       public Adapter caseInputOperation(InputOperation object)
       {
         return createInputOperationAdapter();
-      }
-      @Override
-      public Adapter caseVariablePath(VariablePath object)
-      {
-        return createVariablePathAdapter();
       }
       @Override
       public Adapter caseRequestResponseOperation(RequestResponseOperation object)
@@ -338,31 +332,16 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.PostIncrementStatement <em>Post Increment Statement</em>}'.
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.RightSideAssignament <em>Right Side Assignament</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see jolie.xtext.jolie.PostIncrementStatement
+   * @see jolie.xtext.jolie.RightSideAssignament
    * @generated
    */
-  public Adapter createPostIncrementStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.PostDecrementStatement <em>Post Decrement Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see jolie.xtext.jolie.PostDecrementStatement
-   * @generated
-   */
-  public Adapter createPostDecrementStatementAdapter()
+  public Adapter createRightSideAssignamentAdapter()
   {
     return null;
   }
@@ -378,6 +357,21 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.VariablePath <em>Variable Path</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.VariablePath
+   * @generated
+   */
+  public Adapter createVariablePathAdapter()
   {
     return null;
   }
@@ -408,21 +402,6 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createInputOperationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.VariablePath <em>Variable Path</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see jolie.xtext.jolie.VariablePath
-   * @generated
-   */
-  public Adapter createVariablePathAdapter()
   {
     return null;
   }
