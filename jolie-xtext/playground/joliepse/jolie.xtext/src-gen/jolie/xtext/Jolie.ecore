@@ -10,7 +10,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="mainrocess" eType="#//MainProcess"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MainProcess"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MainProcess" eSuperTypes="#//NDChoiceStatement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainProcess" eType="#//MainProcess"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//BasicStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
         eType="#//ParallelStatement" containment="true"/>
@@ -39,11 +42,21 @@
   <eClassifiers xsi:type="ecore:EClass" name="PostDecrementStatement" eSuperTypes="#//BasicStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="PostDecrementStatement"
         eType="#//PostDecrementStatement" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="naem" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//AssignStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NDChoiceStatement" eSuperTypes="#//BasicStatement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="NDChoiceStatement" eType="#//NDChoiceStatement"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VariablePath" eSuperTypes="#//NDChoiceStatement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variablePath" eType="#//VariablePath"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//Expression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OLSyntaxNode" eSuperTypes="#//MainProcess">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parallelStatement" eType="#//ParallelStatement"
@@ -64,5 +77,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="String" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MainProcess2" eSuperTypes="#//NDChoiceStatement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="MainProcess" eType="#//MainProcess"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

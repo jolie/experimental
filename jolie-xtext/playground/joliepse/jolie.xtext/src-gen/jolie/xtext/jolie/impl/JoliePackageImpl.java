@@ -13,6 +13,8 @@ import jolie.xtext.jolie.JolieFactory;
 import jolie.xtext.jolie.JoliePackage;
 import jolie.xtext.jolie.Main;
 import jolie.xtext.jolie.MainProcess;
+import jolie.xtext.jolie.MainProcess2;
+import jolie.xtext.jolie.NDChoiceStatement;
 import jolie.xtext.jolie.OLSyntaxNode;
 import jolie.xtext.jolie.Operation;
 import jolie.xtext.jolie.ParallelStatement;
@@ -21,6 +23,7 @@ import jolie.xtext.jolie.PostIncrementStatement;
 import jolie.xtext.jolie.Program;
 import jolie.xtext.jolie.RealLiteral;
 import jolie.xtext.jolie.SequenceStatement;
+import jolie.xtext.jolie.VariablePath;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -119,6 +122,20 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass ndChoiceStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass variablePathEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass olSyntaxNodeEClass = null;
 
   /**
@@ -148,6 +165,13 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
    * @generated
    */
   private EClass stringEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mainProcess2EClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -260,6 +284,16 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
   public EClass getMainProcess()
   {
     return mainProcessEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMainProcess_MainProcess()
+  {
+    return (EReference)mainProcessEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -427,7 +461,7 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPostDecrementStatement_Naem()
+  public EAttribute getPostDecrementStatement_Name()
   {
     return (EAttribute)postDecrementStatementEClass.getEStructuralFeatures().get(1);
   }
@@ -450,6 +484,56 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
   public EReference getExpression_Expression()
   {
     return (EReference)expressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getNDChoiceStatement()
+  {
+    return ndChoiceStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getNDChoiceStatement_NDChoiceStatement()
+  {
+    return (EReference)ndChoiceStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getVariablePath()
+  {
+    return variablePathEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVariablePath_VariablePath()
+  {
+    return (EReference)variablePathEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVariablePath_Children()
+  {
+    return (EReference)variablePathEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -577,6 +661,26 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getMainProcess2()
+  {
+    return mainProcess2EClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMainProcess2_MainProcess()
+  {
+    return (EReference)mainProcess2EClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public JolieFactory getJolieFactory()
   {
     return (JolieFactory)getEFactoryInstance();
@@ -609,6 +713,7 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
     createEReference(mainEClass, MAIN__MAINROCESS);
 
     mainProcessEClass = createEClass(MAIN_PROCESS);
+    createEReference(mainProcessEClass, MAIN_PROCESS__MAIN_PROCESS);
 
     processEClass = createEClass(PROCESS);
     createEReference(processEClass, PROCESS__CHILDREN);
@@ -632,10 +737,17 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
 
     postDecrementStatementEClass = createEClass(POST_DECREMENT_STATEMENT);
     createEReference(postDecrementStatementEClass, POST_DECREMENT_STATEMENT__POST_DECREMENT_STATEMENT);
-    createEAttribute(postDecrementStatementEClass, POST_DECREMENT_STATEMENT__NAEM);
+    createEAttribute(postDecrementStatementEClass, POST_DECREMENT_STATEMENT__NAME);
 
     expressionEClass = createEClass(EXPRESSION);
     createEReference(expressionEClass, EXPRESSION__EXPRESSION);
+
+    ndChoiceStatementEClass = createEClass(ND_CHOICE_STATEMENT);
+    createEReference(ndChoiceStatementEClass, ND_CHOICE_STATEMENT__ND_CHOICE_STATEMENT);
+
+    variablePathEClass = createEClass(VARIABLE_PATH);
+    createEReference(variablePathEClass, VARIABLE_PATH__VARIABLE_PATH);
+    createEReference(variablePathEClass, VARIABLE_PATH__CHILDREN);
 
     olSyntaxNodeEClass = createEClass(OL_SYNTAX_NODE);
     createEReference(olSyntaxNodeEClass, OL_SYNTAX_NODE__PARALLEL_STATEMENT);
@@ -653,6 +765,9 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
 
     stringEClass = createEClass(STRING);
     createEAttribute(stringEClass, STRING__VALUE);
+
+    mainProcess2EClass = createEClass(MAIN_PROCESS2);
+    createEReference(mainProcess2EClass, MAIN_PROCESS2__MAIN_PROCESS);
   }
 
   /**
@@ -684,16 +799,20 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    mainProcessEClass.getESuperTypes().add(this.getNDChoiceStatement());
     processEClass.getESuperTypes().add(this.getBasicStatement());
     assignStatementEClass.getESuperTypes().add(this.getBasicStatement());
     postIncrementStatementEClass.getESuperTypes().add(this.getBasicStatement());
     postDecrementStatementEClass.getESuperTypes().add(this.getBasicStatement());
     expressionEClass.getESuperTypes().add(this.getAssignStatement());
+    ndChoiceStatementEClass.getESuperTypes().add(this.getBasicStatement());
+    variablePathEClass.getESuperTypes().add(this.getNDChoiceStatement());
     olSyntaxNodeEClass.getESuperTypes().add(this.getMainProcess());
     operationEClass.getESuperTypes().add(this.getExpression());
     intLiteralEClass.getESuperTypes().add(this.getExpression());
     realLiteralEClass.getESuperTypes().add(this.getExpression());
     stringEClass.getESuperTypes().add(this.getExpression());
+    mainProcess2EClass.getESuperTypes().add(this.getNDChoiceStatement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -703,6 +822,7 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
     initEReference(getMain_Mainrocess(), this.getMainProcess(), null, "mainrocess", null, 0, 1, Main.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mainProcessEClass, MainProcess.class, "MainProcess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMainProcess_MainProcess(), this.getMainProcess(), null, "mainProcess", null, 0, 1, MainProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(processEClass, jolie.xtext.jolie.Process.class, "Process", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getProcess_Children(), this.getParallelStatement(), null, "children", null, 0, -1, jolie.xtext.jolie.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -726,10 +846,17 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
 
     initEClass(postDecrementStatementEClass, PostDecrementStatement.class, "PostDecrementStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPostDecrementStatement_PostDecrementStatement(), this.getPostDecrementStatement(), null, "PostDecrementStatement", null, 0, 1, PostDecrementStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPostDecrementStatement_Naem(), ecorePackage.getEString(), "naem", null, 0, 1, PostDecrementStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPostDecrementStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, PostDecrementStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpression_Expression(), this.getExpression(), null, "expression", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ndChoiceStatementEClass, NDChoiceStatement.class, "NDChoiceStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNDChoiceStatement_NDChoiceStatement(), this.getNDChoiceStatement(), null, "NDChoiceStatement", null, 0, 1, NDChoiceStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(variablePathEClass, VariablePath.class, "VariablePath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getVariablePath_VariablePath(), this.getVariablePath(), null, "variablePath", null, 0, 1, VariablePath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVariablePath_Children(), this.getExpression(), null, "children", null, 0, -1, VariablePath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(olSyntaxNodeEClass, OLSyntaxNode.class, "OLSyntaxNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOLSyntaxNode_ParallelStatement(), this.getParallelStatement(), null, "parallelStatement", null, 0, 1, OLSyntaxNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -747,6 +874,9 @@ public class JoliePackageImpl extends EPackageImpl implements JoliePackage
 
     initEClass(stringEClass, jolie.xtext.jolie.String.class, "String", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getString_Value(), ecorePackage.getEString(), "value", null, 0, 1, jolie.xtext.jolie.String.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(mainProcess2EClass, MainProcess2.class, "MainProcess2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMainProcess2_MainProcess(), this.getMainProcess(), null, "MainProcess", null, 0, 1, MainProcess2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

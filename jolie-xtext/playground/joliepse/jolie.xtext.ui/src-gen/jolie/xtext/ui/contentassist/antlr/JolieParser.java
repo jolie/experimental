@@ -41,6 +41,8 @@ public class JolieParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBasicStatementAccess().getAlternatives(), "rule__BasicStatement__Alternatives");
 					put(grammarAccess.getExpressionAccess().getOpAlternatives_1_1_0(), "rule__Expression__OpAlternatives_1_1_0");
 					put(grammarAccess.getTerminalExpressionAccess().getAlternatives(), "rule__TerminalExpression__Alternatives");
+					put(grammarAccess.getNDChoiceStatementAccess().getAlternatives(), "rule__NDChoiceStatement__Alternatives");
+					put(grammarAccess.getVariablePathAccess().getAlternatives_2_1(), "rule__VariablePath__Alternatives_2_1");
 					put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");
 					put(grammarAccess.getMainProcessAccess().getGroup(), "rule__MainProcess__Group__0");
 					put(grammarAccess.getProcessAccess().getGroup_0(), "rule__Process__Group_0__0");
@@ -55,6 +57,7 @@ public class JolieParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBasicStatementAccess().getGroup_1(), "rule__BasicStatement__Group_1__0");
 					put(grammarAccess.getBasicStatementAccess().getGroup_2(), "rule__BasicStatement__Group_2__0");
 					put(grammarAccess.getBasicStatementAccess().getGroup_3(), "rule__BasicStatement__Group_3__0");
+					put(grammarAccess.getBasicStatementAccess().getGroup_4(), "rule__BasicStatement__Group_4__0");
 					put(grammarAccess.getAssignStatementAccess().getGroup(), "rule__AssignStatement__Group__0");
 					put(grammarAccess.getPostIncrementStatementAccess().getGroup(), "rule__PostIncrementStatement__Group__0");
 					put(grammarAccess.getPostDecrementStatementAccess().getGroup(), "rule__PostDecrementStatement__Group__0");
@@ -64,6 +67,12 @@ public class JolieParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_1(), "rule__TerminalExpression__Group_1__0");
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_2(), "rule__TerminalExpression__Group_2__0");
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_3(), "rule__TerminalExpression__Group_3__0");
+					put(grammarAccess.getTerminalExpressionAccess().getGroup_4(), "rule__TerminalExpression__Group_4__0");
+					put(grammarAccess.getNDChoiceStatementAccess().getGroup_0(), "rule__NDChoiceStatement__Group_0__0");
+					put(grammarAccess.getNDChoiceStatementAccess().getGroup_1(), "rule__NDChoiceStatement__Group_1__0");
+					put(grammarAccess.getVariablePathAccess().getGroup(), "rule__VariablePath__Group__0");
+					put(grammarAccess.getVariablePathAccess().getGroup_2(), "rule__VariablePath__Group_2__0");
+					put(grammarAccess.getVariablePathAccess().getGroup_2_1_1(), "rule__VariablePath__Group_2_1_1__0");
 					put(grammarAccess.getProgramAccess().getMainAssignment_1(), "rule__Program__MainAssignment_1");
 					put(grammarAccess.getMainAccess().getMainrocessAssignment(), "rule__Main__MainrocessAssignment");
 					put(grammarAccess.getMainProcessAccess().getParallelStatementAssignment_2(), "rule__MainProcess__ParallelStatementAssignment_2");
@@ -77,15 +86,21 @@ public class JolieParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBasicStatementAccess().getAssignStatementAssignment_1_1(), "rule__BasicStatement__AssignStatementAssignment_1_1");
 					put(grammarAccess.getBasicStatementAccess().getPostIncrementStatementAssignment_2_1(), "rule__BasicStatement__PostIncrementStatementAssignment_2_1");
 					put(grammarAccess.getBasicStatementAccess().getPostDecrementStatementAssignment_3_1(), "rule__BasicStatement__PostDecrementStatementAssignment_3_1");
+					put(grammarAccess.getBasicStatementAccess().getNDChoiceStatementAssignment_4_1(), "rule__BasicStatement__NDChoiceStatementAssignment_4_1");
 					put(grammarAccess.getAssignStatementAccess().getNameAssignment_1(), "rule__AssignStatement__NameAssignment_1");
 					put(grammarAccess.getAssignStatementAccess().getExpressionAssignment_4(), "rule__AssignStatement__ExpressionAssignment_4");
 					put(grammarAccess.getPostIncrementStatementAccess().getNameAssignment_1(), "rule__PostIncrementStatement__NameAssignment_1");
-					put(grammarAccess.getPostDecrementStatementAccess().getNaemAssignment_1(), "rule__PostDecrementStatement__NaemAssignment_1");
+					put(grammarAccess.getPostDecrementStatementAccess().getNameAssignment_1(), "rule__PostDecrementStatement__NameAssignment_1");
 					put(grammarAccess.getExpressionAccess().getOpAssignment_1_1(), "rule__Expression__OpAssignment_1_1");
 					put(grammarAccess.getExpressionAccess().getRightAssignment_1_2(), "rule__Expression__RightAssignment_1_2");
 					put(grammarAccess.getTerminalExpressionAccess().getValueAssignment_1_1(), "rule__TerminalExpression__ValueAssignment_1_1");
 					put(grammarAccess.getTerminalExpressionAccess().getValueAssignment_2_1(), "rule__TerminalExpression__ValueAssignment_2_1");
 					put(grammarAccess.getTerminalExpressionAccess().getValueAssignment_3_1(), "rule__TerminalExpression__ValueAssignment_3_1");
+					put(grammarAccess.getTerminalExpressionAccess().getValueAssignment_4_1(), "rule__TerminalExpression__ValueAssignment_4_1");
+					put(grammarAccess.getNDChoiceStatementAccess().getMainProcessAssignment_0_7(), "rule__NDChoiceStatement__MainProcessAssignment_0_7");
+					put(grammarAccess.getNDChoiceStatementAccess().getVariablePathAssignment_1_4(), "rule__NDChoiceStatement__VariablePathAssignment_1_4");
+					put(grammarAccess.getNDChoiceStatementAccess().getMainProcessAssignment_1_8(), "rule__NDChoiceStatement__MainProcessAssignment_1_8");
+					put(grammarAccess.getVariablePathAccess().getChildrenAssignment_2_1_1_1(), "rule__VariablePath__ChildrenAssignment_2_1_1_1");
 				}
 			};
 		}

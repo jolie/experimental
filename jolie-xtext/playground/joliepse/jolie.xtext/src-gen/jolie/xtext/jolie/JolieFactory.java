@@ -125,6 +125,24 @@ public interface JolieFactory extends EFactory
   Expression createExpression();
 
   /**
+   * Returns a new object of class '<em>ND Choice Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>ND Choice Statement</em>'.
+   * @generated
+   */
+  NDChoiceStatement createNDChoiceStatement();
+
+  /**
+   * Returns a new object of class '<em>Variable Path</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Variable Path</em>'.
+   * @generated
+   */
+  VariablePath createVariablePath();
+
+  /**
    * Returns a new object of class '<em>OL Syntax Node</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -168,6 +186,15 @@ public interface JolieFactory extends EFactory
    * @generated
    */
   String createString();
+
+  /**
+   * Returns a new object of class '<em>Main Process2</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Main Process2</em>'.
+   * @generated
+   */
+  MainProcess2 createMainProcess2();
 
   /**
    * Returns the package supported by this factory.

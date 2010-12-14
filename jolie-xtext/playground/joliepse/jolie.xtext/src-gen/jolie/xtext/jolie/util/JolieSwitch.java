@@ -14,6 +14,8 @@ import jolie.xtext.jolie.IntLiteral;
 import jolie.xtext.jolie.JoliePackage;
 import jolie.xtext.jolie.Main;
 import jolie.xtext.jolie.MainProcess;
+import jolie.xtext.jolie.MainProcess2;
+import jolie.xtext.jolie.NDChoiceStatement;
 import jolie.xtext.jolie.OLSyntaxNode;
 import jolie.xtext.jolie.Operation;
 import jolie.xtext.jolie.ParallelStatement;
@@ -22,6 +24,7 @@ import jolie.xtext.jolie.PostIncrementStatement;
 import jolie.xtext.jolie.Program;
 import jolie.xtext.jolie.RealLiteral;
 import jolie.xtext.jolie.SequenceStatement;
+import jolie.xtext.jolie.VariablePath;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -127,6 +130,8 @@ public class JolieSwitch<T>
       {
         MainProcess mainProcess = (MainProcess)theEObject;
         T result = caseMainProcess(mainProcess);
+        if (result == null) result = caseNDChoiceStatement(mainProcess);
+        if (result == null) result = caseBasicStatement(mainProcess);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -192,11 +197,30 @@ public class JolieSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case JoliePackage.ND_CHOICE_STATEMENT:
+      {
+        NDChoiceStatement ndChoiceStatement = (NDChoiceStatement)theEObject;
+        T result = caseNDChoiceStatement(ndChoiceStatement);
+        if (result == null) result = caseBasicStatement(ndChoiceStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JoliePackage.VARIABLE_PATH:
+      {
+        VariablePath variablePath = (VariablePath)theEObject;
+        T result = caseVariablePath(variablePath);
+        if (result == null) result = caseNDChoiceStatement(variablePath);
+        if (result == null) result = caseBasicStatement(variablePath);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case JoliePackage.OL_SYNTAX_NODE:
       {
         OLSyntaxNode olSyntaxNode = (OLSyntaxNode)theEObject;
         T result = caseOLSyntaxNode(olSyntaxNode);
         if (result == null) result = caseMainProcess(olSyntaxNode);
+        if (result == null) result = caseNDChoiceStatement(olSyntaxNode);
+        if (result == null) result = caseBasicStatement(olSyntaxNode);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -237,6 +261,15 @@ public class JolieSwitch<T>
         if (result == null) result = caseExpression(string);
         if (result == null) result = caseAssignStatement(string);
         if (result == null) result = caseBasicStatement(string);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JoliePackage.MAIN_PROCESS2:
+      {
+        MainProcess2 mainProcess2 = (MainProcess2)theEObject;
+        T result = caseMainProcess2(mainProcess2);
+        if (result == null) result = caseNDChoiceStatement(mainProcess2);
+        if (result == null) result = caseBasicStatement(mainProcess2);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -421,6 +454,38 @@ public class JolieSwitch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>ND Choice Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>ND Choice Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNDChoiceStatement(NDChoiceStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Variable Path</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Variable Path</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVariablePath(VariablePath object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>OL Syntax Node</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -496,6 +561,22 @@ public class JolieSwitch<T>
    * @generated
    */
   public T caseString(jolie.xtext.jolie.String object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Main Process2</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Main Process2</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMainProcess2(MainProcess2 object)
   {
     return null;
   }

@@ -12,6 +12,8 @@ import jolie.xtext.jolie.IntLiteral;
 import jolie.xtext.jolie.JoliePackage;
 import jolie.xtext.jolie.Main;
 import jolie.xtext.jolie.MainProcess;
+import jolie.xtext.jolie.MainProcess2;
+import jolie.xtext.jolie.NDChoiceStatement;
 import jolie.xtext.jolie.OLSyntaxNode;
 import jolie.xtext.jolie.Operation;
 import jolie.xtext.jolie.ParallelStatement;
@@ -20,6 +22,7 @@ import jolie.xtext.jolie.PostIncrementStatement;
 import jolie.xtext.jolie.Program;
 import jolie.xtext.jolie.RealLiteral;
 import jolie.xtext.jolie.SequenceStatement;
+import jolie.xtext.jolie.VariablePath;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -147,6 +150,16 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
         return createExpressionAdapter();
       }
       @Override
+      public Adapter caseNDChoiceStatement(NDChoiceStatement object)
+      {
+        return createNDChoiceStatementAdapter();
+      }
+      @Override
+      public Adapter caseVariablePath(VariablePath object)
+      {
+        return createVariablePathAdapter();
+      }
+      @Override
       public Adapter caseOLSyntaxNode(OLSyntaxNode object)
       {
         return createOLSyntaxNodeAdapter();
@@ -170,6 +183,11 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
       public Adapter caseString(jolie.xtext.jolie.String object)
       {
         return createStringAdapter();
+      }
+      @Override
+      public Adapter caseMainProcess2(MainProcess2 object)
+      {
+        return createMainProcess2Adapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -359,6 +377,36 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.NDChoiceStatement <em>ND Choice Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.NDChoiceStatement
+   * @generated
+   */
+  public Adapter createNDChoiceStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.VariablePath <em>Variable Path</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.VariablePath
+   * @generated
+   */
+  public Adapter createVariablePathAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.OLSyntaxNode <em>OL Syntax Node</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -429,6 +477,21 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStringAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.MainProcess2 <em>Main Process2</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.MainProcess2
+   * @generated
+   */
+  public Adapter createMainProcess2Adapter()
   {
     return null;
   }

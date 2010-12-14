@@ -16,7 +16,7 @@ import java.lang.String;
  * The following features are supported:
  * <ul>
  *   <li>{@link jolie.xtext.jolie.PostDecrementStatement#getPostDecrementStatement <em>Post Decrement Statement</em>}</li>
- *   <li>{@link jolie.xtext.jolie.PostDecrementStatement#getNaem <em>Naem</em>}</li>
+ *   <li>{@link jolie.xtext.jolie.PostDecrementStatement#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,29 +53,29 @@ public interface PostDecrementStatement extends BasicStatement
   void setPostDecrementStatement(PostDecrementStatement value);
 
   /**
-   * Returns the value of the '<em><b>Naem</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Naem</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Naem</em>' attribute.
-   * @see #setNaem(String)
-   * @see jolie.xtext.jolie.JoliePackage#getPostDecrementStatement_Naem()
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see jolie.xtext.jolie.JoliePackage#getPostDecrementStatement_Name()
    * @model
    * @generated
    */
-  String getNaem();
+  String getName();
 
   /**
-   * Sets the value of the '{@link jolie.xtext.jolie.PostDecrementStatement#getNaem <em>Naem</em>}' attribute.
+   * Sets the value of the '{@link jolie.xtext.jolie.PostDecrementStatement#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Naem</em>' attribute.
-   * @see #getNaem()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setNaem(String value);
+  void setName(String value);
 
 } // PostDecrementStatement

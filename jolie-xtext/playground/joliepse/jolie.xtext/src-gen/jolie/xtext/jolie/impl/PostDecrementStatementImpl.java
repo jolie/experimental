@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jolie.xtext.jolie.impl.PostDecrementStatementImpl#getPostDecrementStatement <em>Post Decrement Statement</em>}</li>
- *   <li>{@link jolie.xtext.jolie.impl.PostDecrementStatementImpl#getNaem <em>Naem</em>}</li>
+ *   <li>{@link jolie.xtext.jolie.impl.PostDecrementStatementImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,24 +45,24 @@ public class PostDecrementStatementImpl extends BasicStatementImpl implements Po
   protected PostDecrementStatement postDecrementStatement;
 
   /**
-   * The default value of the '{@link #getNaem() <em>Naem</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNaem()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String NAEM_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getNaem() <em>Naem</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNaem()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String naem = NAEM_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -138,9 +138,9 @@ public class PostDecrementStatementImpl extends BasicStatementImpl implements Po
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getNaem()
+  public String getName()
   {
-    return naem;
+    return name;
   }
 
   /**
@@ -148,12 +148,12 @@ public class PostDecrementStatementImpl extends BasicStatementImpl implements Po
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setNaem(String newNaem)
+  public void setName(String newName)
   {
-    String oldNaem = naem;
-    naem = newNaem;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.POST_DECREMENT_STATEMENT__NAEM, oldNaem, naem));
+      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.POST_DECREMENT_STATEMENT__NAME, oldName, name));
   }
 
   /**
@@ -184,8 +184,8 @@ public class PostDecrementStatementImpl extends BasicStatementImpl implements Po
     {
       case JoliePackage.POST_DECREMENT_STATEMENT__POST_DECREMENT_STATEMENT:
         return getPostDecrementStatement();
-      case JoliePackage.POST_DECREMENT_STATEMENT__NAEM:
-        return getNaem();
+      case JoliePackage.POST_DECREMENT_STATEMENT__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -203,8 +203,8 @@ public class PostDecrementStatementImpl extends BasicStatementImpl implements Po
       case JoliePackage.POST_DECREMENT_STATEMENT__POST_DECREMENT_STATEMENT:
         setPostDecrementStatement((PostDecrementStatement)newValue);
         return;
-      case JoliePackage.POST_DECREMENT_STATEMENT__NAEM:
-        setNaem((String)newValue);
+      case JoliePackage.POST_DECREMENT_STATEMENT__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -223,8 +223,8 @@ public class PostDecrementStatementImpl extends BasicStatementImpl implements Po
       case JoliePackage.POST_DECREMENT_STATEMENT__POST_DECREMENT_STATEMENT:
         setPostDecrementStatement((PostDecrementStatement)null);
         return;
-      case JoliePackage.POST_DECREMENT_STATEMENT__NAEM:
-        setNaem(NAEM_EDEFAULT);
+      case JoliePackage.POST_DECREMENT_STATEMENT__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -242,8 +242,8 @@ public class PostDecrementStatementImpl extends BasicStatementImpl implements Po
     {
       case JoliePackage.POST_DECREMENT_STATEMENT__POST_DECREMENT_STATEMENT:
         return postDecrementStatement != null;
-      case JoliePackage.POST_DECREMENT_STATEMENT__NAEM:
-        return NAEM_EDEFAULT == null ? naem != null : !NAEM_EDEFAULT.equals(naem);
+      case JoliePackage.POST_DECREMENT_STATEMENT__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -259,8 +259,8 @@ public class PostDecrementStatementImpl extends BasicStatementImpl implements Po
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (naem: ");
-    result.append(naem);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

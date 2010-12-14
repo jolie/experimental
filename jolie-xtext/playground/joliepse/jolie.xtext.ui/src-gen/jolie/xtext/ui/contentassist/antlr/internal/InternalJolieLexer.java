@@ -12,49 +12,50 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalJolieLexer extends Lexer {
-    public static final int RULE_RCURLY=9;
-    public static final int RULE_CHOICE=15;
-    public static final int RULE_ML_COMMENT=30;
-    public static final int RULE_COLON=23;
-    public static final int RULE_ID=17;
-    public static final int RULE_LINKIN=26;
-    public static final int RULE_WHILE=27;
-    public static final int RULE_STRING=29;
-    public static final int RULE_LPAREN=10;
-    public static final int RULE_LSQUARE=20;
-    public static final int RULE_SEMICOLON=13;
-    public static final int RULE_REAL=19;
-    public static final int RULE_PERCENT_SIGN=28;
-    public static final int RULE_COMMA=25;
-    public static final int RULE_RPAREN=11;
-    public static final int RULE_ASSIGN=14;
+    public static final int RULE_RCURLY=10;
+    public static final int RULE_CHOICE=16;
+    public static final int RULE_ML_COMMENT=31;
+    public static final int RULE_COLON=27;
+    public static final int RULE_ID=8;
+    public static final int RULE_LINKIN=19;
+    public static final int RULE_WHILE=29;
+    public static final int RULE_STRING=25;
+    public static final int RULE_LPAREN=11;
+    public static final int RULE_LSQUARE=18;
+    public static final int RULE_REAL=24;
+    public static final int RULE_SEMICOLON=14;
+    public static final int RULE_PERCENT_SIGN=30;
+    public static final int RULE_COMMA=28;
+    public static final int RULE_RPAREN=12;
+    public static final int T35=35;
+    public static final int RULE_ASSIGN=15;
     public static final int RULE_ASTERISK=6;
-    public static final int T34=34;
-    public static final int RULE_DOT=24;
+    public static final int RULE_DOT=22;
     public static final int RULE_MINUS=5;
-    public static final int RULE_ARROW=22;
-    public static final int RULE_VERT=12;
-    public static final int RULE_WS=32;
-    public static final int RULE_INT=18;
+    public static final int RULE_ARROW=26;
+    public static final int RULE_VERT=13;
+    public static final int RULE_WS=33;
+    public static final int RULE_INT=23;
     public static final int EOF=-1;
-    public static final int RULE_RSQUARE=21;
-    public static final int Tokens=35;
+    public static final int RULE_RSQUARE=20;
+    public static final int Tokens=36;
     public static final int RULE_DIVIDE=7;
-    public static final int RULE_ANY_OTHER=33;
-    public static final int RULE_SL_COMMENT=31;
-    public static final int RULE_DECREMENT=16;
+    public static final int RULE_ANY_OTHER=34;
+    public static final int RULE_SL_COMMENT=32;
+    public static final int RULE_DECREMENT=17;
+    public static final int RULE_GLOBAL=21;
     public static final int RULE_PLUS=4;
-    public static final int RULE_LCURLY=8;
+    public static final int RULE_LCURLY=9;
     public InternalJolieLexer() {;} 
     public InternalJolieLexer(CharStream input) {
         super(input);
     }
     public String getGrammarFileName() { return "../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g"; }
 
-    // $ANTLR start T34
-    public final void mT34() throws RecognitionException {
+    // $ANTLR start T35
+    public final void mT35() throws RecognitionException {
         try {
-            int _type = T34;
+            int _type = T35;
             // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:10:5: ( 'main' )
             // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:10:7: 'main'
             {
@@ -68,14 +69,14 @@ public class InternalJolieLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T34
+    // $ANTLR end T35
 
     // $ANTLR start RULE_LCURLY
     public final void mRULE_LCURLY() throws RecognitionException {
         try {
             int _type = RULE_LCURLY;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2665:13: ( '{' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2665:15: '{'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3771:13: ( '{' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3771:15: '{'
             {
             match('{'); 
 
@@ -92,8 +93,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_RCURLY() throws RecognitionException {
         try {
             int _type = RULE_RCURLY;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2667:13: ( '}' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2667:15: '}'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3773:13: ( '}' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3773:15: '}'
             {
             match('}'); 
 
@@ -110,8 +111,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_LSQUARE() throws RecognitionException {
         try {
             int _type = RULE_LSQUARE;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2669:14: ( '[' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2669:16: '['
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3775:14: ( '[' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3775:16: '['
             {
             match('['); 
 
@@ -128,8 +129,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_RSQUARE() throws RecognitionException {
         try {
             int _type = RULE_RSQUARE;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2671:14: ( ']' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2671:16: ']'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3777:14: ( ']' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3777:16: ']'
             {
             match(']'); 
 
@@ -146,8 +147,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_ARROW() throws RecognitionException {
         try {
             int _type = RULE_ARROW;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2673:12: ( '->' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2673:14: '->'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3779:12: ( '->' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3779:14: '->'
             {
             match("->"); 
 
@@ -165,8 +166,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_SEMICOLON() throws RecognitionException {
         try {
             int _type = RULE_SEMICOLON;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2675:16: ( ';' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2675:18: ';'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3781:16: ( ';' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3781:18: ';'
             {
             match(';'); 
 
@@ -183,8 +184,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_COLON() throws RecognitionException {
         try {
             int _type = RULE_COLON;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2677:12: ( ':' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2677:14: ':'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3783:12: ( ':' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3783:14: ':'
             {
             match(':'); 
 
@@ -201,8 +202,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_PLUS() throws RecognitionException {
         try {
             int _type = RULE_PLUS;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2679:11: ( '+' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2679:13: '+'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3785:11: ( '+' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3785:13: '+'
             {
             match('+'); 
 
@@ -219,8 +220,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_VERT() throws RecognitionException {
         try {
             int _type = RULE_VERT;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2681:11: ( '|' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2681:13: '|'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3787:11: ( '|' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3787:13: '|'
             {
             match('|'); 
 
@@ -237,8 +238,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_ASSIGN() throws RecognitionException {
         try {
             int _type = RULE_ASSIGN;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2683:13: ( '=' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2683:15: '='
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3789:13: ( '=' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3789:15: '='
             {
             match('='); 
 
@@ -255,8 +256,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_DOT() throws RecognitionException {
         try {
             int _type = RULE_DOT;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2685:10: ( '.' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2685:12: '.'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3791:10: ( '.' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3791:12: '.'
             {
             match('.'); 
 
@@ -273,8 +274,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_LPAREN() throws RecognitionException {
         try {
             int _type = RULE_LPAREN;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2687:13: ( '(' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2687:15: '('
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3793:13: ( '(' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3793:15: '('
             {
             match('('); 
 
@@ -291,8 +292,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_RPAREN() throws RecognitionException {
         try {
             int _type = RULE_RPAREN;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2689:13: ( ')' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2689:15: ')'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3795:13: ( ')' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3795:15: ')'
             {
             match(')'); 
 
@@ -309,8 +310,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_COMMA() throws RecognitionException {
         try {
             int _type = RULE_COMMA;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2691:12: ( ',' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2691:14: ','
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3797:12: ( ',' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3797:14: ','
             {
             match(','); 
 
@@ -327,8 +328,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_LINKIN() throws RecognitionException {
         try {
             int _type = RULE_LINKIN;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2693:13: ( 'linkIn' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2693:15: 'linkIn'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3799:13: ( 'linkIn' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3799:15: 'linkIn'
             {
             match("linkIn"); 
 
@@ -346,8 +347,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_WHILE() throws RecognitionException {
         try {
             int _type = RULE_WHILE;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2695:12: ( 'while' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2695:14: 'while'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3801:12: ( 'while' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3801:14: 'while'
             {
             match("while"); 
 
@@ -365,8 +366,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_CHOICE() throws RecognitionException {
         try {
             int _type = RULE_CHOICE;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2697:13: ( '++' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2697:15: '++'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3803:13: ( '++' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3803:15: '++'
             {
             match("++"); 
 
@@ -384,8 +385,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_DECREMENT() throws RecognitionException {
         try {
             int _type = RULE_DECREMENT;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2699:16: ( '--' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2699:18: '--'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3805:16: ( '--' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3805:18: '--'
             {
             match("--"); 
 
@@ -403,8 +404,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_ASTERISK() throws RecognitionException {
         try {
             int _type = RULE_ASTERISK;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2701:15: ( '*' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2701:17: '*'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3807:15: ( '*' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3807:17: '*'
             {
             match('*'); 
 
@@ -421,8 +422,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_DIVIDE() throws RecognitionException {
         try {
             int _type = RULE_DIVIDE;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2703:13: ( '/' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2703:15: '/'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3809:13: ( '/' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3809:15: '/'
             {
             match('/'); 
 
@@ -439,8 +440,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_MINUS() throws RecognitionException {
         try {
             int _type = RULE_MINUS;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2705:12: ( '-' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2705:14: '-'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3811:12: ( '-' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3811:14: '-'
             {
             match('-'); 
 
@@ -457,8 +458,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_PERCENT_SIGN() throws RecognitionException {
         try {
             int _type = RULE_PERCENT_SIGN;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2707:19: ( '%' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2707:21: '%'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3813:19: ( '%' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3813:21: '%'
             {
             match('%'); 
 
@@ -471,14 +472,33 @@ public class InternalJolieLexer extends Lexer {
     }
     // $ANTLR end RULE_PERCENT_SIGN
 
+    // $ANTLR start RULE_GLOBAL
+    public final void mRULE_GLOBAL() throws RecognitionException {
+        try {
+            int _type = RULE_GLOBAL;
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3815:13: ( 'global' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3815:15: 'global'
+            {
+            match("global"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end RULE_GLOBAL
+
     // $ANTLR start RULE_REAL
     public final void mRULE_REAL() throws RecognitionException {
         try {
             int _type = RULE_REAL;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2709:11: ( ( '0' .. '9' )* '.' ( '0' .. '9' )+ ( ( 'e' | 'E' ) ( '0' .. '9' )+ )? )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2709:13: ( '0' .. '9' )* '.' ( '0' .. '9' )+ ( ( 'e' | 'E' ) ( '0' .. '9' )+ )?
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3817:11: ( ( '0' .. '9' )* '.' ( '0' .. '9' )+ ( ( 'e' | 'E' ) ( '0' .. '9' )+ )? )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3817:13: ( '0' .. '9' )* '.' ( '0' .. '9' )+ ( ( 'e' | 'E' ) ( '0' .. '9' )+ )?
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2709:13: ( '0' .. '9' )*
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3817:13: ( '0' .. '9' )*
             loop1:
             do {
                 int alt1=2;
@@ -491,7 +511,7 @@ public class InternalJolieLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2709:14: '0' .. '9'
+            	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3817:14: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -504,7 +524,7 @@ public class InternalJolieLexer extends Lexer {
             } while (true);
 
             match('.'); 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2709:29: ( '0' .. '9' )+
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3817:29: ( '0' .. '9' )+
             int cnt2=0;
             loop2:
             do {
@@ -518,7 +538,7 @@ public class InternalJolieLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2709:30: '0' .. '9'
+            	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3817:30: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -534,7 +554,7 @@ public class InternalJolieLexer extends Lexer {
                 cnt2++;
             } while (true);
 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2709:41: ( ( 'e' | 'E' ) ( '0' .. '9' )+ )?
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3817:41: ( ( 'e' | 'E' ) ( '0' .. '9' )+ )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -543,7 +563,7 @@ public class InternalJolieLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2709:42: ( 'e' | 'E' ) ( '0' .. '9' )+
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3817:42: ( 'e' | 'E' ) ( '0' .. '9' )+
                     {
                     if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                         input.consume();
@@ -555,7 +575,7 @@ public class InternalJolieLexer extends Lexer {
                         recover(mse);    throw mse;
                     }
 
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2709:52: ( '0' .. '9' )+
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3817:52: ( '0' .. '9' )+
                     int cnt3=0;
                     loop3:
                     do {
@@ -569,7 +589,7 @@ public class InternalJolieLexer extends Lexer {
 
                         switch (alt3) {
                     	case 1 :
-                    	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2709:53: '0' .. '9'
+                    	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3817:53: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -605,10 +625,10 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2711:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2711:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3819:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3819:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2711:11: ( '^' )?
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3819:11: ( '^' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -617,7 +637,7 @@ public class InternalJolieLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2711:11: '^'
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3819:11: '^'
                     {
                     match('^'); 
 
@@ -636,7 +656,7 @@ public class InternalJolieLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2711:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3819:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop6:
             do {
                 int alt6=2;
@@ -684,10 +704,10 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_INT() throws RecognitionException {
         try {
             int _type = RULE_INT;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2713:10: ( ( '0' .. '9' )+ )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2713:12: ( '0' .. '9' )+
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3821:10: ( ( '0' .. '9' )+ )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3821:12: ( '0' .. '9' )+
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2713:12: ( '0' .. '9' )+
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3821:12: ( '0' .. '9' )+
             int cnt7=0;
             loop7:
             do {
@@ -701,7 +721,7 @@ public class InternalJolieLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2713:13: '0' .. '9'
+            	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3821:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -731,10 +751,10 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_STRING() throws RecognitionException {
         try {
             int _type = RULE_STRING;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2715:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2715:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3823:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3823:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2715:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3823:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -746,16 +766,16 @@ public class InternalJolieLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("2715:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 10, 0, input);
+                    new NoViableAltException("3823:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 10, 0, input);
 
                 throw nvae;
             }
             switch (alt10) {
                 case 1 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2715:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3823:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2715:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3823:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop8:
                     do {
                         int alt8=3;
@@ -771,7 +791,7 @@ public class InternalJolieLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2715:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3823:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -788,7 +808,7 @@ public class InternalJolieLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2715:62: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3823:62: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -814,10 +834,10 @@ public class InternalJolieLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2715:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3823:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2715:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3823:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop9:
                     do {
                         int alt9=3;
@@ -833,7 +853,7 @@ public class InternalJolieLexer extends Lexer {
 
                         switch (alt9) {
                     	case 1 :
-                    	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2715:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3823:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -850,7 +870,7 @@ public class InternalJolieLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2715:129: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3823:129: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -892,12 +912,12 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_ML_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_ML_COMMENT;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2717:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2717:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3825:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3825:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2717:24: ( options {greedy=false; } : . )*
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3825:24: ( options {greedy=false; } : . )*
             loop11:
             do {
                 int alt11=2;
@@ -922,7 +942,7 @@ public class InternalJolieLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2717:52: .
+            	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3825:52: .
             	    {
             	    matchAny(); 
 
@@ -950,12 +970,12 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2719:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2719:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3827:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3827:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2719:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3827:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop12:
             do {
                 int alt12=2;
@@ -968,7 +988,7 @@ public class InternalJolieLexer extends Lexer {
 
                 switch (alt12) {
             	case 1 :
-            	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2719:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3827:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -989,7 +1009,7 @@ public class InternalJolieLexer extends Lexer {
                 }
             } while (true);
 
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2719:40: ( ( '\\r' )? '\\n' )?
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3827:40: ( ( '\\r' )? '\\n' )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -998,9 +1018,9 @@ public class InternalJolieLexer extends Lexer {
             }
             switch (alt14) {
                 case 1 :
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2719:41: ( '\\r' )? '\\n'
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3827:41: ( '\\r' )? '\\n'
                     {
-                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2719:41: ( '\\r' )?
+                    // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3827:41: ( '\\r' )?
                     int alt13=2;
                     int LA13_0 = input.LA(1);
 
@@ -1009,7 +1029,7 @@ public class InternalJolieLexer extends Lexer {
                     }
                     switch (alt13) {
                         case 1 :
-                            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2719:41: '\\r'
+                            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3827:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1039,10 +1059,10 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_WS() throws RecognitionException {
         try {
             int _type = RULE_WS;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2721:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2721:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3829:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3829:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2721:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3829:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt15=0;
             loop15:
             do {
@@ -1095,8 +1115,8 @@ public class InternalJolieLexer extends Lexer {
     public final void mRULE_ANY_OTHER() throws RecognitionException {
         try {
             int _type = RULE_ANY_OTHER;
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2723:16: ( . )
-            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:2723:18: .
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3831:16: ( . )
+            // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:3831:18: .
             {
             matchAny(); 
 
@@ -1110,14 +1130,14 @@ public class InternalJolieLexer extends Lexer {
     // $ANTLR end RULE_ANY_OTHER
 
     public void mTokens() throws RecognitionException {
-        // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:8: ( T34 | RULE_LCURLY | RULE_RCURLY | RULE_LSQUARE | RULE_RSQUARE | RULE_ARROW | RULE_SEMICOLON | RULE_COLON | RULE_PLUS | RULE_VERT | RULE_ASSIGN | RULE_DOT | RULE_LPAREN | RULE_RPAREN | RULE_COMMA | RULE_LINKIN | RULE_WHILE | RULE_CHOICE | RULE_DECREMENT | RULE_ASTERISK | RULE_DIVIDE | RULE_MINUS | RULE_PERCENT_SIGN | RULE_REAL | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt16=31;
+        // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:8: ( T35 | RULE_LCURLY | RULE_RCURLY | RULE_LSQUARE | RULE_RSQUARE | RULE_ARROW | RULE_SEMICOLON | RULE_COLON | RULE_PLUS | RULE_VERT | RULE_ASSIGN | RULE_DOT | RULE_LPAREN | RULE_RPAREN | RULE_COMMA | RULE_LINKIN | RULE_WHILE | RULE_CHOICE | RULE_DECREMENT | RULE_ASTERISK | RULE_DIVIDE | RULE_MINUS | RULE_PERCENT_SIGN | RULE_GLOBAL | RULE_REAL | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt16=32;
         alt16 = dfa16.predict(input);
         switch (alt16) {
             case 1 :
-                // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:10: T34
+                // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:10: T35
                 {
-                mT34(); 
+                mT35(); 
 
                 }
                 break;
@@ -1276,56 +1296,63 @@ public class InternalJolieLexer extends Lexer {
                 }
                 break;
             case 24 :
-                // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:282: RULE_REAL
+                // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:282: RULE_GLOBAL
+                {
+                mRULE_GLOBAL(); 
+
+                }
+                break;
+            case 25 :
+                // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:294: RULE_REAL
                 {
                 mRULE_REAL(); 
 
                 }
                 break;
-            case 25 :
-                // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:292: RULE_ID
+            case 26 :
+                // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:304: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 26 :
-                // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:300: RULE_INT
+            case 27 :
+                // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:312: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 27 :
-                // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:309: RULE_STRING
+            case 28 :
+                // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:321: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 28 :
-                // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:321: RULE_ML_COMMENT
+            case 29 :
+                // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:333: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 29 :
-                // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:337: RULE_SL_COMMENT
+            case 30 :
+                // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:349: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 30 :
-                // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:353: RULE_WS
+            case 31 :
+                // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:365: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 31 :
-                // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:361: RULE_ANY_OTHER
+            case 32 :
+                // ../jolie.xtext.ui/src-gen/jolie/xtext/ui/contentassist/antlr/internal/InternalJolie.g:1:373: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1339,103 +1366,113 @@ public class InternalJolieLexer extends Lexer {
 
     protected DFA16 dfa16 = new DFA16(this);
     static final String DFA16_eotS =
-        "\1\uffff\1\35\4\uffff\1\44\2\uffff\1\50\2\uffff\1\53\3\uffff\2\35"+
-        "\1\uffff\1\65\1\uffff\1\70\1\33\1\uffff\2\33\2\uffff\1\35\23\uffff"+
-        "\2\35\5\uffff\1\70\3\uffff\3\35\1\101\2\35\1\uffff\1\35\1\105\1"+
-        "\106\2\uffff";
+        "\1\uffff\1\36\4\uffff\1\45\2\uffff\1\51\2\uffff\1\54\3\uffff\2\36"+
+        "\1\uffff\1\66\1\uffff\1\36\1\71\1\34\1\uffff\2\34\2\uffff\1\36\23"+
+        "\uffff\2\36\5\uffff\1\36\1\uffff\1\71\2\uffff\4\36\1\105\3\36\1"+
+        "\uffff\1\36\1\112\1\36\1\114\1\uffff\1\115\2\uffff";
     static final String DFA16_eofS =
-        "\107\uffff";
+        "\116\uffff";
     static final String DFA16_minS =
         "\1\0\1\141\4\uffff\1\55\2\uffff\1\53\2\uffff\1\60\3\uffff\1\151"+
-        "\1\150\1\uffff\1\52\1\uffff\1\56\1\101\1\uffff\2\0\2\uffff\1\151"+
-        "\23\uffff\1\156\1\151\5\uffff\1\56\3\uffff\1\156\1\153\1\154\1\60"+
-        "\1\111\1\145\1\uffff\1\156\2\60\2\uffff";
+        "\1\150\1\uffff\1\52\1\uffff\1\154\1\56\1\101\1\uffff\2\0\2\uffff"+
+        "\1\151\23\uffff\1\156\1\151\5\uffff\1\157\1\uffff\1\56\2\uffff\1"+
+        "\156\1\153\1\154\1\142\1\60\1\111\1\145\1\141\1\uffff\1\156\1\60"+
+        "\1\154\1\60\1\uffff\1\60\2\uffff";
     static final String DFA16_maxS =
         "\1\ufffe\1\141\4\uffff\1\76\2\uffff\1\53\2\uffff\1\71\3\uffff\1"+
-        "\151\1\150\1\uffff\1\57\1\uffff\1\71\1\172\1\uffff\2\ufffe\2\uffff"+
-        "\1\151\23\uffff\1\156\1\151\5\uffff\1\71\3\uffff\1\156\1\153\1\154"+
-        "\1\172\1\111\1\145\1\uffff\1\156\2\172\2\uffff";
+        "\151\1\150\1\uffff\1\57\1\uffff\1\154\1\71\1\172\1\uffff\2\ufffe"+
+        "\2\uffff\1\151\23\uffff\1\156\1\151\5\uffff\1\157\1\uffff\1\71\2"+
+        "\uffff\1\156\1\153\1\154\1\142\1\172\1\111\1\145\1\141\1\uffff\1"+
+        "\156\1\172\1\154\1\172\1\uffff\1\172\2\uffff";
     static final String DFA16_acceptS =
         "\2\uffff\1\2\1\3\1\4\1\5\1\uffff\1\7\1\10\1\uffff\1\12\1\13\1\uffff"+
-        "\1\15\1\16\1\17\2\uffff\1\24\1\uffff\1\27\2\uffff\1\31\2\uffff\1"+
-        "\36\1\37\1\uffff\1\31\1\2\1\3\1\4\1\5\1\23\1\6\1\26\1\7\1\10\1\22"+
-        "\1\11\1\12\1\13\1\14\1\30\1\15\1\16\1\17\2\uffff\1\24\1\34\1\35"+
-        "\1\25\1\27\1\uffff\1\32\1\33\1\36\6\uffff\1\1\3\uffff\1\21\1\20";
+        "\1\15\1\16\1\17\2\uffff\1\24\1\uffff\1\27\3\uffff\1\32\2\uffff\1"+
+        "\37\1\40\1\uffff\1\32\1\2\1\3\1\4\1\5\1\23\1\6\1\26\1\7\1\10\1\22"+
+        "\1\11\1\12\1\13\1\14\1\31\1\15\1\16\1\17\2\uffff\1\24\1\36\1\35"+
+        "\1\25\1\27\1\uffff\1\33\1\uffff\1\34\1\37\10\uffff\1\1\4\uffff\1"+
+        "\21\1\uffff\1\20\1\30";
     static final String DFA16_specialS =
-        "\107\uffff}>";
+        "\116\uffff}>";
     static final String[] DFA16_transitionS = {
-            "\11\33\2\32\2\33\1\32\22\33\1\32\1\33\1\30\2\33\1\24\1\33\1"+
-            "\31\1\15\1\16\1\22\1\11\1\17\1\6\1\14\1\23\12\25\1\10\1\7\1"+
-            "\33\1\13\3\33\32\27\1\4\1\33\1\5\1\26\1\27\1\33\13\27\1\20\1"+
-            "\1\11\27\1\21\3\27\1\2\1\12\1\3\uff81\33",
-            "\1\34",
+            "\11\34\2\33\2\34\1\33\22\34\1\33\1\34\1\31\2\34\1\24\1\34\1"+
+            "\32\1\15\1\16\1\22\1\11\1\17\1\6\1\14\1\23\12\26\1\10\1\7\1"+
+            "\34\1\13\3\34\32\30\1\4\1\34\1\5\1\27\1\30\1\34\6\30\1\25\4"+
+            "\30\1\20\1\1\11\30\1\21\3\30\1\2\1\12\1\3\uff81\34",
+            "\1\35",
             "",
             "",
             "",
             "",
-            "\1\42\20\uffff\1\43",
+            "\1\43\20\uffff\1\44",
             "",
             "",
-            "\1\47",
+            "\1\50",
             "",
             "",
-            "\12\54",
+            "\12\55",
             "",
             "",
             "",
-            "\1\60",
             "\1\61",
+            "\1\62",
             "",
-            "\1\63\4\uffff\1\64",
+            "\1\65\4\uffff\1\64",
             "",
-            "\1\54\1\uffff\12\67",
-            "\32\35\4\uffff\1\35\1\uffff\32\35",
+            "\1\70",
+            "\1\55\1\uffff\12\72",
+            "\32\36\4\uffff\1\36\1\uffff\32\36",
             "",
-            "\uffff\71",
-            "\uffff\71",
-            "",
-            "",
-            "\1\73",
-            "",
+            "\uffff\73",
+            "\uffff\73",
             "",
             "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\74",
             "\1\75",
             "",
             "",
             "",
             "",
             "",
-            "\1\54\1\uffff\12\67",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "",
             "",
             "",
             "\1\76",
             "\1\77",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\100",
-            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
+            "",
+            "\1\55\1\uffff\12\72",
+            "",
+            "",
+            "\1\101",
             "\1\102",
             "\1\103",
-            "",
             "\1\104",
-            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
-            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\1\106",
+            "\1\107",
+            "\1\110",
+            "",
+            "\1\111",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\1\113",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "",
             ""
     };
@@ -1470,7 +1507,7 @@ public class InternalJolieLexer extends Lexer {
             this.transition = DFA16_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T34 | RULE_LCURLY | RULE_RCURLY | RULE_LSQUARE | RULE_RSQUARE | RULE_ARROW | RULE_SEMICOLON | RULE_COLON | RULE_PLUS | RULE_VERT | RULE_ASSIGN | RULE_DOT | RULE_LPAREN | RULE_RPAREN | RULE_COMMA | RULE_LINKIN | RULE_WHILE | RULE_CHOICE | RULE_DECREMENT | RULE_ASTERISK | RULE_DIVIDE | RULE_MINUS | RULE_PERCENT_SIGN | RULE_REAL | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T35 | RULE_LCURLY | RULE_RCURLY | RULE_LSQUARE | RULE_RSQUARE | RULE_ARROW | RULE_SEMICOLON | RULE_COLON | RULE_PLUS | RULE_VERT | RULE_ASSIGN | RULE_DOT | RULE_LPAREN | RULE_RPAREN | RULE_COMMA | RULE_LINKIN | RULE_WHILE | RULE_CHOICE | RULE_DECREMENT | RULE_ASTERISK | RULE_DIVIDE | RULE_MINUS | RULE_PERCENT_SIGN | RULE_GLOBAL | RULE_REAL | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
     }
  

@@ -1,18 +1,14 @@
 grammar jolie.xtext.Jolie with org.eclipse.xtext.common.Terminals
 
-
 /***************************************************************************
  *   Author: Diego Castronuovo                                             *
  *   An Xtext grammar for the programming language Jolie                   *
  ***************************************************************************/
-
-
-
 generate jolie "http://www.xtext.org/Jolie"
 
-Program :
+Program:
 
-/* (locations=Locations)* */'main'  (main=Main);
+/* (locations=Locations)* */ 'main' (main=Main);
 /*  
 Locations :
 
@@ -39,100 +35,134 @@ terminal Address :
 
  ;
 */
+Main:
+	mainrocess=MainProcess;
+	//Il processo principale, {...} del main
+MainProcess:
+	{OLSyntaxNode} LCURLY parallelStatement=ParallelStatement RCURLY;
 
- 
-Main :
-    mainrocess=MainProcess 
-; 
-    //Il processo principale, {...} del main
-	MainProcess :
-	
-	 {OLSyntaxNode} LCURLY  parallelStatement=ParallelStatement RCURLY
-	   
-	; 
-	
 	//Il processo generale inseribile a piacimento nel codice {...},(...)
-	Process :
-	
-	{Process} LCURLY  children+=ParallelStatement RCURLY | LPAREN  children+=ParallelStatement RPAREN 
-	   
-	; 
- 	
+Process:
+	{Process} LCURLY children+=ParallelStatement RCURLY | LPAREN children+=ParallelStatement RPAREN;
+
 	//Un parallel contiene una o pi sequenze separate da VERT '|'
-	ParallelStatement  :
-	
-	 {ParallelStatement} (children+=SequenceStatement (VERT  children+=SequenceStatement)*   )
-	  
-	;
-	
+ParallelStatement:
+	{ParallelStatement} (children+=SequenceStatement (VERT children+=SequenceStatement)*);
+
 	//Un sequence contiente uno o pi basic statemente separati da SEMICOLON ';'
-	 SequenceStatement  :   
-	
-	 {SequenceStatement} (children+=BasicStatement (SEMICOLON  children+=BasicStatement)*  )
-	
-	;	
-    
-    //Il basicStatement,  un costrutto base, ma pu anche essere un processo (questa produzione permette la ricorsione di parallel e sequence) 
-    BasicStatement : 
-				  {Process} process=Process  |  //Questa  la regola che mi permette la ricorsivit
-				  
-				  {AssignStatement} assignStatement=AssignStatement  |
-				  
-				  {PostIncrementStatement} postIncrementStatement=PostIncrementStatement  |
-     
-                  {PostDecrementStatement} PostDecrementStatement=PostDecrementStatement  ; 
-   
-   
-   AssignStatement : {AssignStatement} name=ID ASSIGN {Expression} expression=Expression;
-   
-   PostIncrementStatement : {PostIncrementStatement} name=ID CHOICE ;
-   
-   PostDecrementStatement : {PostDecrementStatement} naem=ID DECREMENT;
-   
-   
-   /*********************************************ESPRESSIONI ARITMETICHE*********************************************/
-   
-   Expression : 
-  TerminalExpression ({Operation.left=current}   
-    op=(PLUS|MINUS|ASTERISK|DIVIDE) right=Expression)? 
-; 
+SequenceStatement:
+	{SequenceStatement} (children+=BasicStatement (SEMICOLON children+=BasicStatement)*);
+
+	//Il basicStatement,  un costrutto base, ma pu anche essere un processo (questa produzione permette la ricorsione di parallel e sequence) 
+BasicStatement:
+	{Process} process=Process | //Questa  la regola che mi permette la ricorsione
+	{AssignStatement} assignStatement=AssignStatement | {PostIncrementStatement}
+	postIncrementStatement=PostIncrementStatement | {PostDecrementStatement}
+	PostDecrementStatement=PostDecrementStatement| {NDChoiceStatement}
+	NDChoiceStatement=NDChoiceStatement;
+
+AssignStatement:
+	{AssignStatement} name=ID ASSIGN {Expression} expression=Expression;
+
+PostIncrementStatement:
+	{PostIncrementStatement} name=ID CHOICE;
+
+PostDecrementStatement:
+	{PostDecrementStatement} name=ID DECREMENT;
+
+/*********************************************ESPRESSIONI ARITMETICHE*********************************************/
+Expression:
+	TerminalExpression ({Operation.left=current} op=(PLUS | MINUS | ASTERISK | DIVIDE) right=Expression)?;
+
+TerminalExpression returns Expression:
+	LPAREN Expression RPAREN | {IntLiteral} value=INT | {RealLiteral} value=REAL | {String} value=ID | {String} value=STRING;
+/******************************************************************************************************************/
+
+/*********************************************NDChoiceStatement*********************************************/
+NDChoiceStatement:
+ LSQUARE LINKIN LPAREN ID RPAREN RSQUARE  {MainProcess} mainProcess=MainProcess |
+ LSQUARE ID LPAREN {VariablePath} variablePath=VariablePath RPAREN RSQUARE {MainProcess2} MainProcess=MainProcess;
+ 
+VariablePath: 
+
+  {VariablePath} GLOBAL ( DOT (ID| (LPAREN  children+=Expression RPAREN)))*;
  
  
-TerminalExpression returns Expression: 
-  LPAREN Expression RPAREN | 
-  {IntLiteral} value=INT | {RealLiteral} value=REAL | {String} value=ID
-; 
-   /******************************************************************************************************************/
-  
 // Terminals
-terminal LCURLY: '{';
-terminal RCURLY: '}';
-terminal LSQUARE: '[';
-terminal RSQUARE: ']';
-terminal ARROW: '->';
-terminal SEMICOLON: ';';
-terminal COLON: ':';
-terminal PLUS: '+';
-terminal VERT: '|';
-//terminal SESSIONDECL: 'session';
+terminal LCURLY:
+	'{';
+
+terminal RCURLY:
+	'}';
+
+terminal LSQUARE:
+	'[';
+
+terminal RSQUARE:
+	']';
+
+terminal ARROW:
+	'->';
+
+terminal SEMICOLON:
+	';';
+
+terminal COLON:
+	':';
+
+terminal PLUS:
+	'+';
+
+terminal VERT:
+	'|';
+	//terminal SESSIONDECL: 'session';
 //terminal STARTS: 'starts';
 //terminal ONE_WAY: 'OneWay';
 //terminal REQUEST_RESPONSE: 'RequestResponse';
-terminal ASSIGN: '=';
-terminal DOT: '.';
-terminal LPAREN: '(';
-terminal RPAREN: ')';
-terminal COMMA: ',';
-terminal LINKIN: 'linkIn';
-terminal WHILE: 'while';
-terminal CHOICE: '++';
-terminal DECREMENT: '--';
-terminal ASTERISK: '*';
-terminal DIVIDE: '/';
-/*terminal POINTS_TO:  '->';
+terminal ASSIGN:
+	'=';
+
+terminal DOT:
+	'.';
+
+terminal LPAREN:
+	'(';
+
+terminal RPAREN:
+	')';
+
+terminal COMMA:
+	',';
+
+terminal LINKIN:
+	'linkIn';
+
+terminal WHILE:
+	'while';
+
+terminal CHOICE:
+	'++';
+
+terminal DECREMENT:
+	'--';
+
+terminal ASTERISK:
+	'*';
+
+terminal DIVIDE:
+	'/';
+	/*terminal POINTS_TO:  '->';
 terminal DEEP_COPY_LEFT :  '<<';*/
-terminal MINUS: '-';
-terminal PERCENT_SIGN: '%';
-terminal REAL: ('0'..'9')*'.'('0'..'9')+(('e'|'E')('0'..'9')+)?;
+terminal MINUS:
+	'-';
+
+terminal PERCENT_SIGN:
+	'%';
+	
+terminal GLOBAL: 
+   'global';
+
+terminal REAL:
+	('0'..'9')* '.' ('0'..'9')+ (('e' | 'E') ('0'..'9')+)?;
 
  

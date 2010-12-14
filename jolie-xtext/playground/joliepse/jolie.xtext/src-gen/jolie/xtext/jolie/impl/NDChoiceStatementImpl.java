@@ -6,7 +6,7 @@
 package jolie.xtext.jolie.impl;
 
 import jolie.xtext.jolie.JoliePackage;
-import jolie.xtext.jolie.MainProcess;
+import jolie.xtext.jolie.NDChoiceStatement;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -18,35 +18,35 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Main Process</b></em>'.
+ * An implementation of the model object '<em><b>ND Choice Statement</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link jolie.xtext.jolie.impl.MainProcessImpl#getMainProcess <em>Main Process</em>}</li>
+ *   <li>{@link jolie.xtext.jolie.impl.NDChoiceStatementImpl#getNDChoiceStatement <em>ND Choice Statement</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class MainProcessImpl extends NDChoiceStatementImpl implements MainProcess
+public class NDChoiceStatementImpl extends BasicStatementImpl implements NDChoiceStatement
 {
   /**
-   * The cached value of the '{@link #getMainProcess() <em>Main Process</em>}' containment reference.
+   * The cached value of the '{@link #getNDChoiceStatement() <em>ND Choice Statement</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMainProcess()
+   * @see #getNDChoiceStatement()
    * @generated
    * @ordered
    */
-  protected MainProcess mainProcess;
+  protected NDChoiceStatement ndChoiceStatement;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MainProcessImpl()
+  protected NDChoiceStatementImpl()
   {
     super();
   }
@@ -59,7 +59,7 @@ public class MainProcessImpl extends NDChoiceStatementImpl implements MainProces
   @Override
   protected EClass eStaticClass()
   {
-    return JoliePackage.Literals.MAIN_PROCESS;
+    return JoliePackage.Literals.ND_CHOICE_STATEMENT;
   }
 
   /**
@@ -67,9 +67,9 @@ public class MainProcessImpl extends NDChoiceStatementImpl implements MainProces
    * <!-- end-user-doc -->
    * @generated
    */
-  public MainProcess getMainProcess()
+  public NDChoiceStatement getNDChoiceStatement()
   {
-    return mainProcess;
+    return ndChoiceStatement;
   }
 
   /**
@@ -77,13 +77,13 @@ public class MainProcessImpl extends NDChoiceStatementImpl implements MainProces
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetMainProcess(MainProcess newMainProcess, NotificationChain msgs)
+  public NotificationChain basicSetNDChoiceStatement(NDChoiceStatement newNDChoiceStatement, NotificationChain msgs)
   {
-    MainProcess oldMainProcess = mainProcess;
-    mainProcess = newMainProcess;
+    NDChoiceStatement oldNDChoiceStatement = ndChoiceStatement;
+    ndChoiceStatement = newNDChoiceStatement;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoliePackage.MAIN_PROCESS__MAIN_PROCESS, oldMainProcess, newMainProcess);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoliePackage.ND_CHOICE_STATEMENT__ND_CHOICE_STATEMENT, oldNDChoiceStatement, newNDChoiceStatement);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -94,20 +94,20 @@ public class MainProcessImpl extends NDChoiceStatementImpl implements MainProces
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMainProcess(MainProcess newMainProcess)
+  public void setNDChoiceStatement(NDChoiceStatement newNDChoiceStatement)
   {
-    if (newMainProcess != mainProcess)
+    if (newNDChoiceStatement != ndChoiceStatement)
     {
       NotificationChain msgs = null;
-      if (mainProcess != null)
-        msgs = ((InternalEObject)mainProcess).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoliePackage.MAIN_PROCESS__MAIN_PROCESS, null, msgs);
-      if (newMainProcess != null)
-        msgs = ((InternalEObject)newMainProcess).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoliePackage.MAIN_PROCESS__MAIN_PROCESS, null, msgs);
-      msgs = basicSetMainProcess(newMainProcess, msgs);
+      if (ndChoiceStatement != null)
+        msgs = ((InternalEObject)ndChoiceStatement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoliePackage.ND_CHOICE_STATEMENT__ND_CHOICE_STATEMENT, null, msgs);
+      if (newNDChoiceStatement != null)
+        msgs = ((InternalEObject)newNDChoiceStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoliePackage.ND_CHOICE_STATEMENT__ND_CHOICE_STATEMENT, null, msgs);
+      msgs = basicSetNDChoiceStatement(newNDChoiceStatement, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.MAIN_PROCESS__MAIN_PROCESS, newMainProcess, newMainProcess));
+      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.ND_CHOICE_STATEMENT__ND_CHOICE_STATEMENT, newNDChoiceStatement, newNDChoiceStatement));
   }
 
   /**
@@ -120,8 +120,8 @@ public class MainProcessImpl extends NDChoiceStatementImpl implements MainProces
   {
     switch (featureID)
     {
-      case JoliePackage.MAIN_PROCESS__MAIN_PROCESS:
-        return basicSetMainProcess(null, msgs);
+      case JoliePackage.ND_CHOICE_STATEMENT__ND_CHOICE_STATEMENT:
+        return basicSetNDChoiceStatement(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -136,8 +136,8 @@ public class MainProcessImpl extends NDChoiceStatementImpl implements MainProces
   {
     switch (featureID)
     {
-      case JoliePackage.MAIN_PROCESS__MAIN_PROCESS:
-        return getMainProcess();
+      case JoliePackage.ND_CHOICE_STATEMENT__ND_CHOICE_STATEMENT:
+        return getNDChoiceStatement();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -152,8 +152,8 @@ public class MainProcessImpl extends NDChoiceStatementImpl implements MainProces
   {
     switch (featureID)
     {
-      case JoliePackage.MAIN_PROCESS__MAIN_PROCESS:
-        setMainProcess((MainProcess)newValue);
+      case JoliePackage.ND_CHOICE_STATEMENT__ND_CHOICE_STATEMENT:
+        setNDChoiceStatement((NDChoiceStatement)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,8 +169,8 @@ public class MainProcessImpl extends NDChoiceStatementImpl implements MainProces
   {
     switch (featureID)
     {
-      case JoliePackage.MAIN_PROCESS__MAIN_PROCESS:
-        setMainProcess((MainProcess)null);
+      case JoliePackage.ND_CHOICE_STATEMENT__ND_CHOICE_STATEMENT:
+        setNDChoiceStatement((NDChoiceStatement)null);
         return;
     }
     super.eUnset(featureID);
@@ -186,10 +186,10 @@ public class MainProcessImpl extends NDChoiceStatementImpl implements MainProces
   {
     switch (featureID)
     {
-      case JoliePackage.MAIN_PROCESS__MAIN_PROCESS:
-        return mainProcess != null;
+      case JoliePackage.ND_CHOICE_STATEMENT__ND_CHOICE_STATEMENT:
+        return ndChoiceStatement != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //MainProcessImpl
+} //NDChoiceStatementImpl

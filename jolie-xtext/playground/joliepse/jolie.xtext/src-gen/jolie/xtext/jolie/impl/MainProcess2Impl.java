@@ -7,6 +7,7 @@ package jolie.xtext.jolie.impl;
 
 import jolie.xtext.jolie.JoliePackage;
 import jolie.xtext.jolie.MainProcess;
+import jolie.xtext.jolie.MainProcess2;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -18,18 +19,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Main Process</b></em>'.
+ * An implementation of the model object '<em><b>Main Process2</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link jolie.xtext.jolie.impl.MainProcessImpl#getMainProcess <em>Main Process</em>}</li>
+ *   <li>{@link jolie.xtext.jolie.impl.MainProcess2Impl#getMainProcess <em>Main Process</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class MainProcessImpl extends NDChoiceStatementImpl implements MainProcess
+public class MainProcess2Impl extends NDChoiceStatementImpl implements MainProcess2
 {
   /**
    * The cached value of the '{@link #getMainProcess() <em>Main Process</em>}' containment reference.
@@ -46,7 +47,7 @@ public class MainProcessImpl extends NDChoiceStatementImpl implements MainProces
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MainProcessImpl()
+  protected MainProcess2Impl()
   {
     super();
   }
@@ -59,7 +60,7 @@ public class MainProcessImpl extends NDChoiceStatementImpl implements MainProces
   @Override
   protected EClass eStaticClass()
   {
-    return JoliePackage.Literals.MAIN_PROCESS;
+    return JoliePackage.Literals.MAIN_PROCESS2;
   }
 
   /**
@@ -83,7 +84,7 @@ public class MainProcessImpl extends NDChoiceStatementImpl implements MainProces
     mainProcess = newMainProcess;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoliePackage.MAIN_PROCESS__MAIN_PROCESS, oldMainProcess, newMainProcess);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoliePackage.MAIN_PROCESS2__MAIN_PROCESS, oldMainProcess, newMainProcess);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -100,14 +101,14 @@ public class MainProcessImpl extends NDChoiceStatementImpl implements MainProces
     {
       NotificationChain msgs = null;
       if (mainProcess != null)
-        msgs = ((InternalEObject)mainProcess).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoliePackage.MAIN_PROCESS__MAIN_PROCESS, null, msgs);
+        msgs = ((InternalEObject)mainProcess).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoliePackage.MAIN_PROCESS2__MAIN_PROCESS, null, msgs);
       if (newMainProcess != null)
-        msgs = ((InternalEObject)newMainProcess).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoliePackage.MAIN_PROCESS__MAIN_PROCESS, null, msgs);
+        msgs = ((InternalEObject)newMainProcess).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoliePackage.MAIN_PROCESS2__MAIN_PROCESS, null, msgs);
       msgs = basicSetMainProcess(newMainProcess, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.MAIN_PROCESS__MAIN_PROCESS, newMainProcess, newMainProcess));
+      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.MAIN_PROCESS2__MAIN_PROCESS, newMainProcess, newMainProcess));
   }
 
   /**
@@ -120,7 +121,7 @@ public class MainProcessImpl extends NDChoiceStatementImpl implements MainProces
   {
     switch (featureID)
     {
-      case JoliePackage.MAIN_PROCESS__MAIN_PROCESS:
+      case JoliePackage.MAIN_PROCESS2__MAIN_PROCESS:
         return basicSetMainProcess(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -136,7 +137,7 @@ public class MainProcessImpl extends NDChoiceStatementImpl implements MainProces
   {
     switch (featureID)
     {
-      case JoliePackage.MAIN_PROCESS__MAIN_PROCESS:
+      case JoliePackage.MAIN_PROCESS2__MAIN_PROCESS:
         return getMainProcess();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -152,7 +153,7 @@ public class MainProcessImpl extends NDChoiceStatementImpl implements MainProces
   {
     switch (featureID)
     {
-      case JoliePackage.MAIN_PROCESS__MAIN_PROCESS:
+      case JoliePackage.MAIN_PROCESS2__MAIN_PROCESS:
         setMainProcess((MainProcess)newValue);
         return;
     }
@@ -169,7 +170,7 @@ public class MainProcessImpl extends NDChoiceStatementImpl implements MainProces
   {
     switch (featureID)
     {
-      case JoliePackage.MAIN_PROCESS__MAIN_PROCESS:
+      case JoliePackage.MAIN_PROCESS2__MAIN_PROCESS:
         setMainProcess((MainProcess)null);
         return;
     }
@@ -186,10 +187,10 @@ public class MainProcessImpl extends NDChoiceStatementImpl implements MainProces
   {
     switch (featureID)
     {
-      case JoliePackage.MAIN_PROCESS__MAIN_PROCESS:
+      case JoliePackage.MAIN_PROCESS2__MAIN_PROCESS:
         return mainProcess != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //MainProcessImpl
+} //MainProcess2Impl

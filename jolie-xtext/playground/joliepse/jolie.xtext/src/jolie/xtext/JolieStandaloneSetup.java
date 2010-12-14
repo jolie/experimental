@@ -8,6 +8,7 @@ package jolie.xtext;
 public class JolieStandaloneSetup extends JolieStandaloneSetupGenerated{
 
 	public static void doSetup() {
+		
 		new JolieStandaloneSetup().createInjectorAndDoEMFRegistration();
 	}
 }
