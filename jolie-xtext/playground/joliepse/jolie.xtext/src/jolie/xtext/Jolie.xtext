@@ -56,52 +56,64 @@ SequenceStatement:
 	//Il basicStatement,  un costrutto base, ma pu anche essere un processo (questa produzione permette la ricorsione di parallel e sequence) 
 BasicStatement:
 	{Process} process=Process | //Questa  la regola che mi permette la ricorsione
-	{AssignStatement} assignStatement=AssignStatement | 
-	{NDChoiceStatement} NDChoiceStatement+=NDChoiceStatement;
+	{AssignStatementOrPostIncrementDecrement} assignStatementOrPostIncrementDecrement=AssignStatementOrPostIncrementDecrement | 
+	{NDChoiceStatement} NDChoiceStatement=NDChoiceStatement|
+    preIncrementDecrement=PreIncrementDecrement;
 
-AssignStatement:
-	{AssignStatement} variablePath=VariablePath ASSIGN  rightSideAssign=RightSideAssignament;
-
-RightSideAssignament:
+AssignStatementOrPostIncrementDecrement:
+	{AssignStatementOrPostIncrementDecrement} variablePath=VariablePath rightSide=RightSide;
+	
+RightSide:
+ {RightSide}	ASSIGN    expression=Expression |
+ {RightSide}	CHOICE |
+ {RightSide}	DECREMENT |
+ {RightSide}	POINTSTO variablePath=VariablePath|
+ {RightSide}	DEEPCOPYLEFT variablePath=VariablePath;
  
-     {Expression} expression=Expression ;
-
+    
+PreIncrementDecrement:
+ (CHOICE |DECREMENT) variablePath=VariablePath ;
+ 
 
 /*********************************************ESPRESSIONI ARITMETICHE*********************************************/
 Expression:
 	TerminalExpression ({Operation.left=current} op=(PLUS | MINUS | ASTERISK | DIVIDE) right=Expression)?;
 
 TerminalExpression returns Expression:
-	LPAREN Expression RPAREN | {IntLiteral} value=INT | {RealLiteral} value=REAL  | {String} value=STRING | prefix=Prefix variablePath=VariablePath prefix=Prefix ;
+	LPAREN Expression RPAREN | {IntLiteral} value=INT | {RealLiteral} value=REAL  | {String} value=STRING | (CHOICE|DECREMENT) variablePath=VariablePath  | variablePath=VariablePath (CHOICE|DECREMENT)? ;
 	
 VariablePath: 
+//TODO CORRECT HERE: diego[2].marco[5]=ss  non lo fa fare!
 
-  {VariablePath} ((GLOBAL|ID) (LSQUARE  children+=Expression RSQUARE)?  ( DOT (ID| (LPAREN  children+=Expression RPAREN)))*);
-	
-Prefix: 
-  	(CHOICE|DECREMENT)?;
-  		
+  {VariablePath} ID (LSQUARE  children+=Expression RSQUARE)?  (((DOT (ID|'global') (LSQUARE  children+=Expression RSQUARE)?) | (DOT LPAREN  children+=Expression RPAREN)))* |
+  {VariablePath} 'global'  (((DOT (ID|'global') (LSQUARE  children+=Expression RSQUARE)?) | (DOT LPAREN  children+=Expression RPAREN)))* ;//Global non  un un array
+    		
 /******************************************************************************************************************/
 
 
 
 /*********************************************NDChoiceStatement*********************************************/
 NDChoiceStatement:
- {NDChoiceStatement} (LSQUARE InputOperation+=InputOperation RSQUARE  mainProcess+=MainProcess)* ;
-
+ {NDChoiceStatement} (LSQUARE ((LINKIN LPAREN ID RPAREN)|inputOperationStatement+=InputOperationStatement) RSQUARE  mainProcess+=MainProcess)+ ;
+/******************************************************************************************************************/
  
-InputOperation:
- {InputOperation} LINKIN LPAREN ID RPAREN |
- {InputOperation} ID LPAREN {VariablePath} variablePath=VariablePath RPAREN (RequestResponseOperation)?; //line 1689 OLParser
+/*********************************************InputOperationStatement*********************************************/ 
+InputOperationStatement:
+ 
+ {InputOperation} ID LPAREN {VariablePath} variablePath=VariablePath RPAREN operation=Operation; 
       
-RequestResponseOperation:
+Operation:
     
- LPAREN expression=Expression RPAREN mainProcess=MainProcess;
+ {Operation} (LPAREN expression=Expression RPAREN mainProcess=MainProcess)?; //line 1689 OLParser, with ? ReqResponseOperation if no ? OneWayOperation
 /******************************************************************************************************************/
 
 
  
+ 
+ 
 // Terminals
+
+
 terminal LCURLY:
 	'{';
 
@@ -114,8 +126,7 @@ terminal LSQUARE:
 terminal RSQUARE:
 	']';
 
-terminal ARROW:
-	'->';
+
 
 terminal SEMICOLON:
 	';';
@@ -164,16 +175,18 @@ terminal ASTERISK:
 
 terminal DIVIDE:
 	'/';
-	/*terminal POINTS_TO:  '->';
-terminal DEEP_COPY_LEFT :  '<<';*/
+	
+terminal POINTSTO:  '->';
+	
+terminal DEEPCOPYLEFT :  '<<';
+
 terminal MINUS:
 	'-';
 
 terminal PERCENT_SIGN:
 	'%';
 	
-terminal GLOBAL: 
-   'global';
+
 
 terminal REAL:
 	('0'..'9')* '.' ('0'..'9')+ (('e' | 'E') ('0'..'9')+)?;
