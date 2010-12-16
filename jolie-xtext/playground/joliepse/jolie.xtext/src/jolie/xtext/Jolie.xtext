@@ -8,6 +8,8 @@ generate jolie "http://www.xtext.org/Jolie"
 
 Program:
 
+((inputPortStatement+=InputPortStatement) | (outputPortStatement+=OutputPortStatement))*
+
 /* (locations=Locations)* */ 'main' (main=Main);
 /*  
 Locations :
@@ -55,64 +57,136 @@ SequenceStatement:
 
 	//Il basicStatement,  un costrutto base, ma pu anche essere un processo (questa produzione permette la ricorsione di parallel e sequence) 
 BasicStatement:
-	{Process} process=Process | //Questa  la regola che mi permette la ricorsione
-	{AssignStatementOrPostIncrementDecrement} assignStatementOrPostIncrementDecrement=AssignStatementOrPostIncrementDecrement | 
-	{NDChoiceStatement} NDChoiceStatement=NDChoiceStatement|
-    preIncrementDecrement=PreIncrementDecrement;
+	{BasicStatement} process=Process | //Questa  la regola che mi permette la ricorsione
+	{BasicStatement} assignStatementOrPostIncrementDecrement=AssignStatementOrPostIncrementDecrement | {BasicStatement}
+	NDChoiceStatement=NDChoiceStatement | {BasicStatement} preIncrementDecrement=PreIncrementDecrement|
+	inputOp=InputOperationStatement;
 
 AssignStatementOrPostIncrementDecrement:
 	{AssignStatementOrPostIncrementDecrement} variablePath=VariablePath rightSide=RightSide;
-	
+
 RightSide:
- {RightSide}	ASSIGN    expression=Expression |
- {RightSide}	CHOICE |
- {RightSide}	DECREMENT |
- {RightSide}	POINTSTO variablePath=VariablePath|
- {RightSide}	DEEPCOPYLEFT variablePath=VariablePath;
- 
-    
+	{RightSide} ASSIGN expression=Expression | {RightSide} CHOICE | {RightSide} DECREMENT | {RightSide} POINTSTO
+	variablePath=VariablePath | {RightSide} DEEPCOPYLEFT variablePath=VariablePath;
+
 PreIncrementDecrement:
- (CHOICE |DECREMENT) variablePath=VariablePath ;
- 
+	(CHOICE | DECREMENT) variablePath=VariablePath;
 
 /*********************************************ESPRESSIONI ARITMETICHE*********************************************/
 Expression:
 	TerminalExpression ({Operation.left=current} op=(PLUS | MINUS | ASTERISK | DIVIDE) right=Expression)?;
 
 TerminalExpression returns Expression:
-	LPAREN Expression RPAREN | {IntLiteral} value=INT | {RealLiteral} value=REAL  | {String} value=STRING | (CHOICE|DECREMENT) variablePath=VariablePath  | variablePath=VariablePath (CHOICE|DECREMENT)? ;
-	
-VariablePath: 
-//TODO CORRECT HERE: diego[2].marco[5]=ss  non lo fa fare!
+	LPAREN Expression RPAREN | {IntLiteral} value=INT | {RealLiteral} value=REAL | {String} value=STRING | (CHOICE |
+	DECREMENT) variablePath=VariablePath | variablePath=VariablePath (CHOICE | DECREMENT)?;
 
-  {VariablePath} ID (LSQUARE  children+=Expression RSQUARE)?  (((DOT (ID|'global') (LSQUARE  children+=Expression RSQUARE)?) | (DOT LPAREN  children+=Expression RPAREN)))* |
-  {VariablePath} 'global'  (((DOT (ID|'global') (LSQUARE  children+=Expression RSQUARE)?) | (DOT LPAREN  children+=Expression RPAREN)))* ;//Global non  un un array
-    		
+VariablePath:
+    
+	{VariablePath} ID (LSQUARE children+=Expression RSQUARE)? (((DOT (ID | 'global') (LSQUARE children+=Expression
+	RSQUARE)?) | (DOT LPAREN children+=Expression RPAREN)))* | {VariablePath} 'global' (((DOT (ID | 'global') (LSQUARE
+	children+=Expression RSQUARE)?) | (DOT LPAREN children+=Expression RPAREN)))*; //Global non  un un array
+
 /******************************************************************************************************************/
-
-
 
 /*********************************************NDChoiceStatement*********************************************/
 NDChoiceStatement:
- {NDChoiceStatement} (LSQUARE ((LINKIN LPAREN ID RPAREN)|inputOperationStatement+=InputOperationStatement) RSQUARE  mainProcess+=MainProcess)+ ;
+	{NDChoiceStatement} (LSQUARE ((LINKIN LPAREN ID RPAREN) | inputOperationStatement+=InputOperationStatement) RSQUARE
+	mainProcess+=MainProcess)+;
 /******************************************************************************************************************/
- 
-/*********************************************InputOperationStatement*********************************************/ 
+
+/*********************************************InputOperationStatement*********************************************/
 InputOperationStatement:
- 
- {InputOperation} ID LPAREN {VariablePath} variablePath=VariablePath RPAREN operation=Operation; 
-      
+	{InputOperation} ID LPAREN {VariablePath} variablePath=VariablePath RPAREN operation=Operation;
+
 Operation:
-    
- {Operation} (LPAREN expression=Expression RPAREN mainProcess=MainProcess)?; //line 1689 OLParser, with ? ReqResponseOperation if no ? OneWayOperation
+	{Operation} (LPAREN expression=Expression RPAREN mainProcess=MainProcess)?; //line 1689 OLParser, with ? ReqResponseOperation if no ? OneWayOperation
+	
+	
 /******************************************************************************************************************/
 
 
- 
- 
- 
-// Terminals
+/********************************************InputPortStatement & OutputPortStatement*************************************************/
+InputPortStatement:
 
+  'inputPort' name=ID LCURLY 
+  
+  
+  (location=Location & 
+  protocol=Protocol &
+  (oneWayOperation=OneWayOperation)? &
+  (RequestResponseOperation=RequestResponseOperation)? &
+  (redirects=Redirects)? &
+  (aggregates=Aggregates)? &
+  (intefaces=Interfaces)?)
+  
+  RCURLY
+
+  ;
+  
+ OutputPortStatement:
+
+  'outputPort' name=ID LCURLY 
+  
+  
+  (location=Location? & 
+  protocol=Protocol? &
+  (oneWayOperation=OneWayOperation)? &
+  (RequestResponseOperation=RequestResponseOperation)? &
+  (intefaces=Interfaces)?)
+  
+  RCURLY
+
+  ; 
+
+OneWayOperation: 
+  
+  {OneWayOperation} 'OneWay' COLON children+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)? (COMMA children+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)?)* 
+  ;
+
+RequestResponseOperation:
+  {RequestResponseOperation} 'RequestResponse' COLON name+=ID ((LPAREN typeDefinition+=TypeDefinition RPAREN) (LPAREN typeDefinition+=TypeDefinition RPAREN))? 
+  ('throws' name+=ID(LPAREN typeDefinition+=TypeDefinition RPAREN))?
+  (COMMA name+=ID ((LPAREN typeDefinition+=TypeDefinition RPAREN) (LPAREN typeDefinition+=TypeDefinition RPAREN))? 
+  ('throws' name+=ID(LPAREN typeDefinition+=TypeDefinition RPAREN))?)*
+
+;
+
+TypeDefinition: 
+
+   name=ID;
+
+
+Location:
+  'Location' COLON Uri;
+  
+Uri:      
+  name=ID|name=STRING; //to do...
+  
+Interfaces:
+
+  'Interfaces' COLON name+=ID (COMMA name+=ID)*; 
+  
+Protocol:
+  
+  'Protocol' COLON name+=ID ProtocolConfiguration?;
+  
+ProtocolConfiguration:
+
+  LCURLY 'TODO' RCURLY;  
+  
+Redirects:
+
+  'Redirects' COLON  name+=ID '=>' outputPortIdentifier+=ID (COMMA name+=ID '=>' outputPortIdentifier+=ID)*; //TODO LINKING TO OutPutPortDef
+  
+Aggregates:
+
+  'Aggregates' COLON name+=ID (COMMA name+=ID)*;
+  
+/***********************************************END InpuPortStatement**********************************************************************/    
+
+
+
+// Terminals
 
 terminal LCURLY:
 	'{';
@@ -125,8 +199,6 @@ terminal LSQUARE:
 
 terminal RSQUARE:
 	']';
-
-
 
 terminal SEMICOLON:
 	';';
@@ -175,18 +247,18 @@ terminal ASTERISK:
 
 terminal DIVIDE:
 	'/';
-	
-terminal POINTSTO:  '->';
-	
-terminal DEEPCOPYLEFT :  '<<';
+
+terminal POINTSTO:
+	'->';
+
+terminal DEEPCOPYLEFT:
+	'<<';
 
 terminal MINUS:
 	'-';
 
 terminal PERCENT_SIGN:
 	'%';
-	
-
 
 terminal REAL:
 	('0'..'9')* '.' ('0'..'9')+ (('e' | 'E') ('0'..'9')+)?;
