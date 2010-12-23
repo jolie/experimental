@@ -31,7 +31,7 @@ TYPEDEF:
 
   {TYPEDEF}  LCURLY 
     
-        (  name+=ID_PRE Cardinality COLON NATIVE_TYPE typedef+=TYPEDEF*)*
+        (  DOT name+=ID Cardinality COLON NATIVE_TYPE typedef+=TYPEDEF*)*
     
     RCURLY;
   
@@ -91,14 +91,14 @@ TerminalExpression returns Expression:
 
 VariablePath :
     
-	{VariablePath}  name+=ID_PRE | name+=ID (LSQUARE children+=Expression RSQUARE)? (((DOT (ID | 'global') (LSQUARE children+=Expression
+	{VariablePath}  dot+=DOT? name+=ID (LSQUARE children+=Expression RSQUARE)? (((DOT (ID | 'global') (LSQUARE children+=Expression
 	RSQUARE)?) | (DOT LPAREN children+=Expression RPAREN)))* | {VariablePath} 'global' (((DOT (ID | 'global') (LSQUARE
 	children+=Expression RSQUARE)?) | (DOT LPAREN children+=Expression RPAREN)))* //Global non è un un array
 ;
     
 With :
 
- {With} 'with' LPAREN name+=ID RPAREN mainrocess+=MainProcess;
+ {With} 'with' LPAREN name+=VariablePath RPAREN mainrocess+=MainProcess;
 
 /******************************************************************************************************************/
 
@@ -202,10 +202,6 @@ Aggregates:
 
 
 
-// Terminals
-//ID_PRE is used for the with statement. The validator look for external with if there is a prefixed variable 
-terminal ID_PRE  : '.''^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
-
 
 terminal LCURLY:
 	'{';
@@ -265,7 +261,6 @@ terminal ASTERISK:
      
 terminal QUESTION:
      '?';     
-
 
 terminal DIVIDE:
 	'/';

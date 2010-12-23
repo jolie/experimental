@@ -31,7 +31,9 @@ public class JolieJavaValidator extends AbstractJolieJavaValidator {
 
 		for (int i = 0; i < variablePath.getName().size(); i++) {
 			System.out.println(variablePath.getName().toString());
-			if(variablePath.getName().get(i).charAt(0)=='.') {
+			 
+			if(variablePath.getDot().size()==1) {
+				
 				
 				EObject container = variablePath.eContainer();	
 				
@@ -44,6 +46,7 @@ public class JolieJavaValidator extends AbstractJolieJavaValidator {
 						//error("Variable cannot start with A", variablePath, JoliePackage.VARIABLE_PATH__NAME);
 					} 
 				if (flag==false) error("Prefixed variable paths must be inside a with block", variablePath, JoliePackage.VARIABLE_PATH__NAME);
+			   
 			}
 		}
 	}
