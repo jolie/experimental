@@ -3,7 +3,19 @@
  */
 package jolie.xtext.scoping;
 
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.resource.IEObjectDescription;
+import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
+import org.eclipse.xtext.scoping.impl.DefaultGlobalScopeProvider;
+import org.eclipse.xtext.scoping.impl.SimpleLocalScopeProvider;
+
+import com.google.inject.Scope;
+import com.google.inject.Scopes;
+
+
 
 /**
  * This class contains custom scoping description.
@@ -12,6 +24,40 @@ import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
  * on how and when to use it 
  *
  */
-public class JolieScopeProvider extends AbstractDeclarativeScopeProvider {
+public class JolieScopeProvider extends SimpleLocalScopeProvider {
+
+
+	public IScope getScope(EObject context, EReference reference) {
+		System.out.println(
+				"scope_" + reference.getEContainingClass().getName()
+				+ "_" + reference.getName()
+				+ "("  + context.eClass().getName() + ", ..)"
+			);	
+		
+		
+		
+		return super.getScope(context, reference);
+	}	
+	
+
+	/**
+
+	/*public IScope getScope(EObject context, EReference reference) {
+		IScope scope = super.getScope(context, reference);
+		scope.
+		System.out.println("scope Provider..."+reference.toString()+context.toString());
+		
+            if (context instanceof jolie.xtext.jolie.impl.InputOperationCallImpl) {
+            	System.out.println("Sono InputOperationCallImpl");
+            	
+            	
+            	
+            	return scope;
+            }
+           // return IScope.NULLSCOPE;
+       
+		return null;
+	}
+*/
 
 }

@@ -5,6 +5,11 @@
  */
 package jolie.xtext.jolie;
 
+import java.lang.String;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,8 +19,8 @@ package jolie.xtext.jolie;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link jolie.xtext.jolie.RequestResponseOperation#getExpression <em>Expression</em>}</li>
- *   <li>{@link jolie.xtext.jolie.RequestResponseOperation#getMainProcess <em>Main Process</em>}</li>
+ *   <li>{@link jolie.xtext.jolie.RequestResponseOperation#getName <em>Name</em>}</li>
+ *   <li>{@link jolie.xtext.jolie.RequestResponseOperation#getTypeDefinition <em>Type Definition</em>}</li>
  * </ul>
  * </p>
  *
@@ -23,58 +28,38 @@ package jolie.xtext.jolie;
  * @model
  * @generated
  */
-public interface RequestResponseOperation extends InputOperation
+public interface RequestResponseOperation extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Expression</b></em>' containment reference.
+   * Returns the value of the '<em><b>Name</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expression</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(Expression)
-   * @see jolie.xtext.jolie.JoliePackage#getRequestResponseOperation_Expression()
-   * @model containment="true"
+   * @return the value of the '<em>Name</em>' attribute list.
+   * @see jolie.xtext.jolie.JoliePackage#getRequestResponseOperation_Name()
+   * @model unique="false"
    * @generated
    */
-  Expression getExpression();
+  EList<String> getName();
 
   /**
-   * Sets the value of the '{@link jolie.xtext.jolie.RequestResponseOperation#getExpression <em>Expression</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expression</em>' containment reference.
-   * @see #getExpression()
-   * @generated
-   */
-  void setExpression(Expression value);
-
-  /**
-   * Returns the value of the '<em><b>Main Process</b></em>' containment reference.
+   * Returns the value of the '<em><b>Type Definition</b></em>' containment reference list.
+   * The list contents are of type {@link jolie.xtext.jolie.TypeDefinition}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Main Process</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Type Definition</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Main Process</em>' containment reference.
-   * @see #setMainProcess(MainProcess)
-   * @see jolie.xtext.jolie.JoliePackage#getRequestResponseOperation_MainProcess()
+   * @return the value of the '<em>Type Definition</em>' containment reference list.
+   * @see jolie.xtext.jolie.JoliePackage#getRequestResponseOperation_TypeDefinition()
    * @model containment="true"
    * @generated
    */
-  MainProcess getMainProcess();
-
-  /**
-   * Sets the value of the '{@link jolie.xtext.jolie.RequestResponseOperation#getMainProcess <em>Main Process</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Main Process</em>' containment reference.
-   * @see #getMainProcess()
-   * @generated
-   */
-  void setMainProcess(MainProcess value);
+  EList<TypeDefinition> getTypeDefinition();
 
 } // RequestResponseOperation

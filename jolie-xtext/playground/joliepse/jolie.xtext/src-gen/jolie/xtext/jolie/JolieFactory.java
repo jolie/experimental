@@ -35,6 +35,24 @@ public interface JolieFactory extends EFactory
   Program createProgram();
 
   /**
+   * Returns a new object of class '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type</em>'.
+   * @generated
+   */
+  Type createType();
+
+  /**
+   * Returns a new object of class '<em>TYPEDEF</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>TYPEDEF</em>'.
+   * @generated
+   */
+  TYPEDEF createTYPEDEF();
+
+  /**
    * Returns a new object of class '<em>Main</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -89,22 +107,40 @@ public interface JolieFactory extends EFactory
   BasicStatement createBasicStatement();
 
   /**
-   * Returns a new object of class '<em>Assign Statement</em>'.
+   * Returns a new object of class '<em>Assign Statement Or Post Increment Decrement Or Input Operation</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Assign Statement</em>'.
+   * @return a new object of class '<em>Assign Statement Or Post Increment Decrement Or Input Operation</em>'.
    * @generated
    */
-  AssignStatement createAssignStatement();
+  AssignStatementOrPostIncrementDecrementOrInputOperation createAssignStatementOrPostIncrementDecrementOrInputOperation();
 
   /**
-   * Returns a new object of class '<em>Right Side Assignament</em>'.
+   * Returns a new object of class '<em>Right Side</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Right Side Assignament</em>'.
+   * @return a new object of class '<em>Right Side</em>'.
    * @generated
    */
-  RightSideAssignament createRightSideAssignament();
+  RightSide createRightSide();
+
+  /**
+   * Returns a new object of class '<em>Operation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Operation</em>'.
+   * @generated
+   */
+  Operation createOperation();
+
+  /**
+   * Returns a new object of class '<em>Pre Increment Decrement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Pre Increment Decrement</em>'.
+   * @generated
+   */
+  PreIncrementDecrement createPreIncrementDecrement();
 
   /**
    * Returns a new object of class '<em>Expression</em>'.
@@ -125,6 +161,15 @@ public interface JolieFactory extends EFactory
   VariablePath createVariablePath();
 
   /**
+   * Returns a new object of class '<em>With</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>With</em>'.
+   * @generated
+   */
+  With createWith();
+
+  /**
    * Returns a new object of class '<em>ND Choice Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -134,13 +179,40 @@ public interface JolieFactory extends EFactory
   NDChoiceStatement createNDChoiceStatement();
 
   /**
-   * Returns a new object of class '<em>Input Operation</em>'.
+   * Returns a new object of class '<em>Port</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Input Operation</em>'.
+   * @return a new object of class '<em>Port</em>'.
    * @generated
    */
-  InputOperation createInputOperation();
+  Port createPort();
+
+  /**
+   * Returns a new object of class '<em>Input Port Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Input Port Statement</em>'.
+   * @generated
+   */
+  InputPortStatement createInputPortStatement();
+
+  /**
+   * Returns a new object of class '<em>Output Port Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Output Port Statement</em>'.
+   * @generated
+   */
+  OutputPortStatement createOutputPortStatement();
+
+  /**
+   * Returns a new object of class '<em>One Way Operation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>One Way Operation</em>'.
+   * @generated
+   */
+  OneWayOperation createOneWayOperation();
 
   /**
    * Returns a new object of class '<em>Request Response Operation</em>'.
@@ -152,6 +224,69 @@ public interface JolieFactory extends EFactory
   RequestResponseOperation createRequestResponseOperation();
 
   /**
+   * Returns a new object of class '<em>Type Definition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Definition</em>'.
+   * @generated
+   */
+  TypeDefinition createTypeDefinition();
+
+  /**
+   * Returns a new object of class '<em>Location</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Location</em>'.
+   * @generated
+   */
+  Location createLocation();
+
+  /**
+   * Returns a new object of class '<em>Uri</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Uri</em>'.
+   * @generated
+   */
+  Uri createUri();
+
+  /**
+   * Returns a new object of class '<em>Interfaces</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Interfaces</em>'.
+   * @generated
+   */
+  Interfaces createInterfaces();
+
+  /**
+   * Returns a new object of class '<em>Protocol</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Protocol</em>'.
+   * @generated
+   */
+  Protocol createProtocol();
+
+  /**
+   * Returns a new object of class '<em>Redirects</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Redirects</em>'.
+   * @generated
+   */
+  Redirects createRedirects();
+
+  /**
+   * Returns a new object of class '<em>Aggregates</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Aggregates</em>'.
+   * @generated
+   */
+  Aggregates createAggregates();
+
+  /**
    * Returns a new object of class '<em>OL Syntax Node</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -161,13 +296,13 @@ public interface JolieFactory extends EFactory
   OLSyntaxNode createOLSyntaxNode();
 
   /**
-   * Returns a new object of class '<em>Operation</em>'.
+   * Returns a new object of class '<em>Assign Statement Or Post Increment Decrement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Operation</em>'.
+   * @return a new object of class '<em>Assign Statement Or Post Increment Decrement</em>'.
    * @generated
    */
-  Operation createOperation();
+  AssignStatementOrPostIncrementDecrement createAssignStatementOrPostIncrementDecrement();
 
   /**
    * Returns a new object of class '<em>Int Literal</em>'.

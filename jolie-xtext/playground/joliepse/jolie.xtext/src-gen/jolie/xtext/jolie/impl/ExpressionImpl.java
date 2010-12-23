@@ -5,8 +5,6 @@
  */
 package jolie.xtext.jolie.impl;
 
-import java.lang.String;
-
 import jolie.xtext.jolie.Expression;
 import jolie.xtext.jolie.JoliePackage;
 import jolie.xtext.jolie.VariablePath;
@@ -18,6 +16,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,46 +25,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link jolie.xtext.jolie.impl.ExpressionImpl#getExpression <em>Expression</em>}</li>
- *   <li>{@link jolie.xtext.jolie.impl.ExpressionImpl#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link jolie.xtext.jolie.impl.ExpressionImpl#getVariablePath <em>Variable Path</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ExpressionImpl extends RightSideAssignamentImpl implements Expression
+public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expression
 {
-  /**
-   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExpression()
-   * @generated
-   * @ordered
-   */
-  protected Expression expression;
-
-  /**
-   * The default value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPrefix()
-   * @generated
-   * @ordered
-   */
-  protected static final String PREFIX_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPrefix()
-   * @generated
-   * @ordered
-   */
-  protected String prefix = PREFIX_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getVariablePath() <em>Variable Path</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -95,77 +62,6 @@ public class ExpressionImpl extends RightSideAssignamentImpl implements Expressi
   protected EClass eStaticClass()
   {
     return JoliePackage.Literals.EXPRESSION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Expression getExpression()
-  {
-    return expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
-  {
-    Expression oldExpression = expression;
-    expression = newExpression;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoliePackage.EXPRESSION__EXPRESSION, oldExpression, newExpression);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setExpression(Expression newExpression)
-  {
-    if (newExpression != expression)
-    {
-      NotificationChain msgs = null;
-      if (expression != null)
-        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoliePackage.EXPRESSION__EXPRESSION, null, msgs);
-      if (newExpression != null)
-        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoliePackage.EXPRESSION__EXPRESSION, null, msgs);
-      msgs = basicSetExpression(newExpression, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.EXPRESSION__EXPRESSION, newExpression, newExpression));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getPrefix()
-  {
-    return prefix;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPrefix(String newPrefix)
-  {
-    String oldPrefix = prefix;
-    prefix = newPrefix;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.EXPRESSION__PREFIX, oldPrefix, prefix));
   }
 
   /**
@@ -226,8 +122,6 @@ public class ExpressionImpl extends RightSideAssignamentImpl implements Expressi
   {
     switch (featureID)
     {
-      case JoliePackage.EXPRESSION__EXPRESSION:
-        return basicSetExpression(null, msgs);
       case JoliePackage.EXPRESSION__VARIABLE_PATH:
         return basicSetVariablePath(null, msgs);
     }
@@ -244,10 +138,6 @@ public class ExpressionImpl extends RightSideAssignamentImpl implements Expressi
   {
     switch (featureID)
     {
-      case JoliePackage.EXPRESSION__EXPRESSION:
-        return getExpression();
-      case JoliePackage.EXPRESSION__PREFIX:
-        return getPrefix();
       case JoliePackage.EXPRESSION__VARIABLE_PATH:
         return getVariablePath();
     }
@@ -264,12 +154,6 @@ public class ExpressionImpl extends RightSideAssignamentImpl implements Expressi
   {
     switch (featureID)
     {
-      case JoliePackage.EXPRESSION__EXPRESSION:
-        setExpression((Expression)newValue);
-        return;
-      case JoliePackage.EXPRESSION__PREFIX:
-        setPrefix((String)newValue);
-        return;
       case JoliePackage.EXPRESSION__VARIABLE_PATH:
         setVariablePath((VariablePath)newValue);
         return;
@@ -287,12 +171,6 @@ public class ExpressionImpl extends RightSideAssignamentImpl implements Expressi
   {
     switch (featureID)
     {
-      case JoliePackage.EXPRESSION__EXPRESSION:
-        setExpression((Expression)null);
-        return;
-      case JoliePackage.EXPRESSION__PREFIX:
-        setPrefix(PREFIX_EDEFAULT);
-        return;
       case JoliePackage.EXPRESSION__VARIABLE_PATH:
         setVariablePath((VariablePath)null);
         return;
@@ -310,31 +188,10 @@ public class ExpressionImpl extends RightSideAssignamentImpl implements Expressi
   {
     switch (featureID)
     {
-      case JoliePackage.EXPRESSION__EXPRESSION:
-        return expression != null;
-      case JoliePackage.EXPRESSION__PREFIX:
-        return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals(prefix);
       case JoliePackage.EXPRESSION__VARIABLE_PATH:
         return variablePath != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (prefix: ");
-    result.append(prefix);
-    result.append(')');
-    return result.toString();
   }
 
 } //ExpressionImpl

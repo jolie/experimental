@@ -12,6 +12,7 @@ var runtimeProject = "../${projectName}"
 Workflow {
     bean = StandaloneSetup {
 		platformUri = "${runtimeProject}/.."
+		
 	}
 
 	component = DirectoryCleaner {
@@ -62,14 +63,16 @@ Workflow {
 			}
 
 			// scoping and exporting API
-			// fragment = scoping.ImportURIScopingFragment {}
+			 fragment = scoping.ImportURIScopingFragment {}
 			// fragment = exporting.SimpleNamesFragment {}
 
 			// scoping and exporting API 
 			fragment = scoping.ImportNamespacesScopingFragment {}
-			fragment = exporting.QualifiedNamesFragment {}
+			fragment = exporting.SimpleNamesFragment {}
 			fragment = builder.BuilderIntegrationFragment {}
 
+
+            
 			// formatter API 
 			fragment = formatting.FormatterFragment {}
 

@@ -7,24 +7,39 @@ package jolie.xtext.jolie.util;
 
 import java.util.List;
 
-import jolie.xtext.jolie.AssignStatement;
+import jolie.xtext.jolie.Aggregates;
+import jolie.xtext.jolie.AssignStatementOrPostIncrementDecrement;
+import jolie.xtext.jolie.AssignStatementOrPostIncrementDecrementOrInputOperation;
 import jolie.xtext.jolie.BasicStatement;
 import jolie.xtext.jolie.Expression;
-import jolie.xtext.jolie.InputOperation;
+import jolie.xtext.jolie.InputPortStatement;
 import jolie.xtext.jolie.IntLiteral;
+import jolie.xtext.jolie.Interfaces;
 import jolie.xtext.jolie.JoliePackage;
+import jolie.xtext.jolie.Location;
 import jolie.xtext.jolie.Main;
 import jolie.xtext.jolie.MainProcess;
 import jolie.xtext.jolie.NDChoiceStatement;
 import jolie.xtext.jolie.OLSyntaxNode;
+import jolie.xtext.jolie.OneWayOperation;
 import jolie.xtext.jolie.Operation;
+import jolie.xtext.jolie.OutputPortStatement;
 import jolie.xtext.jolie.ParallelStatement;
+import jolie.xtext.jolie.Port;
+import jolie.xtext.jolie.PreIncrementDecrement;
 import jolie.xtext.jolie.Program;
+import jolie.xtext.jolie.Protocol;
 import jolie.xtext.jolie.RealLiteral;
+import jolie.xtext.jolie.Redirects;
 import jolie.xtext.jolie.RequestResponseOperation;
-import jolie.xtext.jolie.RightSideAssignament;
+import jolie.xtext.jolie.RightSide;
 import jolie.xtext.jolie.SequenceStatement;
+import jolie.xtext.jolie.TYPEDEF;
+import jolie.xtext.jolie.Type;
+import jolie.xtext.jolie.TypeDefinition;
+import jolie.xtext.jolie.Uri;
 import jolie.xtext.jolie.VariablePath;
+import jolie.xtext.jolie.With;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -119,6 +134,20 @@ public class JolieSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case JoliePackage.TYPE:
+      {
+        Type type = (Type)theEObject;
+        T result = caseType(type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JoliePackage.TYPEDEF:
+      {
+        TYPEDEF typedef = (TYPEDEF)theEObject;
+        T result = caseTYPEDEF(typedef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case JoliePackage.MAIN:
       {
         Main main = (Main)theEObject;
@@ -137,7 +166,6 @@ public class JolieSwitch<T>
       {
         jolie.xtext.jolie.Process process = (jolie.xtext.jolie.Process)theEObject;
         T result = caseProcess(process);
-        if (result == null) result = caseBasicStatement(process);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -162,18 +190,32 @@ public class JolieSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case JoliePackage.ASSIGN_STATEMENT:
+      case JoliePackage.ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT_OR_INPUT_OPERATION:
       {
-        AssignStatement assignStatement = (AssignStatement)theEObject;
-        T result = caseAssignStatement(assignStatement);
-        if (result == null) result = caseBasicStatement(assignStatement);
+        AssignStatementOrPostIncrementDecrementOrInputOperation assignStatementOrPostIncrementDecrementOrInputOperation = (AssignStatementOrPostIncrementDecrementOrInputOperation)theEObject;
+        T result = caseAssignStatementOrPostIncrementDecrementOrInputOperation(assignStatementOrPostIncrementDecrementOrInputOperation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case JoliePackage.RIGHT_SIDE_ASSIGNAMENT:
+      case JoliePackage.RIGHT_SIDE:
       {
-        RightSideAssignament rightSideAssignament = (RightSideAssignament)theEObject;
-        T result = caseRightSideAssignament(rightSideAssignament);
+        RightSide rightSide = (RightSide)theEObject;
+        T result = caseRightSide(rightSide);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JoliePackage.OPERATION:
+      {
+        Operation operation = (Operation)theEObject;
+        T result = caseOperation(operation);
+        if (result == null) result = caseExpression(operation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JoliePackage.PRE_INCREMENT_DECREMENT:
+      {
+        PreIncrementDecrement preIncrementDecrement = (PreIncrementDecrement)theEObject;
+        T result = casePreIncrementDecrement(preIncrementDecrement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -181,7 +223,6 @@ public class JolieSwitch<T>
       {
         Expression expression = (Expression)theEObject;
         T result = caseExpression(expression);
-        if (result == null) result = caseRightSideAssignament(expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -189,7 +230,14 @@ public class JolieSwitch<T>
       {
         VariablePath variablePath = (VariablePath)theEObject;
         T result = caseVariablePath(variablePath);
-        if (result == null) result = caseInputOperation(variablePath);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JoliePackage.WITH:
+      {
+        With with = (With)theEObject;
+        T result = caseWith(with);
+        if (result == null) result = caseBasicStatement(with);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -197,14 +245,34 @@ public class JolieSwitch<T>
       {
         NDChoiceStatement ndChoiceStatement = (NDChoiceStatement)theEObject;
         T result = caseNDChoiceStatement(ndChoiceStatement);
-        if (result == null) result = caseBasicStatement(ndChoiceStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case JoliePackage.INPUT_OPERATION:
+      case JoliePackage.PORT:
       {
-        InputOperation inputOperation = (InputOperation)theEObject;
-        T result = caseInputOperation(inputOperation);
+        Port port = (Port)theEObject;
+        T result = casePort(port);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JoliePackage.INPUT_PORT_STATEMENT:
+      {
+        InputPortStatement inputPortStatement = (InputPortStatement)theEObject;
+        T result = caseInputPortStatement(inputPortStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JoliePackage.OUTPUT_PORT_STATEMENT:
+      {
+        OutputPortStatement outputPortStatement = (OutputPortStatement)theEObject;
+        T result = caseOutputPortStatement(outputPortStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JoliePackage.ONE_WAY_OPERATION:
+      {
+        OneWayOperation oneWayOperation = (OneWayOperation)theEObject;
+        T result = caseOneWayOperation(oneWayOperation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -212,7 +280,55 @@ public class JolieSwitch<T>
       {
         RequestResponseOperation requestResponseOperation = (RequestResponseOperation)theEObject;
         T result = caseRequestResponseOperation(requestResponseOperation);
-        if (result == null) result = caseInputOperation(requestResponseOperation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JoliePackage.TYPE_DEFINITION:
+      {
+        TypeDefinition typeDefinition = (TypeDefinition)theEObject;
+        T result = caseTypeDefinition(typeDefinition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JoliePackage.LOCATION:
+      {
+        Location location = (Location)theEObject;
+        T result = caseLocation(location);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JoliePackage.URI:
+      {
+        Uri uri = (Uri)theEObject;
+        T result = caseUri(uri);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JoliePackage.INTERFACES:
+      {
+        Interfaces interfaces = (Interfaces)theEObject;
+        T result = caseInterfaces(interfaces);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JoliePackage.PROTOCOL:
+      {
+        Protocol protocol = (Protocol)theEObject;
+        T result = caseProtocol(protocol);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JoliePackage.REDIRECTS:
+      {
+        Redirects redirects = (Redirects)theEObject;
+        T result = caseRedirects(redirects);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JoliePackage.AGGREGATES:
+      {
+        Aggregates aggregates = (Aggregates)theEObject;
+        T result = caseAggregates(aggregates);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -224,12 +340,11 @@ public class JolieSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case JoliePackage.OPERATION:
+      case JoliePackage.ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT:
       {
-        Operation operation = (Operation)theEObject;
-        T result = caseOperation(operation);
-        if (result == null) result = caseExpression(operation);
-        if (result == null) result = caseRightSideAssignament(operation);
+        AssignStatementOrPostIncrementDecrement assignStatementOrPostIncrementDecrement = (AssignStatementOrPostIncrementDecrement)theEObject;
+        T result = caseAssignStatementOrPostIncrementDecrement(assignStatementOrPostIncrementDecrement);
+        if (result == null) result = caseAssignStatementOrPostIncrementDecrementOrInputOperation(assignStatementOrPostIncrementDecrement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -238,7 +353,6 @@ public class JolieSwitch<T>
         IntLiteral intLiteral = (IntLiteral)theEObject;
         T result = caseIntLiteral(intLiteral);
         if (result == null) result = caseExpression(intLiteral);
-        if (result == null) result = caseRightSideAssignament(intLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -247,7 +361,6 @@ public class JolieSwitch<T>
         RealLiteral realLiteral = (RealLiteral)theEObject;
         T result = caseRealLiteral(realLiteral);
         if (result == null) result = caseExpression(realLiteral);
-        if (result == null) result = caseRightSideAssignament(realLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -256,7 +369,6 @@ public class JolieSwitch<T>
         jolie.xtext.jolie.String string = (jolie.xtext.jolie.String)theEObject;
         T result = caseString(string);
         if (result == null) result = caseExpression(string);
-        if (result == null) result = caseRightSideAssignament(string);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -276,6 +388,38 @@ public class JolieSwitch<T>
    * @generated
    */
   public T caseProgram(Program object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseType(Type object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>TYPEDEF</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>TYPEDEF</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTYPEDEF(TYPEDEF object)
   {
     return null;
   }
@@ -377,33 +521,65 @@ public class JolieSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Assign Statement</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Assign Statement Or Post Increment Decrement Or Input Operation</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Assign Statement</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Assign Statement Or Post Increment Decrement Or Input Operation</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAssignStatement(AssignStatement object)
+  public T caseAssignStatementOrPostIncrementDecrementOrInputOperation(AssignStatementOrPostIncrementDecrementOrInputOperation object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Right Side Assignament</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Right Side</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Right Side Assignament</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Right Side</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseRightSideAssignament(RightSideAssignament object)
+  public T caseRightSide(RightSide object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOperation(Operation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Pre Increment Decrement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Pre Increment Decrement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePreIncrementDecrement(PreIncrementDecrement object)
   {
     return null;
   }
@@ -441,6 +617,22 @@ public class JolieSwitch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>With</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>With</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWith(With object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>ND Choice Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -457,17 +649,65 @@ public class JolieSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Input Operation</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Port</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Input Operation</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Port</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseInputOperation(InputOperation object)
+  public T casePort(Port object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Input Port Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Input Port Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInputPortStatement(InputPortStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Output Port Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Output Port Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOutputPortStatement(OutputPortStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>One Way Operation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>One Way Operation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOneWayOperation(OneWayOperation object)
   {
     return null;
   }
@@ -489,6 +729,118 @@ public class JolieSwitch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Definition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Definition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypeDefinition(TypeDefinition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Location</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Location</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLocation(Location object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Uri</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Uri</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUri(Uri object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Interfaces</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Interfaces</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInterfaces(Interfaces object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Protocol</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Protocol</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseProtocol(Protocol object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Redirects</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Redirects</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRedirects(Redirects object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Aggregates</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Aggregates</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAggregates(Aggregates object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>OL Syntax Node</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -505,17 +857,17 @@ public class JolieSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Assign Statement Or Post Increment Decrement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Assign Statement Or Post Increment Decrement</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseOperation(Operation object)
+  public T caseAssignStatementOrPostIncrementDecrement(AssignStatementOrPostIncrementDecrement object)
   {
     return null;
   }

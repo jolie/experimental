@@ -20,65 +20,178 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 	public class ProgramElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Program");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cMainKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cMainAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cMainMainParserRuleCall_1_0 = (RuleCall)cMainAssignment_1.eContents().get(0);
+		private final Assignment cPortsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cPortsPortParserRuleCall_0_0 = (RuleCall)cPortsAssignment_0.eContents().get(0);
+		private final Assignment cTypesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTypesTypeParserRuleCall_1_0 = (RuleCall)cTypesAssignment_1.eContents().get(0);
+		private final Assignment cMainAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cMainMainParserRuleCall_2_0 = (RuleCall)cMainAssignment_2.eContents().get(0);
 		
-		//Program: / * (locations=Locations)* * / "main" main=Main;
+		//Program:
+		//	ports+=Port* types+=Type* main=Main;
 		public ParserRule getRule() { return rule; }
 
-		/// * (locations=Locations)* * / "main" main=Main
+		//ports+=Port* types+=Type* main=Main
 		public Group getGroup() { return cGroup; }
 
-		/// * (locations=Locations)* * / "main"
-		public Keyword getMainKeyword_0() { return cMainKeyword_0; }
+		//ports+=Port*
+		public Assignment getPortsAssignment_0() { return cPortsAssignment_0; }
+
+		//Port
+		public RuleCall getPortsPortParserRuleCall_0_0() { return cPortsPortParserRuleCall_0_0; }
+
+		//types+=Type*
+		public Assignment getTypesAssignment_1() { return cTypesAssignment_1; }
+
+		//Type
+		public RuleCall getTypesTypeParserRuleCall_1_0() { return cTypesTypeParserRuleCall_1_0; }
 
 		//main=Main
-		public Assignment getMainAssignment_1() { return cMainAssignment_1; }
+		public Assignment getMainAssignment_2() { return cMainAssignment_2; }
 
 		//Main
-		public RuleCall getMainMainParserRuleCall_1_0() { return cMainMainParserRuleCall_1_0; }
+		public RuleCall getMainMainParserRuleCall_2_0() { return cMainMainParserRuleCall_2_0; }
+	}
+
+	public class CardinalityElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Cardinality");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cQUESTIONTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cASTERISKTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		/// ****************************************TYPE**************************************** / Cardinality returns
+		//ecore::EString:
+		//	QUESTION | ASTERISK;
+		public ParserRule getRule() { return rule; }
+
+		//QUESTION | ASTERISK
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//QUESTION
+		public RuleCall getQUESTIONTerminalRuleCall_0() { return cQUESTIONTerminalRuleCall_0; }
+
+		//ASTERISK
+		public RuleCall getASTERISKTerminalRuleCall_1() { return cASTERISKTerminalRuleCall_1; }
+	}
+
+	public class TypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Type");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTypeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cCOLONTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final RuleCall cNATIVE_TYPETerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Assignment cTypedefAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTypedefTYPEDEFParserRuleCall_4_0 = (RuleCall)cTypedefAssignment_4.eContents().get(0);
+		
+		//Type:
+		//	"type" name=ID COLON NATIVE_TYPE typedef+=TYPEDEF?;
+		public ParserRule getRule() { return rule; }
+
+		//"type" name=ID COLON NATIVE_TYPE typedef+=TYPEDEF?
+		public Group getGroup() { return cGroup; }
+
+		//"type"
+		public Keyword getTypeKeyword_0() { return cTypeKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//COLON
+		public RuleCall getCOLONTerminalRuleCall_2() { return cCOLONTerminalRuleCall_2; }
+
+		//NATIVE_TYPE
+		public RuleCall getNATIVE_TYPETerminalRuleCall_3() { return cNATIVE_TYPETerminalRuleCall_3; }
+
+		//typedef+=TYPEDEF?
+		public Assignment getTypedefAssignment_4() { return cTypedefAssignment_4; }
+
+		//TYPEDEF
+		public RuleCall getTypedefTYPEDEFParserRuleCall_4_0() { return cTypedefTYPEDEFParserRuleCall_4_0; }
+	}
+
+	public class TYPEDEFElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TYPEDEF");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cTYPEDEFAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cLCURLYTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cNameID_PRETerminalRuleCall_2_0_0 = (RuleCall)cNameAssignment_2_0.eContents().get(0);
+		private final RuleCall cCardinalityParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
+		private final RuleCall cCOLONTerminalRuleCall_2_2 = (RuleCall)cGroup_2.eContents().get(2);
+		private final RuleCall cNATIVE_TYPETerminalRuleCall_2_3 = (RuleCall)cGroup_2.eContents().get(3);
+		private final Assignment cTypedefAssignment_2_4 = (Assignment)cGroup_2.eContents().get(4);
+		private final RuleCall cTypedefTYPEDEFParserRuleCall_2_4_0 = (RuleCall)cTypedefAssignment_2_4.eContents().get(0);
+		private final RuleCall cRCURLYTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		
+		//TYPEDEF:
+		//	{TYPEDEF} LCURLY (name+=ID_PRE Cardinality COLON NATIVE_TYPE typedef+=TYPEDEF*)* RCURLY;
+		public ParserRule getRule() { return rule; }
+
+		//{TYPEDEF} LCURLY (name+=ID_PRE Cardinality COLON NATIVE_TYPE typedef+=TYPEDEF*)* RCURLY
+		public Group getGroup() { return cGroup; }
+
+		//{TYPEDEF}
+		public Action getTYPEDEFAction_0() { return cTYPEDEFAction_0; }
+
+		//LCURLY
+		public RuleCall getLCURLYTerminalRuleCall_1() { return cLCURLYTerminalRuleCall_1; }
+
+		//(name+=ID_PRE Cardinality COLON NATIVE_TYPE typedef+=TYPEDEF*)*
+		public Group getGroup_2() { return cGroup_2; }
+
+		//name+=ID_PRE
+		public Assignment getNameAssignment_2_0() { return cNameAssignment_2_0; }
+
+		//ID_PRE
+		public RuleCall getNameID_PRETerminalRuleCall_2_0_0() { return cNameID_PRETerminalRuleCall_2_0_0; }
+
+		//Cardinality
+		public RuleCall getCardinalityParserRuleCall_2_1() { return cCardinalityParserRuleCall_2_1; }
+
+		//COLON
+		public RuleCall getCOLONTerminalRuleCall_2_2() { return cCOLONTerminalRuleCall_2_2; }
+
+		//NATIVE_TYPE
+		public RuleCall getNATIVE_TYPETerminalRuleCall_2_3() { return cNATIVE_TYPETerminalRuleCall_2_3; }
+
+		//typedef+=TYPEDEF*
+		public Assignment getTypedefAssignment_2_4() { return cTypedefAssignment_2_4; }
+
+		//TYPEDEF
+		public RuleCall getTypedefTYPEDEFParserRuleCall_2_4_0() { return cTypedefTYPEDEFParserRuleCall_2_4_0; }
+
+		//RCURLY
+		public RuleCall getRCURLYTerminalRuleCall_3() { return cRCURLYTerminalRuleCall_3; }
 	}
 
 	public class MainElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Main");
-		private final Assignment cMainrocessAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cMainrocessMainProcessParserRuleCall_0 = (RuleCall)cMainrocessAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cMainKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cMainrocessAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cMainrocessMainProcessParserRuleCall_1_0 = (RuleCall)cMainrocessAssignment_1.eContents().get(0);
 		
-		/// *  
-		//Locations :
-		//ASSIGN
-		// ('inputPort' name=ID LCURLY (locations=LocationDefinition) RCURLY) &
-		// ('outputPort' name=ID LCURLY (locations=LocationDefinition) RCURLY)
-		//
-		//;
-		//
-		//LocationDefinition :
-		// ('location' address=Address) & 'protocol' (protocol=Protocol) & (interfaces=Interfaces)*
-		//;
-		//
-		//
-		//Interfaces :
-		// 'Interfaces' name=ID
-		//;
-		//
-		//terminal Protocol :
-		// 'sodep' | 'soap' | 'http'
-		//;  
-		// 
-		//terminal Address : 
-		// '"'('//') ((('a'..'z'|'A'..'Z'|'_'|'0'..'9')*'.'('a'..'z'|'A'..'Z'|'_'|'0'..'9')*)*':'('0'..'9')*) '"'
-		//
-		// ;
-		// * /Main:
-		//	mainrocess=MainProcess;
+		/// **********************************TYPE*********************************************** / Main:
+		//	"main" mainrocess=MainProcess;
 		public ParserRule getRule() { return rule; }
 
+		//"main" mainrocess=MainProcess
+		public Group getGroup() { return cGroup; }
+
+		//"main"
+		public Keyword getMainKeyword_0() { return cMainKeyword_0; }
+
 		//mainrocess=MainProcess
-		public Assignment getMainrocessAssignment() { return cMainrocessAssignment; }
+		public Assignment getMainrocessAssignment_1() { return cMainrocessAssignment_1; }
 
 		//MainProcess
-		public RuleCall getMainrocessMainProcessParserRuleCall_0() { return cMainrocessMainProcessParserRuleCall_0; }
+		public RuleCall getMainrocessMainProcessParserRuleCall_1_0() { return cMainrocessMainProcessParserRuleCall_1_0; }
 	}
 
 	public class MainProcessElements extends AbstractParserRuleElementFinder {
@@ -228,7 +341,7 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cChildrenAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
 		private final RuleCall cChildrenBasicStatementParserRuleCall_1_1_1_0 = (RuleCall)cChildrenAssignment_1_1_1.eContents().get(0);
 		
-		////Un sequence contiente uno o pi basic statemente separati da SEMICOLON ';'
+		////Un sequence contiente uno o pi basic statement separati da SEMICOLON ';'
 		//SequenceStatement:
 		//	{SequenceStatement} (children+=BasicStatement (SEMICOLON children+=BasicStatement)*);
 		public ParserRule getRule() { return rule; }
@@ -265,33 +378,42 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BasicStatement");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Action cProcessAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Action cBasicStatementAction_0_0 = (Action)cGroup_0.eContents().get(0);
 		private final Assignment cProcessAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
 		private final RuleCall cProcessProcessParserRuleCall_0_1_0 = (RuleCall)cProcessAssignment_0_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Action cAssignStatementAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Assignment cAssignStatementAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cAssignStatementAssignStatementParserRuleCall_1_1_0 = (RuleCall)cAssignStatementAssignment_1_1.eContents().get(0);
+		private final Action cBasicStatementAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Assignment cAssignStatementOrPostIncrementDecrementAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cAssignStatementOrPostIncrementDecrementAssignStatementOrPostIncrementDecrementOrInputOperationParserRuleCall_1_1_0 = (RuleCall)cAssignStatementOrPostIncrementDecrementAssignment_1_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Action cNDChoiceStatementAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Action cBasicStatementAction_2_0 = (Action)cGroup_2.eContents().get(0);
 		private final Assignment cNDChoiceStatementAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cNDChoiceStatementNDChoiceStatementParserRuleCall_2_1_0 = (RuleCall)cNDChoiceStatementAssignment_2_1.eContents().get(0);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Action cBasicStatementAction_3_0 = (Action)cGroup_3.eContents().get(0);
+		private final Assignment cPreIncrementDecrementAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cPreIncrementDecrementPreIncrementDecrementParserRuleCall_3_1_0 = (RuleCall)cPreIncrementDecrementAssignment_3_1.eContents().get(0);
+		private final RuleCall cWithParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		////Il basicStatement,  un costrutto base, ma pu anche essere un processo (questa produzione permette la ricorsione di parallel e sequence) 
 		//BasicStatement:
-		//	{Process} process=Process //Questa  la regola che mi permette la ricorsione
-		//	| {AssignStatement} assignStatement=AssignStatement | {NDChoiceStatement} NDChoiceStatement+=NDChoiceStatement;
+		//	{BasicStatement} process=Process //Questa  la regola che mi permette la ricorsione
+		//	| {BasicStatement} assignStatementOrPostIncrementDecrement=AssignStatementOrPostIncrementDecrementOrInputOperation |
+		//	{BasicStatement} NDChoiceStatement=NDChoiceStatement | {BasicStatement} preIncrementDecrement=PreIncrementDecrement |
+		//	With;
 		public ParserRule getRule() { return rule; }
 
-		//{Process} process=Process //Questa  la regola che mi permette la ricorsione
-		//| {AssignStatement} assignStatement=AssignStatement | {NDChoiceStatement} NDChoiceStatement+=NDChoiceStatement
+		//{BasicStatement} process=Process //Questa  la regola che mi permette la ricorsione
+		//| {BasicStatement} assignStatementOrPostIncrementDecrement=AssignStatementOrPostIncrementDecrementOrInputOperation |
+		//{BasicStatement} NDChoiceStatement=NDChoiceStatement | {BasicStatement} preIncrementDecrement=PreIncrementDecrement |
+		//With
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//{Process} process=Process
+		//{BasicStatement} process=Process
 		public Group getGroup_0() { return cGroup_0; }
 
-		//{Process}
-		public Action getProcessAction_0_0() { return cProcessAction_0_0; }
+		//{BasicStatement}
+		public Action getBasicStatementAction_0_0() { return cBasicStatementAction_0_0; }
 
 		//process=Process
 		public Assignment getProcessAssignment_0_1() { return cProcessAssignment_0_1; }
@@ -299,89 +421,281 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		//Process
 		public RuleCall getProcessProcessParserRuleCall_0_1_0() { return cProcessProcessParserRuleCall_0_1_0; }
 
-		//{AssignStatement} assignStatement=AssignStatement
+		//{BasicStatement} assignStatementOrPostIncrementDecrement=AssignStatementOrPostIncrementDecrementOrInputOperation
 		public Group getGroup_1() { return cGroup_1; }
 
-		//{AssignStatement}
-		public Action getAssignStatementAction_1_0() { return cAssignStatementAction_1_0; }
+		//{BasicStatement}
+		public Action getBasicStatementAction_1_0() { return cBasicStatementAction_1_0; }
 
-		//assignStatement=AssignStatement
-		public Assignment getAssignStatementAssignment_1_1() { return cAssignStatementAssignment_1_1; }
+		//assignStatementOrPostIncrementDecrement=AssignStatementOrPostIncrementDecrementOrInputOperation
+		public Assignment getAssignStatementOrPostIncrementDecrementAssignment_1_1() { return cAssignStatementOrPostIncrementDecrementAssignment_1_1; }
 
-		//AssignStatement
-		public RuleCall getAssignStatementAssignStatementParserRuleCall_1_1_0() { return cAssignStatementAssignStatementParserRuleCall_1_1_0; }
+		//AssignStatementOrPostIncrementDecrementOrInputOperation
+		public RuleCall getAssignStatementOrPostIncrementDecrementAssignStatementOrPostIncrementDecrementOrInputOperationParserRuleCall_1_1_0() { return cAssignStatementOrPostIncrementDecrementAssignStatementOrPostIncrementDecrementOrInputOperationParserRuleCall_1_1_0; }
 
-		//{NDChoiceStatement} NDChoiceStatement+=NDChoiceStatement
+		//{BasicStatement} NDChoiceStatement=NDChoiceStatement
 		public Group getGroup_2() { return cGroup_2; }
 
-		//{NDChoiceStatement}
-		public Action getNDChoiceStatementAction_2_0() { return cNDChoiceStatementAction_2_0; }
+		//{BasicStatement}
+		public Action getBasicStatementAction_2_0() { return cBasicStatementAction_2_0; }
 
-		//NDChoiceStatement+=NDChoiceStatement
+		//NDChoiceStatement=NDChoiceStatement
 		public Assignment getNDChoiceStatementAssignment_2_1() { return cNDChoiceStatementAssignment_2_1; }
 
 		//NDChoiceStatement
 		public RuleCall getNDChoiceStatementNDChoiceStatementParserRuleCall_2_1_0() { return cNDChoiceStatementNDChoiceStatementParserRuleCall_2_1_0; }
+
+		//{BasicStatement} preIncrementDecrement=PreIncrementDecrement
+		public Group getGroup_3() { return cGroup_3; }
+
+		//{BasicStatement}
+		public Action getBasicStatementAction_3_0() { return cBasicStatementAction_3_0; }
+
+		//preIncrementDecrement=PreIncrementDecrement
+		public Assignment getPreIncrementDecrementAssignment_3_1() { return cPreIncrementDecrementAssignment_3_1; }
+
+		//PreIncrementDecrement
+		public RuleCall getPreIncrementDecrementPreIncrementDecrementParserRuleCall_3_1_0() { return cPreIncrementDecrementPreIncrementDecrementParserRuleCall_3_1_0; }
+
+		//With
+		public RuleCall getWithParserRuleCall_4() { return cWithParserRuleCall_4; }
 	}
 
-	public class AssignStatementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AssignStatement");
+	public class AssignStatementOrPostIncrementDecrementOrInputOperationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AssignStatementOrPostIncrementDecrementOrInputOperation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cAssignStatementAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cAssignStatementOrPostIncrementDecrementAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cVariablePathAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cVariablePathVariablePathParserRuleCall_1_0 = (RuleCall)cVariablePathAssignment_1.eContents().get(0);
-		private final RuleCall cASSIGNTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final Assignment cRightSideAssignAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cRightSideAssignRightSideAssignamentParserRuleCall_3_0 = (RuleCall)cRightSideAssignAssignment_3.eContents().get(0);
+		private final Assignment cRightSideAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cRightSideRightSideParserRuleCall_2_0 = (RuleCall)cRightSideAssignment_2.eContents().get(0);
 		
-		//AssignStatement:
-		//	{AssignStatement} variablePath=VariablePath ASSIGN rightSideAssign=RightSideAssignament;
+		//AssignStatementOrPostIncrementDecrementOrInputOperation:
+		//	{AssignStatementOrPostIncrementDecrement} variablePath+=VariablePath rightSide=RightSide;
 		public ParserRule getRule() { return rule; }
 
-		//{AssignStatement} variablePath=VariablePath ASSIGN rightSideAssign=RightSideAssignament
+		//{AssignStatementOrPostIncrementDecrement} variablePath+=VariablePath rightSide=RightSide
 		public Group getGroup() { return cGroup; }
 
-		//{AssignStatement}
-		public Action getAssignStatementAction_0() { return cAssignStatementAction_0; }
+		//{AssignStatementOrPostIncrementDecrement}
+		public Action getAssignStatementOrPostIncrementDecrementAction_0() { return cAssignStatementOrPostIncrementDecrementAction_0; }
+
+		//variablePath+=VariablePath
+		public Assignment getVariablePathAssignment_1() { return cVariablePathAssignment_1; }
+
+		//VariablePath
+		public RuleCall getVariablePathVariablePathParserRuleCall_1_0() { return cVariablePathVariablePathParserRuleCall_1_0; }
+
+		//rightSide=RightSide
+		public Assignment getRightSideAssignment_2() { return cRightSideAssignment_2; }
+
+		//RightSide
+		public RuleCall getRightSideRightSideParserRuleCall_2_0() { return cRightSideRightSideParserRuleCall_2_0; }
+	}
+
+	public class RightSideElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RightSide");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cRightSideAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final RuleCall cASSIGNTerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final Assignment cExpressionAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cExpressionExpressionParserRuleCall_0_2_0 = (RuleCall)cExpressionAssignment_0_2.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Action cRightSideAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final RuleCall cCHOICETerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Action cRightSideAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final RuleCall cDECREMENTTerminalRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Action cRightSideAction_3_0 = (Action)cGroup_3.eContents().get(0);
+		private final RuleCall cPOINTSTOTerminalRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
+		private final Assignment cVariablePathAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cVariablePathVariablePathParserRuleCall_3_2_0 = (RuleCall)cVariablePathAssignment_3_2.eContents().get(0);
+		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
+		private final Action cRightSideAction_4_0 = (Action)cGroup_4.eContents().get(0);
+		private final RuleCall cDEEPCOPYLEFTTerminalRuleCall_4_1 = (RuleCall)cGroup_4.eContents().get(1);
+		private final Assignment cVariablePathAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cVariablePathVariablePathParserRuleCall_4_2_0 = (RuleCall)cVariablePathAssignment_4_2.eContents().get(0);
+		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
+		private final RuleCall cLPARENTerminalRuleCall_5_0 = (RuleCall)cGroup_5.eContents().get(0);
+		private final Assignment cVariablePathAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cVariablePathVariablePathParserRuleCall_5_1_0 = (RuleCall)cVariablePathAssignment_5_1.eContents().get(0);
+		private final RuleCall cRPARENTerminalRuleCall_5_2 = (RuleCall)cGroup_5.eContents().get(2);
+		private final Assignment cOperationAssignment_5_3 = (Assignment)cGroup_5.eContents().get(3);
+		private final RuleCall cOperationOperationParserRuleCall_5_3_0 = (RuleCall)cOperationAssignment_5_3.eContents().get(0);
+		
+		//RightSide:
+		//	{RightSide} ASSIGN expression=Expression | {RightSide} CHOICE | {RightSide} DECREMENT | {RightSide} POINTSTO
+		//	variablePath=VariablePath | {RightSide} DEEPCOPYLEFT variablePath=VariablePath | / *Operation Call* / LPAREN
+		//	variablePath=VariablePath RPAREN operation=Operation;
+		public ParserRule getRule() { return rule; }
+
+		//{RightSide} ASSIGN expression=Expression | {RightSide} CHOICE | {RightSide} DECREMENT | {RightSide} POINTSTO
+		//variablePath=VariablePath | {RightSide} DEEPCOPYLEFT variablePath=VariablePath | / *Operation Call* / LPAREN
+		//variablePath=VariablePath RPAREN operation=Operation
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//{RightSide} ASSIGN expression=Expression
+		public Group getGroup_0() { return cGroup_0; }
+
+		//{RightSide}
+		public Action getRightSideAction_0_0() { return cRightSideAction_0_0; }
+
+		//ASSIGN
+		public RuleCall getASSIGNTerminalRuleCall_0_1() { return cASSIGNTerminalRuleCall_0_1; }
+
+		//expression=Expression
+		public Assignment getExpressionAssignment_0_2() { return cExpressionAssignment_0_2; }
+
+		//Expression
+		public RuleCall getExpressionExpressionParserRuleCall_0_2_0() { return cExpressionExpressionParserRuleCall_0_2_0; }
+
+		//{RightSide} CHOICE
+		public Group getGroup_1() { return cGroup_1; }
+
+		//{RightSide}
+		public Action getRightSideAction_1_0() { return cRightSideAction_1_0; }
+
+		//CHOICE
+		public RuleCall getCHOICETerminalRuleCall_1_1() { return cCHOICETerminalRuleCall_1_1; }
+
+		//{RightSide} DECREMENT
+		public Group getGroup_2() { return cGroup_2; }
+
+		//{RightSide}
+		public Action getRightSideAction_2_0() { return cRightSideAction_2_0; }
+
+		//DECREMENT
+		public RuleCall getDECREMENTTerminalRuleCall_2_1() { return cDECREMENTTerminalRuleCall_2_1; }
+
+		//{RightSide} POINTSTO variablePath=VariablePath
+		public Group getGroup_3() { return cGroup_3; }
+
+		//{RightSide}
+		public Action getRightSideAction_3_0() { return cRightSideAction_3_0; }
+
+		//POINTSTO
+		public RuleCall getPOINTSTOTerminalRuleCall_3_1() { return cPOINTSTOTerminalRuleCall_3_1; }
+
+		//variablePath=VariablePath
+		public Assignment getVariablePathAssignment_3_2() { return cVariablePathAssignment_3_2; }
+
+		//VariablePath
+		public RuleCall getVariablePathVariablePathParserRuleCall_3_2_0() { return cVariablePathVariablePathParserRuleCall_3_2_0; }
+
+		//{RightSide} DEEPCOPYLEFT variablePath=VariablePath
+		public Group getGroup_4() { return cGroup_4; }
+
+		//{RightSide}
+		public Action getRightSideAction_4_0() { return cRightSideAction_4_0; }
+
+		//DEEPCOPYLEFT
+		public RuleCall getDEEPCOPYLEFTTerminalRuleCall_4_1() { return cDEEPCOPYLEFTTerminalRuleCall_4_1; }
+
+		//variablePath=VariablePath
+		public Assignment getVariablePathAssignment_4_2() { return cVariablePathAssignment_4_2; }
+
+		//VariablePath
+		public RuleCall getVariablePathVariablePathParserRuleCall_4_2_0() { return cVariablePathVariablePathParserRuleCall_4_2_0; }
+
+		/// *Operation Call* / LPAREN variablePath=VariablePath RPAREN operation=Operation
+		public Group getGroup_5() { return cGroup_5; }
+
+		/// *Operation Call* / LPAREN
+		public RuleCall getLPARENTerminalRuleCall_5_0() { return cLPARENTerminalRuleCall_5_0; }
+
+		//variablePath=VariablePath
+		public Assignment getVariablePathAssignment_5_1() { return cVariablePathAssignment_5_1; }
+
+		//VariablePath
+		public RuleCall getVariablePathVariablePathParserRuleCall_5_1_0() { return cVariablePathVariablePathParserRuleCall_5_1_0; }
+
+		//RPAREN
+		public RuleCall getRPARENTerminalRuleCall_5_2() { return cRPARENTerminalRuleCall_5_2; }
+
+		//operation=Operation
+		public Assignment getOperationAssignment_5_3() { return cOperationAssignment_5_3; }
+
+		//Operation
+		public RuleCall getOperationOperationParserRuleCall_5_3_0() { return cOperationOperationParserRuleCall_5_3_0; }
+	}
+
+	public class OperationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Operation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cOperationAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final RuleCall cLPARENTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Assignment cExpressionAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cExpressionExpressionParserRuleCall_1_1_0 = (RuleCall)cExpressionAssignment_1_1.eContents().get(0);
+		private final RuleCall cRPARENTerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		private final Assignment cMainProcessAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cMainProcessMainProcessParserRuleCall_1_3_0 = (RuleCall)cMainProcessAssignment_1_3.eContents().get(0);
+		
+		/// *Input operation: OneWay o ReqResp* / //line 1689 OLParser, with ? ReqResponseOperation if no ? OneWayOperation
+		//Operation:
+		//	{Operation} (LPAREN expression=Expression RPAREN mainProcess=MainProcess)?;
+		public ParserRule getRule() { return rule; }
+
+		//{Operation} (LPAREN expression=Expression RPAREN mainProcess=MainProcess)?
+		public Group getGroup() { return cGroup; }
+
+		//{Operation}
+		public Action getOperationAction_0() { return cOperationAction_0; }
+
+		//(LPAREN expression=Expression RPAREN mainProcess=MainProcess)?
+		public Group getGroup_1() { return cGroup_1; }
+
+		//LPAREN
+		public RuleCall getLPARENTerminalRuleCall_1_0() { return cLPARENTerminalRuleCall_1_0; }
+
+		//expression=Expression
+		public Assignment getExpressionAssignment_1_1() { return cExpressionAssignment_1_1; }
+
+		//Expression
+		public RuleCall getExpressionExpressionParserRuleCall_1_1_0() { return cExpressionExpressionParserRuleCall_1_1_0; }
+
+		//RPAREN
+		public RuleCall getRPARENTerminalRuleCall_1_2() { return cRPARENTerminalRuleCall_1_2; }
+
+		//mainProcess=MainProcess
+		public Assignment getMainProcessAssignment_1_3() { return cMainProcessAssignment_1_3; }
+
+		//MainProcess
+		public RuleCall getMainProcessMainProcessParserRuleCall_1_3_0() { return cMainProcessMainProcessParserRuleCall_1_3_0; }
+	}
+
+	public class PreIncrementDecrementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PreIncrementDecrement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final RuleCall cCHOICETerminalRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
+		private final RuleCall cDECREMENTTerminalRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
+		private final Assignment cVariablePathAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cVariablePathVariablePathParserRuleCall_1_0 = (RuleCall)cVariablePathAssignment_1.eContents().get(0);
+		
+		//PreIncrementDecrement:
+		//	(CHOICE | DECREMENT) variablePath=VariablePath;
+		public ParserRule getRule() { return rule; }
+
+		//(CHOICE | DECREMENT) variablePath=VariablePath
+		public Group getGroup() { return cGroup; }
+
+		//CHOICE | DECREMENT
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+
+		//CHOICE
+		public RuleCall getCHOICETerminalRuleCall_0_0() { return cCHOICETerminalRuleCall_0_0; }
+
+		//DECREMENT
+		public RuleCall getDECREMENTTerminalRuleCall_0_1() { return cDECREMENTTerminalRuleCall_0_1; }
 
 		//variablePath=VariablePath
 		public Assignment getVariablePathAssignment_1() { return cVariablePathAssignment_1; }
 
 		//VariablePath
 		public RuleCall getVariablePathVariablePathParserRuleCall_1_0() { return cVariablePathVariablePathParserRuleCall_1_0; }
-
-		//ASSIGN
-		public RuleCall getASSIGNTerminalRuleCall_2() { return cASSIGNTerminalRuleCall_2; }
-
-		//rightSideAssign=RightSideAssignament
-		public Assignment getRightSideAssignAssignment_3() { return cRightSideAssignAssignment_3; }
-
-		//RightSideAssignament
-		public RuleCall getRightSideAssignRightSideAssignamentParserRuleCall_3_0() { return cRightSideAssignRightSideAssignamentParserRuleCall_3_0; }
-	}
-
-	public class RightSideAssignamentElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RightSideAssignament");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cExpressionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cExpressionAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cExpressionExpressionParserRuleCall_1_0 = (RuleCall)cExpressionAssignment_1.eContents().get(0);
-		
-		//RightSideAssignament:
-		//	{Expression} expression=Expression;
-		public ParserRule getRule() { return rule; }
-
-		//{Expression} expression=Expression
-		public Group getGroup() { return cGroup; }
-
-		//{Expression}
-		public Action getExpressionAction_0() { return cExpressionAction_0; }
-
-		//expression=Expression
-		public Assignment getExpressionAssignment_1() { return cExpressionAssignment_1; }
-
-		//Expression
-		public RuleCall getExpressionExpressionParserRuleCall_1_0() { return cExpressionExpressionParserRuleCall_1_0; }
 	}
 
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
@@ -461,20 +775,25 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cValueSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Assignment cPrefixAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
-		private final RuleCall cPrefixPrefixParserRuleCall_4_0_0 = (RuleCall)cPrefixAssignment_4_0.eContents().get(0);
+		private final Alternatives cAlternatives_4_0 = (Alternatives)cGroup_4.eContents().get(0);
+		private final RuleCall cCHOICETerminalRuleCall_4_0_0 = (RuleCall)cAlternatives_4_0.eContents().get(0);
+		private final RuleCall cDECREMENTTerminalRuleCall_4_0_1 = (RuleCall)cAlternatives_4_0.eContents().get(1);
 		private final Assignment cVariablePathAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cVariablePathVariablePathParserRuleCall_4_1_0 = (RuleCall)cVariablePathAssignment_4_1.eContents().get(0);
-		private final Assignment cPrefixAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cPrefixPrefixParserRuleCall_4_2_0 = (RuleCall)cPrefixAssignment_4_2.eContents().get(0);
+		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
+		private final Assignment cVariablePathAssignment_5_0 = (Assignment)cGroup_5.eContents().get(0);
+		private final RuleCall cVariablePathVariablePathParserRuleCall_5_0_0 = (RuleCall)cVariablePathAssignment_5_0.eContents().get(0);
+		private final Alternatives cAlternatives_5_1 = (Alternatives)cGroup_5.eContents().get(1);
+		private final RuleCall cCHOICETerminalRuleCall_5_1_0 = (RuleCall)cAlternatives_5_1.eContents().get(0);
+		private final RuleCall cDECREMENTTerminalRuleCall_5_1_1 = (RuleCall)cAlternatives_5_1.eContents().get(1);
 		
 		//TerminalExpression returns Expression:
-		//	LPAREN Expression RPAREN | {IntLiteral} value=INT | {RealLiteral} value=REAL | {String} value=STRING | prefix=Prefix
-		//	variablePath=VariablePath prefix=Prefix;
+		//	LPAREN Expression RPAREN | {IntLiteral} value=INT | {RealLiteral} value=REAL | {String} value=STRING | (CHOICE |
+		//	DECREMENT) variablePath=VariablePath | variablePath=VariablePath (CHOICE | DECREMENT)?;
 		public ParserRule getRule() { return rule; }
 
-		//LPAREN Expression RPAREN | {IntLiteral} value=INT | {RealLiteral} value=REAL | {String} value=STRING | prefix=Prefix
-		//variablePath=VariablePath prefix=Prefix
+		//LPAREN Expression RPAREN | {IntLiteral} value=INT | {RealLiteral} value=REAL | {String} value=STRING | (CHOICE |
+		//DECREMENT) variablePath=VariablePath | variablePath=VariablePath (CHOICE | DECREMENT)?
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//LPAREN Expression RPAREN
@@ -525,14 +844,17 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getValueSTRINGTerminalRuleCall_3_1_0() { return cValueSTRINGTerminalRuleCall_3_1_0; }
 
-		//prefix=Prefix variablePath=VariablePath prefix=Prefix
+		//(CHOICE | DECREMENT) variablePath=VariablePath
 		public Group getGroup_4() { return cGroup_4; }
 
-		//prefix=Prefix
-		public Assignment getPrefixAssignment_4_0() { return cPrefixAssignment_4_0; }
+		//CHOICE | DECREMENT
+		public Alternatives getAlternatives_4_0() { return cAlternatives_4_0; }
 
-		//Prefix
-		public RuleCall getPrefixPrefixParserRuleCall_4_0_0() { return cPrefixPrefixParserRuleCall_4_0_0; }
+		//CHOICE
+		public RuleCall getCHOICETerminalRuleCall_4_0_0() { return cCHOICETerminalRuleCall_4_0_0; }
+
+		//DECREMENT
+		public RuleCall getDECREMENTTerminalRuleCall_4_0_1() { return cDECREMENTTerminalRuleCall_4_0_1; }
 
 		//variablePath=VariablePath
 		public Assignment getVariablePathAssignment_4_1() { return cVariablePathAssignment_4_1; }
@@ -540,58 +862,111 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		//VariablePath
 		public RuleCall getVariablePathVariablePathParserRuleCall_4_1_0() { return cVariablePathVariablePathParserRuleCall_4_1_0; }
 
-		//prefix=Prefix
-		public Assignment getPrefixAssignment_4_2() { return cPrefixAssignment_4_2; }
+		//variablePath=VariablePath (CHOICE | DECREMENT)?
+		public Group getGroup_5() { return cGroup_5; }
 
-		//Prefix
-		public RuleCall getPrefixPrefixParserRuleCall_4_2_0() { return cPrefixPrefixParserRuleCall_4_2_0; }
+		//variablePath=VariablePath
+		public Assignment getVariablePathAssignment_5_0() { return cVariablePathAssignment_5_0; }
+
+		//VariablePath
+		public RuleCall getVariablePathVariablePathParserRuleCall_5_0_0() { return cVariablePathVariablePathParserRuleCall_5_0_0; }
+
+		//(CHOICE | DECREMENT)?
+		public Alternatives getAlternatives_5_1() { return cAlternatives_5_1; }
+
+		//CHOICE
+		public RuleCall getCHOICETerminalRuleCall_5_1_0() { return cCHOICETerminalRuleCall_5_1_0; }
+
+		//DECREMENT
+		public RuleCall getDECREMENTTerminalRuleCall_5_1_1() { return cDECREMENTTerminalRuleCall_5_1_1; }
 	}
 
 	public class VariablePathElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "VariablePath");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cVariablePathAction_0 = (Action)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
-		private final RuleCall cGLOBALTerminalRuleCall_1_0_0 = (RuleCall)cAlternatives_1_0.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_1_0_1 = (RuleCall)cAlternatives_1_0.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cVariablePathAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cNameID_PRETerminalRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cNameAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_1_0_0 = (RuleCall)cNameAssignment_1_0.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
 		private final RuleCall cLSQUARETerminalRuleCall_1_1_0 = (RuleCall)cGroup_1_1.eContents().get(0);
 		private final Assignment cChildrenAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
 		private final RuleCall cChildrenExpressionParserRuleCall_1_1_1_0 = (RuleCall)cChildrenAssignment_1_1_1.eContents().get(0);
 		private final RuleCall cRSQUARETerminalRuleCall_1_1_2 = (RuleCall)cGroup_1_1.eContents().get(2);
-		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
-		private final RuleCall cDOTTerminalRuleCall_1_2_0 = (RuleCall)cGroup_1_2.eContents().get(0);
-		private final Alternatives cAlternatives_1_2_1 = (Alternatives)cGroup_1_2.eContents().get(1);
-		private final RuleCall cIDTerminalRuleCall_1_2_1_0 = (RuleCall)cAlternatives_1_2_1.eContents().get(0);
-		private final Group cGroup_1_2_1_1 = (Group)cAlternatives_1_2_1.eContents().get(1);
-		private final RuleCall cLPARENTerminalRuleCall_1_2_1_1_0 = (RuleCall)cGroup_1_2_1_1.eContents().get(0);
-		private final Assignment cChildrenAssignment_1_2_1_1_1 = (Assignment)cGroup_1_2_1_1.eContents().get(1);
-		private final RuleCall cChildrenExpressionParserRuleCall_1_2_1_1_1_0 = (RuleCall)cChildrenAssignment_1_2_1_1_1.eContents().get(0);
-		private final RuleCall cRPARENTerminalRuleCall_1_2_1_1_2 = (RuleCall)cGroup_1_2_1_1.eContents().get(2);
+		private final Alternatives cAlternatives_1_2 = (Alternatives)cGroup_1.eContents().get(2);
+		private final Group cGroup_1_2_0 = (Group)cAlternatives_1_2.eContents().get(0);
+		private final RuleCall cDOTTerminalRuleCall_1_2_0_0 = (RuleCall)cGroup_1_2_0.eContents().get(0);
+		private final Alternatives cAlternatives_1_2_0_1 = (Alternatives)cGroup_1_2_0.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_1_2_0_1_0 = (RuleCall)cAlternatives_1_2_0_1.eContents().get(0);
+		private final Keyword cGlobalKeyword_1_2_0_1_1 = (Keyword)cAlternatives_1_2_0_1.eContents().get(1);
+		private final Group cGroup_1_2_0_2 = (Group)cGroup_1_2_0.eContents().get(2);
+		private final RuleCall cLSQUARETerminalRuleCall_1_2_0_2_0 = (RuleCall)cGroup_1_2_0_2.eContents().get(0);
+		private final Assignment cChildrenAssignment_1_2_0_2_1 = (Assignment)cGroup_1_2_0_2.eContents().get(1);
+		private final RuleCall cChildrenExpressionParserRuleCall_1_2_0_2_1_0 = (RuleCall)cChildrenAssignment_1_2_0_2_1.eContents().get(0);
+		private final RuleCall cRSQUARETerminalRuleCall_1_2_0_2_2 = (RuleCall)cGroup_1_2_0_2.eContents().get(2);
+		private final Group cGroup_1_2_1 = (Group)cAlternatives_1_2.eContents().get(1);
+		private final RuleCall cDOTTerminalRuleCall_1_2_1_0 = (RuleCall)cGroup_1_2_1.eContents().get(0);
+		private final RuleCall cLPARENTerminalRuleCall_1_2_1_1 = (RuleCall)cGroup_1_2_1.eContents().get(1);
+		private final Assignment cChildrenAssignment_1_2_1_2 = (Assignment)cGroup_1_2_1.eContents().get(2);
+		private final RuleCall cChildrenExpressionParserRuleCall_1_2_1_2_0 = (RuleCall)cChildrenAssignment_1_2_1_2.eContents().get(0);
+		private final RuleCall cRPARENTerminalRuleCall_1_2_1_3 = (RuleCall)cGroup_1_2_1.eContents().get(3);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Action cVariablePathAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Keyword cGlobalKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Alternatives cAlternatives_2_2 = (Alternatives)cGroup_2.eContents().get(2);
+		private final Group cGroup_2_2_0 = (Group)cAlternatives_2_2.eContents().get(0);
+		private final RuleCall cDOTTerminalRuleCall_2_2_0_0 = (RuleCall)cGroup_2_2_0.eContents().get(0);
+		private final Alternatives cAlternatives_2_2_0_1 = (Alternatives)cGroup_2_2_0.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_2_2_0_1_0 = (RuleCall)cAlternatives_2_2_0_1.eContents().get(0);
+		private final Keyword cGlobalKeyword_2_2_0_1_1 = (Keyword)cAlternatives_2_2_0_1.eContents().get(1);
+		private final Group cGroup_2_2_0_2 = (Group)cGroup_2_2_0.eContents().get(2);
+		private final RuleCall cLSQUARETerminalRuleCall_2_2_0_2_0 = (RuleCall)cGroup_2_2_0_2.eContents().get(0);
+		private final Assignment cChildrenAssignment_2_2_0_2_1 = (Assignment)cGroup_2_2_0_2.eContents().get(1);
+		private final RuleCall cChildrenExpressionParserRuleCall_2_2_0_2_1_0 = (RuleCall)cChildrenAssignment_2_2_0_2_1.eContents().get(0);
+		private final RuleCall cRSQUARETerminalRuleCall_2_2_0_2_2 = (RuleCall)cGroup_2_2_0_2.eContents().get(2);
+		private final Group cGroup_2_2_1 = (Group)cAlternatives_2_2.eContents().get(1);
+		private final RuleCall cDOTTerminalRuleCall_2_2_1_0 = (RuleCall)cGroup_2_2_1.eContents().get(0);
+		private final RuleCall cLPARENTerminalRuleCall_2_2_1_1 = (RuleCall)cGroup_2_2_1.eContents().get(1);
+		private final Assignment cChildrenAssignment_2_2_1_2 = (Assignment)cGroup_2_2_1.eContents().get(2);
+		private final RuleCall cChildrenExpressionParserRuleCall_2_2_1_2_0 = (RuleCall)cChildrenAssignment_2_2_1_2.eContents().get(0);
+		private final RuleCall cRPARENTerminalRuleCall_2_2_1_3 = (RuleCall)cGroup_2_2_1.eContents().get(3);
 		
 		//VariablePath:
-		//	{VariablePath} ((GLOBAL | ID) (LSQUARE children+=Expression RSQUARE)? (DOT (ID | LPAREN children+=Expression
-		//	RPAREN))*);
+		//	{VariablePath} name+=ID_PRE | name+=ID (LSQUARE children+=Expression RSQUARE)? (DOT (ID | "global") (LSQUARE
+		//	children+=Expression RSQUARE)? | DOT LPAREN children+=Expression RPAREN)* | {VariablePath} "global" (DOT (ID |
+		//	"global") (LSQUARE children+=Expression RSQUARE)? | DOT LPAREN children+=Expression RPAREN)* //Global non  un un array
+		//;
 		public ParserRule getRule() { return rule; }
 
-		//{VariablePath} ((GLOBAL | ID) (LSQUARE children+=Expression RSQUARE)? (DOT (ID | LPAREN children+=Expression RPAREN))*)
-		public Group getGroup() { return cGroup; }
+		//{VariablePath} name+=ID_PRE | name+=ID (LSQUARE children+=Expression RSQUARE)? (DOT (ID | "global") (LSQUARE
+		//children+=Expression RSQUARE)? | DOT LPAREN children+=Expression RPAREN)* | {VariablePath} "global" (DOT (ID |
+		//"global") (LSQUARE children+=Expression RSQUARE)? | DOT LPAREN children+=Expression RPAREN)* //Global non  un un array
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//{VariablePath} name+=ID_PRE
+		public Group getGroup_0() { return cGroup_0; }
 
 		//{VariablePath}
-		public Action getVariablePathAction_0() { return cVariablePathAction_0; }
+		public Action getVariablePathAction_0_0() { return cVariablePathAction_0_0; }
 
-		//(GLOBAL | ID) (LSQUARE children+=Expression RSQUARE)? (DOT (ID | LPAREN children+=Expression RPAREN))*
+		//name+=ID_PRE
+		public Assignment getNameAssignment_0_1() { return cNameAssignment_0_1; }
+
+		//ID_PRE
+		public RuleCall getNameID_PRETerminalRuleCall_0_1_0() { return cNameID_PRETerminalRuleCall_0_1_0; }
+
+		//name+=ID (LSQUARE children+=Expression RSQUARE)? (DOT (ID | "global") (LSQUARE children+=Expression RSQUARE)? | DOT
+		//LPAREN children+=Expression RPAREN)*
 		public Group getGroup_1() { return cGroup_1; }
 
-		//GLOBAL | ID
-		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
-
-		//GLOBAL
-		public RuleCall getGLOBALTerminalRuleCall_1_0_0() { return cGLOBALTerminalRuleCall_1_0_0; }
+		//name+=ID
+		public Assignment getNameAssignment_1_0() { return cNameAssignment_1_0; }
 
 		//ID
-		public RuleCall getIDTerminalRuleCall_1_0_1() { return cIDTerminalRuleCall_1_0_1; }
+		public RuleCall getNameIDTerminalRuleCall_1_0_0() { return cNameIDTerminalRuleCall_1_0_0; }
 
 		//(LSQUARE children+=Expression RSQUARE)?
 		public Group getGroup_1_1() { return cGroup_1_1; }
@@ -608,52 +983,161 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		//RSQUARE
 		public RuleCall getRSQUARETerminalRuleCall_1_1_2() { return cRSQUARETerminalRuleCall_1_1_2; }
 
-		//(DOT (ID | LPAREN children+=Expression RPAREN))*
-		public Group getGroup_1_2() { return cGroup_1_2; }
+		//(DOT (ID | "global") (LSQUARE children+=Expression RSQUARE)? | DOT LPAREN children+=Expression RPAREN)*
+		public Alternatives getAlternatives_1_2() { return cAlternatives_1_2; }
+
+		//DOT (ID | "global") (LSQUARE children+=Expression RSQUARE)?
+		public Group getGroup_1_2_0() { return cGroup_1_2_0; }
 
 		//DOT
-		public RuleCall getDOTTerminalRuleCall_1_2_0() { return cDOTTerminalRuleCall_1_2_0; }
+		public RuleCall getDOTTerminalRuleCall_1_2_0_0() { return cDOTTerminalRuleCall_1_2_0_0; }
 
-		//ID | LPAREN children+=Expression RPAREN
-		public Alternatives getAlternatives_1_2_1() { return cAlternatives_1_2_1; }
+		//ID | "global"
+		public Alternatives getAlternatives_1_2_0_1() { return cAlternatives_1_2_0_1; }
 
 		//ID
-		public RuleCall getIDTerminalRuleCall_1_2_1_0() { return cIDTerminalRuleCall_1_2_1_0; }
+		public RuleCall getIDTerminalRuleCall_1_2_0_1_0() { return cIDTerminalRuleCall_1_2_0_1_0; }
 
-		//LPAREN children+=Expression RPAREN
-		public Group getGroup_1_2_1_1() { return cGroup_1_2_1_1; }
+		//"global"
+		public Keyword getGlobalKeyword_1_2_0_1_1() { return cGlobalKeyword_1_2_0_1_1; }
 
-		//LPAREN
-		public RuleCall getLPARENTerminalRuleCall_1_2_1_1_0() { return cLPARENTerminalRuleCall_1_2_1_1_0; }
+		//(LSQUARE children+=Expression RSQUARE)?
+		public Group getGroup_1_2_0_2() { return cGroup_1_2_0_2; }
+
+		//LSQUARE
+		public RuleCall getLSQUARETerminalRuleCall_1_2_0_2_0() { return cLSQUARETerminalRuleCall_1_2_0_2_0; }
 
 		//children+=Expression
-		public Assignment getChildrenAssignment_1_2_1_1_1() { return cChildrenAssignment_1_2_1_1_1; }
+		public Assignment getChildrenAssignment_1_2_0_2_1() { return cChildrenAssignment_1_2_0_2_1; }
 
 		//Expression
-		public RuleCall getChildrenExpressionParserRuleCall_1_2_1_1_1_0() { return cChildrenExpressionParserRuleCall_1_2_1_1_1_0; }
+		public RuleCall getChildrenExpressionParserRuleCall_1_2_0_2_1_0() { return cChildrenExpressionParserRuleCall_1_2_0_2_1_0; }
+
+		//RSQUARE
+		public RuleCall getRSQUARETerminalRuleCall_1_2_0_2_2() { return cRSQUARETerminalRuleCall_1_2_0_2_2; }
+
+		//DOT LPAREN children+=Expression RPAREN
+		public Group getGroup_1_2_1() { return cGroup_1_2_1; }
+
+		//DOT
+		public RuleCall getDOTTerminalRuleCall_1_2_1_0() { return cDOTTerminalRuleCall_1_2_1_0; }
+
+		//LPAREN
+		public RuleCall getLPARENTerminalRuleCall_1_2_1_1() { return cLPARENTerminalRuleCall_1_2_1_1; }
+
+		//children+=Expression
+		public Assignment getChildrenAssignment_1_2_1_2() { return cChildrenAssignment_1_2_1_2; }
+
+		//Expression
+		public RuleCall getChildrenExpressionParserRuleCall_1_2_1_2_0() { return cChildrenExpressionParserRuleCall_1_2_1_2_0; }
 
 		//RPAREN
-		public RuleCall getRPARENTerminalRuleCall_1_2_1_1_2() { return cRPARENTerminalRuleCall_1_2_1_1_2; }
+		public RuleCall getRPARENTerminalRuleCall_1_2_1_3() { return cRPARENTerminalRuleCall_1_2_1_3; }
+
+		//{VariablePath} "global" (DOT (ID | "global") (LSQUARE children+=Expression RSQUARE)? | DOT LPAREN children+=Expression
+		//RPAREN)* //Global non  un un array
+		public Group getGroup_2() { return cGroup_2; }
+
+		//{VariablePath}
+		public Action getVariablePathAction_2_0() { return cVariablePathAction_2_0; }
+
+		//"global"
+		public Keyword getGlobalKeyword_2_1() { return cGlobalKeyword_2_1; }
+
+		//(DOT (ID | "global") (LSQUARE children+=Expression RSQUARE)? | DOT LPAREN children+=Expression RPAREN)*
+		public Alternatives getAlternatives_2_2() { return cAlternatives_2_2; }
+
+		//DOT (ID | "global") (LSQUARE children+=Expression RSQUARE)?
+		public Group getGroup_2_2_0() { return cGroup_2_2_0; }
+
+		//DOT
+		public RuleCall getDOTTerminalRuleCall_2_2_0_0() { return cDOTTerminalRuleCall_2_2_0_0; }
+
+		//ID | "global"
+		public Alternatives getAlternatives_2_2_0_1() { return cAlternatives_2_2_0_1; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_2_2_0_1_0() { return cIDTerminalRuleCall_2_2_0_1_0; }
+
+		//"global"
+		public Keyword getGlobalKeyword_2_2_0_1_1() { return cGlobalKeyword_2_2_0_1_1; }
+
+		//(LSQUARE children+=Expression RSQUARE)?
+		public Group getGroup_2_2_0_2() { return cGroup_2_2_0_2; }
+
+		//LSQUARE
+		public RuleCall getLSQUARETerminalRuleCall_2_2_0_2_0() { return cLSQUARETerminalRuleCall_2_2_0_2_0; }
+
+		//children+=Expression
+		public Assignment getChildrenAssignment_2_2_0_2_1() { return cChildrenAssignment_2_2_0_2_1; }
+
+		//Expression
+		public RuleCall getChildrenExpressionParserRuleCall_2_2_0_2_1_0() { return cChildrenExpressionParserRuleCall_2_2_0_2_1_0; }
+
+		//RSQUARE
+		public RuleCall getRSQUARETerminalRuleCall_2_2_0_2_2() { return cRSQUARETerminalRuleCall_2_2_0_2_2; }
+
+		//DOT LPAREN children+=Expression RPAREN
+		public Group getGroup_2_2_1() { return cGroup_2_2_1; }
+
+		//DOT
+		public RuleCall getDOTTerminalRuleCall_2_2_1_0() { return cDOTTerminalRuleCall_2_2_1_0; }
+
+		//LPAREN
+		public RuleCall getLPARENTerminalRuleCall_2_2_1_1() { return cLPARENTerminalRuleCall_2_2_1_1; }
+
+		//children+=Expression
+		public Assignment getChildrenAssignment_2_2_1_2() { return cChildrenAssignment_2_2_1_2; }
+
+		//Expression
+		public RuleCall getChildrenExpressionParserRuleCall_2_2_1_2_0() { return cChildrenExpressionParserRuleCall_2_2_1_2_0; }
+
+		//RPAREN
+		public RuleCall getRPARENTerminalRuleCall_2_2_1_3() { return cRPARENTerminalRuleCall_2_2_1_3; }
 	}
 
-	public class PrefixElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Prefix");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cCHOICETerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cDECREMENTTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+	public class WithElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "With");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cWithAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cWithKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cLPARENTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cRPARENTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cMainrocessAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cMainrocessMainProcessParserRuleCall_5_0 = (RuleCall)cMainrocessAssignment_5.eContents().get(0);
 		
-		//Prefix returns ecore::EString:
-		//	(CHOICE | DECREMENT)?;
+		//With:
+		//	{With} "with" LPAREN name+=ID RPAREN mainrocess+=MainProcess;
 		public ParserRule getRule() { return rule; }
 
-		//(CHOICE | DECREMENT)?
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//{With} "with" LPAREN name+=ID RPAREN mainrocess+=MainProcess
+		public Group getGroup() { return cGroup; }
 
-		//CHOICE
-		public RuleCall getCHOICETerminalRuleCall_0() { return cCHOICETerminalRuleCall_0; }
+		//{With}
+		public Action getWithAction_0() { return cWithAction_0; }
 
-		//DECREMENT
-		public RuleCall getDECREMENTTerminalRuleCall_1() { return cDECREMENTTerminalRuleCall_1; }
+		//"with"
+		public Keyword getWithKeyword_1() { return cWithKeyword_1; }
+
+		//LPAREN
+		public RuleCall getLPARENTerminalRuleCall_2() { return cLPARENTerminalRuleCall_2; }
+
+		//name+=ID
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+
+		//RPAREN
+		public RuleCall getRPARENTerminalRuleCall_4() { return cRPARENTerminalRuleCall_4; }
+
+		//mainrocess+=MainProcess
+		public Assignment getMainrocessAssignment_5() { return cMainrocessAssignment_5; }
+
+		//MainProcess
+		public RuleCall getMainrocessMainProcessParserRuleCall_5_0() { return cMainrocessMainProcessParserRuleCall_5_0; }
 	}
 
 	public class NDChoiceStatementElements extends AbstractParserRuleElementFinder {
@@ -662,35 +1146,105 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cNDChoiceStatementAction_0 = (Action)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final RuleCall cLSQUARETerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
-		private final Assignment cInputOperationAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cInputOperationInputOperationParserRuleCall_1_1_0 = (RuleCall)cInputOperationAssignment_1_1.eContents().get(0);
+		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
+		private final Group cGroup_1_1_0 = (Group)cAlternatives_1_1.eContents().get(0);
+		private final Keyword cLinkInKeyword_1_1_0_0 = (Keyword)cGroup_1_1_0.eContents().get(0);
+		private final RuleCall cLPARENTerminalRuleCall_1_1_0_1 = (RuleCall)cGroup_1_1_0.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_1_1_0_2 = (RuleCall)cGroup_1_1_0.eContents().get(2);
+		private final RuleCall cRPARENTerminalRuleCall_1_1_0_3 = (RuleCall)cGroup_1_1_0.eContents().get(3);
+		private final Group cGroup_1_1_1 = (Group)cAlternatives_1_1.eContents().get(1);
+		private final Assignment cVariablePathAssignment_1_1_1_0 = (Assignment)cGroup_1_1_1.eContents().get(0);
+		private final RuleCall cVariablePathVariablePathParserRuleCall_1_1_1_0_0 = (RuleCall)cVariablePathAssignment_1_1_1_0.eContents().get(0);
+		private final RuleCall cLPARENTerminalRuleCall_1_1_1_1 = (RuleCall)cGroup_1_1_1.eContents().get(1);
+		private final Assignment cVariablePathAssignment_1_1_1_2 = (Assignment)cGroup_1_1_1.eContents().get(2);
+		private final RuleCall cVariablePathVariablePathParserRuleCall_1_1_1_2_0 = (RuleCall)cVariablePathAssignment_1_1_1_2.eContents().get(0);
+		private final RuleCall cRPARENTerminalRuleCall_1_1_1_3 = (RuleCall)cGroup_1_1_1.eContents().get(3);
+		private final Assignment cOperationAssignment_1_1_1_4 = (Assignment)cGroup_1_1_1.eContents().get(4);
+		private final RuleCall cOperationOperationParserRuleCall_1_1_1_4_0 = (RuleCall)cOperationAssignment_1_1_1_4.eContents().get(0);
 		private final RuleCall cRSQUARETerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
 		private final Assignment cMainProcessAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
 		private final RuleCall cMainProcessMainProcessParserRuleCall_1_3_0 = (RuleCall)cMainProcessAssignment_1_3.eContents().get(0);
 		
 		/// ****************************************************************************************************************** /
 		/// *********************************************NDChoiceStatement********************************************* /
-		//NDChoiceStatement:
-		//	{NDChoiceStatement} (LSQUARE InputOperation+=InputOperation RSQUARE mainProcess+=MainProcess)*;
+		//NDChoiceStatement: / *
+		//      
+		//      [linkIn(linkGuard)|inputOp1] {...}
+		//      [inputOp2] {...}      
+		//      
+		//     * /{NDChoiceStatement} (LSQUARE ("linkIn" LPAREN ID RPAREN | / *inputOperation* / variablePath+=VariablePath LPAREN
+		//	variablePath+=VariablePath RPAREN operation+=Operation) RSQUARE mainProcess+=MainProcess)+;
 		public ParserRule getRule() { return rule; }
 
-		//{NDChoiceStatement} (LSQUARE InputOperation+=InputOperation RSQUARE mainProcess+=MainProcess)*
+		/// *
+		//      
+		//      [linkIn(linkGuard)|inputOp1] {...}
+		//      [inputOp2] {...}      
+		//      
+		//     * /{NDChoiceStatement} (LSQUARE ("linkIn" LPAREN ID RPAREN | / *inputOperation* / variablePath+=VariablePath LPAREN
+		//variablePath+=VariablePath RPAREN operation+=Operation) RSQUARE mainProcess+=MainProcess)+
 		public Group getGroup() { return cGroup; }
 
-		//{NDChoiceStatement}
+		/// *
+		//      
+		//      [linkIn(linkGuard)|inputOp1] {...}
+		//      [inputOp2] {...}      
+		//      
+		//     * /{NDChoiceStatement}
 		public Action getNDChoiceStatementAction_0() { return cNDChoiceStatementAction_0; }
 
-		//(LSQUARE InputOperation+=InputOperation RSQUARE mainProcess+=MainProcess)*
+		//(LSQUARE ("linkIn" LPAREN ID RPAREN | / *inputOperation* / variablePath+=VariablePath LPAREN variablePath+=VariablePath
+		//RPAREN operation+=Operation) RSQUARE mainProcess+=MainProcess)+
 		public Group getGroup_1() { return cGroup_1; }
 
 		//LSQUARE
 		public RuleCall getLSQUARETerminalRuleCall_1_0() { return cLSQUARETerminalRuleCall_1_0; }
 
-		//InputOperation+=InputOperation
-		public Assignment getInputOperationAssignment_1_1() { return cInputOperationAssignment_1_1; }
+		//"linkIn" LPAREN ID RPAREN | / *inputOperation* / variablePath+=VariablePath LPAREN variablePath+=VariablePath RPAREN
+		//operation+=Operation
+		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
 
-		//InputOperation
-		public RuleCall getInputOperationInputOperationParserRuleCall_1_1_0() { return cInputOperationInputOperationParserRuleCall_1_1_0; }
+		//"linkIn" LPAREN ID RPAREN
+		public Group getGroup_1_1_0() { return cGroup_1_1_0; }
+
+		//"linkIn"
+		public Keyword getLinkInKeyword_1_1_0_0() { return cLinkInKeyword_1_1_0_0; }
+
+		//LPAREN
+		public RuleCall getLPARENTerminalRuleCall_1_1_0_1() { return cLPARENTerminalRuleCall_1_1_0_1; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1_0_2() { return cIDTerminalRuleCall_1_1_0_2; }
+
+		//RPAREN
+		public RuleCall getRPARENTerminalRuleCall_1_1_0_3() { return cRPARENTerminalRuleCall_1_1_0_3; }
+
+		/// *inputOperation* / variablePath+=VariablePath LPAREN variablePath+=VariablePath RPAREN operation+=Operation
+		public Group getGroup_1_1_1() { return cGroup_1_1_1; }
+
+		/// *inputOperation* / variablePath+=VariablePath
+		public Assignment getVariablePathAssignment_1_1_1_0() { return cVariablePathAssignment_1_1_1_0; }
+
+		//VariablePath
+		public RuleCall getVariablePathVariablePathParserRuleCall_1_1_1_0_0() { return cVariablePathVariablePathParserRuleCall_1_1_1_0_0; }
+
+		//LPAREN
+		public RuleCall getLPARENTerminalRuleCall_1_1_1_1() { return cLPARENTerminalRuleCall_1_1_1_1; }
+
+		//variablePath+=VariablePath
+		public Assignment getVariablePathAssignment_1_1_1_2() { return cVariablePathAssignment_1_1_1_2; }
+
+		//VariablePath
+		public RuleCall getVariablePathVariablePathParserRuleCall_1_1_1_2_0() { return cVariablePathVariablePathParserRuleCall_1_1_1_2_0; }
+
+		//RPAREN
+		public RuleCall getRPARENTerminalRuleCall_1_1_1_3() { return cRPARENTerminalRuleCall_1_1_1_3; }
+
+		//operation+=Operation
+		public Assignment getOperationAssignment_1_1_1_4() { return cOperationAssignment_1_1_1_4; }
+
+		//Operation
+		public RuleCall getOperationOperationParserRuleCall_1_1_1_4_0() { return cOperationOperationParserRuleCall_1_1_1_4_0; }
 
 		//RSQUARE
 		public RuleCall getRSQUARETerminalRuleCall_1_2() { return cRSQUARETerminalRuleCall_1_2; }
@@ -702,139 +1256,851 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getMainProcessMainProcessParserRuleCall_1_3_0() { return cMainProcessMainProcessParserRuleCall_1_3_0; }
 	}
 
-	public class InputOperationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "InputOperation");
+	public class PortElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Port");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Action cInputOperationAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final RuleCall cLINKINTerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
-		private final RuleCall cLPARENTerminalRuleCall_0_2 = (RuleCall)cGroup_0.eContents().get(2);
-		private final RuleCall cIDTerminalRuleCall_0_3 = (RuleCall)cGroup_0.eContents().get(3);
-		private final RuleCall cRPARENTerminalRuleCall_0_4 = (RuleCall)cGroup_0.eContents().get(4);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Action cInputOperationAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final RuleCall cLPARENTerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
-		private final Action cVariablePathAction_1_3 = (Action)cGroup_1.eContents().get(3);
-		private final Assignment cVariablePathAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
-		private final RuleCall cVariablePathVariablePathParserRuleCall_1_4_0 = (RuleCall)cVariablePathAssignment_1_4.eContents().get(0);
-		private final RuleCall cRPARENTerminalRuleCall_1_5 = (RuleCall)cGroup_1.eContents().get(5);
-		private final RuleCall cRequestResponseOperationParserRuleCall_1_6 = (RuleCall)cGroup_1.eContents().get(6);
+		private final Assignment cInputPortStatementAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cInputPortStatementInputPortStatementParserRuleCall_0_0 = (RuleCall)cInputPortStatementAssignment_0.eContents().get(0);
+		private final Assignment cOutputPortStatementAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cOutputPortStatementOutputPortStatementParserRuleCall_1_0 = (RuleCall)cOutputPortStatementAssignment_1.eContents().get(0);
 		
-		////line 1689 OLParser
-		//InputOperation:
-		//	{InputOperation} LINKIN LPAREN ID RPAREN | {InputOperation} ID LPAREN {VariablePath} variablePath=VariablePath RPAREN
-		//	RequestResponseOperation?;
+		/// ****************************************************************************************************************** /
+		/// ********************************************InputPortStatement & OutputPortStatement************************************************* /
+		//Port:
+		//	inputPortStatement+=InputPortStatement | outputPortStatement+=OutputPortStatement;
 		public ParserRule getRule() { return rule; }
 
-		//{InputOperation} LINKIN LPAREN ID RPAREN | {InputOperation} ID LPAREN {VariablePath} variablePath=VariablePath RPAREN
-		//RequestResponseOperation?
+		//inputPortStatement+=InputPortStatement | outputPortStatement+=OutputPortStatement
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//{InputOperation} LINKIN LPAREN ID RPAREN
-		public Group getGroup_0() { return cGroup_0; }
+		//inputPortStatement+=InputPortStatement
+		public Assignment getInputPortStatementAssignment_0() { return cInputPortStatementAssignment_0; }
 
-		//{InputOperation}
-		public Action getInputOperationAction_0_0() { return cInputOperationAction_0_0; }
+		//InputPortStatement
+		public RuleCall getInputPortStatementInputPortStatementParserRuleCall_0_0() { return cInputPortStatementInputPortStatementParserRuleCall_0_0; }
 
-		//LINKIN
-		public RuleCall getLINKINTerminalRuleCall_0_1() { return cLINKINTerminalRuleCall_0_1; }
+		//outputPortStatement+=OutputPortStatement
+		public Assignment getOutputPortStatementAssignment_1() { return cOutputPortStatementAssignment_1; }
 
-		//LPAREN
-		public RuleCall getLPARENTerminalRuleCall_0_2() { return cLPARENTerminalRuleCall_0_2; }
+		//OutputPortStatement
+		public RuleCall getOutputPortStatementOutputPortStatementParserRuleCall_1_0() { return cOutputPortStatementOutputPortStatementParserRuleCall_1_0; }
+	}
+
+	public class InputPortStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "InputPortStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cInputPortKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cLCURLYTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final UnorderedGroup cUnorderedGroup_3 = (UnorderedGroup)cGroup.eContents().get(3);
+		private final Assignment cLocationAssignment_3_0 = (Assignment)cUnorderedGroup_3.eContents().get(0);
+		private final RuleCall cLocationLocationParserRuleCall_3_0_0 = (RuleCall)cLocationAssignment_3_0.eContents().get(0);
+		private final Assignment cProtocolAssignment_3_1 = (Assignment)cUnorderedGroup_3.eContents().get(1);
+		private final RuleCall cProtocolProtocolParserRuleCall_3_1_0 = (RuleCall)cProtocolAssignment_3_1.eContents().get(0);
+		private final Assignment cOneWayOperationAssignment_3_2 = (Assignment)cUnorderedGroup_3.eContents().get(2);
+		private final RuleCall cOneWayOperationOneWayOperationParserRuleCall_3_2_0 = (RuleCall)cOneWayOperationAssignment_3_2.eContents().get(0);
+		private final Assignment cRequestResponseOperationAssignment_3_3 = (Assignment)cUnorderedGroup_3.eContents().get(3);
+		private final RuleCall cRequestResponseOperationRequestResponseOperationParserRuleCall_3_3_0 = (RuleCall)cRequestResponseOperationAssignment_3_3.eContents().get(0);
+		private final Assignment cRedirectsAssignment_3_4 = (Assignment)cUnorderedGroup_3.eContents().get(4);
+		private final RuleCall cRedirectsRedirectsParserRuleCall_3_4_0 = (RuleCall)cRedirectsAssignment_3_4.eContents().get(0);
+		private final Assignment cAggregatesAssignment_3_5 = (Assignment)cUnorderedGroup_3.eContents().get(5);
+		private final RuleCall cAggregatesAggregatesParserRuleCall_3_5_0 = (RuleCall)cAggregatesAssignment_3_5.eContents().get(0);
+		private final Assignment cIntefacesAssignment_3_6 = (Assignment)cUnorderedGroup_3.eContents().get(6);
+		private final RuleCall cIntefacesInterfacesParserRuleCall_3_6_0 = (RuleCall)cIntefacesAssignment_3_6.eContents().get(0);
+		private final RuleCall cRCURLYTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		
+		//InputPortStatement:
+		//	"inputPort" name=ID LCURLY (location+=Location? & protocol+=Protocol? & oneWayOperation+=OneWayOperation? &
+		//	RequestResponseOperation+=RequestResponseOperation? & redirects+=Redirects? & aggregates+=Aggregates? &
+		//	intefaces+=Interfaces?) RCURLY;
+		public ParserRule getRule() { return rule; }
+
+		//"inputPort" name=ID LCURLY (location+=Location? & protocol+=Protocol? & oneWayOperation+=OneWayOperation? &
+		//RequestResponseOperation+=RequestResponseOperation? & redirects+=Redirects? & aggregates+=Aggregates? &
+		//intefaces+=Interfaces?) RCURLY
+		public Group getGroup() { return cGroup; }
+
+		//"inputPort"
+		public Keyword getInputPortKeyword_0() { return cInputPortKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getIDTerminalRuleCall_0_3() { return cIDTerminalRuleCall_0_3; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//RPAREN
-		public RuleCall getRPARENTerminalRuleCall_0_4() { return cRPARENTerminalRuleCall_0_4; }
+		//LCURLY
+		public RuleCall getLCURLYTerminalRuleCall_2() { return cLCURLYTerminalRuleCall_2; }
 
-		//{InputOperation} ID LPAREN {VariablePath} variablePath=VariablePath RPAREN RequestResponseOperation?
-		public Group getGroup_1() { return cGroup_1; }
+		//location+=Location? & protocol+=Protocol? & oneWayOperation+=OneWayOperation? &
+		//RequestResponseOperation+=RequestResponseOperation? & redirects+=Redirects? & aggregates+=Aggregates? &
+		//intefaces+=Interfaces?
+		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
-		//{InputOperation}
-		public Action getInputOperationAction_1_0() { return cInputOperationAction_1_0; }
+		//location+=Location?
+		public Assignment getLocationAssignment_3_0() { return cLocationAssignment_3_0; }
+
+		//Location
+		public RuleCall getLocationLocationParserRuleCall_3_0_0() { return cLocationLocationParserRuleCall_3_0_0; }
+
+		//protocol+=Protocol?
+		public Assignment getProtocolAssignment_3_1() { return cProtocolAssignment_3_1; }
+
+		//Protocol
+		public RuleCall getProtocolProtocolParserRuleCall_3_1_0() { return cProtocolProtocolParserRuleCall_3_1_0; }
+
+		//oneWayOperation+=OneWayOperation?
+		public Assignment getOneWayOperationAssignment_3_2() { return cOneWayOperationAssignment_3_2; }
+
+		//OneWayOperation
+		public RuleCall getOneWayOperationOneWayOperationParserRuleCall_3_2_0() { return cOneWayOperationOneWayOperationParserRuleCall_3_2_0; }
+
+		//RequestResponseOperation+=RequestResponseOperation?
+		public Assignment getRequestResponseOperationAssignment_3_3() { return cRequestResponseOperationAssignment_3_3; }
+
+		//RequestResponseOperation
+		public RuleCall getRequestResponseOperationRequestResponseOperationParserRuleCall_3_3_0() { return cRequestResponseOperationRequestResponseOperationParserRuleCall_3_3_0; }
+
+		//redirects+=Redirects?
+		public Assignment getRedirectsAssignment_3_4() { return cRedirectsAssignment_3_4; }
+
+		//Redirects
+		public RuleCall getRedirectsRedirectsParserRuleCall_3_4_0() { return cRedirectsRedirectsParserRuleCall_3_4_0; }
+
+		//aggregates+=Aggregates?
+		public Assignment getAggregatesAssignment_3_5() { return cAggregatesAssignment_3_5; }
+
+		//Aggregates
+		public RuleCall getAggregatesAggregatesParserRuleCall_3_5_0() { return cAggregatesAggregatesParserRuleCall_3_5_0; }
+
+		//intefaces+=Interfaces?
+		public Assignment getIntefacesAssignment_3_6() { return cIntefacesAssignment_3_6; }
+
+		//Interfaces
+		public RuleCall getIntefacesInterfacesParserRuleCall_3_6_0() { return cIntefacesInterfacesParserRuleCall_3_6_0; }
+
+		//RCURLY
+		public RuleCall getRCURLYTerminalRuleCall_4() { return cRCURLYTerminalRuleCall_4; }
+	}
+
+	public class OutputPortStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "OutputPortStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cOutputPortKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cLCURLYTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final UnorderedGroup cUnorderedGroup_3 = (UnorderedGroup)cGroup.eContents().get(3);
+		private final Assignment cLocationAssignment_3_0 = (Assignment)cUnorderedGroup_3.eContents().get(0);
+		private final RuleCall cLocationLocationParserRuleCall_3_0_0 = (RuleCall)cLocationAssignment_3_0.eContents().get(0);
+		private final Assignment cProtocolAssignment_3_1 = (Assignment)cUnorderedGroup_3.eContents().get(1);
+		private final RuleCall cProtocolProtocolParserRuleCall_3_1_0 = (RuleCall)cProtocolAssignment_3_1.eContents().get(0);
+		private final Assignment cOneWayOperationAssignment_3_2 = (Assignment)cUnorderedGroup_3.eContents().get(2);
+		private final RuleCall cOneWayOperationOneWayOperationParserRuleCall_3_2_0 = (RuleCall)cOneWayOperationAssignment_3_2.eContents().get(0);
+		private final Assignment cRequestResponseOperationAssignment_3_3 = (Assignment)cUnorderedGroup_3.eContents().get(3);
+		private final RuleCall cRequestResponseOperationRequestResponseOperationParserRuleCall_3_3_0 = (RuleCall)cRequestResponseOperationAssignment_3_3.eContents().get(0);
+		private final Assignment cIntefacesAssignment_3_4 = (Assignment)cUnorderedGroup_3.eContents().get(4);
+		private final RuleCall cIntefacesInterfacesParserRuleCall_3_4_0 = (RuleCall)cIntefacesAssignment_3_4.eContents().get(0);
+		private final RuleCall cRCURLYTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		
+		//OutputPortStatement:
+		//	"outputPort" name=ID LCURLY (location+=Location? & protocol+=Protocol? & oneWayOperation+=OneWayOperation? &
+		//	RequestResponseOperation+=RequestResponseOperation? & intefaces+=Interfaces?) RCURLY;
+		public ParserRule getRule() { return rule; }
+
+		//"outputPort" name=ID LCURLY (location+=Location? & protocol+=Protocol? & oneWayOperation+=OneWayOperation? &
+		//RequestResponseOperation+=RequestResponseOperation? & intefaces+=Interfaces?) RCURLY
+		public Group getGroup() { return cGroup; }
+
+		//"outputPort"
+		public Keyword getOutputPortKeyword_0() { return cOutputPortKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//LCURLY
+		public RuleCall getLCURLYTerminalRuleCall_2() { return cLCURLYTerminalRuleCall_2; }
+
+		//location+=Location? & protocol+=Protocol? & oneWayOperation+=OneWayOperation? &
+		//RequestResponseOperation+=RequestResponseOperation? & intefaces+=Interfaces?
+		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
+
+		//location+=Location?
+		public Assignment getLocationAssignment_3_0() { return cLocationAssignment_3_0; }
+
+		//Location
+		public RuleCall getLocationLocationParserRuleCall_3_0_0() { return cLocationLocationParserRuleCall_3_0_0; }
+
+		//protocol+=Protocol?
+		public Assignment getProtocolAssignment_3_1() { return cProtocolAssignment_3_1; }
+
+		//Protocol
+		public RuleCall getProtocolProtocolParserRuleCall_3_1_0() { return cProtocolProtocolParserRuleCall_3_1_0; }
+
+		//oneWayOperation+=OneWayOperation?
+		public Assignment getOneWayOperationAssignment_3_2() { return cOneWayOperationAssignment_3_2; }
+
+		//OneWayOperation
+		public RuleCall getOneWayOperationOneWayOperationParserRuleCall_3_2_0() { return cOneWayOperationOneWayOperationParserRuleCall_3_2_0; }
+
+		//RequestResponseOperation+=RequestResponseOperation?
+		public Assignment getRequestResponseOperationAssignment_3_3() { return cRequestResponseOperationAssignment_3_3; }
+
+		//RequestResponseOperation
+		public RuleCall getRequestResponseOperationRequestResponseOperationParserRuleCall_3_3_0() { return cRequestResponseOperationRequestResponseOperationParserRuleCall_3_3_0; }
+
+		//intefaces+=Interfaces?
+		public Assignment getIntefacesAssignment_3_4() { return cIntefacesAssignment_3_4; }
+
+		//Interfaces
+		public RuleCall getIntefacesInterfacesParserRuleCall_3_4_0() { return cIntefacesInterfacesParserRuleCall_3_4_0; }
+
+		//RCURLY
+		public RuleCall getRCURLYTerminalRuleCall_4() { return cRCURLYTerminalRuleCall_4; }
+	}
+
+	public class OneWayOperationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "OneWayOperation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cOneWayOperationAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cOneWayKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cCOLONTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final RuleCall cLPARENTerminalRuleCall_4_0 = (RuleCall)cGroup_4.eContents().get(0);
+		private final Assignment cTypeDefinitionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cTypeDefinitionTypeDefinitionParserRuleCall_4_1_0 = (RuleCall)cTypeDefinitionAssignment_4_1.eContents().get(0);
+		private final RuleCall cRPARENTerminalRuleCall_4_2 = (RuleCall)cGroup_4.eContents().get(2);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final RuleCall cCOMMATerminalRuleCall_5_0 = (RuleCall)cGroup_5.eContents().get(0);
+		private final Assignment cChildrenAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cChildrenIDTerminalRuleCall_5_1_0 = (RuleCall)cChildrenAssignment_5_1.eContents().get(0);
+		private final Group cGroup_5_2 = (Group)cGroup_5.eContents().get(2);
+		private final RuleCall cLPARENTerminalRuleCall_5_2_0 = (RuleCall)cGroup_5_2.eContents().get(0);
+		private final Assignment cTypeDefinitionAssignment_5_2_1 = (Assignment)cGroup_5_2.eContents().get(1);
+		private final RuleCall cTypeDefinitionTypeDefinitionParserRuleCall_5_2_1_0 = (RuleCall)cTypeDefinitionAssignment_5_2_1.eContents().get(0);
+		private final RuleCall cRPARENTerminalRuleCall_5_2_2 = (RuleCall)cGroup_5_2.eContents().get(2);
+		
+		//OneWayOperation:
+		//	{OneWayOperation} "OneWay" COLON name=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)? (COMMA children+=ID (LPAREN
+		//	typeDefinition+=TypeDefinition RPAREN)?)*;
+		public ParserRule getRule() { return rule; }
+
+		//{OneWayOperation} "OneWay" COLON name=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)? (COMMA children+=ID (LPAREN
+		//typeDefinition+=TypeDefinition RPAREN)?)*
+		public Group getGroup() { return cGroup; }
+
+		//{OneWayOperation}
+		public Action getOneWayOperationAction_0() { return cOneWayOperationAction_0; }
+
+		//"OneWay"
+		public Keyword getOneWayKeyword_1() { return cOneWayKeyword_1; }
+
+		//COLON
+		public RuleCall getCOLONTerminalRuleCall_2() { return cCOLONTerminalRuleCall_2; }
+
+		//name=ID
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+
+		//(LPAREN typeDefinition+=TypeDefinition RPAREN)?
+		public Group getGroup_4() { return cGroup_4; }
 
 		//LPAREN
-		public RuleCall getLPARENTerminalRuleCall_1_2() { return cLPARENTerminalRuleCall_1_2; }
+		public RuleCall getLPARENTerminalRuleCall_4_0() { return cLPARENTerminalRuleCall_4_0; }
 
-		//{VariablePath}
-		public Action getVariablePathAction_1_3() { return cVariablePathAction_1_3; }
+		//typeDefinition+=TypeDefinition
+		public Assignment getTypeDefinitionAssignment_4_1() { return cTypeDefinitionAssignment_4_1; }
 
-		//variablePath=VariablePath
-		public Assignment getVariablePathAssignment_1_4() { return cVariablePathAssignment_1_4; }
-
-		//VariablePath
-		public RuleCall getVariablePathVariablePathParserRuleCall_1_4_0() { return cVariablePathVariablePathParserRuleCall_1_4_0; }
+		//TypeDefinition
+		public RuleCall getTypeDefinitionTypeDefinitionParserRuleCall_4_1_0() { return cTypeDefinitionTypeDefinitionParserRuleCall_4_1_0; }
 
 		//RPAREN
-		public RuleCall getRPARENTerminalRuleCall_1_5() { return cRPARENTerminalRuleCall_1_5; }
+		public RuleCall getRPARENTerminalRuleCall_4_2() { return cRPARENTerminalRuleCall_4_2; }
 
-		//RequestResponseOperation?
-		public RuleCall getRequestResponseOperationParserRuleCall_1_6() { return cRequestResponseOperationParserRuleCall_1_6; }
+		//(COMMA children+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)?)*
+		public Group getGroup_5() { return cGroup_5; }
+
+		//COMMA
+		public RuleCall getCOMMATerminalRuleCall_5_0() { return cCOMMATerminalRuleCall_5_0; }
+
+		//children+=ID
+		public Assignment getChildrenAssignment_5_1() { return cChildrenAssignment_5_1; }
+
+		//ID
+		public RuleCall getChildrenIDTerminalRuleCall_5_1_0() { return cChildrenIDTerminalRuleCall_5_1_0; }
+
+		//(LPAREN typeDefinition+=TypeDefinition RPAREN)?
+		public Group getGroup_5_2() { return cGroup_5_2; }
+
+		//LPAREN
+		public RuleCall getLPARENTerminalRuleCall_5_2_0() { return cLPARENTerminalRuleCall_5_2_0; }
+
+		//typeDefinition+=TypeDefinition
+		public Assignment getTypeDefinitionAssignment_5_2_1() { return cTypeDefinitionAssignment_5_2_1; }
+
+		//TypeDefinition
+		public RuleCall getTypeDefinitionTypeDefinitionParserRuleCall_5_2_1_0() { return cTypeDefinitionTypeDefinitionParserRuleCall_5_2_1_0; }
+
+		//RPAREN
+		public RuleCall getRPARENTerminalRuleCall_5_2_2() { return cRPARENTerminalRuleCall_5_2_2; }
 	}
 
 	public class RequestResponseOperationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RequestResponseOperation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cLPARENTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Assignment cExpressionAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cExpressionExpressionParserRuleCall_1_0 = (RuleCall)cExpressionAssignment_1.eContents().get(0);
-		private final RuleCall cRPARENTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final Assignment cMainProcessAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cMainProcessMainProcessParserRuleCall_3_0 = (RuleCall)cMainProcessAssignment_3.eContents().get(0);
+		private final Action cRequestResponseOperationAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cRequestResponseKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cCOLONTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Group cGroup_4_0 = (Group)cGroup_4.eContents().get(0);
+		private final RuleCall cLPARENTerminalRuleCall_4_0_0 = (RuleCall)cGroup_4_0.eContents().get(0);
+		private final Assignment cTypeDefinitionAssignment_4_0_1 = (Assignment)cGroup_4_0.eContents().get(1);
+		private final RuleCall cTypeDefinitionTypeDefinitionParserRuleCall_4_0_1_0 = (RuleCall)cTypeDefinitionAssignment_4_0_1.eContents().get(0);
+		private final RuleCall cRPARENTerminalRuleCall_4_0_2 = (RuleCall)cGroup_4_0.eContents().get(2);
+		private final Group cGroup_4_1 = (Group)cGroup_4.eContents().get(1);
+		private final RuleCall cLPARENTerminalRuleCall_4_1_0 = (RuleCall)cGroup_4_1.eContents().get(0);
+		private final Assignment cTypeDefinitionAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
+		private final RuleCall cTypeDefinitionTypeDefinitionParserRuleCall_4_1_1_0 = (RuleCall)cTypeDefinitionAssignment_4_1_1.eContents().get(0);
+		private final RuleCall cRPARENTerminalRuleCall_4_1_2 = (RuleCall)cGroup_4_1.eContents().get(2);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cThrowsKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cNameAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_5_1_0 = (RuleCall)cNameAssignment_5_1.eContents().get(0);
+		private final Group cGroup_5_2 = (Group)cGroup_5.eContents().get(2);
+		private final RuleCall cLPARENTerminalRuleCall_5_2_0 = (RuleCall)cGroup_5_2.eContents().get(0);
+		private final Assignment cTypeDefinitionAssignment_5_2_1 = (Assignment)cGroup_5_2.eContents().get(1);
+		private final RuleCall cTypeDefinitionTypeDefinitionParserRuleCall_5_2_1_0 = (RuleCall)cTypeDefinitionAssignment_5_2_1.eContents().get(0);
+		private final RuleCall cRPARENTerminalRuleCall_5_2_2 = (RuleCall)cGroup_5_2.eContents().get(2);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final RuleCall cCOMMATerminalRuleCall_6_0 = (RuleCall)cGroup_6.eContents().get(0);
+		private final Assignment cNameAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_6_1_0 = (RuleCall)cNameAssignment_6_1.eContents().get(0);
+		private final Group cGroup_6_2 = (Group)cGroup_6.eContents().get(2);
+		private final Group cGroup_6_2_0 = (Group)cGroup_6_2.eContents().get(0);
+		private final RuleCall cLPARENTerminalRuleCall_6_2_0_0 = (RuleCall)cGroup_6_2_0.eContents().get(0);
+		private final Assignment cTypeDefinitionAssignment_6_2_0_1 = (Assignment)cGroup_6_2_0.eContents().get(1);
+		private final RuleCall cTypeDefinitionTypeDefinitionParserRuleCall_6_2_0_1_0 = (RuleCall)cTypeDefinitionAssignment_6_2_0_1.eContents().get(0);
+		private final RuleCall cRPARENTerminalRuleCall_6_2_0_2 = (RuleCall)cGroup_6_2_0.eContents().get(2);
+		private final Group cGroup_6_2_1 = (Group)cGroup_6_2.eContents().get(1);
+		private final RuleCall cLPARENTerminalRuleCall_6_2_1_0 = (RuleCall)cGroup_6_2_1.eContents().get(0);
+		private final Assignment cTypeDefinitionAssignment_6_2_1_1 = (Assignment)cGroup_6_2_1.eContents().get(1);
+		private final RuleCall cTypeDefinitionTypeDefinitionParserRuleCall_6_2_1_1_0 = (RuleCall)cTypeDefinitionAssignment_6_2_1_1.eContents().get(0);
+		private final RuleCall cRPARENTerminalRuleCall_6_2_1_2 = (RuleCall)cGroup_6_2_1.eContents().get(2);
+		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
+		private final Keyword cThrowsKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
+		private final Assignment cNameAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_6_3_1_0 = (RuleCall)cNameAssignment_6_3_1.eContents().get(0);
+		private final Group cGroup_6_3_2 = (Group)cGroup_6_3.eContents().get(2);
+		private final RuleCall cLPARENTerminalRuleCall_6_3_2_0 = (RuleCall)cGroup_6_3_2.eContents().get(0);
+		private final Assignment cTypeDefinitionAssignment_6_3_2_1 = (Assignment)cGroup_6_3_2.eContents().get(1);
+		private final RuleCall cTypeDefinitionTypeDefinitionParserRuleCall_6_3_2_1_0 = (RuleCall)cTypeDefinitionAssignment_6_3_2_1.eContents().get(0);
+		private final RuleCall cRPARENTerminalRuleCall_6_3_2_2 = (RuleCall)cGroup_6_3_2.eContents().get(2);
 		
 		//RequestResponseOperation:
-		//	LPAREN expression=Expression RPAREN mainProcess=MainProcess;
+		//	{RequestResponseOperation} "RequestResponse" COLON name+=ID ((LPAREN typeDefinition+=TypeDefinition RPAREN) (LPAREN
+		//	typeDefinition+=TypeDefinition RPAREN))? ("throws" name+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN))? (COMMA
+		//	name+=ID ((LPAREN typeDefinition+=TypeDefinition RPAREN) (LPAREN typeDefinition+=TypeDefinition RPAREN))? ("throws"
+		//	name+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN))?)*;
 		public ParserRule getRule() { return rule; }
 
-		//LPAREN expression=Expression RPAREN mainProcess=MainProcess
+		//{RequestResponseOperation} "RequestResponse" COLON name+=ID ((LPAREN typeDefinition+=TypeDefinition RPAREN) (LPAREN
+		//typeDefinition+=TypeDefinition RPAREN))? ("throws" name+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN))? (COMMA
+		//name+=ID ((LPAREN typeDefinition+=TypeDefinition RPAREN) (LPAREN typeDefinition+=TypeDefinition RPAREN))? ("throws"
+		//name+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN))?)*
 		public Group getGroup() { return cGroup; }
 
+		//{RequestResponseOperation}
+		public Action getRequestResponseOperationAction_0() { return cRequestResponseOperationAction_0; }
+
+		//"RequestResponse"
+		public Keyword getRequestResponseKeyword_1() { return cRequestResponseKeyword_1; }
+
+		//COLON
+		public RuleCall getCOLONTerminalRuleCall_2() { return cCOLONTerminalRuleCall_2; }
+
+		//name+=ID
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+
+		//((LPAREN typeDefinition+=TypeDefinition RPAREN) (LPAREN typeDefinition+=TypeDefinition RPAREN))?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//LPAREN typeDefinition+=TypeDefinition RPAREN
+		public Group getGroup_4_0() { return cGroup_4_0; }
+
 		//LPAREN
-		public RuleCall getLPARENTerminalRuleCall_0() { return cLPARENTerminalRuleCall_0; }
+		public RuleCall getLPARENTerminalRuleCall_4_0_0() { return cLPARENTerminalRuleCall_4_0_0; }
 
-		//expression=Expression
-		public Assignment getExpressionAssignment_1() { return cExpressionAssignment_1; }
+		//typeDefinition+=TypeDefinition
+		public Assignment getTypeDefinitionAssignment_4_0_1() { return cTypeDefinitionAssignment_4_0_1; }
 
-		//Expression
-		public RuleCall getExpressionExpressionParserRuleCall_1_0() { return cExpressionExpressionParserRuleCall_1_0; }
+		//TypeDefinition
+		public RuleCall getTypeDefinitionTypeDefinitionParserRuleCall_4_0_1_0() { return cTypeDefinitionTypeDefinitionParserRuleCall_4_0_1_0; }
 
 		//RPAREN
-		public RuleCall getRPARENTerminalRuleCall_2() { return cRPARENTerminalRuleCall_2; }
+		public RuleCall getRPARENTerminalRuleCall_4_0_2() { return cRPARENTerminalRuleCall_4_0_2; }
 
-		//mainProcess=MainProcess
-		public Assignment getMainProcessAssignment_3() { return cMainProcessAssignment_3; }
+		//LPAREN typeDefinition+=TypeDefinition RPAREN
+		public Group getGroup_4_1() { return cGroup_4_1; }
 
-		//MainProcess
-		public RuleCall getMainProcessMainProcessParserRuleCall_3_0() { return cMainProcessMainProcessParserRuleCall_3_0; }
+		//LPAREN
+		public RuleCall getLPARENTerminalRuleCall_4_1_0() { return cLPARENTerminalRuleCall_4_1_0; }
+
+		//typeDefinition+=TypeDefinition
+		public Assignment getTypeDefinitionAssignment_4_1_1() { return cTypeDefinitionAssignment_4_1_1; }
+
+		//TypeDefinition
+		public RuleCall getTypeDefinitionTypeDefinitionParserRuleCall_4_1_1_0() { return cTypeDefinitionTypeDefinitionParserRuleCall_4_1_1_0; }
+
+		//RPAREN
+		public RuleCall getRPARENTerminalRuleCall_4_1_2() { return cRPARENTerminalRuleCall_4_1_2; }
+
+		//("throws" name+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN))?
+		public Group getGroup_5() { return cGroup_5; }
+
+		//"throws"
+		public Keyword getThrowsKeyword_5_0() { return cThrowsKeyword_5_0; }
+
+		//name+=ID
+		public Assignment getNameAssignment_5_1() { return cNameAssignment_5_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_5_1_0() { return cNameIDTerminalRuleCall_5_1_0; }
+
+		//LPAREN typeDefinition+=TypeDefinition RPAREN
+		public Group getGroup_5_2() { return cGroup_5_2; }
+
+		//LPAREN
+		public RuleCall getLPARENTerminalRuleCall_5_2_0() { return cLPARENTerminalRuleCall_5_2_0; }
+
+		//typeDefinition+=TypeDefinition
+		public Assignment getTypeDefinitionAssignment_5_2_1() { return cTypeDefinitionAssignment_5_2_1; }
+
+		//TypeDefinition
+		public RuleCall getTypeDefinitionTypeDefinitionParserRuleCall_5_2_1_0() { return cTypeDefinitionTypeDefinitionParserRuleCall_5_2_1_0; }
+
+		//RPAREN
+		public RuleCall getRPARENTerminalRuleCall_5_2_2() { return cRPARENTerminalRuleCall_5_2_2; }
+
+		//(COMMA name+=ID ((LPAREN typeDefinition+=TypeDefinition RPAREN) (LPAREN typeDefinition+=TypeDefinition RPAREN))?
+		//("throws" name+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN))?)*
+		public Group getGroup_6() { return cGroup_6; }
+
+		//COMMA
+		public RuleCall getCOMMATerminalRuleCall_6_0() { return cCOMMATerminalRuleCall_6_0; }
+
+		//name+=ID
+		public Assignment getNameAssignment_6_1() { return cNameAssignment_6_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_6_1_0() { return cNameIDTerminalRuleCall_6_1_0; }
+
+		//((LPAREN typeDefinition+=TypeDefinition RPAREN) (LPAREN typeDefinition+=TypeDefinition RPAREN))?
+		public Group getGroup_6_2() { return cGroup_6_2; }
+
+		//LPAREN typeDefinition+=TypeDefinition RPAREN
+		public Group getGroup_6_2_0() { return cGroup_6_2_0; }
+
+		//LPAREN
+		public RuleCall getLPARENTerminalRuleCall_6_2_0_0() { return cLPARENTerminalRuleCall_6_2_0_0; }
+
+		//typeDefinition+=TypeDefinition
+		public Assignment getTypeDefinitionAssignment_6_2_0_1() { return cTypeDefinitionAssignment_6_2_0_1; }
+
+		//TypeDefinition
+		public RuleCall getTypeDefinitionTypeDefinitionParserRuleCall_6_2_0_1_0() { return cTypeDefinitionTypeDefinitionParserRuleCall_6_2_0_1_0; }
+
+		//RPAREN
+		public RuleCall getRPARENTerminalRuleCall_6_2_0_2() { return cRPARENTerminalRuleCall_6_2_0_2; }
+
+		//LPAREN typeDefinition+=TypeDefinition RPAREN
+		public Group getGroup_6_2_1() { return cGroup_6_2_1; }
+
+		//LPAREN
+		public RuleCall getLPARENTerminalRuleCall_6_2_1_0() { return cLPARENTerminalRuleCall_6_2_1_0; }
+
+		//typeDefinition+=TypeDefinition
+		public Assignment getTypeDefinitionAssignment_6_2_1_1() { return cTypeDefinitionAssignment_6_2_1_1; }
+
+		//TypeDefinition
+		public RuleCall getTypeDefinitionTypeDefinitionParserRuleCall_6_2_1_1_0() { return cTypeDefinitionTypeDefinitionParserRuleCall_6_2_1_1_0; }
+
+		//RPAREN
+		public RuleCall getRPARENTerminalRuleCall_6_2_1_2() { return cRPARENTerminalRuleCall_6_2_1_2; }
+
+		//("throws" name+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN))?
+		public Group getGroup_6_3() { return cGroup_6_3; }
+
+		//"throws"
+		public Keyword getThrowsKeyword_6_3_0() { return cThrowsKeyword_6_3_0; }
+
+		//name+=ID
+		public Assignment getNameAssignment_6_3_1() { return cNameAssignment_6_3_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_6_3_1_0() { return cNameIDTerminalRuleCall_6_3_1_0; }
+
+		//LPAREN typeDefinition+=TypeDefinition RPAREN
+		public Group getGroup_6_3_2() { return cGroup_6_3_2; }
+
+		//LPAREN
+		public RuleCall getLPARENTerminalRuleCall_6_3_2_0() { return cLPARENTerminalRuleCall_6_3_2_0; }
+
+		//typeDefinition+=TypeDefinition
+		public Assignment getTypeDefinitionAssignment_6_3_2_1() { return cTypeDefinitionAssignment_6_3_2_1; }
+
+		//TypeDefinition
+		public RuleCall getTypeDefinitionTypeDefinitionParserRuleCall_6_3_2_1_0() { return cTypeDefinitionTypeDefinitionParserRuleCall_6_3_2_1_0; }
+
+		//RPAREN
+		public RuleCall getRPARENTerminalRuleCall_6_3_2_2() { return cRPARENTerminalRuleCall_6_3_2_2; }
+	}
+
+	public class TypeDefinitionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TypeDefinition");
+		private final Assignment cTypeAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cTypeTypeCrossReference_0 = (CrossReference)cTypeAssignment.eContents().get(0);
+		private final RuleCall cTypeTypeIDTerminalRuleCall_0_1 = (RuleCall)cTypeTypeCrossReference_0.eContents().get(1);
+		
+		//TypeDefinition:
+		//	type+=[Type];
+		public ParserRule getRule() { return rule; }
+
+		//type+=[Type]
+		public Assignment getTypeAssignment() { return cTypeAssignment; }
+
+		//[Type]
+		public CrossReference getTypeTypeCrossReference_0() { return cTypeTypeCrossReference_0; }
+
+		//ID
+		public RuleCall getTypeTypeIDTerminalRuleCall_0_1() { return cTypeTypeIDTerminalRuleCall_0_1; }
+	}
+
+	public class LocationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Location");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLocationKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cCOLONTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cUriAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cUriUriParserRuleCall_2_0 = (RuleCall)cUriAssignment_2.eContents().get(0);
+		
+		//Location:
+		//	"Location" COLON uri+=Uri;
+		public ParserRule getRule() { return rule; }
+
+		//"Location" COLON uri+=Uri
+		public Group getGroup() { return cGroup; }
+
+		//"Location"
+		public Keyword getLocationKeyword_0() { return cLocationKeyword_0; }
+
+		//COLON
+		public RuleCall getCOLONTerminalRuleCall_1() { return cCOLONTerminalRuleCall_1; }
+
+		//uri+=Uri
+		public Assignment getUriAssignment_2() { return cUriAssignment_2; }
+
+		//Uri
+		public RuleCall getUriUriParserRuleCall_2_0() { return cUriUriParserRuleCall_2_0; }
+	}
+
+	public class UriElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Uri");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cUriAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
+		private final RuleCall cSTRINGTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		////|name=STRING; //to do...
+		//Uri:
+		//	{Uri} name+=ID | STRING;
+		public ParserRule getRule() { return rule; }
+
+		//{Uri} name+=ID | STRING
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//{Uri} name+=ID
+		public Group getGroup_0() { return cGroup_0; }
+
+		//{Uri}
+		public Action getUriAction_0_0() { return cUriAction_0_0; }
+
+		//name+=ID
+		public Assignment getNameAssignment_0_1() { return cNameAssignment_0_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_1_0() { return cNameIDTerminalRuleCall_0_1_0; }
+
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_1() { return cSTRINGTerminalRuleCall_1; }
+	}
+
+	public class InterfacesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Interfaces");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cInterfacesKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cCOLONTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final RuleCall cCOMMATerminalRuleCall_3_0 = (RuleCall)cGroup_3.eContents().get(0);
+		private final Assignment cNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
+		
+		//Interfaces:
+		//	"Interfaces" COLON name+=ID (COMMA name+=ID)*;
+		public ParserRule getRule() { return rule; }
+
+		//"Interfaces" COLON name+=ID (COMMA name+=ID)*
+		public Group getGroup() { return cGroup; }
+
+		//"Interfaces"
+		public Keyword getInterfacesKeyword_0() { return cInterfacesKeyword_0; }
+
+		//COLON
+		public RuleCall getCOLONTerminalRuleCall_1() { return cCOLONTerminalRuleCall_1; }
+
+		//name+=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+
+		//(COMMA name+=ID)*
+		public Group getGroup_3() { return cGroup_3; }
+
+		//COMMA
+		public RuleCall getCOMMATerminalRuleCall_3_0() { return cCOMMATerminalRuleCall_3_0; }
+
+		//name+=ID
+		public Assignment getNameAssignment_3_1() { return cNameAssignment_3_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_1_0() { return cNameIDTerminalRuleCall_3_1_0; }
+	}
+
+	public class ProtocolElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Protocol");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cProtocolKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cCOLONTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final RuleCall cProtocolConfigurationParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		
+		//Protocol:
+		//	"Protocol" COLON name+=ID ProtocolConfiguration?;
+		public ParserRule getRule() { return rule; }
+
+		//"Protocol" COLON name+=ID ProtocolConfiguration?
+		public Group getGroup() { return cGroup; }
+
+		//"Protocol"
+		public Keyword getProtocolKeyword_0() { return cProtocolKeyword_0; }
+
+		//COLON
+		public RuleCall getCOLONTerminalRuleCall_1() { return cCOLONTerminalRuleCall_1; }
+
+		//name+=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+
+		//ProtocolConfiguration?
+		public RuleCall getProtocolConfigurationParserRuleCall_3() { return cProtocolConfigurationParserRuleCall_3; }
+	}
+
+	public class ProtocolConfigurationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ProtocolConfiguration");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cLCURLYTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Keyword cTODOKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cRCURLYTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		
+		//ProtocolConfiguration returns ecore::EString:
+		//	LCURLY "TODO" RCURLY;
+		public ParserRule getRule() { return rule; }
+
+		//LCURLY "TODO" RCURLY
+		public Group getGroup() { return cGroup; }
+
+		//LCURLY
+		public RuleCall getLCURLYTerminalRuleCall_0() { return cLCURLYTerminalRuleCall_0; }
+
+		//"TODO"
+		public Keyword getTODOKeyword_1() { return cTODOKeyword_1; }
+
+		//RCURLY
+		public RuleCall getRCURLYTerminalRuleCall_2() { return cRCURLYTerminalRuleCall_2; }
+	}
+
+	public class RedirectsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Redirects");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRedirectsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cCOLONTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cEqualsSignGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cOutputPortIdentifierAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cOutputPortIdentifierIDTerminalRuleCall_4_0 = (RuleCall)cOutputPortIdentifierAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final RuleCall cCOMMATerminalRuleCall_5_0 = (RuleCall)cGroup_5.eContents().get(0);
+		private final Assignment cNameAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_5_1_0 = (RuleCall)cNameAssignment_5_1.eContents().get(0);
+		private final Keyword cEqualsSignGreaterThanSignKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
+		private final Assignment cOutputPortIdentifierAssignment_5_3 = (Assignment)cGroup_5.eContents().get(3);
+		private final RuleCall cOutputPortIdentifierIDTerminalRuleCall_5_3_0 = (RuleCall)cOutputPortIdentifierAssignment_5_3.eContents().get(0);
+		
+		////TODO LINKING TO OutPutPortDef
+		//Redirects:
+		//	"Redirects" COLON name+=ID "=>" outputPortIdentifier+=ID (COMMA name+=ID "=>" outputPortIdentifier+=ID)*;
+		public ParserRule getRule() { return rule; }
+
+		//"Redirects" COLON name+=ID "=>" outputPortIdentifier+=ID (COMMA name+=ID "=>" outputPortIdentifier+=ID)*
+		public Group getGroup() { return cGroup; }
+
+		//"Redirects"
+		public Keyword getRedirectsKeyword_0() { return cRedirectsKeyword_0; }
+
+		//COLON
+		public RuleCall getCOLONTerminalRuleCall_1() { return cCOLONTerminalRuleCall_1; }
+
+		//name+=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+
+		//"=>"
+		public Keyword getEqualsSignGreaterThanSignKeyword_3() { return cEqualsSignGreaterThanSignKeyword_3; }
+
+		//outputPortIdentifier+=ID
+		public Assignment getOutputPortIdentifierAssignment_4() { return cOutputPortIdentifierAssignment_4; }
+
+		//ID
+		public RuleCall getOutputPortIdentifierIDTerminalRuleCall_4_0() { return cOutputPortIdentifierIDTerminalRuleCall_4_0; }
+
+		//(COMMA name+=ID "=>" outputPortIdentifier+=ID)*
+		public Group getGroup_5() { return cGroup_5; }
+
+		//COMMA
+		public RuleCall getCOMMATerminalRuleCall_5_0() { return cCOMMATerminalRuleCall_5_0; }
+
+		//name+=ID
+		public Assignment getNameAssignment_5_1() { return cNameAssignment_5_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_5_1_0() { return cNameIDTerminalRuleCall_5_1_0; }
+
+		//"=>"
+		public Keyword getEqualsSignGreaterThanSignKeyword_5_2() { return cEqualsSignGreaterThanSignKeyword_5_2; }
+
+		//outputPortIdentifier+=ID
+		public Assignment getOutputPortIdentifierAssignment_5_3() { return cOutputPortIdentifierAssignment_5_3; }
+
+		//ID
+		public RuleCall getOutputPortIdentifierIDTerminalRuleCall_5_3_0() { return cOutputPortIdentifierIDTerminalRuleCall_5_3_0; }
+	}
+
+	public class AggregatesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Aggregates");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAggregatesKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cCOLONTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final RuleCall cCOMMATerminalRuleCall_3_0 = (RuleCall)cGroup_3.eContents().get(0);
+		private final Assignment cNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
+		
+		//Aggregates:
+		//	"Aggregates" COLON name+=ID (COMMA name+=ID)*;
+		public ParserRule getRule() { return rule; }
+
+		//"Aggregates" COLON name+=ID (COMMA name+=ID)*
+		public Group getGroup() { return cGroup; }
+
+		//"Aggregates"
+		public Keyword getAggregatesKeyword_0() { return cAggregatesKeyword_0; }
+
+		//COLON
+		public RuleCall getCOLONTerminalRuleCall_1() { return cCOLONTerminalRuleCall_1; }
+
+		//name+=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+
+		//(COMMA name+=ID)*
+		public Group getGroup_3() { return cGroup_3; }
+
+		//COMMA
+		public RuleCall getCOMMATerminalRuleCall_3_0() { return cCOMMATerminalRuleCall_3_0; }
+
+		//name+=ID
+		public Assignment getNameAssignment_3_1() { return cNameAssignment_3_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_1_0() { return cNameIDTerminalRuleCall_3_1_0; }
 	}
 	
 	
 	private ProgramElements pProgram;
+	private CardinalityElements pCardinality;
+	private TypeElements pType;
+	private TYPEDEFElements pTYPEDEF;
+	private TerminalRule tNATIVE_TYPE;
 	private MainElements pMain;
 	private MainProcessElements pMainProcess;
 	private ProcessElements pProcess;
 	private ParallelStatementElements pParallelStatement;
 	private SequenceStatementElements pSequenceStatement;
 	private BasicStatementElements pBasicStatement;
-	private AssignStatementElements pAssignStatement;
-	private RightSideAssignamentElements pRightSideAssignament;
+	private AssignStatementOrPostIncrementDecrementOrInputOperationElements pAssignStatementOrPostIncrementDecrementOrInputOperation;
+	private RightSideElements pRightSide;
+	private OperationElements pOperation;
+	private PreIncrementDecrementElements pPreIncrementDecrement;
 	private ExpressionElements pExpression;
 	private TerminalExpressionElements pTerminalExpression;
 	private VariablePathElements pVariablePath;
-	private PrefixElements pPrefix;
+	private WithElements pWith;
 	private NDChoiceStatementElements pNDChoiceStatement;
-	private InputOperationElements pInputOperation;
+	private PortElements pPort;
+	private InputPortStatementElements pInputPortStatement;
+	private OutputPortStatementElements pOutputPortStatement;
+	private OneWayOperationElements pOneWayOperation;
 	private RequestResponseOperationElements pRequestResponseOperation;
+	private TypeDefinitionElements pTypeDefinition;
+	private LocationElements pLocation;
+	private UriElements pUri;
+	private InterfacesElements pInterfaces;
+	private ProtocolElements pProtocol;
+	private ProtocolConfigurationElements pProtocolConfiguration;
+	private RedirectsElements pRedirects;
+	private AggregatesElements pAggregates;
+	private TerminalRule tID_PRE;
 	private TerminalRule tLCURLY;
 	private TerminalRule tRCURLY;
 	private TerminalRule tLSQUARE;
 	private TerminalRule tRSQUARE;
-	private TerminalRule tARROW;
 	private TerminalRule tSEMICOLON;
 	private TerminalRule tCOLON;
 	private TerminalRule tPLUS;
@@ -844,15 +2110,16 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 	private TerminalRule tLPAREN;
 	private TerminalRule tRPAREN;
 	private TerminalRule tCOMMA;
-	private TerminalRule tLINKIN;
 	private TerminalRule tWHILE;
 	private TerminalRule tCHOICE;
 	private TerminalRule tDECREMENT;
 	private TerminalRule tASTERISK;
+	private TerminalRule tQUESTION;
 	private TerminalRule tDIVIDE;
+	private TerminalRule tPOINTSTO;
+	private TerminalRule tDEEPCOPYLEFT;
 	private TerminalRule tMINUS;
 	private TerminalRule tPERCENT_SIGN;
-	private TerminalRule tGLOBAL;
 	private TerminalRule tREAL;
 	
 	private final GrammarProvider grammarProvider;
@@ -876,7 +2143,8 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//Program: / * (locations=Locations)* * / "main" main=Main;
+	//Program:
+	//	ports+=Port* types+=Type* main=Main;
 	public ProgramElements getProgramAccess() {
 		return (pProgram != null) ? pProgram : (pProgram = new ProgramElements());
 	}
@@ -885,33 +2153,45 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		return getProgramAccess().getRule();
 	}
 
-	/// *  
-	//Locations :
-	//ASSIGN
-	// ('inputPort' name=ID LCURLY (locations=LocationDefinition) RCURLY) &
-	// ('outputPort' name=ID LCURLY (locations=LocationDefinition) RCURLY)
-	//
-	//;
-	//
-	//LocationDefinition :
-	// ('location' address=Address) & 'protocol' (protocol=Protocol) & (interfaces=Interfaces)*
-	//;
-	//
-	//
-	//Interfaces :
-	// 'Interfaces' name=ID
-	//;
-	//
-	//terminal Protocol :
-	// 'sodep' | 'soap' | 'http'
-	//;  
-	// 
-	//terminal Address : 
-	// '"'('//') ((('a'..'z'|'A'..'Z'|'_'|'0'..'9')*'.'('a'..'z'|'A'..'Z'|'_'|'0'..'9')*)*':'('0'..'9')*) '"'
-	//
-	// ;
-	// * /Main:
-	//	mainrocess=MainProcess;
+	/// ****************************************TYPE**************************************** / Cardinality returns
+	//ecore::EString:
+	//	QUESTION | ASTERISK;
+	public CardinalityElements getCardinalityAccess() {
+		return (pCardinality != null) ? pCardinality : (pCardinality = new CardinalityElements());
+	}
+	
+	public ParserRule getCardinalityRule() {
+		return getCardinalityAccess().getRule();
+	}
+
+	//Type:
+	//	"type" name=ID COLON NATIVE_TYPE typedef+=TYPEDEF?;
+	public TypeElements getTypeAccess() {
+		return (pType != null) ? pType : (pType = new TypeElements());
+	}
+	
+	public ParserRule getTypeRule() {
+		return getTypeAccess().getRule();
+	}
+
+	//TYPEDEF:
+	//	{TYPEDEF} LCURLY (name+=ID_PRE Cardinality COLON NATIVE_TYPE typedef+=TYPEDEF*)* RCURLY;
+	public TYPEDEFElements getTYPEDEFAccess() {
+		return (pTYPEDEF != null) ? pTYPEDEF : (pTYPEDEF = new TYPEDEFElements());
+	}
+	
+	public ParserRule getTYPEDEFRule() {
+		return getTYPEDEFAccess().getRule();
+	}
+
+	//terminal NATIVE_TYPE:
+	//	("int" | "real" | "string" | "void")?;
+	public TerminalRule getNATIVE_TYPERule() {
+		return (tNATIVE_TYPE != null) ? tNATIVE_TYPE : (tNATIVE_TYPE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NATIVE_TYPE"));
+	} 
+
+	/// **********************************TYPE*********************************************** / Main:
+	//	"main" mainrocess=MainProcess;
 	public MainElements getMainAccess() {
 		return (pMain != null) ? pMain : (pMain = new MainElements());
 	}
@@ -953,7 +2233,7 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		return getParallelStatementAccess().getRule();
 	}
 
-	////Un sequence contiente uno o pi basic statemente separati da SEMICOLON ';'
+	////Un sequence contiente uno o pi basic statement separati da SEMICOLON ';'
 	//SequenceStatement:
 	//	{SequenceStatement} (children+=BasicStatement (SEMICOLON children+=BasicStatement)*);
 	public SequenceStatementElements getSequenceStatementAccess() {
@@ -966,8 +2246,10 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 
 	////Il basicStatement,  un costrutto base, ma pu anche essere un processo (questa produzione permette la ricorsione di parallel e sequence) 
 	//BasicStatement:
-	//	{Process} process=Process //Questa  la regola che mi permette la ricorsione
-	//	| {AssignStatement} assignStatement=AssignStatement | {NDChoiceStatement} NDChoiceStatement+=NDChoiceStatement;
+	//	{BasicStatement} process=Process //Questa  la regola che mi permette la ricorsione
+	//	| {BasicStatement} assignStatementOrPostIncrementDecrement=AssignStatementOrPostIncrementDecrementOrInputOperation |
+	//	{BasicStatement} NDChoiceStatement=NDChoiceStatement | {BasicStatement} preIncrementDecrement=PreIncrementDecrement |
+	//	With;
 	public BasicStatementElements getBasicStatementAccess() {
 		return (pBasicStatement != null) ? pBasicStatement : (pBasicStatement = new BasicStatementElements());
 	}
@@ -976,24 +2258,47 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		return getBasicStatementAccess().getRule();
 	}
 
-	//AssignStatement:
-	//	{AssignStatement} variablePath=VariablePath ASSIGN rightSideAssign=RightSideAssignament;
-	public AssignStatementElements getAssignStatementAccess() {
-		return (pAssignStatement != null) ? pAssignStatement : (pAssignStatement = new AssignStatementElements());
+	//AssignStatementOrPostIncrementDecrementOrInputOperation:
+	//	{AssignStatementOrPostIncrementDecrement} variablePath+=VariablePath rightSide=RightSide;
+	public AssignStatementOrPostIncrementDecrementOrInputOperationElements getAssignStatementOrPostIncrementDecrementOrInputOperationAccess() {
+		return (pAssignStatementOrPostIncrementDecrementOrInputOperation != null) ? pAssignStatementOrPostIncrementDecrementOrInputOperation : (pAssignStatementOrPostIncrementDecrementOrInputOperation = new AssignStatementOrPostIncrementDecrementOrInputOperationElements());
 	}
 	
-	public ParserRule getAssignStatementRule() {
-		return getAssignStatementAccess().getRule();
+	public ParserRule getAssignStatementOrPostIncrementDecrementOrInputOperationRule() {
+		return getAssignStatementOrPostIncrementDecrementOrInputOperationAccess().getRule();
 	}
 
-	//RightSideAssignament:
-	//	{Expression} expression=Expression;
-	public RightSideAssignamentElements getRightSideAssignamentAccess() {
-		return (pRightSideAssignament != null) ? pRightSideAssignament : (pRightSideAssignament = new RightSideAssignamentElements());
+	//RightSide:
+	//	{RightSide} ASSIGN expression=Expression | {RightSide} CHOICE | {RightSide} DECREMENT | {RightSide} POINTSTO
+	//	variablePath=VariablePath | {RightSide} DEEPCOPYLEFT variablePath=VariablePath | / *Operation Call* / LPAREN
+	//	variablePath=VariablePath RPAREN operation=Operation;
+	public RightSideElements getRightSideAccess() {
+		return (pRightSide != null) ? pRightSide : (pRightSide = new RightSideElements());
 	}
 	
-	public ParserRule getRightSideAssignamentRule() {
-		return getRightSideAssignamentAccess().getRule();
+	public ParserRule getRightSideRule() {
+		return getRightSideAccess().getRule();
+	}
+
+	/// *Input operation: OneWay o ReqResp* / //line 1689 OLParser, with ? ReqResponseOperation if no ? OneWayOperation
+	//Operation:
+	//	{Operation} (LPAREN expression=Expression RPAREN mainProcess=MainProcess)?;
+	public OperationElements getOperationAccess() {
+		return (pOperation != null) ? pOperation : (pOperation = new OperationElements());
+	}
+	
+	public ParserRule getOperationRule() {
+		return getOperationAccess().getRule();
+	}
+
+	//PreIncrementDecrement:
+	//	(CHOICE | DECREMENT) variablePath=VariablePath;
+	public PreIncrementDecrementElements getPreIncrementDecrementAccess() {
+		return (pPreIncrementDecrement != null) ? pPreIncrementDecrement : (pPreIncrementDecrement = new PreIncrementDecrementElements());
+	}
+	
+	public ParserRule getPreIncrementDecrementRule() {
+		return getPreIncrementDecrementAccess().getRule();
 	}
 
 	/// *********************************************ESPRESSIONI ARITMETICHE********************************************* /
@@ -1008,8 +2313,8 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//TerminalExpression returns Expression:
-	//	LPAREN Expression RPAREN | {IntLiteral} value=INT | {RealLiteral} value=REAL | {String} value=STRING | prefix=Prefix
-	//	variablePath=VariablePath prefix=Prefix;
+	//	LPAREN Expression RPAREN | {IntLiteral} value=INT | {RealLiteral} value=REAL | {String} value=STRING | (CHOICE |
+	//	DECREMENT) variablePath=VariablePath | variablePath=VariablePath (CHOICE | DECREMENT)?;
 	public TerminalExpressionElements getTerminalExpressionAccess() {
 		return (pTerminalExpression != null) ? pTerminalExpression : (pTerminalExpression = new TerminalExpressionElements());
 	}
@@ -1019,8 +2324,10 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//VariablePath:
-	//	{VariablePath} ((GLOBAL | ID) (LSQUARE children+=Expression RSQUARE)? (DOT (ID | LPAREN children+=Expression
-	//	RPAREN))*);
+	//	{VariablePath} name+=ID_PRE | name+=ID (LSQUARE children+=Expression RSQUARE)? (DOT (ID | "global") (LSQUARE
+	//	children+=Expression RSQUARE)? | DOT LPAREN children+=Expression RPAREN)* | {VariablePath} "global" (DOT (ID |
+	//	"global") (LSQUARE children+=Expression RSQUARE)? | DOT LPAREN children+=Expression RPAREN)* //Global non  un un array
+	//;
 	public VariablePathElements getVariablePathAccess() {
 		return (pVariablePath != null) ? pVariablePath : (pVariablePath = new VariablePathElements());
 	}
@@ -1029,20 +2336,25 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		return getVariablePathAccess().getRule();
 	}
 
-	//Prefix returns ecore::EString:
-	//	(CHOICE | DECREMENT)?;
-	public PrefixElements getPrefixAccess() {
-		return (pPrefix != null) ? pPrefix : (pPrefix = new PrefixElements());
+	//With:
+	//	{With} "with" LPAREN name+=ID RPAREN mainrocess+=MainProcess;
+	public WithElements getWithAccess() {
+		return (pWith != null) ? pWith : (pWith = new WithElements());
 	}
 	
-	public ParserRule getPrefixRule() {
-		return getPrefixAccess().getRule();
+	public ParserRule getWithRule() {
+		return getWithAccess().getRule();
 	}
 
 	/// ****************************************************************************************************************** /
 	/// *********************************************NDChoiceStatement********************************************* /
-	//NDChoiceStatement:
-	//	{NDChoiceStatement} (LSQUARE InputOperation+=InputOperation RSQUARE mainProcess+=MainProcess)*;
+	//NDChoiceStatement: / *
+	//      
+	//      [linkIn(linkGuard)|inputOp1] {...}
+	//      [inputOp2] {...}      
+	//      
+	//     * /{NDChoiceStatement} (LSQUARE ("linkIn" LPAREN ID RPAREN | / *inputOperation* / variablePath+=VariablePath LPAREN
+	//	variablePath+=VariablePath RPAREN operation+=Operation) RSQUARE mainProcess+=MainProcess)+;
 	public NDChoiceStatementElements getNDChoiceStatementAccess() {
 		return (pNDChoiceStatement != null) ? pNDChoiceStatement : (pNDChoiceStatement = new NDChoiceStatementElements());
 	}
@@ -1051,20 +2363,57 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		return getNDChoiceStatementAccess().getRule();
 	}
 
-	////line 1689 OLParser
-	//InputOperation:
-	//	{InputOperation} LINKIN LPAREN ID RPAREN | {InputOperation} ID LPAREN {VariablePath} variablePath=VariablePath RPAREN
-	//	RequestResponseOperation?;
-	public InputOperationElements getInputOperationAccess() {
-		return (pInputOperation != null) ? pInputOperation : (pInputOperation = new InputOperationElements());
+	/// ****************************************************************************************************************** /
+	/// ********************************************InputPortStatement & OutputPortStatement************************************************* /
+	//Port:
+	//	inputPortStatement+=InputPortStatement | outputPortStatement+=OutputPortStatement;
+	public PortElements getPortAccess() {
+		return (pPort != null) ? pPort : (pPort = new PortElements());
 	}
 	
-	public ParserRule getInputOperationRule() {
-		return getInputOperationAccess().getRule();
+	public ParserRule getPortRule() {
+		return getPortAccess().getRule();
+	}
+
+	//InputPortStatement:
+	//	"inputPort" name=ID LCURLY (location+=Location? & protocol+=Protocol? & oneWayOperation+=OneWayOperation? &
+	//	RequestResponseOperation+=RequestResponseOperation? & redirects+=Redirects? & aggregates+=Aggregates? &
+	//	intefaces+=Interfaces?) RCURLY;
+	public InputPortStatementElements getInputPortStatementAccess() {
+		return (pInputPortStatement != null) ? pInputPortStatement : (pInputPortStatement = new InputPortStatementElements());
+	}
+	
+	public ParserRule getInputPortStatementRule() {
+		return getInputPortStatementAccess().getRule();
+	}
+
+	//OutputPortStatement:
+	//	"outputPort" name=ID LCURLY (location+=Location? & protocol+=Protocol? & oneWayOperation+=OneWayOperation? &
+	//	RequestResponseOperation+=RequestResponseOperation? & intefaces+=Interfaces?) RCURLY;
+	public OutputPortStatementElements getOutputPortStatementAccess() {
+		return (pOutputPortStatement != null) ? pOutputPortStatement : (pOutputPortStatement = new OutputPortStatementElements());
+	}
+	
+	public ParserRule getOutputPortStatementRule() {
+		return getOutputPortStatementAccess().getRule();
+	}
+
+	//OneWayOperation:
+	//	{OneWayOperation} "OneWay" COLON name=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)? (COMMA children+=ID (LPAREN
+	//	typeDefinition+=TypeDefinition RPAREN)?)*;
+	public OneWayOperationElements getOneWayOperationAccess() {
+		return (pOneWayOperation != null) ? pOneWayOperation : (pOneWayOperation = new OneWayOperationElements());
+	}
+	
+	public ParserRule getOneWayOperationRule() {
+		return getOneWayOperationAccess().getRule();
 	}
 
 	//RequestResponseOperation:
-	//	LPAREN expression=Expression RPAREN mainProcess=MainProcess;
+	//	{RequestResponseOperation} "RequestResponse" COLON name+=ID ((LPAREN typeDefinition+=TypeDefinition RPAREN) (LPAREN
+	//	typeDefinition+=TypeDefinition RPAREN))? ("throws" name+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN))? (COMMA
+	//	name+=ID ((LPAREN typeDefinition+=TypeDefinition RPAREN) (LPAREN typeDefinition+=TypeDefinition RPAREN))? ("throws"
+	//	name+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN))?)*;
 	public RequestResponseOperationElements getRequestResponseOperationAccess() {
 		return (pRequestResponseOperation != null) ? pRequestResponseOperation : (pRequestResponseOperation = new RequestResponseOperationElements());
 	}
@@ -1073,7 +2422,96 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		return getRequestResponseOperationAccess().getRule();
 	}
 
-	/// ****************************************************************************************************************** / // Terminals
+	//TypeDefinition:
+	//	type+=[Type];
+	public TypeDefinitionElements getTypeDefinitionAccess() {
+		return (pTypeDefinition != null) ? pTypeDefinition : (pTypeDefinition = new TypeDefinitionElements());
+	}
+	
+	public ParserRule getTypeDefinitionRule() {
+		return getTypeDefinitionAccess().getRule();
+	}
+
+	//Location:
+	//	"Location" COLON uri+=Uri;
+	public LocationElements getLocationAccess() {
+		return (pLocation != null) ? pLocation : (pLocation = new LocationElements());
+	}
+	
+	public ParserRule getLocationRule() {
+		return getLocationAccess().getRule();
+	}
+
+	////|name=STRING; //to do...
+	//Uri:
+	//	{Uri} name+=ID | STRING;
+	public UriElements getUriAccess() {
+		return (pUri != null) ? pUri : (pUri = new UriElements());
+	}
+	
+	public ParserRule getUriRule() {
+		return getUriAccess().getRule();
+	}
+
+	//Interfaces:
+	//	"Interfaces" COLON name+=ID (COMMA name+=ID)*;
+	public InterfacesElements getInterfacesAccess() {
+		return (pInterfaces != null) ? pInterfaces : (pInterfaces = new InterfacesElements());
+	}
+	
+	public ParserRule getInterfacesRule() {
+		return getInterfacesAccess().getRule();
+	}
+
+	//Protocol:
+	//	"Protocol" COLON name+=ID ProtocolConfiguration?;
+	public ProtocolElements getProtocolAccess() {
+		return (pProtocol != null) ? pProtocol : (pProtocol = new ProtocolElements());
+	}
+	
+	public ParserRule getProtocolRule() {
+		return getProtocolAccess().getRule();
+	}
+
+	//ProtocolConfiguration returns ecore::EString:
+	//	LCURLY "TODO" RCURLY;
+	public ProtocolConfigurationElements getProtocolConfigurationAccess() {
+		return (pProtocolConfiguration != null) ? pProtocolConfiguration : (pProtocolConfiguration = new ProtocolConfigurationElements());
+	}
+	
+	public ParserRule getProtocolConfigurationRule() {
+		return getProtocolConfigurationAccess().getRule();
+	}
+
+	////TODO LINKING TO OutPutPortDef
+	//Redirects:
+	//	"Redirects" COLON name+=ID "=>" outputPortIdentifier+=ID (COMMA name+=ID "=>" outputPortIdentifier+=ID)*;
+	public RedirectsElements getRedirectsAccess() {
+		return (pRedirects != null) ? pRedirects : (pRedirects = new RedirectsElements());
+	}
+	
+	public ParserRule getRedirectsRule() {
+		return getRedirectsAccess().getRule();
+	}
+
+	//Aggregates:
+	//	"Aggregates" COLON name+=ID (COMMA name+=ID)*;
+	public AggregatesElements getAggregatesAccess() {
+		return (pAggregates != null) ? pAggregates : (pAggregates = new AggregatesElements());
+	}
+	
+	public ParserRule getAggregatesRule() {
+		return getAggregatesAccess().getRule();
+	}
+
+	/// ***********************************************END InpuPortStatement********************************************************************** / // Terminals
+	////ID_PRE is used for the with statement. The validator look for external with if there is a prefixed variable 
+	//terminal ID_PRE:
+	//	"." "^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;
+	public TerminalRule getID_PRERule() {
+		return (tID_PRE != null) ? tID_PRE : (tID_PRE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ID_PRE"));
+	} 
+
 	//terminal LCURLY:
 	//	"{";
 	public TerminalRule getLCURLYRule() {
@@ -1096,12 +2534,6 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 	//	"]";
 	public TerminalRule getRSQUARERule() {
 		return (tRSQUARE != null) ? tRSQUARE : (tRSQUARE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "RSQUARE"));
-	} 
-
-	//terminal ARROW:
-	//	"->";
-	public TerminalRule getARROWRule() {
-		return (tARROW != null) ? tARROW : (tARROW = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ARROW"));
 	} 
 
 	//terminal SEMICOLON:
@@ -1162,12 +2594,6 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		return (tCOMMA != null) ? tCOMMA : (tCOMMA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "COMMA"));
 	} 
 
-	//terminal LINKIN:
-	//	"linkIn";
-	public TerminalRule getLINKINRule() {
-		return (tLINKIN != null) ? tLINKIN : (tLINKIN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "LINKIN"));
-	} 
-
 	//terminal WHILE:
 	//	"while";
 	public TerminalRule getWHILERule() {
@@ -1192,14 +2618,31 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 		return (tASTERISK != null) ? tASTERISK : (tASTERISK = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ASTERISK"));
 	} 
 
+	//terminal QUESTION:
+	//	"?";
+	public TerminalRule getQUESTIONRule() {
+		return (tQUESTION != null) ? tQUESTION : (tQUESTION = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "QUESTION"));
+	} 
+
 	//terminal DIVIDE:
 	//	"/";
 	public TerminalRule getDIVIDERule() {
 		return (tDIVIDE != null) ? tDIVIDE : (tDIVIDE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "DIVIDE"));
 	} 
 
-	/// *terminal POINTS_TO:  '->';
-	//terminal DEEP_COPY_LEFT :  '<<';* /terminal MINUS:
+	//terminal POINTSTO:
+	//	"->";
+	public TerminalRule getPOINTSTORule() {
+		return (tPOINTSTO != null) ? tPOINTSTO : (tPOINTSTO = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "POINTSTO"));
+	} 
+
+	//terminal DEEPCOPYLEFT:
+	//	"<<";
+	public TerminalRule getDEEPCOPYLEFTRule() {
+		return (tDEEPCOPYLEFT != null) ? tDEEPCOPYLEFT : (tDEEPCOPYLEFT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "DEEPCOPYLEFT"));
+	} 
+
+	//terminal MINUS:
 	//	"-";
 	public TerminalRule getMINUSRule() {
 		return (tMINUS != null) ? tMINUS : (tMINUS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "MINUS"));
@@ -1209,12 +2652,6 @@ public class JolieGrammarAccess extends AbstractGrammarElementFinder {
 	//	"%";
 	public TerminalRule getPERCENT_SIGNRule() {
 		return (tPERCENT_SIGN != null) ? tPERCENT_SIGN : (tPERCENT_SIGN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "PERCENT_SIGN"));
-	} 
-
-	//terminal GLOBAL:
-	//	"global";
-	public TerminalRule getGLOBALRule() {
-		return (tGLOBAL != null) ? tGLOBAL : (tGLOBAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "GLOBAL"));
 	} 
 
 	//terminal REAL:

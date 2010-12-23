@@ -5,25 +5,40 @@
  */
 package jolie.xtext.jolie.impl;
 
-import jolie.xtext.jolie.AssignStatement;
+import jolie.xtext.jolie.Aggregates;
+import jolie.xtext.jolie.AssignStatementOrPostIncrementDecrement;
+import jolie.xtext.jolie.AssignStatementOrPostIncrementDecrementOrInputOperation;
 import jolie.xtext.jolie.BasicStatement;
 import jolie.xtext.jolie.Expression;
-import jolie.xtext.jolie.InputOperation;
+import jolie.xtext.jolie.InputPortStatement;
 import jolie.xtext.jolie.IntLiteral;
+import jolie.xtext.jolie.Interfaces;
 import jolie.xtext.jolie.JolieFactory;
 import jolie.xtext.jolie.JoliePackage;
+import jolie.xtext.jolie.Location;
 import jolie.xtext.jolie.Main;
 import jolie.xtext.jolie.MainProcess;
 import jolie.xtext.jolie.NDChoiceStatement;
 import jolie.xtext.jolie.OLSyntaxNode;
+import jolie.xtext.jolie.OneWayOperation;
 import jolie.xtext.jolie.Operation;
+import jolie.xtext.jolie.OutputPortStatement;
 import jolie.xtext.jolie.ParallelStatement;
+import jolie.xtext.jolie.Port;
+import jolie.xtext.jolie.PreIncrementDecrement;
 import jolie.xtext.jolie.Program;
+import jolie.xtext.jolie.Protocol;
 import jolie.xtext.jolie.RealLiteral;
+import jolie.xtext.jolie.Redirects;
 import jolie.xtext.jolie.RequestResponseOperation;
-import jolie.xtext.jolie.RightSideAssignament;
+import jolie.xtext.jolie.RightSide;
 import jolie.xtext.jolie.SequenceStatement;
+import jolie.xtext.jolie.TYPEDEF;
+import jolie.xtext.jolie.Type;
+import jolie.xtext.jolie.TypeDefinition;
+import jolie.xtext.jolie.Uri;
 import jolie.xtext.jolie.VariablePath;
+import jolie.xtext.jolie.With;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -86,21 +101,36 @@ public class JolieFactoryImpl extends EFactoryImpl implements JolieFactory
     switch (eClass.getClassifierID())
     {
       case JoliePackage.PROGRAM: return createProgram();
+      case JoliePackage.TYPE: return createType();
+      case JoliePackage.TYPEDEF: return createTYPEDEF();
       case JoliePackage.MAIN: return createMain();
       case JoliePackage.MAIN_PROCESS: return createMainProcess();
       case JoliePackage.PROCESS: return createProcess();
       case JoliePackage.PARALLEL_STATEMENT: return createParallelStatement();
       case JoliePackage.SEQUENCE_STATEMENT: return createSequenceStatement();
       case JoliePackage.BASIC_STATEMENT: return createBasicStatement();
-      case JoliePackage.ASSIGN_STATEMENT: return createAssignStatement();
-      case JoliePackage.RIGHT_SIDE_ASSIGNAMENT: return createRightSideAssignament();
+      case JoliePackage.ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT_OR_INPUT_OPERATION: return createAssignStatementOrPostIncrementDecrementOrInputOperation();
+      case JoliePackage.RIGHT_SIDE: return createRightSide();
+      case JoliePackage.OPERATION: return createOperation();
+      case JoliePackage.PRE_INCREMENT_DECREMENT: return createPreIncrementDecrement();
       case JoliePackage.EXPRESSION: return createExpression();
       case JoliePackage.VARIABLE_PATH: return createVariablePath();
+      case JoliePackage.WITH: return createWith();
       case JoliePackage.ND_CHOICE_STATEMENT: return createNDChoiceStatement();
-      case JoliePackage.INPUT_OPERATION: return createInputOperation();
+      case JoliePackage.PORT: return createPort();
+      case JoliePackage.INPUT_PORT_STATEMENT: return createInputPortStatement();
+      case JoliePackage.OUTPUT_PORT_STATEMENT: return createOutputPortStatement();
+      case JoliePackage.ONE_WAY_OPERATION: return createOneWayOperation();
       case JoliePackage.REQUEST_RESPONSE_OPERATION: return createRequestResponseOperation();
+      case JoliePackage.TYPE_DEFINITION: return createTypeDefinition();
+      case JoliePackage.LOCATION: return createLocation();
+      case JoliePackage.URI: return createUri();
+      case JoliePackage.INTERFACES: return createInterfaces();
+      case JoliePackage.PROTOCOL: return createProtocol();
+      case JoliePackage.REDIRECTS: return createRedirects();
+      case JoliePackage.AGGREGATES: return createAggregates();
       case JoliePackage.OL_SYNTAX_NODE: return createOLSyntaxNode();
-      case JoliePackage.OPERATION: return createOperation();
+      case JoliePackage.ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT: return createAssignStatementOrPostIncrementDecrement();
       case JoliePackage.INT_LITERAL: return createIntLiteral();
       case JoliePackage.REAL_LITERAL: return createRealLiteral();
       case JoliePackage.STRING: return createString();
@@ -118,6 +148,28 @@ public class JolieFactoryImpl extends EFactoryImpl implements JolieFactory
   {
     ProgramImpl program = new ProgramImpl();
     return program;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Type createType()
+  {
+    TypeImpl type = new TypeImpl();
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TYPEDEF createTYPEDEF()
+  {
+    TYPEDEFImpl typedef = new TYPEDEFImpl();
+    return typedef;
   }
 
   /**
@@ -191,10 +243,10 @@ public class JolieFactoryImpl extends EFactoryImpl implements JolieFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public AssignStatement createAssignStatement()
+  public AssignStatementOrPostIncrementDecrementOrInputOperation createAssignStatementOrPostIncrementDecrementOrInputOperation()
   {
-    AssignStatementImpl assignStatement = new AssignStatementImpl();
-    return assignStatement;
+    AssignStatementOrPostIncrementDecrementOrInputOperationImpl assignStatementOrPostIncrementDecrementOrInputOperation = new AssignStatementOrPostIncrementDecrementOrInputOperationImpl();
+    return assignStatementOrPostIncrementDecrementOrInputOperation;
   }
 
   /**
@@ -202,10 +254,32 @@ public class JolieFactoryImpl extends EFactoryImpl implements JolieFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public RightSideAssignament createRightSideAssignament()
+  public RightSide createRightSide()
   {
-    RightSideAssignamentImpl rightSideAssignament = new RightSideAssignamentImpl();
-    return rightSideAssignament;
+    RightSideImpl rightSide = new RightSideImpl();
+    return rightSide;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Operation createOperation()
+  {
+    OperationImpl operation = new OperationImpl();
+    return operation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PreIncrementDecrement createPreIncrementDecrement()
+  {
+    PreIncrementDecrementImpl preIncrementDecrement = new PreIncrementDecrementImpl();
+    return preIncrementDecrement;
   }
 
   /**
@@ -235,6 +309,17 @@ public class JolieFactoryImpl extends EFactoryImpl implements JolieFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public With createWith()
+  {
+    WithImpl with = new WithImpl();
+    return with;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public NDChoiceStatement createNDChoiceStatement()
   {
     NDChoiceStatementImpl ndChoiceStatement = new NDChoiceStatementImpl();
@@ -246,10 +331,43 @@ public class JolieFactoryImpl extends EFactoryImpl implements JolieFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public InputOperation createInputOperation()
+  public Port createPort()
   {
-    InputOperationImpl inputOperation = new InputOperationImpl();
-    return inputOperation;
+    PortImpl port = new PortImpl();
+    return port;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InputPortStatement createInputPortStatement()
+  {
+    InputPortStatementImpl inputPortStatement = new InputPortStatementImpl();
+    return inputPortStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OutputPortStatement createOutputPortStatement()
+  {
+    OutputPortStatementImpl outputPortStatement = new OutputPortStatementImpl();
+    return outputPortStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OneWayOperation createOneWayOperation()
+  {
+    OneWayOperationImpl oneWayOperation = new OneWayOperationImpl();
+    return oneWayOperation;
   }
 
   /**
@@ -268,6 +386,83 @@ public class JolieFactoryImpl extends EFactoryImpl implements JolieFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public TypeDefinition createTypeDefinition()
+  {
+    TypeDefinitionImpl typeDefinition = new TypeDefinitionImpl();
+    return typeDefinition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Location createLocation()
+  {
+    LocationImpl location = new LocationImpl();
+    return location;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Uri createUri()
+  {
+    UriImpl uri = new UriImpl();
+    return uri;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Interfaces createInterfaces()
+  {
+    InterfacesImpl interfaces = new InterfacesImpl();
+    return interfaces;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Protocol createProtocol()
+  {
+    ProtocolImpl protocol = new ProtocolImpl();
+    return protocol;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Redirects createRedirects()
+  {
+    RedirectsImpl redirects = new RedirectsImpl();
+    return redirects;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Aggregates createAggregates()
+  {
+    AggregatesImpl aggregates = new AggregatesImpl();
+    return aggregates;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public OLSyntaxNode createOLSyntaxNode()
   {
     OLSyntaxNodeImpl olSyntaxNode = new OLSyntaxNodeImpl();
@@ -279,10 +474,10 @@ public class JolieFactoryImpl extends EFactoryImpl implements JolieFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Operation createOperation()
+  public AssignStatementOrPostIncrementDecrement createAssignStatementOrPostIncrementDecrement()
   {
-    OperationImpl operation = new OperationImpl();
-    return operation;
+    AssignStatementOrPostIncrementDecrementImpl assignStatementOrPostIncrementDecrement = new AssignStatementOrPostIncrementDecrementImpl();
+    return assignStatementOrPostIncrementDecrement;
   }
 
   /**

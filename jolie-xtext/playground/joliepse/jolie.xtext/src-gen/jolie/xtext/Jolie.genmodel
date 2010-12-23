@@ -9,7 +9,17 @@
   <genPackages prefix="Jolie" basePackage="jolie.xtext" disposableProviderFactory="true"
       ecorePackage="Jolie.ecore#/">
     <genClasses ecoreClass="Jolie.ecore#//Program">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//Program/ports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//Program/types"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//Program/main"/>
+    </genClasses>
+    <genClasses ecoreClass="Jolie.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jolie.ecore#//Type/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//Type/typedef"/>
+    </genClasses>
+    <genClasses ecoreClass="Jolie.ecore#//TYPEDEF">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jolie.ecore#//TYPEDEF/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//TYPEDEF/typedef"/>
     </genClasses>
     <genClasses ecoreClass="Jolie.ecore#//Main">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//Main/mainrocess"/>
@@ -17,7 +27,6 @@
     <genClasses ecoreClass="Jolie.ecore#//MainProcess"/>
     <genClasses ecoreClass="Jolie.ecore#//Process">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//Process/children"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//Process/process"/>
     </genClasses>
     <genClasses ecoreClass="Jolie.ecore#//ParallelStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//ParallelStatement/children"/>
@@ -25,39 +34,103 @@
     <genClasses ecoreClass="Jolie.ecore#//SequenceStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//SequenceStatement/children"/>
     </genClasses>
-    <genClasses ecoreClass="Jolie.ecore#//BasicStatement"/>
-    <genClasses ecoreClass="Jolie.ecore#//AssignStatement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//AssignStatement/assignStatement"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//AssignStatement/variablePath"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//AssignStatement/rightSideAssign"/>
+    <genClasses ecoreClass="Jolie.ecore#//BasicStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//BasicStatement/process"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//BasicStatement/assignStatementOrPostIncrementDecrement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//BasicStatement/NDChoiceStatement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//BasicStatement/preIncrementDecrement"/>
     </genClasses>
-    <genClasses ecoreClass="Jolie.ecore#//RightSideAssignament"/>
+    <genClasses ecoreClass="Jolie.ecore#//AssignStatementOrPostIncrementDecrementOrInputOperation"/>
+    <genClasses ecoreClass="Jolie.ecore#//RightSide">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//RightSide/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//RightSide/variablePath"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//RightSide/operation"/>
+    </genClasses>
+    <genClasses ecoreClass="Jolie.ecore#//Operation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//Operation/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//Operation/mainProcess"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//Operation/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jolie.ecore#//Operation/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//Operation/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Jolie.ecore#//PreIncrementDecrement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//PreIncrementDecrement/variablePath"/>
+    </genClasses>
     <genClasses ecoreClass="Jolie.ecore#//Expression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//Expression/expression"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jolie.ecore#//Expression/prefix"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//Expression/variablePath"/>
     </genClasses>
     <genClasses ecoreClass="Jolie.ecore#//VariablePath">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jolie.ecore#//VariablePath/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//VariablePath/children"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//VariablePath/variablePath"/>
+    </genClasses>
+    <genClasses ecoreClass="Jolie.ecore#//With">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jolie.ecore#//With/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//With/mainrocess"/>
     </genClasses>
     <genClasses ecoreClass="Jolie.ecore#//NDChoiceStatement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//NDChoiceStatement/NDChoiceStatement"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//NDChoiceStatement/InputOperation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//NDChoiceStatement/variablePath"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//NDChoiceStatement/operation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//NDChoiceStatement/mainProcess"/>
     </genClasses>
-    <genClasses ecoreClass="Jolie.ecore#//InputOperation"/>
+    <genClasses ecoreClass="Jolie.ecore#//Port">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//Port/inputPortStatement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//Port/outputPortStatement"/>
+    </genClasses>
+    <genClasses ecoreClass="Jolie.ecore#//InputPortStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jolie.ecore#//InputPortStatement/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//InputPortStatement/location"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//InputPortStatement/protocol"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//InputPortStatement/oneWayOperation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//InputPortStatement/RequestResponseOperation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//InputPortStatement/redirects"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//InputPortStatement/aggregates"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//InputPortStatement/intefaces"/>
+    </genClasses>
+    <genClasses ecoreClass="Jolie.ecore#//OutputPortStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jolie.ecore#//OutputPortStatement/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//OutputPortStatement/location"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//OutputPortStatement/protocol"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//OutputPortStatement/oneWayOperation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//OutputPortStatement/RequestResponseOperation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//OutputPortStatement/intefaces"/>
+    </genClasses>
+    <genClasses ecoreClass="Jolie.ecore#//OneWayOperation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jolie.ecore#//OneWayOperation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//OneWayOperation/typeDefinition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jolie.ecore#//OneWayOperation/children"/>
+    </genClasses>
     <genClasses ecoreClass="Jolie.ecore#//RequestResponseOperation">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//RequestResponseOperation/expression"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//RequestResponseOperation/mainProcess"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jolie.ecore#//RequestResponseOperation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//RequestResponseOperation/typeDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="Jolie.ecore#//TypeDefinition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Jolie.ecore#//TypeDefinition/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Jolie.ecore#//Location">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//Location/uri"/>
+    </genClasses>
+    <genClasses ecoreClass="Jolie.ecore#//Uri">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jolie.ecore#//Uri/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Jolie.ecore#//Interfaces">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jolie.ecore#//Interfaces/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Jolie.ecore#//Protocol">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jolie.ecore#//Protocol/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Jolie.ecore#//Redirects">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jolie.ecore#//Redirects/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jolie.ecore#//Redirects/outputPortIdentifier"/>
+    </genClasses>
+    <genClasses ecoreClass="Jolie.ecore#//Aggregates">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jolie.ecore#//Aggregates/name"/>
     </genClasses>
     <genClasses ecoreClass="Jolie.ecore#//OLSyntaxNode">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//OLSyntaxNode/parallelStatement"/>
     </genClasses>
-    <genClasses ecoreClass="Jolie.ecore#//Operation">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//Operation/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jolie.ecore#//Operation/op"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//Operation/right"/>
+    <genClasses ecoreClass="Jolie.ecore#//AssignStatementOrPostIncrementDecrement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//AssignStatementOrPostIncrementDecrement/variablePath"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Jolie.ecore#//AssignStatementOrPostIncrementDecrement/rightSide"/>
     </genClasses>
     <genClasses ecoreClass="Jolie.ecore#//IntLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Jolie.ecore#//IntLiteral/value"/>

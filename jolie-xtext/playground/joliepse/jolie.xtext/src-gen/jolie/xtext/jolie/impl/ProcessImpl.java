@@ -10,7 +10,6 @@ import java.util.Collection;
 import jolie.xtext.jolie.JoliePackage;
 import jolie.xtext.jolie.ParallelStatement;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -18,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -31,13 +30,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jolie.xtext.jolie.impl.ProcessImpl#getChildren <em>Children</em>}</li>
- *   <li>{@link jolie.xtext.jolie.impl.ProcessImpl#getProcess <em>Process</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ProcessImpl extends BasicStatementImpl implements jolie.xtext.jolie.Process
+public class ProcessImpl extends MinimalEObjectImpl.Container implements jolie.xtext.jolie.Process
 {
   /**
    * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
@@ -48,16 +46,6 @@ public class ProcessImpl extends BasicStatementImpl implements jolie.xtext.jolie
    * @ordered
    */
   protected EList<ParallelStatement> children;
-
-  /**
-   * The cached value of the '{@link #getProcess() <em>Process</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getProcess()
-   * @generated
-   * @ordered
-   */
-  protected jolie.xtext.jolie.Process process;
 
   /**
    * <!-- begin-user-doc -->
@@ -99,54 +87,6 @@ public class ProcessImpl extends BasicStatementImpl implements jolie.xtext.jolie
    * <!-- end-user-doc -->
    * @generated
    */
-  public jolie.xtext.jolie.Process getProcess()
-  {
-    return process;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetProcess(jolie.xtext.jolie.Process newProcess, NotificationChain msgs)
-  {
-    jolie.xtext.jolie.Process oldProcess = process;
-    process = newProcess;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoliePackage.PROCESS__PROCESS, oldProcess, newProcess);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setProcess(jolie.xtext.jolie.Process newProcess)
-  {
-    if (newProcess != process)
-    {
-      NotificationChain msgs = null;
-      if (process != null)
-        msgs = ((InternalEObject)process).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoliePackage.PROCESS__PROCESS, null, msgs);
-      if (newProcess != null)
-        msgs = ((InternalEObject)newProcess).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoliePackage.PROCESS__PROCESS, null, msgs);
-      msgs = basicSetProcess(newProcess, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.PROCESS__PROCESS, newProcess, newProcess));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -154,8 +94,6 @@ public class ProcessImpl extends BasicStatementImpl implements jolie.xtext.jolie
     {
       case JoliePackage.PROCESS__CHILDREN:
         return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
-      case JoliePackage.PROCESS__PROCESS:
-        return basicSetProcess(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -172,8 +110,6 @@ public class ProcessImpl extends BasicStatementImpl implements jolie.xtext.jolie
     {
       case JoliePackage.PROCESS__CHILDREN:
         return getChildren();
-      case JoliePackage.PROCESS__PROCESS:
-        return getProcess();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -193,9 +129,6 @@ public class ProcessImpl extends BasicStatementImpl implements jolie.xtext.jolie
         getChildren().clear();
         getChildren().addAll((Collection<? extends ParallelStatement>)newValue);
         return;
-      case JoliePackage.PROCESS__PROCESS:
-        setProcess((jolie.xtext.jolie.Process)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -213,9 +146,6 @@ public class ProcessImpl extends BasicStatementImpl implements jolie.xtext.jolie
       case JoliePackage.PROCESS__CHILDREN:
         getChildren().clear();
         return;
-      case JoliePackage.PROCESS__PROCESS:
-        setProcess((jolie.xtext.jolie.Process)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -232,8 +162,6 @@ public class ProcessImpl extends BasicStatementImpl implements jolie.xtext.jolie
     {
       case JoliePackage.PROCESS__CHILDREN:
         return children != null && !children.isEmpty();
-      case JoliePackage.PROCESS__PROCESS:
-        return process != null;
     }
     return super.eIsSet(featureID);
   }

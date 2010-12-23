@@ -8,37 +8,41 @@ generate jolie "http://www.xtext.org/Jolie"
 
 Program:
 
-((inputPortStatement+=InputPortStatement) | (outputPortStatement+=OutputPortStatement))*
 
-/* (locations=Locations)* */ 'main' (main=Main);
-/*  
-Locations :
-ASSIGN
- ('inputPort' name=ID LCURLY (locations=LocationDefinition) RCURLY) &
- ('outputPort' name=ID LCURLY (locations=LocationDefinition) RCURLY)
-
-;
-
-LocationDefinition :
- ('location' address=Address) & 'protocol' (protocol=Protocol) & (interfaces=Interfaces)*
-;
-
-
-Interfaces :
- 'Interfaces' name=ID
-;
-
-terminal Protocol :
- 'sodep' | 'soap' | 'http'
-;  
+ ports+=Port* 
  
-terminal Address : 
- '"'('//') ((('a'..'z'|'A'..'Z'|'_'|'0'..'9')*'.'('a'..'z'|'A'..'Z'|'_'|'0'..'9')*)*':'('0'..'9')*) '"'
+ types+=Type*
+ 
+ main=Main
+;
 
- ;
-*/
+/****************************************Types****************************************/  
+Cardinality:
+
+      QUESTION|ASTERISK;   
+ 
+Type:
+
+('type' name=ID COLON NATIVE_TYPE typedef+=TYPEDEF? )
+
+;
+  
+TYPEDEF: 
+
+  {TYPEDEF}  LCURLY 
+    
+        (  name+=ID_PRE Cardinality COLON NATIVE_TYPE typedef+=TYPEDEF*)*
+    
+    RCURLY;
+  
+terminal NATIVE_TYPE:
+
+  ("int"|"real"|"string"|"void")?;    
+  
+/**********************************Types***********************************************/    
+
 Main:
-	mainrocess=MainProcess;
+	'main' mainrocess=MainProcess;
 	//Il processo principale, {...} del main
 MainProcess:
 	{OLSyntaxNode} LCURLY parallelStatement=ParallelStatement RCURLY;
@@ -51,23 +55,28 @@ Process:
 ParallelStatement:
 	{ParallelStatement} (children+=SequenceStatement (VERT children+=SequenceStatement)*);
 
-	//Un sequence contiente uno o pi basic statemente separati da SEMICOLON ';'
+	//Un sequence contiente uno o pi basic statement separati da SEMICOLON ';'
 SequenceStatement:
 	{SequenceStatement} (children+=BasicStatement (SEMICOLON children+=BasicStatement)*);
 
 	//Il basicStatement,  un costrutto base, ma pu anche essere un processo (questa produzione permette la ricorsione di parallel e sequence) 
 BasicStatement:
 	{BasicStatement} process=Process | //Questa  la regola che mi permette la ricorsione
-	{BasicStatement} assignStatementOrPostIncrementDecrement=AssignStatementOrPostIncrementDecrement | {BasicStatement}
+	{BasicStatement} assignStatementOrPostIncrementDecrement=AssignStatementOrPostIncrementDecrementOrInputOperation | {BasicStatement}
 	NDChoiceStatement=NDChoiceStatement | {BasicStatement} preIncrementDecrement=PreIncrementDecrement|
-	inputOp=InputOperationStatement;
+	With;
 
-AssignStatementOrPostIncrementDecrement:
-	{AssignStatementOrPostIncrementDecrement} variablePath=VariablePath rightSide=RightSide;
+AssignStatementOrPostIncrementDecrementOrInputOperation:
+	{AssignStatementOrPostIncrementDecrement} variablePath+=VariablePath rightSide=RightSide;
 
 RightSide:
 	{RightSide} ASSIGN expression=Expression | {RightSide} CHOICE | {RightSide} DECREMENT | {RightSide} POINTSTO
-	variablePath=VariablePath | {RightSide} DEEPCOPYLEFT variablePath=VariablePath;
+	variablePath=VariablePath | {RightSide} DEEPCOPYLEFT variablePath=VariablePath | /*Operation Call*/ LPAREN variablePath=VariablePath RPAREN operation=Operation;
+	
+/*Input operation: OneWay o ReqResp*/
+Operation:
+	{Operation} (LPAREN expression=Expression RPAREN mainProcess=MainProcess)?; //line 1689 OLParser, with ? ReqResponseOperation if no ? OneWayOperation
+		
 
 PreIncrementDecrement:
 	(CHOICE | DECREMENT) variablePath=VariablePath;
@@ -80,44 +89,51 @@ TerminalExpression returns Expression:
 	LPAREN Expression RPAREN | {IntLiteral} value=INT | {RealLiteral} value=REAL | {String} value=STRING | (CHOICE |
 	DECREMENT) variablePath=VariablePath | variablePath=VariablePath (CHOICE | DECREMENT)?;
 
-VariablePath:
+VariablePath :
     
-	{VariablePath} ID (LSQUARE children+=Expression RSQUARE)? (((DOT (ID | 'global') (LSQUARE children+=Expression
+	{VariablePath}  name+=ID_PRE | name+=ID (LSQUARE children+=Expression RSQUARE)? (((DOT (ID | 'global') (LSQUARE children+=Expression
 	RSQUARE)?) | (DOT LPAREN children+=Expression RPAREN)))* | {VariablePath} 'global' (((DOT (ID | 'global') (LSQUARE
-	children+=Expression RSQUARE)?) | (DOT LPAREN children+=Expression RPAREN)))*; //Global non è un un array
+	children+=Expression RSQUARE)?) | (DOT LPAREN children+=Expression RPAREN)))* //Global non è un un array
+;
+    
+With :
+
+ {With} 'with' LPAREN name+=ID RPAREN mainrocess+=MainProcess;
 
 /******************************************************************************************************************/
 
 /*********************************************NDChoiceStatement*********************************************/
 NDChoiceStatement:
-	{NDChoiceStatement} (LSQUARE ((LINKIN LPAREN ID RPAREN) | inputOperationStatement+=InputOperationStatement) RSQUARE
+    /*
+      
+      [linkIn(linkGuard)|inputOp1] {...}
+      [inputOp2] {...}      
+      
+     */
+
+	{NDChoiceStatement} (LSQUARE (('linkIn' LPAREN ID RPAREN) | /*inputOperation*/ variablePath+=VariablePath LPAREN variablePath+=VariablePath RPAREN operation+=Operation) RSQUARE
 	mainProcess+=MainProcess)+;
 /******************************************************************************************************************/
 
-/*********************************************InputOperationStatement*********************************************/
-InputOperationStatement:
-	{InputOperation} ID LPAREN {VariablePath} variablePath=VariablePath RPAREN operation=Operation;
-
-Operation:
-	{Operation} (LPAREN expression=Expression RPAREN mainProcess=MainProcess)?; //line 1689 OLParser, with ? ReqResponseOperation if no ? OneWayOperation
-	
-	
-/******************************************************************************************************************/
 
 
 /********************************************InputPortStatement & OutputPortStatement*************************************************/
+Port:
+(inputPortStatement+=InputPortStatement | outputPortStatement+=OutputPortStatement); 
+
+
 InputPortStatement:
 
   'inputPort' name=ID LCURLY 
   
   
-  (location=Location & 
-  protocol=Protocol &
-  (oneWayOperation=OneWayOperation)? &
-  (RequestResponseOperation=RequestResponseOperation)? &
-  (redirects=Redirects)? &
-  (aggregates=Aggregates)? &
-  (intefaces=Interfaces)?)
+ ( (location+=Location)? & 
+  (protocol+=Protocol)? &   
+  (oneWayOperation+=OneWayOperation)? &
+  (RequestResponseOperation+=RequestResponseOperation)? &
+  (redirects+=Redirects)? &
+  (aggregates+=Aggregates)? &
+  (intefaces+=Interfaces)? )
   
   RCURLY
 
@@ -128,19 +144,19 @@ InputPortStatement:
   'outputPort' name=ID LCURLY 
   
   
-  (location=Location? & 
-  protocol=Protocol? &
-  (oneWayOperation=OneWayOperation)? &
-  (RequestResponseOperation=RequestResponseOperation)? &
-  (intefaces=Interfaces)?)
-  
+ ( (location+=Location)? & 
+  (protocol+=Protocol)? &
+  (oneWayOperation+=OneWayOperation)? &
+  (RequestResponseOperation+=RequestResponseOperation)? &
+  (intefaces+=Interfaces)?
+  )
   RCURLY
 
   ; 
 
-OneWayOperation: 
+OneWayOperation : 
   
-  {OneWayOperation} 'OneWay' COLON children+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)? (COMMA children+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)?)* 
+  {OneWayOperation} 'OneWay' COLON name=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)? (COMMA children+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)?)* 
   ;
 
 RequestResponseOperation:
@@ -153,14 +169,14 @@ RequestResponseOperation:
 
 TypeDefinition: 
 
-   name=ID;
+   type+=[Type];
 
 
 Location:
-  'Location' COLON Uri;
+  'Location' COLON uri+=Uri;
   
-Uri:      
-  name=ID|name=STRING; //to do...
+Uri :      
+  {Uri} name+=ID| {Uri} STRING;//|name=STRING; //to do...
   
 Interfaces:
 
@@ -187,6 +203,9 @@ Aggregates:
 
 
 // Terminals
+//ID_PRE is used for the with statement. The validator look for external with if there is a prefixed variable 
+terminal ID_PRE  : '.''^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+
 
 terminal LCURLY:
 	'{';
@@ -230,8 +249,7 @@ terminal RPAREN:
 terminal COMMA:
 	',';
 
-terminal LINKIN:
-	'linkIn';
+
 
 terminal WHILE:
 	'while';
@@ -243,7 +261,11 @@ terminal DECREMENT:
 	'--';
 
 terminal ASTERISK:
-	'*';
+     '*';
+     
+terminal QUESTION:
+     '?';     
+
 
 terminal DIVIDE:
 	'/';

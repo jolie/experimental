@@ -9,6 +9,7 @@ import java.lang.String;
 
 import jolie.xtext.jolie.Expression;
 import jolie.xtext.jolie.JoliePackage;
+import jolie.xtext.jolie.MainProcess;
 import jolie.xtext.jolie.Operation;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -26,6 +27,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link jolie.xtext.jolie.impl.OperationImpl#getExpression <em>Expression</em>}</li>
+ *   <li>{@link jolie.xtext.jolie.impl.OperationImpl#getMainProcess <em>Main Process</em>}</li>
  *   <li>{@link jolie.xtext.jolie.impl.OperationImpl#getLeft <em>Left</em>}</li>
  *   <li>{@link jolie.xtext.jolie.impl.OperationImpl#getOp <em>Op</em>}</li>
  *   <li>{@link jolie.xtext.jolie.impl.OperationImpl#getRight <em>Right</em>}</li>
@@ -36,6 +39,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class OperationImpl extends ExpressionImpl implements Operation
 {
+  /**
+   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpression()
+   * @generated
+   * @ordered
+   */
+  protected Expression expression;
+
+  /**
+   * The cached value of the '{@link #getMainProcess() <em>Main Process</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMainProcess()
+   * @generated
+   * @ordered
+   */
+  protected MainProcess mainProcess;
+
   /**
    * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -95,6 +118,102 @@ public class OperationImpl extends ExpressionImpl implements Operation
   protected EClass eStaticClass()
   {
     return JoliePackage.Literals.OPERATION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression getExpression()
+  {
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
+  {
+    Expression oldExpression = expression;
+    expression = newExpression;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoliePackage.OPERATION__EXPRESSION, oldExpression, newExpression);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpression(Expression newExpression)
+  {
+    if (newExpression != expression)
+    {
+      NotificationChain msgs = null;
+      if (expression != null)
+        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoliePackage.OPERATION__EXPRESSION, null, msgs);
+      if (newExpression != null)
+        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoliePackage.OPERATION__EXPRESSION, null, msgs);
+      msgs = basicSetExpression(newExpression, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.OPERATION__EXPRESSION, newExpression, newExpression));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MainProcess getMainProcess()
+  {
+    return mainProcess;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMainProcess(MainProcess newMainProcess, NotificationChain msgs)
+  {
+    MainProcess oldMainProcess = mainProcess;
+    mainProcess = newMainProcess;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoliePackage.OPERATION__MAIN_PROCESS, oldMainProcess, newMainProcess);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMainProcess(MainProcess newMainProcess)
+  {
+    if (newMainProcess != mainProcess)
+    {
+      NotificationChain msgs = null;
+      if (mainProcess != null)
+        msgs = ((InternalEObject)mainProcess).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoliePackage.OPERATION__MAIN_PROCESS, null, msgs);
+      if (newMainProcess != null)
+        msgs = ((InternalEObject)newMainProcess).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoliePackage.OPERATION__MAIN_PROCESS, null, msgs);
+      msgs = basicSetMainProcess(newMainProcess, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.OPERATION__MAIN_PROCESS, newMainProcess, newMainProcess));
   }
 
   /**
@@ -226,6 +345,10 @@ public class OperationImpl extends ExpressionImpl implements Operation
   {
     switch (featureID)
     {
+      case JoliePackage.OPERATION__EXPRESSION:
+        return basicSetExpression(null, msgs);
+      case JoliePackage.OPERATION__MAIN_PROCESS:
+        return basicSetMainProcess(null, msgs);
       case JoliePackage.OPERATION__LEFT:
         return basicSetLeft(null, msgs);
       case JoliePackage.OPERATION__RIGHT:
@@ -244,6 +367,10 @@ public class OperationImpl extends ExpressionImpl implements Operation
   {
     switch (featureID)
     {
+      case JoliePackage.OPERATION__EXPRESSION:
+        return getExpression();
+      case JoliePackage.OPERATION__MAIN_PROCESS:
+        return getMainProcess();
       case JoliePackage.OPERATION__LEFT:
         return getLeft();
       case JoliePackage.OPERATION__OP:
@@ -264,6 +391,12 @@ public class OperationImpl extends ExpressionImpl implements Operation
   {
     switch (featureID)
     {
+      case JoliePackage.OPERATION__EXPRESSION:
+        setExpression((Expression)newValue);
+        return;
+      case JoliePackage.OPERATION__MAIN_PROCESS:
+        setMainProcess((MainProcess)newValue);
+        return;
       case JoliePackage.OPERATION__LEFT:
         setLeft((Expression)newValue);
         return;
@@ -287,6 +420,12 @@ public class OperationImpl extends ExpressionImpl implements Operation
   {
     switch (featureID)
     {
+      case JoliePackage.OPERATION__EXPRESSION:
+        setExpression((Expression)null);
+        return;
+      case JoliePackage.OPERATION__MAIN_PROCESS:
+        setMainProcess((MainProcess)null);
+        return;
       case JoliePackage.OPERATION__LEFT:
         setLeft((Expression)null);
         return;
@@ -310,6 +449,10 @@ public class OperationImpl extends ExpressionImpl implements Operation
   {
     switch (featureID)
     {
+      case JoliePackage.OPERATION__EXPRESSION:
+        return expression != null;
+      case JoliePackage.OPERATION__MAIN_PROCESS:
+        return mainProcess != null;
       case JoliePackage.OPERATION__LEFT:
         return left != null;
       case JoliePackage.OPERATION__OP:

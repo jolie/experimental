@@ -5,24 +5,39 @@
  */
 package jolie.xtext.jolie.util;
 
-import jolie.xtext.jolie.AssignStatement;
+import jolie.xtext.jolie.Aggregates;
+import jolie.xtext.jolie.AssignStatementOrPostIncrementDecrement;
+import jolie.xtext.jolie.AssignStatementOrPostIncrementDecrementOrInputOperation;
 import jolie.xtext.jolie.BasicStatement;
 import jolie.xtext.jolie.Expression;
-import jolie.xtext.jolie.InputOperation;
+import jolie.xtext.jolie.InputPortStatement;
 import jolie.xtext.jolie.IntLiteral;
+import jolie.xtext.jolie.Interfaces;
 import jolie.xtext.jolie.JoliePackage;
+import jolie.xtext.jolie.Location;
 import jolie.xtext.jolie.Main;
 import jolie.xtext.jolie.MainProcess;
 import jolie.xtext.jolie.NDChoiceStatement;
 import jolie.xtext.jolie.OLSyntaxNode;
+import jolie.xtext.jolie.OneWayOperation;
 import jolie.xtext.jolie.Operation;
+import jolie.xtext.jolie.OutputPortStatement;
 import jolie.xtext.jolie.ParallelStatement;
+import jolie.xtext.jolie.Port;
+import jolie.xtext.jolie.PreIncrementDecrement;
 import jolie.xtext.jolie.Program;
+import jolie.xtext.jolie.Protocol;
 import jolie.xtext.jolie.RealLiteral;
+import jolie.xtext.jolie.Redirects;
 import jolie.xtext.jolie.RequestResponseOperation;
-import jolie.xtext.jolie.RightSideAssignament;
+import jolie.xtext.jolie.RightSide;
 import jolie.xtext.jolie.SequenceStatement;
+import jolie.xtext.jolie.TYPEDEF;
+import jolie.xtext.jolie.Type;
+import jolie.xtext.jolie.TypeDefinition;
+import jolie.xtext.jolie.Uri;
 import jolie.xtext.jolie.VariablePath;
+import jolie.xtext.jolie.With;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -100,6 +115,16 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
         return createProgramAdapter();
       }
       @Override
+      public Adapter caseType(Type object)
+      {
+        return createTypeAdapter();
+      }
+      @Override
+      public Adapter caseTYPEDEF(TYPEDEF object)
+      {
+        return createTYPEDEFAdapter();
+      }
+      @Override
       public Adapter caseMain(Main object)
       {
         return createMainAdapter();
@@ -130,14 +155,24 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
         return createBasicStatementAdapter();
       }
       @Override
-      public Adapter caseAssignStatement(AssignStatement object)
+      public Adapter caseAssignStatementOrPostIncrementDecrementOrInputOperation(AssignStatementOrPostIncrementDecrementOrInputOperation object)
       {
-        return createAssignStatementAdapter();
+        return createAssignStatementOrPostIncrementDecrementOrInputOperationAdapter();
       }
       @Override
-      public Adapter caseRightSideAssignament(RightSideAssignament object)
+      public Adapter caseRightSide(RightSide object)
       {
-        return createRightSideAssignamentAdapter();
+        return createRightSideAdapter();
+      }
+      @Override
+      public Adapter caseOperation(Operation object)
+      {
+        return createOperationAdapter();
+      }
+      @Override
+      public Adapter casePreIncrementDecrement(PreIncrementDecrement object)
+      {
+        return createPreIncrementDecrementAdapter();
       }
       @Override
       public Adapter caseExpression(Expression object)
@@ -150,14 +185,34 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
         return createVariablePathAdapter();
       }
       @Override
+      public Adapter caseWith(With object)
+      {
+        return createWithAdapter();
+      }
+      @Override
       public Adapter caseNDChoiceStatement(NDChoiceStatement object)
       {
         return createNDChoiceStatementAdapter();
       }
       @Override
-      public Adapter caseInputOperation(InputOperation object)
+      public Adapter casePort(Port object)
       {
-        return createInputOperationAdapter();
+        return createPortAdapter();
+      }
+      @Override
+      public Adapter caseInputPortStatement(InputPortStatement object)
+      {
+        return createInputPortStatementAdapter();
+      }
+      @Override
+      public Adapter caseOutputPortStatement(OutputPortStatement object)
+      {
+        return createOutputPortStatementAdapter();
+      }
+      @Override
+      public Adapter caseOneWayOperation(OneWayOperation object)
+      {
+        return createOneWayOperationAdapter();
       }
       @Override
       public Adapter caseRequestResponseOperation(RequestResponseOperation object)
@@ -165,14 +220,49 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
         return createRequestResponseOperationAdapter();
       }
       @Override
+      public Adapter caseTypeDefinition(TypeDefinition object)
+      {
+        return createTypeDefinitionAdapter();
+      }
+      @Override
+      public Adapter caseLocation(Location object)
+      {
+        return createLocationAdapter();
+      }
+      @Override
+      public Adapter caseUri(Uri object)
+      {
+        return createUriAdapter();
+      }
+      @Override
+      public Adapter caseInterfaces(Interfaces object)
+      {
+        return createInterfacesAdapter();
+      }
+      @Override
+      public Adapter caseProtocol(Protocol object)
+      {
+        return createProtocolAdapter();
+      }
+      @Override
+      public Adapter caseRedirects(Redirects object)
+      {
+        return createRedirectsAdapter();
+      }
+      @Override
+      public Adapter caseAggregates(Aggregates object)
+      {
+        return createAggregatesAdapter();
+      }
+      @Override
       public Adapter caseOLSyntaxNode(OLSyntaxNode object)
       {
         return createOLSyntaxNodeAdapter();
       }
       @Override
-      public Adapter caseOperation(Operation object)
+      public Adapter caseAssignStatementOrPostIncrementDecrement(AssignStatementOrPostIncrementDecrement object)
       {
-        return createOperationAdapter();
+        return createAssignStatementOrPostIncrementDecrementAdapter();
       }
       @Override
       public Adapter caseIntLiteral(IntLiteral object)
@@ -222,6 +312,36 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createProgramAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.Type <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.Type
+   * @generated
+   */
+  public Adapter createTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.TYPEDEF <em>TYPEDEF</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.TYPEDEF
+   * @generated
+   */
+  public Adapter createTYPEDEFAdapter()
   {
     return null;
   }
@@ -317,31 +437,61 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.AssignStatement <em>Assign Statement</em>}'.
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.AssignStatementOrPostIncrementDecrementOrInputOperation <em>Assign Statement Or Post Increment Decrement Or Input Operation</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see jolie.xtext.jolie.AssignStatement
+   * @see jolie.xtext.jolie.AssignStatementOrPostIncrementDecrementOrInputOperation
    * @generated
    */
-  public Adapter createAssignStatementAdapter()
+  public Adapter createAssignStatementOrPostIncrementDecrementOrInputOperationAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.RightSideAssignament <em>Right Side Assignament</em>}'.
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.RightSide <em>Right Side</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see jolie.xtext.jolie.RightSideAssignament
+   * @see jolie.xtext.jolie.RightSide
    * @generated
    */
-  public Adapter createRightSideAssignamentAdapter()
+  public Adapter createRightSideAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.Operation <em>Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.Operation
+   * @generated
+   */
+  public Adapter createOperationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.PreIncrementDecrement <em>Pre Increment Decrement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.PreIncrementDecrement
+   * @generated
+   */
+  public Adapter createPreIncrementDecrementAdapter()
   {
     return null;
   }
@@ -377,6 +527,21 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.With <em>With</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.With
+   * @generated
+   */
+  public Adapter createWithAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.NDChoiceStatement <em>ND Choice Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -392,16 +557,61 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.InputOperation <em>Input Operation</em>}'.
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.Port <em>Port</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see jolie.xtext.jolie.InputOperation
+   * @see jolie.xtext.jolie.Port
    * @generated
    */
-  public Adapter createInputOperationAdapter()
+  public Adapter createPortAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.InputPortStatement <em>Input Port Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.InputPortStatement
+   * @generated
+   */
+  public Adapter createInputPortStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.OutputPortStatement <em>Output Port Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.OutputPortStatement
+   * @generated
+   */
+  public Adapter createOutputPortStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.OneWayOperation <em>One Way Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.OneWayOperation
+   * @generated
+   */
+  public Adapter createOneWayOperationAdapter()
   {
     return null;
   }
@@ -422,6 +632,111 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.TypeDefinition <em>Type Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.TypeDefinition
+   * @generated
+   */
+  public Adapter createTypeDefinitionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.Location <em>Location</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.Location
+   * @generated
+   */
+  public Adapter createLocationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.Uri <em>Uri</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.Uri
+   * @generated
+   */
+  public Adapter createUriAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.Interfaces <em>Interfaces</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.Interfaces
+   * @generated
+   */
+  public Adapter createInterfacesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.Protocol <em>Protocol</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.Protocol
+   * @generated
+   */
+  public Adapter createProtocolAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.Redirects <em>Redirects</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.Redirects
+   * @generated
+   */
+  public Adapter createRedirectsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.Aggregates <em>Aggregates</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see jolie.xtext.jolie.Aggregates
+   * @generated
+   */
+  public Adapter createAggregatesAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.OLSyntaxNode <em>OL Syntax Node</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -437,16 +752,16 @@ public class JolieAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.Operation <em>Operation</em>}'.
+   * Creates a new adapter for an object of class '{@link jolie.xtext.jolie.AssignStatementOrPostIncrementDecrement <em>Assign Statement Or Post Increment Decrement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see jolie.xtext.jolie.Operation
+   * @see jolie.xtext.jolie.AssignStatementOrPostIncrementDecrement
    * @generated
    */
-  public Adapter createOperationAdapter()
+  public Adapter createAssignStatementOrPostIncrementDecrementAdapter()
   {
     return null;
   }

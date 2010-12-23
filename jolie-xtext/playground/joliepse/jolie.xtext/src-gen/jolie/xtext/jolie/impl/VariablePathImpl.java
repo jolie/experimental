@@ -5,13 +5,14 @@
  */
 package jolie.xtext.jolie.impl;
 
+import java.lang.String;
+
 import java.util.Collection;
 
 import jolie.xtext.jolie.Expression;
 import jolie.xtext.jolie.JoliePackage;
 import jolie.xtext.jolie.VariablePath;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -19,8 +20,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -31,15 +33,25 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link jolie.xtext.jolie.impl.VariablePathImpl#getName <em>Name</em>}</li>
  *   <li>{@link jolie.xtext.jolie.impl.VariablePathImpl#getChildren <em>Children</em>}</li>
- *   <li>{@link jolie.xtext.jolie.impl.VariablePathImpl#getVariablePath <em>Variable Path</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class VariablePathImpl extends InputOperationImpl implements VariablePath
+public class VariablePathImpl extends MinimalEObjectImpl.Container implements VariablePath
 {
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> name;
+
   /**
    * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -49,16 +61,6 @@ public class VariablePathImpl extends InputOperationImpl implements VariablePath
    * @ordered
    */
   protected EList<Expression> children;
-
-  /**
-   * The cached value of the '{@link #getVariablePath() <em>Variable Path</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVariablePath()
-   * @generated
-   * @ordered
-   */
-  protected VariablePath variablePath;
 
   /**
    * <!-- begin-user-doc -->
@@ -86,6 +88,20 @@ public class VariablePathImpl extends InputOperationImpl implements VariablePath
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<String> getName()
+  {
+    if (name == null)
+    {
+      name = new EDataTypeEList<String>(String.class, this, JoliePackage.VARIABLE_PATH__NAME);
+    }
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Expression> getChildren()
   {
     if (children == null)
@@ -100,54 +116,6 @@ public class VariablePathImpl extends InputOperationImpl implements VariablePath
    * <!-- end-user-doc -->
    * @generated
    */
-  public VariablePath getVariablePath()
-  {
-    return variablePath;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetVariablePath(VariablePath newVariablePath, NotificationChain msgs)
-  {
-    VariablePath oldVariablePath = variablePath;
-    variablePath = newVariablePath;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoliePackage.VARIABLE_PATH__VARIABLE_PATH, oldVariablePath, newVariablePath);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setVariablePath(VariablePath newVariablePath)
-  {
-    if (newVariablePath != variablePath)
-    {
-      NotificationChain msgs = null;
-      if (variablePath != null)
-        msgs = ((InternalEObject)variablePath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoliePackage.VARIABLE_PATH__VARIABLE_PATH, null, msgs);
-      if (newVariablePath != null)
-        msgs = ((InternalEObject)newVariablePath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoliePackage.VARIABLE_PATH__VARIABLE_PATH, null, msgs);
-      msgs = basicSetVariablePath(newVariablePath, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.VARIABLE_PATH__VARIABLE_PATH, newVariablePath, newVariablePath));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -155,8 +123,6 @@ public class VariablePathImpl extends InputOperationImpl implements VariablePath
     {
       case JoliePackage.VARIABLE_PATH__CHILDREN:
         return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
-      case JoliePackage.VARIABLE_PATH__VARIABLE_PATH:
-        return basicSetVariablePath(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -171,10 +137,10 @@ public class VariablePathImpl extends InputOperationImpl implements VariablePath
   {
     switch (featureID)
     {
+      case JoliePackage.VARIABLE_PATH__NAME:
+        return getName();
       case JoliePackage.VARIABLE_PATH__CHILDREN:
         return getChildren();
-      case JoliePackage.VARIABLE_PATH__VARIABLE_PATH:
-        return getVariablePath();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -190,12 +156,13 @@ public class VariablePathImpl extends InputOperationImpl implements VariablePath
   {
     switch (featureID)
     {
+      case JoliePackage.VARIABLE_PATH__NAME:
+        getName().clear();
+        getName().addAll((Collection<? extends String>)newValue);
+        return;
       case JoliePackage.VARIABLE_PATH__CHILDREN:
         getChildren().clear();
         getChildren().addAll((Collection<? extends Expression>)newValue);
-        return;
-      case JoliePackage.VARIABLE_PATH__VARIABLE_PATH:
-        setVariablePath((VariablePath)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -211,11 +178,11 @@ public class VariablePathImpl extends InputOperationImpl implements VariablePath
   {
     switch (featureID)
     {
+      case JoliePackage.VARIABLE_PATH__NAME:
+        getName().clear();
+        return;
       case JoliePackage.VARIABLE_PATH__CHILDREN:
         getChildren().clear();
-        return;
-      case JoliePackage.VARIABLE_PATH__VARIABLE_PATH:
-        setVariablePath((VariablePath)null);
         return;
     }
     super.eUnset(featureID);
@@ -231,12 +198,29 @@ public class VariablePathImpl extends InputOperationImpl implements VariablePath
   {
     switch (featureID)
     {
+      case JoliePackage.VARIABLE_PATH__NAME:
+        return name != null && !name.isEmpty();
       case JoliePackage.VARIABLE_PATH__CHILDREN:
         return children != null && !children.isEmpty();
-      case JoliePackage.VARIABLE_PATH__VARIABLE_PATH:
-        return variablePath != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //VariablePathImpl
