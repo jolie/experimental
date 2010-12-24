@@ -16,28 +16,43 @@ Program:
  main=Main
 ;
 
-/****************************************Types****************************************/  
-Cardinality:
 
-      QUESTION|ASTERISK;   
+
+
+/****************************************Types****************************************/  
+
  
 Type:
 
-('type' name=ID COLON NATIVE_TYPE typedef+=TYPEDEF? )
+'type' name=ID COLON Native_type typedef+=Typedef? 
 
 ;
   
-TYPEDEF: 
+Typedef: 
 
-  {TYPEDEF}  LCURLY 
+  {Typedef}  LCURLY 
     
-        (  DOT name+=ID Cardinality COLON NATIVE_TYPE typedef+=TYPEDEF*)*
+        subtypes+=Subtypes
     
     RCURLY;
   
-terminal NATIVE_TYPE:
+Subtypes: 
+ 
+  {Subtypes} (  DOT name+=ID Cardinality? COLON native_type_sub+=Native_type_sub typedef+=Typedef*)* | {Subtypes} QUESTION
+  
+;  
+  
+Cardinality:
+
+      QUESTION|ASTERISK| (LSQUARE INT COMMA (INT|ASTERISK) RSQUARE) ;   
+
+Native_type:
 
   ("int"|"real"|"string"|"void")?;    
+  
+ Native_type_sub:  
+
+ {Native_type_sub} ("int"|"real"|"string"|"void"|type=[Type])?; 
   
 /**********************************Types***********************************************/    
 
@@ -71,11 +86,23 @@ AssignStatementOrPostIncrementDecrementOrInputOperation:
 
 RightSide:
 	{RightSide} ASSIGN expression=Expression | {RightSide} CHOICE | {RightSide} DECREMENT | {RightSide} POINTSTO
-	variablePath=VariablePath | {RightSide} DEEPCOPYLEFT variablePath=VariablePath | /*Operation Call*/ LPAREN variablePath=VariablePath RPAREN operation=Operation;
+	variablePath=VariablePath | {RightSide} DEEPCOPYLEFT variablePath=VariablePath | /*Operation Call*/ LPAREN variablePath=VariablePath RPAREN inputOperation=InputOperation|
+	AT outputOperation=OutputOperation;
+	
+OutputOperation: 
+   
+  name+=ID LPAREN expression=Expression RPAREN /*Notification Operation*/ ( LPAREN (variablePath=VariablePath)? RPAREN /*Solicit Response operation*/
+  (LSQUARE installFunction=InstallFunciton RSQUARE)? )?
+;
+	
+InstallFunciton:
+
+ ( name+=ID | 'this' ) '=>' process+=Process (COMMA ( name+=ID | 'this' ) '=>' process+=Process )*
+;	
 	
 /*Input operation: OneWay o ReqResp*/
-Operation:
-	{Operation} (LPAREN expression=Expression RPAREN mainProcess=MainProcess)?; //line 1689 OLParser, with ? ReqResponseOperation if no ? OneWayOperation
+InputOperation:
+	{InputOperation} (LPAREN expression=Expression RPAREN mainProcess=MainProcess)?; //line 1689 OLParser, with ? ReqResponseOperation if no ? OneWayOperation
 		
 
 PreIncrementDecrement:
@@ -86,7 +113,7 @@ Expression:
 	TerminalExpression ({Operation.left=current} op=(PLUS | MINUS | ASTERISK | DIVIDE) right=Expression)?;
 
 TerminalExpression returns Expression:
-	LPAREN Expression RPAREN | {IntLiteral} value=INT | {RealLiteral} value=REAL | {String} value=STRING | (CHOICE |
+	LPAREN Expression RPAREN | {IntLiteral} MINUS? value=INT | {RealLiteral} MINUS? value=REAL | {String} value=STRING | (CHOICE |
 	DECREMENT) variablePath=VariablePath | variablePath=VariablePath (CHOICE | DECREMENT)?;
 
 VariablePath :
@@ -111,7 +138,7 @@ NDChoiceStatement:
       
      */
 
-	{NDChoiceStatement} (LSQUARE (('linkIn' LPAREN ID RPAREN) | /*inputOperation*/ variablePath+=VariablePath LPAREN variablePath+=VariablePath RPAREN operation+=Operation) RSQUARE
+	{NDChoiceStatement} (LSQUARE (('linkIn' LPAREN ID RPAREN) | /*inputOperation*/ variablePath+=VariablePath LPAREN variablePath+=VariablePath RPAREN inputOperation+=InputOperation) RSQUARE
 	mainProcess+=MainProcess)+;
 /******************************************************************************************************************/
 
@@ -245,7 +272,8 @@ terminal RPAREN:
 terminal COMMA:
 	',';
 
-
+terminal AT:
+    '@';
 
 terminal WHILE:
 	'while';
