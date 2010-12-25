@@ -81,9 +81,10 @@ BasicStatement:
 	{BasicStatement} process=Process | //Questa  la regola che mi permette la ricorsione
 	{BasicStatement} assignStatementOrPostIncrementDecrement=AssignStatementOrPostIncrementDecrementOrInputOperation | {BasicStatement}
 	NDChoiceStatement=NDChoiceStatement | {BasicStatement} preIncrementDecrement=PreIncrementDecrement|
-	With|Synchronized|Undef|For;
+	 With|Synchronized|Undef|For|Foreach|{NullProcces} NullProcces;
 	
-	
+NullProcces:
+    'nullProcess';	
 
 AssignStatementOrPostIncrementDecrementOrInputOperation:
 	{AssignStatementOrPostIncrementDecrement} variablePath+=VariablePath rightSide=RightSide;
@@ -127,7 +128,9 @@ PreIncrementDecrement:
 
 For: 
   
-    'for' LPAREN parallelStatement+=ParallelStatement COMMA condition=Condition COMMA parallelStatement+=ParallelStatement RPAREN basicStatement=BasicStatement;
+    'for' LPAREN parallelStatement+=ParallelStatement COMMA  condition=Condition COMMA parallelStatement+=ParallelStatement body=Body;
+    
+Body: RPAREN BasicStatement ;    
     
 Condition:
 
@@ -136,10 +139,16 @@ Condition:
     
 RightCondition:
 
-   (LANGLE|RANGLE|MAJOR_OR_EQUAL|MINOR_OR_EQUAL|NOT_EQUAL) expression=Expression;
+   (EQUAL|LANGLE|RANGLE|MAJOR_OR_EQUAL|MINOR_OR_EQUAL|NOT_EQUAL) expression=Expression;
 
         
+Foreach: 
+    
+  {Foreach}  'foreach' LPAREN var1=VariablePath COLON var2=VariablePath body=Body;
+  
 
+
+     
     
 
 /***************************************************************************************************************/	
