@@ -42,13 +42,15 @@ Subtypes:
   
 ;  
   
+
+  
 Cardinality:
 
       QUESTION|ASTERISK| (LSQUARE INT COMMA (INT|ASTERISK) RSQUARE) ;   
 
 Native_type:
 
-  ("int"|"real"|"string"|"void")?;    
+  ("int"|"string"|"void"|"raw")?;    
   
  Native_type_sub:  
 
@@ -57,7 +59,7 @@ Native_type:
 /**********************************Types***********************************************/    
 
 Main:
-	'main' mainrocess=MainProcess;
+	name='main' mainrocess=MainProcess;
 	//Il processo principale, {...} del main
 MainProcess:
 	{OLSyntaxNode} LCURLY parallelStatement=ParallelStatement RCURLY;
@@ -79,7 +81,9 @@ BasicStatement:
 	{BasicStatement} process=Process | //Questa  la regola che mi permette la ricorsione
 	{BasicStatement} assignStatementOrPostIncrementDecrement=AssignStatementOrPostIncrementDecrementOrInputOperation | {BasicStatement}
 	NDChoiceStatement=NDChoiceStatement | {BasicStatement} preIncrementDecrement=PreIncrementDecrement|
-	With;
+	With|Synchronized|Undef|For;
+	
+	
 
 AssignStatementOrPostIncrementDecrementOrInputOperation:
 	{AssignStatementOrPostIncrementDecrement} variablePath+=VariablePath rightSide=RightSide;
@@ -89,6 +93,16 @@ RightSide:
 	variablePath=VariablePath | {RightSide} DEEPCOPYLEFT variablePath=VariablePath | /*Operation Call*/ LPAREN variablePath=VariablePath RPAREN inputOperation=InputOperation|
 	AT outputOperation=OutputOperation;
 	
+/******************************************* BASIC STATEMENTS*********************************************/	
+
+Synchronized:
+
+    'synchronized' LPAREN name+=ID RPAREN mainProcess+=MainProcess;
+
+Undef:
+   
+    'undef' LPAREN variablePath+=VariablePath RPAREN;
+	
 OutputOperation: 
    
   name+=ID LPAREN expression=Expression RPAREN /*Notification Operation*/ ( LPAREN (variablePath=VariablePath)? RPAREN /*Solicit Response operation*/
@@ -97,7 +111,7 @@ OutputOperation:
 	
 InstallFunciton:
 
- ( name+=ID | 'this' ) '=>' process+=Process (COMMA ( name+=ID | 'this' ) '=>' process+=Process )*
+ ( name +=ID | 'this' ) '=>' process+=Process (COMMA ( name+=ID | 'this' ) '=>' parallelStatement+=ParallelStatement )*
 ;	
 	
 /*Input operation: OneWay o ReqResp*/
@@ -107,6 +121,28 @@ InputOperation:
 
 PreIncrementDecrement:
 	(CHOICE | DECREMENT) variablePath=VariablePath;
+	
+
+/****************************************************** LOOPS *************************************************/	
+
+For: 
+  
+    'for' LPAREN parallelStatement+=ParallelStatement COMMA condition=Condition COMMA parallelStatement+=ParallelStatement RPAREN basicStatement=BasicStatement;
+    
+Condition:
+
+    NOT expression=Expression | 
+    (variablePath=VariablePath|INT|STRING) rightCondition=RightCondition;
+    
+RightCondition:
+
+   (LANGLE|RANGLE|MAJOR_OR_EQUAL|MINOR_OR_EQUAL|NOT_EQUAL) expression=Expression;
+
+        
+
+    
+
+/***************************************************************************************************************/	
 
 /*********************************************ESPRESSIONI ARITMETICHE*********************************************/
 Expression:
@@ -125,7 +161,7 @@ VariablePath :
     
 With :
 
- {With} 'with' LPAREN name+=VariablePath RPAREN mainrocess+=MainProcess;
+ {With} 'with' LPAREN name=VariablePath RPAREN mainrocess+=MainProcess;
 
 /******************************************************************************************************************/
 
@@ -183,7 +219,7 @@ InputPortStatement:
 
 OneWayOperation : 
   
-  {OneWayOperation} 'OneWay' COLON name=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)? (COMMA children+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)?)* 
+  {OneWayOperation} 'OneWay' COLON name+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)? (COMMA children+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)?)* 
   ;
 
 RequestResponseOperation:
@@ -194,9 +230,11 @@ RequestResponseOperation:
 
 ;
 
+  
 TypeDefinition: 
 
-   type+=[Type];
+   type+=[Type]; 
+
 
 
 Location:
@@ -304,6 +342,28 @@ terminal MINUS:
 
 terminal PERCENT_SIGN:
 	'%';
+
+terminal EQUAL:
+     '==';
+
+terminal LANGLE:
+      '<';
+    
+   
+terminal RANGLE:
+      '>';
+
+terminal MAJOR_OR_EQUAL:
+      '>=';
+
+terminal MINOR_OR_EQUAL:
+      '<=';
+      
+terminal NOT_EQUAL:
+      '!=';
+      
+terminal NOT:
+      '!';
 
 terminal REAL:
 	('0'..'9')* '.' ('0'..'9')+ (('e' | 'E') ('0'..'9')+)?;

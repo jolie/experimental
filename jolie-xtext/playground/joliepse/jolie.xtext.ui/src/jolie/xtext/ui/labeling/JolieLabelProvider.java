@@ -3,7 +3,14 @@
 */
 package jolie.xtext.ui.labeling;
 
+import jolie.xtext.jolie.InputPortStatement;
+import jolie.xtext.jolie.Main;
+import jolie.xtext.jolie.OutputPortStatement;
+import jolie.xtext.jolie.Type;
+import jolie.xtext.jolie.With;
+
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 
 import com.google.inject.Inject;
@@ -31,4 +38,20 @@ public class JolieLabelProvider extends DefaultEObjectLabelProvider {
       return "MyModel.gif";
     }
 */
+	 String image(Type ele) {
+	    	return "type.gif";
+	    }
+	 
+	 String image(Main ele) {
+	    	return "home_nav.gif";
+	    }
+	 String image(InputPortStatement ele) {
+	    	return "door_in.png";
+	    }
+	 String image(OutputPortStatement ele) {
+	    	return "door_out.png";
+	    }
+	 String image(With ele) {
+	    	return "door_out.png";
+	    }
 }
