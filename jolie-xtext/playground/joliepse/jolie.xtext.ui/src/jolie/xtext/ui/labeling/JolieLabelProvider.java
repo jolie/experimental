@@ -3,6 +3,7 @@
 */
 package jolie.xtext.ui.labeling;
 
+import jolie.xtext.jolie.Define;
 import jolie.xtext.jolie.InputPortStatement;
 import jolie.xtext.jolie.Main;
 import jolie.xtext.jolie.OutputPortStatement;
@@ -53,5 +54,8 @@ public class JolieLabelProvider extends DefaultEObjectLabelProvider {
 	    }
 	 String image(With ele) {
 	    	return "door_out.png";
+	    }
+	 String image(Define ele) {
+	    	return "define.png";
 	    }
 }
