@@ -58,7 +58,7 @@ public interface Type extends EObject
 
   /**
    * Returns the value of the '<em><b>Typedef</b></em>' containment reference list.
-   * The list contents are of type {@link jolie.xtext.jolie.TYPEDEF}.
+   * The list contents are of type {@link jolie.xtext.jolie.Typedef}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Typedef</em>' containment reference list isn't clear,
@@ -70,6 +70,6 @@ public interface Type extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<TYPEDEF> getTypedef();
+  EList<Typedef> getTypedef();
 
 } // Type

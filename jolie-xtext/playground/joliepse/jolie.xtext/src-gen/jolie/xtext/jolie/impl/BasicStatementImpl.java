@@ -7,6 +7,7 @@ package jolie.xtext.jolie.impl;
 
 import jolie.xtext.jolie.AssignStatementOrPostIncrementDecrementOrInputOperation;
 import jolie.xtext.jolie.BasicStatement;
+import jolie.xtext.jolie.Define;
 import jolie.xtext.jolie.JoliePackage;
 import jolie.xtext.jolie.NDChoiceStatement;
 import jolie.xtext.jolie.PreIncrementDecrement;
@@ -18,7 +19,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,12 +31,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link jolie.xtext.jolie.impl.BasicStatementImpl#getAssignStatementOrPostIncrementDecrement <em>Assign Statement Or Post Increment Decrement</em>}</li>
  *   <li>{@link jolie.xtext.jolie.impl.BasicStatementImpl#getNDChoiceStatement <em>ND Choice Statement</em>}</li>
  *   <li>{@link jolie.xtext.jolie.impl.BasicStatementImpl#getPreIncrementDecrement <em>Pre Increment Decrement</em>}</li>
+ *   <li>{@link jolie.xtext.jolie.impl.BasicStatementImpl#getCall <em>Call</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class BasicStatementImpl extends MinimalEObjectImpl.Container implements BasicStatement
+public class BasicStatementImpl extends BodyImpl implements BasicStatement
 {
   /**
    * The cached value of the '{@link #getProcess() <em>Process</em>}' containment reference.
@@ -77,6 +78,16 @@ public class BasicStatementImpl extends MinimalEObjectImpl.Container implements 
    * @ordered
    */
   protected PreIncrementDecrement preIncrementDecrement;
+
+  /**
+   * The cached value of the '{@link #getCall() <em>Call</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCall()
+   * @generated
+   * @ordered
+   */
+  protected Define call;
 
   /**
    * <!-- begin-user-doc -->
@@ -296,6 +307,49 @@ public class BasicStatementImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  public Define getCall()
+  {
+    if (call != null && call.eIsProxy())
+    {
+      InternalEObject oldCall = (InternalEObject)call;
+      call = (Define)eResolveProxy(oldCall);
+      if (call != oldCall)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, JoliePackage.BASIC_STATEMENT__CALL, oldCall, call));
+      }
+    }
+    return call;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Define basicGetCall()
+  {
+    return call;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCall(Define newCall)
+  {
+    Define oldCall = call;
+    call = newCall;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.BASIC_STATEMENT__CALL, oldCall, call));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -331,6 +385,9 @@ public class BasicStatementImpl extends MinimalEObjectImpl.Container implements 
         return getNDChoiceStatement();
       case JoliePackage.BASIC_STATEMENT__PRE_INCREMENT_DECREMENT:
         return getPreIncrementDecrement();
+      case JoliePackage.BASIC_STATEMENT__CALL:
+        if (resolve) return getCall();
+        return basicGetCall();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -356,6 +413,9 @@ public class BasicStatementImpl extends MinimalEObjectImpl.Container implements 
         return;
       case JoliePackage.BASIC_STATEMENT__PRE_INCREMENT_DECREMENT:
         setPreIncrementDecrement((PreIncrementDecrement)newValue);
+        return;
+      case JoliePackage.BASIC_STATEMENT__CALL:
+        setCall((Define)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -383,6 +443,9 @@ public class BasicStatementImpl extends MinimalEObjectImpl.Container implements 
       case JoliePackage.BASIC_STATEMENT__PRE_INCREMENT_DECREMENT:
         setPreIncrementDecrement((PreIncrementDecrement)null);
         return;
+      case JoliePackage.BASIC_STATEMENT__CALL:
+        setCall((Define)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -405,6 +468,8 @@ public class BasicStatementImpl extends MinimalEObjectImpl.Container implements 
         return ndChoiceStatement != null;
       case JoliePackage.BASIC_STATEMENT__PRE_INCREMENT_DECREMENT:
         return preIncrementDecrement != null;
+      case JoliePackage.BASIC_STATEMENT__CALL:
+        return call != null;
     }
     return super.eIsSet(featureID);
   }

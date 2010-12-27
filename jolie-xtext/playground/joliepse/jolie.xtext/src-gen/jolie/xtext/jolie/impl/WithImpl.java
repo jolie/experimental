@@ -5,24 +5,18 @@
  */
 package jolie.xtext.jolie.impl;
 
-import java.lang.String;
-
-import java.util.Collection;
-
 import jolie.xtext.jolie.JoliePackage;
 import jolie.xtext.jolie.MainProcess;
+import jolie.xtext.jolie.VariablePath;
 import jolie.xtext.jolie.With;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,24 +35,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class WithImpl extends BasicStatementImpl implements With
 {
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute list.
+   * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected EList<String> name;
+  protected VariablePath name;
 
   /**
-   * The cached value of the '{@link #getMainrocess() <em>Mainrocess</em>}' containment reference list.
+   * The cached value of the '{@link #getMainrocess() <em>Mainrocess</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMainrocess()
    * @generated
    * @ordered
    */
-  protected EList<MainProcess> mainrocess;
+  protected MainProcess mainrocess;
 
   /**
    * <!-- begin-user-doc -->
@@ -86,12 +80,8 @@ public class WithImpl extends BasicStatementImpl implements With
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getName()
+  public VariablePath getName()
   {
-    if (name == null)
-    {
-      name = new EDataTypeEList<String>(String.class, this, JoliePackage.WITH__NAME);
-    }
     return name;
   }
 
@@ -100,13 +90,85 @@ public class WithImpl extends BasicStatementImpl implements With
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<MainProcess> getMainrocess()
+  public NotificationChain basicSetName(VariablePath newName, NotificationChain msgs)
   {
-    if (mainrocess == null)
+    VariablePath oldName = name;
+    name = newName;
+    if (eNotificationRequired())
     {
-      mainrocess = new EObjectContainmentEList<MainProcess>(MainProcess.class, this, JoliePackage.WITH__MAINROCESS);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoliePackage.WITH__NAME, oldName, newName);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(VariablePath newName)
+  {
+    if (newName != name)
+    {
+      NotificationChain msgs = null;
+      if (name != null)
+        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoliePackage.WITH__NAME, null, msgs);
+      if (newName != null)
+        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoliePackage.WITH__NAME, null, msgs);
+      msgs = basicSetName(newName, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.WITH__NAME, newName, newName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MainProcess getMainrocess()
+  {
     return mainrocess;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMainrocess(MainProcess newMainrocess, NotificationChain msgs)
+  {
+    MainProcess oldMainrocess = mainrocess;
+    mainrocess = newMainrocess;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoliePackage.WITH__MAINROCESS, oldMainrocess, newMainrocess);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMainrocess(MainProcess newMainrocess)
+  {
+    if (newMainrocess != mainrocess)
+    {
+      NotificationChain msgs = null;
+      if (mainrocess != null)
+        msgs = ((InternalEObject)mainrocess).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoliePackage.WITH__MAINROCESS, null, msgs);
+      if (newMainrocess != null)
+        msgs = ((InternalEObject)newMainrocess).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoliePackage.WITH__MAINROCESS, null, msgs);
+      msgs = basicSetMainrocess(newMainrocess, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.WITH__MAINROCESS, newMainrocess, newMainrocess));
   }
 
   /**
@@ -119,8 +181,10 @@ public class WithImpl extends BasicStatementImpl implements With
   {
     switch (featureID)
     {
+      case JoliePackage.WITH__NAME:
+        return basicSetName(null, msgs);
       case JoliePackage.WITH__MAINROCESS:
-        return ((InternalEList<?>)getMainrocess()).basicRemove(otherEnd, msgs);
+        return basicSetMainrocess(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -148,19 +212,16 @@ public class WithImpl extends BasicStatementImpl implements With
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case JoliePackage.WITH__NAME:
-        getName().clear();
-        getName().addAll((Collection<? extends String>)newValue);
+        setName((VariablePath)newValue);
         return;
       case JoliePackage.WITH__MAINROCESS:
-        getMainrocess().clear();
-        getMainrocess().addAll((Collection<? extends MainProcess>)newValue);
+        setMainrocess((MainProcess)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -177,10 +238,10 @@ public class WithImpl extends BasicStatementImpl implements With
     switch (featureID)
     {
       case JoliePackage.WITH__NAME:
-        getName().clear();
+        setName((VariablePath)null);
         return;
       case JoliePackage.WITH__MAINROCESS:
-        getMainrocess().clear();
+        setMainrocess((MainProcess)null);
         return;
     }
     super.eUnset(featureID);
@@ -197,28 +258,11 @@ public class WithImpl extends BasicStatementImpl implements With
     switch (featureID)
     {
       case JoliePackage.WITH__NAME:
-        return name != null && !name.isEmpty();
+        return name != null;
       case JoliePackage.WITH__MAINROCESS:
-        return mainrocess != null && !mainrocess.isEmpty();
+        return mainrocess != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //WithImpl

@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link jolie.xtext.jolie.impl.VariablePathImpl#getDot <em>Dot</em>}</li>
  *   <li>{@link jolie.xtext.jolie.impl.VariablePathImpl#getName <em>Name</em>}</li>
  *   <li>{@link jolie.xtext.jolie.impl.VariablePathImpl#getChildren <em>Children</em>}</li>
  * </ul>
@@ -42,6 +43,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class VariablePathImpl extends MinimalEObjectImpl.Container implements VariablePath
 {
+  /**
+   * The cached value of the '{@link #getDot() <em>Dot</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDot()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> dot;
+
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' attribute list.
    * <!-- begin-user-doc -->
@@ -81,6 +92,20 @@ public class VariablePathImpl extends MinimalEObjectImpl.Container implements Va
   protected EClass eStaticClass()
   {
     return JoliePackage.Literals.VARIABLE_PATH;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getDot()
+  {
+    if (dot == null)
+    {
+      dot = new EDataTypeEList<String>(String.class, this, JoliePackage.VARIABLE_PATH__DOT);
+    }
+    return dot;
   }
 
   /**
@@ -137,6 +162,8 @@ public class VariablePathImpl extends MinimalEObjectImpl.Container implements Va
   {
     switch (featureID)
     {
+      case JoliePackage.VARIABLE_PATH__DOT:
+        return getDot();
       case JoliePackage.VARIABLE_PATH__NAME:
         return getName();
       case JoliePackage.VARIABLE_PATH__CHILDREN:
@@ -156,6 +183,10 @@ public class VariablePathImpl extends MinimalEObjectImpl.Container implements Va
   {
     switch (featureID)
     {
+      case JoliePackage.VARIABLE_PATH__DOT:
+        getDot().clear();
+        getDot().addAll((Collection<? extends String>)newValue);
+        return;
       case JoliePackage.VARIABLE_PATH__NAME:
         getName().clear();
         getName().addAll((Collection<? extends String>)newValue);
@@ -178,6 +209,9 @@ public class VariablePathImpl extends MinimalEObjectImpl.Container implements Va
   {
     switch (featureID)
     {
+      case JoliePackage.VARIABLE_PATH__DOT:
+        getDot().clear();
+        return;
       case JoliePackage.VARIABLE_PATH__NAME:
         getName().clear();
         return;
@@ -198,6 +232,8 @@ public class VariablePathImpl extends MinimalEObjectImpl.Container implements Va
   {
     switch (featureID)
     {
+      case JoliePackage.VARIABLE_PATH__DOT:
+        return dot != null && !dot.isEmpty();
       case JoliePackage.VARIABLE_PATH__NAME:
         return name != null && !name.isEmpty();
       case JoliePackage.VARIABLE_PATH__CHILDREN:
@@ -217,7 +253,9 @@ public class VariablePathImpl extends MinimalEObjectImpl.Container implements Va
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (dot: ");
+    result.append(dot);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();

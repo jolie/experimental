@@ -5,7 +5,6 @@
  */
 package jolie.xtext.jolie;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link jolie.xtext.jolie.BasicStatement#getAssignStatementOrPostIncrementDecrement <em>Assign Statement Or Post Increment Decrement</em>}</li>
  *   <li>{@link jolie.xtext.jolie.BasicStatement#getNDChoiceStatement <em>ND Choice Statement</em>}</li>
  *   <li>{@link jolie.xtext.jolie.BasicStatement#getPreIncrementDecrement <em>Pre Increment Decrement</em>}</li>
+ *   <li>{@link jolie.xtext.jolie.BasicStatement#getCall <em>Call</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface BasicStatement extends EObject
+public interface BasicStatement extends Body
 {
   /**
    * Returns the value of the '<em><b>Process</b></em>' containment reference.
@@ -131,5 +131,31 @@ public interface BasicStatement extends EObject
    * @generated
    */
   void setPreIncrementDecrement(PreIncrementDecrement value);
+
+  /**
+   * Returns the value of the '<em><b>Call</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Call</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Call</em>' reference.
+   * @see #setCall(Define)
+   * @see jolie.xtext.jolie.JoliePackage#getBasicStatement_Call()
+   * @model
+   * @generated
+   */
+  Define getCall();
+
+  /**
+   * Sets the value of the '{@link jolie.xtext.jolie.BasicStatement#getCall <em>Call</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Call</em>' reference.
+   * @see #getCall()
+   * @generated
+   */
+  void setCall(Define value);
 
 } // BasicStatement

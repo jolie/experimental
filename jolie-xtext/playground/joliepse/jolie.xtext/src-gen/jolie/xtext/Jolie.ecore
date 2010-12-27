@@ -4,24 +4,59 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="jolie"
     nsURI="http://www.xtext.org/Jolie" nsPrefix="jolie">
   <eClassifiers xsi:type="ecore:EClass" name="Program">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="include" upperBound="-1"
+        eType="#//Include" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ports" upperBound="-1"
         eType="#//Port" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+        eType="#//Interface" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//Type" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="init" upperBound="-1" eType="#//Init"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="execution" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="define" upperBound="-1"
+        eType="#//Define" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="main" eType="#//Main" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Include">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typedef" upperBound="-1"
-        eType="#//TYPEDEF" containment="true"/>
+        eType="#//Typedef" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TYPEDEF">
+  <eClassifiers xsi:type="ecore:EClass" name="Typedef">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subtypes" upperBound="-1"
+        eType="#//Subtypes" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Subtypes">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="native_type_sub" upperBound="-1"
+        eType="#//Native_type_sub" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typedef" upperBound="-1"
-        eType="#//TYPEDEF" containment="true"/>
+        eType="#//Typedef" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Native_type_sub">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Define">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainrocess" eType="#//MainProcess"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Init">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainrocess" eType="#//MainProcess"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Main">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mainrocess" eType="#//MainProcess"
         containment="true"/>
   </eClassifiers>
@@ -38,7 +73,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
         eType="#//BasicStatement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BasicStatement">
+  <eClassifiers xsi:type="ecore:EClass" name="BasicStatement" eSuperTypes="#//Body">
     <eStructuralFeatures xsi:type="ecore:EReference" name="process" eType="#//Process"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="assignStatementOrPostIncrementDecrement"
@@ -47,6 +82,10 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="preIncrementDecrement"
         eType="#//PreIncrementDecrement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="call" eType="#//Define"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="linkIn" eSuperTypes="#//BasicStatement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AssignStatementOrPostIncrementDecrementOrInputOperation"/>
   <eClassifiers xsi:type="ecore:EClass" name="RightSide">
@@ -54,47 +93,109 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variablePath" eType="#//VariablePath"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" eType="#//Operation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputOperation" eType="#//InputOperation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputOperation" eType="#//OutputOperation"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="Synchronized" eSuperTypes="#//BasicStatement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainProcess" upperBound="-1"
+        eType="#//MainProcess" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Undef" eSuperTypes="#//BasicStatement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variablePath" upperBound="-1"
+        eType="#//VariablePath" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputOperation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variablePath" eType="#//VariablePath"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="installFunction" eType="#//InstallFunciton"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InstallFunciton">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="process" upperBound="-1"
+        eType="#//Process" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parallelStatement" upperBound="-1"
+        eType="#//ParallelStatement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputOperation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mainProcess" eType="#//MainProcess"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PreIncrementDecrement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variablePath" eType="#//VariablePath"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="For" eSuperTypes="#//BasicStatement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parallelStatement" upperBound="-1"
+        eType="#//ParallelStatement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Body" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Body"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variablePath" eType="#//VariablePath"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightCondition" eType="#//RightCondition"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RightCondition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Foreach" eSuperTypes="#//BasicStatement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="var1" eType="#//VariablePath"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="var2" eType="#//VariablePath"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Body" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variablePath" eType="#//VariablePath"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VariablePath">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dot" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
         eType="#//Expression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="With" eSuperTypes="#//BasicStatement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mainrocess" upperBound="-1"
-        eType="#//MainProcess" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//VariablePath"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainrocess" eType="#//MainProcess"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NDChoiceStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variablePath" upperBound="-1"
         eType="#//VariablePath" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" upperBound="-1"
-        eType="#//Operation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputOperation" upperBound="-1"
+        eType="#//InputOperation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mainProcess" upperBound="-1"
         eType="#//MainProcess" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Interface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RequestResponseOperation"
+        eType="#//RequestResponseOperation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="oneWayOperation" eType="#//OneWayOperation"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputPortStatement" upperBound="-1"
@@ -133,7 +234,8 @@
         eType="#//Interfaces" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OneWayOperation">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeDefinition" upperBound="-1"
         eType="#//TypeDefinition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="children" unique="false"
@@ -181,9 +283,16 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AssignStatementOrPostIncrementDecrement"
       eSuperTypes="#//AssignStatementOrPostIncrementDecrementOrInputOperation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variablePath" upperBound="-1"
-        eType="#//VariablePath" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variablePath" eType="#//VariablePath"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightSide" eType="#//RightSide"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntLiteral" eSuperTypes="#//Expression">

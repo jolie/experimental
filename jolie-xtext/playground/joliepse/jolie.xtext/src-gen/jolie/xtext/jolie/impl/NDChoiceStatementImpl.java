@@ -7,10 +7,10 @@ package jolie.xtext.jolie.impl;
 
 import java.util.Collection;
 
+import jolie.xtext.jolie.InputOperation;
 import jolie.xtext.jolie.JoliePackage;
 import jolie.xtext.jolie.MainProcess;
 import jolie.xtext.jolie.NDChoiceStatement;
-import jolie.xtext.jolie.Operation;
 import jolie.xtext.jolie.VariablePath;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jolie.xtext.jolie.impl.NDChoiceStatementImpl#getVariablePath <em>Variable Path</em>}</li>
- *   <li>{@link jolie.xtext.jolie.impl.NDChoiceStatementImpl#getOperation <em>Operation</em>}</li>
+ *   <li>{@link jolie.xtext.jolie.impl.NDChoiceStatementImpl#getInputOperation <em>Input Operation</em>}</li>
  *   <li>{@link jolie.xtext.jolie.impl.NDChoiceStatementImpl#getMainProcess <em>Main Process</em>}</li>
  * </ul>
  * </p>
@@ -53,14 +53,14 @@ public class NDChoiceStatementImpl extends MinimalEObjectImpl.Container implemen
   protected EList<VariablePath> variablePath;
 
   /**
-   * The cached value of the '{@link #getOperation() <em>Operation</em>}' containment reference list.
+   * The cached value of the '{@link #getInputOperation() <em>Input Operation</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOperation()
+   * @see #getInputOperation()
    * @generated
    * @ordered
    */
-  protected EList<Operation> operation;
+  protected EList<InputOperation> inputOperation;
 
   /**
    * The cached value of the '{@link #getMainProcess() <em>Main Process</em>}' containment reference list.
@@ -112,13 +112,13 @@ public class NDChoiceStatementImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Operation> getOperation()
+  public EList<InputOperation> getInputOperation()
   {
-    if (operation == null)
+    if (inputOperation == null)
     {
-      operation = new EObjectContainmentEList<Operation>(Operation.class, this, JoliePackage.ND_CHOICE_STATEMENT__OPERATION);
+      inputOperation = new EObjectContainmentEList<InputOperation>(InputOperation.class, this, JoliePackage.ND_CHOICE_STATEMENT__INPUT_OPERATION);
     }
-    return operation;
+    return inputOperation;
   }
 
   /**
@@ -147,8 +147,8 @@ public class NDChoiceStatementImpl extends MinimalEObjectImpl.Container implemen
     {
       case JoliePackage.ND_CHOICE_STATEMENT__VARIABLE_PATH:
         return ((InternalEList<?>)getVariablePath()).basicRemove(otherEnd, msgs);
-      case JoliePackage.ND_CHOICE_STATEMENT__OPERATION:
-        return ((InternalEList<?>)getOperation()).basicRemove(otherEnd, msgs);
+      case JoliePackage.ND_CHOICE_STATEMENT__INPUT_OPERATION:
+        return ((InternalEList<?>)getInputOperation()).basicRemove(otherEnd, msgs);
       case JoliePackage.ND_CHOICE_STATEMENT__MAIN_PROCESS:
         return ((InternalEList<?>)getMainProcess()).basicRemove(otherEnd, msgs);
     }
@@ -167,8 +167,8 @@ public class NDChoiceStatementImpl extends MinimalEObjectImpl.Container implemen
     {
       case JoliePackage.ND_CHOICE_STATEMENT__VARIABLE_PATH:
         return getVariablePath();
-      case JoliePackage.ND_CHOICE_STATEMENT__OPERATION:
-        return getOperation();
+      case JoliePackage.ND_CHOICE_STATEMENT__INPUT_OPERATION:
+        return getInputOperation();
       case JoliePackage.ND_CHOICE_STATEMENT__MAIN_PROCESS:
         return getMainProcess();
     }
@@ -190,9 +190,9 @@ public class NDChoiceStatementImpl extends MinimalEObjectImpl.Container implemen
         getVariablePath().clear();
         getVariablePath().addAll((Collection<? extends VariablePath>)newValue);
         return;
-      case JoliePackage.ND_CHOICE_STATEMENT__OPERATION:
-        getOperation().clear();
-        getOperation().addAll((Collection<? extends Operation>)newValue);
+      case JoliePackage.ND_CHOICE_STATEMENT__INPUT_OPERATION:
+        getInputOperation().clear();
+        getInputOperation().addAll((Collection<? extends InputOperation>)newValue);
         return;
       case JoliePackage.ND_CHOICE_STATEMENT__MAIN_PROCESS:
         getMainProcess().clear();
@@ -215,8 +215,8 @@ public class NDChoiceStatementImpl extends MinimalEObjectImpl.Container implemen
       case JoliePackage.ND_CHOICE_STATEMENT__VARIABLE_PATH:
         getVariablePath().clear();
         return;
-      case JoliePackage.ND_CHOICE_STATEMENT__OPERATION:
-        getOperation().clear();
+      case JoliePackage.ND_CHOICE_STATEMENT__INPUT_OPERATION:
+        getInputOperation().clear();
         return;
       case JoliePackage.ND_CHOICE_STATEMENT__MAIN_PROCESS:
         getMainProcess().clear();
@@ -237,8 +237,8 @@ public class NDChoiceStatementImpl extends MinimalEObjectImpl.Container implemen
     {
       case JoliePackage.ND_CHOICE_STATEMENT__VARIABLE_PATH:
         return variablePath != null && !variablePath.isEmpty();
-      case JoliePackage.ND_CHOICE_STATEMENT__OPERATION:
-        return operation != null && !operation.isEmpty();
+      case JoliePackage.ND_CHOICE_STATEMENT__INPUT_OPERATION:
+        return inputOperation != null && !inputOperation.isEmpty();
       case JoliePackage.ND_CHOICE_STATEMENT__MAIN_PROCESS:
         return mainProcess != null && !mainProcess.isEmpty();
     }

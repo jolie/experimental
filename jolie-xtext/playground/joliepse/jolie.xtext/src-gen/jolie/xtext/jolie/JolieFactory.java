@@ -35,6 +35,15 @@ public interface JolieFactory extends EFactory
   Program createProgram();
 
   /**
+   * Returns a new object of class '<em>Include</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Include</em>'.
+   * @generated
+   */
+  Include createInclude();
+
+  /**
    * Returns a new object of class '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -44,13 +53,49 @@ public interface JolieFactory extends EFactory
   Type createType();
 
   /**
-   * Returns a new object of class '<em>TYPEDEF</em>'.
+   * Returns a new object of class '<em>Typedef</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>TYPEDEF</em>'.
+   * @return a new object of class '<em>Typedef</em>'.
    * @generated
    */
-  TYPEDEF createTYPEDEF();
+  Typedef createTypedef();
+
+  /**
+   * Returns a new object of class '<em>Subtypes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Subtypes</em>'.
+   * @generated
+   */
+  Subtypes createSubtypes();
+
+  /**
+   * Returns a new object of class '<em>Native type sub</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Native type sub</em>'.
+   * @generated
+   */
+  Native_type_sub createNative_type_sub();
+
+  /**
+   * Returns a new object of class '<em>Define</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Define</em>'.
+   * @generated
+   */
+  Define createDefine();
+
+  /**
+   * Returns a new object of class '<em>Init</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Init</em>'.
+   * @generated
+   */
+  Init createInit();
 
   /**
    * Returns a new object of class '<em>Main</em>'.
@@ -107,6 +152,15 @@ public interface JolieFactory extends EFactory
   BasicStatement createBasicStatement();
 
   /**
+   * Returns a new object of class '<em>link In</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>link In</em>'.
+   * @generated
+   */
+  linkIn createlinkIn();
+
+  /**
    * Returns a new object of class '<em>Assign Statement Or Post Increment Decrement Or Input Operation</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -125,13 +179,49 @@ public interface JolieFactory extends EFactory
   RightSide createRightSide();
 
   /**
-   * Returns a new object of class '<em>Operation</em>'.
+   * Returns a new object of class '<em>Synchronized</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Operation</em>'.
+   * @return a new object of class '<em>Synchronized</em>'.
    * @generated
    */
-  Operation createOperation();
+  Synchronized createSynchronized();
+
+  /**
+   * Returns a new object of class '<em>Undef</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Undef</em>'.
+   * @generated
+   */
+  Undef createUndef();
+
+  /**
+   * Returns a new object of class '<em>Output Operation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Output Operation</em>'.
+   * @generated
+   */
+  OutputOperation createOutputOperation();
+
+  /**
+   * Returns a new object of class '<em>Install Funciton</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Install Funciton</em>'.
+   * @generated
+   */
+  InstallFunciton createInstallFunciton();
+
+  /**
+   * Returns a new object of class '<em>Input Operation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Input Operation</em>'.
+   * @generated
+   */
+  InputOperation createInputOperation();
 
   /**
    * Returns a new object of class '<em>Pre Increment Decrement</em>'.
@@ -141,6 +231,51 @@ public interface JolieFactory extends EFactory
    * @generated
    */
   PreIncrementDecrement createPreIncrementDecrement();
+
+  /**
+   * Returns a new object of class '<em>For</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>For</em>'.
+   * @generated
+   */
+  For createFor();
+
+  /**
+   * Returns a new object of class '<em>Body</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Body</em>'.
+   * @generated
+   */
+  Body createBody();
+
+  /**
+   * Returns a new object of class '<em>Condition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Condition</em>'.
+   * @generated
+   */
+  Condition createCondition();
+
+  /**
+   * Returns a new object of class '<em>Right Condition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Right Condition</em>'.
+   * @generated
+   */
+  RightCondition createRightCondition();
+
+  /**
+   * Returns a new object of class '<em>Foreach</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Foreach</em>'.
+   * @generated
+   */
+  Foreach createForeach();
 
   /**
    * Returns a new object of class '<em>Expression</em>'.
@@ -177,6 +312,15 @@ public interface JolieFactory extends EFactory
    * @generated
    */
   NDChoiceStatement createNDChoiceStatement();
+
+  /**
+   * Returns a new object of class '<em>Interface</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Interface</em>'.
+   * @generated
+   */
+  Interface createInterface();
 
   /**
    * Returns a new object of class '<em>Port</em>'.
@@ -303,6 +447,15 @@ public interface JolieFactory extends EFactory
    * @generated
    */
   AssignStatementOrPostIncrementDecrement createAssignStatementOrPostIncrementDecrement();
+
+  /**
+   * Returns a new object of class '<em>Operation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Operation</em>'.
+   * @generated
+   */
+  Operation createOperation();
 
   /**
    * Returns a new object of class '<em>Int Literal</em>'.

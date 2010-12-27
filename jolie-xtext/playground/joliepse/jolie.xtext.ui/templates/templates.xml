@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <template name="InputPortStatement" description="template for an InputPortStatement"
+        id="jolie.xtext.jolie.InputPortStatement"
+        context="jolie.xtext.jolie.InputPortStatement"
+        enabled="true">inputPort ${name} { 
+    ${cursor}   
+}</template>
+ <template name="OutputPortStatement" description="template for an OutputPortStatement"
+        id="jolie.xtext.jolie.OutputPortStatement"
+        context="jolie.xtext.jolie.OutputPortStatement"
+        enabled="true">inputPort ${name} { 
+    ${cursor}   
+}</template>
+<template name="For" description="template for the For statemen"
+        id="jolie.xtext.jolie.For"
+        context="jolie.xtext.jolie.For"
+        enabled="true">for (${process},${condition},${process)    
+</template>
+ <template name="Foreach" description="template for the foreach statemen"
+        id="jolie.xtext.jolie.Foreach"
+        context="jolie.xtext.jolie.Foreach"
+        enabled="true">foreach (${variablePath} : ${varablePath))    
+</template>
+
+<template name="Define" description="template for the foreach statemen"
+        id="jolie.xtext.jolie.Define"
+        context="jolie.xtext.jolie.Define"
+        enabled="true">define {${variablePath} : ${varablePath)}   
+</template>
+
+<template name="Init" description="template for the Init statemen"
+        id="jolie.xtext.jolie.Init"
+        context="jolie.xtext.jolie.Init"
+        enabled="true">init { ${Body} }   
+</template>
+
+<template name="Type" description="template for the type definition"
+        id="jolie.xtext.jolie.Type"
+        context="jolie.xtext.jolie.Type"
+        enabled="true">type ${typeName} : ${type} { 
+                       .${subType} : ${type}
+             }   
+</template>
+
+</templates>

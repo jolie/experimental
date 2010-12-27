@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link jolie.xtext.jolie.NDChoiceStatement#getVariablePath <em>Variable Path</em>}</li>
- *   <li>{@link jolie.xtext.jolie.NDChoiceStatement#getOperation <em>Operation</em>}</li>
+ *   <li>{@link jolie.xtext.jolie.NDChoiceStatement#getInputOperation <em>Input Operation</em>}</li>
  *   <li>{@link jolie.xtext.jolie.NDChoiceStatement#getMainProcess <em>Main Process</em>}</li>
  * </ul>
  * </p>
@@ -46,20 +46,20 @@ public interface NDChoiceStatement extends EObject
   EList<VariablePath> getVariablePath();
 
   /**
-   * Returns the value of the '<em><b>Operation</b></em>' containment reference list.
-   * The list contents are of type {@link jolie.xtext.jolie.Operation}.
+   * Returns the value of the '<em><b>Input Operation</b></em>' containment reference list.
+   * The list contents are of type {@link jolie.xtext.jolie.InputOperation}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Operation</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Input Operation</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Operation</em>' containment reference list.
-   * @see jolie.xtext.jolie.JoliePackage#getNDChoiceStatement_Operation()
+   * @return the value of the '<em>Input Operation</em>' containment reference list.
+   * @see jolie.xtext.jolie.JoliePackage#getNDChoiceStatement_InputOperation()
    * @model containment="true"
    * @generated
    */
-  EList<Operation> getOperation();
+  EList<InputOperation> getInputOperation();
 
   /**
    * Returns the value of the '<em><b>Main Process</b></em>' containment reference list.

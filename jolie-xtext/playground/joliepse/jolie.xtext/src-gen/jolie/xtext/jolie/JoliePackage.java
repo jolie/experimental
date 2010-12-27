@@ -72,13 +72,31 @@ public interface JoliePackage extends EPackage
   int PROGRAM = 0;
 
   /**
+   * The feature id for the '<em><b>Include</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROGRAM__INCLUDE = 0;
+
+  /**
    * The feature id for the '<em><b>Ports</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROGRAM__PORTS = 0;
+  int PROGRAM__PORTS = 1;
+
+  /**
+   * The feature id for the '<em><b>Interface</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROGRAM__INTERFACE = 2;
 
   /**
    * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -87,7 +105,34 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROGRAM__TYPES = 1;
+  int PROGRAM__TYPES = 3;
+
+  /**
+   * The feature id for the '<em><b>Init</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROGRAM__INIT = 4;
+
+  /**
+   * The feature id for the '<em><b>Execution</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROGRAM__EXECUTION = 5;
+
+  /**
+   * The feature id for the '<em><b>Define</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROGRAM__DEFINE = 6;
 
   /**
    * The feature id for the '<em><b>Main</b></em>' containment reference.
@@ -96,7 +141,7 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROGRAM__MAIN = 2;
+  int PROGRAM__MAIN = 7;
 
   /**
    * The number of structural features of the '<em>Program</em>' class.
@@ -105,7 +150,35 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROGRAM_FEATURE_COUNT = 3;
+  int PROGRAM_FEATURE_COUNT = 8;
+
+  /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.IncludeImpl <em>Include</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.IncludeImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getInclude()
+   * @generated
+   */
+  int INCLUDE = 1;
+
+  /**
+   * The feature id for the '<em><b>Path</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INCLUDE__PATH = 0;
+
+  /**
+   * The number of structural features of the '<em>Include</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INCLUDE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link jolie.xtext.jolie.impl.TypeImpl <em>Type</em>}' class.
@@ -115,7 +188,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getType()
    * @generated
    */
-  int TYPE = 1;
+  int TYPE = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -145,14 +218,42 @@ public interface JoliePackage extends EPackage
   int TYPE_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link jolie.xtext.jolie.impl.TYPEDEFImpl <em>TYPEDEF</em>}' class.
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.TypedefImpl <em>Typedef</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see jolie.xtext.jolie.impl.TYPEDEFImpl
-   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getTYPEDEF()
+   * @see jolie.xtext.jolie.impl.TypedefImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getTypedef()
    * @generated
    */
-  int TYPEDEF = 2;
+  int TYPEDEF = 3;
+
+  /**
+   * The feature id for the '<em><b>Subtypes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPEDEF__SUBTYPES = 0;
+
+  /**
+   * The number of structural features of the '<em>Typedef</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPEDEF_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.SubtypesImpl <em>Subtypes</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.SubtypesImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getSubtypes()
+   * @generated
+   */
+  int SUBTYPES = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute list.
@@ -161,7 +262,16 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPEDEF__NAME = 0;
+  int SUBTYPES__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Native type sub</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUBTYPES__NATIVE_TYPE_SUB = 1;
 
   /**
    * The feature id for the '<em><b>Typedef</b></em>' containment reference list.
@@ -170,16 +280,118 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPEDEF__TYPEDEF = 1;
+  int SUBTYPES__TYPEDEF = 2;
 
   /**
-   * The number of structural features of the '<em>TYPEDEF</em>' class.
+   * The number of structural features of the '<em>Subtypes</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPEDEF_FEATURE_COUNT = 2;
+  int SUBTYPES_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.Native_type_subImpl <em>Native type sub</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.Native_type_subImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getNative_type_sub()
+   * @generated
+   */
+  int NATIVE_TYPE_SUB = 5;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NATIVE_TYPE_SUB__TYPE = 0;
+
+  /**
+   * The number of structural features of the '<em>Native type sub</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NATIVE_TYPE_SUB_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.DefineImpl <em>Define</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.DefineImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getDefine()
+   * @generated
+   */
+  int DEFINE = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Mainrocess</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINE__MAINROCESS = 1;
+
+  /**
+   * The number of structural features of the '<em>Define</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.InitImpl <em>Init</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.InitImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getInit()
+   * @generated
+   */
+  int INIT = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INIT__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Mainrocess</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INIT__MAINROCESS = 1;
+
+  /**
+   * The number of structural features of the '<em>Init</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INIT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link jolie.xtext.jolie.impl.MainImpl <em>Main</em>}' class.
@@ -189,7 +401,16 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getMain()
    * @generated
    */
-  int MAIN = 3;
+  int MAIN = 8;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAIN__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Mainrocess</b></em>' containment reference.
@@ -198,7 +419,7 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAIN__MAINROCESS = 0;
+  int MAIN__MAINROCESS = 1;
 
   /**
    * The number of structural features of the '<em>Main</em>' class.
@@ -207,7 +428,7 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAIN_FEATURE_COUNT = 1;
+  int MAIN_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link jolie.xtext.jolie.impl.MainProcessImpl <em>Main Process</em>}' class.
@@ -217,7 +438,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getMainProcess()
    * @generated
    */
-  int MAIN_PROCESS = 4;
+  int MAIN_PROCESS = 9;
 
   /**
    * The number of structural features of the '<em>Main Process</em>' class.
@@ -236,7 +457,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getProcess()
    * @generated
    */
-  int PROCESS = 5;
+  int PROCESS = 10;
 
   /**
    * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -264,7 +485,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getParallelStatement()
    * @generated
    */
-  int PARALLEL_STATEMENT = 6;
+  int PARALLEL_STATEMENT = 11;
 
   /**
    * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -292,7 +513,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getSequenceStatement()
    * @generated
    */
-  int SEQUENCE_STATEMENT = 7;
+  int SEQUENCE_STATEMENT = 12;
 
   /**
    * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -313,6 +534,25 @@ public interface JoliePackage extends EPackage
   int SEQUENCE_STATEMENT_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.BodyImpl <em>Body</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.BodyImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getBody()
+   * @generated
+   */
+  int BODY = 24;
+
+  /**
+   * The number of structural features of the '<em>Body</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BODY_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link jolie.xtext.jolie.impl.BasicStatementImpl <em>Basic Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -320,7 +560,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getBasicStatement()
    * @generated
    */
-  int BASIC_STATEMENT = 8;
+  int BASIC_STATEMENT = 13;
 
   /**
    * The feature id for the '<em><b>Process</b></em>' containment reference.
@@ -329,7 +569,7 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BASIC_STATEMENT__PROCESS = 0;
+  int BASIC_STATEMENT__PROCESS = BODY_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Assign Statement Or Post Increment Decrement</b></em>' containment reference.
@@ -338,7 +578,7 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BASIC_STATEMENT__ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT = 1;
+  int BASIC_STATEMENT__ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT = BODY_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>ND Choice Statement</b></em>' containment reference.
@@ -347,7 +587,7 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BASIC_STATEMENT__ND_CHOICE_STATEMENT = 2;
+  int BASIC_STATEMENT__ND_CHOICE_STATEMENT = BODY_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Pre Increment Decrement</b></em>' containment reference.
@@ -356,7 +596,16 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BASIC_STATEMENT__PRE_INCREMENT_DECREMENT = 3;
+  int BASIC_STATEMENT__PRE_INCREMENT_DECREMENT = BODY_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Call</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BASIC_STATEMENT__CALL = BODY_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Basic Statement</em>' class.
@@ -365,7 +614,80 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BASIC_STATEMENT_FEATURE_COUNT = 4;
+  int BASIC_STATEMENT_FEATURE_COUNT = BODY_FEATURE_COUNT + 5;
+
+  /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.linkInImpl <em>link In</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.linkInImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getlinkIn()
+   * @generated
+   */
+  int LINK_IN = 14;
+
+  /**
+   * The feature id for the '<em><b>Process</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LINK_IN__PROCESS = BASIC_STATEMENT__PROCESS;
+
+  /**
+   * The feature id for the '<em><b>Assign Statement Or Post Increment Decrement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LINK_IN__ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT = BASIC_STATEMENT__ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT;
+
+  /**
+   * The feature id for the '<em><b>ND Choice Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LINK_IN__ND_CHOICE_STATEMENT = BASIC_STATEMENT__ND_CHOICE_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Pre Increment Decrement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LINK_IN__PRE_INCREMENT_DECREMENT = BASIC_STATEMENT__PRE_INCREMENT_DECREMENT;
+
+  /**
+   * The feature id for the '<em><b>Call</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LINK_IN__CALL = BASIC_STATEMENT__CALL;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LINK_IN__NAME = BASIC_STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>link In</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LINK_IN_FEATURE_COUNT = BASIC_STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link jolie.xtext.jolie.impl.AssignStatementOrPostIncrementDecrementOrInputOperationImpl <em>Assign Statement Or Post Increment Decrement Or Input Operation</em>}' class.
@@ -375,7 +697,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getAssignStatementOrPostIncrementDecrementOrInputOperation()
    * @generated
    */
-  int ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT_OR_INPUT_OPERATION = 9;
+  int ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT_OR_INPUT_OPERATION = 15;
 
   /**
    * The number of structural features of the '<em>Assign Statement Or Post Increment Decrement Or Input Operation</em>' class.
@@ -394,7 +716,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getRightSide()
    * @generated
    */
-  int RIGHT_SIDE = 10;
+  int RIGHT_SIDE = 16;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -415,13 +737,22 @@ public interface JoliePackage extends EPackage
   int RIGHT_SIDE__VARIABLE_PATH = 1;
 
   /**
-   * The feature id for the '<em><b>Operation</b></em>' containment reference.
+   * The feature id for the '<em><b>Input Operation</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RIGHT_SIDE__OPERATION = 2;
+  int RIGHT_SIDE__INPUT_OPERATION = 2;
+
+  /**
+   * The feature id for the '<em><b>Output Operation</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RIGHT_SIDE__OUTPUT_OPERATION = 3;
 
   /**
    * The number of structural features of the '<em>Right Side</em>' class.
@@ -430,54 +761,181 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int RIGHT_SIDE_FEATURE_COUNT = 3;
+  int RIGHT_SIDE_FEATURE_COUNT = 4;
 
   /**
-   * The meta object id for the '{@link jolie.xtext.jolie.impl.ExpressionImpl <em>Expression</em>}' class.
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.SynchronizedImpl <em>Synchronized</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see jolie.xtext.jolie.impl.ExpressionImpl
-   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getExpression()
+   * @see jolie.xtext.jolie.impl.SynchronizedImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getSynchronized()
    * @generated
    */
-  int EXPRESSION = 13;
+  int SYNCHRONIZED = 17;
 
   /**
-   * The feature id for the '<em><b>Variable Path</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__VARIABLE_PATH = 0;
-
-  /**
-   * The number of structural features of the '<em>Expression</em>' class.
+   * The feature id for the '<em><b>Process</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 1;
+  int SYNCHRONIZED__PROCESS = BASIC_STATEMENT__PROCESS;
 
   /**
-   * The meta object id for the '{@link jolie.xtext.jolie.impl.OperationImpl <em>Operation</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see jolie.xtext.jolie.impl.OperationImpl
-   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getOperation()
-   * @generated
-   */
-  int OPERATION = 11;
-
-  /**
-   * The feature id for the '<em><b>Variable Path</b></em>' containment reference.
+   * The feature id for the '<em><b>Assign Statement Or Post Increment Decrement</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERATION__VARIABLE_PATH = EXPRESSION__VARIABLE_PATH;
+  int SYNCHRONIZED__ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT = BASIC_STATEMENT__ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT;
+
+  /**
+   * The feature id for the '<em><b>ND Choice Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYNCHRONIZED__ND_CHOICE_STATEMENT = BASIC_STATEMENT__ND_CHOICE_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Pre Increment Decrement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYNCHRONIZED__PRE_INCREMENT_DECREMENT = BASIC_STATEMENT__PRE_INCREMENT_DECREMENT;
+
+  /**
+   * The feature id for the '<em><b>Call</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYNCHRONIZED__CALL = BASIC_STATEMENT__CALL;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYNCHRONIZED__NAME = BASIC_STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Main Process</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYNCHRONIZED__MAIN_PROCESS = BASIC_STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Synchronized</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYNCHRONIZED_FEATURE_COUNT = BASIC_STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.UndefImpl <em>Undef</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.UndefImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getUndef()
+   * @generated
+   */
+  int UNDEF = 18;
+
+  /**
+   * The feature id for the '<em><b>Process</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNDEF__PROCESS = BASIC_STATEMENT__PROCESS;
+
+  /**
+   * The feature id for the '<em><b>Assign Statement Or Post Increment Decrement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNDEF__ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT = BASIC_STATEMENT__ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT;
+
+  /**
+   * The feature id for the '<em><b>ND Choice Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNDEF__ND_CHOICE_STATEMENT = BASIC_STATEMENT__ND_CHOICE_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Pre Increment Decrement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNDEF__PRE_INCREMENT_DECREMENT = BASIC_STATEMENT__PRE_INCREMENT_DECREMENT;
+
+  /**
+   * The feature id for the '<em><b>Call</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNDEF__CALL = BASIC_STATEMENT__CALL;
+
+  /**
+   * The feature id for the '<em><b>Variable Path</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNDEF__VARIABLE_PATH = BASIC_STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Undef</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNDEF_FEATURE_COUNT = BASIC_STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.OutputOperationImpl <em>Output Operation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.OutputOperationImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getOutputOperation()
+   * @generated
+   */
+  int OUTPUT_OPERATION = 19;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_OPERATION__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -486,7 +944,99 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPERATION__EXPRESSION = EXPRESSION_FEATURE_COUNT + 0;
+  int OUTPUT_OPERATION__EXPRESSION = 1;
+
+  /**
+   * The feature id for the '<em><b>Variable Path</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_OPERATION__VARIABLE_PATH = 2;
+
+  /**
+   * The feature id for the '<em><b>Install Function</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_OPERATION__INSTALL_FUNCTION = 3;
+
+  /**
+   * The number of structural features of the '<em>Output Operation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_OPERATION_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.InstallFuncitonImpl <em>Install Funciton</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.InstallFuncitonImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getInstallFunciton()
+   * @generated
+   */
+  int INSTALL_FUNCITON = 20;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSTALL_FUNCITON__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Process</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSTALL_FUNCITON__PROCESS = 1;
+
+  /**
+   * The feature id for the '<em><b>Parallel Statement</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSTALL_FUNCITON__PARALLEL_STATEMENT = 2;
+
+  /**
+   * The number of structural features of the '<em>Install Funciton</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSTALL_FUNCITON_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.InputOperationImpl <em>Input Operation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.InputOperationImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getInputOperation()
+   * @generated
+   */
+  int INPUT_OPERATION = 21;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_OPERATION__EXPRESSION = 0;
 
   /**
    * The feature id for the '<em><b>Main Process</b></em>' containment reference.
@@ -495,43 +1045,16 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPERATION__MAIN_PROCESS = EXPRESSION_FEATURE_COUNT + 1;
+  int INPUT_OPERATION__MAIN_PROCESS = 1;
 
   /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * The number of structural features of the '<em>Input Operation</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERATION__LEFT = EXPRESSION_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERATION__OP = EXPRESSION_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERATION__RIGHT = EXPRESSION_FEATURE_COUNT + 4;
-
-  /**
-   * The number of structural features of the '<em>Operation</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERATION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 5;
+  int INPUT_OPERATION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link jolie.xtext.jolie.impl.PreIncrementDecrementImpl <em>Pre Increment Decrement</em>}' class.
@@ -541,7 +1064,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getPreIncrementDecrement()
    * @generated
    */
-  int PRE_INCREMENT_DECREMENT = 12;
+  int PRE_INCREMENT_DECREMENT = 22;
 
   /**
    * The feature id for the '<em><b>Variable Path</b></em>' containment reference.
@@ -562,6 +1085,290 @@ public interface JoliePackage extends EPackage
   int PRE_INCREMENT_DECREMENT_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.ForImpl <em>For</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.ForImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getFor()
+   * @generated
+   */
+  int FOR = 23;
+
+  /**
+   * The feature id for the '<em><b>Process</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR__PROCESS = BASIC_STATEMENT__PROCESS;
+
+  /**
+   * The feature id for the '<em><b>Assign Statement Or Post Increment Decrement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR__ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT = BASIC_STATEMENT__ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT;
+
+  /**
+   * The feature id for the '<em><b>ND Choice Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR__ND_CHOICE_STATEMENT = BASIC_STATEMENT__ND_CHOICE_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Pre Increment Decrement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR__PRE_INCREMENT_DECREMENT = BASIC_STATEMENT__PRE_INCREMENT_DECREMENT;
+
+  /**
+   * The feature id for the '<em><b>Call</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR__CALL = BASIC_STATEMENT__CALL;
+
+  /**
+   * The feature id for the '<em><b>Parallel Statement</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR__PARALLEL_STATEMENT = BASIC_STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR__CONDITION = BASIC_STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR__BODY = BASIC_STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>For</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_FEATURE_COUNT = BASIC_STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.ConditionImpl <em>Condition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.ConditionImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getCondition()
+   * @generated
+   */
+  int CONDITION = 25;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__EXPRESSION = 0;
+
+  /**
+   * The feature id for the '<em><b>Variable Path</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__VARIABLE_PATH = 1;
+
+  /**
+   * The feature id for the '<em><b>Right Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__RIGHT_CONDITION = 2;
+
+  /**
+   * The number of structural features of the '<em>Condition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.RightConditionImpl <em>Right Condition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.RightConditionImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getRightCondition()
+   * @generated
+   */
+  int RIGHT_CONDITION = 26;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RIGHT_CONDITION__EXPRESSION = 0;
+
+  /**
+   * The number of structural features of the '<em>Right Condition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RIGHT_CONDITION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.ForeachImpl <em>Foreach</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.ForeachImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getForeach()
+   * @generated
+   */
+  int FOREACH = 27;
+
+  /**
+   * The feature id for the '<em><b>Process</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOREACH__PROCESS = BASIC_STATEMENT__PROCESS;
+
+  /**
+   * The feature id for the '<em><b>Assign Statement Or Post Increment Decrement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOREACH__ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT = BASIC_STATEMENT__ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT;
+
+  /**
+   * The feature id for the '<em><b>ND Choice Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOREACH__ND_CHOICE_STATEMENT = BASIC_STATEMENT__ND_CHOICE_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Pre Increment Decrement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOREACH__PRE_INCREMENT_DECREMENT = BASIC_STATEMENT__PRE_INCREMENT_DECREMENT;
+
+  /**
+   * The feature id for the '<em><b>Call</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOREACH__CALL = BASIC_STATEMENT__CALL;
+
+  /**
+   * The feature id for the '<em><b>Var1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOREACH__VAR1 = BASIC_STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Var2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOREACH__VAR2 = BASIC_STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOREACH__BODY = BASIC_STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Foreach</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOREACH_FEATURE_COUNT = BASIC_STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.ExpressionImpl <em>Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.ExpressionImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getExpression()
+   * @generated
+   */
+  int EXPRESSION = 28;
+
+  /**
+   * The feature id for the '<em><b>Variable Path</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__VARIABLE_PATH = 0;
+
+  /**
+   * The number of structural features of the '<em>Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link jolie.xtext.jolie.impl.VariablePathImpl <em>Variable Path</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -569,7 +1376,16 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getVariablePath()
    * @generated
    */
-  int VARIABLE_PATH = 14;
+  int VARIABLE_PATH = 29;
+
+  /**
+   * The feature id for the '<em><b>Dot</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_PATH__DOT = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute list.
@@ -578,7 +1394,7 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_PATH__NAME = 0;
+  int VARIABLE_PATH__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -587,7 +1403,7 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_PATH__CHILDREN = 1;
+  int VARIABLE_PATH__CHILDREN = 2;
 
   /**
    * The number of structural features of the '<em>Variable Path</em>' class.
@@ -596,7 +1412,7 @@ public interface JoliePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_PATH_FEATURE_COUNT = 2;
+  int VARIABLE_PATH_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link jolie.xtext.jolie.impl.WithImpl <em>With</em>}' class.
@@ -606,7 +1422,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getWith()
    * @generated
    */
-  int WITH = 15;
+  int WITH = 30;
 
   /**
    * The feature id for the '<em><b>Process</b></em>' containment reference.
@@ -645,7 +1461,16 @@ public interface JoliePackage extends EPackage
   int WITH__PRE_INCREMENT_DECREMENT = BASIC_STATEMENT__PRE_INCREMENT_DECREMENT;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute list.
+   * The feature id for the '<em><b>Call</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WITH__CALL = BASIC_STATEMENT__CALL;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -654,7 +1479,7 @@ public interface JoliePackage extends EPackage
   int WITH__NAME = BASIC_STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Mainrocess</b></em>' containment reference list.
+   * The feature id for the '<em><b>Mainrocess</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -679,7 +1504,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getNDChoiceStatement()
    * @generated
    */
-  int ND_CHOICE_STATEMENT = 16;
+  int ND_CHOICE_STATEMENT = 31;
 
   /**
    * The feature id for the '<em><b>Variable Path</b></em>' containment reference list.
@@ -691,13 +1516,13 @@ public interface JoliePackage extends EPackage
   int ND_CHOICE_STATEMENT__VARIABLE_PATH = 0;
 
   /**
-   * The feature id for the '<em><b>Operation</b></em>' containment reference list.
+   * The feature id for the '<em><b>Input Operation</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ND_CHOICE_STATEMENT__OPERATION = 1;
+  int ND_CHOICE_STATEMENT__INPUT_OPERATION = 1;
 
   /**
    * The feature id for the '<em><b>Main Process</b></em>' containment reference list.
@@ -718,6 +1543,52 @@ public interface JoliePackage extends EPackage
   int ND_CHOICE_STATEMENT_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.InterfaceImpl <em>Interface</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.InterfaceImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getInterface()
+   * @generated
+   */
+  int INTERFACE = 32;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Request Response Operation</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE__REQUEST_RESPONSE_OPERATION = 1;
+
+  /**
+   * The feature id for the '<em><b>One Way Operation</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE__ONE_WAY_OPERATION = 2;
+
+  /**
+   * The number of structural features of the '<em>Interface</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE_FEATURE_COUNT = 3;
+
+  /**
    * The meta object id for the '{@link jolie.xtext.jolie.impl.PortImpl <em>Port</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -725,7 +1596,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getPort()
    * @generated
    */
-  int PORT = 17;
+  int PORT = 33;
 
   /**
    * The feature id for the '<em><b>Input Port Statement</b></em>' containment reference list.
@@ -762,7 +1633,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getInputPortStatement()
    * @generated
    */
-  int INPUT_PORT_STATEMENT = 18;
+  int INPUT_PORT_STATEMENT = 34;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -853,7 +1724,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getOutputPortStatement()
    * @generated
    */
-  int OUTPUT_PORT_STATEMENT = 19;
+  int OUTPUT_PORT_STATEMENT = 35;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -926,10 +1797,10 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getOneWayOperation()
    * @generated
    */
-  int ONE_WAY_OPERATION = 20;
+  int ONE_WAY_OPERATION = 36;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -972,7 +1843,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getRequestResponseOperation()
    * @generated
    */
-  int REQUEST_RESPONSE_OPERATION = 21;
+  int REQUEST_RESPONSE_OPERATION = 37;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute list.
@@ -1009,7 +1880,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getTypeDefinition()
    * @generated
    */
-  int TYPE_DEFINITION = 22;
+  int TYPE_DEFINITION = 38;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference list.
@@ -1037,7 +1908,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getLocation()
    * @generated
    */
-  int LOCATION = 23;
+  int LOCATION = 39;
 
   /**
    * The feature id for the '<em><b>Uri</b></em>' containment reference list.
@@ -1065,7 +1936,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getUri()
    * @generated
    */
-  int URI = 24;
+  int URI = 40;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute list.
@@ -1093,7 +1964,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getInterfaces()
    * @generated
    */
-  int INTERFACES = 25;
+  int INTERFACES = 41;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute list.
@@ -1121,7 +1992,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getProtocol()
    * @generated
    */
-  int PROTOCOL = 26;
+  int PROTOCOL = 42;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute list.
@@ -1149,7 +2020,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getRedirects()
    * @generated
    */
-  int REDIRECTS = 27;
+  int REDIRECTS = 43;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute list.
@@ -1186,7 +2057,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getAggregates()
    * @generated
    */
-  int AGGREGATES = 28;
+  int AGGREGATES = 44;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute list.
@@ -1214,7 +2085,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getOLSyntaxNode()
    * @generated
    */
-  int OL_SYNTAX_NODE = 29;
+  int OL_SYNTAX_NODE = 45;
 
   /**
    * The feature id for the '<em><b>Parallel Statement</b></em>' containment reference.
@@ -1242,10 +2113,10 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getAssignStatementOrPostIncrementDecrement()
    * @generated
    */
-  int ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT = 30;
+  int ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT = 46;
 
   /**
-   * The feature id for the '<em><b>Variable Path</b></em>' containment reference list.
+   * The feature id for the '<em><b>Variable Path</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1272,6 +2143,61 @@ public interface JoliePackage extends EPackage
   int ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT_FEATURE_COUNT = ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT_OR_INPUT_OPERATION_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link jolie.xtext.jolie.impl.OperationImpl <em>Operation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see jolie.xtext.jolie.impl.OperationImpl
+   * @see jolie.xtext.jolie.impl.JoliePackageImpl#getOperation()
+   * @generated
+   */
+  int OPERATION = 47;
+
+  /**
+   * The feature id for the '<em><b>Variable Path</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__VARIABLE_PATH = EXPRESSION__VARIABLE_PATH;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__OP = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Operation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+
+  /**
    * The meta object id for the '{@link jolie.xtext.jolie.impl.IntLiteralImpl <em>Int Literal</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1279,7 +2205,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getIntLiteral()
    * @generated
    */
-  int INT_LITERAL = 31;
+  int INT_LITERAL = 48;
 
   /**
    * The feature id for the '<em><b>Variable Path</b></em>' containment reference.
@@ -1316,7 +2242,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getRealLiteral()
    * @generated
    */
-  int REAL_LITERAL = 32;
+  int REAL_LITERAL = 49;
 
   /**
    * The feature id for the '<em><b>Variable Path</b></em>' containment reference.
@@ -1353,7 +2279,7 @@ public interface JoliePackage extends EPackage
    * @see jolie.xtext.jolie.impl.JoliePackageImpl#getString()
    * @generated
    */
-  int STRING = 33;
+  int STRING = 50;
 
   /**
    * The feature id for the '<em><b>Variable Path</b></em>' containment reference.
@@ -1394,6 +2320,17 @@ public interface JoliePackage extends EPackage
   EClass getProgram();
 
   /**
+   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.Program#getInclude <em>Include</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Include</em>'.
+   * @see jolie.xtext.jolie.Program#getInclude()
+   * @see #getProgram()
+   * @generated
+   */
+  EReference getProgram_Include();
+
+  /**
    * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.Program#getPorts <em>Ports</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1403,6 +2340,17 @@ public interface JoliePackage extends EPackage
    * @generated
    */
   EReference getProgram_Ports();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.Program#getInterface <em>Interface</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Interface</em>'.
+   * @see jolie.xtext.jolie.Program#getInterface()
+   * @see #getProgram()
+   * @generated
+   */
+  EReference getProgram_Interface();
 
   /**
    * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.Program#getTypes <em>Types</em>}'.
@@ -1416,6 +2364,39 @@ public interface JoliePackage extends EPackage
   EReference getProgram_Types();
 
   /**
+   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.Program#getInit <em>Init</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Init</em>'.
+   * @see jolie.xtext.jolie.Program#getInit()
+   * @see #getProgram()
+   * @generated
+   */
+  EReference getProgram_Init();
+
+  /**
+   * Returns the meta object for the attribute list '{@link jolie.xtext.jolie.Program#getExecution <em>Execution</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Execution</em>'.
+   * @see jolie.xtext.jolie.Program#getExecution()
+   * @see #getProgram()
+   * @generated
+   */
+  EAttribute getProgram_Execution();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.Program#getDefine <em>Define</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Define</em>'.
+   * @see jolie.xtext.jolie.Program#getDefine()
+   * @see #getProgram()
+   * @generated
+   */
+  EReference getProgram_Define();
+
+  /**
    * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.Program#getMain <em>Main</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1425,6 +2406,27 @@ public interface JoliePackage extends EPackage
    * @generated
    */
   EReference getProgram_Main();
+
+  /**
+   * Returns the meta object for class '{@link jolie.xtext.jolie.Include <em>Include</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Include</em>'.
+   * @see jolie.xtext.jolie.Include
+   * @generated
+   */
+  EClass getInclude();
+
+  /**
+   * Returns the meta object for the attribute list '{@link jolie.xtext.jolie.Include#getPath <em>Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Path</em>'.
+   * @see jolie.xtext.jolie.Include#getPath()
+   * @see #getInclude()
+   * @generated
+   */
+  EAttribute getInclude_Path();
 
   /**
    * Returns the meta object for class '{@link jolie.xtext.jolie.Type <em>Type</em>}'.
@@ -1459,36 +2461,153 @@ public interface JoliePackage extends EPackage
   EReference getType_Typedef();
 
   /**
-   * Returns the meta object for class '{@link jolie.xtext.jolie.TYPEDEF <em>TYPEDEF</em>}'.
+   * Returns the meta object for class '{@link jolie.xtext.jolie.Typedef <em>Typedef</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>TYPEDEF</em>'.
-   * @see jolie.xtext.jolie.TYPEDEF
+   * @return the meta object for class '<em>Typedef</em>'.
+   * @see jolie.xtext.jolie.Typedef
    * @generated
    */
-  EClass getTYPEDEF();
+  EClass getTypedef();
 
   /**
-   * Returns the meta object for the attribute list '{@link jolie.xtext.jolie.TYPEDEF#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.Typedef#getSubtypes <em>Subtypes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Subtypes</em>'.
+   * @see jolie.xtext.jolie.Typedef#getSubtypes()
+   * @see #getTypedef()
+   * @generated
+   */
+  EReference getTypedef_Subtypes();
+
+  /**
+   * Returns the meta object for class '{@link jolie.xtext.jolie.Subtypes <em>Subtypes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Subtypes</em>'.
+   * @see jolie.xtext.jolie.Subtypes
+   * @generated
+   */
+  EClass getSubtypes();
+
+  /**
+   * Returns the meta object for the attribute list '{@link jolie.xtext.jolie.Subtypes#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute list '<em>Name</em>'.
-   * @see jolie.xtext.jolie.TYPEDEF#getName()
-   * @see #getTYPEDEF()
+   * @see jolie.xtext.jolie.Subtypes#getName()
+   * @see #getSubtypes()
    * @generated
    */
-  EAttribute getTYPEDEF_Name();
+  EAttribute getSubtypes_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.TYPEDEF#getTypedef <em>Typedef</em>}'.
+   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.Subtypes#getNative_type_sub <em>Native type sub</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Native type sub</em>'.
+   * @see jolie.xtext.jolie.Subtypes#getNative_type_sub()
+   * @see #getSubtypes()
+   * @generated
+   */
+  EReference getSubtypes_Native_type_sub();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.Subtypes#getTypedef <em>Typedef</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Typedef</em>'.
-   * @see jolie.xtext.jolie.TYPEDEF#getTypedef()
-   * @see #getTYPEDEF()
+   * @see jolie.xtext.jolie.Subtypes#getTypedef()
+   * @see #getSubtypes()
    * @generated
    */
-  EReference getTYPEDEF_Typedef();
+  EReference getSubtypes_Typedef();
+
+  /**
+   * Returns the meta object for class '{@link jolie.xtext.jolie.Native_type_sub <em>Native type sub</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Native type sub</em>'.
+   * @see jolie.xtext.jolie.Native_type_sub
+   * @generated
+   */
+  EClass getNative_type_sub();
+
+  /**
+   * Returns the meta object for the reference '{@link jolie.xtext.jolie.Native_type_sub#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see jolie.xtext.jolie.Native_type_sub#getType()
+   * @see #getNative_type_sub()
+   * @generated
+   */
+  EReference getNative_type_sub_Type();
+
+  /**
+   * Returns the meta object for class '{@link jolie.xtext.jolie.Define <em>Define</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Define</em>'.
+   * @see jolie.xtext.jolie.Define
+   * @generated
+   */
+  EClass getDefine();
+
+  /**
+   * Returns the meta object for the attribute '{@link jolie.xtext.jolie.Define#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see jolie.xtext.jolie.Define#getName()
+   * @see #getDefine()
+   * @generated
+   */
+  EAttribute getDefine_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.Define#getMainrocess <em>Mainrocess</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Mainrocess</em>'.
+   * @see jolie.xtext.jolie.Define#getMainrocess()
+   * @see #getDefine()
+   * @generated
+   */
+  EReference getDefine_Mainrocess();
+
+  /**
+   * Returns the meta object for class '{@link jolie.xtext.jolie.Init <em>Init</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Init</em>'.
+   * @see jolie.xtext.jolie.Init
+   * @generated
+   */
+  EClass getInit();
+
+  /**
+   * Returns the meta object for the attribute list '{@link jolie.xtext.jolie.Init#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Name</em>'.
+   * @see jolie.xtext.jolie.Init#getName()
+   * @see #getInit()
+   * @generated
+   */
+  EAttribute getInit_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.Init#getMainrocess <em>Mainrocess</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Mainrocess</em>'.
+   * @see jolie.xtext.jolie.Init#getMainrocess()
+   * @see #getInit()
+   * @generated
+   */
+  EReference getInit_Mainrocess();
 
   /**
    * Returns the meta object for class '{@link jolie.xtext.jolie.Main <em>Main</em>}'.
@@ -1499,6 +2618,17 @@ public interface JoliePackage extends EPackage
    * @generated
    */
   EClass getMain();
+
+  /**
+   * Returns the meta object for the attribute '{@link jolie.xtext.jolie.Main#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see jolie.xtext.jolie.Main#getName()
+   * @see #getMain()
+   * @generated
+   */
+  EAttribute getMain_Name();
 
   /**
    * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.Main#getMainrocess <em>Mainrocess</em>}'.
@@ -1639,6 +2769,38 @@ public interface JoliePackage extends EPackage
   EReference getBasicStatement_PreIncrementDecrement();
 
   /**
+   * Returns the meta object for the reference '{@link jolie.xtext.jolie.BasicStatement#getCall <em>Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Call</em>'.
+   * @see jolie.xtext.jolie.BasicStatement#getCall()
+   * @see #getBasicStatement()
+   * @generated
+   */
+  EReference getBasicStatement_Call();
+
+  /**
+   * Returns the meta object for class '{@link jolie.xtext.jolie.linkIn <em>link In</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>link In</em>'.
+   * @see jolie.xtext.jolie.linkIn
+   * @generated
+   */
+  EClass getlinkIn();
+
+  /**
+   * Returns the meta object for the attribute '{@link jolie.xtext.jolie.linkIn#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see jolie.xtext.jolie.linkIn#getName()
+   * @see #getlinkIn()
+   * @generated
+   */
+  EAttribute getlinkIn_Name();
+
+  /**
    * Returns the meta object for class '{@link jolie.xtext.jolie.AssignStatementOrPostIncrementDecrementOrInputOperation <em>Assign Statement Or Post Increment Decrement Or Input Operation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1681,80 +2843,208 @@ public interface JoliePackage extends EPackage
   EReference getRightSide_VariablePath();
 
   /**
-   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.RightSide#getOperation <em>Operation</em>}'.
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.RightSide#getInputOperation <em>Input Operation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Operation</em>'.
-   * @see jolie.xtext.jolie.RightSide#getOperation()
+   * @return the meta object for the containment reference '<em>Input Operation</em>'.
+   * @see jolie.xtext.jolie.RightSide#getInputOperation()
    * @see #getRightSide()
    * @generated
    */
-  EReference getRightSide_Operation();
+  EReference getRightSide_InputOperation();
 
   /**
-   * Returns the meta object for class '{@link jolie.xtext.jolie.Operation <em>Operation</em>}'.
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.RightSide#getOutputOperation <em>Output Operation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Operation</em>'.
-   * @see jolie.xtext.jolie.Operation
+   * @return the meta object for the containment reference '<em>Output Operation</em>'.
+   * @see jolie.xtext.jolie.RightSide#getOutputOperation()
+   * @see #getRightSide()
    * @generated
    */
-  EClass getOperation();
+  EReference getRightSide_OutputOperation();
 
   /**
-   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.Operation#getExpression <em>Expression</em>}'.
+   * Returns the meta object for class '{@link jolie.xtext.jolie.Synchronized <em>Synchronized</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Synchronized</em>'.
+   * @see jolie.xtext.jolie.Synchronized
+   * @generated
+   */
+  EClass getSynchronized();
+
+  /**
+   * Returns the meta object for the attribute list '{@link jolie.xtext.jolie.Synchronized#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Name</em>'.
+   * @see jolie.xtext.jolie.Synchronized#getName()
+   * @see #getSynchronized()
+   * @generated
+   */
+  EAttribute getSynchronized_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.Synchronized#getMainProcess <em>Main Process</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Main Process</em>'.
+   * @see jolie.xtext.jolie.Synchronized#getMainProcess()
+   * @see #getSynchronized()
+   * @generated
+   */
+  EReference getSynchronized_MainProcess();
+
+  /**
+   * Returns the meta object for class '{@link jolie.xtext.jolie.Undef <em>Undef</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Undef</em>'.
+   * @see jolie.xtext.jolie.Undef
+   * @generated
+   */
+  EClass getUndef();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.Undef#getVariablePath <em>Variable Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Variable Path</em>'.
+   * @see jolie.xtext.jolie.Undef#getVariablePath()
+   * @see #getUndef()
+   * @generated
+   */
+  EReference getUndef_VariablePath();
+
+  /**
+   * Returns the meta object for class '{@link jolie.xtext.jolie.OutputOperation <em>Output Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Output Operation</em>'.
+   * @see jolie.xtext.jolie.OutputOperation
+   * @generated
+   */
+  EClass getOutputOperation();
+
+  /**
+   * Returns the meta object for the attribute list '{@link jolie.xtext.jolie.OutputOperation#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Name</em>'.
+   * @see jolie.xtext.jolie.OutputOperation#getName()
+   * @see #getOutputOperation()
+   * @generated
+   */
+  EAttribute getOutputOperation_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.OutputOperation#getExpression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see jolie.xtext.jolie.Operation#getExpression()
-   * @see #getOperation()
+   * @see jolie.xtext.jolie.OutputOperation#getExpression()
+   * @see #getOutputOperation()
    * @generated
    */
-  EReference getOperation_Expression();
+  EReference getOutputOperation_Expression();
 
   /**
-   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.Operation#getMainProcess <em>Main Process</em>}'.
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.OutputOperation#getVariablePath <em>Variable Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Variable Path</em>'.
+   * @see jolie.xtext.jolie.OutputOperation#getVariablePath()
+   * @see #getOutputOperation()
+   * @generated
+   */
+  EReference getOutputOperation_VariablePath();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.OutputOperation#getInstallFunction <em>Install Function</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Install Function</em>'.
+   * @see jolie.xtext.jolie.OutputOperation#getInstallFunction()
+   * @see #getOutputOperation()
+   * @generated
+   */
+  EReference getOutputOperation_InstallFunction();
+
+  /**
+   * Returns the meta object for class '{@link jolie.xtext.jolie.InstallFunciton <em>Install Funciton</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Install Funciton</em>'.
+   * @see jolie.xtext.jolie.InstallFunciton
+   * @generated
+   */
+  EClass getInstallFunciton();
+
+  /**
+   * Returns the meta object for the attribute list '{@link jolie.xtext.jolie.InstallFunciton#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Name</em>'.
+   * @see jolie.xtext.jolie.InstallFunciton#getName()
+   * @see #getInstallFunciton()
+   * @generated
+   */
+  EAttribute getInstallFunciton_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.InstallFunciton#getProcess <em>Process</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Process</em>'.
+   * @see jolie.xtext.jolie.InstallFunciton#getProcess()
+   * @see #getInstallFunciton()
+   * @generated
+   */
+  EReference getInstallFunciton_Process();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.InstallFunciton#getParallelStatement <em>Parallel Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Parallel Statement</em>'.
+   * @see jolie.xtext.jolie.InstallFunciton#getParallelStatement()
+   * @see #getInstallFunciton()
+   * @generated
+   */
+  EReference getInstallFunciton_ParallelStatement();
+
+  /**
+   * Returns the meta object for class '{@link jolie.xtext.jolie.InputOperation <em>Input Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Input Operation</em>'.
+   * @see jolie.xtext.jolie.InputOperation
+   * @generated
+   */
+  EClass getInputOperation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.InputOperation#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see jolie.xtext.jolie.InputOperation#getExpression()
+   * @see #getInputOperation()
+   * @generated
+   */
+  EReference getInputOperation_Expression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.InputOperation#getMainProcess <em>Main Process</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Main Process</em>'.
-   * @see jolie.xtext.jolie.Operation#getMainProcess()
-   * @see #getOperation()
+   * @see jolie.xtext.jolie.InputOperation#getMainProcess()
+   * @see #getInputOperation()
    * @generated
    */
-  EReference getOperation_MainProcess();
-
-  /**
-   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.Operation#getLeft <em>Left</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see jolie.xtext.jolie.Operation#getLeft()
-   * @see #getOperation()
-   * @generated
-   */
-  EReference getOperation_Left();
-
-  /**
-   * Returns the meta object for the attribute '{@link jolie.xtext.jolie.Operation#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see jolie.xtext.jolie.Operation#getOp()
-   * @see #getOperation()
-   * @generated
-   */
-  EAttribute getOperation_Op();
-
-  /**
-   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.Operation#getRight <em>Right</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see jolie.xtext.jolie.Operation#getRight()
-   * @see #getOperation()
-   * @generated
-   */
-  EReference getOperation_Right();
+  EReference getInputOperation_MainProcess();
 
   /**
    * Returns the meta object for class '{@link jolie.xtext.jolie.PreIncrementDecrement <em>Pre Increment Decrement</em>}'.
@@ -1776,6 +3066,166 @@ public interface JoliePackage extends EPackage
    * @generated
    */
   EReference getPreIncrementDecrement_VariablePath();
+
+  /**
+   * Returns the meta object for class '{@link jolie.xtext.jolie.For <em>For</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>For</em>'.
+   * @see jolie.xtext.jolie.For
+   * @generated
+   */
+  EClass getFor();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.For#getParallelStatement <em>Parallel Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Parallel Statement</em>'.
+   * @see jolie.xtext.jolie.For#getParallelStatement()
+   * @see #getFor()
+   * @generated
+   */
+  EReference getFor_ParallelStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.For#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Condition</em>'.
+   * @see jolie.xtext.jolie.For#getCondition()
+   * @see #getFor()
+   * @generated
+   */
+  EReference getFor_Condition();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.For#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Body</em>'.
+   * @see jolie.xtext.jolie.For#getBody()
+   * @see #getFor()
+   * @generated
+   */
+  EReference getFor_Body();
+
+  /**
+   * Returns the meta object for class '{@link jolie.xtext.jolie.Body <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Body</em>'.
+   * @see jolie.xtext.jolie.Body
+   * @generated
+   */
+  EClass getBody();
+
+  /**
+   * Returns the meta object for class '{@link jolie.xtext.jolie.Condition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Condition</em>'.
+   * @see jolie.xtext.jolie.Condition
+   * @generated
+   */
+  EClass getCondition();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.Condition#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see jolie.xtext.jolie.Condition#getExpression()
+   * @see #getCondition()
+   * @generated
+   */
+  EReference getCondition_Expression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.Condition#getVariablePath <em>Variable Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Variable Path</em>'.
+   * @see jolie.xtext.jolie.Condition#getVariablePath()
+   * @see #getCondition()
+   * @generated
+   */
+  EReference getCondition_VariablePath();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.Condition#getRightCondition <em>Right Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right Condition</em>'.
+   * @see jolie.xtext.jolie.Condition#getRightCondition()
+   * @see #getCondition()
+   * @generated
+   */
+  EReference getCondition_RightCondition();
+
+  /**
+   * Returns the meta object for class '{@link jolie.xtext.jolie.RightCondition <em>Right Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Right Condition</em>'.
+   * @see jolie.xtext.jolie.RightCondition
+   * @generated
+   */
+  EClass getRightCondition();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.RightCondition#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see jolie.xtext.jolie.RightCondition#getExpression()
+   * @see #getRightCondition()
+   * @generated
+   */
+  EReference getRightCondition_Expression();
+
+  /**
+   * Returns the meta object for class '{@link jolie.xtext.jolie.Foreach <em>Foreach</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Foreach</em>'.
+   * @see jolie.xtext.jolie.Foreach
+   * @generated
+   */
+  EClass getForeach();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.Foreach#getVar1 <em>Var1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Var1</em>'.
+   * @see jolie.xtext.jolie.Foreach#getVar1()
+   * @see #getForeach()
+   * @generated
+   */
+  EReference getForeach_Var1();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.Foreach#getVar2 <em>Var2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Var2</em>'.
+   * @see jolie.xtext.jolie.Foreach#getVar2()
+   * @see #getForeach()
+   * @generated
+   */
+  EReference getForeach_Var2();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.Foreach#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Body</em>'.
+   * @see jolie.xtext.jolie.Foreach#getBody()
+   * @see #getForeach()
+   * @generated
+   */
+  EReference getForeach_Body();
 
   /**
    * Returns the meta object for class '{@link jolie.xtext.jolie.Expression <em>Expression</em>}'.
@@ -1807,6 +3257,17 @@ public interface JoliePackage extends EPackage
    * @generated
    */
   EClass getVariablePath();
+
+  /**
+   * Returns the meta object for the attribute list '{@link jolie.xtext.jolie.VariablePath#getDot <em>Dot</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Dot</em>'.
+   * @see jolie.xtext.jolie.VariablePath#getDot()
+   * @see #getVariablePath()
+   * @generated
+   */
+  EAttribute getVariablePath_Dot();
 
   /**
    * Returns the meta object for the attribute list '{@link jolie.xtext.jolie.VariablePath#getName <em>Name</em>}'.
@@ -1841,21 +3302,21 @@ public interface JoliePackage extends EPackage
   EClass getWith();
 
   /**
-   * Returns the meta object for the attribute list '{@link jolie.xtext.jolie.With#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.With#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Name</em>'.
+   * @return the meta object for the containment reference '<em>Name</em>'.
    * @see jolie.xtext.jolie.With#getName()
    * @see #getWith()
    * @generated
    */
-  EAttribute getWith_Name();
+  EReference getWith_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.With#getMainrocess <em>Mainrocess</em>}'.
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.With#getMainrocess <em>Mainrocess</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Mainrocess</em>'.
+   * @return the meta object for the containment reference '<em>Mainrocess</em>'.
    * @see jolie.xtext.jolie.With#getMainrocess()
    * @see #getWith()
    * @generated
@@ -1884,15 +3345,15 @@ public interface JoliePackage extends EPackage
   EReference getNDChoiceStatement_VariablePath();
 
   /**
-   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.NDChoiceStatement#getOperation <em>Operation</em>}'.
+   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.NDChoiceStatement#getInputOperation <em>Input Operation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Operation</em>'.
-   * @see jolie.xtext.jolie.NDChoiceStatement#getOperation()
+   * @return the meta object for the containment reference list '<em>Input Operation</em>'.
+   * @see jolie.xtext.jolie.NDChoiceStatement#getInputOperation()
    * @see #getNDChoiceStatement()
    * @generated
    */
-  EReference getNDChoiceStatement_Operation();
+  EReference getNDChoiceStatement_InputOperation();
 
   /**
    * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.NDChoiceStatement#getMainProcess <em>Main Process</em>}'.
@@ -1904,6 +3365,49 @@ public interface JoliePackage extends EPackage
    * @generated
    */
   EReference getNDChoiceStatement_MainProcess();
+
+  /**
+   * Returns the meta object for class '{@link jolie.xtext.jolie.Interface <em>Interface</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Interface</em>'.
+   * @see jolie.xtext.jolie.Interface
+   * @generated
+   */
+  EClass getInterface();
+
+  /**
+   * Returns the meta object for the attribute list '{@link jolie.xtext.jolie.Interface#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Name</em>'.
+   * @see jolie.xtext.jolie.Interface#getName()
+   * @see #getInterface()
+   * @generated
+   */
+  EAttribute getInterface_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.Interface#getRequestResponseOperation <em>Request Response Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Request Response Operation</em>'.
+   * @see jolie.xtext.jolie.Interface#getRequestResponseOperation()
+   * @see #getInterface()
+   * @generated
+   */
+  EReference getInterface_RequestResponseOperation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.Interface#getOneWayOperation <em>One Way Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>One Way Operation</em>'.
+   * @see jolie.xtext.jolie.Interface#getOneWayOperation()
+   * @see #getInterface()
+   * @generated
+   */
+  EReference getInterface_OneWayOperation();
 
   /**
    * Returns the meta object for class '{@link jolie.xtext.jolie.Port <em>Port</em>}'.
@@ -2122,10 +3626,10 @@ public interface JoliePackage extends EPackage
   EClass getOneWayOperation();
 
   /**
-   * Returns the meta object for the attribute '{@link jolie.xtext.jolie.OneWayOperation#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute list '{@link jolie.xtext.jolie.OneWayOperation#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
+   * @return the meta object for the attribute list '<em>Name</em>'.
    * @see jolie.xtext.jolie.OneWayOperation#getName()
    * @see #getOneWayOperation()
    * @generated
@@ -2376,10 +3880,10 @@ public interface JoliePackage extends EPackage
   EClass getAssignStatementOrPostIncrementDecrement();
 
   /**
-   * Returns the meta object for the containment reference list '{@link jolie.xtext.jolie.AssignStatementOrPostIncrementDecrement#getVariablePath <em>Variable Path</em>}'.
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.AssignStatementOrPostIncrementDecrement#getVariablePath <em>Variable Path</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Variable Path</em>'.
+   * @return the meta object for the containment reference '<em>Variable Path</em>'.
    * @see jolie.xtext.jolie.AssignStatementOrPostIncrementDecrement#getVariablePath()
    * @see #getAssignStatementOrPostIncrementDecrement()
    * @generated
@@ -2396,6 +3900,49 @@ public interface JoliePackage extends EPackage
    * @generated
    */
   EReference getAssignStatementOrPostIncrementDecrement_RightSide();
+
+  /**
+   * Returns the meta object for class '{@link jolie.xtext.jolie.Operation <em>Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Operation</em>'.
+   * @see jolie.xtext.jolie.Operation
+   * @generated
+   */
+  EClass getOperation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.Operation#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see jolie.xtext.jolie.Operation#getLeft()
+   * @see #getOperation()
+   * @generated
+   */
+  EReference getOperation_Left();
+
+  /**
+   * Returns the meta object for the attribute '{@link jolie.xtext.jolie.Operation#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see jolie.xtext.jolie.Operation#getOp()
+   * @see #getOperation()
+   * @generated
+   */
+  EAttribute getOperation_Op();
+
+  /**
+   * Returns the meta object for the containment reference '{@link jolie.xtext.jolie.Operation#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see jolie.xtext.jolie.Operation#getRight()
+   * @see #getOperation()
+   * @generated
+   */
+  EReference getOperation_Right();
 
   /**
    * Returns the meta object for class '{@link jolie.xtext.jolie.IntLiteral <em>Int Literal</em>}'.
@@ -2494,12 +4041,28 @@ public interface JoliePackage extends EPackage
     EClass PROGRAM = eINSTANCE.getProgram();
 
     /**
+     * The meta object literal for the '<em><b>Include</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROGRAM__INCLUDE = eINSTANCE.getProgram_Include();
+
+    /**
      * The meta object literal for the '<em><b>Ports</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference PROGRAM__PORTS = eINSTANCE.getProgram_Ports();
+
+    /**
+     * The meta object literal for the '<em><b>Interface</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROGRAM__INTERFACE = eINSTANCE.getProgram_Interface();
 
     /**
      * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
@@ -2510,12 +4073,54 @@ public interface JoliePackage extends EPackage
     EReference PROGRAM__TYPES = eINSTANCE.getProgram_Types();
 
     /**
+     * The meta object literal for the '<em><b>Init</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROGRAM__INIT = eINSTANCE.getProgram_Init();
+
+    /**
+     * The meta object literal for the '<em><b>Execution</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROGRAM__EXECUTION = eINSTANCE.getProgram_Execution();
+
+    /**
+     * The meta object literal for the '<em><b>Define</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROGRAM__DEFINE = eINSTANCE.getProgram_Define();
+
+    /**
      * The meta object literal for the '<em><b>Main</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference PROGRAM__MAIN = eINSTANCE.getProgram_Main();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.IncludeImpl <em>Include</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.IncludeImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getInclude()
+     * @generated
+     */
+    EClass INCLUDE = eINSTANCE.getInclude();
+
+    /**
+     * The meta object literal for the '<em><b>Path</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INCLUDE__PATH = eINSTANCE.getInclude_Path();
 
     /**
      * The meta object literal for the '{@link jolie.xtext.jolie.impl.TypeImpl <em>Type</em>}' class.
@@ -2544,14 +4149,32 @@ public interface JoliePackage extends EPackage
     EReference TYPE__TYPEDEF = eINSTANCE.getType_Typedef();
 
     /**
-     * The meta object literal for the '{@link jolie.xtext.jolie.impl.TYPEDEFImpl <em>TYPEDEF</em>}' class.
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.TypedefImpl <em>Typedef</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see jolie.xtext.jolie.impl.TYPEDEFImpl
-     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getTYPEDEF()
+     * @see jolie.xtext.jolie.impl.TypedefImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getTypedef()
      * @generated
      */
-    EClass TYPEDEF = eINSTANCE.getTYPEDEF();
+    EClass TYPEDEF = eINSTANCE.getTypedef();
+
+    /**
+     * The meta object literal for the '<em><b>Subtypes</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPEDEF__SUBTYPES = eINSTANCE.getTypedef_Subtypes();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.SubtypesImpl <em>Subtypes</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.SubtypesImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getSubtypes()
+     * @generated
+     */
+    EClass SUBTYPES = eINSTANCE.getSubtypes();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute list feature.
@@ -2559,7 +4182,15 @@ public interface JoliePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TYPEDEF__NAME = eINSTANCE.getTYPEDEF_Name();
+    EAttribute SUBTYPES__NAME = eINSTANCE.getSubtypes_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Native type sub</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUBTYPES__NATIVE_TYPE_SUB = eINSTANCE.getSubtypes_Native_type_sub();
 
     /**
      * The meta object literal for the '<em><b>Typedef</b></em>' containment reference list feature.
@@ -2567,7 +4198,77 @@ public interface JoliePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TYPEDEF__TYPEDEF = eINSTANCE.getTYPEDEF_Typedef();
+    EReference SUBTYPES__TYPEDEF = eINSTANCE.getSubtypes_Typedef();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.Native_type_subImpl <em>Native type sub</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.Native_type_subImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getNative_type_sub()
+     * @generated
+     */
+    EClass NATIVE_TYPE_SUB = eINSTANCE.getNative_type_sub();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NATIVE_TYPE_SUB__TYPE = eINSTANCE.getNative_type_sub_Type();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.DefineImpl <em>Define</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.DefineImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getDefine()
+     * @generated
+     */
+    EClass DEFINE = eINSTANCE.getDefine();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEFINE__NAME = eINSTANCE.getDefine_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Mainrocess</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEFINE__MAINROCESS = eINSTANCE.getDefine_Mainrocess();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.InitImpl <em>Init</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.InitImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getInit()
+     * @generated
+     */
+    EClass INIT = eINSTANCE.getInit();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INIT__NAME = eINSTANCE.getInit_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Mainrocess</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INIT__MAINROCESS = eINSTANCE.getInit_Mainrocess();
 
     /**
      * The meta object literal for the '{@link jolie.xtext.jolie.impl.MainImpl <em>Main</em>}' class.
@@ -2578,6 +4279,14 @@ public interface JoliePackage extends EPackage
      * @generated
      */
     EClass MAIN = eINSTANCE.getMain();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAIN__NAME = eINSTANCE.getMain_Name();
 
     /**
      * The meta object literal for the '<em><b>Mainrocess</b></em>' containment reference feature.
@@ -2694,6 +4403,32 @@ public interface JoliePackage extends EPackage
     EReference BASIC_STATEMENT__PRE_INCREMENT_DECREMENT = eINSTANCE.getBasicStatement_PreIncrementDecrement();
 
     /**
+     * The meta object literal for the '<em><b>Call</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BASIC_STATEMENT__CALL = eINSTANCE.getBasicStatement_Call();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.linkInImpl <em>link In</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.linkInImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getlinkIn()
+     * @generated
+     */
+    EClass LINK_IN = eINSTANCE.getlinkIn();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LINK_IN__NAME = eINSTANCE.getlinkIn_Name();
+
+    /**
      * The meta object literal for the '{@link jolie.xtext.jolie.impl.AssignStatementOrPostIncrementDecrementOrInputOperationImpl <em>Assign Statement Or Post Increment Decrement Or Input Operation</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2730,22 +4465,82 @@ public interface JoliePackage extends EPackage
     EReference RIGHT_SIDE__VARIABLE_PATH = eINSTANCE.getRightSide_VariablePath();
 
     /**
-     * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Input Operation</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RIGHT_SIDE__OPERATION = eINSTANCE.getRightSide_Operation();
+    EReference RIGHT_SIDE__INPUT_OPERATION = eINSTANCE.getRightSide_InputOperation();
 
     /**
-     * The meta object literal for the '{@link jolie.xtext.jolie.impl.OperationImpl <em>Operation</em>}' class.
+     * The meta object literal for the '<em><b>Output Operation</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see jolie.xtext.jolie.impl.OperationImpl
-     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getOperation()
      * @generated
      */
-    EClass OPERATION = eINSTANCE.getOperation();
+    EReference RIGHT_SIDE__OUTPUT_OPERATION = eINSTANCE.getRightSide_OutputOperation();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.SynchronizedImpl <em>Synchronized</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.SynchronizedImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getSynchronized()
+     * @generated
+     */
+    EClass SYNCHRONIZED = eINSTANCE.getSynchronized();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SYNCHRONIZED__NAME = eINSTANCE.getSynchronized_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Main Process</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SYNCHRONIZED__MAIN_PROCESS = eINSTANCE.getSynchronized_MainProcess();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.UndefImpl <em>Undef</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.UndefImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getUndef()
+     * @generated
+     */
+    EClass UNDEF = eINSTANCE.getUndef();
+
+    /**
+     * The meta object literal for the '<em><b>Variable Path</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNDEF__VARIABLE_PATH = eINSTANCE.getUndef_VariablePath();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.OutputOperationImpl <em>Output Operation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.OutputOperationImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getOutputOperation()
+     * @generated
+     */
+    EClass OUTPUT_OPERATION = eINSTANCE.getOutputOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OUTPUT_OPERATION__NAME = eINSTANCE.getOutputOperation_Name();
 
     /**
      * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
@@ -2753,7 +4548,75 @@ public interface JoliePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference OPERATION__EXPRESSION = eINSTANCE.getOperation_Expression();
+    EReference OUTPUT_OPERATION__EXPRESSION = eINSTANCE.getOutputOperation_Expression();
+
+    /**
+     * The meta object literal for the '<em><b>Variable Path</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OUTPUT_OPERATION__VARIABLE_PATH = eINSTANCE.getOutputOperation_VariablePath();
+
+    /**
+     * The meta object literal for the '<em><b>Install Function</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OUTPUT_OPERATION__INSTALL_FUNCTION = eINSTANCE.getOutputOperation_InstallFunction();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.InstallFuncitonImpl <em>Install Funciton</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.InstallFuncitonImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getInstallFunciton()
+     * @generated
+     */
+    EClass INSTALL_FUNCITON = eINSTANCE.getInstallFunciton();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INSTALL_FUNCITON__NAME = eINSTANCE.getInstallFunciton_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Process</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INSTALL_FUNCITON__PROCESS = eINSTANCE.getInstallFunciton_Process();
+
+    /**
+     * The meta object literal for the '<em><b>Parallel Statement</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INSTALL_FUNCITON__PARALLEL_STATEMENT = eINSTANCE.getInstallFunciton_ParallelStatement();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.InputOperationImpl <em>Input Operation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.InputOperationImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getInputOperation()
+     * @generated
+     */
+    EClass INPUT_OPERATION = eINSTANCE.getInputOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INPUT_OPERATION__EXPRESSION = eINSTANCE.getInputOperation_Expression();
 
     /**
      * The meta object literal for the '<em><b>Main Process</b></em>' containment reference feature.
@@ -2761,31 +4624,7 @@ public interface JoliePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference OPERATION__MAIN_PROCESS = eINSTANCE.getOperation_MainProcess();
-
-    /**
-     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference OPERATION__LEFT = eINSTANCE.getOperation_Left();
-
-    /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute OPERATION__OP = eINSTANCE.getOperation_Op();
-
-    /**
-     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference OPERATION__RIGHT = eINSTANCE.getOperation_Right();
+    EReference INPUT_OPERATION__MAIN_PROCESS = eINSTANCE.getInputOperation_MainProcess();
 
     /**
      * The meta object literal for the '{@link jolie.xtext.jolie.impl.PreIncrementDecrementImpl <em>Pre Increment Decrement</em>}' class.
@@ -2804,6 +4643,136 @@ public interface JoliePackage extends EPackage
      * @generated
      */
     EReference PRE_INCREMENT_DECREMENT__VARIABLE_PATH = eINSTANCE.getPreIncrementDecrement_VariablePath();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.ForImpl <em>For</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.ForImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getFor()
+     * @generated
+     */
+    EClass FOR = eINSTANCE.getFor();
+
+    /**
+     * The meta object literal for the '<em><b>Parallel Statement</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR__PARALLEL_STATEMENT = eINSTANCE.getFor_ParallelStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR__CONDITION = eINSTANCE.getFor_Condition();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR__BODY = eINSTANCE.getFor_Body();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.BodyImpl <em>Body</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.BodyImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getBody()
+     * @generated
+     */
+    EClass BODY = eINSTANCE.getBody();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.ConditionImpl <em>Condition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.ConditionImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getCondition()
+     * @generated
+     */
+    EClass CONDITION = eINSTANCE.getCondition();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONDITION__EXPRESSION = eINSTANCE.getCondition_Expression();
+
+    /**
+     * The meta object literal for the '<em><b>Variable Path</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONDITION__VARIABLE_PATH = eINSTANCE.getCondition_VariablePath();
+
+    /**
+     * The meta object literal for the '<em><b>Right Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONDITION__RIGHT_CONDITION = eINSTANCE.getCondition_RightCondition();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.RightConditionImpl <em>Right Condition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.RightConditionImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getRightCondition()
+     * @generated
+     */
+    EClass RIGHT_CONDITION = eINSTANCE.getRightCondition();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RIGHT_CONDITION__EXPRESSION = eINSTANCE.getRightCondition_Expression();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.ForeachImpl <em>Foreach</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.ForeachImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getForeach()
+     * @generated
+     */
+    EClass FOREACH = eINSTANCE.getForeach();
+
+    /**
+     * The meta object literal for the '<em><b>Var1</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOREACH__VAR1 = eINSTANCE.getForeach_Var1();
+
+    /**
+     * The meta object literal for the '<em><b>Var2</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOREACH__VAR2 = eINSTANCE.getForeach_Var2();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOREACH__BODY = eINSTANCE.getForeach_Body();
 
     /**
      * The meta object literal for the '{@link jolie.xtext.jolie.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -2834,6 +4803,14 @@ public interface JoliePackage extends EPackage
     EClass VARIABLE_PATH = eINSTANCE.getVariablePath();
 
     /**
+     * The meta object literal for the '<em><b>Dot</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARIABLE_PATH__DOT = eINSTANCE.getVariablePath_Dot();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2860,15 +4837,15 @@ public interface JoliePackage extends EPackage
     EClass WITH = eINSTANCE.getWith();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute WITH__NAME = eINSTANCE.getWith_Name();
+    EReference WITH__NAME = eINSTANCE.getWith_Name();
 
     /**
-     * The meta object literal for the '<em><b>Mainrocess</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Mainrocess</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -2894,12 +4871,12 @@ public interface JoliePackage extends EPackage
     EReference ND_CHOICE_STATEMENT__VARIABLE_PATH = eINSTANCE.getNDChoiceStatement_VariablePath();
 
     /**
-     * The meta object literal for the '<em><b>Operation</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Input Operation</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ND_CHOICE_STATEMENT__OPERATION = eINSTANCE.getNDChoiceStatement_Operation();
+    EReference ND_CHOICE_STATEMENT__INPUT_OPERATION = eINSTANCE.getNDChoiceStatement_InputOperation();
 
     /**
      * The meta object literal for the '<em><b>Main Process</b></em>' containment reference list feature.
@@ -2908,6 +4885,40 @@ public interface JoliePackage extends EPackage
      * @generated
      */
     EReference ND_CHOICE_STATEMENT__MAIN_PROCESS = eINSTANCE.getNDChoiceStatement_MainProcess();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.InterfaceImpl <em>Interface</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.InterfaceImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getInterface()
+     * @generated
+     */
+    EClass INTERFACE = eINSTANCE.getInterface();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INTERFACE__NAME = eINSTANCE.getInterface_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Request Response Operation</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INTERFACE__REQUEST_RESPONSE_OPERATION = eINSTANCE.getInterface_RequestResponseOperation();
+
+    /**
+     * The meta object literal for the '<em><b>One Way Operation</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INTERFACE__ONE_WAY_OPERATION = eINSTANCE.getInterface_OneWayOperation();
 
     /**
      * The meta object literal for the '{@link jolie.xtext.jolie.impl.PortImpl <em>Port</em>}' class.
@@ -3078,7 +5089,7 @@ public interface JoliePackage extends EPackage
     EClass ONE_WAY_OPERATION = eINSTANCE.getOneWayOperation();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -3290,7 +5301,7 @@ public interface JoliePackage extends EPackage
     EClass ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT = eINSTANCE.getAssignStatementOrPostIncrementDecrement();
 
     /**
-     * The meta object literal for the '<em><b>Variable Path</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Variable Path</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -3304,6 +5315,40 @@ public interface JoliePackage extends EPackage
      * @generated
      */
     EReference ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT__RIGHT_SIDE = eINSTANCE.getAssignStatementOrPostIncrementDecrement_RightSide();
+
+    /**
+     * The meta object literal for the '{@link jolie.xtext.jolie.impl.OperationImpl <em>Operation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see jolie.xtext.jolie.impl.OperationImpl
+     * @see jolie.xtext.jolie.impl.JoliePackageImpl#getOperation()
+     * @generated
+     */
+    EClass OPERATION = eINSTANCE.getOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPERATION__LEFT = eINSTANCE.getOperation_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATION__OP = eINSTANCE.getOperation_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPERATION__RIGHT = eINSTANCE.getOperation_Right();
 
     /**
      * The meta object literal for the '{@link jolie.xtext.jolie.impl.IntLiteralImpl <em>Int Literal</em>}' class.

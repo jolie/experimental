@@ -13,7 +13,6 @@ import jolie.xtext.jolie.JoliePackage;
 import jolie.xtext.jolie.OneWayOperation;
 import jolie.xtext.jolie.TypeDefinition;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -21,7 +20,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
@@ -46,24 +44,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class OneWayOperationImpl extends MinimalEObjectImpl.Container implements OneWayOperation
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected EList<String> name;
 
   /**
    * The cached value of the '{@link #getTypeDefinition() <em>Type Definition</em>}' containment reference list.
@@ -111,22 +99,13 @@ public class OneWayOperationImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public EList<String> getName()
   {
+    if (name == null)
+    {
+      name = new EDataTypeEList<String>(String.class, this, JoliePackage.ONE_WAY_OPERATION__NAME);
+    }
     return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.ONE_WAY_OPERATION__NAME, oldName, name));
   }
 
   /**
@@ -205,7 +184,8 @@ public class OneWayOperationImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case JoliePackage.ONE_WAY_OPERATION__NAME:
-        setName((String)newValue);
+        getName().clear();
+        getName().addAll((Collection<? extends String>)newValue);
         return;
       case JoliePackage.ONE_WAY_OPERATION__TYPE_DEFINITION:
         getTypeDefinition().clear();
@@ -230,7 +210,7 @@ public class OneWayOperationImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case JoliePackage.ONE_WAY_OPERATION__NAME:
-        setName(NAME_EDEFAULT);
+        getName().clear();
         return;
       case JoliePackage.ONE_WAY_OPERATION__TYPE_DEFINITION:
         getTypeDefinition().clear();
@@ -253,7 +233,7 @@ public class OneWayOperationImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case JoliePackage.ONE_WAY_OPERATION__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+        return name != null && !name.isEmpty();
       case JoliePackage.ONE_WAY_OPERATION__TYPE_DEFINITION:
         return typeDefinition != null && !typeDefinition.isEmpty();
       case JoliePackage.ONE_WAY_OPERATION__CHILDREN:

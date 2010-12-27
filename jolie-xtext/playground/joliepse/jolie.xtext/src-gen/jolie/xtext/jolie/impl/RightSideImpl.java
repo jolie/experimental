@@ -6,8 +6,9 @@
 package jolie.xtext.jolie.impl;
 
 import jolie.xtext.jolie.Expression;
+import jolie.xtext.jolie.InputOperation;
 import jolie.xtext.jolie.JoliePackage;
-import jolie.xtext.jolie.Operation;
+import jolie.xtext.jolie.OutputOperation;
 import jolie.xtext.jolie.RightSide;
 import jolie.xtext.jolie.VariablePath;
 
@@ -29,7 +30,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link jolie.xtext.jolie.impl.RightSideImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link jolie.xtext.jolie.impl.RightSideImpl#getVariablePath <em>Variable Path</em>}</li>
- *   <li>{@link jolie.xtext.jolie.impl.RightSideImpl#getOperation <em>Operation</em>}</li>
+ *   <li>{@link jolie.xtext.jolie.impl.RightSideImpl#getInputOperation <em>Input Operation</em>}</li>
+ *   <li>{@link jolie.xtext.jolie.impl.RightSideImpl#getOutputOperation <em>Output Operation</em>}</li>
  * </ul>
  * </p>
  *
@@ -58,14 +60,24 @@ public class RightSideImpl extends MinimalEObjectImpl.Container implements Right
   protected VariablePath variablePath;
 
   /**
-   * The cached value of the '{@link #getOperation() <em>Operation</em>}' containment reference.
+   * The cached value of the '{@link #getInputOperation() <em>Input Operation</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOperation()
+   * @see #getInputOperation()
    * @generated
    * @ordered
    */
-  protected Operation operation;
+  protected InputOperation inputOperation;
+
+  /**
+   * The cached value of the '{@link #getOutputOperation() <em>Output Operation</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOutputOperation()
+   * @generated
+   * @ordered
+   */
+  protected OutputOperation outputOperation;
 
   /**
    * <!-- begin-user-doc -->
@@ -189,9 +201,9 @@ public class RightSideImpl extends MinimalEObjectImpl.Container implements Right
    * <!-- end-user-doc -->
    * @generated
    */
-  public Operation getOperation()
+  public InputOperation getInputOperation()
   {
-    return operation;
+    return inputOperation;
   }
 
   /**
@@ -199,13 +211,13 @@ public class RightSideImpl extends MinimalEObjectImpl.Container implements Right
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetOperation(Operation newOperation, NotificationChain msgs)
+  public NotificationChain basicSetInputOperation(InputOperation newInputOperation, NotificationChain msgs)
   {
-    Operation oldOperation = operation;
-    operation = newOperation;
+    InputOperation oldInputOperation = inputOperation;
+    inputOperation = newInputOperation;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoliePackage.RIGHT_SIDE__OPERATION, oldOperation, newOperation);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoliePackage.RIGHT_SIDE__INPUT_OPERATION, oldInputOperation, newInputOperation);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -216,20 +228,68 @@ public class RightSideImpl extends MinimalEObjectImpl.Container implements Right
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setOperation(Operation newOperation)
+  public void setInputOperation(InputOperation newInputOperation)
   {
-    if (newOperation != operation)
+    if (newInputOperation != inputOperation)
     {
       NotificationChain msgs = null;
-      if (operation != null)
-        msgs = ((InternalEObject)operation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoliePackage.RIGHT_SIDE__OPERATION, null, msgs);
-      if (newOperation != null)
-        msgs = ((InternalEObject)newOperation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoliePackage.RIGHT_SIDE__OPERATION, null, msgs);
-      msgs = basicSetOperation(newOperation, msgs);
+      if (inputOperation != null)
+        msgs = ((InternalEObject)inputOperation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoliePackage.RIGHT_SIDE__INPUT_OPERATION, null, msgs);
+      if (newInputOperation != null)
+        msgs = ((InternalEObject)newInputOperation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoliePackage.RIGHT_SIDE__INPUT_OPERATION, null, msgs);
+      msgs = basicSetInputOperation(newInputOperation, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.RIGHT_SIDE__OPERATION, newOperation, newOperation));
+      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.RIGHT_SIDE__INPUT_OPERATION, newInputOperation, newInputOperation));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OutputOperation getOutputOperation()
+  {
+    return outputOperation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetOutputOperation(OutputOperation newOutputOperation, NotificationChain msgs)
+  {
+    OutputOperation oldOutputOperation = outputOperation;
+    outputOperation = newOutputOperation;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoliePackage.RIGHT_SIDE__OUTPUT_OPERATION, oldOutputOperation, newOutputOperation);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOutputOperation(OutputOperation newOutputOperation)
+  {
+    if (newOutputOperation != outputOperation)
+    {
+      NotificationChain msgs = null;
+      if (outputOperation != null)
+        msgs = ((InternalEObject)outputOperation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoliePackage.RIGHT_SIDE__OUTPUT_OPERATION, null, msgs);
+      if (newOutputOperation != null)
+        msgs = ((InternalEObject)newOutputOperation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoliePackage.RIGHT_SIDE__OUTPUT_OPERATION, null, msgs);
+      msgs = basicSetOutputOperation(newOutputOperation, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.RIGHT_SIDE__OUTPUT_OPERATION, newOutputOperation, newOutputOperation));
   }
 
   /**
@@ -246,8 +306,10 @@ public class RightSideImpl extends MinimalEObjectImpl.Container implements Right
         return basicSetExpression(null, msgs);
       case JoliePackage.RIGHT_SIDE__VARIABLE_PATH:
         return basicSetVariablePath(null, msgs);
-      case JoliePackage.RIGHT_SIDE__OPERATION:
-        return basicSetOperation(null, msgs);
+      case JoliePackage.RIGHT_SIDE__INPUT_OPERATION:
+        return basicSetInputOperation(null, msgs);
+      case JoliePackage.RIGHT_SIDE__OUTPUT_OPERATION:
+        return basicSetOutputOperation(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -266,8 +328,10 @@ public class RightSideImpl extends MinimalEObjectImpl.Container implements Right
         return getExpression();
       case JoliePackage.RIGHT_SIDE__VARIABLE_PATH:
         return getVariablePath();
-      case JoliePackage.RIGHT_SIDE__OPERATION:
-        return getOperation();
+      case JoliePackage.RIGHT_SIDE__INPUT_OPERATION:
+        return getInputOperation();
+      case JoliePackage.RIGHT_SIDE__OUTPUT_OPERATION:
+        return getOutputOperation();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -288,8 +352,11 @@ public class RightSideImpl extends MinimalEObjectImpl.Container implements Right
       case JoliePackage.RIGHT_SIDE__VARIABLE_PATH:
         setVariablePath((VariablePath)newValue);
         return;
-      case JoliePackage.RIGHT_SIDE__OPERATION:
-        setOperation((Operation)newValue);
+      case JoliePackage.RIGHT_SIDE__INPUT_OPERATION:
+        setInputOperation((InputOperation)newValue);
+        return;
+      case JoliePackage.RIGHT_SIDE__OUTPUT_OPERATION:
+        setOutputOperation((OutputOperation)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -311,8 +378,11 @@ public class RightSideImpl extends MinimalEObjectImpl.Container implements Right
       case JoliePackage.RIGHT_SIDE__VARIABLE_PATH:
         setVariablePath((VariablePath)null);
         return;
-      case JoliePackage.RIGHT_SIDE__OPERATION:
-        setOperation((Operation)null);
+      case JoliePackage.RIGHT_SIDE__INPUT_OPERATION:
+        setInputOperation((InputOperation)null);
+        return;
+      case JoliePackage.RIGHT_SIDE__OUTPUT_OPERATION:
+        setOutputOperation((OutputOperation)null);
         return;
     }
     super.eUnset(featureID);
@@ -332,8 +402,10 @@ public class RightSideImpl extends MinimalEObjectImpl.Container implements Right
         return expression != null;
       case JoliePackage.RIGHT_SIDE__VARIABLE_PATH:
         return variablePath != null;
-      case JoliePackage.RIGHT_SIDE__OPERATION:
-        return operation != null;
+      case JoliePackage.RIGHT_SIDE__INPUT_OPERATION:
+        return inputOperation != null;
+      case JoliePackage.RIGHT_SIDE__OUTPUT_OPERATION:
+        return outputOperation != null;
     }
     return super.eIsSet(featureID);
   }

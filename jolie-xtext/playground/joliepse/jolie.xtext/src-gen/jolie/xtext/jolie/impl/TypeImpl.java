@@ -10,8 +10,8 @@ import java.lang.String;
 import java.util.Collection;
 
 import jolie.xtext.jolie.JoliePackage;
-import jolie.xtext.jolie.TYPEDEF;
 import jolie.xtext.jolie.Type;
+import jolie.xtext.jolie.Typedef;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -71,7 +71,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
    * @generated
    * @ordered
    */
-  protected EList<TYPEDEF> typedef;
+  protected EList<Typedef> typedef;
 
   /**
    * <!-- begin-user-doc -->
@@ -122,11 +122,11 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<TYPEDEF> getTypedef()
+  public EList<Typedef> getTypedef()
   {
     if (typedef == null)
     {
-      typedef = new EObjectContainmentEList<TYPEDEF>(TYPEDEF.class, this, JoliePackage.TYPE__TYPEDEF);
+      typedef = new EObjectContainmentEList<Typedef>(Typedef.class, this, JoliePackage.TYPE__TYPEDEF);
     }
     return typedef;
   }
@@ -181,7 +181,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
         return;
       case JoliePackage.TYPE__TYPEDEF:
         getTypedef().clear();
-        getTypedef().addAll((Collection<? extends TYPEDEF>)newValue);
+        getTypedef().addAll((Collection<? extends Typedef>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

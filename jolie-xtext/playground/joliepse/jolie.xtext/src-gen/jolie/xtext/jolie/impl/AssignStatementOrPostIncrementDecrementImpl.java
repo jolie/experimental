@@ -5,8 +5,6 @@
  */
 package jolie.xtext.jolie.impl;
 
-import java.util.Collection;
-
 import jolie.xtext.jolie.AssignStatementOrPostIncrementDecrement;
 import jolie.xtext.jolie.JoliePackage;
 import jolie.xtext.jolie.RightSide;
@@ -15,15 +13,10 @@ import jolie.xtext.jolie.VariablePath;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,14 +35,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class AssignStatementOrPostIncrementDecrementImpl extends AssignStatementOrPostIncrementDecrementOrInputOperationImpl implements AssignStatementOrPostIncrementDecrement
 {
   /**
-   * The cached value of the '{@link #getVariablePath() <em>Variable Path</em>}' containment reference list.
+   * The cached value of the '{@link #getVariablePath() <em>Variable Path</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getVariablePath()
    * @generated
    * @ordered
    */
-  protected EList<VariablePath> variablePath;
+  protected VariablePath variablePath;
 
   /**
    * The cached value of the '{@link #getRightSide() <em>Right Side</em>}' containment reference.
@@ -87,13 +80,47 @@ public class AssignStatementOrPostIncrementDecrementImpl extends AssignStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<VariablePath> getVariablePath()
+  public VariablePath getVariablePath()
   {
-    if (variablePath == null)
-    {
-      variablePath = new EObjectContainmentEList<VariablePath>(VariablePath.class, this, JoliePackage.ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT__VARIABLE_PATH);
-    }
     return variablePath;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetVariablePath(VariablePath newVariablePath, NotificationChain msgs)
+  {
+    VariablePath oldVariablePath = variablePath;
+    variablePath = newVariablePath;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoliePackage.ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT__VARIABLE_PATH, oldVariablePath, newVariablePath);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVariablePath(VariablePath newVariablePath)
+  {
+    if (newVariablePath != variablePath)
+    {
+      NotificationChain msgs = null;
+      if (variablePath != null)
+        msgs = ((InternalEObject)variablePath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoliePackage.ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT__VARIABLE_PATH, null, msgs);
+      if (newVariablePath != null)
+        msgs = ((InternalEObject)newVariablePath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoliePackage.ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT__VARIABLE_PATH, null, msgs);
+      msgs = basicSetVariablePath(newVariablePath, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT__VARIABLE_PATH, newVariablePath, newVariablePath));
   }
 
   /**
@@ -155,7 +182,7 @@ public class AssignStatementOrPostIncrementDecrementImpl extends AssignStatement
     switch (featureID)
     {
       case JoliePackage.ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT__VARIABLE_PATH:
-        return ((InternalEList<?>)getVariablePath()).basicRemove(otherEnd, msgs);
+        return basicSetVariablePath(null, msgs);
       case JoliePackage.ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT__RIGHT_SIDE:
         return basicSetRightSide(null, msgs);
     }
@@ -185,15 +212,13 @@ public class AssignStatementOrPostIncrementDecrementImpl extends AssignStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case JoliePackage.ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT__VARIABLE_PATH:
-        getVariablePath().clear();
-        getVariablePath().addAll((Collection<? extends VariablePath>)newValue);
+        setVariablePath((VariablePath)newValue);
         return;
       case JoliePackage.ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT__RIGHT_SIDE:
         setRightSide((RightSide)newValue);
@@ -213,7 +238,7 @@ public class AssignStatementOrPostIncrementDecrementImpl extends AssignStatement
     switch (featureID)
     {
       case JoliePackage.ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT__VARIABLE_PATH:
-        getVariablePath().clear();
+        setVariablePath((VariablePath)null);
         return;
       case JoliePackage.ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT__RIGHT_SIDE:
         setRightSide((RightSide)null);
@@ -233,7 +258,7 @@ public class AssignStatementOrPostIncrementDecrementImpl extends AssignStatement
     switch (featureID)
     {
       case JoliePackage.ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT__VARIABLE_PATH:
-        return variablePath != null && !variablePath.isEmpty();
+        return variablePath != null;
       case JoliePackage.ASSIGN_STATEMENT_OR_POST_INCREMENT_DECREMENT__RIGHT_SIDE:
         return rightSide != null;
     }

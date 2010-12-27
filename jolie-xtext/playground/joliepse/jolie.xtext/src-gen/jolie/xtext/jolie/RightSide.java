@@ -17,7 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link jolie.xtext.jolie.RightSide#getExpression <em>Expression</em>}</li>
  *   <li>{@link jolie.xtext.jolie.RightSide#getVariablePath <em>Variable Path</em>}</li>
- *   <li>{@link jolie.xtext.jolie.RightSide#getOperation <em>Operation</em>}</li>
+ *   <li>{@link jolie.xtext.jolie.RightSide#getInputOperation <em>Input Operation</em>}</li>
+ *   <li>{@link jolie.xtext.jolie.RightSide#getOutputOperation <em>Output Operation</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,29 +81,55 @@ public interface RightSide extends EObject
   void setVariablePath(VariablePath value);
 
   /**
-   * Returns the value of the '<em><b>Operation</b></em>' containment reference.
+   * Returns the value of the '<em><b>Input Operation</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Operation</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Input Operation</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Operation</em>' containment reference.
-   * @see #setOperation(Operation)
-   * @see jolie.xtext.jolie.JoliePackage#getRightSide_Operation()
+   * @return the value of the '<em>Input Operation</em>' containment reference.
+   * @see #setInputOperation(InputOperation)
+   * @see jolie.xtext.jolie.JoliePackage#getRightSide_InputOperation()
    * @model containment="true"
    * @generated
    */
-  Operation getOperation();
+  InputOperation getInputOperation();
 
   /**
-   * Sets the value of the '{@link jolie.xtext.jolie.RightSide#getOperation <em>Operation</em>}' containment reference.
+   * Sets the value of the '{@link jolie.xtext.jolie.RightSide#getInputOperation <em>Input Operation</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Operation</em>' containment reference.
-   * @see #getOperation()
+   * @param value the new value of the '<em>Input Operation</em>' containment reference.
+   * @see #getInputOperation()
    * @generated
    */
-  void setOperation(Operation value);
+  void setInputOperation(InputOperation value);
+
+  /**
+   * Returns the value of the '<em><b>Output Operation</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Output Operation</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Output Operation</em>' containment reference.
+   * @see #setOutputOperation(OutputOperation)
+   * @see jolie.xtext.jolie.JoliePackage#getRightSide_OutputOperation()
+   * @model containment="true"
+   * @generated
+   */
+  OutputOperation getOutputOperation();
+
+  /**
+   * Sets the value of the '{@link jolie.xtext.jolie.RightSide#getOutputOperation <em>Output Operation</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Output Operation</em>' containment reference.
+   * @see #getOutputOperation()
+   * @generated
+   */
+  void setOutputOperation(OutputOperation value);
 
 } // RightSide

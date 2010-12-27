@@ -1,62 +1,68 @@
-grammar jolie.xtext.Jolie with org.eclipse.xtext.common.Terminals
-
 /***************************************************************************
  *   Author: Diego Castronuovo                                             *
  *   An Xtext grammar for the programming language Jolie                   *
  ***************************************************************************/
+grammar jolie.xtext.Jolie hidden(WS, ML_COMMENT, SL_COMMENT)
+
 generate jolie "http://www.xtext.org/Jolie"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Program:
+	(
+	include+=Include |
+	ports+=Port |
+	interface+=Interface |
+	types+=Type |
+	init+=Init |
+	execution+=Execution |
+	define+=Define )*
+	
+	main=Main?;
+	/*
+ ports+=Port*
+	types+=Type*
+    init+=Init*
+    define+=Define*
+	main=Main;   OK
+*/
 
+/****************************************Types****************************************/
+Execution:
 
- ports+=Port* 
- 
- types+=Type*
- 
- main=Main
-;
+   'execution' LCURLY CONCURRENT RCURLY;
 
+Include:
+    ('include' path+=STRING)+ 
+     ;
 
-
-
-/****************************************Types****************************************/  
-
- 
 Type:
+	'type' name=ID COLON Native_type typedef+=Typedef?;
 
-'type' name=ID COLON Native_type typedef+=Typedef? 
+Typedef:
+	{Typedef} LCURLY
+	subtypes+=Subtypes
+	RCURLY;
 
-;
-  
-Typedef: 
+Subtypes:
+	{Subtypes} (DOT name+=ID Cardinality? COLON native_type_sub+=Native_type_sub typedef+=Typedef*)* | {Subtypes}
+	QUESTION;
 
-  {Typedef}  LCURLY 
-    
-        subtypes+=Subtypes
-    
-    RCURLY;
-  
-Subtypes: 
- 
-  {Subtypes} (  DOT name+=ID Cardinality? COLON native_type_sub+=Native_type_sub typedef+=Typedef*)* | {Subtypes} QUESTION
-  
-;  
-  
-
-  
 Cardinality:
-
-      QUESTION|ASTERISK| (LSQUARE INT COMMA (INT|ASTERISK) RSQUARE) ;   
+	QUESTION | ASTERISK | (LSQUARE INT COMMA (INT | ASTERISK) RSQUARE);
 
 Native_type:
+     
+	('any' | 'int' | 'raw' | 'string' | 'void')?;
 
-  ("int"|"string"|"void"|"raw")?;    
-  
- Native_type_sub:  
+Native_type_sub:
+	{Native_type_sub} ("int" | "real" | "string" | "void" | type=[Type])?;
 
- {Native_type_sub} ("int"|"real"|"string"|"void"|type=[Type])?; 
-  
-/**********************************Types***********************************************/    
+/**********************************Types***********************************************/
+Define:
+	'define' name=ID mainrocess=MainProcess;
+
+Init:
+	name+='init' mainrocess=MainProcess;
 
 Main:
 	name='main' mainrocess=MainProcess;
@@ -78,204 +84,160 @@ SequenceStatement:
 
 	//Il basicStatement,  un costrutto base, ma pu anche essere un processo (questa produzione permette la ricorsione di parallel e sequence) 
 BasicStatement:
-	{BasicStatement} process=Process | //Questa  la regola che mi permette la ricorsione
-	{BasicStatement} assignStatementOrPostIncrementDecrement=AssignStatementOrPostIncrementDecrementOrInputOperation | {BasicStatement}
-	NDChoiceStatement=NDChoiceStatement | {BasicStatement} preIncrementDecrement=PreIncrementDecrement|
-	 With|Synchronized|Undef|For|Foreach|{NullProcces} NullProcces;
+	 process=Process | //Questa  la regola che mi permette la ricorsione
+	 assignStatementOrPostIncrementDecrement=AssignStatementOrPostIncrementDecrementOrInputOperation |
 	
+	NDChoiceStatement=NDChoiceStatement |  preIncrementDecrement=PreIncrementDecrement |
+	With | Synchronized | Undef | For | Foreach | {BasicStatement} NullProcces | linkIn | call=[Define];
+
+linkIn:
+	{linkIn} 'linkIn' LPAREN name=ID RPAREN;
+
 NullProcces:
-    'nullProcess';	
+	'nullProcess';
 
 AssignStatementOrPostIncrementDecrementOrInputOperation:
-	{AssignStatementOrPostIncrementDecrement} variablePath+=VariablePath rightSide=RightSide;
+	{AssignStatementOrPostIncrementDecrement} variablePath=VariablePath rightSide=RightSide;
 
 RightSide:
 	{RightSide} ASSIGN expression=Expression | {RightSide} CHOICE | {RightSide} DECREMENT | {RightSide} POINTSTO
-	variablePath=VariablePath | {RightSide} DEEPCOPYLEFT variablePath=VariablePath | /*Operation Call*/ LPAREN variablePath=VariablePath RPAREN inputOperation=InputOperation|
+	variablePath=VariablePath | {RightSide} DEEPCOPYLEFT variablePath=VariablePath | /*Operation Call*/ LPAREN
+	variablePath=VariablePath RPAREN inputOperation=InputOperation |
 	AT outputOperation=OutputOperation;
-	
-/******************************************* BASIC STATEMENTS*********************************************/	
 
+/******************************************* BASIC STATEMENTS*********************************************/
 Synchronized:
-
-    'synchronized' LPAREN name+=ID RPAREN mainProcess+=MainProcess;
+	'synchronized' LPAREN name+=ID RPAREN mainProcess+=MainProcess;
 
 Undef:
-   
-    'undef' LPAREN variablePath+=VariablePath RPAREN;
-	
-OutputOperation: 
-   
-  name+=ID LPAREN expression=Expression RPAREN /*Notification Operation*/ ( LPAREN (variablePath=VariablePath)? RPAREN /*Solicit Response operation*/
-  (LSQUARE installFunction=InstallFunciton RSQUARE)? )?
-;
-	
-InstallFunciton:
+	'undef' LPAREN variablePath+=VariablePath RPAREN;
 
- ( name +=ID | 'this' ) '=>' process+=Process (COMMA ( name+=ID | 'this' ) '=>' parallelStatement+=ParallelStatement )*
-;	
-	
+OutputOperation:
+	name+=ID LPAREN expression=Expression RPAREN /*Notification Operation*/ (LPAREN (variablePath=VariablePath)? RPAREN
+	/*Solicit Response operation*/
+	(LSQUARE installFunction=InstallFunciton RSQUARE)?)?;
+
+InstallFunciton:
+	(name+=ID | 'this') '=>' process+=Process (COMMA (name+=ID | 'this') '=>' parallelStatement+=ParallelStatement)*;
+
 /*Input operation: OneWay o ReqResp*/
 InputOperation:
 	{InputOperation} (LPAREN expression=Expression RPAREN mainProcess=MainProcess)?; //line 1689 OLParser, with ? ReqResponseOperation if no ? OneWayOperation
-		
-
 PreIncrementDecrement:
 	(CHOICE | DECREMENT) variablePath=VariablePath;
-	
 
-/****************************************************** LOOPS *************************************************/	
+/****************************************************** LOOPS *************************************************/
+For:
+	'for' LPAREN parallelStatement+=ParallelStatement COMMA condition=Condition COMMA parallelStatement+=ParallelStatement
+	body=Body;
 
-For: 
-  
-    'for' LPAREN parallelStatement+=ParallelStatement COMMA  condition=Condition COMMA parallelStatement+=ParallelStatement body=Body;
-    
-Body: RPAREN BasicStatement ;    
-    
+Body:
+	RPAREN BasicStatement;
+
 Condition:
+	NOT expression=Expression |
+	(variablePath=VariablePath | INT | STRING) rightCondition=RightCondition;
 
-    NOT expression=Expression | 
-    (variablePath=VariablePath|INT|STRING) rightCondition=RightCondition;
-    
 RightCondition:
+	(EQUAL | LANGLE | RANGLE | MAJOR_OR_EQUAL | MINOR_OR_EQUAL | NOT_EQUAL) expression=Expression;
 
-   (EQUAL|LANGLE|RANGLE|MAJOR_OR_EQUAL|MINOR_OR_EQUAL|NOT_EQUAL) expression=Expression;
+Foreach:
+	{Foreach} 'foreach' LPAREN var1=VariablePath COLON var2=VariablePath body=Body;
 
-        
-Foreach: 
-    
-  {Foreach}  'foreach' LPAREN var1=VariablePath COLON var2=VariablePath body=Body;
-  
-
-
-     
-    
-
-/***************************************************************************************************************/	
+/***************************************************************************************************************/
 
 /*********************************************ESPRESSIONI ARITMETICHE*********************************************/
 Expression:
 	TerminalExpression ({Operation.left=current} op=(PLUS | MINUS | ASTERISK | DIVIDE) right=Expression)?;
 
 TerminalExpression returns Expression:
-	LPAREN Expression RPAREN | {IntLiteral} MINUS? value=INT | {RealLiteral} MINUS? value=REAL | {String} value=STRING | (CHOICE |
+	LPAREN Expression RPAREN | {IntLiteral} MINUS? value=INT | {RealLiteral} MINUS? value=REAL | {String} value=STRING |
+	(CHOICE |
 	DECREMENT) variablePath=VariablePath | variablePath=VariablePath (CHOICE | DECREMENT)?;
 
-VariablePath :
-    
-	{VariablePath}  dot+=DOT? name+=ID (LSQUARE children+=Expression RSQUARE)? (((DOT (ID | 'global') (LSQUARE children+=Expression
+VariablePath:
+	{VariablePath} dot+=DOT? name+=ID (LSQUARE children+=Expression RSQUARE)? (((DOT (ID | 'global') (LSQUARE
+	children+=Expression
 	RSQUARE)?) | (DOT LPAREN children+=Expression RPAREN)))* | {VariablePath} 'global' (((DOT (ID | 'global') (LSQUARE
 	children+=Expression RSQUARE)?) | (DOT LPAREN children+=Expression RPAREN)))* //Global non  un un array
 ;
-    
-With :
 
- {With} 'with' LPAREN name=VariablePath RPAREN mainrocess+=MainProcess;
+With:
+	{With} 'with' LPAREN name=VariablePath RPAREN mainrocess=MainProcess;
 
 /******************************************************************************************************************/
 
 /*********************************************NDChoiceStatement*********************************************/
 NDChoiceStatement:
-    /*
+/*
       
       [linkIn(linkGuard)|inputOp1] {...}
       [inputOp2] {...}      
       
      */
-
-	{NDChoiceStatement} (LSQUARE (('linkIn' LPAREN ID RPAREN) | /*inputOperation*/ variablePath+=VariablePath LPAREN variablePath+=VariablePath RPAREN inputOperation+=InputOperation) RSQUARE
-	mainProcess+=MainProcess)+;
+	{NDChoiceStatement} (LSQUARE (('linkIn' LPAREN ID RPAREN) | /*inputOperation*/ variablePath+=VariablePath LPAREN
+	variablePath+=VariablePath RPAREN inputOperation+=InputOperation) RSQUARE mainProcess+=MainProcess)+;
 /******************************************************************************************************************/
 
+Interface:
+
+ 'interface' name+=ID LCURLY
+ 
+ (RequestResponseOperation=RequestResponseOperation? & oneWayOperation=OneWayOperation?)
+ 
+ RCURLY ;
 
 
 /********************************************InputPortStatement & OutputPortStatement*************************************************/
 Port:
-(inputPortStatement+=InputPortStatement | outputPortStatement+=OutputPortStatement); 
-
+	(inputPortStatement+=InputPortStatement | outputPortStatement+=OutputPortStatement);
 
 InputPortStatement:
+	'inputPort' name=ID LCURLY ((location+=Location)? & (protocol+=Protocol)? & (oneWayOperation+=OneWayOperation)? &
+	(RequestResponseOperation+=RequestResponseOperation)? & (redirects+=Redirects)? & (aggregates+=Aggregates)? &
+	(intefaces+=Interfaces)?) RCURLY;
 
-  'inputPort' name=ID LCURLY 
-  
-  
- ( (location+=Location)? & 
-  (protocol+=Protocol)? &   
-  (oneWayOperation+=OneWayOperation)? &
-  (RequestResponseOperation+=RequestResponseOperation)? &
-  (redirects+=Redirects)? &
-  (aggregates+=Aggregates)? &
-  (intefaces+=Interfaces)? )
-  
-  RCURLY
+OutputPortStatement:
+	'outputPort' name=ID LCURLY ((location+=Location)? & (protocol+=Protocol)? & (oneWayOperation+=OneWayOperation)? &
+	(RequestResponseOperation+=RequestResponseOperation)? & (intefaces+=Interfaces)?) RCURLY;
 
-  ;
-  
- OutputPortStatement:
-
-  'outputPort' name=ID LCURLY 
-  
-  
- ( (location+=Location)? & 
-  (protocol+=Protocol)? &
-  (oneWayOperation+=OneWayOperation)? &
-  (RequestResponseOperation+=RequestResponseOperation)? &
-  (intefaces+=Interfaces)?
-  )
-  RCURLY
-
-  ; 
-
-OneWayOperation : 
-  
-  {OneWayOperation} 'OneWay' COLON name+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)? (COMMA children+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)?)* 
-  ;
+OneWayOperation:
+	{OneWayOperation} 'OneWay' COLON name+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)? (COMMA children+=ID (LPAREN
+	typeDefinition+=TypeDefinition RPAREN)?)*;
 
 RequestResponseOperation:
-  {RequestResponseOperation} 'RequestResponse' COLON name+=ID ((LPAREN typeDefinition+=TypeDefinition RPAREN) (LPAREN typeDefinition+=TypeDefinition RPAREN))? 
-  ('throws' name+=ID(LPAREN typeDefinition+=TypeDefinition RPAREN))?
-  (COMMA name+=ID ((LPAREN typeDefinition+=TypeDefinition RPAREN) (LPAREN typeDefinition+=TypeDefinition RPAREN))? 
-  ('throws' name+=ID(LPAREN typeDefinition+=TypeDefinition RPAREN))?)*
+	{RequestResponseOperation} 'RequestResponse' COLON name+=ID ((LPAREN typeDefinition+=TypeDefinition RPAREN) (LPAREN
+	typeDefinition+=TypeDefinition RPAREN))? ('throws' name+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN))? (COMMA
+	name+=ID ((LPAREN typeDefinition+=TypeDefinition RPAREN) (LPAREN typeDefinition+=TypeDefinition RPAREN))? ('throws'
+	name+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN))?)*;
 
-;
-
-  
-TypeDefinition: 
-
-   type+=[Type]; 
-
-
+TypeDefinition:
+	type+=[Type] | {TypeDefinition} Native_type ;
 
 Location:
-  'Location' COLON uri+=Uri;
-  
-Uri :      
-  {Uri} name+=ID| {Uri} STRING;//|name=STRING; //to do...
-  
+	'Location' COLON uri+=Uri;
+
+Uri:
+	{Uri} name+=ID | {Uri} STRING; //|name=STRING; //to do...
+
 Interfaces:
+	'Interfaces' COLON name+=ID (COMMA name+=ID)*;
 
-  'Interfaces' COLON name+=ID (COMMA name+=ID)*; 
-  
 Protocol:
-  
-  'Protocol' COLON name+=ID ProtocolConfiguration?;
-  
+	'Protocol' COLON name+=ID ProtocolConfiguration?;
+
 ProtocolConfiguration:
+	LCURLY 'TODO' RCURLY;
 
-  LCURLY 'TODO' RCURLY;  
-  
 Redirects:
+	'Redirects' COLON name+=ID '=>' outputPortIdentifier+=ID (COMMA name+=ID '=>' outputPortIdentifier+=ID)*; //TODO LINKING TO OutPutPortDef
 
-  'Redirects' COLON  name+=ID '=>' outputPortIdentifier+=ID (COMMA name+=ID '=>' outputPortIdentifier+=ID)*; //TODO LINKING TO OutPutPortDef
-  
 Aggregates:
+	'Aggregates' COLON name+=ID (COMMA name+=ID)*;
 
-  'Aggregates' COLON name+=ID (COMMA name+=ID)*;
-  
-/***********************************************END InpuPortStatement**********************************************************************/    
-
-
-
+/***********************************************END InpuPortStatement**********************************************************************/
+terminal CONCURRENT:
+    'concurrent';
 
 terminal LCURLY:
 	'{';
@@ -300,10 +262,7 @@ terminal PLUS:
 
 terminal VERT:
 	'|';
-	//terminal SESSIONDECL: 'session';
-//terminal STARTS: 'starts';
-//terminal ONE_WAY: 'OneWay';
-//terminal REQUEST_RESPONSE: 'RequestResponse';
+
 terminal ASSIGN:
 	'=';
 
@@ -320,7 +279,7 @@ terminal COMMA:
 	',';
 
 terminal AT:
-    '@';
+	'@';
 
 terminal WHILE:
 	'while';
@@ -332,10 +291,10 @@ terminal DECREMENT:
 	'--';
 
 terminal ASTERISK:
-     '*';
-     
+	'*';
+
 terminal QUESTION:
-     '?';     
+	'?';
 
 terminal DIVIDE:
 	'/';
@@ -353,28 +312,47 @@ terminal PERCENT_SIGN:
 	'%';
 
 terminal EQUAL:
-     '==';
+	'==';
 
 terminal LANGLE:
-      '<';
-    
-   
+	'<';
+
 terminal RANGLE:
-      '>';
+	'>';
 
 terminal MAJOR_OR_EQUAL:
-      '>=';
+	'>=';
 
 terminal MINOR_OR_EQUAL:
-      '<=';
-      
+	'<=';
+
 terminal NOT_EQUAL:
-      '!=';
-      
+	'!=';
+
 terminal NOT:
-      '!';
+	'!';
 
 terminal REAL:
-	('0'..'9')* '.' ('0'..'9')+ (('e' | 'E') ('0'..'9')+)?;
+	('0'..'9')* DOT ('0'..'9')+ (('e' | 'E') ('0'..'9')+)?;
 
- 
+terminal ID:
+	'^'? ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*;
+
+terminal INT returns ecore::EInt:
+	('0'..'9')+;
+
+terminal STRING:
+	'"' ('\\' ('b' | 't' | 'n' | 'f' | 'r' | '"' | "'" | '\\') | !('\\' | '"'))* '"' |
+	"'" ('\\' ('b' | 't' | 'n' | 'f' | 'r' | '"' | "'" | '\\') | !('\\' | "'"))* "'";
+
+terminal ML_COMMENT:
+	'/*'->'*/';
+
+terminal SL_COMMENT:
+	'//' !('\n' | '\r')* ('\r'? '\n')?;
+
+terminal WS:
+	(' ' | '\t' | '\r' | '\n')+;
+
+//terminal ANY_OTHER:
+//	.;

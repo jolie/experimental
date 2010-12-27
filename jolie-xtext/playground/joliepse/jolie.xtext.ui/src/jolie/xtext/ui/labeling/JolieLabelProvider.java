@@ -9,6 +9,7 @@ import jolie.xtext.jolie.Main;
 import jolie.xtext.jolie.OutputPortStatement;
 import jolie.xtext.jolie.Type;
 import jolie.xtext.jolie.With;
+import jolie.xtext.jolie.linkIn;
 
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 

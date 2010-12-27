@@ -5,6 +5,8 @@
  */
 package jolie.xtext.jolie.impl;
 
+import java.lang.String;
+
 import jolie.xtext.jolie.JoliePackage;
 import jolie.xtext.jolie.Main;
 import jolie.xtext.jolie.MainProcess;
@@ -25,6 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link jolie.xtext.jolie.impl.MainImpl#getName <em>Name</em>}</li>
  *   <li>{@link jolie.xtext.jolie.impl.MainImpl#getMainrocess <em>Mainrocess</em>}</li>
  * </ul>
  * </p>
@@ -33,6 +36,26 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class MainImpl extends MinimalEObjectImpl.Container implements Main
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getMainrocess() <em>Mainrocess</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -62,6 +85,29 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main
   protected EClass eStaticClass()
   {
     return JoliePackage.Literals.MAIN;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, JoliePackage.MAIN__NAME, oldName, name));
   }
 
   /**
@@ -138,6 +184,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main
   {
     switch (featureID)
     {
+      case JoliePackage.MAIN__NAME:
+        return getName();
       case JoliePackage.MAIN__MAINROCESS:
         return getMainrocess();
     }
@@ -154,6 +202,9 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main
   {
     switch (featureID)
     {
+      case JoliePackage.MAIN__NAME:
+        setName((String)newValue);
+        return;
       case JoliePackage.MAIN__MAINROCESS:
         setMainrocess((MainProcess)newValue);
         return;
@@ -171,6 +222,9 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main
   {
     switch (featureID)
     {
+      case JoliePackage.MAIN__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case JoliePackage.MAIN__MAINROCESS:
         setMainrocess((MainProcess)null);
         return;
@@ -188,10 +242,29 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main
   {
     switch (featureID)
     {
+      case JoliePackage.MAIN__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case JoliePackage.MAIN__MAINROCESS:
         return mainrocess != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //MainImpl

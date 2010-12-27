@@ -14,6 +14,7 @@
             name="Jolie Editor">
         </editor>
     </extension>
+    
     <extension
         point="org.eclipse.ui.handlers">
         <handler
