@@ -42,6 +42,7 @@ public class JolieJavaValidator extends AbstractJolieJavaValidator {
                        	
 						container = container.eContainer();
 						if (container instanceof jolie.xtext.jolie.impl.WithImpl) flag=true ;
+						if (container instanceof jolie.xtext.jolie.impl.ProtocolConfigurationImpl) flag=true ;
 						System.out.println(container.toString());
 						//error("Variable cannot start with A", variablePath, JoliePackage.VARIABLE_PATH__NAME);
 					}

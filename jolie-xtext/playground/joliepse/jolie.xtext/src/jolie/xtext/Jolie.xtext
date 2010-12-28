@@ -9,6 +9,7 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Program:
 	(
+	constants+=Constant |
 	include+=Include |
 	ports+=Port |
 	interface+=Interface |
@@ -27,9 +28,13 @@ Program:
 */
 
 /****************************************Types****************************************/
+Constant:
+  'constants' LCURLY name+=ID ASSIGN (INT|STRING|REAL|ID) (COMMA name+=ID ASSIGN (INT|STRING|REAL|ID))*   RCURLY;
+    
+
 Execution:
 
-   'execution' LCURLY CONCURRENT RCURLY;
+   'execution' LCURLY (CONCURRENT|SEQUENTIAL) RCURLY;
 
 Include:
     ('include' path+=STRING)+ 
@@ -55,7 +60,7 @@ Native_type:
 	('any' | 'int' | 'raw' | 'string' | 'void')?;
 
 Native_type_sub:
-	{Native_type_sub} ("int" | "real" | "string" | "void" | type=[Type])?;
+	{Native_type_sub} ("any" | "int" | "real" | "string" | "void" | type=[Type])?;
 
 /**********************************Types***********************************************/
 Define:
@@ -88,7 +93,13 @@ BasicStatement:
 	 assignStatementOrPostIncrementDecrement=AssignStatementOrPostIncrementDecrementOrInputOperation |
 	
 	NDChoiceStatement=NDChoiceStatement |  preIncrementDecrement=PreIncrementDecrement |
-	With | Synchronized | Undef | For | Foreach | {BasicStatement} NullProcces | linkIn | call=[Define];
+	With | Synchronized | Undef | For | Foreach | {BasicStatement} NullProcces | linkIn | call=[Define] | 
+	
+	operation=[OneWayOperationSignature]|operation=[RequestResponseSignature] op=InputOrOutputOperationCall;// TODO Refactor...
+	
+InputOrOutputOperationCall:	
+	LPAREN variablePath=VariablePath? RPAREN inputOperation=InputOperation /*Use the validator here to verify oneWay/reqOP*/ |
+	AT outputOperation=OutputOperation;
 
 linkIn:
 	{linkIn} 'linkIn' LPAREN name=ID RPAREN;
@@ -101,19 +112,17 @@ AssignStatementOrPostIncrementDecrementOrInputOperation:
 
 RightSide:
 	{RightSide} ASSIGN expression=Expression | {RightSide} CHOICE | {RightSide} DECREMENT | {RightSide} POINTSTO
-	variablePath=VariablePath | {RightSide} DEEPCOPYLEFT variablePath=VariablePath | /*Operation Call*/ LPAREN
-	variablePath=VariablePath RPAREN inputOperation=InputOperation |
-	AT outputOperation=OutputOperation;
+	variablePath=VariablePath | {RightSide} DEEPCOPYLEFT variablePath=VariablePath ;
 
 /******************************************* BASIC STATEMENTS*********************************************/
 Synchronized:
 	'synchronized' LPAREN name+=ID RPAREN mainProcess+=MainProcess;
 
 Undef:
-	'undef' LPAREN variablePath+=VariablePath RPAREN;
+	'undef' LPAREN variablePath=VariablePath RPAREN;
 
 OutputOperation:
-	name+=ID LPAREN expression=Expression RPAREN /*Notification Operation*/ (LPAREN (variablePath=VariablePath)? RPAREN
+	port=[InputPortStatement]|port=[OutputPortStatement] LPAREN expression=Expression? RPAREN /*Notification Operation*/ (LPAREN (variablePath=VariablePath)? RPAREN
 	/*Solicit Response operation*/
 	(LSQUARE installFunction=InstallFunciton RSQUARE)?)?;
 
@@ -122,7 +131,7 @@ InstallFunciton:
 
 /*Input operation: OneWay o ReqResp*/
 InputOperation:
-	{InputOperation} (LPAREN expression=Expression RPAREN mainProcess=MainProcess)?; //line 1689 OLParser, with ? ReqResponseOperation if no ? OneWayOperation
+	{InputOperation} (LPAREN expression=Expression? RPAREN mainProcess=MainProcess)?; //line 1689 OLParser, with ? ReqResponseOperation if no ? OneWayOperation
 PreIncrementDecrement:
 	(CHOICE | DECREMENT) variablePath=VariablePath;
 
@@ -202,14 +211,20 @@ OutputPortStatement:
 	(RequestResponseOperation+=RequestResponseOperation)? & (intefaces+=Interfaces)?) RCURLY;
 
 OneWayOperation:
-	{OneWayOperation} 'OneWay' COLON name+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)? (COMMA children+=ID (LPAREN
-	typeDefinition+=TypeDefinition RPAREN)?)*;
+	{OneWayOperation} 'OneWay' COLON op=OneWayOperationSignature;
+	
+OneWayOperationSignature:
+   {OneWayOperationSignature}  name=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)? (COMMA op=OneWayOperationSignature)? ;	
 
 RequestResponseOperation:
-	{RequestResponseOperation} 'RequestResponse' COLON name+=ID ((LPAREN typeDefinition+=TypeDefinition RPAREN) (LPAREN
-	typeDefinition+=TypeDefinition RPAREN))? ('throws' name+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN))? (COMMA
-	name+=ID ((LPAREN typeDefinition+=TypeDefinition RPAREN) (LPAREN typeDefinition+=TypeDefinition RPAREN))? ('throws'
-	name+=ID (LPAREN typeDefinition+=TypeDefinition RPAREN))?)*;
+	{RequestResponseOperation} 'RequestResponse' COLON op=RequestResponseSignature ;
+
+RequestResponseSignature:
+    {RequestResponseSignature}  name=ID (LPAREN typeDefinition+=TypeDefinition RPAREN LPAREN typeDefinition+=TypeDefinition RPAREN)? ('throws' (faults+=ThrowsClause)+)? 
+    (COMMA op=RequestResponseSignature)?;
+
+ThrowsClause:
+	name=ID (LPAREN (type=TypeDefinition) RPAREN)?;	
 
 TypeDefinition:
 	type+=[Type] | {TypeDefinition} Native_type ;
@@ -224,10 +239,11 @@ Interfaces:
 	'Interfaces' COLON name+=ID (COMMA name+=ID)*;
 
 Protocol:
-	'Protocol' COLON name+=ID ProtocolConfiguration?;
+	'Protocol' COLON name+=ID protocolConfiguration=ProtocolConfiguration?;
 
 ProtocolConfiguration:
-	LCURLY 'TODO' RCURLY;
+    //Here the validator shuld permit the use of prefixed 
+	mainProcess=MainProcess;
 
 Redirects:
 	'Redirects' COLON name+=ID '=>' outputPortIdentifier+=ID (COMMA name+=ID '=>' outputPortIdentifier+=ID)*; //TODO LINKING TO OutPutPortDef
@@ -238,6 +254,9 @@ Aggregates:
 /***********************************************END InpuPortStatement**********************************************************************/
 terminal CONCURRENT:
     'concurrent';
+    
+terminal SEQUENTIAL:
+    'sequential';    
 
 terminal LCURLY:
 	'{';
@@ -354,5 +373,5 @@ terminal SL_COMMENT:
 terminal WS:
 	(' ' | '\t' | '\r' | '\n')+;
 
-//terminal ANY_OTHER:
-//	.;
+terminal ANY_OTHER:
+	.;
