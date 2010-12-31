@@ -3,6 +3,13 @@
 */
 package jolie.xtext.ui.outline;
 
+import java.util.List;
+
+import jolie.xtext.jolie.OneWayOperationSignature;
+
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.xtext.ui.editor.outline.ContentOutlineNode;
 import org.eclipse.xtext.ui.editor.outline.transformer.AbstractDeclarativeSemanticModelTransformer;
 
 /**
@@ -10,5 +17,21 @@ import org.eclipse.xtext.ui.editor.outline.transformer.AbstractDeclarativeSemant
  * 
  */
 public class JolieTransformer extends AbstractDeclarativeSemanticModelTransformer {
+	 
+	 public ContentOutlineNode createNode( 
+		      OneWayOperationSignature semanticNode, ContentOutlineNode parentNode) { 
+		    ContentOutlineNode node = super.newOutlineNode(semanticNode, parentNode); 
+		    node.setLabel("special " + node.getLabel()); 
+		    return node; 
+		  } 
+
 	
+//	public List<EObject> getChildren(OneWayOperationSignature property) {
+//		return NO_CHILDREN;
+//	}
+	 
+	 public List<EObject> getChildren(OneWayOperationSignature attribute) { 
+		    return attribute.eContents(); 
+		  } 
+
 }

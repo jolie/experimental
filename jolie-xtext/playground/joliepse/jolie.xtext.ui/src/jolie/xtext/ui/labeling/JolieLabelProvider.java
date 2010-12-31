@@ -5,8 +5,13 @@ package jolie.xtext.ui.labeling;
 
 import jolie.xtext.jolie.Define;
 import jolie.xtext.jolie.InputPortStatement;
+import jolie.xtext.jolie.Interface;
 import jolie.xtext.jolie.Main;
+import jolie.xtext.jolie.OneWayOperation;
+import jolie.xtext.jolie.OneWayOperationSignature;
 import jolie.xtext.jolie.OutputPortStatement;
+import jolie.xtext.jolie.RequestResponseOperation;
+import jolie.xtext.jolie.RequestResponseSignature;
 import jolie.xtext.jolie.Type;
 import jolie.xtext.jolie.With;
 import jolie.xtext.jolie.linkIn;
@@ -58,5 +63,14 @@ public class JolieLabelProvider extends DefaultEObjectLabelProvider {
 	    }
 	 String image(Define ele) {
 	    	return "define.png";
+	    }
+	 String image(Interface ele) {
+	    	return "interface.png";
+	    }
+	 String image(OneWayOperationSignature ele) {
+	    	return "one_way.png";
+	    }
+	 String image(RequestResponseSignature ele) {
+	    	return "req_res.png";
 	    }
 }

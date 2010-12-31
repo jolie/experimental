@@ -29,13 +29,16 @@ public class JolieScopeProvider extends SimpleLocalScopeProvider {
 
 	public IScope getScope(EObject context, EReference reference) {
 		System.out.println(
-				"scope_" + reference.getEContainingClass().getName()
+				"scop!e_" + reference.getEContainingClass().getName()
 				+ "_" + reference.getName()
 				+ "("  + context.eClass().getName() + ", ..)"
 			);	
 		
+		if (context  instanceof jolie.xtext.jolie.impl.ProtocolImpl)
+			System.out.println("protocol:"+context.toString());
 		
-		
+		System.out.println("protocol:"+context.toString());
+			
 		return super.getScope(context, reference);
 	}	
 	

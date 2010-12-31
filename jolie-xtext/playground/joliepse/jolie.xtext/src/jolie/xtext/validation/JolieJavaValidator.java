@@ -1,5 +1,6 @@
 package jolie.xtext.validation;
 
+import jolie.xtext.jolie.Embedded;
 import jolie.xtext.jolie.JoliePackage;
 import jolie.xtext.jolie.VariablePath;
 import jolie.xtext.jolie.With;
@@ -26,9 +27,19 @@ public class JolieJavaValidator extends AbstractJolieJavaValidator {
 	} */
 	public static final String PREFIXED_WITHOUT_WITH_BLOCK = "jolie.xtext.jolie.PrefixedWithoutWithBlock";
 	@Check
+	public void checkInEmbedded(Embedded embedded) {
+		
+		for (int i = 0; i < embedded.getIn().size(); i++) {
+			if (!embedded.getIn().get(i).equals("in"))
+				error("Requirede: in", JoliePackage.EMBEDDED__IN);
+		}
+		
+	}
+	
+	@Check
 	public void checkPrefixedVariableinWith(VariablePath variablePath) {
 		boolean flag=false;
-
+		
 		for (int i = 0; i < variablePath.getName().size(); i++) {
 			System.out.println(variablePath.getName().toString());
 			 
@@ -41,7 +52,7 @@ public class JolieJavaValidator extends AbstractJolieJavaValidator {
 					while (!(container instanceof jolie.xtext.jolie.impl.ProgramImpl)) {
                        	
 						container = container.eContainer();
-						if (container instanceof jolie.xtext.jolie.impl.WithImpl) flag=true ;
+						if (container instanceof jolie.xtext.jolie.impl.WithImpl)  flag=true ;
 						if (container instanceof jolie.xtext.jolie.impl.ProtocolConfigurationImpl) flag=true ;
 						System.out.println(container.toString());
 						//error("Variable cannot start with A", variablePath, JoliePackage.VARIABLE_PATH__NAME);
@@ -54,6 +65,7 @@ public class JolieJavaValidator extends AbstractJolieJavaValidator {
 			}
 		}
 	}
+	
 	
 	//To do: check for the cardinality of sub types (>0)
 

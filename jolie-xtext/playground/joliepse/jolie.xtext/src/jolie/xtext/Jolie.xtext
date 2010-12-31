@@ -16,7 +16,8 @@ Program:
 	types+=Type |
 	init+=Init |
 	execution+=Execution |
-	define+=Define )*
+	define+=Define |
+	embedded+=Embedded )*
 	
 	main=Main?;
 	/*
@@ -57,12 +58,16 @@ Cardinality:
 
 Native_type:
      
-	('any' | 'int' | 'raw' | 'string' | 'void')?;
+	('any' | 'int' | 'raw' | 'string' | 'void'|'undefined'|'double')?;
 
 Native_type_sub:
-	{Native_type_sub} ("any" | "int" | "real" | "string" | "void" | type=[Type])?;
+	{Native_type_sub} ("any" | "int" | "real" | "string" | "void"|'undefined' |'double'| type=[Type])?;
 
 /**********************************Types***********************************************/
+Embedded:
+    'embedded' LCURLY ('Java'|'Jolie'|'Javascript') COLON string+=STRING (in+=ID name+=ID)? (COMMA string+=STRING (in+=ID name+=ID)?)* RCURLY;
+
+
 Define:
 	'define' name=ID mainrocess=MainProcess;
 
@@ -93,9 +98,26 @@ BasicStatement:
 	 assignStatementOrPostIncrementDecrement=AssignStatementOrPostIncrementDecrementOrInputOperation |
 	
 	NDChoiceStatement=NDChoiceStatement |  preIncrementDecrement=PreIncrementDecrement |
-	With | Synchronized | Undef | For | Foreach | {BasicStatement} NullProcces | linkIn | call=[Define] | 
+	With | Synchronized | Undef | For | If | Foreach | While | {BasicStatement} NullProcces | linkIn | linkOut | call=[Define] | 
 	
-	operation=[OneWayOperationSignature]|operation=[RequestResponseSignature] op=InputOrOutputOperationCall;// TODO Refactor...
+	operation=[OneWayOperationSignature]|operation=[RequestResponseSignature] op=InputOrOutputOperationCall |// TODO Refactor... 
+	scope=Scope | compensate=Compensate | throw=Throw | install=Install | {cH} cH | {Exit} Exit;
+
+Is_function:
+
+ {Is_function}  ('is_defined'|'is_string'|'is_double'|'is_int') LPAREN variablePath=VariablePath RPAREN;
+
+Install:
+    'install' LPAREN installFunction=InstallFunciton RPAREN;
+
+Throw:
+    'throw' LPAREN name+=ID (COMMA name+=ID)* RPAREN;
+	
+Compensate:
+    'comp' name=ID mainProcess=MainProcess;	
+
+Scope:
+    'scope' LPAREN name=ID RPAREN mainProcess=MainProcess;
 	
 InputOrOutputOperationCall:	
 	LPAREN variablePath=VariablePath? RPAREN inputOperation=InputOperation /*Use the validator here to verify oneWay/reqOP*/ |
@@ -104,8 +126,18 @@ InputOrOutputOperationCall:
 linkIn:
 	{linkIn} 'linkIn' LPAREN name=ID RPAREN;
 
+linkOut: 
+    {linkOut} 'linkOut' LPAREN name=ID RPAREN;
+    
+
 NullProcces:
 	'nullProcess';
+	
+cH:
+   'cH';	
+
+Exit:
+   'exit';
 
 AssignStatementOrPostIncrementDecrementOrInputOperation:
 	{AssignStatementOrPostIncrementDecrement} variablePath=VariablePath rightSide=RightSide;
@@ -136,6 +168,9 @@ PreIncrementDecrement:
 	(CHOICE | DECREMENT) variablePath=VariablePath;
 
 /****************************************************** LOOPS *************************************************/
+If:
+    'if' LPAREN condition+=Condition RPAREN ifProcess=BasicStatement ('else' elseProcess=BasicStatement|ifNasted=If)?;
+
 For:
 	'for' LPAREN parallelStatement+=ParallelStatement COMMA condition=Condition COMMA parallelStatement+=ParallelStatement
 	body=Body;
@@ -144,14 +179,17 @@ Body:
 	RPAREN BasicStatement;
 
 Condition:
-	NOT expression=Expression |
-	(variablePath=VariablePath | INT | STRING) rightCondition=RightCondition;
+	NOT condition+=Condition     | LPAREN  condition+=Condition  RPAREN (('&&'|'||') condition+=Condition)?|
+ {Condition}	(variablePath=VariablePath | INT | STRING|isF=Is_function) rightCondition=RightCondition? (('&&'|'||') condition+=Condition)?;
 
 RightCondition:
 	(EQUAL | LANGLE | RANGLE | MAJOR_OR_EQUAL | MINOR_OR_EQUAL | NOT_EQUAL) expression=Expression;
 
 Foreach:
 	{Foreach} 'foreach' LPAREN var1=VariablePath COLON var2=VariablePath body=Body;
+	
+While:
+   'while' LPAREN condition+=Condition RPAREN mainProcess=MainProcess;	
 
 /***************************************************************************************************************/
 
@@ -162,10 +200,10 @@ Expression:
 TerminalExpression returns Expression:
 	LPAREN Expression RPAREN | {IntLiteral} MINUS? value=INT | {RealLiteral} MINUS? value=REAL | {String} value=STRING |
 	(CHOICE |
-	DECREMENT) variablePath=VariablePath | variablePath=VariablePath (CHOICE | DECREMENT)?;
+	DECREMENT) variablePath=VariablePath | variablePath=VariablePath (CHOICE | DECREMENT)? ;
 
 VariablePath:
-	{VariablePath} dot+=DOT? name+=ID (LSQUARE children+=Expression RSQUARE)? (((DOT (ID | 'global') (LSQUARE
+	{VariablePath} HASH? dot+=DOT? name+=ID (LSQUARE children+=Expression RSQUARE)? (((DOT (ID | 'global') (LSQUARE
 	children+=Expression
 	RSQUARE)?) | (DOT LPAREN children+=Expression RPAREN)))* | {VariablePath} 'global' (((DOT (ID | 'global') (LSQUARE
 	children+=Expression RSQUARE)?) | (DOT LPAREN children+=Expression RPAREN)))* //Global non  un un array
@@ -184,15 +222,14 @@ NDChoiceStatement:
       [inputOp2] {...}      
       
      */
-	{NDChoiceStatement} (LSQUARE (('linkIn' LPAREN ID RPAREN) | /*inputOperation*/ variablePath+=VariablePath LPAREN
-	variablePath+=VariablePath RPAREN inputOperation+=InputOperation) RSQUARE mainProcess+=MainProcess)+;
+	{NDChoiceStatement} (LSQUARE (('linkIn' LPAREN ID RPAREN) | (operation=[OneWayOperationSignature]|operation=[RequestResponseSignature] op=InputOrOutputOperationCall)) RSQUARE mainProcess+=MainProcess)+;
 /******************************************************************************************************************/
 
 Interface:
 
- 'interface' name+=ID LCURLY
+ 'interface' name=ID LCURLY
  
- (RequestResponseOperation=RequestResponseOperation? & oneWayOperation=OneWayOperation?)
+ (RequestResponseOperation+=RequestResponseOperation? & oneWayOperation+=OneWayOperation?)
  
  RCURLY ;
 
@@ -204,27 +241,27 @@ Port:
 InputPortStatement:
 	'inputPort' name=ID LCURLY ((location+=Location)? & (protocol+=Protocol)? & (oneWayOperation+=OneWayOperation)? &
 	(RequestResponseOperation+=RequestResponseOperation)? & (redirects+=Redirects)? & (aggregates+=Aggregates)? &
-	(intefaces+=Interfaces)?) RCURLY;
+	(intefaces=Interfaces)?) RCURLY;
 
 OutputPortStatement:
 	'outputPort' name=ID LCURLY ((location+=Location)? & (protocol+=Protocol)? & (oneWayOperation+=OneWayOperation)? &
 	(RequestResponseOperation+=RequestResponseOperation)? & (intefaces+=Interfaces)?) RCURLY;
 
 OneWayOperation:
-	{OneWayOperation} 'OneWay' COLON op=OneWayOperationSignature;
+	{OneWayOperation} 'OneWay' COLON name=OneWayOperationSignature;
+	
+RequestResponseOperation:
+	{RequestResponseOperation} 'RequestResponse' COLON name=RequestResponseSignature ;
 	
 OneWayOperationSignature:
-   {OneWayOperationSignature}  name=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)? (COMMA op=OneWayOperationSignature)? ;	
-
-RequestResponseOperation:
-	{RequestResponseOperation} 'RequestResponse' COLON op=RequestResponseSignature ;
+   {OneWayOperationSignature}  name=ID (LPAREN typeDefinition+=TypeDefinition RPAREN)? (COMMA op=OneWayOperationSignature)? ;		
 
 RequestResponseSignature:
     {RequestResponseSignature}  name=ID (LPAREN typeDefinition+=TypeDefinition RPAREN LPAREN typeDefinition+=TypeDefinition RPAREN)? ('throws' (faults+=ThrowsClause)+)? 
     (COMMA op=RequestResponseSignature)?;
 
 ThrowsClause:
-	name=ID (LPAREN (type=TypeDefinition) RPAREN)?;	
+	name+=ID (LPAREN (type=TypeDefinition) RPAREN)?;	
 
 TypeDefinition:
 	type+=[Type] | {TypeDefinition} Native_type ;
@@ -236,7 +273,9 @@ Uri:
 	{Uri} name+=ID | {Uri} STRING; //|name=STRING; //to do...
 
 Interfaces:
-	'Interfaces' COLON name+=ID (COMMA name+=ID)*;
+	'Interfaces' COLON interface+=[Interface] (COMMA interface+=[Interface])*;
+	
+
 
 Protocol:
 	'Protocol' COLON name+=ID protocolConfiguration=ProtocolConfiguration?;
@@ -246,7 +285,10 @@ ProtocolConfiguration:
 	mainProcess=MainProcess;
 
 Redirects:
-	'Redirects' COLON name+=ID '=>' outputPortIdentifier+=ID (COMMA name+=ID '=>' outputPortIdentifier+=ID)*; //TODO LINKING TO OutPutPortDef
+	'Redirects' COLON redRef=RedirectDef (COMMA redRef=RedirectDef)*; //TODO LINKING TO OutPutPortDef
+
+RedirectDef:
+    name=ID '=>' outputPortIdentifier=ID;
 
 Aggregates:
 	'Aggregates' COLON name+=ID (COMMA name+=ID)*;
@@ -300,9 +342,6 @@ terminal COMMA:
 terminal AT:
 	'@';
 
-terminal WHILE:
-	'while';
-
 terminal CHOICE:
 	'++';
 
@@ -338,6 +377,9 @@ terminal LANGLE:
 
 terminal RANGLE:
 	'>';
+	
+terminal HASH:
+    '#';	
 
 terminal MAJOR_OR_EQUAL:
 	'>=';
