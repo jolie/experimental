@@ -4,12 +4,21 @@
 package jolie.xtext.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import jolie.xtext.ui.navigation.JolieHyperlinkHelper;
 
+import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper;
+import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkAcceptor;
 /**
  * Use this class to register components to be used within the IDE.
  */
 public class JolieUiModule extends jolie.xtext.ui.AbstractJolieUiModule {
 	public JolieUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
+	}
+	
+	
+	
+	public Class<? extends IHyperlinkHelper> bindIHyperlinkHelper() {
+		return JolieHyperlinkHelper.class;
 	}
 }
