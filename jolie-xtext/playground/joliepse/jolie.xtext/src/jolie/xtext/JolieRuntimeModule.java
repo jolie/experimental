@@ -3,12 +3,16 @@
  */
 package jolie.xtext;
 
+
 import org.eclipse.xtext.linking.ILinkingService;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 public class JolieRuntimeModule extends jolie.xtext.AbstractJolieRuntimeModule {
+
+	
 
 	
 	

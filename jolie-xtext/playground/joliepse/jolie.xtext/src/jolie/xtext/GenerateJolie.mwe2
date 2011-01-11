@@ -61,17 +61,20 @@ Workflow {
 			// java-based API for validation 
 			fragment = validation.JavaValidatorFragment {
 				composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
-				composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+				 composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 				// registerForImportedPackages = true
 			}
 
 			// scoping and exporting API
-			 fragment = scoping.ImportURIScopingFragment {}
-			// fragment = exporting.SimpleNamesFragment {}
+			// fragment = scoping.ImportNamespacesScopingFragment{} Importo tutto, senza dover fare import esplicito
+			//fragment = exporting.QualifiedNamesFragment {}
 
-			// scoping and exporting API 
-			fragment = scoping.ImportNamespacesScopingFragment {}
+			// scoping and exporting API Con importUri e simpleName ottengo scoping locale 
+			fragment = scoping.ImportURIScopingFragment {}
 			fragment = exporting.SimpleNamesFragment {}
+			
+			
+			
 			fragment = builder.BuilderIntegrationFragment {}
 
 
@@ -97,10 +100,10 @@ Workflow {
 			fragment = parser.antlr.XtextAntlrUiGeneratorFragment {}
 
 			// project wizard (optional) 
-			// fragment = projectWizard.SimpleProjectWizardFragment {
-			// 		generatorProjectName = "${projectName}.generator" 
-			//		modelFileExtension = file.extensions
-			// }
+			 fragment = projectWizard.SimpleProjectWizardFragment {
+			 		generatorProjectName = "${projectName}.generator" 
+					modelFileExtension = file.extensions
+			 }
 		}
 	}
 }

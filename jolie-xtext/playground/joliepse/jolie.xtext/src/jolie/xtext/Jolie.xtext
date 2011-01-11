@@ -39,7 +39,7 @@ Execution:
    'execution' LCURLY (CONCURRENT|SEQUENTIAL) RCURLY;
 
 Include:
-    ('include' fileName=FileName)+ 
+    'include' importURI=STRING
      ;
      
 FileName:

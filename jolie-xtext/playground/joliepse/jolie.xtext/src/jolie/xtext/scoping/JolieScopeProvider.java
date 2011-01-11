@@ -3,19 +3,18 @@
  */
 package jolie.xtext.scoping;
 
-import org.eclipse.emf.ecore.EDataType;
+import java.util.LinkedHashSet;
+
+import jolie.xtext.jolie.Program;
+
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.xtext.resource.IEObjectDescription;
-import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.resource.IResourceDescription;
+import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
-import org.eclipse.xtext.scoping.impl.DefaultGlobalScopeProvider;
-import org.eclipse.xtext.scoping.impl.SimpleLocalScopeProvider;
+import org.eclipse.xtext.scoping.impl.ImportUriGlobalScopeProvider;
 
-import com.google.inject.Scope;
-import com.google.inject.Scopes;
-
-
+import com.google.inject.Inject;
 
 /**
  * This class contains custom scoping description.
@@ -24,43 +23,46 @@ import com.google.inject.Scopes;
  * on how and when to use it 
  *
  */
-public class JolieScopeProvider extends SimpleLocalScopeProvider {
+public class JolieScopeProvider extends ImportUriGlobalScopeProvider {
 
-
-	public IScope getScope(EObject context, EReference reference) {
-		System.out.println(
-				"scop!e_" + reference.getEContainingClass().getName()
-				+ "_" + reference.getName()
-				+ "("  + context.eClass().getName() + ", ..)"
-			);	
-		
-		if (context  instanceof jolie.xtext.jolie.impl.ProtocolImpl)
-			System.out.println("protocol:"+context.toString());
-		
-		System.out.println("protocol:"+context.toString());
-			
-		return super.getScope(context, reference);
-	}	
+	@Inject
+	private IResourceDescriptions descriptions;
 	
-
-	/**
-
-	/*public IScope getScope(EObject context, EReference reference) {
-		IScope scope = super.getScope(context, reference);
-		scope.
-		System.out.println("scope Provider..."+reference.toString()+context.toString());
+	
+	@Override
+	protected LinkedHashSet<URI> getImportedUris(EObject context)
+	{
+		System.out.println("Sono nel global SCOPER PROVIDER; DENTRO UN PROGRAM E DOVREI IMPORTARE IL WORKSPACE"+ context.toString());
 		
-            if (context instanceof jolie.xtext.jolie.impl.InputOperationCallImpl) {
-            	System.out.println("Sono InputOperationCallImpl");
-            	
-            	
-            	
-            	return scope;
-            }
-           // return IScope.NULLSCOPE;
-       
-		return null;
+	LinkedHashSet<URI> uris = super.getImportedUris(context);
+	System.out.println("Quante sono le uris importate?"+uris.size());
+	
+	Iterable<IResourceDescription> allResourceDescriptions = descriptions.getAllResourceDescriptions();
+    for (IResourceDescription description : allResourceDescriptions) {
+         
+    	 
+   	     uris.add(description.getURI());
+    }
+	
+    
+   
+    
+    uris.add(URI.createURI("platform:/resource/JolieInclude/console.io"));
+	/*System.out.println("description uri:"+description.getURI());
+	
+	
+	 uris.add(description.getURI());*/
+	
+	if (context instanceof Program)
+	{
+		System.out.println("Sono un istanza di program");
+		/* Iterable<IResourceDescription> allResourceDescriptions = descriptions.getAllResourceDescriptions();
+         for (IResourceDescription description : allResourceDescriptions) {
+                 
+        	 uris.add(description.getURI());
+         }
+     */    
 	}
-*/
-
+	return uris; 
+	}
 }

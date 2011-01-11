@@ -1,0 +1,28 @@
+«IMPORT jolie::xtext::ui::wizard»
+
+«DEFINE main FOR JolieProjectInfo»
+«EXPAND model FOR this»
+«EXPAND workflow FOR this»
+«ENDDEFINE»
+
+«DEFINE model FOR JolieProjectInfo»
+«FILE "src/model/Model.iol,ol"-»
+/*
+ * This is an example model
+ */
+Hello Xtext!
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE workflow FOR JolieProjectInfo»
+«FILE "src/Generator.mwe2"-»
+module Generator
+
+var targetDir = "src-gen"
+var modelPath = "src/model"
+
+Workflow {
+	component = @workflow.JolieGenerator auto-inject {}
+}
+«ENDFILE»
+«ENDDEFINE»
