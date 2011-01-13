@@ -3,66 +3,83 @@
  */
 package jolie.xtext.scoping;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 
+import jolie.xtext.jolie.Include;
 import jolie.xtext.jolie.Program;
+import jolie.xtext.jolie.impl.ProgramImpl;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.resource.IResourceDescriptions;
+import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
 import org.eclipse.xtext.scoping.impl.ImportUriGlobalScopeProvider;
 
+import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 
 /**
  * This class contains custom scoping description.
  * 
- * see : http://www.eclipse.org/Xtext/documentation/latest/xtext.html#scoping
- * on how and when to use it 
- *
+ * see : http://www.eclipse.org/Xtext/documentation/latest/xtext.html#scoping on
+ * how and when to use it
+ * 
  */
 public class JolieScopeProvider extends ImportUriGlobalScopeProvider {
 
+	private EList<Include> includeList;
 	@Inject
 	private IResourceDescriptions descriptions;
-	
-	
+
 	@Override
-	protected LinkedHashSet<URI> getImportedUris(EObject context)
-	{
-		System.out.println("Sono nel global SCOPER PROVIDER; DENTRO UN PROGRAM E DOVREI IMPORTARE IL WORKSPACE"+ context.toString());
-		
-	LinkedHashSet<URI> uris = super.getImportedUris(context);
-	System.out.println("Quante sono le uris importate?"+uris.size());
-	
-	Iterable<IResourceDescription> allResourceDescriptions = descriptions.getAllResourceDescriptions();
-    for (IResourceDescription description : allResourceDescriptions) {
-         
-    	 
-   	     uris.add(description.getURI());
-    }
-	
-    
-   
-    
-    uris.add(URI.createURI("platform:/resource/JolieInclude/console.io"));
-	/*System.out.println("description uri:"+description.getURI());
-	
-	
-	 uris.add(description.getURI());*/
-	
-	if (context instanceof Program)
-	{
-		System.out.println("Sono un istanza di program");
-		/* Iterable<IResourceDescription> allResourceDescriptions = descriptions.getAllResourceDescriptions();
-         for (IResourceDescription description : allResourceDescriptions) {
-                 
-        	 uris.add(description.getURI());
-         }
-     */    
+	public IScope getScope(EObject context, EReference reference) {
+
+		// Get the program containing the cross reference
+		EObject container = context.eContainer();
+		while (!(container instanceof ProgramImpl)) {
+
+			container = container.eContainer();
+
+		}
+		ProgramImpl program = (ProgramImpl) container;
+		// Now I have the list of the included file
+		includeList = program.getInclude();
+
+		final LinkedHashSet<URI> uniqueImportURIs = getImportedUris(context);
+		IResourceDescriptions descriptions = getResourceDescriptions(context,
+				uniqueImportURIs);
+		ArrayList<URI> newArrayList = Lists.newArrayList(uniqueImportURIs);
+		Collections.reverse(newArrayList);
+		IScope scope = IScope.NULLSCOPE;
+		for (URI u : newArrayList) {
+			scope = createLazyResourceScope(scope, u, descriptions, reference);
+		}
+		return scope;
 	}
-	return uris; 
+
+	@Override
+	protected LinkedHashSet<URI> getImportedUris(EObject context) {
+
+		LinkedHashSet<URI> uris = super.getImportedUris(context);
+
+		// Add the included file to the scope
+		for (Include include : includeList) {
+
+			uris.add(URI.createURI("platform:/resource/JolieIncludedLibraries/"
+					+ include.getImportURI()));
+
+		}
+
+		// Devo aggiungere questa stessa risorsa!Bug...
+		uris.add(context.eResource().getURI());
+
+		return uris;
 	}
 }

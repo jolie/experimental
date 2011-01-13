@@ -1,18 +1,15 @@
 package jolie.xtext.validation;
 
 import jolie.xtext.jolie.Embedded;
-import jolie.xtext.jolie.FileName;
 import jolie.xtext.jolie.Include;
 import jolie.xtext.jolie.JoliePackage;
 import jolie.xtext.jolie.VariablePath;
-import jolie.xtext.jolie.With;
-
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.eclipse.xtext.validation.Check;
-
 import com.google.inject.Inject;
 
 
@@ -21,21 +18,6 @@ public class JolieJavaValidator extends AbstractJolieJavaValidator {
 	@Inject
 	private IResourceDescriptions descriptions; 
 
-	
-	//	@Check
-	//	public void checkGreetingStartsWithCapital(Greeting greeting) {
-	//		if (!Character.isUpperCase(greeting.getName().charAt(0))) {
-	//			warning("Name should start with a capital", MyDslPackage.GREETING__NAME);
-	//		}
-	//	}
-
-	/*@Check
-	public void checkNameLength(With with) {
-		if(with.getName() != null && with.getName().length() > 5)
-			error("Name too longooooooo", with, JoliePackage.WITH__NAME);
-
-
-	} */
 	public static final String PREFIXED_WITHOUT_WITH_BLOCK = "jolie.xtext.jolie.PrefixedWithoutWithBlock";
 	@Check
 	public void checkInEmbedded(Embedded embedded) {
@@ -68,53 +50,46 @@ public class JolieJavaValidator extends AbstractJolieJavaValidator {
 						System.out.println(container.toString());
 						//error("Variable cannot start with A", variablePath, JoliePackage.VARIABLE_PATH__NAME);
 					}
-					System.out.println(flag);
+					
 				if (flag==false) 
 					//Uso questo per far funzionare il quik fix provider
 					error("Prefixed variable paths must be inside a with blockkk", JoliePackage.VARIABLE_PATH__NAME, PREFIXED_WITHOUT_WITH_BLOCK, "name");
-				//	error("Prefixed variable paths must be inside a with block", variablePath, JoliePackage.VARIABLE_PATH__NAME);
-			   
+				 
 			}
 		}
 	}
 	
-	/*@Check
-	public void checkPrefixedVariableinWith(FileName fileName) {
-		
-		//Devo controllare che tra tutte le risorse nel workspace esista la risorsa importata
-		
-		boolean flag=false;
-		
-		System.out.println("Sono il validatore, ecco il filename " + fileName.getName().toString());
-		 
-		Iterable<IResourceDescription> allResourceDescriptions = descriptions.getAllResourceDescriptions();
-		
-		for (IResourceDescription description : allResourceDescriptions) {
-			
-			if(description.getURI().toString().contains(fileName.getName().toString())) flag=true;
-				
-		}
-		
-		if (flag==false) error("This file is not in workspace", JoliePackage.FILE_NAME__NAME );
-		
-		
-		
-	}
+
+	//COPIATO da
+	/*@ComposedChecks(validators= {org.eclipse.xtext.validation.ImportUriValidator.class, org.eclipse.xtext.validation.NamesAreUniqueValidator.class})
+	public class AbstractJolieJavaValidator extends AbstractDeclarativeValidator 
+	...
+		composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
+	
 	*/
 	@Check
-	public void checkPrefixedVariableinWith(Include include) {
+	public void checkImportUri(Include include) {
 		
-		//Devo controllare che tra tutte le risorse nel workspace esista la risorsa importata
+	
+		String importURI = include.getImportURI();
 		
-		boolean flag=false;
+		//Check if the current file is an iol, in this case you cannot import nothing (Parser bug?)
+		// if(include.eResource().getURI().toString().endsWith(".iol")) error("You cannot use include in a .iol file", JoliePackage.INCLUDE__IMPORT_URI);
 		
-		System.out.println("Sono il validatore, ecco il filename " + include.getImportURI().toString());
-		 
-		
-		
-		
-		
+		if (importURI != null && !EcoreUtil2.isValidUri(include, URI.createURI(importURI))) {
+			
+			//Chek if the included file is in the library project called "JolieIncludedLibraries", this project must be always in workspace
+			boolean flag=false;
+			Iterable<IResourceDescription> allResourceDescriptions = descriptions.getAllResourceDescriptions();
+		    for (IResourceDescription description : allResourceDescriptions) {
+		    	
+		    	if(description.getURI().lastSegment().equals(importURI)&&description.getURI().toString().contains("JolieIncludedLibraries")) flag=true;
+		    }
+			
+			if (flag==false) error("Imported resource could not be found.", JoliePackage.INCLUDE__IMPORT_URI);
+		}
 	}
-	//To do: check for the cardinality of sub types (>0)
+
+	//TO DO: WARNING SUI FILE IOL, NON SI DOVREBBE POTER INCLUDERE FILE
 
 }

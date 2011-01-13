@@ -173,7 +173,7 @@ OutputOperation:
 	(LSQUARE installFunction=InstallFunciton RSQUARE)?)?;
 
 InstallFunciton:
-	(name+=ID | 'this') '=>' process+=Process (COMMA (name+=ID | 'this') '=>' parallelStatement+=ParallelStatement)*;
+	(name+=ID | 'this') '=>' parallelStatement+=ParallelStatement (COMMA (name+=ID | 'this') '=>' parallelStatement+=ParallelStatement)*;
 
 /*Input operation: OneWay o ReqResp*/
 InputOperation:
