@@ -7,7 +7,6 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import jolie.xtext.ui.navigation.JolieHyperlinkHelper;
 
 import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper;
-import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkAcceptor;
 /**
  * Use this class to register components to be used within the IDE.
  */

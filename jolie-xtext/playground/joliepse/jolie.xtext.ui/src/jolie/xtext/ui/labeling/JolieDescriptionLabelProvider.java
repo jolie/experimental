@@ -3,6 +3,8 @@
 */
 package jolie.xtext.ui.labeling;
 
+
+
 import org.eclipse.xtext.ui.label.DefaultDescriptionLabelProvider;
 
 /**
@@ -11,6 +13,8 @@ import org.eclipse.xtext.ui.label.DefaultDescriptionLabelProvider;
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#labelProvider
  */
 public class JolieDescriptionLabelProvider extends DefaultDescriptionLabelProvider {
+
+	
 
 /*
 	//Labels and icons can be computed like this:

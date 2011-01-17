@@ -7,19 +7,20 @@ import java.util.List;
 
 import jolie.xtext.jolie.JoliePackage;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IResource;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import org.eclipse.jface.text.Region;
 import org.eclipse.jface.text.hyperlink.IHyperlink;
-import org.eclipse.ui.IViewPart;
+
 
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.parsetree.AbstractNode;
 import org.eclipse.xtext.parsetree.NodeUtil;
+import org.eclipse.xtext.resource.IResourceDescription;
+import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.hyperlinking.HyperlinkHelper;
 import org.eclipse.xtext.ui.editor.hyperlinking.XtextHyperlink;
@@ -36,6 +37,12 @@ public class JolieHyperlinkHelper extends HyperlinkHelper {
 
         @Inject
         private Provider<XtextHyperlink> hyperlinkProvider;
+        
+
+    	@Inject
+    	private IResourceDescriptions descriptions;
+    	
+
 
         @Override
         public IHyperlink[] createHyperlinksByOffset(XtextResource xtextResource, int offset, boolean createMultipleHyperlinks) {
@@ -64,6 +71,15 @@ public class JolieHyperlinkHelper extends HyperlinkHelper {
                                         hyperlink.setHyperlinkRegion(new Region(linkOffset, linkLength));
                                         hyperlink.setHyperlinkText("Open included file");
                                         URI importUri = includedEResource.getURI();
+                                        
+                                        /*If the included file is in the library project, must include platform:/resource/JolieIncludedLibraries/ in the uri*/
+                                        Iterable<IResourceDescription> allResourceDescriptions = descriptions.getAllResourceDescriptions();
+                            		    for (IResourceDescription description : allResourceDescriptions) {
+                            		         
+                            		    	if(description.getURI().toString().contains("JolieIncludedLibraries")&&description.getURI().toString().contains(include.getImportURI()))
+                            		    		importUri=URI.createURI("platform:/resource/JolieIncludedLibraries/"+include.getImportURI());
+                            		    }
+                                        
                                         hyperlink.setURI(importUri);
                                         hyperlinks.add(hyperlink);
                                 

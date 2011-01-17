@@ -3,7 +3,10 @@ package jolie.xtext.validation;
 import jolie.xtext.jolie.Embedded;
 import jolie.xtext.jolie.Include;
 import jolie.xtext.jolie.JoliePackage;
+import jolie.xtext.jolie.OutputPortCall;
+
 import jolie.xtext.jolie.VariablePath;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
@@ -58,6 +61,15 @@ public class JolieJavaValidator extends AbstractJolieJavaValidator {
 			}
 		}
 	}
+	
+	@Check
+	public void checkOutputPortCall(OutputPortCall outputPortCall) {
+		
+		System.out.println("CONTAINER DELL OUTPUT CALL"+outputPortCall.eContainer().toString());
+		System.out.println("CONTAINER DELL OUTPUT CALL"+outputPortCall.eContainer().eContainer().toString());
+	}
+	
+
 	
 
 	//COPIATO da

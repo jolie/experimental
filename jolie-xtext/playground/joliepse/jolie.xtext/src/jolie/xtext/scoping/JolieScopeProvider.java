@@ -5,25 +5,21 @@ package jolie.xtext.scoping;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 
 import jolie.xtext.jolie.Include;
-import jolie.xtext.jolie.Program;
 import jolie.xtext.jolie.impl.ProgramImpl;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.eclipse.xtext.scoping.IScope;
-import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
 import org.eclipse.xtext.scoping.impl.ImportUriGlobalScopeProvider;
 
 import com.google.common.collect.Lists;
-import com.google.inject.Inject;
+
 
 /**
  * This class contains custom scoping description.
@@ -35,9 +31,7 @@ import com.google.inject.Inject;
 public class JolieScopeProvider extends ImportUriGlobalScopeProvider {
 
 	private EList<Include> includeList;
-	@Inject
-	private IResourceDescriptions descriptions;
-
+	
 	@Override
 	public IScope getScope(EObject context, EReference reference) {
 

@@ -1,29 +1,17 @@
 package jolie.xtext.ui.quickfix;
 
-import jolie.xtext.jolie.BasicStatement;
-import jolie.xtext.jolie.JolieFactory;
-import jolie.xtext.jolie.MainProcess;
-import jolie.xtext.jolie.VariablePath;
-import jolie.xtext.jolie.With;
-import jolie.xtext.jolie.impl.AssignStatementOrPostIncrementDecrementOrInputOperationImpl;
-import jolie.xtext.jolie.impl.SequenceStatementImpl;
+
 import jolie.xtext.jolie.impl.VariablePathImpl;
-import jolie.xtext.services.JolieGrammarAccess.AssignStatementOrPostIncrementDecrementOrInputOperationElements;
-import jolie.xtext.services.JolieGrammarAccess.BasicStatementElements;
-import jolie.xtext.services.JolieGrammarAccess.SequenceStatementElements;
-import jolie.xtext.services.JolieGrammarAccess.VariablePathElements;
+
 import jolie.xtext.validation.JolieJavaValidator;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
-import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.model.edit.IModificationContext;
 import org.eclipse.xtext.ui.editor.model.edit.ISemanticModification;
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
 import org.eclipse.xtext.ui.editor.quickfix.Fix;
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor;
-import org.eclipse.xtext.util.Strings;
 import org.eclipse.xtext.validation.Issue;
 
 public class JolieQuickfixProvider extends DefaultQuickfixProvider {

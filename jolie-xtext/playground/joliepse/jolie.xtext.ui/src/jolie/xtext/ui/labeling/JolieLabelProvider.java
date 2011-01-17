@@ -7,14 +7,12 @@ import jolie.xtext.jolie.Define;
 import jolie.xtext.jolie.InputPortStatement;
 import jolie.xtext.jolie.Interface;
 import jolie.xtext.jolie.Main;
-import jolie.xtext.jolie.OneWayOperation;
+import jolie.xtext.jolie.Native_type;
 import jolie.xtext.jolie.OneWayOperationSignature;
 import jolie.xtext.jolie.OutputPortStatement;
-import jolie.xtext.jolie.RequestResponseOperation;
 import jolie.xtext.jolie.RequestResponseSignature;
 import jolie.xtext.jolie.Type;
 import jolie.xtext.jolie.With;
-import jolie.xtext.jolie.linkIn;
 
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 
@@ -48,6 +46,14 @@ public class JolieLabelProvider extends DefaultEObjectLabelProvider {
 	 String image(Type ele) {
 	    	return "type.gif";
 	    }
+	 
+	 String image(Native_type ele) {
+	    	return "typeN.gif";
+	    }
+	 
+	 String text(Type ele) {
+		  return "Type:"+ele.getName();
+		}
 	 
 	 String image(Main ele) {
 	    	return "home_nav.gif";
