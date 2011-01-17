@@ -3,6 +3,10 @@
 
 <product name="Jolie" id="jolie.xtext.product.product" application="org.eclipse.ui.ide.workbench" useFeatures="true" includeLaunchers="true">
 
+   <aboutInfo>
+      <image path="/jolie.xtext.product/splash.png"/>
+   </aboutInfo>
+
    <configIni use="default">
    </configIni>
 
@@ -12,7 +16,8 @@
 
    <windowImages/>
 
-
+   <splash
+      location="jolie.xtext.product" />
    <launcher>
       <macosx icon="icon.icns"/>
       <solaris/>
@@ -20,6 +25,7 @@
          <bmp/>
       </win>
    </launcher>
+
 
    <vm>
       <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</macos>

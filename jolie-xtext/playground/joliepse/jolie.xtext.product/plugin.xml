@@ -11,7 +11,22 @@
                name="appName"
                value="Jolie">
          </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+         <property
+               name="aboutImage"
+               value="splash.png">
+         </property>
       </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.splashHandlers">
+      <splashHandler
+            class="jolie.xtext.product.splashHandlers.InteractiveSplashHandler"
+            id="jolie.xtext.product.splashHandlers.interactive">
+      </splashHandler>
    </extension>
 
 </plugin>
