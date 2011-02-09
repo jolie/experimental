@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="Joliespse">
+      Joliepse IDE
+   </description>
+   <feature url="features/jolie.xtext.feature_1.0.0.201102081734.jar" id="jolie.xtext.feature" version="1.0.0.201102081734"/>
+   <feature url="features/jolie.xtext.platform.feature_1.0.0.201102081734.jar" id="jolie.xtext.platform.feature" version="1.0.0.201102081734"/>
+   <category-def name="Joliepse" label="Joliepse">
+      <description>
+         Joliepse IDE
+      </description>
+   </category-def>
+</site>
