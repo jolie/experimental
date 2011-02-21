@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/jolie.xtext.feature_1.0.0.201102220002.jar" id="jolie.xtext.feature" version="1.0.0.201102220002" os="linux,macosx,win32">
+      <category name="Joliepse IDE"/>
+   </feature>
+   <category-def name="Joliepse IDE" label="Joliepse IDE"/>
+</site>
