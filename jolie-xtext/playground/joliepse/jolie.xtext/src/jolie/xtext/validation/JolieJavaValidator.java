@@ -45,7 +45,7 @@ public class JolieJavaValidator extends AbstractJolieJavaValidator {
 				EObject container = variablePath.eContainer();	
 				
 			
-					while (!(container instanceof jolie.xtext.jolie.impl.ProgramImpl)) {
+					while (!(container instanceof jolie.xtext.jolie.impl.ProgramImpl)&&flag==false) {
                        	
 						container = container.eContainer();
 						if (container instanceof jolie.xtext.jolie.impl.WithImpl)  flag=true ;
@@ -56,7 +56,7 @@ public class JolieJavaValidator extends AbstractJolieJavaValidator {
 					
 				if (flag==false) 
 					//Uso questo per far funzionare il quik fix provider
-					error("Prefixed variable paths must be inside a with blockkk", JoliePackage.VARIABLE_PATH__NAME, PREFIXED_WITHOUT_WITH_BLOCK, "name");
+					error("Prefixed variable paths must be inside a with block", JoliePackage.VARIABLE_PATH__NAME, PREFIXED_WITHOUT_WITH_BLOCK, "name");
 				 
 			}
 		}

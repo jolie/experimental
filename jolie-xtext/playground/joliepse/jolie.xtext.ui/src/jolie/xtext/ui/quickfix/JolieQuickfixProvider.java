@@ -1,12 +1,18 @@
 package jolie.xtext.ui.quickfix;
 
-
+import jolie.xtext.jolie.JolieFactory;
+import jolie.xtext.jolie.VariablePath;
+import jolie.xtext.jolie.With;
 import jolie.xtext.jolie.impl.VariablePathImpl;
 
 import jolie.xtext.validation.JolieJavaValidator;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.text.BadLocationException;
+import org.eclipse.jface.text.IRegion;
 
+import org.eclipse.xtext.ui.editor.model.IXtextDocument;
+import org.eclipse.xtext.ui.editor.model.edit.IModification;
 import org.eclipse.xtext.ui.editor.model.edit.IModificationContext;
 import org.eclipse.xtext.ui.editor.model.edit.ISemanticModification;
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
@@ -33,67 +39,36 @@ public class JolieQuickfixProvider extends DefaultQuickfixProvider {
 	@Fix(JolieJavaValidator.PREFIXED_WITHOUT_WITH_BLOCK)
 	public void fixFeatureName(final Issue issue,
 			IssueResolutionAcceptor acceptor) {
-		acceptor.accept(issue, "Delete the dot", "Uncapitalize name of '"
-				+ issue.getData()[0] + "'", "upcase.png",
-		// exemplary semantic modification
+		acceptor.accept(issue, "Delete the dot",
+				"Delete the dot '" + issue.getData()[0] + "'", "upcase.png",
+				// exemplary semantic modification
 
-				new ISemanticModification() {
-					public void apply(EObject element,
-							IModificationContext context) {
+				new IModification() {
+					public void apply(IModificationContext context) {
 
-						EObject container = element.eContainer(); // Il container della variabile,
-												// dovrebbe essere un basic
-												// state
-
-						element = (VariablePathImpl) element;
-						
-						System.out.println("sssssssssssssssssssssssssssss"
-								+ container.toString());
-						/*
-						elements = ((AssignStatementOrPostIncrementDecrementOrInputOperationElements) container).g.getElements();
-						
-						VariablePathImpl vp = (VariablePathImpl) element;
-						//vp.getName().clear();
-						vp.getName().set(0, null);
-						
-						
-						EList<AbstractElement> elements = null;
-						if (container instanceof PackageDeclaration) {
-							elements = ((PackageDeclaration) container).getElements();
-						
-						// L'indice del basic nella lista di basicStat di quel
-						// Parallel
-						//int index = elements.indexOf(element.eContainer()
-						//		.eContainer()) + 1;
-						
-						/*With with = JolieFactory.eINSTANCE.createWith();
-						
-						VariablePath vp = JolieFactory.eINSTANCE.createVariablePath();
-						
-						
-						vp.getName().add("diego");
-						
-						with.setName(vp);
-						
-						MainProcess mp=JolieFactory.eINSTANCE.createMainProcess();
-						
-						with.setMainrocess(mp);
-						System.out.println("sssssssssssssssssssssssssssss"+
-								vp.getName());
-					      */
-						
-						
-					
-					
+						IXtextDocument xtextDocument = context
+								.getXtextDocument();
+						try {
+							xtextDocument.replace(issue.getOffset() - 1, 1, "");
+						} catch (BadLocationException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 
 					}
-				});
-	}
 
-	/*
-	 * protected boolean createWithStatement(With sibling, String name) { With
-	 * with = JolieFactory.eINSTANCE.createWith();
-	 * 
-	 * return addTypeAsSibling(sibling, with); }
-	 */
+				});
+		
+		
+		
+
+	}
 }
+
+/*
+ * protected boolean createWithStatement(With sibling, String name) { With with
+ * = JolieFactory.eINSTANCE.createWith();
+ * 
+ * return addTypeAsSibling(sibling, with); }
+ */
+

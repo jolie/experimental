@@ -19,6 +19,7 @@ import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.ImportUriGlobalScopeProvider;
 
 import com.google.common.collect.Lists;
+import com.google.inject.Inject;
 
 
 /**
@@ -29,6 +30,7 @@ import com.google.common.collect.Lists;
  * 
  */
 public class JolieScopeProvider extends ImportUriGlobalScopeProvider {
+
 
 	private EList<Include> includeList;
 	

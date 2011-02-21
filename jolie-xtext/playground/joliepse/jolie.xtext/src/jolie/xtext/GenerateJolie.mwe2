@@ -11,6 +11,7 @@ var runtimeProject = "../${projectName}"
 
 Workflow {
     bean = StandaloneSetup {
+    	
 		platformUri = "${runtimeProject}/.."
 		
 	}
@@ -24,6 +25,7 @@ Workflow {
 	}
 
 	component = Generator {
+	
 		pathRtProject = runtimeProject
 		pathUiProject = "${runtimeProject}.ui"
 		projectNameRt = projectName
@@ -60,15 +62,12 @@ Workflow {
 
 			// java-based API for validation 
 			fragment = validation.JavaValidatorFragment {
-			    // composedCheck = "org.eclipse.xtext.validation.ImportUriValidator" //POSSO SPOSTARLO NEL VALIDATOR SCRITTO DA ME?
+			    // composedCheck = "org.eclipse.xtext.validation.ImportUriValidator" 
 				composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 				// registerForImportedPackages = true
 			}
 
-			// scoping and exporting API
-			// fragment = scoping.ImportNamespacesScopingFragment{} Importo tutto, senza dover fare import esplicito
-			//fragment = exporting.QualifiedNamesFragment {}
-
+	
 			// scoping and exporting API Con importUri e simpleName ottengo scoping locale 
 			fragment = scoping.ImportURIScopingFragment {}
 			fragment = exporting.SimpleNamesFragment {}
@@ -99,11 +98,11 @@ Workflow {
 			// generates a more lightweight Antlr parser and lexer tailored for content assist  
 			fragment = parser.antlr.XtextAntlrUiGeneratorFragment {}
 
-			// project wizard (optional) 
+			/* project wizard (optional) 
 			 fragment = projectWizard.SimpleProjectWizardFragment {
 			 		generatorProjectName = "${projectName}.generator" 
 					modelFileExtension = file.extensions
-			 }
+			 }*/
 		}
 	}
 }

@@ -14,11 +14,13 @@ import jolie.xtext.jolie.RequestResponseSignature;
 import jolie.xtext.jolie.Type;
 import jolie.xtext.jolie.With;
 
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 
 import com.google.inject.Inject;
+
 
 /**
  * Provides labels for a EObjects.
@@ -31,52 +33,13 @@ public class JolieLabelProvider extends DefaultEObjectLabelProvider {
 	public JolieLabelProvider(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
-
-/*
-	//Labels and icons can be computed like this:
 	
-	String text(MyModel ele) {
-	  return "my "+ele.getName();
-	}
-	 
-    String image(MyModel ele) {
-      return "MyModel.gif";
-    }
-*/
-	 String image(Type ele) {
-	    	return "type.gif";
-	    }
-	 
-	 String image(Native_type ele) {
-	    	return "typeN.gif";
-	    }
-	 
-	 String text(Type ele) {
-		  return "Type:"+ele.getName();
+	@Override
+	protected Object doGetImage(Object element) {
+		if(element instanceof EObject) {
+			return ((EObject)element).eClass().getName() + ".gif";
 		}
-	 
-	 String image(Main ele) {
-	    	return "home_nav.gif";
-	    }
-	 String image(InputPortStatement ele) {
-	    	return "door_in.png";
-	    }
-	 String image(OutputPortStatement ele) {
-	    	return "door_out.png";
-	    }
-	 String image(With ele) {
-	    	return "door_out.png";
-	    }
-	 String image(Define ele) {
-	    	return "define.png";
-	    }
-	 String image(Interface ele) {
-	    	return "interface.png";
-	    }
-	 String image(OneWayOperationSignature ele) {
-	    	return "one_way.png";
-	    }
-	 String image(RequestResponseSignature ele) {
-	    	return "req_res.png";
-	    }
+		return super.doGetImage(element);
+	}
+	
 }
