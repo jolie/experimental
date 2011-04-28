@@ -1,46 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<templates>
-    <template name="InputPortStatement" description="template for an InputPortStatement"
-        id="jolie.xtext.jolie.InputPortStatement"
-        context="jolie.xtext.jolie.InputPortStatement"
-        enabled="true">inputPort ${name} { 
-    ${cursor}   
-}</template>
- <template name="OutputPortStatement" description="template for an OutputPortStatement"
-        id="jolie.xtext.jolie.OutputPortStatement"
-        context="jolie.xtext.jolie.OutputPortStatement"
-        enabled="true">inputPort ${name} { 
-    ${cursor}   
-}</template>
-<template name="For" description="template for the For statemen"
-        id="jolie.xtext.jolie.For"
-        context="jolie.xtext.jolie.For"
-        enabled="true">for (${process},${condition},${process)    
-</template>
- <template name="Foreach" description="template for the foreach statemen"
-        id="jolie.xtext.jolie.Foreach"
-        context="jolie.xtext.jolie.Foreach"
-        enabled="true">foreach (${variablePath} : ${varablePath))    
-</template>
-
-<template name="Define" description="template for the foreach statemen"
-        id="jolie.xtext.jolie.Define"
-        context="jolie.xtext.jolie.Define"
-        enabled="true">define {${variablePath} : ${varablePath)}   
-</template>
-
-<template name="Init" description="template for the Init statemen"
-        id="jolie.xtext.jolie.Init"
-        context="jolie.xtext.jolie.Init"
-        enabled="true">init { ${Body} }   
-</template>
-
-<template name="Type" description="template for the type definition"
-        id="jolie.xtext.jolie.Type"
-        context="jolie.xtext.jolie.Type"
-        enabled="true">type ${typeName} : ${type} { 
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="jolie.xtext.Jolie.Define" deleted="false" description="template for the foreach statemen" enabled="true" id="jolie.xtext.jolie.Define" name="Define">define ${Name} {${Body} }   
+</template><template autoinsert="true" context="jolie.xtext.Jolie.For" deleted="false" description="template for the For statemen" enabled="true" id="jolie.xtext.jolie.For" name="For">for (${initializationCodeBlock},${condition},${PostCycleCodeBlock})  ${Body}</template><template autoinsert="true" context="jolie.xtext.Jolie.Foreach" deleted="false" description="template for the foreach statemen" enabled="true" id="jolie.xtext.jolie.Foreach" name="Foreach">foreach (${variablePath} : ${varablePath}) ${Body}   
+</template><template autoinsert="true" context="jolie.xtext.Jolie.Include" deleted="false" description="template for the Include statement" enabled="true" id="jolie.xtext.jolie.Include" name="Include">include "${filePath}"
+                        
+</template><template autoinsert="true" context="jolie.xtext.Jolie.Init" deleted="false" description="template for the Init statemen" enabled="true" id="jolie.xtext.jolie.Init" name="Init">init { ${Body} }   
+</template><template autoinsert="true" context="jolie.xtext.jolie.InputOperation" deleted="false" description="template for the OneWay operation statement" enabled="true" id="jolie.xtext.jolie.InputOperation" name="InputOperation:OneWay">type ${typeName} : ${type} { 
                        .${subType} : ${type}
              }   
-</template>
+</template><template autoinsert="true" context="jolie.xtext.Jolie.InputPortStatement" deleted="false" description="template for an InputPortStatement" enabled="true" id="jolie.xtext.jolie.InputPortStatement" name="InputPortStatement">inputPort ${name} { 
 
-</templates>
+    ${Location} : ${Uri}   
+    ${Protocol} : ${Name} 
+    
+}</template><template autoinsert="true" context="jolie.xtext.Jolie.Interface" deleted="false" description="template for the interface statement" enabled="true" id="jolie.xtext.jolie.Interface" name="Interface">interface ${name} { 
+
+    OneWay : ${OWOperationName}   
+    RequestResponse : ${RROperationName} 
+    
+}
+                        
+</template><template autoinsert="true" context="jolie.xtext.Jolie.Main" deleted="false" description="main statement" enabled="true" name="main">main {
+
+}</template><template autoinsert="true" context="jolie.xtext.Jolie.NDChoiceStatement" deleted="false" description="template for the NDChoiceStatement" enabled="true" id="jolie.xtext.jolie.NDChoiceStatement" name="NDChoiceStatement">[${inputOperation1}] {${BranchCode1}}
+[${inputOperation2}] {${BranchCode2}}
+[${inputOperation3}] {${BranchCode3}}
+</template><template autoinsert="true" context="jolie.xtext.Jolie.OutputPortStatement" deleted="false" description="template for an OutputPortStatement" enabled="true" id="jolie.xtext.jolie.OutputPortStatement" name="OutputPortStatement">outputPort ${name} { 
+
+     ${Location} : ${Uri}   
+     ${Protocol} : ${Name} 
+     
+}</template><template autoinsert="true" context="jolie.xtext.Jolie.Type" deleted="false" description="template for the type definition" enabled="true" id="jolie.xtext.jolie.Type" name="Type">type ${typeName} : ${typeType} { 
+		.${subType} : ${typeType}
+		}
+                          
+</template></templates>
