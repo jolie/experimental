@@ -55,7 +55,7 @@ Cardinality:
 
 /**********************************Types***********************************************/
 Embedded:
-	'embedded' '{' ('Java' | 'Jolie' | 'Javascript') COLON string+=STRING (in+=ID name+=ID)? (COMMA string+=STRING (in+=ID
+	'embedded' '{' ('Java' | 'Jolie' | 'Javascript') COLON string+=STRING ('in' name+=ID)? (COMMA string+=STRING ('in'
 	name+=ID)?)* '}';
 
 Define:
@@ -99,7 +99,16 @@ BasicStatement:
 	NDChoiceStatement=NDChoiceStatement | preIncrementDecrement=PreIncrementDecrement | With | Synchronized | Undef | For
 	| If | Foreach | While | {BasicStatement} 'nullProcess' | linkIn | linkOut | call=[Define] |
 	operation=[OneWayOperationSignature] | operation=[RequestResponseSignature] op=InputOrOutputOperationDefOrCall | // TODO Refactor... 
-	scope=Scope | compensate=Compensate | throw=Throw | install=Install | {cH} cH | {Exit} Exit;
+	scope=Scope | compensate=Compensate | throw=Throw | install=Install | {cH} cH | {Exit} Exit  |
+	Spawn;
+	
+Spawn :
+
+    'spawn' '(' variablePath=VariablePath 'over' expression=Expression ')' (spawnClause=SpawnInClause)? mainrocess=MainProcess;
+    
+SpawnInClause:
+
+     'in' VariablePath;
 
 Is_function:
 	{Is_function} ('is_defined' | 'is_string' | 'is_double' | 'is_int') '(' variablePath=VariablePath ')';
