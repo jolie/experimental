@@ -13,7 +13,8 @@ Require-Bundle: jolie.xtext;visibility:=reexport,
  org.eclipse.ui,
  org.eclipse.xtext.builder,
  org.antlr.runtime
-Import-Package: org.apache.log4j
+Import-Package: com.ibm.icu.util,
+ org.apache.log4j
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: jolie.xtext.ui.contentassist.antlr
 Bundle-Activator: jolie.xtext.ui.internal.JolieActivator
