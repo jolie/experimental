@@ -15,11 +15,21 @@ Program:
 	types+=Type |
 	init+=Init |
 	execution+=Execution |
+	csetDef+=CsetDef |
 	define+=Define |
 	embedded+=Embedded)*
 	main=Main?;
 
 
+CsetDef :
+    'cset {' corrSet+=CorrSet (COMMA (corrSet+=CorrSet)+ )* '}' 
+
+;
+
+
+//TO DO: cross reference to subtypes...
+CorrSet : 
+VariablePath COLON (type+=[Type] DOT subType+=ID)*;
 
 
 /****************************************Types****************************************/
@@ -34,6 +44,27 @@ Include:
 
 FileName:
 	name=STRING;
+	
+	
+	
+
+Type: 'type' name=ID COLON typeDefinition=TypeDefinition;
+
+NativeType	:	{NativeType} ("int" | "double" | "string" | "raw" | "void" | "any"|"undefined") |  type=[Type];
+
+TypeDefinition: {TypeDefinition} nativeType=NativeType ('{' (subTypeList=SubTypeList|QUESTION) '}')? |
+                {TypeDefinition}  name=ID ;
+                
+
+SubTypeList : subType+=SubType+;
+
+SubType : DOT name+=ID cardinality=Cardinality? COLON typeDefinition=TypeDefinition;
+
+Cardinality:
+	QUESTION | ASTERISK | ('[' INT COMMA (INT | ASTERISK) ']');
+
+
+/*
 
 Type:
 	'type' name=ID COLON native_type_sub+=Native_type typedef+=Typedef?;
@@ -44,14 +75,14 @@ Typedef:
 	'}';
 
 Subtypes:
-	{Subtypes} (DOT name+=ID Cardinality? COLON native_type+=Native_type typedef+=Typedef*)* | {Subtypes}
+	{Subtypes} (DOT name=ID Cardinality? COLON native_type+=Native_type typedef+=Typedef*)* | {Subtypes}
 	QUESTION;
 
 Cardinality:
 	QUESTION | ASTERISK | ('[' INT COMMA (INT | ASTERISK) ']');
 
  Native_type:
-	 name+=("any" | "int" | "real" | "string" | "void" | 'undefined' | 'double' | 'raw' )| type=[Type];
+	 name+=("any" | "int" | "real" | "string" | "void" | 'undefined' | 'double' | 'raw' )| type=[Type]; */
 
 /**********************************Types***********************************************/
 Embedded:
@@ -209,12 +240,17 @@ TerminalExpression returns Expression:
 	(CHOICE |
 	DECREMENT) variablePath=VariablePath | variablePath=VariablePath (CHOICE | DECREMENT)?;
 
-VariablePath:
-	{VariablePath} HASH? dot+=DOT? name+=(ID) ('[' children+=Expression ']')? (((DOT (ID | 'global') ('['
-	children+=Expression
-	']')?) | (DOT '(' children+=Expression ')')))* | {VariablePath} 'global' (((DOT (ID | 'global') ('['
-	children+=Expression ']')?) | (DOT '(' children+=Expression ')')))* //Global non è un un array
-;
+
+
+VariablePath	:dot+=DOT? (	( (name+=ID|'global'|'csets') subPath=SubPath )
+| (	name+=ID '[' exp=Expression']' subPath=SubPath ) );
+
+
+
+ SubPath	: {SubPath}	(DOT varPath=VariablePath)? |  (DOT '(' children+=Expression ')'  subPath=SubPath  ); 
+
+
+
 
 With:
 	{With} 'with' '(' name=VariablePath ')' mainrocess=MainProcess;
@@ -259,7 +295,7 @@ ThrowsClause:
 	name+=ID ('(' (type=TypeOfThrow) ')')?;
 
 TypeOfThrow:
-	type=[Type] | {TypeOfThrow} naiveType=Native_type;
+	type=[Type] | {TypeOfThrow} nativeType=NativeType;
 
 Location:
 	'Location' COLON uri+=Uri;
@@ -305,7 +341,7 @@ terminal VERT:
 	'|';
 
 terminal ASSIGN:
-	'=';
+	'='|'+=';
 
 terminal DOT:
 	'.';
