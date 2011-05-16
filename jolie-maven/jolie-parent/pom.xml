@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.jolie-lang</groupId>
+    <artifactId>jolie-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>jolie-parent</name>
+    <url>http://maven.apache.org</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <!-- TODO Fare italiana-parent -->
+    <modules>
+        <module>../jolie</module>
+        <module>../libjolie</module> <!-- NOTA-BENE nel repo non ufficaile esiste un progetto con nome libJolie, J maiuscola-->
+<!-- NOTA-BENE  lle seguenti due devono essere nel repo di italianasoftware, non in jolie
+        <module>../Jewel</module>
+        <module>../Library</module>
+-->        
+        <!-- <module>../Library_m2</module> -->
+
+    <!--    <module>../jolieJavaServices_m2</module> -->        <!-- lib -->
+    <!--    <module>../jolie-xml_m2</module> -->
+    <!--    <module>../jolie-ssl_m2</module> -->
+    <!-- TODO Considerare se continuare ad usare la subfolder extension: ora c'è il groupId,
+    non e' piu' necessaria -->
+    <!-- SUPPORT -->
+    <!--    <module>../metaservice-java_m2</module> -->
+        <module>../support/jolie-gwt</module>
+    <!-- EXTENSIONS -->
+    <!-- TODO: install-file come ad esempio unix.jar -->
+    <!--    <module>../localsocket_m2</module> -->
+    <!--    <module>../btl2cap_m2</module> -->
+    <!--    <module>../http_m2</module> -->
+    <!--    <module>../https_m2</module> -->
+    <!--    <module>../rmi_m2</module> -->
+    <!--    <module>../soap_m2</module> -->
+        <module>../extensions/sodep</module> <!-- TODO il path è relativ oalle dir come da group-id (nel repo) o rispetto al path corrente; verificare la necessità di uniformita tra le due possibilità -->
+    <!--    <module>../sodeps_m2</module> -->
+    <!--    <module>../xml_rpc_m2</module> -->
+    <!-- TOOLS  -->
+    <!--    <module>../jolie2plasma_m2</module>
+    -->
+    <!-- TODO wsdl2jolie:
+    todo fare archtipo o plugin jolie per maven  -->
+
+    <!-- jolie   Library -->
+    <!--
+    <module>../Library_m2</module>
+    -->
+    </modules>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                 <!-- <version>2.0.2</version> -->
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+     <distributionManagement>
+        <repository>
+            <id>iS-Releases</id>
+            <name>iS-Releases</name>
+            <url>http://77.89.4.42:8081/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>iS-Snapshots</id>
+            <name>iS-Snapshots</name>
+            <url>http://77.89.4.42:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>
