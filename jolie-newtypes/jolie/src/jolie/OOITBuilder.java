@@ -117,6 +117,7 @@ import jolie.lang.parse.ast.courier.SolicitResponseForwardStatement;
 import jolie.lang.parse.ast.expression.ConstantBoolExpression;
 import jolie.lang.parse.ast.expression.ConstantLongExpression;
 import jolie.lang.parse.ast.expression.InstanceOfExpressionNode;
+import jolie.lang.parse.ast.types.TypeChoiceDefinition;
 import jolie.lang.parse.ast.types.TypeDefinition;
 import jolie.lang.parse.ast.types.TypeDefinitionLink;
 import jolie.lang.parse.ast.types.TypeInlineDefinition;
@@ -632,6 +633,11 @@ public class OOITBuilder implements OLVisitor
 		}
 	}
 
+	public void visit( TypeChoiceDefinition n )
+	{
+		//TODO Julie
+	}
+	
 	public void visit( Program p )
 	{
 		for( OLSyntaxNode node : p.children() )
