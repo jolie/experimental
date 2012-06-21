@@ -51,8 +51,9 @@ public class TypeInlineDefinition extends TypeDefinition
 		this.nativeType = nativeType;
 	}
 
-	public String toRegex()
+	protected String toRegex()
 	{
+		
 		if ( regex == null) {	//Initialize regex if not already initialized.
 			regex = id() + ":" + nativeType();
 			
@@ -60,11 +61,11 @@ public class TypeInlineDefinition extends TypeDefinition
 				List<String> keys = new LinkedList<String>(subTypes.keySet());
 				java.util.Collections.sort(keys);
 				
-				regex += "_(";
+				regex += "\\{";
 				for( int i = 0; i < keys.size()-1 ; i++ ) {
 					regex += getSubType(keys.get(i)).toRegex() + ",";
 				}
-				regex += getSubType(keys.get(keys.size())).toRegex() + ")";
+				regex += getSubType(keys.get(keys.size())).toRegex() + "\\}";
 			}
 		}
 		

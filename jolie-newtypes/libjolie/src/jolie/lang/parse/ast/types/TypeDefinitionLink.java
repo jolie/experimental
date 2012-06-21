@@ -75,10 +75,10 @@ public class TypeDefinitionLink extends TypeDefinition
 		return linkedType;
 	}
 
-		public String toRegex()
+	protected String toRegex()
 	{
 		if ( regex == null) {	//Initialize regex if not already initialized.
-			linkedType.toRegex();
+			regex = "(" + linkedTypeName + "|<" + linkedTypeName + ">)";
 		}
 		return regex;
 	}

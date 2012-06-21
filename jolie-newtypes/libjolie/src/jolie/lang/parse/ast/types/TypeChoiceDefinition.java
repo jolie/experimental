@@ -28,7 +28,7 @@ public class TypeChoiceDefinition extends TypeDefinition {
 	}
 
 	@Override
-	public String toRegex()
+	protected String toRegex()
 	{
 		if ( regex == null) {	//Initialize regex if not already initialized.
 			regex = id() + ":";

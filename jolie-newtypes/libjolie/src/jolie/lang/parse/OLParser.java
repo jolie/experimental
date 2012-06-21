@@ -218,7 +218,7 @@ public class OLParser extends AbstractParser
 
 	private void parseTypes()
 		throws IOException, ParserException
-	{
+	{		
 		String typeName;
 		TypeDefinition currentType;
 
@@ -240,6 +240,9 @@ public class OLParser extends AbstractParser
 				options.add(parseTypeDefinition());
 				}
 				currentType = new TypeChoiceDefinition(getContext(), typeName, Constants.RANGE_ONE_TO_ONE, options);
+				//beginTest
+				//System.out.println(typeName + "created as choice type with options:" + Integer.toString(options.size()));
+				//endTest
 			} else {
 				currentType.setId(typeName);
 			}   

@@ -434,7 +434,27 @@ public class SemanticVerifier implements OLVisitor
 	
 	public void visit( TypeChoiceDefinition n )
 	{
-		//TODO Julie
+		checkCardinality( n );
+		boolean backupRootType = isTopLevelType;
+		if ( isTopLevelType ) {
+			// Check if the type has already been defined with a different structure
+			TypeDefinition type = definedTypes.get( n.id() );
+			if ( type != null ) {
+				addTypeEqualnessCheck( type, n );
+			}
+		}
+
+		isTopLevelType = false;
+		
+		for( TypeDefinition option : n.options() ) {
+			option.accept( this );
+		}
+		
+		isTopLevelType = backupRootType;
+
+		if ( isTopLevelType ) {
+			definedTypes.put( n.id(), n );
+		}
 	}
 
 	private void checkCardinality( TypeDefinition type )

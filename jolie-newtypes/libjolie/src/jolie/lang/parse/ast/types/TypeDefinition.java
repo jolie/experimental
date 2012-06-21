@@ -24,6 +24,7 @@
 package jolie.lang.parse.ast.types;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -111,6 +112,9 @@ public abstract class TypeDefinition extends OLSyntaxNode
 	 */
 	private static boolean checkTypeEqualness( TypeDefinition left, TypeDefinition right, List<String> recursiveTypesChecked )
 	{
+
+		
+		
 //
 //		if ( left.nativeType() != right.nativeType() ) {
 //			return false;
@@ -159,7 +163,7 @@ public abstract class TypeDefinition extends OLSyntaxNode
 	 * 01-Sep-2011 Fabrizio Montesi: removed some type casting
 	 */
 	public static TypeDefinition extend( TypeDefinition inputType, TypeDefinition extender, String namePrefix )
-	{
+	{		
 //		TypeInlineDefinition newType = new TypeInlineDefinition( inputType.context(), namePrefix + "_" + inputType.id(), inputType.nativeType(), inputType.cardinality );
 //
 //		if ( inputType instanceof TypeDefinitionUndefined ) {
@@ -224,7 +228,7 @@ public abstract class TypeDefinition extends OLSyntaxNode
 	 * To make the code faster the regex is only computed once,
 	 * so please don't call this method earlier than in the semantic verifier
 	 */
-	public abstract String toRegex();
+	protected abstract String toRegex();
 	
 //TODO: Remove
 //	public abstract TypeDefinition getSubType( String id );
