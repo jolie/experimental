@@ -21,6 +21,9 @@
 
 package jolie.lang.parse.ast.types;
 
+import dk.brics.automaton.RegExp;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import jolie.lang.NativeType;
@@ -36,6 +39,7 @@ public class TypeDefinitionLink extends TypeDefinition
 {
 	private TypeDefinition linkedType;
 	private final String linkedTypeName;
+	private String regex = null;
 
 	public TypeDefinitionLink( ParsingContext context, String id, Range cardinality, String linkedTypeName )
 	{
@@ -48,6 +52,12 @@ public class TypeDefinitionLink extends TypeDefinition
 		super( context, id, cardinality );
 		this.linkedTypeName = linkedType.id();
 		this.linkedType = linkedType;
+	}
+
+	public TypeDefinitionLink( ParsingContext context, Range cardinality, String linkedTypeName )
+	{
+		super( context, cardinality );
+		this.linkedTypeName = linkedTypeName;
 	}
 
 	public String linkedTypeName()
@@ -65,35 +75,44 @@ public class TypeDefinitionLink extends TypeDefinition
 		return linkedType;
 	}
 
-	public boolean untypedSubTypes()
+		public String toRegex()
 	{
-		return linkedType.untypedSubTypes();
+		if ( regex == null) {	//Initialize regex if not already initialized.
+			linkedType.toRegex();
+		}
+		return regex;
 	}
-
-	public boolean hasSubTypes()
-	{
-		return linkedType.hasSubTypes();
-	}
-
-	public TypeDefinition getSubType( String id )
-	{
-		return linkedType.getSubType( id );
-	}
-
-	public NativeType nativeType()
-	{
-		return linkedType.nativeType();
-	}
-
-	public Set< Map.Entry< String, TypeDefinition > > subTypes()
-	{
-		return linkedType.subTypes();
-	}
-
-	public boolean hasSubType( String id )
-	{
-		return linkedType.hasSubType( id );
-	}
+	
+	//TODO: Remove
+//	public boolean untypedSubTypes()
+//	{
+//		return linkedType.untypedSubTypes();
+//	}
+//
+//	public boolean hasSubTypes()
+//	{
+//		return linkedType.hasSubTypes();
+//	}
+//
+//	public TypeDefinition getSubType( String id )
+//	{
+//		return linkedType.getSubType( id );
+//	}
+//
+//	public NativeType nativeType()
+//	{
+//		return linkedType.nativeType();
+//	}
+//
+//	public Set< Map.Entry< String, TypeDefinition > > subTypes()
+//	{
+//		return linkedType.subTypes();
+//	}
+//
+//	public boolean hasSubType( String id )
+//	{
+//		return linkedType.hasSubType( id );
+//	}
 
 	public void accept( OLVisitor visitor )
 	{

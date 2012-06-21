@@ -43,7 +43,7 @@ import jolie.util.Range;
  */
 public abstract class TypeDefinition extends OLSyntaxNode
 {
-	private final String id;
+	private String id;
 	private final Range cardinality;
 
 	/**
@@ -59,11 +59,22 @@ public abstract class TypeDefinition extends OLSyntaxNode
 		this.cardinality = cardinality;
 	}
 
+	public TypeDefinition( ParsingContext context, Range cardinality )
+	{
+		super( context );
+		this.cardinality = cardinality;
+	}
+
 	public String id()
 	{
 		return id;
 	}
 
+	public void setId(String id)
+	{
+		this.id = id;
+	}
+	
 	public Range cardinality()
 	{
 		return cardinality;
@@ -76,21 +87,22 @@ public abstract class TypeDefinition extends OLSyntaxNode
 
 	private boolean containsPath( Iterator< Pair< OLSyntaxNode, OLSyntaxNode > > it )
 	{
-		if ( it.hasNext() == false ) {
-			return nativeType() != NativeType.VOID;
-		}
-
-		if ( untypedSubTypes() ) {
-			return true;
-		}
-
-		Pair< OLSyntaxNode, OLSyntaxNode > pair = it.next();
-		String nodeName = ((ConstantStringExpression)pair.key()).value();
-		if ( hasSubType( nodeName ) ) {
-			TypeDefinition subType = getSubType( nodeName );
-			return subType.containsPath( it );
-		}
-
+//		if ( it.hasNext() == false ) {
+//			return nativeType() != NativeType.VOID;
+//		}
+//
+//		if ( untypedSubTypes() ) {
+//			return true;
+//		}
+//
+//		Pair< OLSyntaxNode, OLSyntaxNode > pair = it.next();
+//		String nodeName = ((ConstantStringExpression)pair.key()).value();
+//		if ( hasSubType( nodeName ) ) {
+//			TypeDefinition subType = getSubType( nodeName );
+//			return subType.containsPath( it );
+//		}
+//
+//		return false;
 		return false;
 	}
 
@@ -99,45 +111,46 @@ public abstract class TypeDefinition extends OLSyntaxNode
 	 */
 	private static boolean checkTypeEqualness( TypeDefinition left, TypeDefinition right, List<String> recursiveTypesChecked )
 	{
-
-		if ( left.nativeType() != right.nativeType() ) {
-			return false;
-		}
-
-		if ( left.cardinality.equals( right.cardinality ) == false ) {
-			return false;
-		}
-
-		if ( left.untypedSubTypes() ) {
-			return right.untypedSubTypes();
-		} else {
-			if ( right.untypedSubTypes() ) {
-				return false;
-			}
-			if ( left.hasSubTypes() ) {
-				if ( left.subTypes().size() != right.subTypes().size() ) {
-					return false;
-				}
-
-				for( Entry< String, TypeDefinition > entry : left.subTypes() ) {
-					TypeDefinition rightSubType = right.getSubType( entry.getKey() );
-					if ( rightSubType == null ) {
-						return false;
-					}
-					if ( recursiveTypesChecked.contains( rightSubType.id ) ) {
-						return true;
-					} else {
-						recursiveTypesChecked.add( rightSubType.id );
-					}
-					if ( entry.getValue().isEquivalentTo_recursive( right.getSubType( entry.getKey() ), recursiveTypesChecked ) == false ) {
-						return false;
-					}
-				}
-			} else {
-				return right.hasSubTypes() == false;
-			}
-		}
-
+//
+//		if ( left.nativeType() != right.nativeType() ) {
+//			return false;
+//		}
+//
+//		if ( left.cardinality.equals( right.cardinality ) == false ) {
+//			return false;
+//		}
+//
+//		if ( left.untypedSubTypes() ) {
+//			return right.untypedSubTypes();
+//		} else {
+//			if ( right.untypedSubTypes() ) {
+//				return false;
+//			}
+//			if ( left.hasSubTypes() ) {
+//				if ( left.subTypes().size() != right.subTypes().size() ) {
+//					return false;
+//				}
+//
+//				for( Entry< String, TypeDefinition > entry : left.subTypes() ) {
+//					TypeDefinition rightSubType = right.getSubType( entry.getKey() );
+//					if ( rightSubType == null ) {
+//						return false;
+//					}
+//					if ( recursiveTypesChecked.contains( rightSubType.id ) ) {
+//						return true;
+//					} else {
+//						recursiveTypesChecked.add( rightSubType.id );
+//					}
+//					if ( entry.getValue().isEquivalentTo_recursive( right.getSubType( entry.getKey() ), recursiveTypesChecked ) == false ) {
+//						return false;
+//					}
+//				}
+//			} else {
+//				return right.hasSubTypes() == false;
+//			}
+//		}
+//
+//		return true;
 		return true;
 	}
 
@@ -147,29 +160,30 @@ public abstract class TypeDefinition extends OLSyntaxNode
 	 */
 	public static TypeDefinition extend( TypeDefinition inputType, TypeDefinition extender, String namePrefix )
 	{
-		TypeInlineDefinition newType = new TypeInlineDefinition( inputType.context(), namePrefix + "_" + inputType.id(), inputType.nativeType(), inputType.cardinality );
-
-		if ( inputType instanceof TypeDefinitionUndefined ) {
-			TypeInlineDefinition newTid = new TypeInlineDefinition( inputType.context(), namePrefix + "_" + inputType.id(), NativeType.ANY, inputType.cardinality );
-			if ( extender.hasSubTypes() ) {
-				for( Entry<String, TypeDefinition> subType : extender.subTypes() ) {
-					newTid.putSubType( subType.getValue() );
-				}
-			}
-			newType = newTid;
-		} else {
-			if ( inputType.hasSubTypes() ) {
-				for( Entry<String, TypeDefinition> subType : inputType.subTypes() ) {
-					newType.putSubType( subType.getValue() );
-				}
-			}
-			if ( extender.hasSubTypes() ) {
-				for( Entry<String, TypeDefinition> subType : extender.subTypes() ) {
-					newType.putSubType( subType.getValue() );
-				}
-			}
-		}
-		return newType;
+//		TypeInlineDefinition newType = new TypeInlineDefinition( inputType.context(), namePrefix + "_" + inputType.id(), inputType.nativeType(), inputType.cardinality );
+//
+//		if ( inputType instanceof TypeDefinitionUndefined ) {
+//			TypeInlineDefinition newTid = new TypeInlineDefinition( inputType.context(), namePrefix + "_" + inputType.id(), NativeType.ANY, inputType.cardinality );
+//			if ( extender.hasSubTypes() ) {
+//				for( Entry<String, TypeDefinition> subType : extender.subTypes() ) {
+//					newTid.putSubType( subType.getValue() );
+//				}
+//			}
+//			newType = newTid;
+//		} else {
+//			if ( inputType.hasSubTypes() ) {
+//				for( Entry<String, TypeDefinition> subType : inputType.subTypes() ) {
+//					newType.putSubType( subType.getValue() );
+//				}
+//			}
+//			if ( extender.hasSubTypes() ) {
+//				for( Entry<String, TypeDefinition> subType : extender.subTypes() ) {
+//					newType.putSubType( subType.getValue() );
+//				}
+//			}
+//		}
+//		return newType;
+		return null;
 	}
 
 	/**
@@ -206,10 +220,17 @@ public abstract class TypeDefinition extends OLSyntaxNode
 		return hash;
 	}
 
-	public abstract TypeDefinition getSubType( String id );
-	public abstract Set< Map.Entry< String, TypeDefinition > > subTypes();
-	public abstract boolean hasSubTypes();
-	public abstract boolean untypedSubTypes();
-	public abstract NativeType nativeType();
-	public abstract boolean hasSubType( String id );
+	/**
+	 * To make the code faster the regex is only computed once,
+	 * so please don't call this method earlier than in the semantic verifier
+	 */
+	public abstract String toRegex();
+	
+//TODO: Remove
+//	public abstract TypeDefinition getSubType( String id );
+//	public abstract Set< Map.Entry< String, TypeDefinition > > subTypes();
+//	public abstract boolean hasSubTypes();
+//	public abstract boolean untypedSubTypes();
+//	public abstract NativeType nativeType();
+//	public abstract boolean hasSubType( String id );
 }

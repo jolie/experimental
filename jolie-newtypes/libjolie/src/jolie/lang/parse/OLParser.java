@@ -114,6 +114,7 @@ import jolie.lang.parse.ast.courier.CourierDefinitionNode;
 import jolie.lang.parse.ast.courier.NotificationForwardStatement;
 import jolie.lang.parse.ast.courier.SolicitResponseForwardStatement;
 import jolie.lang.parse.ast.expression.*;
+import jolie.lang.parse.ast.types.TypeChoiceDefinition;
 import jolie.lang.parse.ast.types.TypeDefinition;
 import jolie.lang.parse.ast.types.TypeDefinitionLink;
 import jolie.lang.parse.ast.types.TypeDefinitionUndefined;
@@ -228,23 +229,46 @@ public class OLParser extends AbstractParser
 			typeName = token.content();
 			eat( Scanner.TokenType.ID, "expected type name" );
 			eat( Scanner.TokenType.COLON, "expected COLON (cardinality not allowed in root type declaration, it is fixed to [1,1])" );
-			NativeType nativeType = readNativeType();
-			if ( nativeType == null ) { // It's a user-defined type
-				currentType = new TypeDefinitionLink( getContext(), typeName, Constants.RANGE_ONE_TO_ONE, token.content() );
-				getToken();
-			} else {
-				currentType = new TypeInlineDefinition( getContext(), typeName, nativeType, Constants.RANGE_ONE_TO_ONE );
-				getToken();
-				if ( token.is( Scanner.TokenType.LCURLY ) ) { // We have sub-types to parse
-					parseSubTypes( (TypeInlineDefinition)currentType );
+			currentType = parseTypeDefinition();
+			if ( token.is( Scanner.TokenType.PLUS ) ) { //The type is a choice between several types.
+				List<TypeDefinition> options = new LinkedList<TypeDefinition>();
+				
+				options.add(currentType);
+		
+				while( token.is( Scanner.TokenType.PLUS ) ) {
+					getToken();
+				options.add(parseTypeDefinition());
 				}
-			}
+				currentType = new TypeChoiceDefinition(getContext(), typeName, Constants.RANGE_ONE_TO_ONE, options);
+			} else {
+				currentType.setId(typeName);
+			}   
 
 			// Keep track of the root types to support them in successive type declarations
 			definedTypes.put( typeName, currentType );
 			program.addChild( currentType );
 		}
 	}
+
+		private TypeDefinition parseTypeDefinition()
+			throws IOException, ParserException
+		{
+			NativeType nativeType = readNativeType();
+			TypeDefinition currentType;
+			
+			if ( nativeType == null ) { // It's a user-defined type
+				currentType = new TypeDefinitionLink( getContext(), Constants.RANGE_ONE_TO_ONE, token.content() );
+				getToken();
+			} else {
+				currentType = new TypeInlineDefinition( getContext(), nativeType, Constants.RANGE_ONE_TO_ONE );
+				getToken();
+				if ( token.is( Scanner.TokenType.LCURLY ) ) { // We have sub-types to parse
+					parseSubTypes( (TypeInlineDefinition)currentType );
+				}
+			}
+			return currentType;
+		}
+		
 
 	private NativeType readNativeType()
 	{

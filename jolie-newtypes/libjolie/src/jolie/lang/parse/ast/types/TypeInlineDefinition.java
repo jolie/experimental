@@ -22,9 +22,8 @@
 
 package jolie.lang.parse.ast.types;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import dk.brics.automaton.RegExp;
+import java.util.*;
 import jolie.lang.NativeType;
 import jolie.lang.parse.OLVisitor;
 import jolie.lang.parse.context.ParsingContext;
@@ -38,13 +37,42 @@ public class TypeInlineDefinition extends TypeDefinition
 	private final NativeType nativeType;
 	private Map< String, TypeDefinition > subTypes = null;
 	private boolean untypedSubTypes = false;
+	private String regex = null;
 
 	public TypeInlineDefinition( ParsingContext context, String id, NativeType nativeType, Range cardinality )
 	{
 		super( context, id, cardinality );
 		this.nativeType = nativeType;
 	}
+	
+	public TypeInlineDefinition( ParsingContext context, NativeType nativeType, Range cardinality )
+	{
+		super( context, cardinality );
+		this.nativeType = nativeType;
+	}
 
+	public String toRegex()
+	{
+		if ( regex == null) {	//Initialize regex if not already initialized.
+			regex = id() + ":" + nativeType();
+			
+			if ( hasSubTypes() ) {
+				List<String> keys = new LinkedList<String>(subTypes.keySet());
+				java.util.Collections.sort(keys);
+				
+				regex += "_(";
+				for( int i = 0; i < keys.size()-1 ; i++ ) {
+					regex += getSubType(keys.get(i)).toRegex() + ",";
+				}
+				regex += getSubType(keys.get(keys.size())).toRegex() + ")";
+			}
+		}
+		
+		new RegExp(regex);
+		
+		return regex;
+	}
+	
 	public NativeType nativeType()
 	{
 		return nativeType;

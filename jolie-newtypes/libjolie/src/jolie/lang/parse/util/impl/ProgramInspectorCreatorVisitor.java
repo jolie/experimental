@@ -99,6 +99,7 @@ import jolie.lang.parse.ast.courier.CourierDefinitionNode;
 import jolie.lang.parse.ast.courier.NotificationForwardStatement;
 import jolie.lang.parse.ast.courier.SolicitResponseForwardStatement;
 import jolie.lang.parse.ast.expression.*;
+import jolie.lang.parse.ast.types.TypeChoiceDefinition;
 import jolie.lang.parse.ast.types.TypeDefinition;
 import jolie.lang.parse.ast.types.TypeDefinitionLink;
 import jolie.lang.parse.ast.types.TypeInlineDefinition;
@@ -180,6 +181,11 @@ public class ProgramInspectorCreatorVisitor implements OLVisitor
 		encounteredNode( n );
 	}
 
+	public void visit( TypeChoiceDefinition n )
+	{
+		//TODO
+	}
+	
 	public void visit( InputPortInfo n )
 	{
 		List< InputPortInfo > list = inputPorts.get( n.context().source() );
