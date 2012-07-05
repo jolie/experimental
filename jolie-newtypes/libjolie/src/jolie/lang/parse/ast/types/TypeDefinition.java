@@ -24,17 +24,12 @@
 package jolie.lang.parse.ast.types;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
-import jolie.lang.parse.context.ParsingContext;
 import jolie.lang.parse.ast.OLSyntaxNode;
-import jolie.lang.NativeType;
-import jolie.lang.parse.ast.expression.ConstantStringExpression;
 import jolie.lang.parse.ast.VariablePathNode;
+import jolie.lang.parse.context.ParsingContext;
 import jolie.util.Pair;
 import jolie.util.Range;
 
@@ -63,6 +58,7 @@ public abstract class TypeDefinition extends OLSyntaxNode
 	public TypeDefinition( ParsingContext context, Range cardinality )
 	{
 		super( context );
+		this.id = null;
 		this.cardinality = cardinality;
 	}
 
@@ -86,78 +82,84 @@ public abstract class TypeDefinition extends OLSyntaxNode
 		return containsPath( variablePath.path().iterator() );
 	}
 
-	private boolean containsPath( Iterator< Pair< OLSyntaxNode, OLSyntaxNode > > it )
-	{
-//		if ( it.hasNext() == false ) {
-//			return nativeType() != NativeType.VOID;
-//		}
-//
-//		if ( untypedSubTypes() ) {
-//			return true;
-//		}
-//
-//		Pair< OLSyntaxNode, OLSyntaxNode > pair = it.next();
-//		String nodeName = ((ConstantStringExpression)pair.key()).value();
-//		if ( hasSubType( nodeName ) ) {
-//			TypeDefinition subType = getSubType( nodeName );
-//			return subType.containsPath( it );
-//		}
-//
-//		return false;
-		return false;
-	}
-
 	/*
 	 * 13/10/2011 - Claudio Guidi: added recursiveTypesChecked list for checking recursive types equalness
 	 */
-	private static boolean checkTypeEqualness( TypeDefinition left, TypeDefinition right, List<String> recursiveTypesChecked )
+	protected static boolean checkTypeEqualness( TypeInlineDefinition left, TypeInlineDefinition right, List<String> recursiveTypesChecked )
 	{
+		if ( left.nativeType() != right.nativeType() ) {
+			return false;
+		}
 
-		
-		
-//
-//		if ( left.nativeType() != right.nativeType() ) {
-//			return false;
-//		}
-//
-//		if ( left.cardinality.equals( right.cardinality ) == false ) {
-//			return false;
-//		}
-//
-//		if ( left.untypedSubTypes() ) {
-//			return right.untypedSubTypes();
-//		} else {
-//			if ( right.untypedSubTypes() ) {
-//				return false;
-//			}
-//			if ( left.hasSubTypes() ) {
-//				if ( left.subTypes().size() != right.subTypes().size() ) {
-//					return false;
-//				}
-//
-//				for( Entry< String, TypeDefinition > entry : left.subTypes() ) {
-//					TypeDefinition rightSubType = right.getSubType( entry.getKey() );
-//					if ( rightSubType == null ) {
-//						return false;
-//					}
-//					if ( recursiveTypesChecked.contains( rightSubType.id ) ) {
-//						return true;
-//					} else {
-//						recursiveTypesChecked.add( rightSubType.id );
-//					}
-//					if ( entry.getValue().isEquivalentTo_recursive( right.getSubType( entry.getKey() ), recursiveTypesChecked ) == false ) {
-//						return false;
-//					}
-//				}
-//			} else {
-//				return right.hasSubTypes() == false;
-//			}
-//		}
-//
-//		return true;
+		if ( left.cardinality().equals( right.cardinality() ) == false ) {
+			return false;
+		}
+
+		if ( left.untypedSubTypes() ) {
+			return right.untypedSubTypes();
+		} else {
+			if ( right.untypedSubTypes() ) {
+				return false;
+			}
+			if ( left.hasSubTypes() ) {
+				if ( left.subTypes().size() != right.subTypes().size() ) {
+					return false;
+				}
+
+				for( Entry< String, TypeDefinition > entry : left.subTypes() ) {
+					TypeDefinition rightSubType = right.getSubType( entry.getKey() );
+					if ( rightSubType == null ) {
+						return false;
+					}
+					if ( recursiveTypesChecked.contains( rightSubType.id ) ) {
+						return true;
+					} else {
+						recursiveTypesChecked.add( rightSubType.id );
+					}
+					if ( entry.getValue().isEquivalentTo_recursive( right.getSubType( entry.getKey() ), recursiveTypesChecked ) == false ) {
+						return false;
+					}
+				}
+			} else {
+				return right.hasSubTypes() == false;
+			}
+		}
+
 		return true;
 	}
-
+	
+	/**
+	 * Check whether 2 TypeChoiceDefinitions are equivalent. 
+	 * This happens when for each of the TypeChoiceDefinitions, each of its 
+	 * options are contained in the other TypeChoiceDefinition's options.
+	 * @param left
+	 * @param right
+	 * @param recursiveTypesChecked
+	 * @return true if left and right are equivalent.
+	 */
+	protected static boolean checkTypeEqualness( TypeChoiceDefinition left, TypeChoiceDefinition right, List<String> recursiveTypesChecked )
+	{
+		List < TypeDefinition > leftOptions = left.options();
+		List < TypeDefinition > rightOptions = right.options();
+		TypeDefinition equivalent;
+		
+		for ( TypeDefinition leftOption : leftOptions ) {
+			equivalent = right.getEquivalentOption(leftOption);
+			
+			if ( equivalent == null ) {
+				return false;
+			} else {
+				rightOptions.remove(equivalent);	//no need to check for equivalence one more time
+			}
+		}
+		for ( TypeDefinition rightOption : rightOptions ) {
+			if ( left.getEquivalentOption(rightOption) == null ) {
+				return false;
+			}			
+		}
+		return true;
+	}
+	
 	/**
 	 * @author Claudio Guidi
 	 * 01-Sep-2011 Fabrizio Montesi: removed some type casting
@@ -196,19 +198,17 @@ public abstract class TypeDefinition extends OLSyntaxNode
 	 */
 	public boolean isEquivalentTo( TypeDefinition other )
 	{
+		
 		List<String> recursiveTypeChecked = new ArrayList<String>();
-		return checkTypeEqualness( this, other, recursiveTypeChecked );
+		//begin test
+		boolean result = isEquivalentTo_recursive(other, recursiveTypeChecked);
+		System.out.println( "Are they equivalent? " + this.id + this.getClass() + ", " + other.id + other.getClass() + ": " + result );
+		return result;
+		//end test
+		//return isEquivalentTo_recursive(other, recursiveTypeChecked);	//correct
+		//return checkTypeEqualness( this, other, recursiveTypeChecked );	
 	}
-
-	/**
-	 * introduced for checking also recursive type equalness
-	 * @author Claudio Guidi
-	 */
-	private boolean isEquivalentTo_recursive( TypeDefinition other, List<String> recursiveTypeChecked )
-	{
-		return checkTypeEqualness( this, other, recursiveTypeChecked );
-	}
-
+	
 	@Override
 	public boolean equals( Object other )
 	{
@@ -224,17 +224,7 @@ public abstract class TypeDefinition extends OLSyntaxNode
 		return hash;
 	}
 
-	/**
-	 * To make the code faster the regex is only computed once,
-	 * so please don't call this method earlier than in the semantic verifier
-	 */
-	protected abstract String toRegex();
-	
-//TODO: Remove
-//	public abstract TypeDefinition getSubType( String id );
-//	public abstract Set< Map.Entry< String, TypeDefinition > > subTypes();
-//	public abstract boolean hasSubTypes();
-//	public abstract boolean untypedSubTypes();
-//	public abstract NativeType nativeType();
-//	public abstract boolean hasSubType( String id );
+	protected abstract boolean containsPath( Iterator< Pair< OLSyntaxNode, OLSyntaxNode > > it );
+	protected abstract boolean isEquivalentTo_recursive( TypeDefinition other, List<String> recursiveTypeChecked );
+	public abstract TypeDefinition copy();
 }

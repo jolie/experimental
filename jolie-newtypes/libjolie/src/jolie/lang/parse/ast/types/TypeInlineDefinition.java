@@ -22,11 +22,14 @@
 
 package jolie.lang.parse.ast.types;
 
-import dk.brics.automaton.RegExp;
 import java.util.*;
+import java.util.Map.Entry;
 import jolie.lang.NativeType;
 import jolie.lang.parse.OLVisitor;
+import jolie.lang.parse.ast.OLSyntaxNode;
+import jolie.lang.parse.ast.expression.ConstantStringExpression;
 import jolie.lang.parse.context.ParsingContext;
+import jolie.util.Pair;
 import jolie.util.Range;
 
 /**
@@ -37,7 +40,6 @@ public class TypeInlineDefinition extends TypeDefinition
 	private final NativeType nativeType;
 	private Map< String, TypeDefinition > subTypes = null;
 	private boolean untypedSubTypes = false;
-	private String regex = null;
 
 	public TypeInlineDefinition( ParsingContext context, String id, NativeType nativeType, Range cardinality )
 	{
@@ -51,27 +53,40 @@ public class TypeInlineDefinition extends TypeDefinition
 		this.nativeType = nativeType;
 	}
 
-	protected String toRegex()
+	protected boolean containsPath( Iterator< Pair< OLSyntaxNode, OLSyntaxNode > > it )
 	{
-		
-		if ( regex == null) {	//Initialize regex if not already initialized.
-			regex = id() + ":" + nativeType();
-			
-			if ( hasSubTypes() ) {
-				List<String> keys = new LinkedList<String>(subTypes.keySet());
-				java.util.Collections.sort(keys);
-				
-				regex += "\\{";
-				for( int i = 0; i < keys.size()-1 ; i++ ) {
-					regex += getSubType(keys.get(i)).toRegex() + ",";
-				}
-				regex += getSubType(keys.get(keys.size())).toRegex() + "\\}";
-			}
+		if ( it.hasNext() == false ) {
+			return nativeType() != NativeType.VOID;
 		}
-		
-		new RegExp(regex);
-		
-		return regex;
+
+		if ( untypedSubTypes() ) {
+			return true;
+		}
+
+		Pair< OLSyntaxNode, OLSyntaxNode > pair = it.next();
+		String nodeName = ((ConstantStringExpression)pair.key()).value();
+		if ( hasSubType( nodeName ) ) {
+			TypeDefinition subType = getSubType( nodeName );
+			return subType.containsPath( it );
+		}
+		return false;
+	}
+	
+		/**
+	 * introduced for checking also recursive type equalness
+	 * @author Claudio Guidi
+	 * 28-June-2012 Julie Meinicke Nielsen: Added type parsing. 
+	 */
+	protected boolean isEquivalentTo_recursive( TypeDefinition other, List<String> recursiveTypeChecked )
+	{
+		if ( other instanceof TypeDefinitionLink ) {
+			other = ((TypeDefinitionLink)other).lastLinkedType();
+		}
+		if ( other instanceof TypeInlineDefinition ) {
+			return checkTypeEqualness(this, (TypeInlineDefinition)other, recursiveTypeChecked);
+		} else {
+			return false;
+		}
 	}
 	
 	public NativeType nativeType()
@@ -131,6 +146,21 @@ public class TypeInlineDefinition extends TypeDefinition
 		return untypedSubTypes;
 	}
 
+	public TypeInlineDefinition copy()
+	{
+		TypeInlineDefinition copiedType = new TypeInlineDefinition(context(), id(), nativeType, cardinality());
+		Map< String, TypeDefinition > copiedSubTypes = null;
+		
+		if ( untypedSubTypes() ) {
+			copiedType.setUntypedSubTypes(untypedSubTypes());
+		} else if ( hasSubTypes() ) { //copy subTypes if any
+			for ( TypeDefinition subType : subTypes.values() ) {
+				copiedType.putSubType(subType.copy());
+			}			
+		}
+		return copiedType;
+	}
+	
 	public void accept( OLVisitor visitor )
 	{
 		visitor.visit( this );

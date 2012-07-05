@@ -21,14 +21,12 @@
 
 package jolie.lang.parse.ast.types;
 
-import dk.brics.automaton.RegExp;
-import java.util.LinkedList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import jolie.lang.NativeType;
 import jolie.lang.parse.OLVisitor;
+import jolie.lang.parse.ast.OLSyntaxNode;
 import jolie.lang.parse.context.ParsingContext;
+import jolie.util.Pair;
 import jolie.util.Range;
 
 /**
@@ -60,6 +58,23 @@ public class TypeDefinitionLink extends TypeDefinition
 		this.linkedTypeName = linkedTypeName;
 	}
 
+	@Override
+	protected boolean containsPath( Iterator< Pair< OLSyntaxNode, OLSyntaxNode > > it )
+	{
+		return linkedType.containsPath(it);
+	}
+
+	/**
+	 * introduced for checking also recursive type equalness
+	 * @author Claudio Guidi
+	 * 28-June-2012 Julie Meinicke Nielsen: Added type parsing. 
+	 */
+	@Override
+	protected boolean isEquivalentTo_recursive( TypeDefinition other, List<String> recursiveTypeChecked )
+	{		
+		return lastLinkedType().isEquivalentTo_recursive(other, recursiveTypeChecked);
+	}
+	
 	public String linkedTypeName()
 	{
 		return linkedTypeName;
@@ -74,46 +89,26 @@ public class TypeDefinitionLink extends TypeDefinition
 	{
 		return linkedType;
 	}
-
-	protected String toRegex()
+	
+	/**
+	 * In case the linked type is a link, the link chain is followed such that
+	 * the last type is returned.
+	 * @return either a TypeDefinitionChoice or a TypeInlineDefinition
+	 */
+	public TypeDefinition lastLinkedType()
 	{
-		if ( regex == null) {	//Initialize regex if not already initialized.
-			regex = "(" + linkedTypeName + "|<" + linkedTypeName + ">)";
+		if ( linkedType instanceof TypeDefinitionLink ) {
+			return ((TypeDefinitionLink)linkedType).lastLinkedType();
+		} else {
+			return linkedType;
 		}
-		return regex;
+	}
+
+	public TypeDefinition copy()
+	{
+		return linkedType.copy();
 	}
 	
-	//TODO: Remove
-//	public boolean untypedSubTypes()
-//	{
-//		return linkedType.untypedSubTypes();
-//	}
-//
-//	public boolean hasSubTypes()
-//	{
-//		return linkedType.hasSubTypes();
-//	}
-//
-//	public TypeDefinition getSubType( String id )
-//	{
-//		return linkedType.getSubType( id );
-//	}
-//
-//	public NativeType nativeType()
-//	{
-//		return linkedType.nativeType();
-//	}
-//
-//	public Set< Map.Entry< String, TypeDefinition > > subTypes()
-//	{
-//		return linkedType.subTypes();
-//	}
-//
-//	public boolean hasSubType( String id )
-//	{
-//		return linkedType.hasSubType( id );
-//	}
-
 	public void accept( OLVisitor visitor )
 	{
 		visitor.visit( this );

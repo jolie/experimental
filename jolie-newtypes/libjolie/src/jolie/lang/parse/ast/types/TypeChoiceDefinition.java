@@ -21,11 +21,16 @@
 
 package jolie.lang.parse.ast.types;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 import jolie.lang.NativeType;
 import jolie.lang.parse.OLVisitor;
+import jolie.lang.parse.ast.OLSyntaxNode;
+import jolie.lang.parse.ast.expression.ConstantStringExpression;
 import jolie.lang.parse.context.ParsingContext;
+import jolie.util.Pair;
 import jolie.util.Range;
 
 /**
@@ -35,31 +40,96 @@ import jolie.util.Range;
 public class TypeChoiceDefinition extends TypeDefinition {
 	
 	private final List< TypeDefinition > options;
-	private String regex = null;
 	
-	public TypeChoiceDefinition( ParsingContext context, String id, Range cardinality, List<TypeDefinition> options)
+	public TypeChoiceDefinition( ParsingContext context, String id, Range cardinality, List< TypeDefinition > options)
 	{
 		super( context, id, cardinality );
 		this.options = options;
 	}
+
+	public TypeChoiceDefinition( ParsingContext context, Range cardinality, List< TypeDefinition > options)
+	{
+		super( context, cardinality );
+		this.options = options;
+	}
 	
-	public List<TypeDefinition> options()
+	
+	public List< TypeDefinition > options()
 	{
 		return options;
 	}
-
-	@Override
-	protected String toRegex()
+	
+	public void putOption ( TypeDefinition option )
 	{
-		if ( regex == null) {	//Initialize regex if not already initialized.
-			regex = id() + ":";
-			
-			for( int i = 0; i < options.size()-1 ; i++ ) {
-				regex += options.get(i).toRegex() + "+";
+		options.add(option);
+	}
+	
+	/**
+	 * The first found option that is equivalent to type is returned. 
+	 * If non of the options are equivalent to type, null is returned.
+	 * @param type
+	 * @return equivalent option or null
+	 */
+	public TypeDefinition getEquivalentOption( TypeDefinition type ) {
+		for ( TypeDefinition option : options ) {
+			if ( type.isEquivalentTo(option) ) {
+				return option;
 			}
-			regex += options.get(options.size()).toRegex();
 		}
-		return regex;
+		return null;
+	}
+	
+	/**
+	 * Returns true if the variable path is contained in all options.
+	 * @param it
+	 * @return whether the variable path is contained in all options.
+	 */
+	@Override
+	protected boolean containsPath( Iterator< Pair< OLSyntaxNode, OLSyntaxNode > > it )
+	{
+		for ( TypeDefinition option : options ) {
+			if ( option.containsPath(it) == false ) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * introduced for checking also recursive type equalness
+	 * @author Claudio Guidi
+	 * 28-June-2012 Julie Meinicke Nielsen: Added type parsing. 
+	 */
+	protected boolean isEquivalentTo_recursive( TypeDefinition other, List<String> recursiveTypeChecked )
+	{
+		if ( other instanceof TypeDefinitionLink ) {
+			other = ((TypeDefinitionLink)other).lastLinkedType();
+		}
+		if ( other instanceof TypeChoiceDefinition ) {
+			return checkTypeEqualness(this, (TypeChoiceDefinition)other, recursiveTypeChecked);
+		} else {
+			return false;
+		}
+		
+//		if ( this instanceof TypeChoiceDefinition ) {
+//			if ( other instanceof TypeChoiceDefinition ) {
+//				return checkTypeEqualness( (TypeChoiceDefinition)this, (TypeChoiceDefinition)other, recursiveTypeChecked );
+//			} else {
+//				return false;
+//			}
+//		} else if ( other instanceof TypeDefinition ) {
+//			return false;
+//		} else {
+//			return checkTypeEqualness( this, other, recursiveTypeChecked );
+//		}
+	}
+
+	public TypeChoiceDefinition copy() {
+		List< TypeDefinition > copiedOptions = new LinkedList< TypeDefinition >();
+		for ( TypeDefinition option : options ) {
+			copiedOptions.add(option.copy());
+		} 
+		return new TypeChoiceDefinition(this.context(), this.id(), this.cardinality(), copiedOptions);
 	}
 	
 	@Override
