@@ -24,11 +24,8 @@ package jolie.lang.parse.ast.types;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
-import jolie.lang.NativeType;
 import jolie.lang.parse.OLVisitor;
 import jolie.lang.parse.ast.OLSyntaxNode;
-import jolie.lang.parse.ast.expression.ConstantStringExpression;
 import jolie.lang.parse.context.ParsingContext;
 import jolie.util.Pair;
 import jolie.util.Range;
@@ -52,7 +49,6 @@ public class TypeChoiceDefinition extends TypeDefinition {
 		super( context, cardinality );
 		this.options = options;
 	}
-	
 	
 	public List< TypeDefinition > options()
 	{
@@ -110,20 +106,8 @@ public class TypeChoiceDefinition extends TypeDefinition {
 		} else {
 			return false;
 		}
-		
-//		if ( this instanceof TypeChoiceDefinition ) {
-//			if ( other instanceof TypeChoiceDefinition ) {
-//				return checkTypeEqualness( (TypeChoiceDefinition)this, (TypeChoiceDefinition)other, recursiveTypeChecked );
-//			} else {
-//				return false;
-//			}
-//		} else if ( other instanceof TypeDefinition ) {
-//			return false;
-//		} else {
-//			return checkTypeEqualness( this, other, recursiveTypeChecked );
-//		}
 	}
-
+	
 	public TypeChoiceDefinition copy() {
 		List< TypeDefinition > copiedOptions = new LinkedList< TypeDefinition >();
 		for ( TypeDefinition option : options ) {

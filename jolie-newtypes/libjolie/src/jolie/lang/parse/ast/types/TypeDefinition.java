@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
+import jolie.lang.NativeType;
 import jolie.lang.parse.ast.OLSyntaxNode;
 import jolie.lang.parse.ast.VariablePathNode;
 import jolie.lang.parse.context.ParsingContext;
@@ -166,30 +167,54 @@ public abstract class TypeDefinition extends OLSyntaxNode
 	 */
 	public static TypeDefinition extend( TypeDefinition inputType, TypeDefinition extender, String namePrefix )
 	{		
-//		TypeInlineDefinition newType = new TypeInlineDefinition( inputType.context(), namePrefix + "_" + inputType.id(), inputType.nativeType(), inputType.cardinality );
-//
-//		if ( inputType instanceof TypeDefinitionUndefined ) {
-//			TypeInlineDefinition newTid = new TypeInlineDefinition( inputType.context(), namePrefix + "_" + inputType.id(), NativeType.ANY, inputType.cardinality );
-//			if ( extender.hasSubTypes() ) {
-//				for( Entry<String, TypeDefinition> subType : extender.subTypes() ) {
-//					newTid.putSubType( subType.getValue() );
-//				}
-//			}
-//			newType = newTid;
-//		} else {
-//			if ( inputType.hasSubTypes() ) {
-//				for( Entry<String, TypeDefinition> subType : inputType.subTypes() ) {
-//					newType.putSubType( subType.getValue() );
-//				}
-//			}
-//			if ( extender.hasSubTypes() ) {
-//				for( Entry<String, TypeDefinition> subType : extender.subTypes() ) {
-//					newType.putSubType( subType.getValue() );
-//				}
-//			}
-//		}
-//		return newType;
-		return null;
+
+		//TODO: Implement extend for choice types.
+		if ( inputType instanceof TypeDefinitionLink ) {
+			if ( ( (TypeDefinitionLink)inputType ).linkedType()  instanceof TypeChoiceDefinition ) {
+				throw new UnsupportedOperationException("Extending choice types: Not supported yet.");
+			} else {
+				inputType = ( (TypeDefinitionLink)inputType ).linkedType();
+			}
+		}
+		if ( extender instanceof TypeDefinitionLink ) {
+			if ( ( (TypeDefinitionLink)extender ).linkedType()  instanceof TypeChoiceDefinition ) {
+				throw new UnsupportedOperationException("Extending choice types: Not supported yet.");
+			} else {
+				extender = ( (TypeDefinitionLink)extender ).linkedType();
+			}
+		}		
+		if ( inputType instanceof TypeChoiceDefinition || extender instanceof TypeChoiceDefinition ) {
+			throw new UnsupportedOperationException("Extending choice types: Not supported yet.");
+			
+		}
+		
+		TypeInlineDefinition inputTypeCasted = (TypeInlineDefinition)inputType;
+		TypeInlineDefinition extenderCasted = (TypeInlineDefinition)extender;
+
+		
+		TypeInlineDefinition newType = new TypeInlineDefinition( inputType.context(), namePrefix + "_" + inputType.id(), inputTypeCasted.nativeType(), inputType.cardinality );
+
+		if ( inputType instanceof TypeDefinitionUndefined ) {
+			TypeInlineDefinition newTid = new TypeInlineDefinition( inputType.context(), namePrefix + "_" + inputTypeCasted.id(), NativeType.ANY, inputType.cardinality );
+			if ( extenderCasted.hasSubTypes() ) {
+				for( Entry<String, TypeDefinition> subType : extenderCasted.subTypes() ) {
+					newTid.putSubType( subType.getValue() );
+				}
+			}
+			newType = newTid;
+		} else {
+			if ( inputTypeCasted.hasSubTypes() ) {
+				for( Entry<String, TypeDefinition> subType : inputTypeCasted.subTypes() ) {
+					newType.putSubType( subType.getValue() );
+				}
+			}
+			if ( extenderCasted.hasSubTypes() ) {
+				for( Entry<String, TypeDefinition> subType : extenderCasted.subTypes() ) {
+					newType.putSubType( subType.getValue() );
+				}
+			}
+		}
+		return newType;
 	}
 
 	/**
@@ -200,13 +225,7 @@ public abstract class TypeDefinition extends OLSyntaxNode
 	{
 		
 		List<String> recursiveTypeChecked = new ArrayList<String>();
-		//begin test
-		boolean result = isEquivalentTo_recursive(other, recursiveTypeChecked);
-		System.out.println( "Are they equivalent? " + this.id + this.getClass() + ", " + other.id + other.getClass() + ": " + result );
-		return result;
-		//end test
-		//return isEquivalentTo_recursive(other, recursiveTypeChecked);	//correct
-		//return checkTypeEqualness( this, other, recursiveTypeChecked );	
+		return isEquivalentTo_recursive(other, recursiveTypeChecked);
 	}
 	
 	@Override
