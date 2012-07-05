@@ -1,0 +1,27 @@
+This file contains an extension of the formal grammar of the .ol input files of 
+JOLIE. This extension allows type definitions to have choices.
+See the AUTHORS file for information regarding the authors of the JOLIE project.
+See the COPYING file for the distribution license of the following content.
+
+In order to allow choice types the grammar is extended with the following productions:
+
+TypeDefinition ::= TypeDefinition + TypeDefinition 
+               | NativeTypeChoice { SubTypeList }
+               | NativeType SubDescriptionChoice
+
+SubTypeList ::= SubTypeChoice 
+            | SubTypeChoice SubTypeList
+
+
+NativeTypeChoice ::= ( NativeType + NativeTypeInnerChoice )
+
+NativeTypeInnerChoice ::= NativeType + NativeTypeInnerChoice
+                      |   NativeType
+
+
+SubTypeChoice    ::= SubTypeOption + SubTypeChoice
+                 | SubTypeOption + SubTypeOption
+                 | SubTypeOption + SubTypeOption SubTypeList
+		         | ( SubTypeList )
+
+SubTypeOption	::= SubType | ( SubTypeList )
