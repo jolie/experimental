@@ -22,6 +22,7 @@
 package jolie.runtime.typing;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -244,6 +245,131 @@ class TypeImpl extends Type
 	}
 }
 
+
+class TypeChoice extends Type
+{
+	private final Range cardinality;
+	private final List< Type > options;
+	
+	public TypeChoice( Range cardinality, List< Type > options ) 
+	{
+		this.cardinality = cardinality;
+		this.options = options;		
+	}
+	
+	@Override
+	public void cutChildrenFromValue( Value value ) 
+	{
+		System.out.println("Choice: Cut children from value");
+		
+		for( Type option : options ) {
+				option.cutChildrenFromValue( value );
+			}
+	}
+
+	@Override
+	protected Range cardinality() 
+	{
+		return cardinality;
+	}
+
+	protected List<Type > options() 
+	{
+		System.out.println("Choice: options");
+		return options;
+	}
+
+	@Override
+	protected void check(Value value, StringBuilder pathBuilder) throws TypeCheckingException
+	{
+		boolean valueInOption = false;
+//		System.out.println("Choice: check");
+		for( Type option : options ) {
+			valueInOption = checkOption( option, value, new StringBuilder( pathBuilder ) );
+			if ( valueInOption == true ) {
+//				System.out.println("Choice: check, value contained in option");
+				break;
+			}
+		}
+		if ( !valueInOption ) {
+//			System.out.println( "Going to throw new typecheckingexception " );
+		throw new TypeCheckingException( "Undefined required node: " + pathBuilder.toString() );
+		}
+		
+		
+//		System.out.println( "Choice has these children: " );
+//		for( String childName : value.children().keySet() ) {
+//			System.out.println(childName );
+//		}
+//		System.out.println( "end" );		
+	}
+	
+	private boolean checkOption( Type type, Value value, StringBuilder pathBuilder )
+			throws TypeCheckingException
+	{
+		
+		try {
+			type.check( value, pathBuilder );
+		} catch (TypeCheckingException e) {
+			System.out.println("Choice: check option received typeerror: " + e.getMessage() );	
+			return false;
+		}
+		return true;
+		
+//		pathBuilder.append( '.' );
+//		pathBuilder.append( typeName );
+		
+//		boolean hasChildren = value.hasChildren( typeName );
+//		if ( hasChildren == false && type.cardinality().min() > 0 ) {
+//			throw new TypeCheckingException( "Undefined required child node: " + pathBuilder.toString() );
+//		} else if ( hasChildren ) {
+//			ValueVector vector = value.getChildren( typeName );
+//			int size = vector.size();
+//			if ( type.cardinality().min() > size || type.cardinality().max() < size ) {
+//				throw new TypeCheckingException(
+//						"Child node " + pathBuilder.toString() + " has a wrong number of occurencies. Permitted range is [" +
+//						type.cardinality().min() + "," + type.cardinality().max() + "], found " + size
+//						);
+//			}
+//			
+//			for( Value v : vector ) {
+//				type.check( v, pathBuilder );
+//			}
+//		}
+		
+	}
+	
+	/**
+	 * Tries to cast the value to an option. Each of the options are tried 
+	 * until a cast success. If non of the tries success the 
+	 * TypeCastingException from the last try is thrown.
+	 * @param value
+	 * @param pathBuilder
+	 * @return casted value
+	 * @throws TypeCastingException 
+	 */
+	
+	@Override
+	protected Value cast(Value value, StringBuilder pathBuilder) throws TypeCastingException
+	{
+		boolean castSucceed = false;
+		TypeCastingException e0 = null;
+		
+		System.out.println("Choice: cast");
+
+		for( Type option : options ) {
+			try {
+				value = option.cast( value, new StringBuilder( pathBuilder ) );
+				castSucceed = true;		//only reached if above line doesn't throw an exception
+				return value;
+			} catch ( TypeCastingException e1 ) {
+				e0 = e1;
+			} 			
+		}
+		throw e0;	
+	}
+}
+
 /**
  *
  * @author Fabrizio Montesi
@@ -261,22 +387,50 @@ public abstract class Type implements Cloneable
 	) {
 		return new TypeImpl( nativeType, cardinality, undefinedSubTypes, subTypes );
 	}
+	
+	public static Type create( Range cardinality, List< Type > options )
+	{
+		return new TypeChoice( cardinality, options ); 
+	}
 
 	public static TypeLink createLink( String linkedTypeName, Range cardinality )
 	{
 		return new TypeLink( linkedTypeName, cardinality );
 	}
-	
+
 	public static Type merge( Type t1, Type t2 )
 	{
-		NativeType nativeType = t1.nativeType();
-		Range cardinality = t1.cardinality();
+		//TODO: Implement merge of choice types.
+		if ( t1 instanceof TypeLink ) {
+			if ( ( (TypeLink)t1 ).linkedType()  instanceof TypeChoice ) {
+				throw new UnsupportedOperationException("Merging choice types: Not supported yet.");
+			} else {
+				t1 = ( (TypeLink)t1 ).linkedType();
+			}
+		}
+		if ( t2 instanceof TypeLink ) {
+			if ( ( (TypeLink)t2 ).linkedType()  instanceof TypeChoice ) {
+				throw new UnsupportedOperationException("Merging choice types: Not supported yet.");
+			} else {
+				t2 = ( (TypeLink)t2 ).linkedType();
+			}
+		}		
+		if ( t1 instanceof TypeChoice || t2 instanceof TypeChoice ) {
+			throw new UnsupportedOperationException("Merging choice types: Not supported yet.");
+			
+		}
+		
+		TypeImpl t1Casted = (TypeImpl)t1;
+		TypeImpl t2Casted = (TypeImpl)t2;
+		
+		NativeType nativeType = t1Casted.nativeType();
+		Range cardinality = t1Casted.cardinality();
 		Map< String, Type > subTypes = new HashMap< String, Type >();
-		for( Entry< String, Type > entry : t1.subTypeSet() ) {
+		for( Entry< String, Type > entry : t1Casted.subTypeSet() ) {
 			subTypes.put( entry.getKey(), entry.getValue() );
 		}
 		if ( t2 != null ) {
-			for( Entry< String, Type > entry : t2.subTypeSet() ) {
+			for( Entry< String, Type > entry : t2Casted.subTypeSet() ) {
 				subTypes.put( entry.getKey(), entry.getValue() );
 			}
 		}
@@ -296,9 +450,9 @@ public abstract class Type implements Cloneable
 	}
 
 	public abstract void cutChildrenFromValue( Value value );
-	protected abstract NativeType nativeType();
+//	protected abstract NativeType nativeType();
 	protected abstract Range cardinality();
-	protected abstract Set< Entry< String, Type > > subTypeSet();
+//	protected abstract Set< Entry< String, Type > > subTypeSet();
 	protected abstract void check( Value value, StringBuilder pathBuilder )
 		throws TypeCheckingException;
 	protected abstract Value cast( Value value, StringBuilder pathBuilder )
@@ -315,16 +469,6 @@ public abstract class Type implements Cloneable
 			this.linkedTypeName = linkedTypeName;
 			this.cardinality = cardinality;
 		}
-		
-		protected Set< Entry< String, Type > > subTypeSet()
-		{
-			return linkedType.subTypeSet();
-		}
-		
-		protected NativeType nativeType()
-		{
-			return linkedType.nativeType();
-		}
 
 		public String linkedTypeName()
 		{
@@ -334,6 +478,11 @@ public abstract class Type implements Cloneable
 		public void setLinkedType( Type linkedType )
 		{
 			this.linkedType = linkedType;
+		}
+		
+		public Type linkedType()
+		{
+			return this.linkedType;
 		}
 		
 		public void cutChildrenFromValue( Value value )
