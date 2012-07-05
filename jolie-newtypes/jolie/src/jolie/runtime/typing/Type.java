@@ -245,7 +245,10 @@ class TypeImpl extends Type
 	}
 }
 
-
+/**
+ * Choice type
+ * @author Julie Meinicke Nielsen
+ */
 class TypeChoice extends Type
 {
 	private final Range cardinality;
@@ -260,8 +263,6 @@ class TypeChoice extends Type
 	@Override
 	public void cutChildrenFromValue( Value value ) 
 	{
-		System.out.println("Choice: Cut children from value");
-		
 		for( Type option : options ) {
 				option.cutChildrenFromValue( value );
 			}
@@ -275,7 +276,6 @@ class TypeChoice extends Type
 
 	protected List<Type > options() 
 	{
-		System.out.println("Choice: options");
 		return options;
 	}
 
@@ -283,31 +283,20 @@ class TypeChoice extends Type
 	protected void check(Value value, StringBuilder pathBuilder) throws TypeCheckingException
 	{
 		boolean valueInOption = false;
-//		System.out.println("Choice: check");
 		for( Type option : options ) {
 			valueInOption = checkOption( option, value, new StringBuilder( pathBuilder ) );
 			if ( valueInOption == true ) {
-//				System.out.println("Choice: check, value contained in option");
 				break;
 			}
 		}
 		if ( !valueInOption ) {
-//			System.out.println( "Going to throw new typecheckingexception " );
 		throw new TypeCheckingException( "Undefined required node: " + pathBuilder.toString() );
 		}
-		
-		
-//		System.out.println( "Choice has these children: " );
-//		for( String childName : value.children().keySet() ) {
-//			System.out.println(childName );
-//		}
-//		System.out.println( "end" );		
 	}
 	
 	private boolean checkOption( Type type, Value value, StringBuilder pathBuilder )
 			throws TypeCheckingException
 	{
-		
 		try {
 			type.check( value, pathBuilder );
 		} catch (TypeCheckingException e) {
@@ -315,28 +304,6 @@ class TypeChoice extends Type
 			return false;
 		}
 		return true;
-		
-//		pathBuilder.append( '.' );
-//		pathBuilder.append( typeName );
-		
-//		boolean hasChildren = value.hasChildren( typeName );
-//		if ( hasChildren == false && type.cardinality().min() > 0 ) {
-//			throw new TypeCheckingException( "Undefined required child node: " + pathBuilder.toString() );
-//		} else if ( hasChildren ) {
-//			ValueVector vector = value.getChildren( typeName );
-//			int size = vector.size();
-//			if ( type.cardinality().min() > size || type.cardinality().max() < size ) {
-//				throw new TypeCheckingException(
-//						"Child node " + pathBuilder.toString() + " has a wrong number of occurencies. Permitted range is [" +
-//						type.cardinality().min() + "," + type.cardinality().max() + "], found " + size
-//						);
-//			}
-//			
-//			for( Value v : vector ) {
-//				type.check( v, pathBuilder );
-//			}
-//		}
-		
 	}
 	
 	/**
@@ -352,15 +319,11 @@ class TypeChoice extends Type
 	@Override
 	protected Value cast(Value value, StringBuilder pathBuilder) throws TypeCastingException
 	{
-		boolean castSucceed = false;
 		TypeCastingException e0 = null;
 		
-		System.out.println("Choice: cast");
-
-		for( Type option : options ) {
+			for( Type option : options ) {
 			try {
 				value = option.cast( value, new StringBuilder( pathBuilder ) );
-				castSucceed = true;		//only reached if above line doesn't throw an exception
 				return value;
 			} catch ( TypeCastingException e1 ) {
 				e0 = e1;
@@ -450,9 +413,7 @@ public abstract class Type implements Cloneable
 	}
 
 	public abstract void cutChildrenFromValue( Value value );
-//	protected abstract NativeType nativeType();
 	protected abstract Range cardinality();
-//	protected abstract Set< Entry< String, Type > > subTypeSet();
 	protected abstract void check( Value value, StringBuilder pathBuilder )
 		throws TypeCheckingException;
 	protected abstract Value cast( Value value, StringBuilder pathBuilder )
