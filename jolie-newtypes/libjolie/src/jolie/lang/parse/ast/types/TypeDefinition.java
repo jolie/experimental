@@ -149,9 +149,9 @@ public abstract class TypeDefinition extends OLSyntaxNode
 			
 			if ( equivalent == null ) {
 				return false;
-			} else {
-				rightOptions.remove(equivalent);	//no need to check for equivalence one more time
-			}
+			}// else {
+				//rightOptions.remove(equivalent);	//no need to check for equivalence one more time
+			//}
 		}
 		for ( TypeDefinition rightOption : rightOptions ) {
 			if ( left.getEquivalentOption(rightOption) == null ) {
