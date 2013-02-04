@@ -24,6 +24,7 @@ package jolie.lang.parse.ast.types;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import jolie.lang.Constants;
 import jolie.lang.parse.OLVisitor;
 import jolie.lang.parse.ast.OLSyntaxNode;
 import jolie.lang.parse.context.ParsingContext;
@@ -36,30 +37,46 @@ import jolie.util.Range;
  */
 public class TypeChoiceDefinition extends TypeDefinition {
 	
-	private final List< TypeDefinition > options;
+	private final List< List< TypeDefinition > > options;
 	
-	public TypeChoiceDefinition( ParsingContext context, String id, Range cardinality, List< TypeDefinition > options)
+	//TODO: Still used?
+	public TypeChoiceDefinition( ParsingContext context, String id, List< List< TypeDefinition > > options)
 	{
-		super( context, id, cardinality );
+		super( context, id, Constants.RANGE_ONE_TO_ONE ); //default range, since range can never be explicitly defined for a choice according to the grammar
 		this.options = options;
 	}
 
-	public TypeChoiceDefinition( ParsingContext context, Range cardinality, List< TypeDefinition > options)
+	//TODO: Still used?
+	public TypeChoiceDefinition( ParsingContext context, List< List< TypeDefinition > > options)
 	{
-		super( context, cardinality );
+		super( context, Constants.RANGE_ONE_TO_ONE ); //default range, since range can never be explicitly defined for a choice according to the grammar
 		this.options = options;
 	}
 	
-	public List< TypeDefinition > options()
+	//TODO: Still used?
+	/* Choices among sub types */
+	/*
+	public TypeChoiceDefinition( ParsingContext context )
+	{
+		super( context, Constants.RANGE_ONE_TO_ONE ); //default range, since range can never be explicitly defined for a choice according to the grammar
+		this.options = new LinkedList< TypeDefinition >();
+	}
+	*/ 
+	
+	
+	public List< List< TypeDefinition > > options()
 	{
 		return options;
 	}
 	
+	/*
 	public void putOption ( TypeDefinition option )
 	{
 		options.add(option);
 	}
+	*/
 	
+	//TODO: Adapt to new version
 	/**
 	 * The first found option that is equivalent to type is returned. 
 	 * If non of the options are equivalent to type, null is returned.
@@ -67,14 +84,15 @@ public class TypeChoiceDefinition extends TypeDefinition {
 	 * @return equivalent option or null
 	 */
 	public TypeDefinition getEquivalentOption( TypeDefinition type ) {
-		for ( TypeDefinition option : options ) {
+		/* for ( TypeDefinition option : options ) {
 			if ( type.isEquivalentTo(option) ) {
 				return option;
 			}
-		}
+		} */
 		return null;
 	}
 	
+	//TODO: Adapt to new version
 	/**
 	 * Returns true if the variable path is contained in all options.
 	 * @param it
@@ -83,11 +101,12 @@ public class TypeChoiceDefinition extends TypeDefinition {
 	@Override
 	protected boolean containsPath( Iterator< Pair< OLSyntaxNode, OLSyntaxNode > > it )
 	{
+		/*
 		for ( TypeDefinition option : options ) {
 			if ( option.containsPath(it) == false ) {
 				return false;
 			}
-		}
+		} */
 		return true;
 	}
 	
@@ -109,11 +128,17 @@ public class TypeChoiceDefinition extends TypeDefinition {
 	}
 	
 	public TypeChoiceDefinition copy() {
-		List< TypeDefinition > copiedOptions = new LinkedList< TypeDefinition >();
-		for ( TypeDefinition option : options ) {
-			copiedOptions.add(option.copy());
-		} 
-		return new TypeChoiceDefinition(this.context(), this.id(), this.cardinality(), copiedOptions);
+		List< List< TypeDefinition > > copiedOptions = new LinkedList< List< TypeDefinition > >();
+		List< TypeDefinition > option;
+		
+		for ( int i=0; i< options.size(); i++ ) {
+			option = options.get(i);
+			copiedOptions.add( new LinkedList< TypeDefinition >() );
+			for ( TypeDefinition type : option ) {
+				copiedOptions.get(i).add(type.copy());
+			}
+		}
+		return new TypeChoiceDefinition(this.context(), this.id(), copiedOptions);
 	}
 	
 	@Override
