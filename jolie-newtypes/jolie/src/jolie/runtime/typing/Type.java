@@ -252,20 +252,26 @@ class TypeImpl extends Type
 class TypeChoice extends Type
 {
 	private final Range cardinality;
-	private final List< Type > options;
+	private final List < List < Type > > options;
 	
-	public TypeChoice( Range cardinality, List< Type > options ) 
+	public TypeChoice( Range cardinality, List < List < Type > > options ) 
 	{
 		this.cardinality = cardinality;
-		this.options = options;		
+		this.options = options;
 	}
 	
 	@Override
-	public void cutChildrenFromValue( Value value ) 
+	public void cutChildrenFromValue( Value value )
 	{
-		for( Type option : options ) {
-				option.cutChildrenFromValue( value );
+		List < Type > option;
+		
+		for( int i=0; i < options.size(); i++ ) {
+			option = options.get( i );
+			
+			for ( Type type : option ) {
+				type.cutChildrenFromValue( value );
 			}
+		}
 	}
 
 	@Override
@@ -274,23 +280,25 @@ class TypeChoice extends Type
 		return cardinality;
 	}
 
-	protected List<Type > options() 
+	protected List < List < Type > > options() 
 	{
 		return options;
 	}
-
+	
 	@Override
 	protected void check(Value value, StringBuilder pathBuilder) throws TypeCheckingException
 	{
 		boolean valueInOption = false;
-		for( Type option : options ) {
-			valueInOption = checkOption( option, value, new StringBuilder( pathBuilder ) );
-			if ( valueInOption == true ) {
-				break;
+		for( List < Type > option : options ) {
+			for( Type type : option ) {
+				valueInOption = checkOption( type, value, new StringBuilder( pathBuilder ) );
+				if ( valueInOption == true ) {
+					break;
+				}
 			}
 		}
 		if ( !valueInOption ) {
-		throw new TypeCheckingException( "Undefined required node: " + pathBuilder.toString() );
+			throw new TypeCheckingException( "Undefined required node: " + pathBuilder.toString() );
 		}
 	}
 	
@@ -307,13 +315,13 @@ class TypeChoice extends Type
 	}
 	
 	/**
-	 * Tries to cast the value to an option. Each of the options are tried 
-	 * until a cast success. If non of the tries success the 
+	 * Tries to cast the value to an option. Each option in each list of options is tried
+	 * until a cast success. If non of the tries success the
 	 * TypeCastingException from the last try is thrown.
 	 * @param value
 	 * @param pathBuilder
 	 * @return casted value
-	 * @throws TypeCastingException 
+	 * @throws TypeCastingException
 	 */
 	
 	@Override
@@ -321,15 +329,17 @@ class TypeChoice extends Type
 	{
 		TypeCastingException e0 = null;
 		
-			for( Type option : options ) {
-			try {
-				value = option.cast( value, new StringBuilder( pathBuilder ) );
-				return value;
-			} catch ( TypeCastingException e1 ) {
-				e0 = e1;
-			} 			
+		for( List < Type > option : options ) {
+			for( Type type : option ) {
+				try {
+					value = type.cast( value, new StringBuilder( pathBuilder ) );
+					return value;
+				} catch ( TypeCastingException e1 ) {
+					e0 = e1;
+				}
+			}
 		}
-		throw e0;	
+		throw e0;
 	}
 }
 
@@ -351,7 +361,7 @@ public abstract class Type implements Cloneable
 		return new TypeImpl( nativeType, cardinality, undefinedSubTypes, subTypes );
 	}
 	
-	public static Type create( Range cardinality, List< Type > options )
+	public static Type create( Range cardinality, List < List < Type > > options )
 	{
 		return new TypeChoice( cardinality, options ); 
 	}
