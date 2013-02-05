@@ -443,15 +443,18 @@ public class SemanticVerifier implements OLVisitor
 				addTypeEqualnessCheck( type, n );
 			}
 		}
-
+		
 		isTopLevelType = false;
 		
-		for( TypeDefinition option : n.options() ) {
-			option.accept( this );
+		for( List< TypeDefinition > option : n.options() ) {
+			for( TypeDefinition typeDefinition : option ) {
+				typeDefinition.accept( this );
+			}
+			
 		}
 		
 		isTopLevelType = backupRootType;
-
+		
 		if ( isTopLevelType ) {
 			definedTypes.put( n.id(), n );
 		}

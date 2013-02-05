@@ -140,9 +140,11 @@ public abstract class TypeDefinition extends OLSyntaxNode
 	 */
 	protected static boolean checkTypeEqualness( TypeChoiceDefinition left, TypeChoiceDefinition right, List<String> recursiveTypesChecked )
 	{
-		List < TypeDefinition > leftOptions = left.options();
-		List < TypeDefinition > rightOptions = right.options();
+		List < List < TypeDefinition > > leftOptions = left.options();
+		List < List < TypeDefinition > > rightOptions = right.options();
 		TypeDefinition equivalent;
+		//TODO
+		/*
 		
 		for ( TypeDefinition leftOption : leftOptions ) {
 			equivalent = right.getEquivalentOption(leftOption);
@@ -158,6 +160,8 @@ public abstract class TypeDefinition extends OLSyntaxNode
 				return false;
 			}			
 		}
+		*/ 
+		
 		return true;
 	}
 	
