@@ -47,11 +47,11 @@ public class TypeChoiceDefinition extends TypeDefinition {
 	}
 
 	//TODO: Still used?
-	public TypeChoiceDefinition( ParsingContext context, List< List< TypeDefinition > > options)
-	{
-		super( context, Constants.RANGE_ONE_TO_ONE ); //default range, since range can never be explicitly defined for a choice according to the grammar
-		this.options = options;
-	}
+//	public TypeChoiceDefinition( ParsingContext context, List< List< TypeDefinition > > options)
+//	{
+//		super( context, Constants.RANGE_ONE_TO_ONE ); //default range, since range can never be explicitly defined for a choice according to the grammar
+//		this.options = options;
+//	}
 	
 	//TODO: Still used?
 	/* Choices among sub types */

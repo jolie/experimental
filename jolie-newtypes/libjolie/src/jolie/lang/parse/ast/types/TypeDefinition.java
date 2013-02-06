@@ -56,21 +56,16 @@ public abstract class TypeDefinition extends OLSyntaxNode
 		this.cardinality = cardinality;
 	}
 
-	public TypeDefinition( ParsingContext context, Range cardinality )
-	{
-		super( context );
-		this.id = null;
-		this.cardinality = cardinality;
-	}
+//	public TypeDefinition( ParsingContext context, Range cardinality )
+//	{
+//		super( context );
+//		this.id = null;
+//		this.cardinality = cardinality;
+//	}
 
 	public String id()
 	{
 		return id;
-	}
-
-	public void setId(String id)
-	{
-		this.id = id;
 	}
 	
 	public Range cardinality()
