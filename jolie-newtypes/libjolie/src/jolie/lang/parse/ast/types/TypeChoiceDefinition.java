@@ -21,6 +21,7 @@
 
 package jolie.lang.parse.ast.types;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -39,19 +40,12 @@ public class TypeChoiceDefinition extends TypeDefinition {
 	
 	private final List< List< TypeDefinition > > options;
 	
-	//TODO: Still used?
-	public TypeChoiceDefinition( ParsingContext context, String id, List< List< TypeDefinition > > options)
+	public TypeChoiceDefinition( ParsingContext context, String id, List< List< TypeDefinition > > options )
 	{
 		super( context, id, Constants.RANGE_ONE_TO_ONE ); //default range, since range can never be explicitly defined for a choice according to the grammar
 		this.options = options;
 	}
-
-	//TODO: Still used?
-//	public TypeChoiceDefinition( ParsingContext context, List< List< TypeDefinition > > options)
-//	{
-//		super( context, Constants.RANGE_ONE_TO_ONE ); //default range, since range can never be explicitly defined for a choice according to the grammar
-//		this.options = options;
-//	}
+	
 	
 	//TODO: Still used?
 	/* Choices among sub types */

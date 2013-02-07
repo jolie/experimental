@@ -52,12 +52,6 @@ public class TypeDefinitionLink extends TypeDefinition
 		this.linkedType = linkedType;
 	}
 
-	public TypeDefinitionLink( ParsingContext context, Range cardinality, String linkedTypeName )
-	{
-		super( context, cardinality );
-		this.linkedTypeName = linkedTypeName;
-	}
-
 	@Override
 	protected boolean containsPath( Iterator< Pair< OLSyntaxNode, OLSyntaxNode > > it )
 	{

@@ -68,6 +68,18 @@ public abstract class TypeDefinition extends OLSyntaxNode
 		return id;
 	}
 	
+	/**
+	 * Set ID if it is not already set.
+	 * @param the new ID 
+	 * @author Julie Meinicke Nielsen
+	 */
+	public void setId( String newId )
+	{
+		if ( id == null ) {
+			id = newId;
+		}
+	}
+	
 	public Range cardinality()
 	{
 		return cardinality;

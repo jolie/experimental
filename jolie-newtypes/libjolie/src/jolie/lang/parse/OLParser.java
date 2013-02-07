@@ -225,7 +225,8 @@ public class OLParser extends AbstractParser
 			eat( Scanner.TokenType.ID, "expected type name" );
 			eat( Scanner.TokenType.COLON, "expected COLON (cardinality not allowed in root type declaration, it is fixed to [1,1])" );
 			currentType = parseTypeDefinition( Constants.RANGE_ONE_TO_ONE );
-			
+			currentType.setId( typeName );
+			/*
 			if ( token.is( Scanner.TokenType.PLUS ) ) { //The type is a choice between several type definitions.
 				List< List < TypeDefinition > > options = new ArrayList< List < TypeDefinition > >();
 				options.add( new ArrayList< TypeDefinition >() );
@@ -241,7 +242,9 @@ public class OLParser extends AbstractParser
 				currentType = new TypeChoiceDefinition(getContext(), typeName, options);
 			} else {
 				currentType.setId(typeName);
-			}   
+			} 
+			*/ 
+			
 			
 			// Keep track of the root types to support them in successive type declarations
 			definedTypes.put( typeName, currentType );
@@ -318,60 +321,182 @@ public class OLParser extends AbstractParser
 //	}
 	
 	
-	private TypeDefinition parseTypeDefinition( Range cardinality )
+	private List < NativeType > parseNativeTypes()
 			throws IOException, ParserException
 	{
+		List < NativeType > nativeTypes = new ArrayList< NativeType >();
 		
 		if ( token.type() == Scanner.TokenType.LPAREN ) { //It's a choice consisting of types with same sub-types
-			List < NativeType > nativeTypes;
-			
-			nativeTypes = new ArrayList< NativeType >();
+			NativeType nativeType;
 			getToken(); //token is LPAREN
-			nativeTypes.add( readNativeType() );
-			getToken(); //token is a native type
+			nativeType = readNativeType();
+			if ( nativeType == null ) { //user defined types are not allowed
+				throwException( "expected a native type, found: " + token.content() );
+			} else {
+				nativeTypes.add( nativeType );
+				getToken(); //token is a native type
+			}
 			do {
 				eat( Scanner.TokenType.PLUS, "expected +" );
-				nativeTypes.add( readNativeType() );
-				getToken(); //token is the native type
+				NativeType additionalNativeType;
+				additionalNativeType = readNativeType();
+				if ( additionalNativeType == null ) { //user defined types are not allowed
+					throwException( "expected a native type, found: " + token.content() );
+				} else {
+					nativeTypes.add( additionalNativeType );
+					getToken(); //token is a native type
+				}
 			} while( token.is( Scanner.TokenType.PLUS ) );
 			eat( Scanner.TokenType.RPAREN, "expected )" );
 			
-			// Parse sub types ( we always have according to the grammar )
-			
-			
-			//Parse additional set of sub types
-			
-			// Create a choice option for each native type
-			for ( NativeType nativeType : nativeTypes ) {
-				
-			}
-			
-			return null;
-			
 		} else {
-			
 			NativeType nativeType = readNativeType();
-			TypeDefinition currentType;
-			
-			if ( nativeType == null ) { // It's a user-defined type
-				currentType = new TypeDefinitionLink( getContext(), Constants.RANGE_ONE_TO_ONE, token.content() );
-				getToken();
-				
-			} else {
-				ParsingContext context = getContext();
-				getToken();
-				if ( token.is( Scanner.TokenType.LCURLY ) ) { // We have sub-types to parse
-					List< TypeDefinition > subTypes = parseSubTypes( context );
-					 
-					
-					//TODO: Parse additional set of sub types
-					
+			if ( nativeType != null ) {
+				nativeTypes.add( readNativeType() );
+			}
+		}
+		return nativeTypes;
+	}
+	
+	private TypeDefinition createTypeFromTypeDefinition ( List < List < TypeDefinition > > subTypes, boolean untypedSubTypes,
+		List < NativeType > nativeTypes, String userDefinedType )
+	{
+		if ( nativeTypes == null ) { // It's a user-defined type
+					return new TypeDefinitionLink( getContext(), null, Constants.RANGE_ONE_TO_ONE, userDefinedType );
+				} else if ( nativeTypes.size() == 1 ) { // ... NT ?
+					TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), null, nativeTypes.get( 0 ), Constants.RANGE_ONE_TO_ONE );
+					if ( untypedSubTypes == true ) { //It has untyped sub-types
+						inline.setUntypedSubTypes( true );
+					} else if ( subTypes != null ) { // ... NT { ... } ...
+						inline.putSubType( new TypeChoiceDefinition( getContext(), null, subTypes ) );
+					}
+					return inline;
+				} else { //... ( ... ) { ... } ...
+					List < List < TypeDefinition > > options = new ArrayList < List < TypeDefinition > >();
+					if ( untypedSubTypes == true ) { //It has untyped sub-types
+						for ( NativeType nativeType : nativeTypes ) {
+							TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), null, nativeType, Constants.RANGE_ONE_TO_ONE );
+							inline.setUntypedSubTypes( true );
+							List< TypeDefinition > listWithInline = new ArrayList< TypeDefinition >();
+							listWithInline.add( inline );
+							options.add( listWithInline );
+						}
+					} else {
+						for ( NativeType nativeType : nativeTypes ) {
+							TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), null, nativeType, Constants.RANGE_ONE_TO_ONE );
+							inline.putSubType( new TypeChoiceDefinition( getContext(), null, subTypes ) );
+							List< TypeDefinition > listWithInline = new ArrayList< TypeDefinition >();
+							listWithInline.add( inline );
+							options.add( listWithInline );
+						}
+					}
+					return new TypeChoiceDefinition( getContext(), null, options );
+				}
+	}
+	
+	
+	private TypeDefinition parseTypeDefinition( Range cardinality )
+			throws IOException, ParserException
+	{
+		List < TypeDefinition > typeDefinitions = new ArrayList < TypeDefinition >();
+		List < List < TypeDefinition > > subTypes = null;
+		boolean untypedSubTypes = false;
+		List < NativeType > nativeTypes;
+		String userDefinedType = "";
+		
+		nativeTypes = parseNativeTypes();
+		
+		if ( nativeTypes == null ) { // It's a user-defined type
+			userDefinedType = token.content();
+			getToken();
+			if ( token.is( Scanner.TokenType.LCURLY ) ) {
+				throwException( "can't add new sub-types to already defined type, " + userDefinedType );
+			}
+		} else if ( nativeTypes.size() == 1 ) { //There is one native type and it might have sub-types
+			getToken();
+			if ( token.is( Scanner.TokenType.LCURLY ) ) { // We have sub-types to parse
+				List < TypeDefinition > parsedSubTypes = parseSubTypes();
+				if ( parsedSubTypes == null ) { //It has untyped sub-types
+					untypedSubTypes = true;
 				} else {
-					currentType = new TypeInlineDefinition( context, nativeType, Constants.RANGE_ONE_TO_ONE );
+					subTypes.add( parsedSubTypes );
 				}
 			}
-			
-			return null;
+		} else if ( nativeTypes.size() > 1 ) { //It has several native types in parenthes, and sub-types are therefore required.
+			getToken();
+			List < TypeDefinition > parsedSubTypes = parseSubTypes();
+				if ( parsedSubTypes == null ) { //It has untyped sub-types
+					untypedSubTypes = true;
+				} else {
+					subTypes.add( parsedSubTypes );
+				}
+		}
+		
+		while ( token.type() == Scanner.TokenType.PLUS ) { //... { ... } + ?
+			eat( Scanner.TokenType.PLUS, "expected +" );
+			if ( token.type() == Scanner.TokenType.LCURLY ) { //... { ... } + { ... } ...
+				if ( untypedSubTypes == false ) {
+					if ( subTypes == null ) { //Not valid syntax: type t : { ... }
+						throwException( "Missing native type in front of sub-types" );
+					} else {
+						List < TypeDefinition > parsedSubTypes = parseSubTypes();
+						if ( parsedSubTypes == null ) { //It has untyped sub-types
+							untypedSubTypes = true;
+						} else {
+							subTypes.add( parsedSubTypes );
+						}
+					}
+				} else { //It has untyped sub-types
+					parseSubTypes(); //Sub-types are only parsed to check the syntax.
+				}
+			} else { //... { ... } + TypeDefinition
+				typeDefinitions.add( createTypeFromTypeDefinition( subTypes, untypedSubTypes, nativeTypes, userDefinedType ) );
+				
+				//Make ready to parse next type definition
+				subTypes = null;
+				untypedSubTypes = false;
+				userDefinedType = "";
+				
+				//Parse next typeDefinition
+				nativeTypes = parseNativeTypes();
+				
+				if ( nativeTypes.size() == 1 ) { //There is one native type and it might have sub-types
+					TypeDefinition currentType;
+					//ParsingContext context = getContext();
+					getToken();
+					if ( token.is( Scanner.TokenType.LCURLY ) ) { // We have sub-types to parse
+						List < TypeDefinition > parsedSubTypes = parseSubTypes();
+						if ( parsedSubTypes == null ) { //It has untyped sub-types
+							untypedSubTypes = true;
+						} else {
+							subTypes.add( parsedSubTypes );
+						}
+					}
+				} else if ( nativeTypes.size() > 1 ) { //It has several native types in parenthes, and sub-types are therefore required.
+					List < TypeDefinition > parsedSubTypes = parseSubTypes();
+					if ( parsedSubTypes == null ) { //It has untyped sub-types
+						untypedSubTypes = true;
+					} else {
+						subTypes.add( parsedSubTypes );
+					}
+				}
+			}
+		}
+		//Finish up
+		
+		//Create type from the last parsed type definition.
+		typeDefinitions.add( createTypeFromTypeDefinition( subTypes, untypedSubTypes, nativeTypes, userDefinedType ) );
+		
+		//Create the final type
+		if ( typeDefinitions.size() == 1 ) { //the type consist of one type definition			
+			return typeDefinitions.get( 0 );
+		} else { //The type is a choice between several type definitions
+			List < List < TypeDefinition > > options = new ArrayList < List < TypeDefinition > >();
+			for ( TypeDefinition type : typeDefinitions ) {
+				List < TypeDefinition > OneElementList = new ArrayList< TypeDefinition >();
+				options.add( OneElementList );
+			}
+			return new TypeChoiceDefinition( getContext(), null, options );
 		}
 	}
 	
@@ -404,7 +529,7 @@ public class OLParser extends AbstractParser
 	 * @throws ParserException 
 	 * July 2012, Julie Meinicke Nielsen: Changed it to handle the output from parseSubTypeList.
 	 */
-	private List< TypeDefinition > parseSubTypes( ParsingContext context )
+	private List< TypeDefinition > parseSubTypes( )
 			throws IOException, ParserException
 	{
 		//TypeDefinition currentType;
@@ -418,13 +543,8 @@ public class OLParser extends AbstractParser
 			getToken(); //Token is question mark
 			eat( Scanner.TokenType.RCURLY, "expected }" );
 			return null;
-			//TODO: Move the outcommented lines to parseTypeDefinition
-			//			TypeInlineDefinition inlineType = new TypeInlineDefinition(context, nativeType, cardinality);
-			//			inlineType.setUntypedSubTypes( true );
-			//			getToken();
-			//			currentType = inlineType;
 		} else { //parse sub types
-			return parseSubTypeList( context, false, new ArrayList< String >() );
+			return parseSubTypeList( false, new ArrayList< String >() );
 			
 			//			int optionsAmount;
 			//			List< List< TypeDefinition > > options =
@@ -465,7 +585,7 @@ public class OLParser extends AbstractParser
 	 * @throws ParserException
 	 * @author Julie Meinicke Nielsen
 	 */
-	private List< TypeDefinition >  parseSubTypeList( ParsingContext context, boolean insideParentheses, List< String > usedIds )
+	private List< TypeDefinition >  parseSubTypeList( boolean insideParentheses, List< String > usedIds )
 			throws ParserException, IOException
 	{
 		Scanner.TokenType end;
@@ -479,7 +599,7 @@ public class OLParser extends AbstractParser
 		//Parse subTypes one by one.
 		subTypes = new ArrayList< TypeDefinition >();
 		do {
-			subTypes.add( parseSubTypeListElement( context, usedIds ) );
+			subTypes.add( parseSubTypeListElement( usedIds ) );
 		} while( token.is( end )==false );
 		getToken(); //get end token
 		return subTypes;
@@ -492,29 +612,23 @@ public class OLParser extends AbstractParser
 	 * @throws ParserException
 	 * @throws IOException 
 	 */
-	private TypeDefinition parseSubTypeListElement( ParsingContext context, List< String > usedIds )
+	private TypeDefinition parseSubTypeListElement( List< String > usedIds )
 			throws ParserException, IOException
 	{
 		List< List< TypeDefinition > > options;
-		List< TypeDefinition > subTypes;
-		TypeDefinition element;
 		
 		if ( token.is( Scanner.TokenType.LPAREN ) ) {
 			eat( Scanner.TokenType.LPAREN, "expected (" );
 			options = new LinkedList< List< TypeDefinition > >();
-			options.add( parseSubTypeChoiceOption( context, usedIds ) );
+			options.add( parseSubTypeChoiceOption( usedIds ) );
 			while ( token.isNot( Scanner.TokenType.RPAREN ) ) {
 				eat( Scanner.TokenType.PLUS, "expected +" );
-				options.add( parseSubTypeChoiceOption( context, usedIds ) );
+				options.add( parseSubTypeChoiceOption( usedIds ) );
 			}
 			eat( Scanner.TokenType.RPAREN, "expected )" );
-			return new TypeChoiceDefinition(context, options);
+			return new TypeChoiceDefinition(getContext(), null, options);
 		} else { //It's a subtype (if not, then an error is thrown from parseSubType)
-			element = parseSubType();
-			if ( usedIds.contains( element.id() ) ) {
-				throwException( "sub-type " + element.id() + " conflicts with another sub-type with the same name" );
-			}
-			return element;
+			return parseSubType( usedIds );
 		}
 	}
 	
@@ -589,32 +703,31 @@ public class OLParser extends AbstractParser
 	/**
 	 *
 	 */
-	private List< TypeDefinition > parseSubTypeChoiceOption( ParsingContext context, List< String > usedIds )
+	private List< TypeDefinition > parseSubTypeChoiceOption( List< String > usedIds )
 			throws ParserException, IOException
 	{
 		List< TypeDefinition > elements;
 		List< List< TypeDefinition > > options;
 		TypeDefinition choice;
 		List< TypeDefinition > typeDefinitions;
-		TypeDefinition element;
 		
 		if ( token.is( Scanner.TokenType.LPAREN ) ) {
 			eat( Scanner.TokenType.LPAREN, "expected (" );
-			elements = parseSubTypeChoiceOption( context, usedIds );
+			elements = parseSubTypeChoiceOption( usedIds );
 			if ( token.is( Scanner.TokenType.PLUS ) ) { //It's a choice
 				options = new LinkedList< List< TypeDefinition > >();
 				options.add( elements );
 				while ( token.isNot( Scanner.TokenType.RPAREN ) ) {
 					eat( Scanner.TokenType.PLUS, "expected +" );
-					options.add( parseSubTypeChoiceOption( context, usedIds ) );
+					options.add( parseSubTypeChoiceOption( usedIds ) );
 				}
 				eat( Scanner.TokenType.RPAREN, "expected )" );
-				choice = new TypeChoiceDefinition( context, options );
+				choice = new TypeChoiceDefinition( getContext(), null, options );
 				typeDefinitions = new LinkedList < TypeDefinition >();
 				typeDefinitions.add( choice );
 				return typeDefinitions;
 			} else { //It's a sub-type list
-				typeDefinitions = parseSubTypeList( context, true, usedIds );
+				typeDefinitions = parseSubTypeList( true, usedIds );
 				if ( elements.size() > 1 ) {
 					throwException( "A list of sub-types can't contain lists." );
 				}
@@ -623,11 +736,7 @@ public class OLParser extends AbstractParser
 			}
 		} else { //It's a sub-type
 			elements = new LinkedList< TypeDefinition >();
-			element = parseSubType();
-			if ( usedIds.contains( element.id() ) ) {
-				throwException( "sub-type " + element.id() + " conflicts with another sub-type with the same name" );
-			}
-			elements.add( element );
+			elements.add( parseSubType( usedIds ) );
 			return elements;
 		}
 		
@@ -736,7 +845,7 @@ public class OLParser extends AbstractParser
 	*/ 
 	 
 	
-	private TypeDefinition parseSubType()
+	private TypeDefinition parseSubType( List< String > usedIds )
 		throws IOException, ParserException
 	{
 			eat( Scanner.TokenType.DOT, "sub-type syntax error (dot not found)" );
@@ -749,6 +858,10 @@ public class OLParser extends AbstractParser
 			eat( Scanner.TokenType.COLON, "expected COLON" );
 			
 			TypeDefinition currentSubType = parseTypeDefinition( cardinality );
+			
+			if ( usedIds.contains( id ) ) {
+				throwException( "sub-type " + id + " conflicts with another sub-type with the same name" );
+			}
 			
 			currentSubType.setId( id );
 				
