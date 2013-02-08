@@ -373,21 +373,22 @@ public class OLParser extends AbstractParser
 					return inline;
 				} else { //... ( ... ) { ... } ...
 					List < List < TypeDefinition > > options = new ArrayList < List < TypeDefinition > >();
+					List< TypeDefinition > oneElementList;
 					if ( untypedSubTypes == true ) { //It has untyped sub-types
 						for ( NativeType nativeType : nativeTypes ) {
 							TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), null, nativeType, Constants.RANGE_ONE_TO_ONE );
 							inline.setUntypedSubTypes( true );
-							List< TypeDefinition > listWithInline = new ArrayList< TypeDefinition >();
-							listWithInline.add( inline );
-							options.add( listWithInline );
+							oneElementList = new ArrayList< TypeDefinition >();
+							oneElementList.add( inline );
+							options.add( oneElementList );
 						}
 					} else {
 						for ( NativeType nativeType : nativeTypes ) {
 							TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), null, nativeType, Constants.RANGE_ONE_TO_ONE );
 							inline.putSubType( new TypeChoiceDefinition( getContext(), null, subTypes ) );
-							List< TypeDefinition > listWithInline = new ArrayList< TypeDefinition >();
-							listWithInline.add( inline );
-							options.add( listWithInline );
+							oneElementList = new ArrayList< TypeDefinition >();
+							oneElementList.add( inline );
+							options.add( oneElementList );
 						}
 					}
 					return new TypeChoiceDefinition( getContext(), null, options );
@@ -406,13 +407,8 @@ public class OLParser extends AbstractParser
 		
 		nativeTypes = parseNativeTypes();
 		
-		if ( nativeTypes == null ) { // It's a user-defined type
-			userDefinedType = token.content();
-			getToken();
-			if ( token.is( Scanner.TokenType.LCURLY ) ) {
-				throwException( "can't add new sub-types to already defined type, " + userDefinedType );
-			}
-		} else if ( nativeTypes.size() == 1 ) { //There is one native type and it might have sub-types
+		
+		if ( nativeTypes.size() == 1 ) { //There is one native type and it might have sub-types
 			getToken();
 			if ( token.is( Scanner.TokenType.LCURLY ) ) { // We have sub-types to parse
 				List < TypeDefinition > parsedSubTypes = parseSubTypes();
@@ -425,11 +421,17 @@ public class OLParser extends AbstractParser
 		} else if ( nativeTypes.size() > 1 ) { //It has several native types in parenthes, and sub-types are therefore required.
 			getToken();
 			List < TypeDefinition > parsedSubTypes = parseSubTypes();
-				if ( parsedSubTypes == null ) { //It has untyped sub-types
-					untypedSubTypes = true;
-				} else {
-					subTypes.add( parsedSubTypes );
-				}
+			if ( parsedSubTypes == null ) { //It has untyped sub-types
+				untypedSubTypes = true;
+			} else {
+				subTypes.add( parsedSubTypes );
+			}
+		} else { // It's a user-defined type
+			userDefinedType = token.content();
+			getToken();
+			if ( token.is( Scanner.TokenType.LCURLY ) ) {
+				throwException( "can't add new sub-types to already defined type, " + userDefinedType );
+			}
 		}
 		
 		while ( token.type() == Scanner.TokenType.PLUS ) { //... { ... } + ?
@@ -460,7 +462,13 @@ public class OLParser extends AbstractParser
 				//Parse next typeDefinition
 				nativeTypes = parseNativeTypes();
 				
-				if ( nativeTypes.size() == 1 ) { //There is one native type and it might have sub-types
+				if ( nativeTypes == null ) { // It's a user-defined type
+					userDefinedType = token.content();
+					getToken();
+					if ( token.is( Scanner.TokenType.LCURLY ) ) {
+						throwException( "can't add new sub-types to already defined type, " + userDefinedType );
+					}
+				} else if ( nativeTypes.size() == 1 ) { //There is one native type and it might have sub-types
 					TypeDefinition currentType;
 					//ParsingContext context = getContext();
 					getToken();
@@ -488,12 +496,14 @@ public class OLParser extends AbstractParser
 		typeDefinitions.add( createTypeFromTypeDefinition( subTypes, untypedSubTypes, nativeTypes, userDefinedType ) );
 		
 		//Create the final type
-		if ( typeDefinitions.size() == 1 ) { //the type consist of one type definition			
+		if ( typeDefinitions.size() == 1 ) { //the type consist of one type definition
 			return typeDefinitions.get( 0 );
 		} else { //The type is a choice between several type definitions
 			List < List < TypeDefinition > > options = new ArrayList < List < TypeDefinition > >();
+			List < TypeDefinition > OneElementList;
 			for ( TypeDefinition type : typeDefinitions ) {
-				List < TypeDefinition > OneElementList = new ArrayList< TypeDefinition >();
+				OneElementList = new ArrayList< TypeDefinition >();
+				OneElementList.add( type );
 				options.add( OneElementList );
 			}
 			return new TypeChoiceDefinition( getContext(), null, options );
