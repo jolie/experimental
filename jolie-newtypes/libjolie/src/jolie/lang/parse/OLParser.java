@@ -35,6 +35,7 @@ import java.net.URL;
 import java.util.*;
 import jolie.lang.Constants;
 import jolie.lang.NativeType;
+import jolie.lang.parse.Scanner.Token;
 import jolie.lang.parse.ast.AddAssignStatement;
 import jolie.lang.parse.ast.expression.AndConditionNode;
 import jolie.lang.parse.ast.AssignStatement;
@@ -359,40 +360,70 @@ public class OLParser extends AbstractParser
 	}
 	
 	private TypeDefinition createTypeFromTypeDefinition ( List < List < TypeDefinition > > subTypes, boolean untypedSubTypes,
-		List < NativeType > nativeTypes, String userDefinedType )
+			List < NativeType > nativeTypes, String userDefinedType )
 	{
 		if ( nativeTypes == null ) { // It's a user-defined type
-					return new TypeDefinitionLink( getContext(), null, Constants.RANGE_ONE_TO_ONE, userDefinedType );
-				} else if ( nativeTypes.size() == 1 ) { // ... NT ?
-					TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), null, nativeTypes.get( 0 ), Constants.RANGE_ONE_TO_ONE );
-					if ( untypedSubTypes == true ) { //It has untyped sub-types
-						inline.setUntypedSubTypes( true );
-					} else if ( subTypes != null ) { // ... NT { ... } ...
-						inline.putSubType( new TypeChoiceDefinition( getContext(), null, subTypes ) );
-					}
-					return inline;
-				} else { //... ( ... ) { ... } ...
-					List < List < TypeDefinition > > options = new ArrayList < List < TypeDefinition > >();
-					List< TypeDefinition > oneElementList;
-					if ( untypedSubTypes == true ) { //It has untyped sub-types
-						for ( NativeType nativeType : nativeTypes ) {
-							TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), null, nativeType, Constants.RANGE_ONE_TO_ONE );
-							inline.setUntypedSubTypes( true );
-							oneElementList = new ArrayList< TypeDefinition >();
-							oneElementList.add( inline );
-							options.add( oneElementList );
-						}
-					} else {
-						for ( NativeType nativeType : nativeTypes ) {
-							TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), null, nativeType, Constants.RANGE_ONE_TO_ONE );
-							inline.putSubType( new TypeChoiceDefinition( getContext(), null, subTypes ) );
-							oneElementList = new ArrayList< TypeDefinition >();
-							oneElementList.add( inline );
-							options.add( oneElementList );
+			return new TypeDefinitionLink( getContext(), null, Constants.RANGE_ONE_TO_ONE, userDefinedType );
+		} else if ( nativeTypes.size() == 1 ) { // ... NT ?
+			TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), null, nativeTypes.get( 0 ), Constants.RANGE_ONE_TO_ONE );
+			if ( untypedSubTypes == true ) { //It's an inline with untyped sub-types
+				inline.setUntypedSubTypes( true );
+			} else {
+				if ( subTypes.size() < 2 ) {
+					if (subTypes.size() == 1 ) { // It has sub-types
+						for ( TypeDefinition subType : subTypes.get( 0 ) ) {
+							inline.putSubType( subType );
 						}
 					}
-					return new TypeChoiceDefinition( getContext(), null, options );
+				} else { //It's a choice
+					inline.putSubType( new TypeChoiceDefinition( getContext(), null, subTypes ) );
 				}
+			}
+			return inline;
+		} else { //... ( ... ) { ... } ...
+			List < List < TypeDefinition > > options = new ArrayList < List < TypeDefinition > >();
+			List< TypeDefinition > oneElementList;
+			if ( untypedSubTypes == true ) { //It has untyped sub-types
+				for ( NativeType nativeType : nativeTypes ) {
+					TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), null, nativeType, Constants.RANGE_ONE_TO_ONE );
+					inline.setUntypedSubTypes( true );
+					oneElementList = new ArrayList< TypeDefinition >();
+					oneElementList.add( inline );
+					options.add( oneElementList );
+				}
+			} else {
+				boolean hasSingleSetOfSubTypes = false;
+				if ( subTypes.size() == 1 ) {
+					if (subTypes.get( 0 ) != null ) { // It has sub-types
+						for ( NativeType nativeType : nativeTypes ) {
+							TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), null, nativeType, Constants.RANGE_ONE_TO_ONE );
+							for ( TypeDefinition subType : subTypes.get( 0 ) ) {
+								inline.putSubType( subType );
+							}
+							oneElementList = new ArrayList< TypeDefinition >();
+							oneElementList.add( inline );
+							options.add( oneElementList );
+						}
+					} else { //It doesn't have sub-types
+						for ( NativeType nativeType : nativeTypes ) {
+							TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), null, nativeType, Constants.RANGE_ONE_TO_ONE );
+							oneElementList = new ArrayList< TypeDefinition >();
+							oneElementList.add( inline );
+							options.add( oneElementList );
+						}
+					}
+				} else { //It's a choice
+					for ( NativeType nativeType : nativeTypes ) {
+						TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), null, nativeType, Constants.RANGE_ONE_TO_ONE );
+						inline.putSubType( new TypeChoiceDefinition( getContext(), null, subTypes ) );
+						oneElementList = new ArrayList< TypeDefinition >();
+						oneElementList.add( inline );
+						options.add( oneElementList );
+					}
+				}
+			}
+			return new TypeChoiceDefinition( getContext(), null, options );
+		}
 	}
 	
 	
@@ -400,7 +431,7 @@ public class OLParser extends AbstractParser
 			throws IOException, ParserException
 	{
 		List < TypeDefinition > typeDefinitions = new ArrayList < TypeDefinition >();
-		List < List < TypeDefinition > > subTypes = null;
+		List < List < TypeDefinition > > subTypes = new ArrayList < List < TypeDefinition > >();
 		boolean untypedSubTypes = false;
 		List < NativeType > nativeTypes;
 		String userDefinedType = "";
@@ -419,7 +450,6 @@ public class OLParser extends AbstractParser
 				}
 			}
 		} else if ( nativeTypes.size() > 1 ) { //It has several native types in parenthes, and sub-types are therefore required.
-			getToken();
 			List < TypeDefinition > parsedSubTypes = parseSubTypes();
 			if ( parsedSubTypes == null ) { //It has untyped sub-types
 				untypedSubTypes = true;
@@ -435,11 +465,17 @@ public class OLParser extends AbstractParser
 		}
 		
 		while ( token.type() == Scanner.TokenType.PLUS ) { //... { ... } + ?
+			
+			//if ( lookAhead(token.type()) == Scanner.TokenType.LCURLY ) { // We have encountered next option and are therefore finish with parsing this option
+			//finish up
+			//TODO
+			//} else { //We are not done parsing this option
 			eat( Scanner.TokenType.PLUS, "expected +" );
+			
 			if ( token.type() == Scanner.TokenType.LCURLY ) { //... { ... } + { ... } ...
 				if ( untypedSubTypes == false ) {
-					if ( subTypes == null ) { //Not valid syntax: type t : { ... }
-						throwException( "Missing native type in front of sub-types" );
+					if ( subTypes.isEmpty() ) { //Not valid syntax: type t : NT + { ... }
+						throwException( "Missing native type between plus and sub-types" );
 					} else {
 						List < TypeDefinition > parsedSubTypes = parseSubTypes();
 						if ( parsedSubTypes == null ) { //It has untyped sub-types
@@ -455,9 +491,9 @@ public class OLParser extends AbstractParser
 				typeDefinitions.add( createTypeFromTypeDefinition( subTypes, untypedSubTypes, nativeTypes, userDefinedType ) );
 				
 				//Make ready to parse next type definition
-				subTypes = null;
 				untypedSubTypes = false;
 				userDefinedType = "";
+				subTypes = new ArrayList < List < TypeDefinition > >();
 				
 				//Parse next typeDefinition
 				nativeTypes = parseNativeTypes();
@@ -629,10 +665,9 @@ public class OLParser extends AbstractParser
 		
 		if ( token.is( Scanner.TokenType.LPAREN ) ) {
 			eat( Scanner.TokenType.LPAREN, "expected (" );
-			options = new LinkedList< List< TypeDefinition > >();
+			options = new ArrayList< List< TypeDefinition > >();
 			options.add( parseSubTypeChoiceOption( usedIds ) );
 			while ( token.isNot( Scanner.TokenType.RPAREN ) ) {
-				eat( Scanner.TokenType.PLUS, "expected +" );
 				options.add( parseSubTypeChoiceOption( usedIds ) );
 			}
 			eat( Scanner.TokenType.RPAREN, "expected )" );
@@ -745,7 +780,7 @@ public class OLParser extends AbstractParser
 				return typeDefinitions;
 			}
 		} else { //It's a sub-type
-			elements = new LinkedList< TypeDefinition >();
+			elements = new ArrayList< TypeDefinition >();
 			elements.add( parseSubType( usedIds ) );
 			return elements;
 		}
