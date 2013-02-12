@@ -606,10 +606,17 @@ public class OOITBuilder implements OLVisitor
 		if ( n.untypedSubTypes() ) {
 			currType = Type.create( n.nativeType(), n.cardinality(), true, null );
 		} else {
-			Map< String, Type > subTypes = new HashMap< String, Type >();
+			Map< String, List< Type > > subTypes = new HashMap< String, List< Type > >();
 			if ( n.subTypes() != null ) {
-				for( Entry< String, TypeDefinition > entry : n.subTypes() ) {
-					subTypes.put( entry.getKey(), buildType( entry.getValue() ) );
+				List< TypeDefinition > sameIdTypeDefinitions;
+				List< Type > sameIdTypes;
+				for( Entry< String, List< TypeDefinition > > entry : n.subTypes() ) {
+					sameIdTypeDefinitions = entry.getValue();
+					sameIdTypes = new ArrayList< Type >();
+					for ( TypeDefinition typeDefinition : sameIdTypeDefinitions ) {
+						sameIdTypes.add( buildType( typeDefinition ) );
+					}
+					subTypes.put( entry.getKey(), sameIdTypes );
 				}
 			}
 			currType = Type.create( n.nativeType(), n.cardinality(), false, subTypes );

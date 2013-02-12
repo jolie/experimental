@@ -40,6 +40,8 @@ import jolie.util.Range;
  */
 public abstract class TypeDefinition extends OLSyntaxNode
 {
+	public final static String NO_ID = "@@##%%&&"; //id used for type definitions appearing in 
+							   //choices, but not definable by the user.
 	private String id;
 	private final Range cardinality;
 
@@ -69,15 +71,15 @@ public abstract class TypeDefinition extends OLSyntaxNode
 	}
 	
 	/**
-	 * Set ID if it is not already set.
+	 * Set ID
 	 * @param the new ID 
 	 * @author Julie Meinicke Nielsen
 	 */
 	public void setId( String newId )
 	{
-		if ( id == null ) {
-			id = newId;
-		}
+		
+		id = newId;
+		
 	}
 	
 	public Range cardinality()
@@ -95,7 +97,8 @@ public abstract class TypeDefinition extends OLSyntaxNode
 	 */
 	protected static boolean checkTypeEqualness( TypeInlineDefinition left, TypeInlineDefinition right, List<String> recursiveTypesChecked )
 	{
-		if ( left.nativeType() != right.nativeType() ) {
+//TODO
+		/*		if ( left.nativeType() != right.nativeType() ) {
 			return false;
 		}
 
@@ -132,7 +135,7 @@ public abstract class TypeDefinition extends OLSyntaxNode
 				return right.hasSubTypes() == false;
 			}
 		}
-
+*/
 		return true;
 	}
 	
@@ -172,12 +175,14 @@ public abstract class TypeDefinition extends OLSyntaxNode
 		return true;
 	}
 	
+	//TODO: Fix it.
 	/**
 	 * @author Claudio Guidi
 	 * 01-Sep-2011 Fabrizio Montesi: removed some type casting
 	 */
 	public static TypeDefinition extend( TypeDefinition inputType, TypeDefinition extender, String namePrefix )
 	{		
+		/*
 
 		//TODO: Implement extend for choice types.
 		if ( inputType instanceof TypeDefinitionLink ) {
@@ -226,6 +231,8 @@ public abstract class TypeDefinition extends OLSyntaxNode
 			}
 		}
 		return newType;
+		*/
+		return null;
 	}
 
 	/**

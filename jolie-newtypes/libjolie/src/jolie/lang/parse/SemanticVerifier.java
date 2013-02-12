@@ -406,8 +406,10 @@ public class SemanticVerifier implements OLVisitor
 		isTopLevelType = false;
 
 		if ( n.hasSubTypes() ) {
-			for( Entry< String, TypeDefinition > entry : n.subTypes() ) {
-				entry.getValue().accept( this );
+			for( Entry< String, List< TypeDefinition > > entry : n.subTypes() ) {
+				for( TypeDefinition subType : entry.getValue() ) {
+					subType.accept( this );
+				}
 			}
 		}
 

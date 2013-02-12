@@ -86,7 +86,6 @@ public class TypeChoiceDefinition extends TypeDefinition {
 		return null;
 	}
 	
-	//TODO: Adapt to new version
 	/**
 	 * Returns true if the variable path is contained in all options.
 	 * @param it
@@ -95,12 +94,20 @@ public class TypeChoiceDefinition extends TypeDefinition {
 	@Override
 	protected boolean containsPath( Iterator< Pair< OLSyntaxNode, OLSyntaxNode > > it )
 	{
-		/*
-		for ( TypeDefinition option : options ) {
-			if ( option.containsPath(it) == false ) {
+		boolean isInOption = false;
+		
+		for ( List< TypeDefinition > option : options ) {
+			for ( int i=0; i < option.size(); i++ ) {
+				TypeDefinition type = option.get( i );
+				if ( type.containsPath(it) == true ) {
+					isInOption = true;
+					i = option.size();
+				}
+			}
+			if ( isInOption == false ) {
 				return false;
 			}
-		} */
+		}
 		return true;
 	}
 	

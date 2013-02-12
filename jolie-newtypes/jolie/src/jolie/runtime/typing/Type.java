@@ -35,14 +35,14 @@ class TypeImpl extends Type
 {
 	private final Range cardinality;
 	private final NativeType nativeType;
-	private final Set< Entry< String, Type > > subTypeSet;
+	private final Set< Entry< String, List< Type > > > subTypeSet;
 	private final Set< String > subTypeKeySet;
 
 	public TypeImpl(
 		NativeType nativeType,
 		Range cardinality,
 		boolean undefinedSubTypes,
-		Map< String, Type > subTypes
+		Map< String, List< Type > > subTypes
 	) {
 		this.nativeType = nativeType;
 		this.cardinality = cardinality;
@@ -55,7 +55,7 @@ class TypeImpl extends Type
 		}
 	}
 	
-	protected Set< Entry< String, Type > > subTypeSet()
+	protected Set< Entry< String, List< Type > > > subTypeSet()
 	{
 		return subTypeSet;
 	}
@@ -79,8 +79,10 @@ class TypeImpl extends Type
 	{
 		castNativeType( value, pathBuilder );
 		if ( subTypeSet != null ) {
-			for( Entry< String, Type > entry : subTypeSet ) {
-				castSubType( entry.getKey(), entry.getValue(), value, new StringBuilder( pathBuilder ) );
+			for( Entry< String, List< Type > > entry : subTypeSet ) {
+				for ( Type type : entry.getValue() ) {
+					castSubType( entry.getKey(), type, value, new StringBuilder( pathBuilder ) );
+				}
 			}
 		}
 		
@@ -120,8 +122,10 @@ class TypeImpl extends Type
 		}
 
 		if ( subTypeSet != null ) {
-			for( Entry< String, Type > entry : subTypeSet ) {
-				checkSubType( entry.getKey(), entry.getValue(), value, new StringBuilder( pathBuilder ) );
+			for( Entry< String, List< Type > > entry : subTypeSet ) {
+				for( Type type : entry.getValue() ) {
+					checkSubType( entry.getKey(), type, value, new StringBuilder( pathBuilder ) );
+				}
 			}
 			// TODO make this more performant
 			for( String childName : value.children().keySet() ) {
@@ -356,7 +360,7 @@ public abstract class Type implements Cloneable
 		NativeType nativeType,
 		Range cardinality,
 		boolean undefinedSubTypes,
-		Map< String, Type > subTypes
+		Map< String, List< Type > > subTypes
 	) {
 		return new TypeImpl( nativeType, cardinality, undefinedSubTypes, subTypes );
 	}
@@ -398,18 +402,18 @@ public abstract class Type implements Cloneable
 		
 		NativeType nativeType = t1Casted.nativeType();
 		Range cardinality = t1Casted.cardinality();
-		Map< String, Type > subTypes = new HashMap< String, Type >();
-		for( Entry< String, Type > entry : t1Casted.subTypeSet() ) {
+		Map< String, List< Type > > subTypes = new HashMap< String, List< Type > >();
+		for( Entry< String, List< Type > > entry : t1Casted.subTypeSet() ) {
 			subTypes.put( entry.getKey(), entry.getValue() );
 		}
 		if ( t2 != null ) {
-			for( Entry< String, Type > entry : t2Casted.subTypeSet() ) {
+			for( Entry< String, List< Type > > entry : t2Casted.subTypeSet() ) {
 				subTypes.put( entry.getKey(), entry.getValue() );
 			}
 		}
 		return create( nativeType, cardinality, false, subTypes );
 	}
-
+	
 	public void check( Value value )
 		throws TypeCheckingException
 	{

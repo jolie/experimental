@@ -34,11 +34,13 @@ import jolie.util.Range;
 
 /**
  * @author Fabrizio Montesi
+ * 12-Feb-2013 Julie Meinicke Nielsen: Changed value in subTypes to a list to
+ * make it handle multiple subTypes with null as ID
  */
 public class TypeInlineDefinition extends TypeDefinition
 {
 	private final NativeType nativeType;
-	private Map< String, TypeDefinition > subTypes = null;
+	private Map< String, List< TypeDefinition > > subTypes = null;
 	private boolean untypedSubTypes = false;
 
 	public TypeInlineDefinition( ParsingContext context, String id, NativeType nativeType, Range cardinality )
@@ -66,8 +68,18 @@ public class TypeInlineDefinition extends TypeDefinition
 		Pair< OLSyntaxNode, OLSyntaxNode > pair = it.next();
 		String nodeName = ((ConstantStringExpression)pair.key()).value();
 		if ( hasSubType( nodeName ) ) {
-			TypeDefinition subType = getSubType( nodeName );
-			return subType.containsPath( it );
+			List< TypeDefinition > sameIdSubTypes = getSubType( nodeName );
+			if ( sameIdSubTypes.get( 0 ).containsPath( it ) ) {	//only one element is permitted pr. list except for NO_ID.
+				return true;
+			}
+		}
+		if ( hasSubType( NO_ID ) ) {
+			List< TypeDefinition > sameIdSubTypes = getSubType( NO_ID );
+			for ( TypeDefinition subType : sameIdSubTypes ) {
+				if ( subType.containsPath( it ) ) {
+					return true;
+				}
+			}
 		}
 		return false;
 	}
@@ -108,7 +120,7 @@ public class TypeInlineDefinition extends TypeDefinition
 		}
 	}
 
-	public Set< Map.Entry< String, TypeDefinition > > subTypes()
+	public Set< Map.Entry< String, List< TypeDefinition> > > subTypes()
 	{
 		if ( subTypes == null ) {
 			return null;
@@ -117,7 +129,7 @@ public class TypeInlineDefinition extends TypeDefinition
 		return subTypes.entrySet();
 	}
 
-	public TypeDefinition getSubType( String id )
+	public List< TypeDefinition > getSubType( String id )
 	{
 		if ( subTypes != null ) {
 			return subTypes.get( id );
@@ -132,15 +144,31 @@ public class TypeInlineDefinition extends TypeDefinition
 		}
 		return false;
 	}
-
+	
 	public void putSubType( TypeDefinition type )
 	{
+		List < TypeDefinition > sameIdSubTypes;
+		String id = type.id();
+		
 		if ( subTypes == null ) {
-			subTypes = new HashMap< String, TypeDefinition >();
+			subTypes = new HashMap< String, List< TypeDefinition > >();
+			sameIdSubTypes = new ArrayList< TypeDefinition >();
+			sameIdSubTypes.add( type );
+			subTypes.put( id, sameIdSubTypes );
+			
+		} else {
+			if ( hasSubType( id ) ) {
+				sameIdSubTypes = subTypes.get( id );
+				sameIdSubTypes.add( type );
+				subTypes.put( id, sameIdSubTypes );
+			} else {
+				sameIdSubTypes = new ArrayList< TypeDefinition >();
+				sameIdSubTypes.add( type );
+				subTypes.put( id, sameIdSubTypes );
+			}
 		}
-		subTypes.put( type.id(), type );
 	}
-
+	
 	public boolean untypedSubTypes()
 	{
 		return untypedSubTypes;
@@ -154,8 +182,10 @@ public class TypeInlineDefinition extends TypeDefinition
 		if ( untypedSubTypes() ) {
 			copiedType.setUntypedSubTypes(untypedSubTypes());
 		} else if ( hasSubTypes() ) { //copy subTypes if any
-			for ( TypeDefinition subType : subTypes.values() ) {
-				copiedType.putSubType(subType.copy());
+			for ( List< TypeDefinition> sameIdSubTypes : subTypes.values() ) {
+				for ( TypeDefinition subType : sameIdSubTypes ) {
+					copiedType.putSubType(subType.copy());
+				}
 			}			
 		}
 		return copiedType;

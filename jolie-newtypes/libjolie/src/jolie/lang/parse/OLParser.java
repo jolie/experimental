@@ -245,13 +245,24 @@ public class OLParser extends AbstractParser
 				currentType.setId(typeName);
 			} 
 			*/ 
-			
-			
+	
 			// Keep track of the root types to support them in successive type declarations
 			definedTypes.put( typeName, currentType );
 			program.addChild( currentType );
 		}
 	}
+//	
+//	private String testPrintType( TypeDefinition currentType) {
+//		String typeDefClass = currentType.getClass().getName();
+//		String description = "Type: " + typeDefClass + ", name: " + currentType.id() + ", children:";
+//		
+//		if ( currentType.getClass().getName() == "TypeChoiceDefinition" ) {
+//			
+//			for ( List< TypeDefinition > option : (TypeChoiceDefinition)currentType.options() ) {
+//				
+//			}
+//		}
+//	}
 		
 	/**
 	 * Parses shortcut for choice types where each option has identical 
@@ -365,7 +376,7 @@ public class OLParser extends AbstractParser
 		if ( nativeTypes == null ) { // It's a user-defined type
 			return new TypeDefinitionLink( getContext(), null, Constants.RANGE_ONE_TO_ONE, userDefinedType );
 		} else if ( nativeTypes.size() == 1 ) { // ... NT ?
-			TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), null, nativeTypes.get( 0 ), Constants.RANGE_ONE_TO_ONE );
+			TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), TypeDefinition.NO_ID, nativeTypes.get( 0 ), Constants.RANGE_ONE_TO_ONE );
 			if ( untypedSubTypes == true ) { //It's an inline with untyped sub-types
 				inline.setUntypedSubTypes( true );
 			} else {
@@ -376,7 +387,7 @@ public class OLParser extends AbstractParser
 						}
 					}
 				} else { //It's a choice
-					inline.putSubType( new TypeChoiceDefinition( getContext(), null, subTypes ) );
+					inline.putSubType( new TypeChoiceDefinition( getContext(), TypeDefinition.NO_ID, subTypes ) );
 				}
 			}
 			return inline;
@@ -385,7 +396,7 @@ public class OLParser extends AbstractParser
 			List< TypeDefinition > oneElementList;
 			if ( untypedSubTypes == true ) { //It has untyped sub-types
 				for ( NativeType nativeType : nativeTypes ) {
-					TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), null, nativeType, Constants.RANGE_ONE_TO_ONE );
+					TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), TypeDefinition.NO_ID, nativeType, Constants.RANGE_ONE_TO_ONE );
 					inline.setUntypedSubTypes( true );
 					oneElementList = new ArrayList< TypeDefinition >();
 					oneElementList.add( inline );
@@ -396,7 +407,7 @@ public class OLParser extends AbstractParser
 				if ( subTypes.size() == 1 ) {
 					if (subTypes.get( 0 ) != null ) { // It has sub-types
 						for ( NativeType nativeType : nativeTypes ) {
-							TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), null, nativeType, Constants.RANGE_ONE_TO_ONE );
+							TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), TypeDefinition.NO_ID, nativeType, Constants.RANGE_ONE_TO_ONE );
 							for ( TypeDefinition subType : subTypes.get( 0 ) ) {
 								inline.putSubType( subType );
 							}
@@ -406,7 +417,7 @@ public class OLParser extends AbstractParser
 						}
 					} else { //It doesn't have sub-types
 						for ( NativeType nativeType : nativeTypes ) {
-							TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), null, nativeType, Constants.RANGE_ONE_TO_ONE );
+							TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), TypeDefinition.NO_ID, nativeType, Constants.RANGE_ONE_TO_ONE );
 							oneElementList = new ArrayList< TypeDefinition >();
 							oneElementList.add( inline );
 							options.add( oneElementList );
@@ -415,14 +426,14 @@ public class OLParser extends AbstractParser
 				} else { //It's a choice
 					for ( NativeType nativeType : nativeTypes ) {
 						TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), null, nativeType, Constants.RANGE_ONE_TO_ONE );
-						inline.putSubType( new TypeChoiceDefinition( getContext(), null, subTypes ) );
+						inline.putSubType( new TypeChoiceDefinition( getContext(), TypeDefinition.NO_ID, subTypes ) );
 						oneElementList = new ArrayList< TypeDefinition >();
 						oneElementList.add( inline );
 						options.add( oneElementList );
 					}
 				}
 			}
-			return new TypeChoiceDefinition( getContext(), null, options );
+			return new TypeChoiceDefinition( getContext(), TypeDefinition.NO_ID, options );
 		}
 	}
 	
@@ -603,7 +614,7 @@ public class OLParser extends AbstractParser
 				OneElementList.add( type );
 				options.add( OneElementList );
 			}
-			return new TypeChoiceDefinition( getContext(), null, options );
+			return new TypeChoiceDefinition( getContext(), TypeDefinition.NO_ID, options );
 		}
 	}
 	
@@ -733,7 +744,7 @@ public class OLParser extends AbstractParser
 				options.add( parseSubTypeChoiceOption( usedIds ) );
 			}
 			eat( Scanner.TokenType.RPAREN, "expected )" );
-			return new TypeChoiceDefinition(getContext(), null, options);
+			return new TypeChoiceDefinition(getContext(), TypeDefinition.NO_ID, options);
 		} else { //It's a subtype (if not, then an error is thrown from parseSubType)
 			return parseSubType( usedIds );
 		}
@@ -829,7 +840,7 @@ public class OLParser extends AbstractParser
 					options.add( parseSubTypeChoiceOption( usedIds ) );
 				}
 				eat( Scanner.TokenType.RPAREN, "expected )" );
-				choice = new TypeChoiceDefinition( getContext(), null, options );
+				choice = new TypeChoiceDefinition( getContext(), TypeDefinition.NO_ID, options );
 				typeDefinitions = new LinkedList < TypeDefinition >();
 				typeDefinitions.add( choice );
 				return typeDefinitions;
