@@ -97,15 +97,14 @@ public abstract class TypeDefinition extends OLSyntaxNode
 	 */
 	protected static boolean checkTypeEqualness( TypeInlineDefinition left, TypeInlineDefinition right, List<String> recursiveTypesChecked )
 	{
-//TODO
-		/*		if ( left.nativeType() != right.nativeType() ) {
+		if ( left.nativeType() != right.nativeType() ) {
 			return false;
 		}
-
+		
 		if ( left.cardinality().equals( right.cardinality() ) == false ) {
 			return false;
 		}
-
+		
 		if ( left.untypedSubTypes() ) {
 			return right.untypedSubTypes();
 		} else {
@@ -116,26 +115,33 @@ public abstract class TypeDefinition extends OLSyntaxNode
 				if ( left.subTypes().size() != right.subTypes().size() ) {
 					return false;
 				}
-
-				for( Entry< String, TypeDefinition > entry : left.subTypes() ) {
-					TypeDefinition rightSubType = right.getSubType( entry.getKey() );
+				
+				for( Entry< String, List< TypeDefinition > > entry : left.subTypes() ) {
+					List< TypeDefinition > rightSubType = right.getSubType( entry.getKey() );
 					if ( rightSubType == null ) {
 						return false;
 					}
-					if ( recursiveTypesChecked.contains( rightSubType.id ) ) {
-						return true;
+					if ( entry.getKey() == NO_ID ) {
+						//TODO: Handle NO_ID
+						System.out.println( "checkTypeEqualness: NO_ID encountered" );
+						
 					} else {
-						recursiveTypesChecked.add( rightSubType.id );
-					}
-					if ( entry.getValue().isEquivalentTo_recursive( right.getSubType( entry.getKey() ), recursiveTypesChecked ) == false ) {
-						return false;
+						
+						if ( recursiveTypesChecked.contains( entry.getKey() ) ) {
+							return true;
+						} else {
+							recursiveTypesChecked.add( entry.getKey() );
+						}
+						
+						if ( entry.getValue().get( 0 ).isEquivalentTo_recursive( rightSubType.get( 0 ), recursiveTypesChecked ) == false ) {
+							return false;
+						}
 					}
 				}
 			} else {
 				return right.hasSubTypes() == false;
 			}
 		}
-*/
 		return true;
 	}
 	
@@ -153,9 +159,7 @@ public abstract class TypeDefinition extends OLSyntaxNode
 		List < List < TypeDefinition > > leftOptions = left.options();
 		List < List < TypeDefinition > > rightOptions = right.options();
 		TypeDefinition equivalent;
-		//TODO
 		/*
-		
 		for ( TypeDefinition leftOption : leftOptions ) {
 			equivalent = right.getEquivalentOption(leftOption);
 			

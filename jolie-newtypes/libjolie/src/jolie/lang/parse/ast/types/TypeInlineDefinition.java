@@ -96,8 +96,13 @@ public class TypeInlineDefinition extends TypeDefinition
 		}
 		if ( other instanceof TypeInlineDefinition ) {
 			return checkTypeEqualness(this, (TypeInlineDefinition)other, recursiveTypeChecked);
-		} else {
-			return false;
+		} else { //If all the choice options are equal, there is a change that this and other are equal.
+			TypeInlineDefinition simplified = ((TypeChoiceDefinition)other).convertToTypeInlineDefinition( recursiveTypeChecked );
+			if ( simplified == null ) {
+				return false;
+			} else {
+				return checkTypeEqualness( this, simplified, recursiveTypeChecked );
+			}
 		}
 	}
 	

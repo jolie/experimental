@@ -87,6 +87,38 @@ public class TypeChoiceDefinition extends TypeDefinition {
 	}
 	
 	/**
+	 * If all options are equivalent and can be rewritten as an TypeInlineDefinition or TypeDefinitionLink, then return it.
+	 * @return equivalent typeInlineDefinition, typeDefinitionLink or null if such doesn't exist.
+	 */
+	public TypeInlineDefinition convertToTypeInlineDefinition( List<String> recursiveTypeChecked ) {
+		
+		List< TypeDefinition > option0 = options.get( 0 );
+		if ( option0.size() != 1 ) { //doesn't fit the structure of an inline
+			return null;
+		}
+		List< TypeDefinition > option;
+		TypeDefinition type0 = option0.get( 0 );
+		for ( int i=1; i < options.size(); i++ ) { //Check whether all options are equal
+			option = options.get( i );
+			if ( option.size() != 1 ) { //doesn't fit the structure of an inline
+				return null;
+			} else {
+				if ( type0.isEquivalentTo_recursive( option.get( 0 ), recursiveTypeChecked ) == false ) {
+					return null;
+				}
+			}
+		}
+		if ( type0 instanceof TypeDefinitionLink ) {
+			type0 = ((TypeDefinitionLink)type0).lastLinkedType();
+		}
+		if ( type0 instanceof TypeInlineDefinition ) {
+			return (TypeInlineDefinition)type0;
+		} else {
+			return (( TypeChoiceDefinition)type0).convertToTypeInlineDefinition( recursiveTypeChecked );
+		}
+	}
+	
+	/**
 	 * Returns true if the variable path is contained in all options.
 	 * @param it
 	 * @return whether the variable path is contained in all options.
@@ -114,7 +146,7 @@ public class TypeChoiceDefinition extends TypeDefinition {
 	/**
 	 * introduced for checking also recursive type equalness
 	 * @author Claudio Guidi
-	 * 28-June-2012 Julie Meinicke Nielsen: Added type parsing. 
+	 * 28-June-2012 Julie Meinicke Nielsen: Added type parsing.
 	 */
 	protected boolean isEquivalentTo_recursive( TypeDefinition other, List<String> recursiveTypeChecked )
 	{
@@ -123,8 +155,13 @@ public class TypeChoiceDefinition extends TypeDefinition {
 		}
 		if ( other instanceof TypeChoiceDefinition ) {
 			return checkTypeEqualness(this, (TypeChoiceDefinition)other, recursiveTypeChecked);
-		} else {
-			return false;
+		} else { //If all the choice options are equal, there is a change that this and other are equal.
+			TypeDefinition simplified = convertToTypeInlineDefinition( recursiveTypeChecked );
+			if ( simplified == null ) {
+				return false;
+			} else {
+				return checkTypeEqualness( (TypeInlineDefinition)simplified, (TypeInlineDefinition)other, recursiveTypeChecked );
+			}
 		}
 	}
 	

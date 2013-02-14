@@ -61,7 +61,6 @@ public class TypeDefinitionLink extends TypeDefinition
 	/**
 	 * introduced for checking also recursive type equalness
 	 * @author Claudio Guidi
-	 * 28-June-2012 Julie Meinicke Nielsen: Added type parsing. 
 	 */
 	@Override
 	protected boolean isEquivalentTo_recursive( TypeDefinition other, List<String> recursiveTypeChecked )
