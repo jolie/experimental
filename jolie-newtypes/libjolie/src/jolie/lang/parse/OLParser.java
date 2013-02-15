@@ -373,7 +373,7 @@ public class OLParser extends AbstractParser
 	private TypeDefinition createTypeFromTypeDefinition ( List < List < TypeDefinition > > subTypes, boolean untypedSubTypes,
 			List < NativeType > nativeTypes, String userDefinedType )
 	{
-		if ( nativeTypes == null ) { // It's a user-defined type
+		if ( nativeTypes.isEmpty() ) { // It's a user-defined type
 			return new TypeDefinitionLink( getContext(), null, Constants.RANGE_ONE_TO_ONE, userDefinedType );
 		} else if ( nativeTypes.size() == 1 ) { // ... NT ?
 			TypeInlineDefinition inline = new TypeInlineDefinition( getContext(), TypeDefinition.NO_ID, nativeTypes.get( 0 ), Constants.RANGE_ONE_TO_ONE );
