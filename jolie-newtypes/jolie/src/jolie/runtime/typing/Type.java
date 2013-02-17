@@ -21,15 +21,15 @@
 
 package jolie.runtime.typing;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import jolie.lang.NativeType;
 import jolie.runtime.Value;
 import jolie.runtime.ValueVector;
 import jolie.util.Range;
+import jolie.lang.Constants;
 
 class TypeImpl extends Type
 {
@@ -111,7 +111,7 @@ class TypeImpl extends Type
 			for( Value v : vector ) {
 				type.cast( v, pathBuilder );
 			}
-		}
+		}	
 	}
 
 	protected void check( Value value, StringBuilder pathBuilder )
@@ -137,30 +137,35 @@ class TypeImpl extends Type
 	}
 
 	private void checkSubType( String typeName, Type type, Value value, StringBuilder pathBuilder )
-		throws TypeCheckingException
+			throws TypeCheckingException
 	{
-		pathBuilder.append( '.' );
-		pathBuilder.append( typeName );
-
-		boolean hasChildren = value.hasChildren( typeName );
-		if ( hasChildren == false && type.cardinality().min() > 0 ) {
-			throw new TypeCheckingException( "Undefined required child node: " + pathBuilder.toString() );
-		} else if ( hasChildren ) {
-			ValueVector vector = value.getChildren( typeName );
-			int size = vector.size();
-			if ( type.cardinality().min() > size || type.cardinality().max() < size ) {
-				throw new TypeCheckingException(
-					"Child node " + pathBuilder.toString() + " has a wrong number of occurencies. Permitted range is [" +
-					type.cardinality().min() + "," + type.cardinality().max() + "], found " + size
-				);
-			}
-
-			for( Value v : vector ) {
-				type.check( v, pathBuilder );
+		if ( typeName == Constants.NO_ID ) {
+			type.check( value, pathBuilder );
+		} else {
+			
+			pathBuilder.append( '.' );
+			pathBuilder.append( typeName );
+			
+			boolean hasChildren = value.hasChildren( typeName );
+			if ( hasChildren == false && type.cardinality().min() > 0 ) {
+				throw new TypeCheckingException( "Undefined required child node: " + pathBuilder.toString() );
+			} else if ( hasChildren ) {
+				ValueVector vector = value.getChildren( typeName );
+				int size = vector.size();
+				if ( type.cardinality().min() > size || type.cardinality().max() < size ) {
+					throw new TypeCheckingException(
+							"Child node " + pathBuilder.toString() + " has a wrong number of occurencies. Permitted range is [" +
+							type.cardinality().min() + "," + type.cardinality().max() + "], found " + size
+							);
+				}
+				
+				for( Value v : vector ) {
+					type.check( v, pathBuilder );
+				}
 			}
 		}
 	}
-
+	
 	private void castNativeType( Value value, StringBuilder pathBuilder )
 		throws TypeCastingException
 	{
@@ -256,9 +261,11 @@ class TypeImpl extends Type
 class TypeChoice extends Type
 {
 	private final Range cardinality;
-	private final List < List < Type > > options;
+	//private final List < List < Type > > options;
+	private final List< Map< String, List< Type > > > options; //An option consists of a subtype list
+			
 	
-	public TypeChoice( Range cardinality, List < List < Type > > options ) 
+	public TypeChoice( Range cardinality, List< Map< String, List< Type > > > options ) 
 	{
 		this.cardinality = cardinality;
 		this.options = options;
@@ -267,15 +274,18 @@ class TypeChoice extends Type
 	@Override
 	public void cutChildrenFromValue( Value value )
 	{
-		List < Type > option;
-		
-		for( int i=0; i < options.size(); i++ ) {
-			option = options.get( i );
-			
-			for ( Type type : option ) {
-				type.cutChildrenFromValue( value );
+		for ( Map< String, List< Type > > option : options ) {
+			for( Map.Entry< String, List< Type > > entry : option.entrySet() ) {
+				String typeName = entry.getKey();
+				if ( typeName == Constants.NO_ID ) {
+					for ( Type type : entry.getValue() ) {
+						type.cutChildrenFromValue( value );
+					}
+				} else {
+					value.children().remove( typeName );
+				}
 			}
-		}
+		}	
 	}
 
 	@Override
@@ -284,7 +294,7 @@ class TypeChoice extends Type
 		return cardinality;
 	}
 
-	protected List < List < Type > > options() 
+	protected List< Map< String, List< Type > > > options() 
 	{
 		return options;
 	}
@@ -292,31 +302,39 @@ class TypeChoice extends Type
 	@Override
 	protected void check(Value value, StringBuilder pathBuilder) throws TypeCheckingException
 	{
+		Map< String, List< Type > > option;
 		boolean valueInOption = false;
-		for( List < Type > option : options ) {
-			for( Type type : option ) {
-				valueInOption = checkOption( type, value, new StringBuilder( pathBuilder ) );
-				if ( valueInOption == true ) {
-					break;
+		int i = 0;
+		
+		while ( valueInOption == false ) {
+			if ( i >= options.size() ) {
+				throw new TypeCheckingException( "Invalid type for node " + pathBuilder.toString() + ": couldn't match  " + value.valueObject().getClass().getName() + " in any of it's options" );
+			}
+			valueInOption = true;
+			for( Entry< String, List< Type > > entry : options.get( i ).entrySet() ) {
+				for( Type type : entry.getValue() ) {
+					try {
+						type.check( value );
+					} catch (TypeCheckingException ex) {
+						valueInOption = false;
+						break;
+					}
 				}
 			}
 		}
-		if ( !valueInOption ) {
-			throw new TypeCheckingException( "Undefined required node: " + pathBuilder.toString() );
-		}
 	}
 	
-	private boolean checkOption( Type type, Value value, StringBuilder pathBuilder )
-			throws TypeCheckingException
-	{
-		try {
-			type.check( value, pathBuilder );
-		} catch (TypeCheckingException e) {
-			System.out.println("Choice: check option received typeerror: " + e.getMessage() );	
-			return false;
-		}
-		return true;
-	}
+//	private boolean checkOption( Type type, Value value, StringBuilder pathBuilder )
+//			throws TypeCheckingException
+//	{
+//		try {
+//			type.check( value, pathBuilder );
+//		} catch (TypeCheckingException e) { //Catching error since value is only required to be in at least one option.
+//			System.out.println("Choice: check option received typeerror: " + e.getMessage() );	
+//			return false;
+//		}
+//		return true;
+//	}
 	
 	/**
 	 * Tries to cast the value to an option. Each option in each list of options is tried
@@ -333,13 +351,15 @@ class TypeChoice extends Type
 	{
 		TypeCastingException e0 = null;
 		
-		for( List < Type > option : options ) {
-			for( Type type : option ) {
-				try {
-					value = type.cast( value, new StringBuilder( pathBuilder ) );
-					return value;
-				} catch ( TypeCastingException e1 ) {
-					e0 = e1;
+		for( Map< String, List < Type > > option : options ) {
+			for( Entry< String, List< Type > > entry : option.entrySet() ) {
+				for( Type type : entry.getValue() ) {
+					try {
+						value = type.cast( value, new StringBuilder( pathBuilder ) );
+						return value;
+					} catch ( TypeCastingException e1 ) {
+						e0 = e1;
+					}
 				}
 			}
 		}
@@ -365,7 +385,7 @@ public abstract class Type implements Cloneable
 		return new TypeImpl( nativeType, cardinality, undefinedSubTypes, subTypes );
 	}
 	
-	public static Type create( Range cardinality, List < List < Type > > options )
+	public static Type create( Range cardinality, List< Map< String, List< Type > > > options )
 	{
 		return new TypeChoice( cardinality, options ); 
 	}
