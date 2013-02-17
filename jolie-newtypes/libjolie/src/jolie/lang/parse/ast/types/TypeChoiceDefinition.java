@@ -21,16 +21,14 @@
 
 package jolie.lang.parse.ast.types;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+import java.util.Map.Entry;
 import jolie.lang.Constants;
 import jolie.lang.parse.OLVisitor;
 import jolie.lang.parse.ast.OLSyntaxNode;
+import jolie.lang.parse.ast.expression.ConstantStringExpression;
 import jolie.lang.parse.context.ParsingContext;
 import jolie.util.Pair;
-import jolie.util.Range;
 
 /**
  * Type definition for having multiple options for type structure.
@@ -38,29 +36,45 @@ import jolie.util.Range;
  */
 public class TypeChoiceDefinition extends TypeDefinition {
 	
-	private final List< List< TypeDefinition > > options;
+	private List< Map< String, List< TypeDefinition > > > options; //An option consists of a subtype list
 	
 	public TypeChoiceDefinition( ParsingContext context, String id, List< List< TypeDefinition > > options )
 	{
 		super( context, id, Constants.RANGE_ONE_TO_ONE ); //default range, since range can never be explicitly defined for a choice according to the grammar
-		this.options = options;
+		
+		this.options = new ArrayList< Map< String, List< TypeDefinition > > >();
+		Map< String, List< TypeDefinition > > optionMap;
+		String typeId;
+		
+		for ( List< TypeDefinition > option : options ) {
+			optionMap = new HashMap< String, List< TypeDefinition > >();
+			for ( TypeDefinition type : option ) {
+				typeId = type.id();
+				if ( optionMap.containsKey( typeId ) == false ) {
+					optionMap.put( typeId, new ArrayList< TypeDefinition >() );
+				}
+				optionMap.get( typeId ).add( type );
+			}
+			this.options.add( optionMap );
+		}
 	}
-	
-	
-	//TODO: Still used?
-	/* Choices among sub types */
-	/*
-	public TypeChoiceDefinition( ParsingContext context )
-	{
-		super( context, Constants.RANGE_ONE_TO_ONE ); //default range, since range can never be explicitly defined for a choice according to the grammar
-		this.options = new LinkedList< TypeDefinition >();
-	}
-	*/ 
-	
-	
-	public List< List< TypeDefinition > > options()
+		
+	public List< Map< String, List< TypeDefinition > > > options()
 	{
 		return options;
+		
+//		List< List < TypeDefinition > > optionsList = new ArrayList< List < TypeDefinition > >();
+//		List < TypeDefinition > optionList;
+//		for ( Map< String, List< TypeDefinition > > option : options ) {
+//			optionList = new ArrayList< TypeDefinition >();
+//			for( Map.Entry< String, List< TypeDefinition > > entry : option.entrySet() ) {
+//				for ( TypeDefinition type : entry.getValue() ) {
+//					optionList.add( type );
+//				}
+//			}
+//			optionsList.add( optionList );
+//		}
+//		return optionsList;
 	}
 	
 	/*
@@ -92,18 +106,24 @@ public class TypeChoiceDefinition extends TypeDefinition {
 	 */
 	public TypeInlineDefinition convertToTypeInlineDefinition( List<String> recursiveTypeChecked ) {
 		
-		List< TypeDefinition > option0 = options.get( 0 );
-		if ( option0.size() != 1 ) { //doesn't fit the structure of an inline
+		Iterator<  List< TypeDefinition > > option0Iterator; //iterator to first option
+		Iterator<  List< TypeDefinition > > optionIterator; //iterator to other options
+		List< TypeDefinition > typeList; //list of elements in an option
+		TypeDefinition type0; //only element in first option.
+		
+		option0Iterator = options.get( 0 ).values().iterator();
+		typeList = option0Iterator.next();
+		if ( typeList.size() != 1 || option0Iterator.hasNext() ) { //doesn't fit the structure of an inline
 			return null;
 		}
-		List< TypeDefinition > option;
-		TypeDefinition type0 = option0.get( 0 );
+		type0 = typeList.get( 0 );
 		for ( int i=1; i < options.size(); i++ ) { //Check whether all options are equal
-			option = options.get( i );
-			if ( option.size() != 1 ) { //doesn't fit the structure of an inline
-				return null;
+			optionIterator = options.get( i ).values().iterator();
+			typeList = optionIterator.next();
+			if ( typeList.size() != 1 || optionIterator.hasNext() ) { //doesn't fit the structure of an inline
+			return null;
 			} else {
-				if ( type0.isEquivalentTo_recursive( option.get( 0 ), recursiveTypeChecked ) == false ) {
+				if ( type0.isEquivalentTo_recursive( typeList.get( 0 ), recursiveTypeChecked ) == false ) {
 					return null;
 				}
 			}
@@ -116,6 +136,34 @@ public class TypeChoiceDefinition extends TypeDefinition {
 		} else {
 			return (( TypeChoiceDefinition)type0).convertToTypeInlineDefinition( recursiveTypeChecked );
 		}
+		
+// OLD VERSION		
+//		List< List< TypeDefinition > > options = options();
+//		
+//		List< TypeDefinition > option0 = options.get( 0 );
+//		if ( option0.size() != 1 ) { //doesn't fit the structure of an inline
+//			return null;
+//		}
+//		List< TypeDefinition > option;
+//		TypeDefinition type0 = option0.get( 0 );
+//		for ( int i=1; i < options.size(); i++ ) { //Check whether all options are equal
+//			option = options.get( i );
+//			if ( option.size() != 1 ) { //doesn't fit the structure of an inline
+//				return null;
+//			} else {
+//				if ( type0.isEquivalentTo_recursive( option.get( 0 ), recursiveTypeChecked ) == false ) {
+//					return null;
+//				}
+//			}
+//		}
+//		if ( type0 instanceof TypeDefinitionLink ) {
+//			type0 = ((TypeDefinitionLink)type0).lastLinkedType();
+//		}
+//		if ( type0 instanceof TypeInlineDefinition ) {
+//			return (TypeInlineDefinition)type0;
+//		} else {
+//			return (( TypeChoiceDefinition)type0).convertToTypeInlineDefinition( recursiveTypeChecked );
+//		}
 	}
 	
 	/**
@@ -127,6 +175,29 @@ public class TypeChoiceDefinition extends TypeDefinition {
 	protected boolean containsPath( Iterator< Pair< OLSyntaxNode, OLSyntaxNode > > it )
 	{
 		boolean isInOption = false;
+		Iterator<  List< TypeDefinition > > optionIterator; //iterator to options
+		List< TypeDefinition > typeList; //list of elements in an option
+		
+		
+		//String nodeName = ((ConstantStringExpression)it.key()).value();
+		//if ( hasSubType( nodeName ) ) {
+		
+		for ( int i=1; i < options.size(); i++ ) {
+			optionIterator = options.get( i ).values().iterator();
+			for ( TypeDefinition type : optionIterator.next() ) {
+				if ( type.containsPath(it) == true ) {
+					isInOption = true;
+					i = option.size();
+				}
+			}
+			
+			
+			
+			
+		}
+		
+			
+		
 		
 		for ( List< TypeDefinition > option : options ) {
 			for ( int i=0; i < option.size(); i++ ) {
@@ -141,6 +212,34 @@ public class TypeChoiceDefinition extends TypeDefinition {
 			}
 		}
 		return true;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//	OLD VERSION		
+//		boolean isInOption = false;
+//		
+//		List< List< TypeDefinition > > options = options();
+//		
+//		for ( List< TypeDefinition > option : options ) {
+//			for ( int i=0; i < option.size(); i++ ) {
+//				TypeDefinition type = option.get( i );
+//				if ( type.containsPath(it) == true ) {
+//					isInOption = true;
+//					i = option.size();
+//				}
+//			}
+//			if ( isInOption == false ) {
+//				return false;
+//			}
+//		}
+//		return true;
 	}
 	
 	/**
@@ -166,6 +265,7 @@ public class TypeChoiceDefinition extends TypeDefinition {
 	}
 	
 	public TypeChoiceDefinition copy() {
+		List< List< TypeDefinition > > options = options();
 		List< List< TypeDefinition > > copiedOptions = new LinkedList< List< TypeDefinition > >();
 		List< TypeDefinition > option;
 		

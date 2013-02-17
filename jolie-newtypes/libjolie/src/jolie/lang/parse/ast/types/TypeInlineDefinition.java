@@ -24,6 +24,7 @@ package jolie.lang.parse.ast.types;
 
 import java.util.*;
 import java.util.Map.Entry;
+import jolie.lang.Constants;
 import jolie.lang.NativeType;
 import jolie.lang.parse.OLVisitor;
 import jolie.lang.parse.ast.OLSyntaxNode;
@@ -73,8 +74,8 @@ public class TypeInlineDefinition extends TypeDefinition
 				return true;
 			}
 		}
-		if ( hasSubType( NO_ID ) ) {
-			List< TypeDefinition > sameIdSubTypes = getSubType( NO_ID );
+		if ( hasSubType( Constants.NO_ID ) ) {
+			List< TypeDefinition > sameIdSubTypes = getSubType( Constants.NO_ID );
 			for ( TypeDefinition subType : sameIdSubTypes ) {
 				if ( subType.containsPath( it ) ) {
 					return true;

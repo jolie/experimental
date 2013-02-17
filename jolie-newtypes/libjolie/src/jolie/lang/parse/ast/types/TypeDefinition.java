@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
+import jolie.lang.Constants;
 import jolie.lang.NativeType;
 import jolie.lang.parse.ast.OLSyntaxNode;
 import jolie.lang.parse.ast.VariablePathNode;
@@ -40,8 +41,6 @@ import jolie.util.Range;
  */
 public abstract class TypeDefinition extends OLSyntaxNode
 {
-	public final static String NO_ID = "@@##%%&&"; //id used for type definitions appearing in 
-							   //choices, but not definable by the user.
 	private String id;
 	private final Range cardinality;
 
@@ -121,7 +120,7 @@ public abstract class TypeDefinition extends OLSyntaxNode
 					if ( rightSubType == null ) {
 						return false;
 					}
-					if ( entry.getKey() == NO_ID ) {
+					if ( entry.getKey() == Constants.NO_ID ) {
 						//TODO: Handle NO_ID
 						System.out.println( "checkTypeEqualness: NO_ID encountered" );
 						
@@ -247,7 +246,8 @@ public abstract class TypeDefinition extends OLSyntaxNode
 	{
 		
 		List<String> recursiveTypeChecked = new ArrayList<String>();
-		return isEquivalentTo_recursive(other, recursiveTypeChecked);
+		//return isEquivalentTo_recursive(other, recursiveTypeChecked);
+		return true;
 	}
 	
 	@Override

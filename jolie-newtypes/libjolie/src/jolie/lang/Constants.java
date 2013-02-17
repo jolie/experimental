@@ -112,6 +112,10 @@ public final class Constants
 	public static final String GLOBAL = "global";
 	public static final String CSETS = "csets";
 	public static final Charset defaultCharset;
+	
+	public final static String NO_ID = "@@##%%&&"; //id used for type definitions appearing in 
+												   //choices, but not definable by the user.
+
 
 	static {
 		defaultCharset = Charset.forName( "UTF-8" );
