@@ -246,8 +246,7 @@ public abstract class TypeDefinition extends OLSyntaxNode
 	{
 		
 		List<String> recursiveTypeChecked = new ArrayList<String>();
-		//return isEquivalentTo_recursive(other, recursiveTypeChecked);
-		return true;
+		return isEquivalentTo_recursive(other, recursiveTypeChecked);
 	}
 	
 	@Override
