@@ -642,27 +642,61 @@ public class OOITBuilder implements OLVisitor
 
 	public void visit( TypeChoiceDefinition n )
 	{
-		List < List < Type > > options = new ArrayList < List < Type > >() ;
 		boolean backupInsideType = insideType;
 		insideType = true;
+		List< Map< String, List< Type > > > options = new ArrayList< Map< String, List< Type > > >();
+		Map< String, List< Type > > optionMap;
 		List < List < TypeDefinition > > nodeOptions = n.options();
 		List < TypeDefinition > nodeOption;
+		String typeId;
 		
+		// Convert options from a list of lists to a list of maps.
 		for( int i=0; i < nodeOptions.size(); i++ ) {
 			nodeOption = nodeOptions.get( i );
-			options.add( new ArrayList< Type >() );
+			optionMap = new HashMap< String, List< Type > >();
+			
 			for ( TypeDefinition typeDefinition : nodeOption ) {
-				options.get( i ).add( buildType( typeDefinition ) );
+				typeId = typeDefinition.id();
+				if ( optionMap.containsKey( typeId ) == false ) {
+					optionMap.put( typeId, new ArrayList< Type >() );
+				}
+				optionMap.get( typeId ).add( buildType( typeDefinition ) );
 			}
+			options.add( optionMap );
 		}
-		
+
 		currType = Type.create( n.cardinality(), options );
 		
 		insideType = backupInsideType;
-
+		
 		if ( insideType == false && insideOperationDeclaration == false ) {
 			types.put( n.id(), currType );
 		}
+		
+		
+//		OLD VERSION		
+//		
+//		List < List < Type > > options = new ArrayList < List < Type > >() ;
+//		boolean backupInsideType = insideType;
+//		insideType = true;
+//		List < List < TypeDefinition > > nodeOptions = n.options();
+//		List < TypeDefinition > nodeOption;
+//		
+//		for( int i=0; i < nodeOptions.size(); i++ ) {
+//			nodeOption = nodeOptions.get( i );
+//			options.add( new ArrayList< Type >() );
+//			for ( TypeDefinition typeDefinition : nodeOption ) {
+//				options.get( i ).add( buildType( typeDefinition ) );
+//			}
+//		}
+//		
+//		currType = Type.create( n.cardinality(), options );
+//		
+//		insideType = backupInsideType;
+//
+//		if ( insideType == false && insideOperationDeclaration == false ) {
+//			types.put( n.id(), currType );
+//		}
 	}
 	
 	public void visit( Program p )

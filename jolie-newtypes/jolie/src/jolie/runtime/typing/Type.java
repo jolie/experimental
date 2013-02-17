@@ -21,15 +21,16 @@
 
 package jolie.runtime.typing;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Set;
+import jolie.lang.Constants;
 import jolie.lang.NativeType;
 import jolie.runtime.Value;
 import jolie.runtime.ValueVector;
 import jolie.util.Range;
-import jolie.lang.Constants;
 
 class TypeImpl extends Type
 {
@@ -139,7 +140,7 @@ class TypeImpl extends Type
 	private void checkSubType( String typeName, Type type, Value value, StringBuilder pathBuilder )
 			throws TypeCheckingException
 	{
-		if ( typeName == Constants.NO_ID ) {
+		if ( typeName.equals(Constants.NO_ID) ) {
 			type.check( value, pathBuilder );
 		} else {
 			
@@ -277,7 +278,7 @@ class TypeChoice extends Type
 		for ( Map< String, List< Type > > option : options ) {
 			for( Map.Entry< String, List< Type > > entry : option.entrySet() ) {
 				String typeName = entry.getKey();
-				if ( typeName == Constants.NO_ID ) {
+				if ( typeName.equals(Constants.NO_ID) ) {
 					for ( Type type : entry.getValue() ) {
 						type.cutChildrenFromValue( value );
 					}
@@ -298,11 +299,16 @@ class TypeChoice extends Type
 	{
 		return options;
 	}
-	
+
+	/**
+	 * 
+	 * @param value
+	 * @param pathBuilder
+	 * @throws TypeCheckingException 
+	 */
 	@Override
 	protected void check(Value value, StringBuilder pathBuilder) throws TypeCheckingException
 	{
-		Map< String, List< Type > > option;
 		boolean valueInOption = false;
 		int i = 0;
 		
@@ -324,17 +330,6 @@ class TypeChoice extends Type
 		}
 	}
 	
-//	private boolean checkOption( Type type, Value value, StringBuilder pathBuilder )
-//			throws TypeCheckingException
-//	{
-//		try {
-//			type.check( value, pathBuilder );
-//		} catch (TypeCheckingException e) { //Catching error since value is only required to be in at least one option.
-//			System.out.println("Choice: check option received typeerror: " + e.getMessage() );	
-//			return false;
-//		}
-//		return true;
-//	}
 	
 	/**
 	 * Tries to cast the value to an option. Each option in each list of options is tried
