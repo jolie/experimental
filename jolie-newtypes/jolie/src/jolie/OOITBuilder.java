@@ -606,17 +606,10 @@ public class OOITBuilder implements OLVisitor
 		if ( n.untypedSubTypes() ) {
 			currType = Type.create( n.nativeType(), n.cardinality(), true, null );
 		} else {
-			Map< String, List< Type > > subTypes = new HashMap< String, List< Type > >();
+			Map< String, Type > subTypes = new HashMap< String, Type >();
 			if ( n.subTypes() != null ) {
-				List< TypeDefinition > sameIdTypeDefinitions;
-				List< Type > sameIdTypes;
-				for( Entry< String, List< TypeDefinition > > entry : n.subTypes() ) {
-					sameIdTypeDefinitions = entry.getValue();
-					sameIdTypes = new ArrayList< Type >();
-					for ( TypeDefinition typeDefinition : sameIdTypeDefinitions ) {
-						sameIdTypes.add( buildType( typeDefinition ) );
-					}
-					subTypes.put( entry.getKey(), sameIdTypes );
+				for( Entry< String, TypeDefinition > entry : n.subTypes() ) {
+					subTypes.put( entry.getKey(), buildType( entry.getValue() ) );
 				}
 			}
 			currType = Type.create( n.nativeType(), n.cardinality(), false, subTypes );
@@ -644,8 +637,8 @@ public class OOITBuilder implements OLVisitor
 	{
 		boolean backupInsideType = insideType;
 		insideType = true;
-		List< Map< String, List< Type > > > options = new ArrayList< Map< String, List< Type > > >();
-		Map< String, List< Type > > optionMap;
+		List< Map< String, Type > > options = new ArrayList< Map< String, Type > >();
+		Map< String, Type > optionMap;
 		List < List < TypeDefinition > > nodeOptions = n.options();
 		List < TypeDefinition > nodeOption;
 		String typeId;
@@ -653,14 +646,13 @@ public class OOITBuilder implements OLVisitor
 		// Convert options from a list of lists to a list of maps.
 		for( int i=0; i < nodeOptions.size(); i++ ) {
 			nodeOption = nodeOptions.get( i );
-			optionMap = new HashMap< String, List< Type > >();
+			optionMap = new HashMap< String, Type >();
 			
 			for ( TypeDefinition typeDefinition : nodeOption ) {
 				typeId = typeDefinition.id();
 				if ( optionMap.containsKey( typeId ) == false ) {
-					optionMap.put( typeId, new ArrayList< Type >() );
+					optionMap.put( typeId, buildType( typeDefinition ) );
 				}
-				optionMap.get( typeId ).add( buildType( typeDefinition ) );
 			}
 			options.add( optionMap );
 		}

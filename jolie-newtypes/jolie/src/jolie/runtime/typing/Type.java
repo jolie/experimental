@@ -36,14 +36,14 @@ class TypeImpl extends Type
 {
 	private final Range cardinality;
 	private final NativeType nativeType;
-	private final Set< Entry< String, List< Type > > > subTypeSet;
+	private final Set< Entry< String, Type > > subTypeSet;
 	private final Set< String > subTypeKeySet;
 
 	public TypeImpl(
 		NativeType nativeType,
 		Range cardinality,
 		boolean undefinedSubTypes,
-		Map< String, List< Type > > subTypes
+		Map< String, Type > subTypes
 	) {
 		this.nativeType = nativeType;
 		this.cardinality = cardinality;
@@ -56,7 +56,7 @@ class TypeImpl extends Type
 		}
 	}
 	
-	protected Set< Entry< String, List< Type > > > subTypeSet()
+	protected Set< Entry< String, Type > > subTypeSet()
 	{
 		return subTypeSet;
 	}
@@ -74,19 +74,16 @@ class TypeImpl extends Type
 			}
 		}
 	}
-
+	
 	protected Value cast( Value value, StringBuilder pathBuilder )
-		throws TypeCastingException
+			throws TypeCastingException
 	{
 		castNativeType( value, pathBuilder );
 		if ( subTypeSet != null ) {
-			for( Entry< String, List< Type > > entry : subTypeSet ) {
-				for ( Type type : entry.getValue() ) {
-					castSubType( entry.getKey(), type, value, new StringBuilder( pathBuilder ) );
-				}
+			for( Entry< String, Type > entry : subTypeSet ) {
+				castSubType( entry.getKey(), entry.getValue(), value, new StringBuilder( pathBuilder ) );
 			}
 		}
-		
 		return value;
 	}
 
@@ -123,10 +120,8 @@ class TypeImpl extends Type
 		}
 
 		if ( subTypeSet != null && subTypeSet.size() > 0 ) {
-			for( Entry< String, List< Type > > entry : subTypeSet ) {
-				for( Type type : entry.getValue() ) {
-					checkSubType( entry.getKey(), type, value, new StringBuilder( pathBuilder ) );
-				}
+			for( Entry< String, Type > entry : subTypeSet ) {
+				checkSubType( entry.getKey(), entry.getValue(), value, new StringBuilder( pathBuilder ) );
 			}
 			// TODO make this more performant
 			for( String childName : value.children().keySet() ) {
@@ -143,12 +138,10 @@ class TypeImpl extends Type
 			return true;
 		} else {
 			if ( subTypeKeySet.contains( Constants.NO_ID ) ) {
-				for ( Entry< String, List< Type > >  entry : subTypeSet ) {
+				for ( Entry< String, Type >  entry : subTypeSet ) {
 					if ( entry.getKey().equals( Constants.NO_ID ) ) {
-						for ( Type type : entry.getValue() ) {
-							if ( type.isValueInSubTypes( childName ) ) {
-								return true;
-							}
+						if ( entry.getValue().isValueInSubTypes( childName ) ) {
+							return true;
 						}
 					}
 				}
@@ -259,10 +252,10 @@ class TypeImpl extends Type
 class TypeChoice extends Type
 {
 	private final Range cardinality;
-	private final List< Map< String, List< Type > > > options; //An option consists of a subtype list
+	private final List< Map< String, Type > > options; //An option consists of subtypes organized in a map
 			
 	
-	public TypeChoice( Range cardinality, List< Map< String, List< Type > > > options ) 
+	public TypeChoice( Range cardinality, List< Map< String, Type > > options ) 
 	{
 		this.cardinality = cardinality;
 		this.options = options;
@@ -275,13 +268,11 @@ class TypeChoice extends Type
 	@Override
 	public void cutChildrenFromValue( Value value )
 	{
-		for ( Map< String, List< Type > > option : options ) {
-			for( Map.Entry< String, List< Type > > entry : option.entrySet() ) {
+		for ( Map< String, Type > option : options ) {
+			for( Map.Entry< String, Type > entry : option.entrySet() ) {
 				String typeName = entry.getKey();
-				if ( typeName.equals(Constants.NO_ID) ) {
-					for ( Type type : entry.getValue() ) {
-						type.cutChildrenFromValue( value );
-					}
+				if ( typeName.equals( Constants.NO_ID ) ) {
+					entry.getValue().cutChildrenFromValue( value );
 				} else {
 					value.children().remove( typeName );
 				}
@@ -295,7 +286,7 @@ class TypeChoice extends Type
 		return cardinality;
 	}
 
-	protected List< Map< String, List< Type > > > options() 
+	protected List< Map< String, Type > > options() 
 	{
 		return options;
 	}
@@ -317,14 +308,12 @@ class TypeChoice extends Type
 				throw new TypeCheckingException( "Invalid type for node " + pathBuilder.toString() + ": couldn't match  " + value.valueObject().getClass().getName() + " in any of it's options" );
 			}
 			valueInOption = true;
-			for( Entry< String, List< Type > > entry : options.get( i ).entrySet() ) {
-				for( Type type : entry.getValue() ) {
-					try {
-						type.check( value );
-					} catch (TypeCheckingException ex) {
-						valueInOption = false;
-						break;
-					}
+			for( Entry< String, Type > entry : options.get( i ).entrySet() ) {
+				try {
+					entry.getValue().check( value );
+				} catch (TypeCheckingException ex) {
+					valueInOption = false;
+					break;
 				}
 				i++;
 			}
@@ -343,6 +332,7 @@ class TypeChoice extends Type
 		boolean valueInWholeOption = false;
 		boolean valueInOptionUntilNow;
 		String typeName;
+		Type type;
 		int i = 0;
 		
 		
@@ -351,17 +341,15 @@ class TypeChoice extends Type
 				throw new TypeCheckingException( "Invalid type for node " + pathBuilder.toString() + ": couldn't match  " + value.valueObject().getClass().getName() + " in any of it's options" );
 			}
 			
-			
-			for( Entry< String, List< Type > > entry : options.get( i ).entrySet() ) {
+			for( Entry< String, Type > entry : options.get( i ).entrySet() ) {
 				typeName = entry.getKey();
 				valueInOptionUntilNow = true;
-				for( Type type : entry.getValue() ) {
-					try {
-						type.checkSubType( typeName, type, value, pathBuilder );
-					} catch (TypeCheckingException ex) {
-						valueInOptionUntilNow = false;
-						break;
-					}
+				type = entry.getValue();
+				try {
+					type.checkSubType( typeName, type, value, pathBuilder );
+				} catch (TypeCheckingException ex) {
+					valueInOptionUntilNow = false;
+					break;
 				}
 				if ( valueInOptionUntilNow ) {
 					break;
@@ -375,18 +363,16 @@ class TypeChoice extends Type
 	@Override
 	protected boolean isValueInSubTypes ( String childName )
 	{
-		for ( Map< String, List< Type > > option : options ) {
+		for ( Map< String, Type > option : options ) {
 			
 			if ( option.containsKey( childName ) ) {
 				return true;
 			} else {
 				if ( option.containsKey( Constants.NO_ID ) ) {
-					for ( Entry< String, List< Type > >  entry : option.entrySet() ) {
+					for ( Entry< String, Type >  entry : option.entrySet() ) {
 						if ( entry.getKey().equals( Constants.NO_ID ) ) {
-							for ( Type type : entry.getValue() ) {
-								if ( type.isValueInSubTypes( childName ) ) {
-									return true;
-								}
+							if ( entry.getValue().isValueInSubTypes( childName ) ) {
+								return true;
 							}
 						}
 					}
@@ -411,15 +397,13 @@ class TypeChoice extends Type
 	{
 		TypeCastingException e0 = null;
 		
-		for( Map< String, List < Type > > option : options ) {
-			for( Entry< String, List< Type > > entry : option.entrySet() ) {
-				for( Type type : entry.getValue() ) {
-					try {
-						value = type.cast( value, new StringBuilder( pathBuilder ) );
-						return value;
-					} catch ( TypeCastingException e1 ) {
-						e0 = e1;
-					}
+		for( Map< String, Type > option : options ) {
+			for( Entry< String, Type > entry : option.entrySet() ) {
+				try {
+					value = entry.getValue().cast( value, new StringBuilder( pathBuilder ) );
+					return value;
+				} catch ( TypeCastingException e1 ) {
+					e0 = e1;
 				}
 			}
 		}
@@ -440,12 +424,12 @@ public abstract class Type implements Cloneable
 		NativeType nativeType,
 		Range cardinality,
 		boolean undefinedSubTypes,
-		Map< String, List< Type > > subTypes
+		Map< String, Type > subTypes
 	) {
 		return new TypeImpl( nativeType, cardinality, undefinedSubTypes, subTypes );
 	}
 	
-	public static Type create( Range cardinality, List< Map< String, List< Type > > > options )
+	public static Type create( Range cardinality, List< Map< String, Type > > options )
 	{
 		return new TypeChoice( cardinality, options ); 
 	}
@@ -482,12 +466,12 @@ public abstract class Type implements Cloneable
 		
 		NativeType nativeType = t1Casted.nativeType();
 		Range cardinality = t1Casted.cardinality();
-		Map< String, List< Type > > subTypes = new HashMap< String, List< Type > >();
-		for( Entry< String, List< Type > > entry : t1Casted.subTypeSet() ) {
+		Map< String, Type > subTypes = new HashMap< String, Type >();
+		for( Entry< String, Type > entry : t1Casted.subTypeSet() ) {
 			subTypes.put( entry.getKey(), entry.getValue() );
 		}
 		if ( t2 != null ) {
-			for( Entry< String, List< Type > > entry : t2Casted.subTypeSet() ) {
+			for( Entry< String, Type > entry : t2Casted.subTypeSet() ) {
 				subTypes.put( entry.getKey(), entry.getValue() );
 			}
 		}
