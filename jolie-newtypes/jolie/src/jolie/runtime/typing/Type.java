@@ -262,7 +262,6 @@ class TypeImpl extends Type
 class TypeChoice extends Type
 {
 	private final Range cardinality;
-	//private final List < List < Type > > options;
 	private final List< Map< String, List< Type > > > options; //An option consists of a subtype list
 			
 	
@@ -271,7 +270,11 @@ class TypeChoice extends Type
 		this.cardinality = cardinality;
 		this.options = options;
 	}
-	
+
+	/**
+	 * Cut each option from value.
+	 * @param value 
+	 */
 	@Override
 	public void cutChildrenFromValue( Value value )
 	{
@@ -301,7 +304,7 @@ class TypeChoice extends Type
 	}
 
 	/**
-	 * 
+	 * Check if a value match at least one option.
 	 * @param value
 	 * @param pathBuilder
 	 * @throws TypeCheckingException 
@@ -313,7 +316,7 @@ class TypeChoice extends Type
 		int i = 0;
 		
 		while ( valueInOption == false ) {
-			if ( i >= options.size() ) {
+			if ( i >= options.size() ) { //The value doesn't match any of the options.
 				throw new TypeCheckingException( "Invalid type for node " + pathBuilder.toString() + ": couldn't match  " + value.valueObject().getClass().getName() + " in any of it's options" );
 			}
 			valueInOption = true;
@@ -326,10 +329,66 @@ class TypeChoice extends Type
 						break;
 					}
 				}
+				i++;
 			}
 		}
 	}
-	
+
+	/**
+	 * Check a choice's children against a values children.
+	 * @param value
+	 * @param pathBuilder
+	 * @throws TypeCheckingException 
+	 */
+	protected void checkValueChildren(Value value, StringBuilder pathBuilder) throws TypeCheckingException
+	{
+		//This is not finished.
+		
+		boolean valueInOption = false;
+		String typeName;
+		int i = 0;
+		
+		while ( valueInOption == false ) {
+			if ( i >= options.size() ) { //The value doesn't match any of the options.
+				throw new TypeCheckingException( "Invalid type for node " + pathBuilder.toString() + ": couldn't match  " + value.valueObject().getClass().getName() + " in any of it's options" );
+			}
+			valueInOption = true;
+			for( Entry< String, List< Type > > entry : options.get( i ).entrySet() ) {
+				typeName = entry.getKey();
+				if ( typeName.equals( Constants.NO_ID ) ) {
+					//Parse further.
+				} else {
+					for( Type type : entry.getValue() ) {
+						pathBuilder.append( '.' );
+						pathBuilder.append( typeName );
+						boolean hasChildren = value.hasChildren( typeName );
+						if ( hasChildren == false && type.cardinality().min() > 0 ) {
+							//throw new TypeCheckingException( "Undefined required child node: " + pathBuilder.toString() );
+							valueInOption = false;
+							break;
+						} else if ( hasChildren ) {
+							ValueVector vector = value.getChildren( typeName );
+							int size = vector.size();
+							if ( type.cardinality().min() > size || type.cardinality().max() < size ) {
+								throw new TypeCheckingException(
+										"Child node " + pathBuilder.toString() + " has a wrong number of occurencies. Permitted range is [" +
+										type.cardinality().min() + "," + type.cardinality().max() + "], found " + size
+										);
+							}
+							
+							for( Value v : vector ) {
+								type.check( v, pathBuilder );
+							}
+						}
+						
+						
+						type.check( value );
+					}
+				}
+				i++;
+			}
+		}
+	}
 	
 	/**
 	 * Tries to cast the value to an option. Each option in each list of options is tried

@@ -672,31 +672,6 @@ public class OOITBuilder implements OLVisitor
 		if ( insideType == false && insideOperationDeclaration == false ) {
 			types.put( n.id(), currType );
 		}
-		
-		
-//		OLD VERSION		
-//		
-//		List < List < Type > > options = new ArrayList < List < Type > >() ;
-//		boolean backupInsideType = insideType;
-//		insideType = true;
-//		List < List < TypeDefinition > > nodeOptions = n.options();
-//		List < TypeDefinition > nodeOption;
-//		
-//		for( int i=0; i < nodeOptions.size(); i++ ) {
-//			nodeOption = nodeOptions.get( i );
-//			options.add( new ArrayList< Type >() );
-//			for ( TypeDefinition typeDefinition : nodeOption ) {
-//				options.get( i ).add( buildType( typeDefinition ) );
-//			}
-//		}
-//		
-//		currType = Type.create( n.cardinality(), options );
-//		
-//		insideType = backupInsideType;
-//
-//		if ( insideType == false && insideOperationDeclaration == false ) {
-//			types.put( n.id(), currType );
-//		}
 	}
 	
 	public void visit( Program p )

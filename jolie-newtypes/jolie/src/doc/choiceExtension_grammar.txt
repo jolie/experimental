@@ -1,27 +1,33 @@
-This file contains an extension of the formal grammar of the .ol input files of 
-JOLIE. This extension allows type definitions to have choices.
+This file contains a change of the formal grammar of the .ol input files of 
+JOLIE. The change allows type definitions to consist of choices.
 See the AUTHORS file for information regarding the authors of the JOLIE project.
 See the COPYING file for the distribution license of the following content.
 
-In order to allow choice types the grammar is extended with the following productions:
+In order to allow choice types the following productions shall be 
+replaced or added to the grammar:
 
-TypeDefinition ::= TypeDefinition + TypeDefinition 
-               | NativeTypeChoice { SubTypeList }
-               | NativeType SubDescriptionChoice
+ the grammar is extended with the following productions:
 
-SubTypeList ::= SubTypeChoice 
-            | SubTypeChoice SubTypeList
+TypeDefinition ::= BasicType
+		| NodeType { SubTypeList } .(. + { SubTypeList } .)*.
+		| TypeDefinition + TypeDefinition
+		| ...
+
+SubTypeList 	::= SubTypeListElement SubTypeList 
+		 | SubTypeListElement
+		 
+SubTypeListElement ::= SubType 
+		 | ( SubTypeChoiceOption .(. + SubTypeChoiceOption .)+. )
+
+SubType		::= ...
+
+SubTypeChoiceOption	::= SubTypeListElement | ( SubTypeList )
+
+NodeType	::= BasicType | ( BasicType .(. + BasicType .)+. )
+
+BasicType	::= int | string | bool | ...
 
 
-NativeTypeChoice ::= ( NativeType + NativeTypeInnerChoice )
-
-NativeTypeInnerChoice ::= NativeType + NativeTypeInnerChoice
-                      |   NativeType
-
-
-SubTypeChoice    ::= SubTypeOption + SubTypeChoice
-                 | SubTypeOption + SubTypeOption
-                 | SubTypeOption + SubTypeOption SubTypeList
-		         | ( SubTypeList )
-
-SubTypeOption	::= SubType | ( SubTypeList )
+Notation notes for the productions: 
+Something between dots, shall be interpreted as regex notation.
+Three dots means, that the production is the same as in the original grammar.
