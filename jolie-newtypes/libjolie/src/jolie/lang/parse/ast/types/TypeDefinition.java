@@ -28,7 +28,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 import jolie.lang.Constants;
-import jolie.lang.NativeType;
 import jolie.lang.parse.ast.OLSyntaxNode;
 import jolie.lang.parse.ast.VariablePathNode;
 import jolie.lang.parse.context.ParsingContext;
@@ -108,12 +107,12 @@ public abstract class TypeDefinition extends OLSyntaxNode
 					return false;
 				}
 				
-				for( Entry< String, List< TypeDefinition > > entry : left.subTypes() ) {
-					List< TypeDefinition > rightSubType = right.getSubType( entry.getKey() );
+				for( Entry< String, TypeDefinition > entry : left.subTypes() ) {
+					TypeDefinition rightSubType = right.getSubType( entry.getKey() );
 					if ( rightSubType == null ) {
 						return false;
 					}
-					if ( entry.getKey() == Constants.NO_ID ) {
+					if ( entry.getKey().equals( Constants.NO_ID ) ) {
 						//TODO: Handle NO_ID
 						System.out.println( "checkTypeEqualness: NO_ID encountered" );
 						
@@ -125,7 +124,7 @@ public abstract class TypeDefinition extends OLSyntaxNode
 							recursiveTypesChecked.add( entry.getKey() );
 						}
 						
-						if ( entry.getValue().get( 0 ).isEquivalentTo_recursive( rightSubType.get( 0 ), recursiveTypesChecked ) == false ) {
+						if ( entry.getValue().isEquivalentTo_recursive( rightSubType, recursiveTypesChecked ) == false ) {
 							return false;
 						}
 					}

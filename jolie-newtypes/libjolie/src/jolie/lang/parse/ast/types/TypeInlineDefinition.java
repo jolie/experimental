@@ -41,7 +41,7 @@ import jolie.util.Range;
 public class TypeInlineDefinition extends TypeDefinition
 {
 	private final NativeType nativeType;
-	private Map< String, List< TypeDefinition > > subTypes = null;
+	private Map< String, TypeDefinition > subTypes = null;
 	private boolean untypedSubTypes = false;
 
 	public TypeInlineDefinition( ParsingContext context, String id, NativeType nativeType, Range cardinality )
@@ -55,25 +55,19 @@ public class TypeInlineDefinition extends TypeDefinition
 		if ( it.hasNext() == false ) {
 			return nativeType() != NativeType.VOID;
 		}
-
+		
 		if ( untypedSubTypes() ) {
 			return true;
 		}
-
+		
 		Pair< OLSyntaxNode, OLSyntaxNode > pair = it.next();
 		String nodeName = ((ConstantStringExpression)pair.key()).value();
 		if ( hasSubType( nodeName ) ) {
-			List< TypeDefinition > sameIdSubTypes = getSubType( nodeName );
-			if ( sameIdSubTypes.get( 0 ).containsPath( it ) ) {	//only one element is permitted pr. list except for NO_ID.
-				return true;
-			}
+			return true;
 		}
 		if ( hasSubType( Constants.NO_ID ) ) {
-			List< TypeDefinition > sameIdSubTypes = getSubType( Constants.NO_ID );
-			for ( TypeDefinition subType : sameIdSubTypes ) {
-				if ( subType.containsPath( it ) ) {
-					return true;
-				}
+			if ( getSubType( Constants.NO_ID ).containsPath( it ) ) {
+				return true;
 			}
 		}
 		return false;
@@ -119,17 +113,16 @@ public class TypeInlineDefinition extends TypeDefinition
 			return subTypes.containsKey( id );
 		}
 	}
-
-	public Set< Map.Entry< String, List< TypeDefinition> > > subTypes()
+	
+	public Set< Map.Entry< String, TypeDefinition > > subTypes()
 	{
 		if ( subTypes == null ) {
 			return null;
 		}
-
 		return subTypes.entrySet();
 	}
-
-	public List< TypeDefinition > getSubType( String id )
+	
+	public TypeDefinition getSubType( String id )
 	{
 		if ( subTypes != null ) {
 			return subTypes.get( id );
@@ -147,26 +140,10 @@ public class TypeInlineDefinition extends TypeDefinition
 	
 	public void putSubType( TypeDefinition type )
 	{
-		List < TypeDefinition > sameIdSubTypes;
-		String id = type.id();
-		
 		if ( subTypes == null ) {
-			subTypes = new HashMap< String, List< TypeDefinition > >();
-			sameIdSubTypes = new ArrayList< TypeDefinition >();
-			sameIdSubTypes.add( type );
-			subTypes.put( id, sameIdSubTypes );
-			
-		} else {
-			if ( hasSubType( id ) ) {
-				sameIdSubTypes = subTypes.get( id );
-				sameIdSubTypes.add( type );
-				subTypes.put( id, sameIdSubTypes );
-			} else {
-				sameIdSubTypes = new ArrayList< TypeDefinition >();
-				sameIdSubTypes.add( type );
-				subTypes.put( id, sameIdSubTypes );
-			}
+			subTypes = new HashMap< String, TypeDefinition >();
 		}
+		subTypes.put( type.id(), type );
 	}
 	
 	public boolean untypedSubTypes()
@@ -177,16 +154,13 @@ public class TypeInlineDefinition extends TypeDefinition
 	public TypeInlineDefinition copy()
 	{
 		TypeInlineDefinition copiedType = new TypeInlineDefinition(context(), id(), nativeType, cardinality());
-		Map< String, TypeDefinition > copiedSubTypes = null;
 		
 		if ( untypedSubTypes() ) {
 			copiedType.setUntypedSubTypes(untypedSubTypes());
 		} else if ( hasSubTypes() ) { //copy subTypes if any
-			for ( List< TypeDefinition> sameIdSubTypes : subTypes.values() ) {
-				for ( TypeDefinition subType : sameIdSubTypes ) {
+			for ( TypeDefinition subType : subTypes.values() ) {
 					copiedType.putSubType(subType.copy());
-				}
-			}			
+			}
 		}
 		return copiedType;
 	}

@@ -21,7 +21,6 @@
 
 package jolie.lang.parse.ast.types;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,7 +29,6 @@ import jolie.lang.parse.OLVisitor;
 import jolie.lang.parse.ast.OLSyntaxNode;
 import jolie.lang.parse.context.ParsingContext;
 import jolie.util.Pair;
-import jolie.util.Range;
 
 /**
  * Type definition for having multiple options for type structure.
