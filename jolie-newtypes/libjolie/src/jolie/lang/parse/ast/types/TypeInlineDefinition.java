@@ -49,12 +49,6 @@ public class TypeInlineDefinition extends TypeDefinition
 		super( context, id, cardinality );
 		this.nativeType = nativeType;
 	}
-	
-//	public TypeInlineDefinition( ParsingContext context, NativeType nativeType, Range cardinality )
-//	{
-//		super( context, cardinality );
-//		this.nativeType = nativeType;
-//	}
 
 	protected boolean containsPath( Iterator< Pair< OLSyntaxNode, OLSyntaxNode > > it )
 	{
@@ -85,7 +79,7 @@ public class TypeInlineDefinition extends TypeDefinition
 		return false;
 	}
 	
-		/**
+	/**
 	 * introduced for checking also recursive type equalness
 	 * @author Claudio Guidi
 	 * 28-June-2012 Julie Meinicke Nielsen: Added type parsing. 
