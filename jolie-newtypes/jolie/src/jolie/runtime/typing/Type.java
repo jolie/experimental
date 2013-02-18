@@ -122,7 +122,7 @@ class TypeImpl extends Type
 			throw new TypeCheckingException( "Invalid native type for node " + pathBuilder.toString() + ": expected " + nativeType + ", found " + (( value.valueObject() == null ) ? "void" : value.valueObject().getClass().getName()) );
 		}
 
-		if ( subTypeSet != null ) {
+		if ( subTypeSet != null && subTypeSet.size() > 0 ) {
 			for( Entry< String, List< Type > > entry : subTypeSet ) {
 				for( Type type : entry.getValue() ) {
 					checkSubType( entry.getKey(), type, value, new StringBuilder( pathBuilder ) );
@@ -130,43 +130,39 @@ class TypeImpl extends Type
 			}
 			// TODO make this more performant
 			for( String childName : value.children().keySet() ) {
-				if ( subTypeKeySet.contains( childName ) == false ) {
+				if ( isValueInSubTypes( childName ) == false ) {
 					throw new TypeCheckingException( "Unexpected child node: " + pathBuilder.toString() + "." + childName );
 				}
 			}
 		}
 	}
-
-	private void checkSubType( String typeName, Type type, Value value, StringBuilder pathBuilder )
-			throws TypeCheckingException
+	
+	protected boolean isValueInSubTypes ( String childName )
 	{
-		if ( typeName.equals(Constants.NO_ID) ) {
-			type.check( value, pathBuilder );
+		if ( subTypeKeySet.contains( childName ) ) {
+			return true;
 		} else {
-			
-			pathBuilder.append( '.' );
-			pathBuilder.append( typeName );
-			
-			boolean hasChildren = value.hasChildren( typeName );
-			if ( hasChildren == false && type.cardinality().min() > 0 ) {
-				throw new TypeCheckingException( "Undefined required child node: " + pathBuilder.toString() );
-			} else if ( hasChildren ) {
-				ValueVector vector = value.getChildren( typeName );
-				int size = vector.size();
-				if ( type.cardinality().min() > size || type.cardinality().max() < size ) {
-					throw new TypeCheckingException(
-							"Child node " + pathBuilder.toString() + " has a wrong number of occurencies. Permitted range is [" +
-							type.cardinality().min() + "," + type.cardinality().max() + "], found " + size
-							);
-				}
-				
-				for( Value v : vector ) {
-					type.check( v, pathBuilder );
+			if ( subTypeKeySet.contains( Constants.NO_ID ) ) {
+				for ( Entry< String, List< Type > >  entry : subTypeSet ) {
+					if ( entry.getKey().equals( Constants.NO_ID ) ) {
+						for ( Type type : entry.getValue() ) {
+							if ( type.isValueInSubTypes( childName ) ) {
+								return true;
+							}
+						}
+					}
 				}
 			}
+			return false;
 		}
 	}
+
 	
+	@Override
+	protected void checkValueChildren(Value value, StringBuilder pathBuilder) throws TypeCheckingException {
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
 	private void castNativeType( Value value, StringBuilder pathBuilder )
 		throws TypeCastingException
 	{
@@ -255,6 +251,7 @@ class TypeImpl extends Type
 	}
 }
 
+
 /**
  * Choice type
  * @author Julie Meinicke Nielsen
@@ -335,59 +332,68 @@ class TypeChoice extends Type
 	}
 
 	/**
-	 * Check a choice's children against a values children.
+	 * Check a choice's children against a value's children.
 	 * @param value
 	 * @param pathBuilder
 	 * @throws TypeCheckingException 
 	 */
-	protected void checkValueChildren(Value value, StringBuilder pathBuilder) throws TypeCheckingException
+	protected void checkValueChildren( Value value, StringBuilder pathBuilder ) throws TypeCheckingException
 	{
-		//This is not finished.
 		
-		boolean valueInOption = false;
+		boolean valueInWholeOption = false;
+		boolean valueInOptionUntilNow;
 		String typeName;
 		int i = 0;
 		
-		while ( valueInOption == false ) {
+		
+		while ( valueInWholeOption == false ) {
 			if ( i >= options.size() ) { //The value doesn't match any of the options.
 				throw new TypeCheckingException( "Invalid type for node " + pathBuilder.toString() + ": couldn't match  " + value.valueObject().getClass().getName() + " in any of it's options" );
 			}
-			valueInOption = true;
+			
+			
 			for( Entry< String, List< Type > > entry : options.get( i ).entrySet() ) {
 				typeName = entry.getKey();
-				if ( typeName.equals( Constants.NO_ID ) ) {
-					//Parse further.
-				} else {
-					for( Type type : entry.getValue() ) {
-						pathBuilder.append( '.' );
-						pathBuilder.append( typeName );
-						boolean hasChildren = value.hasChildren( typeName );
-						if ( hasChildren == false && type.cardinality().min() > 0 ) {
-							//throw new TypeCheckingException( "Undefined required child node: " + pathBuilder.toString() );
-							valueInOption = false;
-							break;
-						} else if ( hasChildren ) {
-							ValueVector vector = value.getChildren( typeName );
-							int size = vector.size();
-							if ( type.cardinality().min() > size || type.cardinality().max() < size ) {
-								throw new TypeCheckingException(
-										"Child node " + pathBuilder.toString() + " has a wrong number of occurencies. Permitted range is [" +
-										type.cardinality().min() + "," + type.cardinality().max() + "], found " + size
-										);
-							}
-							
-							for( Value v : vector ) {
-								type.check( v, pathBuilder );
-							}
-						}
-						
-						
-						type.check( value );
+				valueInOptionUntilNow = true;
+				for( Type type : entry.getValue() ) {
+					try {
+						type.checkSubType( typeName, type, value, pathBuilder );
+					} catch (TypeCheckingException ex) {
+						valueInOptionUntilNow = false;
+						break;
 					}
 				}
+				if ( valueInOptionUntilNow ) {
+					break;
+				}
 				i++;
+				
 			}
 		}
+	}
+
+	@Override
+	protected boolean isValueInSubTypes ( String childName )
+	{
+		for ( Map< String, List< Type > > option : options ) {
+			
+			if ( option.containsKey( childName ) ) {
+				return true;
+			} else {
+				if ( option.containsKey( Constants.NO_ID ) ) {
+					for ( Entry< String, List< Type > >  entry : option.entrySet() ) {
+						if ( entry.getKey().equals( Constants.NO_ID ) ) {
+							for ( Type type : entry.getValue() ) {
+								if ( type.isValueInSubTypes( childName ) ) {
+									return true;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return false;
 	}
 	
 	/**
@@ -494,6 +500,36 @@ public abstract class Type implements Cloneable
 		check( value, new StringBuilder( "#Message" ) );
 	}
 
+	protected void checkSubType( String typeName, Type type, Value value, StringBuilder pathBuilder )
+			throws TypeCheckingException
+	{
+		if ( typeName.equals(Constants.NO_ID) ) {
+			type.checkValueChildren( value, pathBuilder );
+		} else {
+			
+			pathBuilder.append( '.' );
+			pathBuilder.append( typeName );
+			
+			boolean hasChildren = value.hasChildren( typeName );
+			if ( hasChildren == false && type.cardinality().min() > 0 ) {
+				throw new TypeCheckingException( "Undefined required child node: " + pathBuilder.toString() );
+			} else if ( hasChildren ) {
+				ValueVector vector = value.getChildren( typeName );
+				int size = vector.size();
+				if ( type.cardinality().min() > size || type.cardinality().max() < size ) {
+					throw new TypeCheckingException(
+							"Child node " + pathBuilder.toString() + " has a wrong number of occurencies. Permitted range is [" +
+							type.cardinality().min() + "," + type.cardinality().max() + "], found " + size
+							);
+				}
+				
+				for( Value v : vector ) {
+					type.check( v, pathBuilder );
+				}
+			}
+		}
+	}
+
 	public Value cast( Value value )
 		throws TypeCastingException
 	{
@@ -504,6 +540,9 @@ public abstract class Type implements Cloneable
 	protected abstract Range cardinality();
 	protected abstract void check( Value value, StringBuilder pathBuilder )
 		throws TypeCheckingException;
+	protected abstract void checkValueChildren( Value value, StringBuilder pathBuilder ) 
+		throws TypeCheckingException;
+	protected abstract boolean isValueInSubTypes ( String childName );
 	protected abstract Value cast( Value value, StringBuilder pathBuilder )
 		throws TypeCastingException;
 
@@ -550,8 +589,20 @@ public abstract class Type implements Cloneable
 			linkedType.check( value, pathBuilder );
 		}
 
+		@Override
+		protected void checkValueChildren( Value value, StringBuilder pathBuilder ) throws TypeCheckingException 
+		{
+			linkedType.checkValueChildren( value, pathBuilder );
+		}
+		
+		@Override
+		protected boolean isValueInSubTypes( String childName ) 
+		{
+			return linkedType.isValueInSubTypes( childName );
+		}
+		
 		protected Value cast( Value value, StringBuilder pathBuilder )
-			throws TypeCastingException
+				throws TypeCastingException
 		{
 			return linkedType.cast( value, pathBuilder );
 		}
