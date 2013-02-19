@@ -333,30 +333,31 @@ class TypeChoice extends Type
 		boolean valueInOptionUntilNow;
 		String typeName;
 		Type type;
-		int i = 0;
 		
 		
-		while ( valueInWholeOption == false ) {
-			if ( i >= options.size() ) { //The value doesn't match any of the options.
-				throw new TypeCheckingException( "Invalid type for node " + pathBuilder.toString() + ": couldn't match  " + value.valueObject().getClass().getName() + " in any of it's options" );
-			}
+		for (Map< String, Type > option : options ) {
 			
-			for( Entry< String, Type > entry : options.get( i ).entrySet() ) {
+			valueInOptionUntilNow = true;
+			for( Entry< String, Type > entry : option.entrySet() ) {
 				typeName = entry.getKey();
-				valueInOptionUntilNow = true;
+				
 				type = entry.getValue();
 				try {
 					type.checkSubType( typeName, type, value, pathBuilder );
 				} catch (TypeCheckingException ex) {
 					valueInOptionUntilNow = false;
-					break;
+					break; //todo: fix
 				}
-				if ( valueInOptionUntilNow ) {
-					break;
-				}
-				i++;
-				
 			}
+			if ( valueInOptionUntilNow ) {
+				if ( valueInWholeOption ) { //check whether value's children matches more than one option
+					throw new TypeCheckingException( pathBuilder.toString() + " only allows for one of its options to be completed." );
+				}
+					valueInWholeOption = true;
+				}
+		}
+		if ( valueInWholeOption == false ) {//check whether value's children matches at least one option
+			throw new TypeCheckingException( "Invalid type for node " + pathBuilder.toString() + ": couldn't match  " + value.valueObject().getClass().getName() + " in any of it's options" );
 		}
 	}
 
