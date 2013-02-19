@@ -300,23 +300,30 @@ class TypeChoice extends Type
 	@Override
 	protected void check(Value value, StringBuilder pathBuilder) throws TypeCheckingException
 	{
-		boolean valueInOption = false;
-		int i = 0;
+				
+		boolean valueInWholeOption = false;
+		boolean valueInOptionUntilNow;
 		
-		while ( valueInOption == false ) {
-			if ( i >= options.size() ) { //The value doesn't match any of the options.
-				throw new TypeCheckingException( "Invalid type for node " + pathBuilder.toString() + ": couldn't match  " + value.valueObject().getClass().getName() + " in any of it's options" );
-			}
-			valueInOption = true;
-			for( Entry< String, Type > entry : options.get( i ).entrySet() ) {
+		for (Map< String, Type > option : options ) {
+			
+			valueInOptionUntilNow = true;
+			for( Entry< String, Type > entry : option.entrySet() ) {
 				try {
 					entry.getValue().check( value );
 				} catch (TypeCheckingException ex) {
-					valueInOption = false;
-					break;
+					valueInOptionUntilNow = false;
+					break; //todo: fix
 				}
-				i++;
 			}
+			if ( valueInOptionUntilNow ) {
+				if ( valueInWholeOption ) { //check whether value's children matches more than one option
+					throw new TypeCheckingException( pathBuilder.toString() + " only allows for one of its options to be completed." );
+				}
+					valueInWholeOption = true;
+				}
+		}
+		if ( valueInWholeOption == false ) {//check whether value's children matches at least one option
+			throw new TypeCheckingException( "Invalid type for node " + pathBuilder.toString() + ": couldn't match  " + value.valueObject().getClass().getName() + " in any of it's options" );
 		}
 	}
 
@@ -340,7 +347,6 @@ class TypeChoice extends Type
 			valueInOptionUntilNow = true;
 			for( Entry< String, Type > entry : option.entrySet() ) {
 				typeName = entry.getKey();
-				
 				type = entry.getValue();
 				try {
 					type.checkSubType( typeName, type, value, pathBuilder );
@@ -353,8 +359,8 @@ class TypeChoice extends Type
 				if ( valueInWholeOption ) { //check whether value's children matches more than one option
 					throw new TypeCheckingException( pathBuilder.toString() + " only allows for one of its options to be completed." );
 				}
-					valueInWholeOption = true;
-				}
+				valueInWholeOption = true;
+			}
 		}
 		if ( valueInWholeOption == false ) {//check whether value's children matches at least one option
 			throw new TypeCheckingException( "Invalid type for node " + pathBuilder.toString() + ": couldn't match  " + value.valueObject().getClass().getName() + " in any of it's options" );
