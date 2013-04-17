@@ -22,6 +22,7 @@
 package jolie.lang.parse.util;
 
 import java.net.URI;
+import jolie.lang.parse.ast.DefinitionNode;
 import jolie.lang.parse.ast.InputPortInfo;
 import jolie.lang.parse.ast.InterfaceDefinition;
 import jolie.lang.parse.ast.OutputPortInfo;
@@ -65,6 +66,12 @@ public interface ProgramInspector
 	 * @return an array of all the types defined in the program
 	 */
 	public TypeDefinition[] getTypes();
+	
+	/**
+	 * Returns an array of all the definitions defined in the program.
+	 * @return an array of all the definitions defined in the program
+	 */
+	public DefinitionNode[] getDefinitions();
 
 	/**
 	 * Returns an array of all the input ports defined in the specified source.
@@ -93,4 +100,10 @@ public interface ProgramInspector
 	 * @return an array of all the types defined in the specified source
 	 */
 	public TypeDefinition[] getTypes( URI source );
+	
+	/**
+	 * Returns an array of all the definitions defined in the specified source.
+	 * @return an array of all the definitions defined in the specified source
+	 */
+	public DefinitionNode[] getDefinitions( URI source );
 }

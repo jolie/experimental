@@ -25,6 +25,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import jolie.lang.parse.ast.DefinitionNode;
 import jolie.lang.parse.ast.InputPortInfo;
 import jolie.lang.parse.ast.InterfaceDefinition;
 import jolie.lang.parse.ast.OutputPortInfo;
@@ -42,24 +43,45 @@ public class ProgramInspectorImpl implements ProgramInspector
 	private final Map< URI, List< InterfaceDefinition > > interfaces;
 	private final Map< URI, List< InputPortInfo > > inputPorts;
 	private final Map< URI, List< OutputPortInfo > > outputPorts;
+	private final Map< URI, List< DefinitionNode > > definitions;
 
 	public ProgramInspectorImpl(
 		URI[] sources,
 		Map< URI, List< TypeDefinition > > types,
 		Map< URI, List< InterfaceDefinition > > interfaces,
 		Map< URI, List< InputPortInfo > > inputPorts,
-		Map< URI, List< OutputPortInfo > > outputPorts
+		Map< URI, List< OutputPortInfo > > outputPorts,
+		Map< URI, List< DefinitionNode > > definitions
 	) {
 		this.sources = sources;
 		this.interfaces = interfaces;
 		this.inputPorts = inputPorts;
 		this.types = types;
 		this.outputPorts = outputPorts;
+		this.definitions = definitions;
 	}
 
 	public URI[] getSources()
 	{
 		return sources;
+	}
+	
+	public DefinitionNode[] getDefinitions()
+	{
+		List< DefinitionNode > result = new ArrayList< DefinitionNode >();
+		for( List< DefinitionNode > list : definitions.values() ) {
+			result.addAll( list );
+		}
+		return result.toArray( new DefinitionNode[ 0 ] );
+	}
+	
+	public DefinitionNode[] getDefinitions( URI source )
+	{
+		List< DefinitionNode > result = definitions.get( source );
+		if ( result == null ) {
+			return new DefinitionNode[ 0 ];
+		}
+		return result.toArray( new DefinitionNode[ 0 ] );
 	}
 
 	public TypeDefinition[] getTypes()

@@ -115,6 +115,7 @@ public class ProgramInspectorCreatorVisitor implements OLVisitor
 	private final Map< URI, List< InputPortInfo > > inputPorts = new HashMap< URI, List< InputPortInfo > >();
 	private final Map< URI, List< OutputPortInfo > > outputPorts = new HashMap< URI, List< OutputPortInfo > >();
 	private final Map< URI, List< TypeDefinition > > types = new HashMap< URI, List< TypeDefinition > >();
+	private final Map< URI, List< DefinitionNode > > definitions = new HashMap< URI, List< DefinitionNode > >();
 	private final Set< URI > sources = new HashSet< URI >();
 
 	public ProgramInspectorCreatorVisitor( Program program )
@@ -129,7 +130,8 @@ public class ProgramInspectorCreatorVisitor implements OLVisitor
 			types,
 			interfaces,
 			inputPorts,
-			outputPorts
+			outputPorts,
+			definitions
 		);
 	}
 
@@ -180,6 +182,18 @@ public class ProgramInspectorCreatorVisitor implements OLVisitor
 
 		encounteredNode( n );
 	}
+	
+	public void visit( DefinitionNode n )
+	{
+		List< DefinitionNode > list = definitions.get( n.context().source() );
+		if ( list == null ) {
+			list = new LinkedList< DefinitionNode >();
+			definitions.put( n.context().source(), list );
+		}
+		list.add( n );
+		
+		encounteredNode( n );
+	}
 
 	public void visit( TypeChoiceDefinition n )
 	{
@@ -211,7 +225,6 @@ public class ProgramInspectorCreatorVisitor implements OLVisitor
 
 	public void visit( OneWayOperationDeclaration decl ) {}
 	public void visit( RequestResponseOperationDeclaration decl ) {}
-	public void visit( DefinitionNode n ) {}
 	public void visit( ParallelStatement n ) {}
 	public void visit( SequenceStatement n ) {}
 	public void visit( NDChoiceStatement n ) {}
