@@ -333,5 +333,6 @@ java -cp $JOLIE_HOME/jolie.jar:$JOLIE_HOME/lib/libjolie.jar:$JOLIE_HOME/tools/jo
 		<copy file="${libs.smack}" tofile="dist/lib/smack.jar"/>
 		<copy file="${libs.smackx}" tofile="dist/lib/smackx.jar"/>
 		<copy file="${libs.commons-lang3}" tofile="dist/lib/commons-lang3.jar"/>
+                <copy file="${libs.rabbitmq-client}" tofile="dist/lib/rabbitmq-client.jar"/>
 	</target>
 </project>
