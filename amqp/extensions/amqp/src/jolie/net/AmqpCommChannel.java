@@ -9,6 +9,7 @@ package jolie.net;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.URI;
@@ -40,8 +41,8 @@ public class AmqpCommChannel extends StreamingCommChannel {
             
             exchName = query.get("exchange");
             routingKey = query.get("routingkey");
-            routingKey = routingKey == null ? routingKey : "";
-            
+            routingKey = routingKey != null ? routingKey : "";
+
             // Connect to the AMQP server.
             ConnectionFactory factory = new ConnectionFactory();
             factory.setUri(schemeAndPath);
@@ -49,6 +50,9 @@ public class AmqpCommChannel extends StreamingCommChannel {
             
             // Create the channel.
             chan = conn.createChannel();
+            
+            // AMQP-connections are persistent.
+            setToBeClosed( false );
         } catch (URISyntaxException | NoSuchAlgorithmException | KeyManagementException ex) {
             Logger.getLogger(AmqpCommChannel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -64,7 +68,8 @@ public class AmqpCommChannel extends StreamingCommChannel {
     protected void sendImpl(CommMessage message) throws IOException {
         // Make protocol give us the bytes to send.
         ByteArrayOutputStream ostream = new ByteArrayOutputStream();
-	protocol().send(ostream, message, null); // TODO Awaiting FMontesi
+        
+        protocol().send(ostream, message, null); // TODO Awaiting FMontesi
         
         chan.basicPublish(exchName, routingKey, null, ostream.toByteArray());
     }
