@@ -246,6 +246,6 @@ public class SvdepProtocol extends ConcurrentCommProtocol {
 
   private CommMessage readMessage(DataInput in) throws IOException {
     Value value = readValue(in);
-    return CommMessage.createResponse(CommMessage.UNDEFINED_MESSAGE, value);
+    return new CommMessage(0, "receive", "/", value, null);
   }
 }

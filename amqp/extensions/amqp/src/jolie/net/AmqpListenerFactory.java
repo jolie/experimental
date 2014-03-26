@@ -11,20 +11,19 @@ import jolie.Interpreter;
 import jolie.net.ext.CommListenerFactory;
 import jolie.net.ext.CommProtocolFactory;
 import jolie.net.ports.InputPort;
+import jolie.runtime.AndJarDeps;
 
 /**
  *
  * @author Claus Lindquist Henriksen & Michael Søby Andersen.
  */
+@AndJarDeps({"rabbitmq-client.jar"})
 public class AmqpListenerFactory extends CommListenerFactory {
     public AmqpListenerFactory( CommCore commCore ) {
         super(commCore);
     }
     @Override
     public CommListener createListener(Interpreter interpreter, CommProtocolFactory protocolFactory, InputPort inputPort) throws IOException {
-        // We hardcode using the sodep protocol.
-        protocolFactory = interpreter.commCore().getCommProtocolFactory("sodep");
-        
         return new AmqpListener(interpreter, protocolFactory, inputPort);
     }
 }
