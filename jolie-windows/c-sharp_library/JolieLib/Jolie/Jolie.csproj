@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="net\CommMessage.cs" />
+    <Compile Include="net\ports\InputPort.cs" />
+    <Compile Include="net\ports\OutputPort.cs" />
     <Compile Include="net\protocols\CommProtocol.cs" />
     <Compile Include="net\SodepProtocol.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

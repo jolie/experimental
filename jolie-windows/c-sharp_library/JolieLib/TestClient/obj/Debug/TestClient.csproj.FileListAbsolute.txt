@@ -6,3 +6,11 @@ c:\users\bergar\documents\visual studio 2013\Projects\JolieLib\TestClient\bin\De
 c:\users\bergar\documents\visual studio 2013\Projects\JolieLib\TestClient\obj\Debug\TestClient.csprojResolveAssemblyReference.cache
 c:\users\bergar\documents\visual studio 2013\Projects\JolieLib\TestClient\obj\Debug\TestClient.exe
 c:\users\bergar\documents\visual studio 2013\Projects\JolieLib\TestClient\obj\Debug\TestClient.pdb
+C:\Users\Bergar\development\jolie-windows\jolie-code\c-sharp_library\JolieLib\TestClient\bin\Debug\TestClient.exe.config
+C:\Users\Bergar\development\jolie-windows\jolie-code\c-sharp_library\JolieLib\TestClient\obj\Debug\TestClient.exe
+C:\Users\Bergar\development\jolie-windows\jolie-code\c-sharp_library\JolieLib\TestClient\obj\Debug\TestClient.pdb
+C:\Users\Bergar\development\jolie-windows\jolie-code\c-sharp_library\JolieLib\TestClient\bin\Debug\TestClient.exe
+C:\Users\Bergar\development\jolie-windows\jolie-code\c-sharp_library\JolieLib\TestClient\bin\Debug\TestClient.pdb
+C:\Users\Bergar\development\jolie-windows\jolie-code\c-sharp_library\JolieLib\TestClient\bin\Debug\Jolie.dll
+C:\Users\Bergar\development\jolie-windows\jolie-code\c-sharp_library\JolieLib\TestClient\bin\Debug\Jolie.pdb
+C:\Users\Bergar\development\jolie-windows\jolie-code\c-sharp_library\JolieLib\TestClient\obj\Debug\TestClient.csprojResolveAssemblyReference.cache

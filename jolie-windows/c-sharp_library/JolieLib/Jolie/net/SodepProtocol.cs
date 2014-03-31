@@ -125,12 +125,14 @@ namespace Jolie.net
                 else if (value.IsInt)
                 {
                     writer.Write((byte)DataTypeHeaderId.INT);
-                    writer.Write(value.IntValue);
+                    //writer.Write(value.IntValue);
+                    writer.Write(WriteInt(value.IntValue));
                 }
                 else if (value.IsDouble)
                 {
                     writer.Write((byte)DataTypeHeaderId.DOUBLE);
-                    writer.Write(value.DoubleValue);
+                    //writer.Write(value.DoubleValue);
+                    writer.Write(WriteDouble(value.DoubleValue));
                 }
                 else if (value.IsByteArray)
                 {
@@ -214,7 +216,8 @@ namespace Jolie.net
                         value = new Value(ReadLong(reader));
                         break;
                     case DataTypeHeaderId.DOUBLE:
-                        value = new Value(reader.ReadDouble());
+                        //value = new Value(reader.ReadDouble());
+                        value = new Value(ReadDouble(reader));
                         break;
                     case DataTypeHeaderId.BYTE_ARRAY:
                         value = new Value(ReadByteArray(reader));
@@ -289,6 +292,20 @@ namespace Jolie.net
         private byte[] WriteInt(int i)
         {
             byte[] arr = BitConverter.GetBytes(i);
+            Array.Reverse(arr);
+            return arr;
+        }
+
+        private double ReadDouble(BinaryReader reader)
+        {
+            byte[] arr = reader.ReadBytes(8);
+            Array.Reverse(arr);
+            return BitConverter.ToDouble(arr, 0);
+        }
+
+        private byte[] WriteDouble(double d)
+        {
+            byte[] arr = BitConverter.GetBytes(d);
             Array.Reverse(arr);
             return arr;
         }

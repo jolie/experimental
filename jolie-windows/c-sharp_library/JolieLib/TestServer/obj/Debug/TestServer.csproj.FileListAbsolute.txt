@@ -6,3 +6,6 @@ c:\users\bergar\documents\visual studio 2013\Projects\JolieLib\TestServer\bin\De
 c:\users\bergar\documents\visual studio 2013\Projects\JolieLib\TestServer\obj\Debug\TestServer.csprojResolveAssemblyReference.cache
 c:\users\bergar\documents\visual studio 2013\Projects\JolieLib\TestServer\obj\Debug\TestServer.exe
 c:\users\bergar\documents\visual studio 2013\Projects\JolieLib\TestServer\obj\Debug\TestServer.pdb
+C:\Users\Bergar\development\jolie-windows\jolie-code\c-sharp_library\JolieLib\TestServer\bin\Debug\TestServer.exe.config
+C:\Users\Bergar\development\jolie-windows\jolie-code\c-sharp_library\JolieLib\TestServer\obj\Debug\TestServer.exe
+C:\Users\Bergar\development\jolie-windows\jolie-code\c-sharp_library\JolieLib\TestServer\obj\Debug\TestServer.pdb

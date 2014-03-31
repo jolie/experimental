@@ -45,6 +45,7 @@ public class CommandLineParser
 {
 	private final static Pattern pathSeparatorPattern = Pattern.compile( jolie.lang.Constants.pathSeparator );
 	private final static Pattern optionSeparatorPattern = Pattern.compile( " " );
+    private final static String unixFileSeparator = "/";
 
 	private final int connectionsLimit;
 	private final int connectionsCache;
@@ -85,10 +86,15 @@ public class CommandLineParser
 	 * Returns the file path of the JOLIE program to execute.
 	 * @return the file path of the JOLIE program to execute
 	 */
-	public String programFilepath()
+	public String path()
 	{
 		return programFilepath;
 	}
+
+    public String programFilepath()
+    {
+	return path();
+    }
 
 	/**
 	 * Returns an InputStream for the program code to execute.
@@ -257,7 +263,13 @@ public class CommandLineParser
 		List< String > libList = new ArrayList< String >();
 		int cLimit = -1;
 		int cCache = 100;
-		String pwd = new File( "" ).getCanonicalPath();
+		//String pwd = new File( "" ).getCanonicalPath();
+		String pwd = new File( "" ).toURI().toString(); //BERGAR
+		pwd = pwd.substring( 6, pwd.length() -1 ); // BERGAR
+		System.out.println();
+		System.out.println( ">>>>>>> Original pwd: " + new File( "" ).getCanonicalPath() );
+		System.out.println( "<<<<<<< Altered pwd: " + pwd );
+		System.out.println();
 		includeList.add( pwd );
 		includeList.add( "include" );
 		libList.add( pwd );
@@ -344,7 +356,9 @@ public class CommandLineParser
 				}
 			} else if ( argsList.get( i ).endsWith( ".jap" ) ) {
 				if ( olFilepath == null ) {
-					String japFilename = new File( argsList.get( i ) ).getCanonicalPath();
+					// String japFilename = new File( argsList.get( i ) ).getCanonicalPath();
+				    String japFilename = new File( argsList.get( i ) ).toURI().toString(); // BERGAR
+				    japFilename = japFilename.substring( 6, japFilename.length() ); // BERGAR
 					JarFile japFile = new JarFile( japFilename );
 					Manifest manifest = japFile.getManifest();
 					olFilepath = parseJapManifestForMainProgram( manifest, japFile );
@@ -353,6 +367,13 @@ public class CommandLineParser
 					argsList.addAll( i+1, japOptions );
 					japUrl = japFilename + "!";
 					programDirectory = new File( japFilename ).getParentFile();
+					System.out.println();
+					System.out.println( "japFilename: " + japFilename );
+					System.out.println( "olFilepath: " + olFilepath );
+					System.out.println( "japUrl: " + japUrl );
+					System.out.println( "programDirectory: " + programDirectory.getCanonicalPath() );
+					System.out.println( "altered programDirectory: " + programDirectory.toURI().toString() );
+					System.out.println();
 				} else {
 					programArgumentsList.add( argsList.get( i ) );
 				}
@@ -405,7 +426,7 @@ public class CommandLineParser
 				}
 			} else if ( new File( path ).isDirectory() ) {
 				urls.add( new URL( "file:" + path + "/" ) );
-			} else if ( path.endsWith( Constants.fileSeparator + "*" ) ) {
+			} else if ( path.endsWith( Constants.fileSeparator /*unixFileSeparator*/ + "*" ) ) {
 				File dir = new File( path.substring( 0, path.length() - 2 ) );
 				String jars[] = dir.list( new FilenameFilter() {
 					public boolean accept( File dir, String filename ) {
@@ -498,6 +519,9 @@ public class CommandLineParser
 		if ( manifest != null ) { // See if a main program is defined through a Manifest attribute
 			Attributes attrs = manifest.getMainAttributes();
 			filepath = attrs.getValue( Constants.Manifest.MainProgram );
+			System.out.println();
+			System.out.println( "parseJapManifestForMainProgram: " + filepath );
+			System.out.println();
 		}
 
 		if ( filepath == null ) { // Main program not defined, we make <japName>.ol and <japName>.olc guesses
@@ -514,7 +538,7 @@ public class CommandLineParser
 				}
 			}
 		}
-
+		System.out.println( "japFile.getName(): " + japFile.getName() );
 		if ( filepath != null ) {
 			filepath = new StringBuilder()
 						.append( "jap:file:" )
@@ -523,7 +547,10 @@ public class CommandLineParser
 						.append( filepath )
 						.toString();
 		}
-		return filepath;
+		filepath = filepath.replace( "\\.\\", "/" );
+		System.out.println( "parseJapManifestFormainprogram, return: " + filepath );
+		return filepath.replace( "\\", "/" ); // BERGAR
+		// return filepath;
 	}
 
 	private Collection< String > parseJapManifestForOptions( Manifest manifest )
@@ -552,9 +579,10 @@ public class CommandLineParser
 			programDirectory = f.getParentFile();
 		} else {
 			for( int i = 0; i < includePaths.size() && olStream == null; i++ ) {
+			    System.out.println( "------ " + includePaths.get( i ) + "---" + olFilepath );
 				f = new File(
 							includePaths.get( i ) +
-							jolie.lang.Constants.fileSeparator +
+							jolie.lang.Constants.fileSeparator/*unixFileSeparator*/ +
 							olFilepath
 						);
 				if ( f.exists() ) {
