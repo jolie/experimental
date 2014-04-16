@@ -32,7 +32,7 @@ public class AmqpCommChannel extends StreamingCommChannel {
   // General.
   private Connection conn;
   private Channel chan;
-  private URI location;
+  private final URI location;
   private Map<String, String> locationParams;
 
   // For use in InputPort only.
@@ -133,6 +133,7 @@ public class AmqpCommChannel extends StreamingCommChannel {
     this.dataToProcess = data;
   }
   
+  @Override
   public void close() throws IOException {
     closeImpl();
   }
