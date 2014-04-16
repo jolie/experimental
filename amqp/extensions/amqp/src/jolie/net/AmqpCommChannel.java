@@ -6,22 +6,18 @@
 package jolie.net;
 
 import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import jolie.net.ports.OutputPort;
 import jolie.net.protocols.CommProtocol;
 import jolie.runtime.Value;
+import com.rabbitmq.client.RpcClient;
+import com.rabbitmq.client.ShutdownSignalException;
+import java.util.concurrent.TimeoutException;
+import jolie.net.ports.InputPort;
 
 /**
  *
@@ -30,111 +26,117 @@ import jolie.runtime.Value;
 public class AmqpCommChannel extends StreamingCommChannel {
 
   // General.
-  private Connection conn;
-  private Channel chan;
   private final URI location;
-  private Map<String, String> locationParams;
 
   // For use in InputPort only.
-  private byte[] dataToProcess;
+  private AmqpMessage dataToProcess;
 
   // For use in OutputPort only.
   private CommMessage message = null;
-
+  
   public AmqpCommChannel(URI location, CommProtocol protocol) throws IOException {
     super(location, protocol);
     this.location = location;
 
-    connect();
+    setToBeClosed(false);
   }
 
   @Override
   protected CommMessage recvImpl() throws IOException {
+    
     // Make protocol give us the bytes to send.
     ByteArrayOutputStream ostream = new ByteArrayOutputStream();
     CommMessage returnMessage;
+
+    // If we have some data to process.
     if (dataToProcess != null) {
-      returnMessage = protocol().recv(new ByteArrayInputStream(dataToProcess), ostream);
-      dataToProcess = null;
+      returnMessage = protocol().recv(new ByteArrayInputStream(dataToProcess.body), ostream);
       return returnMessage;
-    } else if (message != null) {
+    }
+
+    // Otherwise we just have a message, data is not present.
+    if (message != null) {
       returnMessage = CommMessage.createResponse(message, Value.UNDEFINED_VALUE);
       message = null;
       return returnMessage;
-    } else {
-      throw new IOException("Wrong context for receive!");
     }
+
+    // If we end up here, something is wrong.
+    throw new IOException("Wrong context for receive!");
   }
 
   @Override
   protected void sendImpl(CommMessage message) throws IOException {
+    String exchName = locationParams().get("exchange");
+    String routingKey = locationParams().get("routingkey");
+    routingKey = routingKey != null ? routingKey : "";
+      
+    // Make protocol give us the bytes to send.
+    ByteArrayOutputStream ostream = new ByteArrayOutputStream();
+    protocol().send(ostream, message, null);
+        
+    this.message = message;
+          
+    // If from OutputPort.
     if (parentPort() instanceof OutputPort) {
-      // Make protocol give us the bytes to send.
-      ByteArrayOutputStream ostream = new ByteArrayOutputStream();
-
-      protocol().send(ostream, message, null);
-
-      String exchName = locationParams.get("exchange");
-      String routingKey = locationParams.get("routingkey");
-      routingKey = routingKey != null ? routingKey : "";
-      this.message = message;
-
-      chan.basicPublish(exchName, routingKey, null, ostream.toByteArray());
+      
+      // Check if this is an RPC call.
+      boolean isRpc = parentPort().getOperationTypeDescription(message.operationName(), message.resourcePath()).asRequestResponseTypeDescription() != null;
+      if (isRpc) {
+        // Send the call, getting bytearray back.
+        RpcClient rpc = new RpcClient(channel(), exchName, routingKey);
+        try {
+          dataToProcess = new AmqpMessage(null, rpc.primitiveCall(ostream.toByteArray()), null);
+        } catch (ShutdownSignalException | TimeoutException ex) {
+          throw new IOException("Timeout for RPC call", ex);
+        }
+      }
+      else {
+        // Else we just publish normally.
+        channel().basicPublish(exchName, routingKey, null, ostream.toByteArray());
+      }
+    }
+    
+    // If from InputPort. We assume that we have something to send back to caller.
+    else if (parentPort() instanceof InputPort) {
+      boolean isRpc = dataToProcess != null && dataToProcess.properties != null && dataToProcess.properties.getReplyTo() != null;
+      // If this recv is from an RPC call.
+      if (isRpc) {
+        RpcClient rpc = new RpcClient(channel(), exchName, routingKey);
+        
+        // Reply to RPC call.
+        rpc.publish(dataToProcess.properties, ostream.toByteArray());
+      }
+      
+      acknowledge(dataToProcess.envelope.getDeliveryTag());
+      dataToProcess = null;
+    }
+    
+    // Something went wrong.
+    else {
+      throw new IOException("Port is of unexpected type!");
     }
   }
 
   @Override
   protected void closeImpl() throws IOException {
-    chan.close();
-    conn.close();
-  }
-
-  public static Map<String, String> getQueryMap(String query) {
-    String[] params = query.split("&");
-    Map<String, String> map = new HashMap();
-    for (String param : params) {
-      String name = param.split("=")[0];
-      String value = param.split("=")[1];
-      map.put(name, value);
-    }
-    return map;
-  }
-
-  private void connect() throws IOException {
-    try {
-      // Parse parameters from url.
-      locationParams = getQueryMap(location.getQuery());
-
-      // Connect to the AMQP server.
-      String schemeAndPath = location.toString().split("\\?")[0];
-      ConnectionFactory factory = new ConnectionFactory();
-      factory.setUri(schemeAndPath);
-      conn = factory.newConnection();
-
-      // Create the channel.
-      chan = conn.createChannel();
-
-      // AMQP-connections are persistent.
-      setToBeClosed(false);
-    } catch (URISyntaxException | NoSuchAlgorithmException | KeyManagementException ex) {
-      Logger.getLogger(AmqpCommChannel.class.getName()).log(Level.SEVERE, null, ex);
-    }
-  }
-
-  public Channel getChannel() {
-    return chan;
-  }
-
-  public Map<String, String> getLocationParams() {
-    return locationParams;
-  }
-
-  public void setDataToProcess(byte[] data) {
-    this.dataToProcess = data;
+    AmqpConnectionHandler.closeConnection(location);
   }
   
-  @Override
-  public void close() throws IOException {
-    closeImpl();
+  public void setDataToProcess(AmqpMessage message) {
+    this.dataToProcess = message;
+  }
+  
+  public void acknowledge(long deliveryTag) throws IOException {
+    // Don't know why 2nd parameter is false, and API is no help.
+    channel().basicAck(deliveryTag, false);
+  }
+  
+  public Channel channel() throws IOException {
+    return AmqpConnectionHandler.getConnection(location).getChannel();
+  }
+  
+  public Map<String, String> locationParams() throws IOException {
+    return AmqpConnectionHandler.getConnection(location).getLocationParams();
   }
 }
