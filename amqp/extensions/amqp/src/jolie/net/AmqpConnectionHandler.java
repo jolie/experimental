@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package jolie.net;
 
 import java.io.IOException;
@@ -12,12 +6,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
- * @author michael
+ * Handles all AMQP connections.
+ * @author Claus Lindquist Henriksen (clih@itu.dk).
+ * @author Michael Søby Andersen (msoa@itu.dk).
  */
 public class AmqpConnectionHandler {
   private static final Map<URI, AmqpConnection> connections = new HashMap();
   
+  /**
+   * Get a connection. If it does not exist, use setConnection to create it.
+   * @param location The URI of the connection.
+   * @return The AmqpConnection
+   * @throws IOException 
+   */
   public static AmqpConnection getConnection(URI location) throws IOException {
     // If not already connected, do this.
     if (!connections.containsKey(location)) {
@@ -27,10 +28,20 @@ public class AmqpConnectionHandler {
     return connections.get(location);
   }
   
+  /**
+   * Create a connection, and set it.
+   * @param location The URI of the connection.
+   * @throws IOException 
+   */
   private static void setConnection(URI location) throws IOException {
     connections.put(location, new AmqpConnection(location));
   }
   
+  /**
+   * Close a connection.
+   * @param location The URI of the connection to close.
+   * @throws IOException 
+   */
   public static void closeConnection(URI location) throws IOException {
     connections.get(location).close();
     connections.remove(location);

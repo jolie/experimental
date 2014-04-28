@@ -1,17 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package jolie.net;
 
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Envelope;
 
 /**
- *
- * @author michael
+ * Class for containing an AmqpMessage.
+ * @author Claus Lindquist Henriksen (clih@itu.dk).
+ * @author Michael Søby Andersen (msoa@itu.dk).
  */
 public class AmqpMessage {
   public byte[] body;

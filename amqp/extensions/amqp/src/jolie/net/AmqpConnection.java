@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package jolie.net;
 
 import com.rabbitmq.client.Channel;
@@ -19,8 +13,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
- * @author michael
+ * Class for handling a connection.
+ * @author Claus Lindquist Henriksen (clih@itu.dk).
+ * @author Michael Søby Andersen (msoa@itu.dk).
  */
 public final class AmqpConnection {
   private Connection conn;
@@ -40,6 +35,13 @@ public final class AmqpConnection {
     }
   }
   
+  /**
+   * Connect to the location specified.
+   * @throws URISyntaxException
+   * @throws NoSuchAlgorithmException
+   * @throws KeyManagementException
+   * @throws IOException 
+   */
   public void connect() throws URISyntaxException, NoSuchAlgorithmException, KeyManagementException, IOException {
     // Connect to the AMQP server.
     String schemeAndPath = location.toString().split("\\?")[0];
@@ -51,22 +53,41 @@ public final class AmqpConnection {
     chan = conn.createChannel();
   }
   
+  /**
+   * Reopen the channel. Some exceptions close the channel, and we need to be able to reopen it.
+   * @throws IOException 
+   */
   public void reopenChannel() throws IOException {
     chan = conn.createChannel();
   }
   
+  /**
+   * Parse the location to a key/value map.
+   */
   public void parseLocation() {
     locationParams = getQueryMap(location.getQuery());
   }
   
+  /**
+   * Get the channel associated with the connection.
+   * @return The channel.
+   */
   public Channel getChannel() {
     return chan;
   }
   
+  /**
+   * Get the map of location parameters.
+   * @return The map of parameters.
+   */
   public Map<String, String> getLocationParams() {
     return locationParams;
   }
   
+  /**
+   * Close the connection.
+   * @throws IOException 
+   */
   public void close() throws IOException {
     try {
       chan.close();
@@ -74,6 +95,11 @@ public final class AmqpConnection {
     } catch (ShutdownSignalException e) { }
   }
   
+  /**
+   * Parse a location to a map of keys to values.
+   * @param query The querystring to parse.
+   * @return The map of key/value pairs.
+   */
   public static Map<String, String> getQueryMap(String query) {
     String[] params = query.split("&");
     Map<String, String> map = new HashMap();

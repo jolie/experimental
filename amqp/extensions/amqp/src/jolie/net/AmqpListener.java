@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package jolie.net;
 
 import com.rabbitmq.client.AMQP;
@@ -18,8 +13,9 @@ import jolie.net.ext.CommProtocolFactory;
 import jolie.net.ports.InputPort;
 
 /**
- *
- * @author Claus Lindquist Henriksen & Michael Søby Andersen.
+ * The CommListener for the Amqp implementation.
+ * @author Claus Lindquist Henriksen (clih@itu.dk).
+ * @author Michael Søby Andersen (msoa@itu.dk).
  */
 public class AmqpListener extends CommListener {
 
@@ -29,6 +25,12 @@ public class AmqpListener extends CommListener {
   private final Object lock = new Object();
   private AmqpMessage currentMessage = null;
 
+  /**
+   * @param interpreter The interpreter.
+   * @param protocolFactory The factory for the protocol.
+   * @param inputPort The InputPort this listener is created for.
+   * @throws IOException 
+   */
   public AmqpListener(Interpreter interpreter, CommProtocolFactory protocolFactory, InputPort inputPort) throws IOException {
     super(interpreter, protocolFactory, inputPort);
 
@@ -87,6 +89,9 @@ public class AmqpListener extends CommListener {
     }
   }
 
+  /**
+   * For shutting down the InputPort and listener.
+   */
   @Override
   public void shutdown() {
     try {
@@ -97,14 +102,29 @@ public class AmqpListener extends CommListener {
     }
   }
 
+  /**
+   * Get the channel for the Amqp connection.
+   * @return The channel for the connection.
+   * @throws IOException 
+   */
   public final Channel channel() throws IOException {
     return connection().getChannel();
   }
 
+  /**
+   * Get the location parameters for the connection.
+   * @return A map of the location parameters.
+   * @throws IOException 
+   */
   public final Map<String, String> locationParams() throws IOException {
     return connection().getLocationParams();
   }
   
+  /**
+   * Get the connection
+   * @return The AmqpConnection object.
+   * @throws IOException 
+   */
   public final AmqpConnection connection() throws IOException {
     return AmqpConnectionHandler.getConnection(inputPort().location());
   }
