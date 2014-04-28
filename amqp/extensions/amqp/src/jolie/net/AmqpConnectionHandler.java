@@ -16,7 +16,7 @@ import java.util.Map;
  * @author michael
  */
 public class AmqpConnectionHandler {
-  private static Map<URI, AmqpConnection> connections = new HashMap();
+  private static final Map<URI, AmqpConnection> connections = new HashMap();
   
   public static AmqpConnection getConnection(URI location) throws IOException {
     // If not already connected, do this.

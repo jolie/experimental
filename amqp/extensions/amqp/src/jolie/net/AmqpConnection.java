@@ -9,6 +9,7 @@ package jolie.net;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.ShutdownSignalException;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -50,6 +51,10 @@ public final class AmqpConnection {
     chan = conn.createChannel();
   }
   
+  public void reopenChannel() throws IOException {
+    chan = conn.createChannel();
+  }
+  
   public void parseLocation() {
     locationParams = getQueryMap(location.getQuery());
   }
@@ -63,16 +68,19 @@ public final class AmqpConnection {
   }
   
   public void close() throws IOException {
-    chan.close();
-    conn.close();
+    try {
+      chan.close();
+      conn.close();
+    } catch (ShutdownSignalException e) { }
   }
   
   public static Map<String, String> getQueryMap(String query) {
     String[] params = query.split("&");
     Map<String, String> map = new HashMap();
     for (String param : params) {
-      String name = param.split("=")[0];
-      String value = param.split("=")[1];
+      String[] split = param.split("=");
+      String name = split[0];
+      String value = split.length >= 2 ? param.split("=")[1] : null;
       map.put(name, value);
     }
     return map;

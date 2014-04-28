@@ -24,24 +24,32 @@ import jolie.net.ports.InputPort;
 public class AmqpListener extends CommListener {
 
   private final InputPort inputPort;
-  private String queue;
-  private boolean autoAck;
+  private final String queue;
   private String consumerTag;
   private final Object lock = new Object();
   private AmqpMessage currentMessage = null;
 
   public AmqpListener(Interpreter interpreter, CommProtocolFactory protocolFactory, InputPort inputPort) throws IOException {
     super(interpreter, protocolFactory, inputPort);
-    
+
     this.inputPort = inputPort;
-    
+
     queue = locationParams().get("queue");
-    String ackTmp = locationParams().get("autoAck");
-    autoAck = ackTmp != null ? !ackTmp.toLowerCase().equals("true") : false;
     consumerTag = locationParams().get("consumerTag");
     consumerTag = consumerTag != null ? consumerTag : "Jolie consumer";
-    
-    channel().basicConsume(queue, autoAck, consumerTag,
+
+    // Make sure that queue exists. If not create it as an auto-delete queue.
+    try {
+      // Try to declare queue, it will throw IOException if it exists, and close the channel.
+      channel().queueDeclare(queue, false, false, true, null);
+    } catch (IOException e) {
+      // Reopen channel.
+      connection().reopenChannel();
+    }
+
+
+    // Consume from queue.
+    channel().basicConsume(queue, false, consumerTag,
       new DefaultConsumer(channel()) {
         @Override
         public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
@@ -57,6 +65,7 @@ public class AmqpListener extends CommListener {
   public void run() {
     while (true) {
       try {
+        // Wait for a message from handleDelivery in basicConsume above.
         synchronized (lock) {
           while (currentMessage == null) {
             lock.wait();
@@ -65,8 +74,10 @@ public class AmqpListener extends CommListener {
           AmqpCommChannel commChannel = new AmqpCommChannel(inputPort.location(), createProtocol());
           commChannel.setParentInputPort(inputPort);
           commChannel.setDataToProcess(currentMessage);
+
+          // Receive.
           interpreter().commCore().scheduleReceive(commChannel, inputPort());
-          
+
           // Reset.
           currentMessage = null;
         }
@@ -79,18 +90,23 @@ public class AmqpListener extends CommListener {
   @Override
   public void shutdown() {
     try {
+      // Close current connection.
       AmqpConnectionHandler.closeConnection(inputPort().location());
     } catch (IOException ex) {
       Logger.getLogger(AmqpListener.class.getName()).log(Level.WARNING, null, ex);
     }
   }
-  
+
   public final Channel channel() throws IOException {
-    return AmqpConnectionHandler.getConnection(inputPort().location()).getChannel();
+    return connection().getChannel();
+  }
+
+  public final Map<String, String> locationParams() throws IOException {
+    return connection().getLocationParams();
   }
   
-  public final Map<String, String> locationParams() throws IOException {
-    return AmqpConnectionHandler.getConnection(inputPort().location()).getLocationParams();
+  public final AmqpConnection connection() throws IOException {
+    return AmqpConnectionHandler.getConnection(inputPort().location());
   }
 
 }
