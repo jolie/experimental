@@ -11,30 +11,28 @@ import java.util.logging.Logger;
 import jolie.Interpreter;
 import jolie.net.ext.CommProtocolFactory;
 import jolie.net.ports.InputPort;
+import jolie.net.protocols.CommProtocol;
 
 /**
  * The CommListener for the Amqp implementation.
+ *
  * @author Claus Lindquist Henriksen (clih@itu.dk).
  * @author Michael Søby Andersen (msoa@itu.dk).
  */
 public class AmqpListener extends CommListener {
 
-  private final InputPort inputPort;
   private final String queue;
   private String consumerTag;
   private final Object lock = new Object();
-  private AmqpMessage currentMessage = null;
 
   /**
    * @param interpreter The interpreter.
    * @param protocolFactory The factory for the protocol.
    * @param inputPort The InputPort this listener is created for.
-   * @throws IOException 
+   * @throws IOException
    */
-  public AmqpListener(Interpreter interpreter, CommProtocolFactory protocolFactory, InputPort inputPort) throws IOException {
+  public AmqpListener(Interpreter interpreter, CommProtocolFactory protocolFactory, final InputPort inputPort) throws IOException {
     super(interpreter, protocolFactory, inputPort);
-
-    this.inputPort = inputPort;
 
     queue = locationParams().get("queue");
     consumerTag = locationParams().get("consumerTag");
@@ -48,17 +46,23 @@ public class AmqpListener extends CommListener {
       // Reopen channel.
       connection().reopenChannel();
     }
-
+    
+    final CommProtocol protocol = createProtocol();
 
     // Consume from queue.
     channel().basicConsume(queue, false, consumerTag,
       new DefaultConsumer(channel()) {
         @Override
         public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-          synchronized (lock) {
-            currentMessage = new AmqpMessage(envelope, body, properties);
-            lock.notify();
-          }
+          AmqpMessage message = new AmqpMessage(envelope, body, properties);
+
+          // Create channel for receive implementation.
+          AmqpCommChannel commChannel = new AmqpCommChannel(inputPort.location(), protocol);
+          commChannel.setParentInputPort(inputPort);
+          commChannel.setDataToProcess(message);
+
+          // Receive.
+          interpreter().commCore().scheduleReceive(commChannel, inputPort());
         }
       });
   }
@@ -67,23 +71,13 @@ public class AmqpListener extends CommListener {
   public void run() {
     while (true) {
       try {
-        // Wait for a message from handleDelivery in basicConsume above.
+        // This thread should do nothing.
         synchronized (lock) {
-          while (currentMessage == null) {
+          while (true) {
             lock.wait();
           }
-          // Create channel for receive implementation.
-          AmqpCommChannel commChannel = new AmqpCommChannel(inputPort.location(), createProtocol());
-          commChannel.setParentInputPort(inputPort);
-          commChannel.setDataToProcess(currentMessage);
-
-          // Receive.
-          interpreter().commCore().scheduleReceive(commChannel, inputPort());
-
-          // Reset.
-          currentMessage = null;
         }
-      } catch (InterruptedException | IOException ex) {
+      } catch (InterruptedException ex) {
         Logger.getLogger(AmqpListener.class.getName()).log(Level.SEVERE, null, ex);
       }
     }
@@ -104,8 +98,9 @@ public class AmqpListener extends CommListener {
 
   /**
    * Get the channel for the Amqp connection.
+   *
    * @return The channel for the connection.
-   * @throws IOException 
+   * @throws IOException
    */
   public final Channel channel() throws IOException {
     return connection().getChannel();
@@ -113,17 +108,19 @@ public class AmqpListener extends CommListener {
 
   /**
    * Get the location parameters for the connection.
+   *
    * @return A map of the location parameters.
-   * @throws IOException 
+   * @throws IOException
    */
   public final Map<String, String> locationParams() throws IOException {
     return connection().getLocationParams();
   }
-  
+
   /**
    * Get the connection
+   *
    * @return The AmqpConnection object.
-   * @throws IOException 
+   * @throws IOException
    */
   public final AmqpConnection connection() throws IOException {
     return AmqpConnectionHandler.getConnection(inputPort().location());

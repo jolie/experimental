@@ -124,6 +124,8 @@ public final class AmqpCommChannel extends StreamingCommChannel {
         // Publish to reply-to queue.
         channel().basicPublish("", dataToProcess.properties.getReplyTo(), dataToProcess.properties, ostream.toByteArray());
       }
+      // Acknowledge that message has been processed.
+      acknowledge(dataToProcess.envelope.getDeliveryTag());
     }
     
     // If we end up here, parentPort is neither an InputPort or an OutputPort, something is wrong.

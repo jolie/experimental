@@ -43,7 +43,9 @@ public class AmqpConnectionHandler {
    * @throws IOException 
    */
   public static void closeConnection(URI location) throws IOException {
-    connections.get(location).close();
-    connections.remove(location);
+    try {
+      connections.get(location).close();
+      connections.remove(location);
+    } catch (NullPointerException e) { /* NullPointerException is ok, connection might not exist. */ }
   }
 }
