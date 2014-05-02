@@ -1,0 +1,8 @@
+C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\TwiceService\bin\Release\TwiceService.exe.config
+C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\TwiceService\bin\Release\TwiceService.exe
+C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\TwiceService\bin\Release\TwiceService.pdb
+C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\TwiceService\bin\Release\Jolie.dll
+C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\TwiceService\bin\Release\Jolie.pdb
+C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\TwiceService\obj\Release\TwiceService.csprojResolveAssemblyReference.cache
+C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\TwiceService\obj\Release\TwiceService.exe
+C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\TwiceService\obj\Release\TwiceService.pdb

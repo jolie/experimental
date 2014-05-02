@@ -1,0 +1,26 @@
+﻿Installing assembly 'C:\Users\Bergar\development\jolie-windows\jolie-code\TwiceService\TwiceService\bin\Debug\TwiceService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Bergar\development\jolie-windows\jolie-code\TwiceService\TwiceService\bin\Debug\TwiceService.exe
+   logfile = C:\Users\Bergar\development\jolie-windows\jolie-code\TwiceService\TwiceService\bin\Debug\TwiceService.InstallLog
+No public installers with the RunInstallerAttribute.Yes attribute could be found in the C:\Users\Bergar\development\jolie-windows\jolie-code\TwiceService\TwiceService\bin\Debug\TwiceService.exe assembly.
+Committing assembly 'C:\Users\Bergar\development\jolie-windows\jolie-code\TwiceService\TwiceService\bin\Debug\TwiceService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Bergar\development\jolie-windows\jolie-code\TwiceService\TwiceService\bin\Debug\TwiceService.exe
+   logfile = C:\Users\Bergar\development\jolie-windows\jolie-code\TwiceService\TwiceService\bin\Debug\TwiceService.InstallLog
+No public installers with the RunInstallerAttribute.Yes attribute could be found in the C:\Users\Bergar\development\jolie-windows\jolie-code\TwiceService\TwiceService\bin\Debug\TwiceService.exe assembly.
+Remove InstallState file because there are no installers.
+Installing assembly 'C:\Users\Bergar\development\jolie-windows\jolie-code\TwiceService\TwiceService\bin\Debug\TwiceService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Bergar\development\jolie-windows\jolie-code\TwiceService\TwiceService\bin\Debug\TwiceService.exe
+   logfile = C:\Users\Bergar\development\jolie-windows\jolie-code\TwiceService\TwiceService\bin\Debug\TwiceService.InstallLog
+No public installers with the RunInstallerAttribute.Yes attribute could be found in the C:\Users\Bergar\development\jolie-windows\jolie-code\TwiceService\TwiceService\bin\Debug\TwiceService.exe assembly.
+Committing assembly 'C:\Users\Bergar\development\jolie-windows\jolie-code\TwiceService\TwiceService\bin\Debug\TwiceService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Bergar\development\jolie-windows\jolie-code\TwiceService\TwiceService\bin\Debug\TwiceService.exe
+   logfile = C:\Users\Bergar\development\jolie-windows\jolie-code\TwiceService\TwiceService\bin\Debug\TwiceService.InstallLog
+No public installers with the RunInstallerAttribute.Yes attribute could be found in the C:\Users\Bergar\development\jolie-windows\jolie-code\TwiceService\TwiceService\bin\Debug\TwiceService.exe assembly.
+Remove InstallState file because there are no installers.

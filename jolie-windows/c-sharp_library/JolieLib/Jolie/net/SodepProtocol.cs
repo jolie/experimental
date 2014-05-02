@@ -42,7 +42,7 @@ namespace Jolie.net
                 }
                 return "";
             }
-            catch (Exception e) { Console.WriteLine(e.Message); return ""; }
+            catch (Exception e) { /*Console.WriteLine(e.Message);*/ return "";}
         }
 
         private void WriteString(BinaryWriter writer, string s)
@@ -63,7 +63,7 @@ namespace Jolie.net
                     writer.Write(bb);
                 }
             }
-            catch (Exception e) { Console.WriteLine(e.Message); }
+            catch (Exception e) { /*Console.WriteLine(e.Message);*/ }
         }
 
         private ByteArray ReadByteArray(BinaryReader reader)
@@ -252,7 +252,7 @@ namespace Jolie.net
                 }
                 return value;
             }
-            catch (Exception e) { Console.WriteLine(e.Message); return null; } // OBS!
+            catch (Exception e) { /*Console.WriteLine(e.Message);*/ return null; } // OBS!
         }
 
         private FaultException ReadFault(BinaryReader reader)

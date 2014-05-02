@@ -1,0 +1,5 @@
+C:\Users\Bergar\development\jolie-windows\jolie-code\c-sharp_library\JolieLib\Jolie\bin\Release\Jolie.dll
+C:\Users\Bergar\development\jolie-windows\jolie-code\c-sharp_library\JolieLib\Jolie\bin\Release\Jolie.pdb
+C:\Users\Bergar\development\jolie-windows\jolie-code\c-sharp_library\JolieLib\Jolie\obj\Release\Jolie.csprojResolveAssemblyReference.cache
+C:\Users\Bergar\development\jolie-windows\jolie-code\c-sharp_library\JolieLib\Jolie\obj\Release\Jolie.dll
+C:\Users\Bergar\development\jolie-windows\jolie-code\c-sharp_library\JolieLib\Jolie\obj\Release\Jolie.pdb

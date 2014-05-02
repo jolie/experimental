@@ -31,5 +31,10 @@ namespace Jolie.net.ports
         {
             sodep.Send(stream, msg, stream);
         }
+
+        public CommMessage ReceiveMessage()
+        {
+            return sodep.Recv(stream, stream);
+        }
     }
 }

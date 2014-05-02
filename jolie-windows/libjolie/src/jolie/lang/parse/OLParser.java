@@ -563,13 +563,42 @@ public class OLParser extends AbstractParser
 					 * We need the embedded URL path, otherwise URI.normalize
 					 * is going to do nothing.
 					 */
+				    // BERGAR START
+				    // Fixes issue when including files with relative paths inside .jap files
+				    if( filename.startsWith( "../" ) ) {
+					String tmpPath = path;
+					String tmpFilename = filename;
+					if( !tmpPath.contains( "/" ) && tmpPath.contains( "\\" )) tmpPath = tmpPath.replace( "\\", "/" );
+					while( tmpFilename.startsWith( "../" ) ) {
+					    tmpFilename = tmpFilename.substring( 2 );
+					    if( tmpPath.endsWith( "/" ) ) tmpPath = tmpPath.substring( 0, tmpPath.length() -1 );
+					    tmpPath = tmpPath.substring( 0, tmpPath.lastIndexOf( "/" ) );
+					}
+					String tmpUrl = new StringBuilder().append( tmpPath ).append( tmpFilename ).toString();
+					try {
+					    url = new URL( tmpUrl.substring( 0,4 ) + tmpUrl.substring( 4 ) );
+					}
+					catch( Exception exn ) { }
+				    }
+				    else if( filename.startsWith( "./" ) ) {
+					String tmpPath = path;
+					String tmpFilename = filename;
+					if( !tmpPath.contains( "/" ) && tmpPath.contains( "\\" ) ) tmpPath = tmpPath.replace( "\\", "/" );
+					tmpFilename = tmpFilename.substring( 1 );
+					if( tmpPath.endsWith( "/" ) ) tmpPath = tmpPath.substring( 0, tmpPath.length() -1 );
+					String tmpUrl = new StringBuilder().append( tmpPath ).append( tmpFilename ).toString();
+					url = new URL( tmpUrl.substring( 0,4 ) + tmpUrl.substring( 4 ) );
+				    }
+				    else {
+				    // BERGAR END
 					url = new URL(
 						urlStr.substring( 0,4 ) + new URI( urlStr.substring( 4 ) ).normalize().toString()
 					);
+				    }
 				} else {
-					url = new URL( new URI( urlStr ).normalize().toString() );
+				    url = new URL( new URI( "file:///" + urlStr.replace("\\", "/") ).normalize().toString() );
 				}
-                                File f2 = new File( url.toString() );
+					File f2 = new File( url.toString().replace( "\\", "/") );
 				ret = new IncludeFile(
 					url.openStream(),
 					f2.getParent(),
@@ -577,8 +606,8 @@ public class OLParser extends AbstractParser
 					//path
 				);
 			} catch( MalformedURLException mue ) {
-			} catch( IOException ioe ) {
-			} catch( URISyntaxException use ) {}
+			} catch( IOException ioe ) { 
+			} catch( URISyntaxException use ) { }
 		}
 		return ret;
 	}

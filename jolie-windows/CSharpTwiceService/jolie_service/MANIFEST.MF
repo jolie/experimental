@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+X-JOLIE-Main-Program: main.ol
+X-JOLIE-CSHARP-PROGRAM: TwiceService.exe
+Comment_X-JOLIE-Options: Options here

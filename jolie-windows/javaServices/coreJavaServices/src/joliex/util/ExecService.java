@@ -45,10 +45,10 @@ public class ExecService extends JavaService {
 
         ProcessBuilder builder = new ProcessBuilder(command);
         if (request.hasChildren("workingDirectory")) {
-            builder.directory(new File(request.getFirstChild("workingDirectory").strValue()));
+	    String s = request.getFirstChild("workingDirectory").strValue();
+            builder.directory( new File( s ) );
         }
         try {
-
             Value response = Value.create();
             boolean stdOutConsoleEnable = false;
             Process p = builder.start();

@@ -47,13 +47,14 @@ import jolie.runtime.Value;
 import jolie.runtime.ValueVector;
 import jolie.runtime.embedding.RequestResponse;
 import jolie.util.Range;
+import joliex.util.StringUtils;
 
 /**
  *
  * @author claudio guidi
  */
 public class MetaJolie extends JavaService {
-
+    private StringUtils su = new StringUtils();
     private int MAX_CARD = 2147483647;
 
     private Value getNativeType(NativeType type) {
@@ -425,7 +426,6 @@ public class MetaJolie extends JavaService {
     }
 
     private Value getOutputPort(OutputPortInfo portInfo, Value name) {
-
         Value response = Value.create();
         response.getFirstChild("name").deepCopy(setName(name));
         // setting the name of the port
@@ -563,7 +563,8 @@ public class MetaJolie extends JavaService {
         try {
 
             response.getFirstChild("name").deepCopy(setName(request.getFirstChild("rolename")));
-            String[] args = new String[]{request.getFirstChild("filename").strValue(), "-i", "/opt/jolie/include"};
+	    String[] args = new String[] { request.getFirstChild( "filename" ).strValue(), "-i", "C:/jolie/include"};
+            // String[] args = new String[]{request.getFirstChild("filename").strValue(), "-i", "/opt/jolie/include"};
             CommandLineParser cmdParser = new CommandLineParser(args, MetaJolie.class.getClassLoader());
             args = cmdParser.arguments();
             Program program = ParsingUtils.parseProgram(
@@ -605,13 +606,17 @@ public class MetaJolie extends JavaService {
     public Value getMetaData(Value request)
             throws FaultException {
 
+	System.out.println("GETMETADATA" );
+	String sTmp = su.valueToPrettyString( request );
+	System.out.println( sTmp );
+
         String domain = "";
         List<TypeDefinition> types = new ArrayList<TypeDefinition>();
         List<InterfaceDefinition> interfaces = new ArrayList<InterfaceDefinition>();
         Value response = Value.create();
         try {
-
-            String[] args = new String[]{request.getFirstChild("filename").strValue(), "-i", "/opt/jolie/include"};
+	    String[] args = new String[] { request.getFirstChild( "filename" ).strValue(), "-i", "C:\\jolie\\include"};
+            // String[] args = new String[]{request.getFirstChild("filename").strValue(), "-i", "/opt/jolie/include"};
             if (request.getFirstChild("name").getFirstChild("domain").isDefined()) {
                 domain = request.getFirstChild("name").getFirstChild("domain").strValue();
             }
@@ -625,7 +630,10 @@ public class MetaJolie extends JavaService {
 
             URI originalFile = program.context().source();
 
+	    System.out.println( "Setting service" );
             response.getFirstChild("service").getFirstChild("name").deepCopy(setName(request.getFirstChild("name")));
+	    String lol = su.valueToPrettyString( response );
+	    System.out.println( lol );
 
             OutputPortInfo[] outputPortList = inspector.getOutputPorts();
             if (outputPortList.length > 0) {
@@ -682,15 +690,56 @@ public class MetaJolie extends JavaService {
         return response;
     }
 
+    // @RequestResponse
+    // public Value getOutputPortMetaData( Value request ) {
+    // 	String domain = "";
+    // 	List<TypeDefinition> types = new ArrayList<TypeDefinition>();
+    // 	List<InterfaceDefinition> interfaces = new ArrayList<InterfaceDefinition>();
+    // 	Value response = Value.create();
+    // 	try {
+    // 	    String[] args = new String[] { request.getFirstChild( "filename" ).strValue(), "-i", "C:\\jolie\\include" } ;
+    // 	    // String[] args = new String[] { request.getFirstChild( "filename" ).strValue(), "-i", "C:\\jolie\\include"); // Include path is hardcoded
+    // 	    if( request.getFirstChild( "domain" ).isDefined() ) {
+    // 		domain = request.getFirstChild( "domain" ).strValue();
+    // 	    }
+    // 	    CommandLineParser cmdParser = new CommandLineParser( args, MetaJolie.class.getClassLoader() );
+    // 	    args = cmdParser.arguments();
+    // 	    Program program = ParsingUtils.parseProgram(
+    // 							cmdParser.programStream(),
+    // 							URI.create( "file:" + cmdParser.programFilepath() ),
+    // 							cmdParser.includePaths(), MetaJolie.class.getClassLoader(), cmdParser.definedConstants() );
+    // 	    ProgramInspector inspector = ParsingUtils.createInspector( program );
+	    
+    // 	    URI originalFile = program.context().source();
+	    
+    // 	    System.out.println( "feching op info" );
+    // 	    OutputPortInfo[] outputPortList = inspector.getOutputPorts( originalFile );
+    // 	    System.out.println( "finished fetching op info, length : " + outputPortList.length );
+    // 	    ValueVector output = response.getChildren( "output" );
+    // 	    if( outputPortList.length > 0 ) {
+    // 		for( int op = 0; op > outputPortList.length; op++ ) {
+    // 		    OutputPortInfo outputPort = outputPortList[ op ];
+    // 		    output.get( op ).deepCopy( getOutputPort( outputPort, request.getFirstChild( "name" )/*, inspector.getOutputPorts()*/ ) );
+    // 		}
+    // 	    }
+    // 	} catch ( CommandLineException e) {
+    // 	} catch ( IOException e) {
+    // 	} catch ( ParserException e) { }
+    // 	return response;
+    // } 
+
     @RequestResponse
     public Value getInputPortMetaData(Value request) {
+	System.out.println( "GetinputportMEtaData start: " );
+	String tmp = su.valueToPrettyString( request );
+	System.out.println( tmp );
         String domain = "";
         List<TypeDefinition> types = new ArrayList<TypeDefinition>();
         List<InterfaceDefinition> interfaces = new ArrayList<InterfaceDefinition>();
         Value response = Value.create();
         try {
-
-            String[] args = new String[]{request.getFirstChild("filename").strValue(), "-i", "/opt/jolie/include"};
+            // String[] args = new String[]{request.getFirstChild("filename").strValue(), "-i", "/opt/jolie/include"}; // Include path is hardcoded
+	    String[] args = new String[]{request.getFirstChild("filename").strValue(), "-i", "C:\\jolie\\include"};
             if (request.getFirstChild("domain").isDefined()) {
                 domain = request.getFirstChild("domain").strValue();
             }
@@ -715,11 +764,9 @@ public class MetaJolie extends JavaService {
             }
 
 
-        } catch (CommandLineException e) {
-        } catch (IOException e) {
-        } catch (ParserException e) {
-        }
-
+        } catch (CommandLineException e) { System.out.println( "CmdLineEx: " + e.getMessage() );
+        } catch (IOException e) { System.out.println( "IOEx: " + e.getMessage() );
+        } catch (ParserException e) { System.out.println( "ParserEx: " + e.getMessage() ); }
         return response;
     }
     
