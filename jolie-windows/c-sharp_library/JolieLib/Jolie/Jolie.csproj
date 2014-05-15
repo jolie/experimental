@@ -50,6 +50,8 @@
     <Compile Include="runtime\FaultException.cs" />
     <Compile Include="runtime\Value.cs" />
     <Compile Include="runtime\ValueVector.cs" />
+    <Compile Include="service\IJolieValue.cs" />
+    <Compile Include="service\JolieServiceBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

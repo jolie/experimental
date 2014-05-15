@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwiceService", "TwiceServic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jolie", "..\c-sharp_library\JolieLib\Jolie\Jolie.csproj", "{D8F8762F-D135-4852-81D2-CA6685CC09F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBSimulator", "DBSimulator\DBSimulator.csproj", "{3C9952EA-A603-43B0-9C32-A8E3D29F5370}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D8F8762F-D135-4852-81D2-CA6685CC09F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8F8762F-D135-4852-81D2-CA6685CC09F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8F8762F-D135-4852-81D2-CA6685CC09F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C9952EA-A603-43B0-9C32-A8E3D29F5370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C9952EA-A603-43B0-9C32-A8E3D29F5370}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C9952EA-A603-43B0-9C32-A8E3D29F5370}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C9952EA-A603-43B0-9C32-A8E3D29F5370}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

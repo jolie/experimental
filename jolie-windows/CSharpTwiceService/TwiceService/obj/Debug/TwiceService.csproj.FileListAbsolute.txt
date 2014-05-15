@@ -6,3 +6,5 @@ C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\TwiceSer
 C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\TwiceService\bin\Debug\Jolie.pdb
 C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\TwiceService\obj\Debug\TwiceService.exe
 C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\TwiceService\obj\Debug\TwiceService.pdb
+C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\TwiceService\bin\Debug\DBSimulator.dll
+C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\TwiceService\bin\Debug\DBSimulator.pdb

@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 12.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/ReverseEngineeringLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2014-05-05T17:35:42" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: '25f862c8-6b0c-4e84-8d78-302a290f8c35' -  (ClassifierTemplateParameter)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Boolean' -  (PrimitiveType)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'fd7b4b28-f7c5-4078-8d8b-0cd103ab432d' -  (ClassifierTemplateParameter)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Integer' -  (PrimitiveType)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie' -  (Package)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime' -  (Package)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::ByteArray' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Type' -  (Enumeration)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Medium" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value' -  (Class)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::BoolValue' -  (Property)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::ByteArrayValue' -  (Property)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::children' -  (Property)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::Children' -  (Property)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::deepCopy' -  (Operation)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::deepCopy::otherValue' -  (Parameter)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::DoubleValue' -  (Property)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::GetChildren' -  (Operation)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::GetChildren::id' -  (Parameter)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::GetFirstChild' -  (Operation)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::GetFirstChild::id' -  (Parameter)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::GetNewChild' -  (Operation)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::GetNewChild::childId' -  (Parameter)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::GetObjectData' -  (Operation)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::GetObjectData::context' -  (Parameter)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::GetObjectData::info' -  (Parameter)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::GetValueType' -  (Operation)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::hasChildren' -  (Operation)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::HasChildren' -  (Property)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::hasChildren::id' -  (Parameter)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::IntValue' -  (Property)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::IsBool' -  (Property)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::IsByteArray' -  (Property)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::IsDefined' -  (Property)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::IsDouble' -  (Property)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::IsInt' -  (Property)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::IsLong' -  (Property)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::IsString' -  (Property)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::isUsedInCorrelation' -  (Operation)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::LongValue' -  (Property)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::SetValue' -  (Operation)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::SetValue::obj' -  (Parameter)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::StrValue' -  (Property)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::type' -  (Property)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::Value' -  (Operation)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::Value::value' -  (Parameter)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::Value::valueObject' -  (Property)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::Jolie::runtime::ValueVector' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::System' -  (Package)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::System::Collections' -  (Package)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::System::Collections::Generic' -  (Package)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::System::Collections::Generic::Dictionary' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::System::Collections::Generic::Dictionary&lt;String‎, ValueVector‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::System::Double' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::System::Int64' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::System::Runtime' -  (Package)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::System::Runtime::Serialization' -  (Package)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::System::Runtime::Serialization::ISerializable' -  (Interface)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::System::Runtime::Serialization::SerializationInfo' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'JolieModelling::System::Runtime::Serialization::StreamingContext' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: JolieModelling::Jolie::runtime::Value to JolieModelling::Jolie::runtime::ByteArray (Association)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: JolieModelling::Jolie::runtime::Value to JolieModelling::System::Collections::Generic::Dictionary&lt;String‎, ValueVector‎&gt; (Association)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: JolieModelling::Jolie::runtime::Value to JolieModelling::System::Double (Association)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: JolieModelling::Jolie::runtime::Value to JolieModelling::System::Int64 (Association)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: JolieModelling::Jolie::runtime::Value to JolieModelling::System::Runtime::Serialization::ISerializable (InterfaceRealization)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: JolieModelling::Jolie::runtime::ValueVector to JolieModelling::System::Runtime::Serialization::ISerializable (InterfaceRealization)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: JolieModelling::System::Collections::Generic::Dictionary&lt;String‎, ValueVector‎&gt; to JolieModelling::System::Runtime::Serialization::ISerializable (InterfaceRealization)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: JolieModelling::System::Collections::Generic::Dictionary to JolieModelling::System::Runtime::Serialization::ISerializable (InterfaceRealization)" />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="High" Text="(1) type(s) fully reverse engineered." />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="High" Text="(10) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
+  <Message Timestamp="2014-05-05T17:35:45" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+</Log>

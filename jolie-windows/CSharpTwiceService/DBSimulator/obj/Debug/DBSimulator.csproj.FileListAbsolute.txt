@@ -1,0 +1,7 @@
+C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\DBSimulator\obj\Debug\DBSimulator.csprojResolveAssemblyReference.cache
+C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\DBSimulator\bin\Debug\DBSimulator.dll
+C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\DBSimulator\bin\Debug\DBSimulator.pdb
+C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\DBSimulator\bin\Debug\Jolie.dll
+C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\DBSimulator\bin\Debug\Jolie.pdb
+C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\DBSimulator\obj\Debug\DBSimulator.dll
+C:\Users\Bergar\development\jolie-windows\jolie-code\CSharpTwiceService\DBSimulator\obj\Debug\DBSimulator.pdb
