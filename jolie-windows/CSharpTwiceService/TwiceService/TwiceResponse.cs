@@ -1,4 +1,5 @@
 ﻿using Jolie.runtime;
+using Jolie.service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,21 +8,33 @@ using System.Threading.Tasks;
 
 namespace TwiceService
 {
-    public class TwiceResponse
+    public class TwiceResponse : IJolieValue
     {
-        public Value value;
+        //public Value value;
+        public int Y { get; set; }
+
+        public TwiceResponse(Value value)
+        {
+            ValueToObj(value);
+        }
 
         public TwiceResponse(int y)
         {
-            this.value = new Value();
-            createValueObject(y);
+            this.Y = y;
         }
 
-        private void createValueObject(int y)
+        public void ValueToObj(Value value)
         {
-            ValueVector vv = new ValueVector();
-            vv.add(new Value(y));
-            this.value.Children.Add("y", vv);
+            this.Y = value.GetFirstChild("y").IntValue;
+        }
+
+        public Value ObjToValue()
+        {
+            Value retval = new Value();
+            ValueVector yVec = new ValueVector();
+            yVec.add(new Value(Y));
+            retval.Children.Add("y", yVec);
+            return retval;
         }
     }
 }

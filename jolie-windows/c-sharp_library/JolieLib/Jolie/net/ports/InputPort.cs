@@ -8,53 +8,39 @@ using System.Threading.Tasks;
 
 namespace Jolie.net.ports
 {
-    public class InputPort
+    public class InputPort : JoliePort
     {
-        private readonly TcpListener listener;
-        public TcpListener Listener { get { return listener; } }
-        private TcpClient client;
-        public TcpClient Client { get { return client; } }
-        private NetworkStream stream;
-        public NetworkStream Stream { get { return stream; } }
-        private SodepProtocol sodep;
-        public IPAddress Address { get; private set; }
-        public int Port { get; private set; }
-        public string Protocol { get; private set; }
-
-        public InputPort(int port)
+        private TcpListener listener;
+        public TcpListener Listener
         {
-            //Console.WriteLine("Initializing input port");
+            get { return listener; }
+            set { listener = value; }
+        }
+
+        private IPAddress address;
+        public IPAddress Address
+        {
+            get { return address; }
+            set { address = value; }
+        }
+
+        public InputPort(int port) : base(port)
+        {
             this.Address = IPAddress.Any;
-            this.Port = port;
-            this.listener = new TcpListener(Address, Port);
-            this.listener.Start();
-            this.sodep = new SodepProtocol();
-            this.Protocol = "sodep";
-            //Console.WriteLine("Inputport ready");
-            //this.client = listener.AcceptTcpClient();
-            //this.stream = client.GetStream();
+            this.Listener = new TcpListener(Address, Port);
+            this.Listener.Start();
         }
 
         public void Listen()
         {
-            this.client = listener.AcceptTcpClient();
-            this.stream = client.GetStream();
+            Client = Listener.AcceptTcpClient();
+            Stream = Client.GetStream();
         }
 
         public void Close()
         {
-            this.Stream.Close();
-            this.Client.Close();
-        }
-
-        public CommMessage ReceiveMessage()
-        {
-            return sodep.Recv(stream, stream);
-        }
-
-        public void SendMessage(CommMessage m)
-        {
-            sodep.Send(stream, m, stream);
+            Stream.Close();
+            Client.Close();
         }
     }
 }

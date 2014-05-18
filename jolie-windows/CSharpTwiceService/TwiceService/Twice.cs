@@ -3,6 +3,7 @@ using DBSimulator.Data;
 using Jolie.net;
 using Jolie.net.ports;
 using Jolie.runtime;
+using Jolie.service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace TwiceService
 {
-    public class Twice
+    public class Twice : JolieServiceBase
     {
         private InputPort inputPort;
         public InputPort InputPort
@@ -52,9 +53,6 @@ namespace TwiceService
                                 case "twice":
                                     handleTwice(m);
                                     break;
-                                case "test":
-                                    handleTest(m);
-                                    break;
                                 case "insert":
                                     handleInsert(m);
                                     break;
@@ -91,26 +89,12 @@ namespace TwiceService
         {
             TwiceRequest req = new TwiceRequest(m.Value);
             TwiceResponse resp = twice(req);
-            InputPort.SendMessage(new CommMessage(m.Id, m.OperationName, m.ResourcePath, resp.value, m.IsFault ? m.Fault : null));
-        }
-
-        private void handleTest(CommMessage m)
-        {
-            Request req = new Request(m.Value);
-            
-            req.ID++;
-            req.Name += " edited on server!";
-            req.Address += "edited on serever !! address";
-            req.Port--;
-
-            Value val = req.ObjToValue();
-            InputPort.SendMessage(new CommMessage(m.Id, m.OperationName, m.ResourcePath, val, m.IsFault ? m.Fault : null));
+            InputPort.SendMessage(new CommMessage(m.Id, m.OperationName, m.ResourcePath, resp.ObjToValue(), m.IsFault ? m.Fault : null));
         }
 
         private void handleShutDown()
         {
-            //InputPort.Close();
-            Environment.Exit(0);
+            ShutDown();
         }
 
         public TwiceResponse twice(TwiceRequest req)
