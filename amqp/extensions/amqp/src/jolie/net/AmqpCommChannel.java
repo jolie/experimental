@@ -105,8 +105,7 @@ public final class AmqpCommChannel extends StreamingCommChannel {
       if (isRpc) {
         // Send the call, getting bytearray back.
         try {
-          RpcClient rpc = new RpcClient(channel(), "", queueName);
-          dataToProcess = new AmqpMessage(null, rpc.primitiveCall(ostream.toByteArray()), null);
+          dataToProcess = new AmqpMessage(null, rpcClient().primitiveCall(ostream.toByteArray()), null);
         } catch (ShutdownSignalException | TimeoutException ex) {
           throw new IOException("Timeout for RPC call", ex);
         }
@@ -169,6 +168,15 @@ public final class AmqpCommChannel extends StreamingCommChannel {
    */
   public Channel channel() throws IOException {
     return AmqpConnectionHandler.getConnection(location).getChannel();
+  }
+    
+  /**
+   * Get the Amqp RPC client for the queue.
+   * @return The RPC client for the queue of the Amqp connection.
+   * @throws IOException 
+   */
+  public RpcClient rpcClient() throws IOException {
+    return AmqpConnectionHandler.getConnection(location).getRpcClient(queueName);
   }
   
   /**

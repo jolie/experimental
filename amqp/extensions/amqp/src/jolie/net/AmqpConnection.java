@@ -3,6 +3,7 @@ package jolie.net;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.RpcClient;
 import com.rabbitmq.client.ShutdownSignalException;
 import java.io.IOException;
 import java.net.URI;
@@ -23,6 +24,7 @@ public final class AmqpConnection {
   
   private final URI location;
   private Map<String, String> locationParams;
+  private Map<String, RpcClient> rpcs = new HashMap();
   
   public AmqpConnection(URI location) throws IOException {
     this.location = location;
@@ -94,10 +96,23 @@ public final class AmqpConnection {
       conn.close();
     } catch (ShutdownSignalException e) { }
   }
+
+  /**
+   * Get the RPC client for the queue on this connection. If not already initialized, do it.
+   * @param queueName The name of the queue for the client.
+   * @return The RpcClient object.
+   * @throws IOException 
+   */
+  public RpcClient getRpcClient(String queueName) throws IOException {
+    if (rpcs.get(queueName) == null) {
+      rpcs.put(queueName, new RpcClient(chan, "", queueName));
+    }
+    return this.rpcs.get(queueName);
+  }
   
   /**
    * Parse a location to a map of keys to values.
-   * @param query The querystring to parse.
+   * @param query The query string to parse.
    * @return The map of key/value pairs.
    */
   public static Map<String, String> getQueryMap(String query) {
