@@ -13,8 +13,8 @@ import jolie.runtime.AndJarDeps;
  * @author Michael Søby Andersen (msoa@itu.dk).
  */
 @AndJarDeps({"rabbitmq-client.jar"})
-public class AmqpListenerFactory extends CommListenerFactory {
-    public AmqpListenerFactory( CommCore commCore ) {
+public class AmqpCommListenerFactory extends CommListenerFactory {
+    public AmqpCommListenerFactory( CommCore commCore ) {
         super(commCore);
     }
     
@@ -28,6 +28,6 @@ public class AmqpListenerFactory extends CommListenerFactory {
      */
     @Override
     public CommListener createListener(Interpreter interpreter, CommProtocolFactory protocolFactory, InputPort inputPort) throws IOException {
-        return new AmqpListener(interpreter, protocolFactory, inputPort);
+        return new AmqpCommListener(interpreter, protocolFactory, inputPort);
     }
 }

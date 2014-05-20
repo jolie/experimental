@@ -19,7 +19,7 @@ import jolie.net.protocols.CommProtocol;
  * @author Claus Lindquist Henriksen (clih@itu.dk).
  * @author Michael Søby Andersen (msoa@itu.dk).
  */
-public class AmqpListener extends CommListener {
+public class AmqpCommListener extends CommListener {
 
   private final String queue;
   private String consumerTag;
@@ -31,7 +31,7 @@ public class AmqpListener extends CommListener {
    * @param inputPort The InputPort this listener is created for.
    * @throws IOException
    */
-  public AmqpListener(Interpreter interpreter, CommProtocolFactory protocolFactory, final InputPort inputPort) throws IOException {
+  public AmqpCommListener(Interpreter interpreter, CommProtocolFactory protocolFactory, final InputPort inputPort) throws IOException {
     super(interpreter, protocolFactory, inputPort);
 
     queue = locationParams().get("queue");
@@ -78,7 +78,7 @@ public class AmqpListener extends CommListener {
           }
         }
       } catch (InterruptedException ex) {
-        Logger.getLogger(AmqpListener.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(AmqpCommListener.class.getName()).log(Level.SEVERE, null, ex);
       }
     }
   }
@@ -92,7 +92,7 @@ public class AmqpListener extends CommListener {
       // Close current connection.
       AmqpConnectionHandler.closeConnection(inputPort().location());
     } catch (IOException ex) {
-      Logger.getLogger(AmqpListener.class.getName()).log(Level.WARNING, null, ex);
+      Logger.getLogger(AmqpCommListener.class.getName()).log(Level.WARNING, null, ex);
     }
   }
 
