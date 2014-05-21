@@ -15,7 +15,7 @@ namespace TwiceService
         public static void run()
         {
             Twice t = new Twice(port);
-            t.CalcTwice();
+            t.Start();
         }
 
         public static void Main(string[] args)

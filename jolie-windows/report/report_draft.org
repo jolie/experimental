@@ -1,0 +1,463 @@
+* Report
+** Preface (optional)
+** Abstract
+** Introduction
+*** Problem description ( ends with a problem statement ) LATEX
+In recent years, cloud computing has become an essential part of modern computing. Examples of cloud computing are found all around us, all the way from complex online systems to social networks.
+Cloud computing is a very broad context, but in it's essence it refers to online systems / services which allows users to interact with them using various clients ( e.g pc's and mobile phones ).
+
+Ever since the popularity of cloud computing has risen, the "old systems" which run exclusively on a local pc are diminishing very quickly. The ability for a developer to maintain a single cloud system instead
+of multiple instances spread over the entire globe is a very appealing aspect. Not only does this make maintenance of software much easier ( since there is only a single instance to maintain ) but it also allows for
+a lot of new functionality which was not possible without cloud computing ( such as sharing data, [ MORE EXAMPLES ] ).
+
+Although simillar in many ways, there are significant differences between cloud computing and regular client-server systems. The cloud system resides "somewhere" in the cloud, and is not bound to a specific 
+hardware the same way client-server systems are. One attribute of cloud computing is that multiple systems share the same huge resource pool. For example if a cloud system suddendly becomes very popular, it it granted extra
+computing power and/or bandwith. If the request for the service drop again, the computing power and bandwith is put back in the shared pool. This makes cloud computing very flexible since the developer / owner of the system
+doesn't need to allocate specific hardware for the system beforehand but the resources will grow / shrink on demand.
+
+One of the main reasons for companies to switch to cloud computing instead of maintaining their own servers, is the price. For a company to invest in buying and maintaining their own server farm is very costly, and in most
+cases the service isn't as good as one of the cloud frameworks available on the market. So for companies to switch over to cloud computing not only saves them a lot of money, but it also ( in most cases ) will improve the
+quality of the servers.
+
+However, cloud computing does come with some issues. Most modern cloud solutions have a lot of limitations. Cloud solutions such as Microsoft Azure and Amazon EC2 are some of the most popular cloud solutions on the 
+market [ SOURCE ]. What these solutions offer, is a virtual machine on which the customer can run / host their software. The issue with this solution is that being a virtual on a remote host, the customer usually has very little
+control over the machine itself. If the customer wants to host some software that is not "standard software", the framework for hosting the software very often needs to be implemented ad-hoc.
+Another issue with these solution is that the customer has no idea of how and where the data is hosted. If the customer deals with sensitive data, it might not be such an attractive feature that they have no
+control over how and where the data is stored.
+
+From the observations above, we can conclude that, although widely used, cloud computing is still evolving, and there definately is room for improvement. [ NEEDS TO MAKE SENSE ]
+
+*Problem statement:* General purpose cloud frameworks, which allow the user to run / maintain their services, and even host on a server of their own choice are hard to come by, or even non-existant.
+*** Aim and hyphotesis LATEX
+The goal of the thesis is to contribute to a general purpose cloud framework which allows users to run and maintain their software systems. Since the users might be dealing with sensitive data ( or other related cases ) the
+need for the framework to have the option to be easily hosted on any server is essential.
+
+*Aim:* To contribute to a general purpose cloud framework and integrate it with commercial programming language to give a commercial appeal
+
+The aim is to make a cloud framework which allows the running of software written in various programming languages and run on all major platforms ( e.g Linux, Windows and Mac ).
+The work presented in this thesis starts from the existing cloud framework JSOA. 
+The main question that this thesis will try to answer is:
+
+    /Is it possible to develop a general purpose framework which supports the major programming languages and runs on all major pc platforms?/
+
+The main hyphotesis is that the above question can be answered by extending the JSOA framework.
+
+The main challenges is to integrate JSOA on the Windows platform. This include making it possible to run the framework natively on Windows, as well as support the running services / software written in the
+.NET ( C# ) programming language.
+
+In order to answer
+ 
+*** Thesis statement
+*** Contributions ( Integration with Windows, authentications and evaluation of JSOA ) LATEX
+This thesis provides three main contributions.
+The first contribution is to make the JSOA framework to be more commercially attractive by extending the supported programming languages.
+In it's current form, JSOA runs on Linux and supports services written in Jolie, Java and JavaScript. The first contribution is to integrate JSOA into the .NET environment. This involves making it compatible with running
+on the Windows operating system, as well as support services written in C#.
+The second contribution is to add authentication to JSOA. Currently JSOA does not offer any authentication and therefore any authentication needs to be implemented into the service hosted on the system. In light of this,
+the second contribution is to implement authentication into the JSOA framework so the service developer don't have to handle authentication separately for each service.
+The third contribution is to develop and run a proof-of-concept service, written in c#, on the JSOA framework. This proof-of-concept case will be use to demonstrate and test the JSOA framework.
+Finally the proof-of-concept case will be use to benchmark and evaluate the JSOA framework in regards to the contribution written above.
+
+*** Structure of the report ( optional but recomended )
+** Background
+*** Cloud computing
+*** Jolie LATEX
+Jolie is a service-oriented programming language built on Java.
+
+One of the main advantages of using Jolie is it's ability to separate deployment from behaviour. This makes Jolie an excellent programming language for developing distributed systems.
+
+Jolie supports multiple communication protocols. Http, SOAP, and JSON/RPC are notable examples. In addition, Jolie relies heavily on sodep, a communication protocol developed exclusively for Jolie.
+
+Data handling in Jolie is designed as a XML like tree structure.
+Example: Jolie data type
+#+BEGIN_EXAMPLE
+type DataType: void {
+    .id: int
+    .value: int
+    .domain: void
+        .address: string
+        .port: int
+}
+
+dataType.id = 1;
+dataType.value = "some value";
+dataType.domain.address = "localhost";
+dataType.domain.port = "8000"
+
+#+END_EXAMPLE
+Example XML representation
+#+BEGIN_EXAMPLE
+<DataType>
+    <id> 1 </id>
+    <value> some value </value>
+    <domain>
+        <address> localhost </address>
+        <port> 8000 </port>
+    </domain>
+</DataType>
+#+END_EXAMPLE
+
+The two examples above the Jolie data structure and the similiarities to XML.
+
+Jolie supports embedding of other services. This means that when developing a Jolie service, the developer can embed another service inside that service, which allows the running of a service in another service. Embedding currently
+supports services written in Jolie, Java and JavaScript.
+
+Aggregation in Jolie allows for the creation of proxy services that can forward invocations to other services. Aggregation is purely related to deployment and has nothing to do with the behaviour of the service. Aggregation allows 
+an input port to aggregate an output port, creating a bridge between them. 
+#+BEGIN_EXAMPLE
+outputPort outputPort_1 {
+    Location: "socket://localhost:8991"
+    Protocol: sodep
+    Interfaces: Interface_1
+}
+
+inputPort inputPort_1 {
+    Location: "socket://localhost:8009"
+    Protocol: http
+    Aggregates: outputPort_1
+}
+#+END_EXAMPLE
+Above is an example of aggregation. When a request is sent to the input port via the http procol, the request is forwarded to the aggregated output port via the sodep protocol.
+Using aggregation makes it easy to develop large, distributed systems. For example, inputPort_1 from the example above could aggregate multiple output ports, allowing the input port to route requests to multiple different 
+location with just a single line of code.
+
+Courier sessions allow to compose services independently from the context they belong to, like mandatory procedures (e.g., authentications) and the functionalities of the single services involved. [ REFERENCE TO WEBSITE ]
+Couriers rely on aggregation and allow the aggregator to handle a special session of the incoming request. Couriers allow services to overload operations, and add extended data to the request.
+#+BEGIN_EXAMPLE
+type AuthenticationData: void {
+    .key: string 
+}
+
+interface extender AuthInterfaceExtender {
+    RequestResponse: *( AuthenticationData )( void ) 
+    OneWay: *( AuthenticationData ) 
+}
+
+outputPort outputPort_1 {
+    Location: "socket://localhost:8991"
+    Protocol: sodep
+    Interfaces: Interface_1
+}
+
+inputPort inputPort_1 {
+    Location: "socket://localhost:8009"
+    Protocol: http
+    Aggregates: outputPort_1 with AuthInterfaceExtender
+}
+
+courier inputPort_1 {
+    [ interface Interface_1( request )( response ) ] {
+        // some code
+        forward outputPort_1( request )( response )
+    }
+}
+#+END_EXAMPLE
+Above is an example of courier. AuthInterfaceExtender is a special type of interface which extendes an existing interface. E.g if an interface has a request with the type int, the extender adds the AuthenticationData to the request.
+When the request is received by inputport_1, the courier session is started. The courier handles some code, and then the request, without the extended data, is forwarded to the aggregated output port. This is ideal for authentication
+type operations.
+*** JSOA ( Maybe not here. Perhaps better suited in the technical section )
+** Technical stuff / Solution / Methodology / [ Custom title ]
+*** Technical content LATEX
+    - Documentation of JSOA
+    - Diagrams
+    - ...
+**** Description of how JSOA works LATEX
+Before discussing the technical changes that have been made to the JSOA framework, a short description on how JSOA works under the hood will make it easier to describe and understand the changes that have been made.
+***** JSOA architecture
+The architecture of JSOA can be roughly divided into three modules ( excluding the GWT web client ). These modules are: Drools, PaaSSOACentral and SOABoot. This section will explain briefly what each module does, and how they
+communicate with each other.
+****** Drools
+Although not much of the actual work is performed in Drools, it is the backbone of the whole JSOA framework. Every dependency that JSOA relies upon is loaded when Drools starts. In addition, every event that happens is JSOA ( e.g start
+and stop service ) is sent to Drools and registered. 
+****** PaaSSOACentral
+PaaSSOACentral is the central module of JSOA. After Drools has loaded, PaaSSOACentral is the next thing to start.
+When the main PaaSSOACentral is started, it starts up the Leonardo web server [ SOURCE ]. The webserver is in charge of the communication from outside JSOA and routing it on. For example, when the GWT web client is connected
+to JSOA, and a command is sent from the GWT client ( e.g start service ), the command is sent to Leonardo. As far as "actual work" is concerned, not much of it happens here. Most of what Leonardo does, is accepting message from
+the client, validate the request, and passing it on to other modules to handle.
+****** SOABoot
+SOABoot is where most of the work is handled. Each SOABoot can be considered as a domain in JSOA. When a service is uploaded and deployed to JSOA, it is uploaded and attached to a SOABoot instance. SOABoot is also in charge of 
+creating neccessary files and communicating with the database when a service is deployed on JSOA.
+JSOA allows multiple SOABoot instances to be connected to a single instance of PaaSSOA. This allows JSOA to manage multiple SOABoot's, distributed among multiple computers / servers. 
+***** Adding a service
+When adding / uploading a service to JSOA, the GWT client sends the uploaded file, along with the name of the service and the email address of the operator, to the Leonardo web server [ NOTE? ]. The Leonardo
+web server checks the uploaded file to see if it is valid. Checks are made to make sure that the filetype is valid and has the correct extension. After the file has been confirmed to be valid, Leonardo parses
+the file to see if the syntax is correct and all required attributes of the service are in place. If any of these tests fail, a FaultException is sent back to the client.
+Assuming that all tests have passed, Leonardo creates a request "object" and sends it to the main_soaboot_connector.
+
+The SOABoot connector readies the service for deployment. Service related resources are fetched from the SOARegistry ( e.g location and domain of the SOABoot ). The SOABoot parses the input file in order
+to the get input/output ports of the uploaded service, and sets the location ( domain ) according to the location / domain of the SOABoot.
+With this information in place, a new request is created and sent to the main SOABoot.
+
+The main SOABoot is where the actual work happens.
+The first thing that happens is the SOABoot checks the database to see if the service already exists. Assuming that it does not exist, SOABoot creates a working directory for containing the uploaded file, and writes the
+uploaded file to the directory. After this, a few more checks are made to make sure the service file is valid and does not contain any error.
+Assuming the file is error free, the next step is to register the service in the database. The service is added to the service database of the SOABoot. In addition, some additional information is inserted into the SLA database
+of the Drools [ NOTE? ]. Finally, a console directory is created for the service. This directory is used for logging interactions with the new service.
+***** Starting / deploying a service
+The GWT client sends start command to the main SOABoot connector. The SOABoot connector, like with the add service, fetches information about the service from SOARegistry ( e.g ports ), and sends the request to the main SOABoot.
+
+SOABoot again makes various tests to see if the service is valid. 
+Information is fetched from the database, and the service file is parsed by the SOABoot. The parsing of the file inludes setting the location of the input ports based on the SOABoot domain.
+Updated information about the service are sent to Drools.
+After this, the request is sent to the main starter which handles the actual work on deploying the service.
+
+The startService on the main starter first creates a service directory for the service. This directory contains all files related to the deployed service as long as the service is running ( the directory is deleted after the
+service is stopped, and recreated when the service is started again ). The main starter then starts to "unwrap" the service. Here there are two options. The first being the service is a Jolie file ( e.g service.ol file ) or the 
+service is a .jap file.
+If the service is a .jap file, the first thing that the starter does is copy the .jap file into the newly created directory where the .jap is being extracted. The next step is to find the main Jolie ( *.ol ) file. This has been
+specified in the MANIFEST [ NOTE ] file, so the starter parses the MANIFEST file in order to find the main .ol file, along with some extra ( optional ) parameters. 
+After these steps, the rest is handled like a regular .ol file.
+
+At this step, JSOA writes a new file based on the uploaded service. This file is the upload service with addition of a few input ports and operations which allows JSOA to interract with the service. These operations include
+a monitor which allows JSOA to get statistics and consoles from the running service.
+After writing the "monitor-file" JSOA generates a "surface" file. This file is basically a modification of the uploaded service. The surface is what is exposed to the client. The changes are made to make it easier for JSOA
+to fetch input ports and interfaces by altering the names. [ EXAMPLE OF SURFACE COMPARED TO REGULAR ]
+
+After the surface, JSOA generates a wrapper file for the service. The wrapper file contains input- and output ports which allows JSOA to interract with the running service. In addition, the wrapper file contains some additional
+functions, the "shutDown" is an example. The wrapper file is in a way the central file of the service. JSOA communicates with the wrapper file in order to interract with the service and the monitor file.
+
+Having generated these files, the service is registered in the SOARegistry.
+Having registrered, JSOA fetches the inputports to be deployed and sets the location of the inputport based on the current SOABoot domain.
+Finally, the service is ready to get deployed.
+The deployment phase relies on executing shell/cmd prompt commands.
+The first command is generate joliedoc [ NOTE? ] for the service. This is used for getting the API information about the running service.
+Having generated the joliedoc, JSOA creates a shell script ( bat file on windows ) which is in charge of starting the service as well as creating log file for the service.
+After generating these files, the shell script ( bat file ) are executed on the command line and the service is up and running.
+
+After the service has started, the starter returns back to the main soa boot. The SOABoot updates the database with information that the service is now running. A database is also added to the Drools database, informing it
+about the new change in the state of the service.
+***** Stopping a service
+Stopping a running service on JSOA is more or less the opposite of starting a service.
+The GWT client sends a stop request to the soaboot connector, which validates the request and passes it on to the main SOABoot.
+The main SOABoot fetches the service from the SOARegistry ( as well as the inputports of the service ). JSOA then sets the location of the Admin input port of the wrapper file ( the one which is in charge of shutting down the
+service ) and executes the shutDown command.
+
+After shutting down the service, the service ( along with it's ports ) are removed from the SOARegistry. 
+When the service is remove from the registry, the deployment files and directory are removed.
+The stop event is sent to Drools to inform that the service has been stopped, and the SOABoot database is updated with
+information about the new state of the service.
+**** JSOA on Windows LATEX
+As stated in the problem description, the first milestone of the project is to port JSOA to the Windows platform. Since JSOA is based on Java, the foundation was already in place for porting it to Windows.
+However, there were some issues that needed to be fixed in order to get JSOA to run on Windows. The first issue was regarding filepaths. 
+JSOA is written for the Linux platforms and on Linux the standard file path uses forward slashes ( /some/path/ ) but on Windows the default path uses backward slashes ( C:\some\path\ ). As stated, JSOA was written
+for the Linux platform, which meant that all the Windows filepaths needed to be converted to Linux filepaths. JSOA being written in Jolie, which in turn is based on Java, multiple changes needed to be made to
+the underlying Java code, which is the basis for the Jolie language.
+
+The issues appeared when JSOA tried to access some files, and the Java code wouldn't accept the backslashes. The solution to this issue needed to be implemented in the underlying Java code. The Java api [ SOURCE ] supplies the
+programmer with a toURI() method in the File class. This extract the URI from the file created. URI uses the forward slashes which Jolie requires so this solved the issue with the filepaths.
+
+
+#+BEGIN_EXAMPLE
+String filename = new File( argsList.get( i ) ).getCanonicalPath(); // Linux
+
+String filename = new File( argsList( i ) ).toURI().toString(); // Windows work around 1
+
+String filename = new File( argsList.get( i ) ).getCanonicalPath(); // Windows work around 2
+filename = filename.replace( "\\", "/" );
+#+END_EXAMPLE
+
+The second issue was related to relative filepaths.
+Jolie services, like most other programming languages, use so called "include" statement to import code from other classes or files in to the current file. Including a file in the parent folder of a Jolie service would
+be written like :
+#+BEGIN_EXAMPLE
+include "../someFile.iol"
+#+END_EXAMPLE
+In a regular Jolie service, this does not pose any problems even on Windows. The problem lies when using JSOA .jap files.
+Jap files, which essentially are jar files, are used by JSOA for uploading more complex services ( i.e services that have more than one file ). Inside the jap file, the whole structure of the service is contained.
+This posed a problem on Windows.
+
+--
+Current folder is the folder that we are currently working in. In current folder, we have a jap file which contains two jolie files ( jolie_file1 and jolie_file2 ) and a folder ( Folder 1 ) which in turn contains two
+other jolie files ( jolie_file3 and jolie_file4 ). 
+The jolie_file4 starts with some include statements:
+#+BEGIN_EXAMPLE
+include "jolie_file4"
+include "../jolie_file1"
+#+END_EXAMPLE
+The first lines execudes as it should since the included file is in the same directory as the source file. However, the second line poses an issue.
+Ordinaliry, the statement "../" means go back one folder. In Windows, a jap file is not conisdered to be a folder and therefore produces unexpected results. Instead of going from Folder 1 and back to Jap file to look
+for the file to include, it assumes that we are in the "Current folder" and therefore goes back to the "parent folder" to look for the file to include. Since the target file doesn't exist in the Parent folder, a null pointer 
+exception is raised.
+The solution for this problem proved to be a tedious one. In order to get the correct file to include, the parser first needs to get the absolute path of the source file. When the absolute path is found, the parser will then
+create new absolute paths to the include files.
+#+BEGIN_SRC java
+				    if( filename.startsWith( "../" ) ) {
+					String tmpPath = path;
+					String tmpFilename = filename;
+					if( !tmpPath.contains( "/" ) && tmpPath.contains( "\\" )) tmpPath = tmpPath.replace( "\\", "/" );
+					while( tmpFilename.startsWith( "../" ) ) {
+					    tmpFilename = tmpFilename.substring( 2 );
+					    if( tmpPath.endsWith( "/" ) ) tmpPath = tmpPath.substring( 0, tmpPath.length() -1 );
+					    tmpPath = tmpPath.substring( 0, tmpPath.lastIndexOf( "/" ) );
+					}
+					String tmpUrl = new StringBuilder().append( tmpPath ).append( tmpFilename ).toString();
+					try {
+					    url = new URL( tmpUrl.substring( 0,4 ) + tmpUrl.substring( 4 ) );
+					}
+					catch( Exception exn ) { }
+				    }
+				    else if( filename.startsWith( "./" ) ) {
+					String tmpPath = path;
+					String tmpFilename = filename;
+					if( !tmpPath.contains( "/" ) && tmpPath.contains( "\\" ) ) tmpPath = tmpPath.replace( "\\", "/" );
+					tmpFilename = tmpFilename.substring( 1 );
+					if( tmpPath.endsWith( "/" ) ) tmpPath = tmpPath.substring( 0, tmpPath.length() -1 );
+					String tmpUrl = new StringBuilder().append( tmpPath ).append( tmpFilename ).toString();
+					url = new URL( tmpUrl.substring( 0,4 ) + tmpUrl.substring( 4 ) );
+				    }
+#+END_SRC
+
+After the include path issue, starting and uploading services to JSOA was working as intented. When starting a service, JSOA needs to know which input to deploy so client can connect to that input port. At this point, JSOA
+could not find any input ports to deploy. The problem here seemed to be that the automatically generated wrapper file which JSOA uses to manage the running service had some include files which JSOA couldn't find. The issue
+here was not with the relative paths like it was before but with including files from the built in jolie library. 
+After some testing it turned out that JSOA couldn't find any includes from the build in library. It turned out that the underlying Java classes which were responsible for fetching the include files from the Jolie library
+had some bugs. The path to the library were hardcoded in the classes. This wouldn't not have been an issue in most cases because this was the default installation path of Jolie on Linux. But since this Windows installation
+didn't have the same installation directory, or even the same platform, this needed to be fix.
+Doing a complete fix of the underlying Java code turned to be a pretty big undertaking and beyond the scope of this project, so instead the default installation directory of the Windows platform was added instead. This would just be
+a temporary fix since a later version of Jolie would address this issue.
+
+The final thing which needed adapting to the Windows platform was the execution of services and various commands.
+As JSOA was designed for the Linux platform, it relies upon the command terminal to execute services and various commands. These commands needed to be fitted for the Windows command prompt.
+When starting services, JSOA creates a bash script which is in charge of starting the services, as well as creating directories and logging. In addition to starting services, JSOA uses the terminal for extracting the content of
+jap files and generating API docuentation for the services. Adapting these to use the Windows command prompt prove to be pretty straight forward, as seen in example [ INSERT EXAMPLE ]
+
+With these issues fixed, JSOA was fully operational on the Windows platform.
+
+**** C# integration LATEX
+     - Sodep for c#
+     - C# library
+     - C# sample service
+
+The second milestone for the project is to add the ability for running services written in C# to run on JSOA.
+The first step of achieving this goal is to implement the Jolie values in C#.
+The Jolie value act like XML documents. The values have a root value ( which may be empty ) and an arbitrary number of children. The children have a value ( again, can be empty ) and potentially more children. This makes
+it very easy to create new value types.
+#+BEGIN_EXAMPLE
+type Request: void {
+    .id: int
+    .name: String
+    .location: void
+        .address: String
+        .port: int
+}
+#+END_EXAMPLE
+Above is a simple example of a Jolie value. It has a root node ( Request ) which is empty ( void ). The children id and name are simple value types which contain a int and a string respectively. Location is again a root node
+which is empty, with the chilsren address and port ( string and int ).
+
+Implementing this into C# was fairly straight forward. In it's essence, the value object has fields for containing the data ( string, int, boolean etc. ) and a dictionary of string and value vector. The id ( string ) contains
+the name of the variable ( in the example above the id would be id, name, location etc. ) and the valuevector contains a list of other values ( children ).
+
+In addition to the Values, a ByteArray needed to be implemented. This is basically a simple ByteArray which has been modified a bit to suit Jolie. 
+The final data type that needed to be implemented in C# is the FaultException, which is the base exception used in Jolie, containing a name, message and a value.
+
+In an attempt to improve the communication speed between C# and Jolie, the sodep protocol was implemented in C#. The sodep protocol is developed specially for Jolie. It is very well suited for transfering 
+Jolie data types and is very fast as well.
+
+The sodep protocol uses CommMessages to send data back and forth. The CommMessage is in it's essence a wrapper class for the data send by Jolie. It contains the Value, FaultException ( if the message is an exception ), operation name
+which is the name of the operation the CommMessage is trying to invoke ( in C# this could be translated to being the method name to invoke ). And finally it contains a resourcPath [ WHAT DOES RESOURCE PATH DO ??? ].
+
+Implementing the sodep protocol in C# proved to be a tedious yes simple task. Having the source for the sodep implementation in Java, implementing it in C# was just a matter of "translating" the Java code into C#. There were
+a few differences between the two ( mostly related to data readers and writers ) but nothing major.
+Having implemented the sodep protocol and testing it with two "Jolie-C#" services, the communcation worked as expected. However, when trying to communicate between C# and Jolie ( or C# and Java ), issues arose. The 
+bytes sent from one service did not arrive in the correct order at the destination. 
+After some researching, it turns out that the data received ( and sent ) from the C# side was in little-endian, while the Jolie ( Java ) side operates on big-endian. Without getting into too much detail, which this essentially mean
+is that big-endian reads the bytes from left to right, while little-endian reads from right to left. [ DOUBLE CHECK THAT THIS IS CORRECT ]
+#+BEGIN_EXAMPLE
+        private int ReadInt(BinaryReader reader)
+        {
+            byte[] arr = reader.ReadBytes(4);
+            Array.Reverse(arr);
+            return BitConverter.ToInt32(arr, 0);
+        }
+
+        private byte[] WriteInt(int i)
+        {
+            byte[] arr = BitConverter.GetBytes(i);
+            Array.Reverse(arr);
+            return arr;
+        }
+#+END_EXAMPLE
+As seen in example [ EXAMPLE NAME/NUMBER ] the solution to the problem is quite simple. Since the issue is only with number data types ( e.g int, double and long ) writing simple "converter" methods would solve the issue.
+When receiving the data, the converter reads the data into a bytearray, reverse the array, and convert the data to the desired data type ( Int32 in the example above ). When writing data the process is the exact opposite. Convert the
+data ( Int32 ) to a bytearray, reverse and send the bytearray.
+Having solved this issue, the sodep protocol was fully operational on C#.
+
+**** Authentication LATEX
+     - Authentication implementation
+     - Authentication diagrams
+     - [ Authentication discussion ]
+As stated in the problem description, one milestone of the project is to implement authentication to JSOA. Currently, JSOA does not offer any form of authentication.
+
+When implementing the authentication, the preferable method would be that the uploaded service should not be affected by the authentication in any way. To put it in other words, the authentication should be purely based on the 
+framework, totally independent of the running service.
+
+There were a few options considered on how to implement the authentication.
+The first option was to implement it in the sodep protocol. The way this would be done is to add authentication data ( e.g username and password or some authentication token ) to the data sent by the sodep protocol. This data could
+then be handled by the main inputport of JSOA before being routed to the relevant service.
+The main upside of this solution is that the developer would not have to worry any bit about the authentication, since it all happened on a lower level. One of the drawbacks of using this method is that it limits JSOA to only
+use the sodep protocol. Since JSOA supports multiple communication protocols ( http, SOAP, JSON etc. ) [ SOURCE TO SUPPORTED PROTOCOLS ], this would severely limit JSOA. To counter this, authentication data could be added to 
+every protocol which JSOA supports, but this would be a lot of work, which in turn would be hard to maintain. Another drawback is that if would make the protocol a lot more complex which could cause issues and maybe performance
+issues as well.
+
+The other method discusses ( the one used ) is using courier sessions. Courier session allows the extension of existing types. For example if a request from a client to JSOA only contained an int, using courier session, we could
+add authentication data to the request. This authentication data could then be handled by JSOA. After handling the authentication, the field would then be removed from the request ( going back to the original request ) and the 
+request forwarded to the service.
+/Simple data type/
+#+BEGIN_EXAMPLE
+type Request: void {
+    .x: int
+}
+#+END_EXAMPLE
+
+/Data type with authentication/
+#+BEGIN_EXAMPLE
+type Request_auth: void {
+    .x: int
+    .key: string
+}
+#+END_EXAMPLE
+
+[ MENTION INTERFACE EXTENDER ]
+As seen in figure [ GENERIC AUTHENTICATION FIGURE ] and [ GENERIC NO AUTHENTICATION FIGURE ] the authentication has added one layer of indirection. ( Note: the courier is attached to the service wrapper but has been shown separately
+in the diagram for clarity ). In the figure without authentication, a request is sent from the client to the service wrapper, and is then forwarded to the service, which then does the work and returns through the same path.
+The authentication figure has more operations. First the client sends a "getKey" request to the service wrapper. The service wrapper validates the request to see if the user has access or not ( usually username and password ). If valid,
+the service wrapper returns an authenticatio key to the client. The client then sends a "do" request to the service wrapper. Unlike [ NO AUTH FIGURE ] here the client sends a "extended request" instead of a reqular request. The extended
+request is the same as the regular, but with added authentication data ( e.g the key ). When the extended request is received by the wrapper, the courier session is started. The courier session checks if the key is valid. If the
+key is valid, the courier session removes the authentication data from the extended request ( making it a regular reguest ) and forwards the regular request to the service. If the authentication fails, the courier returns a 
+fault exception and the operation terminates.
+
+There are some drawbacks using this method. The first one being that the every service uploaded to JSOA ( or at least this current instance of SOABoot [ NOTE TO SECTION OF MULTIPLE SOABOOTS ] ) is required to use this authentication method. Even if a service is uploaded
+which is not intented to have any authentication will have to handle it. Although, if the service uploaded needs to have some extra authentication, there is no stopping the developer to add authentication to the service itself, but
+this will result in two authentications.
+Another issue is that a client could bypass the authentication by connecting to the service itself. Doing so would require the client to know the address and port number of the running service. This however is easily fixable, since
+some validation could be added to the service so that it would require the request coming from the service wrapper, and rejecting all others. Due to time limitations, this has not been implemented as of yet, but it would be fairly 
+simple to implement.
+
+Althought there are drawbacks, there are multiple upsides to this solution. The complexity of the authentication algorithm is easily extensible. All that needs changing is the courier session and the "getKey" method [ REFERENCE ]. Since
+the code for the authentication algorithm ( service wrapper ) is generated at runtime, it very simple to allow the JSOA moderator to select between various authentication methods when deploying the service. As mentioned before, the major
+upside of using this method, is that it is completely independent of the deployed service. This allows the developer of the service to implement it any way he wants without being concerned about authentication. The only part which needs
+to be aware of the authentication, is the client connecting to the service.
+
+*** Use cases
+    - How to upload services
+    - How does authentication work
+    - ...
+*** Running example
+    - Show that JSOA can handle simple data types
+      - int, string, bool ...
+    - Show that JSOA can handle complex data types
+      - Trees, vectors ..
+    - Show that JSOA can handle authentication
+*** Benchmarking
+    - Memory consumption
+      - How much memory does each wrapper consume wrt having just the c# service?
+    - Performance
+      - How much time do we lose by adding the additional layer of indirection of the wrapper? With and without authentication
+    - ...
+** Conclusions
+*** Conclusions
+*** Discussion ( optionally merged with future work, as in "Discussion and future work" )
+*** Future work
+    - Add domains to authentication
+    - Allow multiple instance of the same service ( multi instance application )
+    - ...

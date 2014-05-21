@@ -34,7 +34,9 @@ namespace DBSimulator
 
         public bool Delete(Person person)
         {
-            PersonTable.Remove(person);
+            Person r = PersonTable.SingleOrDefault(x => x.FirstName == person.FirstName && x.LastName == person.LastName);
+            if (r != null) personTable.Remove(r);
+            //PersonTable.Remove(person);
             return true;
         }
 

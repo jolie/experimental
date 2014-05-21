@@ -12,5 +12,7 @@ namespace Jolie.service
         {
             Environment.Exit(0);
         }
+
+        public abstract void Start();
     }
 }

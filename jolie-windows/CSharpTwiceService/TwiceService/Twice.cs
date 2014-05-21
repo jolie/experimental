@@ -36,7 +36,7 @@ namespace TwiceService
             InputPort = new InputPort(Port);
         }
 
-        public void CalcTwice()
+        public override void Start()
         {
             while (true)
             {
@@ -56,6 +56,12 @@ namespace TwiceService
                                 case "insert":
                                     handleInsert(m);
                                     break;
+                                case "get":
+                                    handleGet(m);
+                                    break;
+                                case "delete":
+                                    handleDelete(m);
+                                    break;
                                 case "shutdown":
                                     handleShutDown();
                                     break;
@@ -63,7 +69,7 @@ namespace TwiceService
                         }
                         InputPort.Close();
                     }
-                    catch (Exception) {  }
+                    catch (Exception) { }
                 }
             }
         }
@@ -76,13 +82,23 @@ namespace TwiceService
             InputPort.SendMessage(new CommMessage(m.Id, m.OperationName, m.ResourcePath, resp.ObjToValue(), m.IsFault ? m.Fault : null));
         }
 
+        private void handleDelete(CommMessage m)
+        {
+            PersonDB db = new PersonDB();
+            Person person = new Person(m.Value);
+            db.Delete(person);
+            PersonResponse resp = new PersonResponse(db.Get(null));
+            InputPort.SendMessage(new CommMessage(m.Id, m.OperationName, m.ResourcePath, resp.ObjToValue(), m.IsFault ? m.Fault : null));
+        }
+
         private void handleInsert(CommMessage m)
         {
             PersonDB db = new PersonDB();
             Person person = new Person(m.Value);
             db.Insert(person);
             PersonResponse resp = new PersonResponse(db.Get(null));
-            InputPort.SendMessage(new CommMessage(m.Id, m.OperationName, m.ResourcePath, resp.ObjToValue(), m.IsFault ? m.Fault : null));
+            CommMessage m2 = new CommMessage(m.Id, m.OperationName, m.ResourcePath, resp.ObjToValue(), m.IsFault ? m.Fault : null);
+            InputPort.SendMessage(m2);
         }
 
         private void handleTwice(CommMessage m)

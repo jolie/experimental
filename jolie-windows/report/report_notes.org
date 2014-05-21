@@ -1,0 +1,20 @@
+* Notes
+  - Introduction / problem statement more specific to my project
+  - What is the current problem?
+    - Lack of PaaS solutions
+    - Limitations on existing solutions
+      - Lack of extensibility
+      - Lack of support
+  - Why use JSOA as starting point and not another framework?
+    - What is good with jsoa?
+    - How is it a good starting point?
+
+    - Why JSOA?
+      - Extensible ( heterogenous computing, multiple soaboots )
+      - Solid foundation
+	- Supports java, javascript and jolie
+      - Jolie
+	- Easy to program distributed system
+  - Not too much detail on trivial matters
+    - Filepaths in Windows
+      

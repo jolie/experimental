@@ -1,0 +1,23 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{2}
+\contentsline {subsection}{\numberline {1.1}Structure of the thesis}{2}
+\contentsline {subsection}{\numberline {1.2}Problem description}{3}
+\contentsline {subsection}{\numberline {1.3}Aim}{4}
+\contentsline {subsection}{\numberline {1.4}Thesis statement}{5}
+\contentsline {subsection}{\numberline {1.5}Contributions}{6}
+\contentsline {section}{\numberline {2}Background}{7}
+\contentsline {subsection}{\numberline {2.1}Cloud computing}{7}
+\contentsline {subsection}{\numberline {2.2}Jolie}{10}
+\contentsline {section}{\numberline {3}Methodology}{16}
+\contentsline {subsection}{\numberline {3.1}Technical analysis \& implementation}{16}
+\contentsline {subsubsection}{\numberline {3.1.1}JSOA}{16}
+\contentsline {subsubsection}{\numberline {3.1.2}JSOA on Windows}{24}
+\contentsline {subsubsection}{\numberline {3.1.3}C\# Integration}{31}
+\contentsline {subsubsection}{\numberline {3.1.4}Authentication}{40}
+\contentsline {subsection}{\numberline {3.2}Running example}{45}
+\contentsline {subsection}{\numberline {3.3}Benchmarking}{49}
+\contentsline {section}{\numberline {4}Conclusion}{55}
+\contentsline {subsection}{\numberline {4.1}Limitations}{55}
+\contentsline {subsection}{\numberline {4.2}Future work}{56}
+\contentsline {section}{Appendix \numberline {A}Sodep ReadValue}{59}
+\contentsline {section}{Appendix \numberline {B}Example service client}{60}
